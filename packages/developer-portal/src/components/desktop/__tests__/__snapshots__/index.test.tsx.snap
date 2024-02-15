@@ -27,26 +27,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
 "
         >
           <div
-            class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+            class="el-fade-in"
           >
             <mock-styled.p
-              classname="mock-css.
-  margin-bottom: 1rem;
- mock-css.
+              classname="el-mb6 mock-css.
   color: var(--color-grey-500);
 "
             >
@@ -60,9 +44,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
   grid-row-gap: 2rem;
  mock-css.
   grid-column-gap: 1.5rem;
- mock-css.
-  margin-bottom: 1.5rem;
-"
+ el-mb8"
             >
               <mock-styled.div>
                 <mock-styled.div>
@@ -106,21 +88,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
 "
             >
               <div
-                class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+                class="el-fade-in"
               >
                 <mock-styled.h2
                   classname=""
@@ -128,27 +96,21 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                   About Foundations Desktop API
                 </mock-styled.h2>
                 <mock-styled.p
-                  classname="mock-css.
-  margin-bottom: 1rem;
- mock-css.
+                  classname="el-mb6 mock-css.
   color: var(--color-grey-500);
 "
                 >
                   Developers that would like to integrate with or extend the functionality of Agency Cloud can use the Foundations Desktop API to build web applications for Reapit's app Marketplace that trigger events in the Agency Cloud desktop application, as well as associating their apps with common actions in Agency Cloud to replace default behaviours and screens.
                 </mock-styled.p>
                 <mock-styled.p
-                  classname="mock-css.
-  margin-bottom: 1rem;
- mock-css.
+                  classname="el-mb6 mock-css.
   color: var(--color-grey-500);
 "
                 >
                   For example, a developer building a Marketplace app that provides AML and ID checking, can use the Desktop API to associate their app with the default ID checking screen in Agency Cloud. When a customer clicks the default button to launch the ID check screen, the developer's associated app would be presented instead.
                 </mock-styled.p>
                 <mock-styled.p
-                  classname="mock-css.
-  margin-bottom: 1rem;
- mock-css.
+                  classname="el-mb6 mock-css.
   color: var(--color-grey-500);
 "
                 >
@@ -170,21 +132,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
 "
             >
               <div
-                class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+                class="el-fade-in"
               >
                 <mock-styled.h2
                   classname=""
@@ -211,21 +159,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
 "
         >
           <div
-            class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+            class="el-fade-in"
           >
             <mock-styled.div>
               <mock-styled.div>
@@ -249,27 +183,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
 "
                 >
                   <div
-                    class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+                    class="el-fade-in"
                   >
                     <mock-styled.div
-                      classname="mock-css.
-  margin-left: 0.625rem;
-  margin-right: 0.625rem;
-"
+                      classname="el-mx4"
                     >
                       <svg />
                       <mock-styled.div
@@ -283,7 +200,9 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                   </div>
                   <mock-styled.div
                     classname="mock-css.
-  transition: height 0.3s linear, width 0.3s linear;
+  transition:
+    height 0.3s linear,
+    width 0.3s linear;
   height: 13em;
   width: 15rem;
 "
@@ -293,26 +212,12 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                         £300
                       </h3>
                       <div
-                        class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+                        class="el-fade-in"
                       >
                         per licence / per month
                       </div>
                       <mock-styled.button
-                        classname="mock-css."
+                        classname="el-intent-primary"
                       >
                         <mock-styled.div />
                         Subscribe Now
@@ -458,26 +363,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
 "
       >
         <div
-          class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+          class="el-fade-in"
         >
           <mock-styled.p
-            classname="mock-css.
-  margin-bottom: 1rem;
- mock-css.
+            classname="el-mb6 mock-css.
   color: var(--color-grey-500);
 "
           >
@@ -491,9 +380,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
   grid-row-gap: 2rem;
  mock-css.
   grid-column-gap: 1.5rem;
- mock-css.
-  margin-bottom: 1.5rem;
-"
+ el-mb8"
           >
             <mock-styled.div>
               <mock-styled.div>
@@ -537,21 +424,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
 "
           >
             <div
-              class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+              class="el-fade-in"
             >
               <mock-styled.h2
                 classname=""
@@ -559,27 +432,21 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                 About Foundations Desktop API
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css.
-  margin-bottom: 1rem;
- mock-css.
+                classname="el-mb6 mock-css.
   color: var(--color-grey-500);
 "
               >
                 Developers that would like to integrate with or extend the functionality of Agency Cloud can use the Foundations Desktop API to build web applications for Reapit's app Marketplace that trigger events in the Agency Cloud desktop application, as well as associating their apps with common actions in Agency Cloud to replace default behaviours and screens.
               </mock-styled.p>
               <mock-styled.p
-                classname="mock-css.
-  margin-bottom: 1rem;
- mock-css.
+                classname="el-mb6 mock-css.
   color: var(--color-grey-500);
 "
               >
                 For example, a developer building a Marketplace app that provides AML and ID checking, can use the Desktop API to associate their app with the default ID checking screen in Agency Cloud. When a customer clicks the default button to launch the ID check screen, the developer's associated app would be presented instead.
               </mock-styled.p>
               <mock-styled.p
-                classname="mock-css.
-  margin-bottom: 1rem;
- mock-css.
+                classname="el-mb6 mock-css.
   color: var(--color-grey-500);
 "
               >
@@ -601,21 +468,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
 "
           >
             <div
-              class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+              class="el-fade-in"
             >
               <mock-styled.h2
                 classname=""
@@ -642,21 +495,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
 "
       >
         <div
-          class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+          class="el-fade-in"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -680,27 +519,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
 "
               >
                 <div
-                  class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+                  class="el-fade-in"
                 >
                   <mock-styled.div
-                    classname="mock-css.
-  margin-left: 0.625rem;
-  margin-right: 0.625rem;
-"
+                    classname="el-mx4"
                   >
                     <svg />
                     <mock-styled.div
@@ -714,7 +536,9 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                 </div>
                 <mock-styled.div
                   classname="mock-css.
-  transition: height 0.3s linear, width 0.3s linear;
+  transition:
+    height 0.3s linear,
+    width 0.3s linear;
   height: 13em;
   width: 15rem;
 "
@@ -724,26 +548,12 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                       £300
                     </h3>
                     <div
-                      class="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+                      class="el-fade-in"
                     >
                       per licence / per month
                     </div>
                     <mock-styled.button
-                      classname="mock-css."
+                      classname="el-intent-primary"
                     >
                       <mock-styled.div />
                       Subscribe Now

@@ -151,7 +151,7 @@ export const PaymentsPage: FC = () => {
                         label: 'Property',
                         value: null,
                         children: <PropertyCell propertyId={propertyId} properties={properties} />,
-                        icon: 'houseInfographic',
+                        icon: 'property',
                         cellHasDarkText: true,
                         narrowTable: {
                           showLabel: true,
@@ -160,7 +160,7 @@ export const PaymentsPage: FC = () => {
                       {
                         label: 'Amount',
                         value: `£${amount ? amount.toFixed(2) : 0}`,
-                        icon: 'poundSystem',
+                        icon: 'pound',
                         cellHasDarkText: true,
                         narrowTable: {
                           showLabel: true,
@@ -169,7 +169,7 @@ export const PaymentsPage: FC = () => {
                       {
                         label: 'Customer',
                         value: customer?.name ?? '-',
-                        icon: 'usernameSystem',
+                        icon: 'contact',
                         cellHasDarkText: true,
                         narrowTable: {
                           showLabel: true,

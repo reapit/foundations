@@ -75,7 +75,7 @@ export const CustomerRegister: FC = () => {
   return (
     <LoginContainer>
       <LoginContentWrapper>
-        <Icon className={elMb7} height="40px" width="200px" icon="reapitLogoInfographic" />
+        <Icon className={elMb7} height="40px" width="200px" icon="reapitLogo" />
         <FlexContainer isFlexColumn>
           <Subtitle hasNoMargin hasCenteredText>
             Welcome

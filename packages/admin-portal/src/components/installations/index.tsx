@@ -29,6 +29,7 @@ import { fetchCustomersList } from '../../services/customers'
 import { usePermissionsState } from '../../core/use-permissions-state'
 import { ToggleConsumption } from './toggle-consumption'
 import debounce from 'just-debounce-it'
+import { UninstallModal } from './uninstall-modal'
 
 export interface InstallationFilters {
   installedDateFrom?: string
@@ -87,6 +88,12 @@ export const Installations: FC = () => {
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [pageSize, setPageSize] = useState<number>(12)
   const [installIdConsumption, setInstallIdConsumption] = useState<string | null>(null)
+  const [selectedInstallation, setSelectedInstallation] = useState<
+    { appId: string; installationId: string } | { appId: undefined; installationId: undefined }
+  >({
+    appId: undefined,
+    installationId: undefined,
+  })
 
   const {
     register,
@@ -213,6 +220,7 @@ export const Installations: FC = () => {
                 terminatesOn,
                 appName,
                 id,
+                appId,
               }) => ({
                 cells: [
                   {
@@ -287,6 +295,18 @@ export const Installations: FC = () => {
                         >
                           Togggle API Consumption
                         </Button>
+                        <Button
+                          onClick={() =>
+                            setSelectedInstallation({
+                              installationId: id as string,
+                              appId: appId as string,
+                            })
+                          }
+                          disabled={uninstalledBy !== null && uninstalledBy !== ''}
+                          intent="danger"
+                        >
+                          Uninstall
+                        </Button>
                       </ButtonGroup>
                       {installIdConsumption && installIdConsumption === id && (
                         <ToggleConsumption
@@ -308,6 +328,17 @@ export const Installations: FC = () => {
           />
         </>
       )}
+      <UninstallModal
+        appId={selectedInstallation.appId}
+        installationId={selectedInstallation.installationId}
+        onClose={() =>
+          setSelectedInstallation({
+            appId: undefined,
+            installationId: undefined,
+          })
+        }
+        installationRefresh={installationsRefresh}
+      />
     </PageContainer>
   )
 }

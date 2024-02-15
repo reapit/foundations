@@ -18,7 +18,7 @@ export const ClientServerSideContent: FC = () => {
       >
         <Icon className={elMr8} fontSize="2rem" icon="devicesInfographic" />
         <StepOptionItemText>Client Side App</StepOptionItemText>
-        {nextStep === AppNewStepId.clientSideStep && <Icon icon="checkSolidSystem" intent="primary" />}
+        {nextStep === AppNewStepId.clientSideStep && <Icon icon="check" intent="primary" />}
       </StepOptionItem>
       <StepOptionItem
         className={cx(nextStep === AppNewStepId.serverSideStep && stepOptionItemSelected)}
@@ -26,7 +26,7 @@ export const ClientServerSideContent: FC = () => {
       >
         <Icon className={elMr8} fontSize="2rem" icon="serverInfographic" />
         <StepOptionItemText>Server Side Integration</StepOptionItemText>
-        {nextStep === AppNewStepId.serverSideStep && <Icon icon="checkSolidSystem" intent="primary" />}
+        {nextStep === AppNewStepId.serverSideStep && <Icon icon="check" intent="primary" />}
       </StepOptionItem>
     </>
   )

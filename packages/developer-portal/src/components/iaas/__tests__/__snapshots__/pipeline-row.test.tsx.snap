@@ -11,22 +11,22 @@ exports[`PipelineRow should match snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div />
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div>
               <mock-styled.span
-                classname="mock-css."
+                classname="el-intent-neutral"
               />
               In Progress
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div>
               <a
@@ -39,9 +39,20 @@ exports[`PipelineRow should match snapshot 1`] = `
             classname=""
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-default el-icon-new"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -50,30 +61,26 @@ exports[`PipelineRow should match snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css.
-  justify-content: center;
- mock-css.
-  align-items: center;
-"
+              classname="el-flex-justify-center el-flex-align-center"
             >
               <mock-styled.div>
                 <mock-styled.div
                   classname=""
                 >
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-primary"
                   >
                     <mock-styled.div />
                     Configure
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-primary"
                   >
                     <mock-styled.div />
                     Deployments
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-neutral"
                   >
                     <mock-styled.div />
                     View App
@@ -93,22 +100,22 @@ exports[`PipelineRow should match snapshot 1`] = `
     >
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-table-cell-has-dark-text"
         >
           <mock-styled.div />
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-table-cell-has-dark-text"
         >
           <mock-styled.div>
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-neutral"
             />
             In Progress
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-table-cell-has-dark-text"
         >
           <mock-styled.div>
             <a
@@ -121,9 +128,20 @@ exports[`PipelineRow should match snapshot 1`] = `
           classname=""
         >
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-default el-icon-new"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -132,30 +150,26 @@ exports[`PipelineRow should match snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  justify-content: center;
- mock-css.
-  align-items: center;
-"
+            classname="el-flex-justify-center el-flex-align-center"
           >
             <mock-styled.div>
               <mock-styled.div
                 classname=""
               >
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-primary"
                 >
                   <mock-styled.div />
                   Configure
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-primary"
                 >
                   <mock-styled.div />
                   Deployments
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-neutral"
                 >
                   <mock-styled.div />
                   View App

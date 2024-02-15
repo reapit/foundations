@@ -55,10 +55,10 @@ export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getVal
     !filteredTopics.length && !search
       ? 'Search to get started'
       : (!filteredTopics.length || filteredTopics.length === selectedTopics.length) && search
-      ? 'No topics found for your search.'
-      : errors.topicIds && search
-      ? errors.topicIds.message
-      : ''
+        ? 'No topics found for your search.'
+        : errors.topicIds && search
+          ? errors.topicIds.message
+          : ''
 
   return (
     <>
@@ -75,7 +75,7 @@ export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getVal
             className={elMb5}
             label="Subscription Topics"
             onChange={handleSearchTopics(topics, getValues, setFilteredTopics, setSearch)}
-            icon="searchSystem"
+            icon="search"
             placeholder="Search"
             inputAddOnText={inputAddOnText}
             intent={errors.topicIds && search ? 'danger' : 'low'}

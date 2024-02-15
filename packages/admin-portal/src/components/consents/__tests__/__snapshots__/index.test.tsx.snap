@@ -7,9 +7,7 @@ exports[`AppConsents should match snapshot where nothing is returned 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.h2
-        classname="mock-css.
-  margin-top: 0.75rem;
-"
+        classname="el-mt5"
       >
          Consents
       </mock-styled.h2>
@@ -18,9 +16,7 @@ exports[`AppConsents should match snapshot where nothing is returned 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.h2
-      classname="mock-css.
-  margin-top: 0.75rem;
-"
+      classname="el-mt5"
     >
        Consents
     </mock-styled.h2>
@@ -86,9 +82,7 @@ exports[`AppConsents should match snapshot where the app is loading 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.h2
-        classname="mock-css.
-  margin-top: 0.75rem;
-"
+        classname="el-mt5"
       >
          Consents
       </mock-styled.h2>
@@ -104,9 +98,7 @@ exports[`AppConsents should match snapshot where the app is loading 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.h2
-      classname="mock-css.
-  margin-top: 0.75rem;
-"
+      classname="el-mt5"
     >
        Consents
     </mock-styled.h2>
@@ -179,47 +171,40 @@ exports[`AppConsents should match snapshot where there are no consents returned 
     <div>
       <mock-styled.div />
       <mock-styled.h2
-        classname="mock-css.
-  margin-top: 0.75rem;
-"
+        classname="el-mt5"
       >
         Reapit Insights
          Consents
       </mock-styled.h2>
       <div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.5rem;
- mock-css. mock-css. mock-css. mock-css."
+          classname="el-mb11 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
         >
           <div
-            class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+            class="el-pn-icon"
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname=""
+              classname="el-icon-new"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                style="font-size: 1.25rem;"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </div>
           <div
-            class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+            class="el-pn-content"
           >
             No record of any consents for this app - you can send these from the link below.
           </div>
@@ -227,10 +212,10 @@ exports[`AppConsents should match snapshot where there are no consents returned 
       </div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-center"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
           >
             <mock-styled.div />
             Send Requests
@@ -242,47 +227,40 @@ exports[`AppConsents should match snapshot where there are no consents returned 
   "container": <div>
     <mock-styled.div />
     <mock-styled.h2
-      classname="mock-css.
-  margin-top: 0.75rem;
-"
+      classname="el-mt5"
     >
       Reapit Insights
        Consents
     </mock-styled.h2>
     <div>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
- mock-css. mock-css. mock-css. mock-css."
+        classname="el-mb11 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
       >
         <div
-          class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+          class="el-pn-icon"
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname=""
+            classname="el-icon-new"
+            style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              style="font-size: 1.25rem;"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </div>
         <div
-          class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+          class="el-pn-content"
         >
           No record of any consents for this app - you can send these from the link below.
         </div>
@@ -290,10 +268,10 @@ exports[`AppConsents should match snapshot where there are no consents returned 
     </div>
     <mock-styled.div>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-button-group-align-center"
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
         >
           <mock-styled.div />
           Send Requests
@@ -362,9 +340,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.h2
-        classname="mock-css.
-  margin-top: 0.75rem;
-"
+        classname="el-mt5"
       >
         Reapit Insights
          Consents
@@ -399,19 +375,58 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="el-intent-default"
+                style="font-size: 1.25rem;"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  style="font-size: 1.25rem;"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    clip-path="url(#flatInfographic_svg__a)"
+                  >
+                    <path
+                      d="M20 20h-9V4h9v16Z"
+                      fill="#d8dee4"
+                    />
+                    <path
+                      d="M13 2h-1v18h1V2ZM1.28 0v1.787H0V20h12V0H1.28Z"
+                      fill="#798da1"
+                    />
+                    <path
+                      d="M5.149 4.505H3.617V6.38H5.15V4.505ZM8.962 4.505H7.43V6.38h1.532V4.505ZM3.617 8.255H5.15v1.875H3.617V8.255ZM8.962 8.255H7.43v1.875h1.532V8.255ZM3.617 12.006H5.15v1.875H3.617v-1.875ZM8.962 12.006H7.43v1.875h1.532v-1.875ZM3.617 15.756H5.15v1.875H3.617v-1.875ZM8.962 15.756H7.43v1.875h1.532v-1.875Z"
+                      fill="#fff"
+                    />
+                    <path
+                      d="M16.281 8.255h-1.532v1.875h1.532V8.255ZM16.281 12.006h-1.532v1.875h1.532v-1.875Z"
+                      fill="#798da1"
+                    />
+                  </g>
+                  <defs>
+                    <clippath
+                      id="flatInfographic_svg__a"
+                    >
+                      <path
+                        d="M0 0h20v20H0z"
+                        fill="#fff"
+                      />
+                    </clippath>
+                  </defs>
+                </svg>
               </mock-styled.span>
               <mock-styled.div
                 data-narrow-label="Client"
               />
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Email"
@@ -420,7 +435,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Date Sent"
@@ -429,7 +444,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Status"
@@ -438,7 +453,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Date Accepted"
@@ -449,12 +464,20 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.span
-                  classname="mock-css."
-                  style="font-size: 1.2rem;"
+                  classname="el-intent-default"
                 >
                   <svg
-                    style="font-size: 1.2rem;"
-                  />
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 20 16"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M18.125.5H1.875A1.877 1.877 0 0 0 0 2.375v11.25C0 14.659.841 15.5 1.875 15.5h16.25A1.877 1.877 0 0 0 20 13.625V2.375A1.877 1.877 0 0 0 18.125.5Zm0 1.25a.62.62 0 0 1 .24.048L10 9.048l-8.365-7.25a.622.622 0 0 1 .24-.048h16.25Zm0 12.5H1.875a.625.625 0 0 1-.625-.625V3.119l8.34 7.228a.624.624 0 0 0 .82 0l8.34-7.228v10.506c0 .345-.28.625-.625.625Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -466,9 +489,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.h2
-      classname="mock-css.
-  margin-top: 0.75rem;
-"
+      classname="el-mt5"
     >
       Reapit Insights
        Consents
@@ -503,19 +524,58 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.span
-              classname="mock-css."
+              classname="el-intent-default"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                style="font-size: 1.25rem;"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  clip-path="url(#flatInfographic_svg__a)"
+                >
+                  <path
+                    d="M20 20h-9V4h9v16Z"
+                    fill="#d8dee4"
+                  />
+                  <path
+                    d="M13 2h-1v18h1V2ZM1.28 0v1.787H0V20h12V0H1.28Z"
+                    fill="#798da1"
+                  />
+                  <path
+                    d="M5.149 4.505H3.617V6.38H5.15V4.505ZM8.962 4.505H7.43V6.38h1.532V4.505ZM3.617 8.255H5.15v1.875H3.617V8.255ZM8.962 8.255H7.43v1.875h1.532V8.255ZM3.617 12.006H5.15v1.875H3.617v-1.875ZM8.962 12.006H7.43v1.875h1.532v-1.875ZM3.617 15.756H5.15v1.875H3.617v-1.875ZM8.962 15.756H7.43v1.875h1.532v-1.875Z"
+                    fill="#fff"
+                  />
+                  <path
+                    d="M16.281 8.255h-1.532v1.875h1.532V8.255ZM16.281 12.006h-1.532v1.875h1.532v-1.875Z"
+                    fill="#798da1"
+                  />
+                </g>
+                <defs>
+                  <clippath
+                    id="flatInfographic_svg__a"
+                  >
+                    <path
+                      d="M0 0h20v20H0z"
+                      fill="#fff"
+                    />
+                  </clippath>
+                </defs>
+              </svg>
             </mock-styled.span>
             <mock-styled.div
               data-narrow-label="Client"
             />
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Email"
@@ -524,7 +584,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Date Sent"
@@ -533,7 +593,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Status"
@@ -542,7 +602,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-table-cell-has-dark-text"
           >
             <mock-styled.div
               data-narrow-label="Date Accepted"
@@ -553,12 +613,20 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname="mock-css."
-                style="font-size: 1.2rem;"
+                classname="el-intent-default"
               >
                 <svg
-                  style="font-size: 1.2rem;"
-                />
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 20 16"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18.125.5H1.875A1.877 1.877 0 0 0 0 2.375v11.25C0 14.659.841 15.5 1.875 15.5h16.25A1.877 1.877 0 0 0 20 13.625V2.375A1.877 1.877 0 0 0 18.125.5Zm0 1.25a.62.62 0 0 1 .24.048L10 9.048l-8.365-7.25a.622.622 0 0 1 .24-.048h16.25Zm0 12.5H1.875a.625.625 0 0 1-.625-.625V3.119l8.34 7.228a.624.624 0 0 0 .82 0l8.34-7.228v10.506c0 .345-.28.625-.625.625Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>

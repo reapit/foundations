@@ -6,9 +6,7 @@ exports[`AppInstallationManager should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.h2
           classname=""
@@ -16,7 +14,7 @@ exports[`AppInstallationManager should match a snapshot 1`] = `
           Current Installations
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           This app is not currently installed. You can either install for your organisation or specific office groups in the section below.
         </mock-styled.p>
@@ -27,18 +25,16 @@ exports[`AppInstallationManager should match a snapshot 1`] = `
         Installation
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css. mock-css."
+        classname="el-has-grey-text el-has-section-margin"
       >
         Please select the type of installation you require for this app:
       </mock-styled.p>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+            classname="el-mb5"
           >
             <mock-styled.input
               checked="false"
@@ -60,9 +56,7 @@ exports[`AppInstallationManager should match a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+            classname="el-mb5"
           >
             <mock-styled.input
               checked="false"
@@ -84,15 +78,13 @@ exports[`AppInstallationManager should match a snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+        classname="el-mb7"
       >
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-right"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="true"
           >
             <mock-styled.div />
@@ -104,9 +96,7 @@ exports[`AppInstallationManager should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.h2
         classname=""
@@ -114,7 +104,7 @@ exports[`AppInstallationManager should match a snapshot 1`] = `
         Current Installations
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         This app is not currently installed. You can either install for your organisation or specific office groups in the section below.
       </mock-styled.p>
@@ -125,18 +115,16 @@ exports[`AppInstallationManager should match a snapshot 1`] = `
       Installation
     </mock-styled.h2>
     <mock-styled.p
-      classname="mock-css. mock-css."
+      classname="el-has-grey-text el-has-section-margin"
     >
       Please select the type of installation you require for this app:
     </mock-styled.p>
     <mock-styled.div
-      classname="mock-css."
+      classname="el-form-layout-has-margin"
     >
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+          classname="el-mb5"
         >
           <mock-styled.input
             checked="false"
@@ -158,9 +146,7 @@ exports[`AppInstallationManager should match a snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 0.75rem;
-"
+          classname="el-mb5"
         >
           <mock-styled.input
             checked="false"
@@ -182,15 +168,13 @@ exports[`AppInstallationManager should match a snapshot 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.div
-      classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+      classname="el-mb7"
     >
       <mock-styled.div
-        classname="mock-css."
+        classname="el-button-group-align-right"
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
           disabled="true"
         >
           <mock-styled.div />

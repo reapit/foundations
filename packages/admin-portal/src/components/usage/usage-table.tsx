@@ -40,7 +40,7 @@ export const UsageTable: FC<UsageTableProps> = ({ billing }) => {
             {
               label: 'Entity Name',
               value: name ?? '',
-              icon: 'homeSystem',
+              icon: 'property',
               cellHasDarkText: true,
               narrowTable: {
                 showLabel: true,
@@ -49,7 +49,7 @@ export const UsageTable: FC<UsageTableProps> = ({ billing }) => {
             {
               label: 'Total Number Calls',
               value: String(amount) ?? '',
-              icon: 'homeSystem',
+              icon: 'property',
               cellHasDarkText: true,
               narrowTable: {
                 showLabel: true,
@@ -58,7 +58,7 @@ export const UsageTable: FC<UsageTableProps> = ({ billing }) => {
             {
               label: 'Total Cost',
               value: cost ? `£${cost.toFixed(2).padStart(2, '0')}` : '£0',
-              icon: 'homeSystem',
+              icon: 'property',
               cellHasDarkText: true,
               narrowTable: {
                 showLabel: true,
@@ -67,7 +67,7 @@ export const UsageTable: FC<UsageTableProps> = ({ billing }) => {
             {
               label: 'Total Number Endpoints',
               value: String(itemCount) ?? '',
-              icon: 'homeSystem',
+              icon: 'property',
               cellHasDarkText: true,
               narrowTable: {
                 showLabel: true,

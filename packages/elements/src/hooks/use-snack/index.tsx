@@ -52,16 +52,16 @@ export const useSnack = (): UseSnack => {
     addSnackWithTimeout(snack, timeout)
   }
   const success = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'success', icon: 'checkSolidSystem', text }, timeout)
+    addSnackWithTimeout({ intent: 'success', icon: 'check', text }, timeout)
   }
   const info = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'primary', icon: 'infoSolidSystem', text }, timeout)
+    addSnackWithTimeout({ intent: 'primary', icon: 'info', text }, timeout)
   }
   const error = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'danger', icon: 'errorSolidSystem', text }, timeout)
+    addSnackWithTimeout({ intent: 'danger', icon: 'warning', text }, timeout)
   }
   const warning = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'warning', icon: 'warningSolidSystem', text }, timeout)
+    addSnackWithTimeout({ intent: 'warning', icon: 'warning', text }, timeout)
   }
 
   return { custom, success, info, error, warning }

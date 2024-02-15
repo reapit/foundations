@@ -8,6 +8,7 @@ describe('Tabs', () => {
       <Tabs
         name="my-cool-toggle-radio"
         isFullWidth
+        isControlled
         options={[
           {
             id: 'option-1',

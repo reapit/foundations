@@ -126,13 +126,13 @@ exports[`FileInput component should match a snapshot for the FilePreviewImage co
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <img
+      <mock-styled.img
         src="https://mock-image.com"
       />
     </div>
   </body>,
   "container": <div>
-    <img
+    <mock-styled.img
       src="https://mock-image.com"
     />
   </div>,
@@ -224,16 +224,26 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
             <mock-styled.span
               classname="mock-css.
   margin-right: 0.625rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1rem;"
+              />
             </mock-styled.span>
             <mock-styled.span
               classname="mock-css.
   margin-right: 0.625rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+              style="font-size: 1rem;"
             >
-              <svg />
+              <svg
+                style="font-size: 1rem;"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -270,16 +280,26 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
           <mock-styled.span
             classname="mock-css.
   margin-right: 0.625rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+            style="font-size: 1rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1rem;"
+            />
           </mock-styled.span>
           <mock-styled.span
             classname="mock-css.
   margin-right: 0.625rem;
- mock-css."
+ mock-css. mock-css.
+  font-size: 1.5rem;
+"
+            style="font-size: 1rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>

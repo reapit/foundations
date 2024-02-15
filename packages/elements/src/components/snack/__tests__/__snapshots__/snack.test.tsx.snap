@@ -81,8 +81,11 @@ exports[`Snack component should match a snapshot if an icon is supplied 1`] = `
           classname="mock-css.
   margin-right: 1rem;
  mock-css."
+          style="font-size: 1.25rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 1.25rem;"
+          />
         </mock-styled.span>
       </mock-styled.div>
     </div>
@@ -95,8 +98,11 @@ exports[`Snack component should match a snapshot if an icon is supplied 1`] = `
         classname="mock-css.
   margin-right: 1rem;
  mock-css."
+        style="font-size: 1.25rem;"
       >
-        <svg />
+        <svg
+          style="font-size: 1.25rem;"
+        />
       </mock-styled.span>
     </mock-styled.div>
   </div>,
@@ -167,8 +173,11 @@ exports[`SnackHolder component should match a snapshot 1`] = `
             classname="mock-css.
   margin-right: 1rem;
  mock-css."
+            style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
           i am a snack
           <mock-styled.span
@@ -176,10 +185,15 @@ exports[`SnackHolder component should match a snapshot 1`] = `
   cursor: pointer;
   padding-left: 0.5rem;
   color: var(--color-black);
+ mock-css.
+  font-size: 1.5rem;
 "
             data-testid="close-icon"
+            style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              style="font-size: 1.25rem;"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -194,8 +208,11 @@ exports[`SnackHolder component should match a snapshot 1`] = `
           classname="mock-css.
   margin-right: 1rem;
  mock-css."
+          style="font-size: 1.25rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 1.25rem;"
+          />
         </mock-styled.span>
         i am a snack
         <mock-styled.span
@@ -203,10 +220,15 @@ exports[`SnackHolder component should match a snapshot 1`] = `
   cursor: pointer;
   padding-left: 0.5rem;
   color: var(--color-black);
+ mock-css.
+  font-size: 1.5rem;
 "
           data-testid="close-icon"
+          style="font-size: 1.25rem;"
         >
-          <svg />
+          <svg
+            style="font-size: 1.25rem;"
+          />
         </mock-styled.span>
       </mock-styled.div>
     </mock-styled.div>

@@ -1,5 +1,7 @@
+import { AxiosResponseHeaders, RawAxiosResponseHeaders } from 'axios'
+
 export type GetIdFromCreateHeadersParams = {
-  headers?: Record<string, string>
+  headers?: AxiosResponseHeaders | Partial<RawAxiosResponseHeaders>
 }
 
 export const getIdFromCreateHeaders = ({ headers }: GetIdFromCreateHeadersParams): string | undefined => {

@@ -31,7 +31,7 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
   <Story name="Complete example">
     <InputGroup>
       <Input id="myId" type="text" />
-      <Icon icon="usernameSystem" />
+      <Icon fontSize="1rem" icon="user" />
       <Label htmlFor="myId">Enter your username</Label>
       <InputAddOn>Required</InputAddOn>
     </InputGroup>
@@ -46,7 +46,7 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
   <Story name="With Icon only">
     <InputGroup>
       <Input id="myId2" type="tel" placeholder="Enter your mobile number" />
-      <Icon icon="phoneSystem" />
+      <Icon fontSize="1rem" icon="phone" />
     </InputGroup>
   </Story>
 </Canvas>
@@ -87,7 +87,7 @@ React shorthand with `icon` and `label` props
 
 <Canvas>
   <Story name="React shorthand">
-    <InputGroup icon="homeSystem" label="Please enter an address" type="text" />
+    <InputGroup icon="property" label="Please enter an address" type="text" />
   </Story>
 </Canvas>
 
@@ -95,7 +95,7 @@ React shorthand with `icon` and `label` props
 
 <Canvas>
   <Story name="React shorthand - custom ID">
-    <InputGroup id="my-id" icon="homeSystem" label="Please enter an address" type="text" />
+    <InputGroup id="my-id" icon="property" label="Please enter an address" type="text" />
   </Story>
 </Canvas>
 
@@ -111,10 +111,10 @@ React shorthand with `icon` and `label` props
 
 <Canvas>
   <Story name="Input checkbox">
-    <InputGroup type="checkbox" icon="phoneSystem" label="Status" InputAddOn="Listed" />
+    <InputGroup type="checkbox" icon="phone" label="Status" InputAddOn="Listed" />
   </Story>
   <Story name="Input checkbox - with intent">
-    <InputGroup type="checkbox" icon="infoSystem" intent="danger" label="Status" InputAddOn="Listed" />
+    <InputGroup type="checkbox" icon="info" intent="danger" label="Status" InputAddOn="Listed" />
   </Story>
   <Story name="Input checkbox - no icon">
     <InputGroup type="checkbox" label="Status" InputAddOn="Listed" />

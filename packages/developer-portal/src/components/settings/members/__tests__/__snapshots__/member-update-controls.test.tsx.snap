@@ -8,10 +8,10 @@ exports[`MemberUpdateControls should match snapshot 1`] = `
       <mock-styled.div />
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-center"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="false"
           >
             <mock-styled.div />
@@ -19,28 +19,28 @@ exports[`MemberUpdateControls should match snapshot 1`] = `
             User
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="false"
           >
             <mock-styled.div />
             Invite Again
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             disabled="false"
           >
             <mock-styled.div />
             Set As Main Contact
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-danger"
             disabled="false"
           >
             <mock-styled.div />
             Disable
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-danger"
             disabled="false"
           >
             <mock-styled.div />
@@ -54,10 +54,10 @@ exports[`MemberUpdateControls should match snapshot 1`] = `
     <mock-styled.div />
     <mock-styled.div>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-button-group-align-center"
       >
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
           disabled="false"
         >
           <mock-styled.div />
@@ -65,28 +65,28 @@ exports[`MemberUpdateControls should match snapshot 1`] = `
           User
         </mock-styled.button>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
           disabled="false"
         >
           <mock-styled.div />
           Invite Again
         </mock-styled.button>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
           disabled="false"
         >
           <mock-styled.div />
           Set As Main Contact
         </mock-styled.button>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-danger"
           disabled="false"
         >
           <mock-styled.div />
           Disable
         </mock-styled.button>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-danger"
           disabled="false"
         >
           <mock-styled.div />

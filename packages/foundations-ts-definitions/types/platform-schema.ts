@@ -1552,6 +1552,7 @@ export interface Applicants {
   nextCallTo?: string
   hasNextCall?: boolean
   metadata?: string[]
+  locationOptions?: string
 }
 /**
  * An appointment attendee
@@ -1808,6 +1809,10 @@ export interface AppointmentModel {
     }[]
   }
   /**
+   * The attendance status of the appointment (notSet/noShow/attended)
+   */
+  attended?: string
+  /**
    * A flag denoting whether or not the appointment will be accompanied by one or more negotiators
    */
   accompanied?: boolean
@@ -2011,6 +2016,10 @@ export interface AppointmentModelPagedResult {
       }[]
     }
     /**
+     * The attendance status of the appointment (notSet/noShow/attended)
+     */
+    attended?: string
+    /**
      * A flag denoting whether or not the appointment will be accompanied by one or more negotiators
      */
     accompanied?: boolean
@@ -2087,6 +2096,8 @@ export interface Appointments {
   includeCancelled?: boolean
   includeUnconfirmed?: boolean
   fromArchive?: boolean
+  followUpFrom?: string
+  followUpTo?: string
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string
@@ -2310,6 +2321,10 @@ export interface CertificateModel {
    */
   referenceNumber?: string
   /**
+   * The party responsible for the certificate, as defined in property configuration (agent/landlord/notRequired/notSet)
+   */
+  responsibleParty?: string
+  /**
    * The ETag for the current version of the certificate. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -2381,6 +2396,10 @@ export interface CertificateModelPagedResult {
      */
     referenceNumber?: string
     /**
+     * The party responsible for the certificate, as defined in property configuration (agent/landlord/notRequired/notSet)
+     */
+    responsibleParty?: string
+    /**
      * The ETag for the current version of the certificate. Used for managing update concurrency
      */
     readonly _eTag?: string
@@ -2395,6 +2414,19 @@ export interface CertificateModelPagedResult {
       href?: string
     }
   }
+}
+/**
+ * Record describing the responsible party for a given type of certificate within a property entry
+ */
+export interface CertificateResponsiblePartyModel {
+  /**
+   * Identifier for the type of certificate for which the party is responsible
+   */
+  typeId?: string
+  /**
+   * The party responsible for the specified certificate type (landlord/agent/notRequired/notSet)
+   */
+  responsibleParty?: string
 }
 /**
  * Representation of a certificate type
@@ -2629,6 +2661,15 @@ export interface CompanyModel {
     country?: string
   }
   /**
+   * Representation of the payments and terms configuration for a company
+   */
+  payments?: {
+    /**
+     * The identifier of the nominal code selected in the payments and terms configuration
+     */
+    nominalAccountId?: string
+  }
+  /**
    * A collection of additional contact details
    */
   additionalContactDetails?: {
@@ -2823,6 +2864,15 @@ export interface CompanyModelPagedResult {
       country?: string
     }
     /**
+     * Representation of the payments and terms configuration for a company
+     */
+    payments?: {
+      /**
+       * The identifier of the nominal code selected in the payments and terms configuration
+       */
+      nominalAccountId?: string
+    }
+    /**
      * A collection of additional contact details
      */
     additionalContactDetails?: {
@@ -2909,6 +2959,15 @@ export interface CompanyModelPagedResult {
       href?: string
     }
   }
+}
+/**
+ * Representation of the payments and terms configuration for a company
+ */
+export interface CompanyPaymentsModel {
+  /**
+   * The identifier of the nominal code selected in the payments and terms configuration
+   */
+  nominalAccountId?: string
 }
 /**
  * Representation of the roles that an individual companies possesses
@@ -5114,6 +5173,10 @@ export interface CreateAppointmentModel {
    */
   isRepeat?: boolean
   /**
+   * The attendance status of the appointment (notSet/noShow/attended)
+   */
+  attended?: string
+  /**
    * Details of an appointment's recurrence pattern
    */
   recurrence?: {
@@ -6409,7 +6472,7 @@ export interface CreateNotificationModel {
    */
   subType?: string
   /**
-   * The products the notification is associated too
+   * The products the notification is associated to, and will be delivered to
    */
   products?: string[]
   /**
@@ -6417,65 +6480,25 @@ export interface CreateNotificationModel {
    */
   targets?: {
     /**
-     * The identifier of the negotiators associated to the notification
+     * The identifier of the negotiators whom should receive the notification
      */
     negotiatorId?: string[]
   }
   /**
-   * Payload for creating a notification
+   * The payload to deliver to the specified target(s). Note that the payload must match the expected format
+   * based on the type/subType combination and will be validated accordingly. Please refer to [the documentation](https://foundations-documentation.reapit.cloud/api/notifications)
+   * for more information
    */
-  payload?: {
-    /**
-     * The unique identifier of the payload
-     */
-    id?: string
-    /**
-     * The date and time the notification was sent
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    created?: string // date-time
-    /**
-     * The id associated to the caller
-     */
-    callerId?: string
-    /**
-     * The id associated to the recipient
-     */
-    destinationId?: string
-  }
+  payload?: any
 }
 /**
  * Payload for defining notification targets
  */
 export interface CreateNotificationTargetModel {
   /**
-   * The identifier of the negotiators associated to the notification
+   * The identifier of the negotiators whom should receive the notification
    */
   negotiatorId?: string[]
-}
-/**
- * Payload for creating a notification
- */
-export interface CreateNotificationTelephonyPayloadModel {
-  /**
-   * The unique identifier of the payload
-   */
-  id?: string
-  /**
-   * The date and time the notification was sent
-   * example:
-   * 2019-08-14T12:30:02.0000000Z
-   */
-  created?: string // date-time
-  /**
-   * The id associated to the caller
-   */
-  callerId?: string
-  /**
-   * The id associated to the recipient
-   */
-  destinationId?: string
 }
 /**
  * Request body used to create a new offer
@@ -6841,7 +6864,7 @@ export interface CreatePropertyExternalAreaModel {
    */
   min?: number // double
   /**
-   * The maximum area bound
+   * The maximum area bound (please note there is no corresponding field in the Reapit CRM)
    */
   max?: number // double
 }
@@ -7314,7 +7337,7 @@ export interface CreatePropertyModel {
      */
     min?: number // double
     /**
-     * The maximum area bound
+     * The maximum area bound (please note there is no corresponding field in the Reapit CRM)
      */
     max?: number // double
   }
@@ -7706,7 +7729,7 @@ export interface CreatePropertyModel {
    */
   negotiatorId: string
   /**
-   * A collection of unique identifiers of offices attached to the property
+   * A collection of unique identifiers of offices attached to the property. The first item in the collection is considered the primary office
    */
   officeIds: string[]
   /**
@@ -7966,6 +7989,37 @@ export interface CreatePropertyTenureModel {
    * 2019-08-14
    */
   expiry?: string // date
+}
+/**
+ * Create Referral Model
+ * example:
+ * [object Object]
+ */
+export interface CreateReferralModel {
+  /**
+   * The unique identifier of the referral type
+   */
+  referralTypeId: string
+  /**
+   * The unique identifier of the negotiator creating the referral
+   */
+  negotiatorId?: string
+  /**
+   * The unique identifier of the property
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the applicant
+   */
+  applicantId?: string
+  /**
+   * The unique identifier of the contact that has been referred
+   */
+  contactId: string
+  /**
+   * The amount paid to the agent for the referral
+   */
+  amount?: number // double
 }
 /**
  * Payload to create a JSON schema for metadata validation
@@ -8794,6 +8848,10 @@ export interface CreateWorksOrderItemModel {
    * The cost of the vat associated with the work
    */
   vatAmount?: number // double
+  /**
+   * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+   */
+  reserveAmount?: number // double
 }
 /**
  * Request body used to create a new works order
@@ -8883,6 +8941,10 @@ export interface CreateWorksOrderModel {
      * The cost of the vat associated with the work
      */
     vatAmount?: number // double
+    /**
+     * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+     */
+    reserveAmount?: number // double
   }[]
   /**
    * App specific metadata to set against the works order
@@ -9711,6 +9773,27 @@ export interface EnquiryRentingModel {
    * How often the tenant would like to pay the rent (weekly/monthly/annually)
    */
   rentFrequency?: string
+}
+/**
+ * Read model representing a Guarantor
+ */
+export interface GuarantorModel {
+  /**
+   * The identifier for the guarantor record
+   */
+  id?: string
+  /**
+   * The identifier for the contact record associated with the guarantor
+   */
+  guarantorAssociatedId?: string
+  /**
+   * Value indicating whether a the referenced guarantor is a person or a company
+   */
+  type?: string
+  /**
+   * The status of the reference requested from the guarantor (notSet/requested/received)
+   */
+  referenceStatus?: string
 }
 /**
  * Any specific details relating to the marketing of a property in Guernsey
@@ -11553,121 +11636,6 @@ export interface NominalAccountModelPagedResult {
   }
 }
 /**
- * Representation of the notification
- */
-export interface NotificationModel {
-  /**
-   * The customer and negoatiator id of the user notification relates too
-   */
-  readonly customerNegotiator?: string
-  /**
-   * The unique identifier of the notification
-   */
-  readonly id?: string
-  /**
-   * The identifier of the negotiator the notification relates too
-   */
-  negotiatorId?: string
-  /**
-   * The notification type
-   */
-  type?: string
-  /**
-   * The subscription type
-   */
-  subType?: string
-  /**
-   * The products the notification is associated too
-   */
-  products?: string[]
-  /**
-   * The data within the notification
-   */
-  payload?: string
-  /**
-   * The date time the notification was created
-   * example:
-   * 2019-08-14T12:30:02.0000000Z
-   */
-  created?: string // date-time
-  /**
-   * The customer id associated to the notification
-   */
-  readonly customerId?: string
-  /**
-   * The unique identifier of the notification in the third party system
-   */
-  readonly externalEventId?: string
-  /**
-   * The caller id associated to the notification
-   */
-  readonly callerId?: string
-  /**
-   * The destination id associated to the notification
-   */
-  readonly destinationId?: string
-}
-export interface NotificationModelLitePagedResult {
-  /**
-   * List of paged data
-   */
-  readonly _embedded?: {
-    /**
-     * The customer and negoatiator id of the user notification relates too
-     */
-    readonly customerNegotiator?: string
-    /**
-     * The unique identifier of the notification
-     */
-    readonly id?: string
-    /**
-     * The identifier of the negotiator the notification relates too
-     */
-    negotiatorId?: string
-    /**
-     * The notification type
-     */
-    type?: string
-    /**
-     * The subscription type
-     */
-    subType?: string
-    /**
-     * The products the notification is associated too
-     */
-    products?: string[]
-    /**
-     * The data within the notification
-     */
-    payload?: string
-    /**
-     * The date time the notification was created
-     * example:
-     * 2019-08-14T12:30:02.0000000Z
-     */
-    created?: string // date-time
-    /**
-     * The customer id associated to the notification
-     */
-    readonly customerId?: string
-    /**
-     * The unique identifier of the notification in the third party system
-     */
-    readonly externalEventId?: string
-    /**
-     * The caller id associated to the notification
-     */
-    readonly callerId?: string
-    /**
-     * The destination id associated to the notification
-     */
-    readonly destinationId?: string
-  }[]
-}
-export interface Notifications {
-  negotiatorId?: string
-}
-/**
  * Representation of the physical address of a building or premise
  */
 export interface OfferContactAddressModel {
@@ -12904,6 +12872,21 @@ export interface Properties {
   metadata?: string[]
   extrasField?: string[]
 }
+export interface PropertiesCertificates {
+  pageNumber?: number
+  pageSize?: number
+  sortBy?: string
+  expiryDateFrom?: string
+  expiryDateTo?: string
+  createdFrom?: string
+  createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
+  categories?: string[]
+  typeIds?: string[]
+  propertyIds?: string[]
+  embed?: 'property'[]
+}
 /**
  * Representation of the physical address of a building or premise
  */
@@ -12957,6 +12940,44 @@ export interface PropertyAddressModel {
      */
     longitude?: number // double
   }
+}
+/**
+ * Representation of certificate responsibilities configured for a property
+ */
+export interface PropertyCertificateResponsibilitiesModel {
+  /**
+   * The id of the property to which the configured certificate responsibilities apply
+   */
+  id?: string
+  /**
+   * The date and time on which the property was created
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time on which the property was last modified
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  modified?: string // date-time
+  /**
+   * The configured certificate responsibilities
+   */
+  responsibleParties?: {
+    /**
+     * Identifier for the type of certificate for which the party is responsible
+     */
+    typeId?: string
+    /**
+     * The party responsible for the specified certificate type (landlord/agent/notRequired/notSet)
+     */
+    responsibleParty?: string
+  }[]
+  /**
+   * The ETag for the current version of the property. Used for managing update concurrency
+   */
+  readonly _eTag?: string
 }
 /**
  * Representation of a check
@@ -13154,7 +13175,7 @@ export interface PropertyExternalAreaModel {
    */
   min?: number // double
   /**
-   * The maximum area bound
+   * The maximum area bound (please note there is no corresponding field in the Reapit CRM)
    */
   max?: number // double
 }
@@ -13204,7 +13225,7 @@ export interface PropertyImageModel {
    */
   propertyId?: string
   /**
-   * The url where the image can be downloaded from
+   * The url where the image can be downloaded from. Please note that physical assets for archived images may no longer be available
    */
   url?: string
   /**
@@ -13219,6 +13240,10 @@ export interface PropertyImageModel {
    * The display order index of the image which can be used to correctly order the whole collection
    */
   order?: number // int32
+  /**
+   * A flag determining whether or not the image is archived. Please note that physical assets for archived images may no longer be available
+   */
+  fromArchive?: boolean
   /**
    * The ETag for the current version of the image. Used for managing update concurrency
    */
@@ -13255,7 +13280,7 @@ export interface PropertyImageModelPagedResult {
      */
     propertyId?: string
     /**
-     * The url where the image can be downloaded from
+     * The url where the image can be downloaded from. Please note that physical assets for archived images may no longer be available
      */
     url?: string
     /**
@@ -13270,6 +13295,10 @@ export interface PropertyImageModelPagedResult {
      * The display order index of the image which can be used to correctly order the whole collection
      */
     order?: number // int32
+    /**
+     * A flag determining whether or not the image is archived. Please note that physical assets for archived images may no longer be available
+     */
+    fromArchive?: boolean
     /**
      * The ETag for the current version of the image. Used for managing update concurrency
      */
@@ -13298,6 +13327,7 @@ export interface PropertyImages {
   createdTo?: string
   modifiedFrom?: string
   modifiedTo?: string
+  fromArchive?: boolean
   metadata?: string[]
 }
 /**
@@ -14041,7 +14071,7 @@ export interface PropertyModel {
      */
     min?: number // double
     /**
-     * The maximum area bound
+     * The maximum area bound (please note there is no corresponding field in the Reapit CRM)
      */
     max?: number // double
   }
@@ -14654,7 +14684,7 @@ export interface PropertyModel {
    */
   roomDetailsApproved?: boolean
   /**
-   * A collection of unique identifiers of offices attached to the property
+   * A collection of unique identifiers of offices attached to the property. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
   /**
@@ -15017,7 +15047,7 @@ export interface PropertyModelPagedResult {
        */
       min?: number // double
       /**
-       * The maximum area bound
+       * The maximum area bound (please note there is no corresponding field in the Reapit CRM)
        */
       max?: number // double
     }
@@ -15630,7 +15660,7 @@ export interface PropertyModelPagedResult {
      */
     roomDetailsApproved?: boolean
     /**
-     * A collection of unique identifiers of offices attached to the property
+     * A collection of unique identifiers of offices attached to the property. The first item in the collection is considered the primary office
      */
     officeIds?: string[]
     /**
@@ -15977,6 +16007,31 @@ export interface RecurrenceModel {
    * 2019-08-14T12:30:02Z
    */
   until?: string // date-time
+}
+/**
+ * Read model representing a tenant/applicant reference
+ */
+export interface ReferenceModel {
+  /**
+   * The identifier for the reference record
+   */
+  id?: string
+  /**
+   * The identifier for the contact/company record associated with the reference
+   */
+  referenceAssociatedId?: string
+  /**
+   * Value indicating whether a referenced contact is a person or a company
+   */
+  type?: string
+  /**
+   * The status of the reference (notSet/requested/received)
+   */
+  referenceStatus?: string
+  /**
+   * The type of reference (notSet/accountant/characterReference/employer/previousLandlord)
+   */
+  referenceType?: string
 }
 /**
  * Representation of a contact
@@ -16516,6 +16571,10 @@ export interface StaffModel {
    * The staff member's email
    */
   email?: string
+  /**
+   * The staff member's preferred salutation
+   */
+  salutation?: string
 }
 export interface StaffModelPagedResult {
   _embedded?: {
@@ -16543,6 +16602,10 @@ export interface StaffModelPagedResult {
      * The staff member's email
      */
     email?: string
+    /**
+     * The staff member's preferred salutation
+     */
+    salutation?: string
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
@@ -17536,6 +17599,52 @@ export interface TenancyContactRelationshipModel {
    * A flag denoting whether or not this relationship is archived
    */
   fromArchive?: boolean
+  /**
+   * Collection of guarantors recorded for this relationship
+   */
+  guarantors?: {
+    /**
+     * The identifier for the guarantor record
+     */
+    id?: string
+    /**
+     * The identifier for the contact record associated with the guarantor
+     */
+    guarantorAssociatedId?: string
+    /**
+     * Value indicating whether a the referenced guarantor is a person or a company
+     */
+    type?: string
+    /**
+     * The status of the reference requested from the guarantor (notSet/requested/received)
+     */
+    referenceStatus?: string
+  }[]
+  /**
+   * Collection of references recorded for this relationship
+   */
+  references?: {
+    /**
+     * The identifier for the reference record
+     */
+    id?: string
+    /**
+     * The identifier for the contact/company record associated with the reference
+     */
+    referenceAssociatedId?: string
+    /**
+     * Value indicating whether a referenced contact is a person or a company
+     */
+    type?: string
+    /**
+     * The status of the reference (notSet/requested/received)
+     */
+    referenceStatus?: string
+    /**
+     * The type of reference (notSet/accountant/characterReference/employer/previousLandlord)
+     */
+    referenceType?: string
+  }[]
 }
 export interface TenancyContactRelationshipModelPagedResult {
   _embedded?: {
@@ -17583,6 +17692,52 @@ export interface TenancyContactRelationshipModelPagedResult {
      * A flag denoting whether or not this relationship is archived
      */
     fromArchive?: boolean
+    /**
+     * Collection of guarantors recorded for this relationship
+     */
+    guarantors?: {
+      /**
+       * The identifier for the guarantor record
+       */
+      id?: string
+      /**
+       * The identifier for the contact record associated with the guarantor
+       */
+      guarantorAssociatedId?: string
+      /**
+       * Value indicating whether a the referenced guarantor is a person or a company
+       */
+      type?: string
+      /**
+       * The status of the reference requested from the guarantor (notSet/requested/received)
+       */
+      referenceStatus?: string
+    }[]
+    /**
+     * Collection of references recorded for this relationship
+     */
+    references?: {
+      /**
+       * The identifier for the reference record
+       */
+      id?: string
+      /**
+       * The identifier for the contact/company record associated with the reference
+       */
+      referenceAssociatedId?: string
+      /**
+       * Value indicating whether a referenced contact is a person or a company
+       */
+      type?: string
+      /**
+       * The status of the reference (notSet/requested/received)
+       */
+      referenceStatus?: string
+      /**
+       * The type of reference (notSet/accountant/characterReference/employer/previousLandlord)
+       */
+      referenceType?: string
+    }[]
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
@@ -17662,11 +17817,13 @@ export interface TenancyExtensionAlterationModel {
    */
   modified?: string // date-time
   /**
+   * The start date of the extension or alteration
    * example:
    * 2019-08-14
    */
   startDate?: string // date
   /**
+   * The end date of the extension (alterations do not have an end date)
    * example:
    * 2019-08-14
    */
@@ -17682,7 +17839,7 @@ export interface TenancyExtensionAlterationModel {
   /**
    * The extension or alteration rent amount
    */
-  rent?: number // int32
+  rent?: number // double
   /**
    * The rent frequency (weekly/monthly/4weeks/annually)
    */
@@ -17740,11 +17897,13 @@ export interface TenancyExtensionAlterationModelPagedResult {
      */
     modified?: string // date-time
     /**
+     * The start date of the extension or alteration
      * example:
      * 2019-08-14
      */
     startDate?: string // date
     /**
+     * The end date of the extension (alterations do not have an end date)
      * example:
      * 2019-08-14
      */
@@ -17760,7 +17919,7 @@ export interface TenancyExtensionAlterationModelPagedResult {
     /**
      * The extension or alteration rent amount
      */
-    rent?: number // int32
+    rent?: number // double
     /**
      * The rent frequency (weekly/monthly/4weeks/annually)
      */
@@ -17865,11 +18024,13 @@ export interface TenancyModel {
    */
   modified?: string // date-time
   /**
+   * The start date of the tenancy
    * example:
    * 2019-08-14
    */
   startDate?: string // date
   /**
+   * The end date of the tenancy
    * example:
    * 2019-08-14
    */
@@ -17886,7 +18047,7 @@ export interface TenancyModel {
    * The amount of rent required, returned in relation to the collection frequency
    * Note that this is the original rent set on the tenancy. For tenancies that have been extended with a rent change you MUST use the extensions endpoint
    */
-  rent?: number // int32
+  rent?: number // double
   /**
    * The rent collection frequency (weekly/monthly/annually)
    */
@@ -17959,6 +18120,10 @@ export interface TenancyModel {
    * The unique identifier of the applicant who has applied to be a tenant. Whilst the tenancy is an in arranging state, information about the individual such as name and contact details can be obtained from GET /applicants/{id}. Use the link in the _links collection for a relative URI
    */
   applicantId?: string
+  /**
+   * The unique identifier of the negotiator assigned as the manager of the tenancy
+   */
+  managerId?: string
   /**
    * An optional payment reference to be used for transactions related to this tenancy associated with all tenants in the property
    */
@@ -18226,11 +18391,13 @@ export interface TenancyModelPagedResult {
      */
     modified?: string // date-time
     /**
+     * The start date of the tenancy
      * example:
      * 2019-08-14
      */
     startDate?: string // date
     /**
+     * The end date of the tenancy
      * example:
      * 2019-08-14
      */
@@ -18247,7 +18414,7 @@ export interface TenancyModelPagedResult {
      * The amount of rent required, returned in relation to the collection frequency
      * Note that this is the original rent set on the tenancy. For tenancies that have been extended with a rent change you MUST use the extensions endpoint
      */
-    rent?: number // int32
+    rent?: number // double
     /**
      * The rent collection frequency (weekly/monthly/annually)
      */
@@ -18320,6 +18487,10 @@ export interface TenancyModelPagedResult {
      * The unique identifier of the applicant who has applied to be a tenant. Whilst the tenancy is an in arranging state, information about the individual such as name and contact details can be obtained from GET /applicants/{id}. Use the link in the _links collection for a relative URI
      */
     applicantId?: string
+    /**
+     * The unique identifier of the negotiator assigned as the manager of the tenancy
+     */
+    managerId?: string
     /**
      * An optional payment reference to be used for transactions related to this tenancy associated with all tenants in the property
      */
@@ -20292,6 +20463,10 @@ export interface UpdateAppointmentModel {
    */
   propertyConfirmed?: boolean
   /**
+   * The attendance status of the appointment (notSet/noShow/attended)
+   */
+  attended?: string
+  /**
    * Represents the follow up information on a single appointment
    */
   followUp?: {
@@ -20402,6 +20577,39 @@ export interface UpdateCertificateModel {
    * The certificate's reference number
    */
   referenceNumber?: string
+}
+/**
+ * Object containing a collection of certificate type to responsible party mappings
+ * example:
+ * [object Object]
+ */
+export interface UpdateCertificateResponsibilitiesModel {
+  /**
+   * A collection of certificate type to responsible party mappings
+   */
+  responsibleParties?: {
+    /**
+     * Identifier for the type of certificate for which the party is responsible
+     */
+    typeId?: string
+    /**
+     * The party responsible for the specified certificate type (landlord/agent/notRequired/notSet)
+     */
+    responsibleParty?: string
+  }[]
+}
+/**
+ * Record describing the responsible party for a given type of certificate within a property entry
+ */
+export interface UpdateCertificateResponsiblePartyModel {
+  /**
+   * Identifier for the type of certificate for which the party is responsible
+   */
+  typeId?: string
+  /**
+   * The party responsible for the specified certificate type (landlord/agent/notRequired/notSet)
+   */
+  responsibleParty?: string
 }
 /**
  * Request body to set the address of an existing company
@@ -21705,7 +21913,7 @@ export interface UpdatePropertyExternalAreaModel {
    */
   min?: number // double
   /**
-   * The maximum area bound
+   * The maximum area bound (please note there is no corresponding field in the Reapit CRM)
    */
   max?: number // double
 }
@@ -22352,7 +22560,7 @@ export interface UpdatePropertyModel {
      */
     min?: number // double
     /**
-     * The maximum area bound
+     * The maximum area bound (please note there is no corresponding field in the Reapit CRM)
      */
     max?: number // double
   }
@@ -22824,7 +23032,7 @@ export interface UpdatePropertyModel {
    */
   negotiatorId?: string
   /**
-   * A collection of unique identifiers of offices attached to the property
+   * A collection of unique identifiers of offices attached to the property. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
   /**
@@ -23844,6 +24052,10 @@ export interface UpdateWorksOrderItemModel {
    * The cost of the vat associated with the work
    */
   vatAmount?: number // double
+  /**
+   * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+   */
+  reserveAmount?: number // double
 }
 /**
  * Request body used to update an existing works order
@@ -24926,6 +25138,10 @@ export interface WorksOrderItemModel {
    */
   grossAmount?: number // double
   /**
+   * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+   */
+  reserveAmount?: number // double
+  /**
    * The unique identifier of the nominal account the works order financial transactions are allocated to
    */
   nominalAccountId?: string
@@ -24992,6 +25208,10 @@ export interface WorksOrderItemModelPagedResult {
      * The gross cost of the work to be carried out
      */
     grossAmount?: number // double
+    /**
+     * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+     */
+    reserveAmount?: number // double
     /**
      * The unique identifier of the nominal account the works order financial transactions are allocated to
      */
@@ -25166,6 +25386,10 @@ export interface WorksOrderModel {
      * The gross cost of the work to be carried out
      */
     grossAmount?: number // double
+    /**
+     * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+     */
+    reserveAmount?: number // double
     /**
      * The unique identifier of the nominal account the works order financial transactions are allocated to
      */
@@ -25344,6 +25568,10 @@ export interface WorksOrderModelPagedResult {
        * The gross cost of the work to be carried out
        */
       grossAmount?: number // double
+      /**
+       * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+       */
+      reserveAmount?: number // double
       /**
        * The unique identifier of the nominal account the works order financial transactions are allocated to
        */

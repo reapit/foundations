@@ -8,9 +8,7 @@ exports[`ToggleConsumption should match a snapshot with installations 1`] = `
       <mock-styled.div />
       <form>
         <mock-styled.div
-          classname="mock-css.
-  margin-top: 0.75rem;
-"
+          classname="el-mt5"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -18,7 +16,7 @@ exports[`ToggleConsumption should match a snapshot with installations 1`] = `
                 API Consumption Charges
               </mock-styled.label>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-has-grey-bg"
               >
                 <mock-styled.input
                   id="option-free-false"
@@ -27,7 +25,7 @@ exports[`ToggleConsumption should match a snapshot with installations 1`] = `
                   value="NOT_FREE"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-bg"
                   htmlfor="option-free-false"
                 >
                   <mock-styled.span>
@@ -41,7 +39,7 @@ exports[`ToggleConsumption should match a snapshot with installations 1`] = `
                   value="FREE"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-bg"
                   htmlfor="option-free-true"
                 >
                   <mock-styled.span>
@@ -59,9 +57,7 @@ exports[`ToggleConsumption should match a snapshot with installations 1`] = `
     <mock-styled.div />
     <form>
       <mock-styled.div
-        classname="mock-css.
-  margin-top: 0.75rem;
-"
+        classname="el-mt5"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -69,7 +65,7 @@ exports[`ToggleConsumption should match a snapshot with installations 1`] = `
               API Consumption Charges
             </mock-styled.label>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-has-grey-bg"
             >
               <mock-styled.input
                 id="option-free-false"
@@ -78,7 +74,7 @@ exports[`ToggleConsumption should match a snapshot with installations 1`] = `
                 value="NOT_FREE"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-bg"
                 htmlfor="option-free-false"
               >
                 <mock-styled.span>
@@ -92,7 +88,7 @@ exports[`ToggleConsumption should match a snapshot with installations 1`] = `
                 value="FREE"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-bg"
                 htmlfor="option-free-true"
               >
                 <mock-styled.span>
@@ -167,9 +163,7 @@ exports[`ToggleConsumption should match a snapshot with no installations 1`] = `
       <mock-styled.div />
       <form>
         <mock-styled.div
-          classname="mock-css.
-  margin-top: 0.75rem;
-"
+          classname="el-mt5"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -177,7 +171,7 @@ exports[`ToggleConsumption should match a snapshot with no installations 1`] = `
                 API Consumption Charges
               </mock-styled.label>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-has-grey-bg"
               >
                 <mock-styled.input
                   id="option-free-false"
@@ -186,7 +180,7 @@ exports[`ToggleConsumption should match a snapshot with no installations 1`] = `
                   value="NOT_FREE"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-bg"
                   htmlfor="option-free-false"
                 >
                   <mock-styled.span>
@@ -200,7 +194,7 @@ exports[`ToggleConsumption should match a snapshot with no installations 1`] = `
                   value="FREE"
                 />
                 <mock-styled.label
-                  classname="mock-css."
+                  classname="el-has-grey-bg"
                   htmlfor="option-free-true"
                 >
                   <mock-styled.span>
@@ -218,9 +212,7 @@ exports[`ToggleConsumption should match a snapshot with no installations 1`] = `
     <mock-styled.div />
     <form>
       <mock-styled.div
-        classname="mock-css.
-  margin-top: 0.75rem;
-"
+        classname="el-mt5"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -228,7 +220,7 @@ exports[`ToggleConsumption should match a snapshot with no installations 1`] = `
               API Consumption Charges
             </mock-styled.label>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-has-grey-bg"
             >
               <mock-styled.input
                 id="option-free-false"
@@ -237,7 +229,7 @@ exports[`ToggleConsumption should match a snapshot with no installations 1`] = `
                 value="NOT_FREE"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-bg"
                 htmlfor="option-free-false"
               >
                 <mock-styled.span>
@@ -251,7 +243,7 @@ exports[`ToggleConsumption should match a snapshot with no installations 1`] = `
                 value="FREE"
               />
               <mock-styled.label
-                classname="mock-css."
+                classname="el-has-grey-bg"
                 htmlfor="option-free-true"
               >
                 <mock-styled.span>

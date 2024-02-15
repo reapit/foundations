@@ -4,6 +4,7 @@ import confirmRegistrationTemplate from './templates/confirm-registration.html'
 import adminUserInviteTemplate from './templates/admin-user-invite.html'
 import { UserModel } from '@reapit/foundations-ts-definitions'
 import * as oldTemplates from './templates/old-templates'
+import { tryGetFirstName } from './utils'
 
 const confirmRegistrationUrl = `${process.env.MARKET_PLACE_URL}/login`
 const resetPasswordUrl = `${process.env.MARKET_PLACE_URL}/reset-password`
@@ -52,7 +53,7 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
       event.response.emailSubject = 'Reapit Connect - Forgotten Password'
       const obj = {
         verificationCode: event.request.codeParameter as string,
-        userName: event.request.userAttributes.name,
+        userName: tryGetFirstName(event.request.userAttributes.name),
         url: resetPasswordUrl,
       }
       event.response.emailMessage = useOldTemplates
@@ -65,7 +66,7 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
       event.response.emailSubject = 'Welcome to Reapit Connect'
       const obj = {
         url: await getConfirmRegistrationUrl(event.request.userAttributes.email),
-        userName: event.request.userAttributes.name,
+        userName: tryGetFirstName(event.request.userAttributes.name),
       }
       event.response.emailMessage = useOldTemplates
         ? oldTemplates.confirmRegistrationTemplate(obj)
@@ -76,8 +77,8 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
     case 'CustomMessage_AdminCreateUser': {
       event.response.emailSubject = 'Welcome to Reapit Connect'
       const obj = {
-        name: event.request.userAttributes.name,
-        userName: event.request.userAttributes.name,
+        name: tryGetFirstName(event.request.userAttributes.name),
+        userName: tryGetFirstName(event.request.userAttributes.name),
         url: await getConfirmRegistrationUrl(event.request.userAttributes.email),
         verificationCode: event.request.codeParameter as string,
       }

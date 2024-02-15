@@ -95,8 +95,6 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
   const isLoading = memberDeleting || memberUpdating || memberReinviting
   const isDisabled = isLoading || member.email === currentMemberEmail
 
-  console.log('loding', isLoading, memberDeleting, memberUpdating, memberReinviting)
-
   return (
     <ButtonGroup alignment="center">
       <Button

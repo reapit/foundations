@@ -7,14 +7,10 @@ exports[`AccountProgressBar should match a snapshot for 0 complete 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+          classname="el-mb7"
         >
           <mock-styled.div
             style="width: 0%;"
@@ -31,14 +27,10 @@ exports[`AccountProgressBar should match a snapshot for 0 complete 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+        classname="el-mb7"
       >
         <mock-styled.div
           style="width: 0%;"
@@ -112,14 +104,10 @@ exports[`AccountProgressBar should match a snapshot for 19 complete 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+          classname="el-mb7"
         >
           <mock-styled.div
             style="width: 19%;"
@@ -136,14 +124,10 @@ exports[`AccountProgressBar should match a snapshot for 19 complete 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+        classname="el-mb7"
       >
         <mock-styled.div
           style="width: 19%;"
@@ -217,14 +201,10 @@ exports[`AccountProgressBar should match a snapshot for 39 complete 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+          classname="el-mb7"
         >
           <mock-styled.div
             style="width: 39%;"
@@ -241,14 +221,10 @@ exports[`AccountProgressBar should match a snapshot for 39 complete 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+        classname="el-mb7"
       >
         <mock-styled.div
           style="width: 39%;"
@@ -322,14 +298,10 @@ exports[`AccountProgressBar should match a snapshot for 59 complete 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+          classname="el-mb7"
         >
           <mock-styled.div
             style="width: 59%;"
@@ -346,14 +318,10 @@ exports[`AccountProgressBar should match a snapshot for 59 complete 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+        classname="el-mb7"
       >
         <mock-styled.div
           style="width: 59%;"
@@ -427,14 +395,10 @@ exports[`AccountProgressBar should match a snapshot for 79 complete 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+          classname="el-mb7"
         >
           <mock-styled.div
             style="width: 79%;"
@@ -451,14 +415,10 @@ exports[`AccountProgressBar should match a snapshot for 79 complete 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+        classname="el-mb7"
       >
         <mock-styled.div
           style="width: 79%;"
@@ -532,14 +492,10 @@ exports[`AccountProgressBar should match a snapshot for 94 complete 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+          classname="el-mb7"
         >
           <mock-styled.div
             style="width: 94%;"
@@ -556,14 +512,10 @@ exports[`AccountProgressBar should match a snapshot for 94 complete 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+        classname="el-mb7"
       >
         <mock-styled.div
           style="width: 94%;"
@@ -637,14 +589,10 @@ exports[`AccountProgressBar should match a snapshot for 99 complete 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+          classname="el-mb7"
         >
           <mock-styled.div
             style="width: 99%;"
@@ -661,14 +609,10 @@ exports[`AccountProgressBar should match a snapshot for 99 complete 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+        classname="el-mb7"
       >
         <mock-styled.div
           style="width: 99%;"
@@ -742,14 +686,10 @@ exports[`AccountProgressBar should match a snapshot for 100 complete 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+          classname="el-mb7"
         >
           <mock-styled.div
             style="width: 100%;"
@@ -771,14 +711,10 @@ exports[`AccountProgressBar should match a snapshot for 100 complete 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 1.25rem;
-"
+        classname="el-mb7"
       >
         <mock-styled.div
           style="width: 100%;"

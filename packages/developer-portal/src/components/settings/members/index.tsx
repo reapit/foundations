@@ -26,10 +26,10 @@ export const getIntentFromStatus = (status: string) => {
   return status === 'active'
     ? 'success'
     : status === 'rejected'
-    ? 'danger'
-    : status === 'pending'
-    ? 'pending'
-    : 'default'
+      ? 'danger'
+      : status === 'pending'
+        ? 'pending'
+        : 'default'
 }
 
 export const handleRefreshMembers =
@@ -125,7 +125,7 @@ export const SettingsMembersPage: FC = () => {
             },
             {
               label: 'Main Contact',
-              value: member.isMainContact ? <Icon icon="checkSolidSystem" intent="success" /> : '-',
+              value: member.isMainContact ? <Icon icon="check" intent="success" /> : '-',
               narrowTable: {
                 showLabel: true,
               },

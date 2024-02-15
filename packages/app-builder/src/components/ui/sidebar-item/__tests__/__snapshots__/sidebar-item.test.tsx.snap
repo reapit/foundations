@@ -3,36 +3,17 @@
 exports[`SidebarItem should match a snapshot 1`] = `
 <DocumentFragment>
   <mock-styled.div
-    classname="mock-css.
-  display: flex;
- mock-css.
-  flex-direction: column;
-"
+    classname="el-flex el-flex-column"
   >
     <mock-styled.div
       classname="mock-css.
   cursor: pointer;
  mock-css.
   background: white;
- mock-css.
-  border-bottom: 1px solid var(--color-grey-100, '#dbdbdb');
- mock-css.
-  display: flex;
- mock-css.
-  align-items: center;
- mock-css.
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-"
+ el-border-grey-b el-flex el-flex-align-center el-px3"
     >
       <div
-        class="mock-css.
-  display: flex;
- mock-css.
-  flex: 1 1 0%;
- mock-css.
-  align-items: center;
-"
+        class="el-flex el-flex1 el-flex-align-center"
       >
         <mock-styled.h2
           style="margin-bottom: 0px;"

@@ -82,7 +82,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
     >
       <div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-is-active"
         />
         <mock-styled.div
           classname="mock-css.
@@ -90,50 +90,45 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
   top: 50% !important;
   height: 80vh !important;
   overflow: scroll;
- mock-css."
+ el-is-active"
         >
           <mock-styled.div>
             Terms and Conditions
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.p
-              classname="mock-css."
+              classname="el-has-grey-text"
             >
               These Reapit Foundations User Terms and Conditions govern access to Reapit’s Foundations Platform and incorporate the Registration Details, to the exclusion of all other terms.
             </mock-styled.p>
             <mock-styled.div
-              classname="mock-css.
-  margin-bottom: 1rem;
- mock-css. mock-css. mock-css. mock-css."
+              classname="el-mb6 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
             >
               <div
-                class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+                class="el-pn-icon"
                 data-testid="close-icon"
               >
                 <mock-styled.span
-                  classname=""
+                  classname="el-icon-new"
+                  style="font-size: 1.25rem;"
                 >
-                  <svg />
+                  <svg
+                    fill="none"
+                    height="1em"
+                    style="font-size: 1.25rem;"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </mock-styled.span>
               </div>
               <div
-                class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+                class="el-pn-content"
               >
                 Please agree to the Reapit Developer Terms and Conditions to proceed
               </div>
@@ -1380,9 +1375,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               Schedule 2 - Fees
             </mock-styled.h2>
             <mock-styled.div
-              classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+              classname="el-mb11"
               data-has-call-to-action="false"
               data-has-expandable-action="false"
             >
@@ -1402,7 +1395,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Type"
@@ -1411,7 +1404,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Amount"
@@ -1420,7 +1413,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Payable"
@@ -1435,7 +1428,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Type"
@@ -1444,7 +1437,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Amount"
@@ -1453,7 +1446,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Payable"
@@ -1468,7 +1461,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Type"
@@ -1477,7 +1470,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Amount"
@@ -1486,7 +1479,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Payable"
@@ -1501,7 +1494,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Type"
@@ -1510,7 +1503,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Amount"
@@ -1519,7 +1512,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Payable"
@@ -1534,7 +1527,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Type"
@@ -1543,14 +1536,14 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Amount"
                     />
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Payable"
@@ -1563,7 +1556,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Type"
@@ -1572,14 +1565,14 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Amount"
                     />
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Payable"
@@ -1594,9 +1587,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               Calculation of Total Consumption Cost - Methodology (On last day of monthly billing period):
             </mock-styled.p>
             <mock-styled.div
-              classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+              classname="el-mb11"
               data-has-call-to-action="false"
               data-has-expandable-action="false"
             >
@@ -1631,7 +1622,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Month API Call"
@@ -1640,7 +1631,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="First 1,000"
@@ -1649,7 +1640,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="1,001 - 2,500"
@@ -1658,7 +1649,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="2,501 - 5,000"
@@ -1667,7 +1658,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="5,001 - 10,000"
@@ -1676,7 +1667,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="10,001 - 25,000"
@@ -1685,7 +1676,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="25,001 - 50,000"
@@ -1694,7 +1685,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="above 50,000"
@@ -1709,7 +1700,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Month API Call"
@@ -1718,7 +1709,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="First 1,000"
@@ -1727,7 +1718,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="1,001 - 2,500"
@@ -1736,7 +1727,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="2,501 - 5,000"
@@ -1745,7 +1736,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="5,001 - 10,000"
@@ -1754,7 +1745,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="10,001 - 25,000"
@@ -1763,7 +1754,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="25,001 - 50,000"
@@ -1772,7 +1763,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="above 50,000"
@@ -1787,7 +1778,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Month API Call"
@@ -1796,7 +1787,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="First 1,000"
@@ -1805,7 +1796,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="1,001 - 2,500"
@@ -1814,7 +1805,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="2,501 - 5,000"
@@ -1823,7 +1814,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="5,001 - 10,000"
@@ -1832,7 +1823,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="10,001 - 25,000"
@@ -1841,7 +1832,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="25,001 - 50,000"
@@ -1850,7 +1841,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="above 50,000"
@@ -1865,7 +1856,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Month API Call"
@@ -1874,7 +1865,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="First 1,000"
@@ -1883,7 +1874,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="1,001 - 2,500"
@@ -1892,7 +1883,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="2,501 - 5,000"
@@ -1901,7 +1892,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="5,001 - 10,000"
@@ -1910,7 +1901,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="10,001 - 25,000"
@@ -1919,7 +1910,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="25,001 - 50,000"
@@ -1928,7 +1919,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="above 50,000"
@@ -1943,7 +1934,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Month API Call"
@@ -1952,7 +1943,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="First 1,000"
@@ -1961,7 +1952,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="1,001 - 2,500"
@@ -1970,7 +1961,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="2,501 - 5,000"
@@ -1979,7 +1970,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="5,001 - 10,000"
@@ -1988,7 +1979,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="10,001 - 25,000"
@@ -1997,7 +1988,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="25,001 - 50,000"
@@ -2006,7 +1997,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="above 50,000"
@@ -2021,7 +2012,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Month API Call"
@@ -2030,7 +2021,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="First 1,000"
@@ -2039,7 +2030,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="1,001 - 2,500"
@@ -2048,7 +2039,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="2,501 - 5,000"
@@ -2057,7 +2048,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="5,001 - 10,000"
@@ -2066,7 +2057,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="10,001 - 25,000"
@@ -2075,7 +2066,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="25,001 - 50,000"
@@ -2084,7 +2075,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="above 50,000"
@@ -2099,7 +2090,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Month API Call"
@@ -2108,7 +2099,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="First 1,000"
@@ -2117,7 +2108,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="1,001 - 2,500"
@@ -2126,7 +2117,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="2,501 - 5,000"
@@ -2135,7 +2126,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="5,001 - 10,000"
@@ -2144,7 +2135,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="10,001 - 25,000"
@@ -2153,7 +2144,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="25,001 - 50,000"
@@ -2162,7 +2153,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="above 50,000"
@@ -2215,9 +2206,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+              classname="el-mb11"
               data-has-call-to-action="false"
               data-has-expandable-action="false"
             >
@@ -2237,7 +2226,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Number of API Calls"
@@ -2246,7 +2235,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Cost Per API Call"
@@ -2255,12 +2244,27 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.span
-                      classname="mock-css."
+                      classname="el-intent-default"
+                      style="font-size: 1.25rem;"
                     >
-                      <svg />
+                      <svg
+                        fill="none"
+                        height="1em"
+                        style="font-size: 1.25rem;"
+                        viewBox="0 0 20 20"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
                     </mock-styled.span>
                     <mock-styled.div
                       data-narrow-label="Total Cost"
@@ -2275,7 +2279,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Number of API Calls"
@@ -2284,7 +2288,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Cost Per API Call"
@@ -2293,12 +2297,27 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.span
-                      classname="mock-css."
+                      classname="el-intent-default"
+                      style="font-size: 1.25rem;"
                     >
-                      <svg />
+                      <svg
+                        fill="none"
+                        height="1em"
+                        style="font-size: 1.25rem;"
+                        viewBox="0 0 20 20"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
                     </mock-styled.span>
                     <mock-styled.div
                       data-narrow-label="Total Cost"
@@ -2313,7 +2332,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Number of API Calls"
@@ -2322,7 +2341,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Cost Per API Call"
@@ -2331,12 +2350,27 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.span
-                      classname="mock-css."
+                      classname="el-intent-default"
+                      style="font-size: 1.25rem;"
                     >
-                      <svg />
+                      <svg
+                        fill="none"
+                        height="1em"
+                        style="font-size: 1.25rem;"
+                        viewBox="0 0 20 20"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
                     </mock-styled.span>
                     <mock-styled.div
                       data-narrow-label="Total Cost"
@@ -2351,7 +2385,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Number of API Calls"
@@ -2360,7 +2394,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Cost Per API Call"
@@ -2369,12 +2403,27 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.span
-                      classname="mock-css."
+                      classname="el-intent-default"
+                      style="font-size: 1.25rem;"
                     >
-                      <svg />
+                      <svg
+                        fill="none"
+                        height="1em"
+                        style="font-size: 1.25rem;"
+                        viewBox="0 0 20 20"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
                     </mock-styled.span>
                     <mock-styled.div
                       data-narrow-label="Total Cost"
@@ -2389,7 +2438,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Number of API Calls"
@@ -2398,7 +2447,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Cost Per API Call"
@@ -2407,12 +2456,27 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.span
-                      classname="mock-css."
+                      classname="el-intent-default"
+                      style="font-size: 1.25rem;"
                     >
-                      <svg />
+                      <svg
+                        fill="none"
+                        height="1em"
+                        style="font-size: 1.25rem;"
+                        viewBox="0 0 20 20"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
                     </mock-styled.span>
                     <mock-styled.div
                       data-narrow-label="Total Cost"
@@ -2427,7 +2491,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Number of API Calls"
@@ -2436,7 +2500,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Cost Per API Call"
@@ -2445,12 +2509,27 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.span
-                      classname="mock-css."
+                      classname="el-intent-default"
+                      style="font-size: 1.25rem;"
                     >
-                      <svg />
+                      <svg
+                        fill="none"
+                        height="1em"
+                        style="font-size: 1.25rem;"
+                        viewBox="0 0 20 20"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
                     </mock-styled.span>
                     <mock-styled.div
                       data-narrow-label="Total Cost"
@@ -2465,7 +2544,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Number of API Calls"
@@ -2474,7 +2553,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.div
                       data-narrow-label="Cost Per API Call"
@@ -2483,12 +2562,27 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-table-cell-has-dark-text"
                   >
                     <mock-styled.span
-                      classname="mock-css."
+                      classname="el-intent-default"
+                      style="font-size: 1.25rem;"
                     >
-                      <svg />
+                      <svg
+                        fill="none"
+                        height="1em"
+                        style="font-size: 1.25rem;"
+                        viewBox="0 0 20 20"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M13.69.066a1.908 1.908 0 0 0-1.46.195L3.448 5.374H1.939C.87 5.374 0 6.244 0 7.314V18.06c0 1.07.87 1.94 1.94 1.94h15.225c1.07 0 1.94-.87 1.94-1.94v-2.669c.524-.23.895-.75.895-1.361v-2.687c0-.611-.371-1.132-.896-1.361v-2.67c0-.99-.748-1.8-1.706-1.916L14.864.971A1.918 1.918 0 0 0 13.69.066Zm-.86 1.225a.726.726 0 0 1 .916.153l-6.75 3.93h-1.18l7.014-4.083Zm-2.286 4.083h-1.18l4.986-2.903.295.515-4.101 2.388Zm5.468 0h-3.1l2.325-1.354.775 1.354Zm-14.82 1.94c0-.413.335-.749.747-.749h15.226c.412 0 .748.336.748.748v2.54h-2.54a2.838 2.838 0 0 0-2.834 2.834 2.838 2.838 0 0 0 2.835 2.835h2.54v2.54a.749.749 0 0 1-.749.747H1.94a.749.749 0 0 1-.748-.748V7.313Zm12.538 5.373c0-.906.738-1.643 1.644-1.643h3.135a.3.3 0 0 1 .3.3v2.687a.3.3 0 0 1-.3.3h-3.135a1.645 1.645 0 0 1-1.644-1.644Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
                     </mock-styled.span>
                     <mock-styled.div
                       data-narrow-label="Total Cost"
@@ -2500,7 +2594,7 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.p
-              classname="mock-css."
+              classname="el-has-grey-text"
             >
               Estimated total monthly cost: 
               £340.03
@@ -2616,17 +2710,17 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
             </mock-styled.ol>
             <mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-button-group-align-right"
               >
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-danger"
                   type="button"
                 >
                   <mock-styled.div />
                   Decline
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-primary"
                 >
                   <mock-styled.div />
                   Accept

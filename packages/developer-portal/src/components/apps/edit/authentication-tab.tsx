@@ -22,7 +22,7 @@ export const AuthenticationTab: FC<AppEditTabsProps> = ({ register, errors }) =>
             {...redirectUris}
             {...register('redirectUris')}
             errorMessage={errors?.redirectUris?.message}
-            icon={errors?.redirectUris?.message ? 'asteriskSystem' : null}
+            icon={errors?.redirectUris?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrapFull>
@@ -31,7 +31,7 @@ export const AuthenticationTab: FC<AppEditTabsProps> = ({ register, errors }) =>
             {...signoutUris}
             {...register('signoutUris')}
             errorMessage={errors?.signoutUris?.message}
-            icon={errors?.signoutUris?.message ? 'asteriskSystem' : null}
+            icon={errors?.signoutUris?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrapFull>

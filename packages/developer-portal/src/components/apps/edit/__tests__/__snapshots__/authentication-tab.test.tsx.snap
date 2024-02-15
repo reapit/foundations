@@ -7,7 +7,7 @@ exports[`AuthenticationTab should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         When using the Reapit Connect
          
@@ -17,7 +17,7 @@ exports[`AuthenticationTab should match a snapshot 1`] = `
          you need to register both a re-direct URI and a logout URI. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only URIs that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
       </mock-styled.p>
       <mock-styled.div
-        classname="mock-css."
+        classname="el-form-layout-has-margin"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -57,7 +57,7 @@ exports[`AuthenticationTab should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.p
-      classname="mock-css."
+      classname="el-has-grey-text"
     >
       When using the Reapit Connect
        
@@ -67,7 +67,7 @@ exports[`AuthenticationTab should match a snapshot 1`] = `
        you need to register both a re-direct URI and a logout URI. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only URIs that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
     </mock-styled.p>
     <mock-styled.div
-      classname="mock-css."
+      classname="el-form-layout-has-margin"
     >
       <mock-styled.div>
         <mock-styled.div>

@@ -18,7 +18,7 @@ const getStackAppName = (stack: Stack) => {
 
 const getAnzSubdomain = (stack: Stack, env: 'dev' | 'prod') => {
   const appName = getStackAppName(stack)
-  return `${appName}.au.${env}.rc.reapit.cloud`
+  return env === 'dev' ? `${appName}.au.${env}.rc.reapit.cloud` : `${appName}.au.rc.reapit.cloud`
 }
 
 interface MultiRegionSiteInterface extends Omit<CreateSiteInterface, 'viewerCertificateOverride'> {

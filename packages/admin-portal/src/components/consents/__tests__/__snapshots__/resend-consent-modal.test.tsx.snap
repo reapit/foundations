@@ -8,9 +8,7 @@ exports[`ResendConsentModal should render a component with without an email and 
       <mock-styled.div />
       <form>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+          classname="el-mb11"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -30,16 +28,16 @@ exports[`ResendConsentModal should render a component with without an email and 
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-button-group-align-right"
           >
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-neutral"
             >
               <mock-styled.div />
               Cancel
             </mock-styled.button>
             <mock-styled.button
-              classname="mock-css."
+              classname="el-intent-primary"
               type="submit"
             >
               <mock-styled.div />
@@ -54,9 +52,7 @@ exports[`ResendConsentModal should render a component with without an email and 
     <mock-styled.div />
     <form>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
       >
         <mock-styled.div>
           <mock-styled.div>
@@ -76,16 +72,16 @@ exports[`ResendConsentModal should render a component with without an email and 
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.div
-          classname="mock-css."
+          classname="el-button-group-align-right"
         >
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-neutral"
           >
             <mock-styled.div />
             Cancel
           </mock-styled.button>
           <mock-styled.button
-            classname="mock-css."
+            classname="el-intent-primary"
             type="submit"
           >
             <mock-styled.div />

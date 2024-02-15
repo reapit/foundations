@@ -9,7 +9,7 @@ exports[`TabMode should match snapshot 1`] = `
        
       <mock-styled.div>
         <mock-styled.button
-          classname="mock-css."
+          classname="el-intent-primary"
         >
           <mock-styled.div />
           MAP
@@ -22,7 +22,7 @@ exports[`TabMode should match snapshot 1`] = `
      
     <mock-styled.div>
       <mock-styled.button
-        classname="mock-css."
+        classname="el-intent-primary"
       >
         <mock-styled.div />
         MAP

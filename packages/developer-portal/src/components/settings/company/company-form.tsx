@@ -162,7 +162,7 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
             label="Company Name"
             placeholder="This will be the display name of the company in our AppMarket"
             errorMessage={errors?.company?.message}
-            icon={errors?.company?.message ? 'asteriskSystem' : null}
+            icon={errors?.company?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -172,7 +172,7 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
             label="Telephone"
             placeholder="A number we can discuss your developer account on"
             errorMessage={errors?.telephone?.message}
-            icon={errors?.telephone?.message ? 'asteriskSystem' : null}
+            icon={errors?.telephone?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -182,7 +182,7 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
             label="Website Address"
             placeholder="Your company's corporate website"
             errorMessage={errors?.website?.message}
-            icon={errors?.website?.message ? 'asteriskSystem' : null}
+            icon={errors?.website?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -192,7 +192,7 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
             label="Office Email"
             disabled
             errorMessage={errors?.email?.message}
-            icon={errors?.email?.message ? 'asteriskSystem' : null}
+            icon={errors?.email?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -202,7 +202,7 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
             label="Notifications Email"
             placeholder="An email address we can send notifications about your developer account to"
             errorMessage={errors?.notificationsEmail?.message}
-            icon={errors?.notificationsEmail?.message ? 'asteriskSystem' : null}
+            icon={errors?.notificationsEmail?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -216,7 +216,7 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
             placeholder="If VAT registered, your must supply your VAT Number"
             disabled={noTaxRegistrationValue}
             errorMessage={errors?.taxNumber?.message}
-            icon={errors?.taxNumber?.message ? 'asteriskSystem' : null}
+            icon={errors?.taxNumber?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -230,7 +230,7 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
             placeholder="If you have a formal company, your should supply the registration number"
             disabled={noregistrationNumberValue}
             errorMessage={errors?.registrationNumber?.message}
-            icon={errors?.registrationNumber?.message ? 'asteriskSystem' : null}
+            icon={errors?.registrationNumber?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -250,7 +250,7 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
             label="Building Name"
             placeholder="The building of your corporate office"
             errorMessage={errors?.buildingName?.message}
-            icon={errors?.buildingName?.message ? 'asteriskSystem' : null}
+            icon={errors?.buildingName?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -260,7 +260,7 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
             label="Building Number"
             placeholder="The number of your corporate office"
             errorMessage={errors?.buildingNumber?.message}
-            icon={errors?.buildingNumber?.message ? 'asteriskSystem' : null}
+            icon={errors?.buildingNumber?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -270,7 +270,7 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
             label="Address Line 1"
             placeholder="Line one of the address for your office"
             errorMessage={errors?.line1?.message}
-            icon={errors?.line1?.message ? 'asteriskSystem' : null}
+            icon={errors?.line1?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -280,7 +280,7 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
             label="Address Line 2"
             placeholder="Line two of the address for your office"
             errorMessage={errors?.line2?.message}
-            icon={errors?.line2?.message ? 'asteriskSystem' : null}
+            icon={errors?.line2?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -290,7 +290,7 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
             label="Address Line 3"
             placeholder="Line three of the address for your office"
             errorMessage={errors?.line3?.message}
-            icon={errors?.line3?.message ? 'asteriskSystem' : null}
+            icon={errors?.line3?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -300,7 +300,7 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
             label="Address Line 4"
             placeholder="Line four of the address for your office"
             errorMessage={errors?.line4?.message}
-            icon={errors?.line4?.message ? 'asteriskSystem' : null}
+            icon={errors?.line4?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>
@@ -310,7 +310,7 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
             label="Postcode"
             placeholder="Your office postcode"
             errorMessage={errors?.postcode?.message}
-            icon={errors?.postcode?.message ? 'asteriskSystem' : null}
+            icon={errors?.postcode?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrap>

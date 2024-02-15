@@ -7,7 +7,7 @@ exports[`DeleteAuthenticator should render component with props 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.button
-        classname="mock-css."
+        classname="el-intent-primary"
         disabled="false"
       >
         <mock-styled.div />
@@ -18,7 +18,7 @@ exports[`DeleteAuthenticator should render component with props 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.button
-      classname="mock-css."
+      classname="el-intent-primary"
       disabled="false"
     >
       <mock-styled.div />

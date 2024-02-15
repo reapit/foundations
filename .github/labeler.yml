@@ -29,9 +29,6 @@ app-market:
 app-marketplace-cms:
   - packages/app-marketplace-cms/**
 
-auto-bump:
-  - packages/auto-bump/**
-
 auto-reply-bot:
   - packages/auto-reply-bot/**
 

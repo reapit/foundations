@@ -7,9 +7,7 @@ exports[`AppsTable should render component with apps 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.h2
           classname=""
@@ -17,7 +15,7 @@ exports[`AppsTable should render component with apps 1`] = `
           Total Apps
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css."
+          classname="el-has-grey-text"
         >
           1
         </mock-styled.p>
@@ -59,12 +57,20 @@ exports[`AppsTable should render component with apps 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname="mock-css."
-                style="font-size: 1.2rem;"
+                classname="el-intent-default el-icon-new"
               >
                 <svg
-                  style="font-size: 1.2rem;"
-                />
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -73,7 +79,7 @@ exports[`AppsTable should render component with apps 1`] = `
           >
             <mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="App Name"
@@ -82,7 +88,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="AppId"
@@ -91,7 +97,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Summary"
@@ -100,7 +106,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Developer Name"
@@ -109,46 +115,81 @@ exports[`AppsTable should render component with apps 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Listed"
                 >
                   <mock-styled.span
-                    classname="mock-css."
+                    classname="el-intent-success el-icon-new"
                   >
-                    <svg />
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.321 1.321 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
                   </mock-styled.span>
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Integration"
                 >
                   <mock-styled.span
-                    classname="mock-css."
+                    classname="el-intent-danger el-icon-new"
                   >
-                    <svg />
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l5.66-5.66Z"
+                        fill="currentColor"
+                      />
+                    </svg>
                   </mock-styled.span>
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Featured"
                 >
                   <mock-styled.span
-                    classname="mock-css."
+                    classname="el-intent-danger el-icon-new"
                   >
-                    <svg />
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l5.66-5.66Z"
+                        fill="currentColor"
+                      />
+                    </svg>
                   </mock-styled.span>
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Created"
@@ -157,7 +198,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Publicly Listed"
@@ -166,15 +207,26 @@ exports[`AppsTable should render component with apps 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-table-cell-has-dark-text"
               >
                 <mock-styled.div
                   data-narrow-label="Public"
                 >
                   <mock-styled.span
-                    classname="mock-css."
+                    classname="el-intent-danger el-icon-new"
                   >
-                    <svg />
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l5.66-5.66Z"
+                        fill="currentColor"
+                      />
+                    </svg>
                   </mock-styled.span>
                 </mock-styled.div>
               </mock-styled.div>
@@ -182,9 +234,20 @@ exports[`AppsTable should render component with apps 1`] = `
                 classname=""
               >
                 <mock-styled.span
-                  classname="mock-css."
+                  classname="el-intent-default el-icon-new"
                 >
-                  <svg />
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -194,51 +257,51 @@ exports[`AppsTable should render component with apps 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.div
-                    classname="mock-css."
+                    classname="el-button-group-align-center"
                   >
                     <mock-styled.button
-                      classname="mock-css."
+                      classname="el-intent-neutral"
                     >
                       <mock-styled.div />
                       View in AppMarket
                     </mock-styled.button>
                     <mock-styled.button
-                      classname="mock-css."
+                      classname="el-intent-neutral"
                       disabled="true"
                     >
                       <mock-styled.div />
                       View in DevPortal
                     </mock-styled.button>
                     <mock-styled.button
-                      classname="mock-css."
+                      classname="el-intent-primary"
                       disabled="false"
                     >
                       <mock-styled.div />
                       Check AWS Only
                     </mock-styled.button>
                     <mock-styled.button
-                      classname="mock-css."
+                      classname="el-intent-primary"
                       disabled="true"
                     >
                       <mock-styled.div />
                       Toggle Subscription
                     </mock-styled.button>
                     <mock-styled.button
-                      classname="mock-css."
+                      classname="el-intent-primary"
                       disabled="true"
                     >
                       <mock-styled.div />
                       Togggle Featured
                     </mock-styled.button>
                     <mock-styled.button
-                      classname="mock-css."
+                      classname="el-intent-primary"
                       disabled="true"
                     >
                       <mock-styled.div />
                       Togggle API Consumption
                     </mock-styled.button>
                     <mock-styled.button
-                      classname="mock-css."
+                      classname="el-intent-danger"
                       disabled="true"
                       type="button"
                     >
@@ -257,9 +320,7 @@ exports[`AppsTable should render component with apps 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.h2
         classname=""
@@ -267,7 +328,7 @@ exports[`AppsTable should render component with apps 1`] = `
         Total Apps
       </mock-styled.h2>
       <mock-styled.p
-        classname="mock-css."
+        classname="el-has-grey-text"
       >
         1
       </mock-styled.p>
@@ -309,12 +370,20 @@ exports[`AppsTable should render component with apps 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname="mock-css."
-              style="font-size: 1.2rem;"
+              classname="el-intent-default el-icon-new"
             >
               <svg
-                style="font-size: 1.2rem;"
-              />
+                fill="none"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -323,7 +392,7 @@ exports[`AppsTable should render component with apps 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="App Name"
@@ -332,7 +401,7 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="AppId"
@@ -341,7 +410,7 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Summary"
@@ -350,7 +419,7 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Developer Name"
@@ -359,46 +428,81 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Listed"
               >
                 <mock-styled.span
-                  classname="mock-css."
+                  classname="el-intent-success el-icon-new"
                 >
-                  <svg />
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.321 1.321 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Integration"
               >
                 <mock-styled.span
-                  classname="mock-css."
+                  classname="el-intent-danger el-icon-new"
                 >
-                  <svg />
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l5.66-5.66Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Featured"
               >
                 <mock-styled.span
-                  classname="mock-css."
+                  classname="el-intent-danger el-icon-new"
                 >
-                  <svg />
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l5.66-5.66Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Created"
@@ -407,7 +511,7 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Publicly Listed"
@@ -416,15 +520,26 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-table-cell-has-dark-text"
             >
               <mock-styled.div
                 data-narrow-label="Public"
               >
                 <mock-styled.span
-                  classname="mock-css."
+                  classname="el-intent-danger el-icon-new"
                 >
-                  <svg />
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l5.66-5.66Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -432,9 +547,20 @@ exports[`AppsTable should render component with apps 1`] = `
               classname=""
             >
               <mock-styled.span
-                classname="mock-css."
+                classname="el-intent-default el-icon-new"
               >
-                <svg />
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -444,51 +570,51 @@ exports[`AppsTable should render component with apps 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.div
-                  classname="mock-css."
+                  classname="el-button-group-align-center"
                 >
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-neutral"
                   >
                     <mock-styled.div />
                     View in AppMarket
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-neutral"
                     disabled="true"
                   >
                     <mock-styled.div />
                     View in DevPortal
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-primary"
                     disabled="false"
                   >
                     <mock-styled.div />
                     Check AWS Only
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-primary"
                     disabled="true"
                   >
                     <mock-styled.div />
                     Toggle Subscription
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-primary"
                     disabled="true"
                   >
                     <mock-styled.div />
                     Togggle Featured
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-primary"
                     disabled="true"
                   >
                     <mock-styled.div />
                     Togggle API Consumption
                   </mock-styled.button>
                   <mock-styled.button
-                    classname="mock-css."
+                    classname="el-intent-danger"
                     disabled="true"
                     type="button"
                   >
@@ -564,41 +690,36 @@ exports[`AppsTable should render component with no apps 1`] = `
     <div>
       <mock-styled.div />
       <div
-        class="mock-css.
-  margin-bottom: 2.5rem;
-"
+        class="el-mb11"
       >
         <mock-styled.div
-          classname="mock-css. mock-css. mock-css. mock-css."
+          classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
         >
           <div
-            class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+            class="el-pn-icon"
             data-testid="close-icon"
           >
             <mock-styled.span
-              classname=""
+              classname="el-icon-new"
+              style="font-size: 1.25rem;"
             >
-              <svg />
+              <svg
+                fill="none"
+                height="1em"
+                style="font-size: 1.25rem;"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  fill="currentColor"
+                />
+              </svg>
             </mock-styled.span>
           </div>
           <div
-            class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+            class="el-pn-content"
           >
             No results found for your selected filters
           </div>
@@ -609,41 +730,36 @@ exports[`AppsTable should render component with no apps 1`] = `
   "container": <div>
     <mock-styled.div />
     <div
-      class="mock-css.
-  margin-bottom: 2.5rem;
-"
+      class="el-mb11"
     >
       <mock-styled.div
-        classname="mock-css. mock-css. mock-css. mock-css."
+        classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
       >
         <div
-          class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--color-white);
-  }
-"
+          class="el-pn-icon"
           data-testid="close-icon"
         >
           <mock-styled.span
-            classname=""
+            classname="el-icon-new"
+            style="font-size: 1.25rem;"
           >
-            <svg />
+            <svg
+              fill="none"
+              height="1em"
+              style="font-size: 1.25rem;"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </div>
         <div
-          class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--color-black);
-  font-size: var(--font-size-default);
-"
+          class="el-pn-content"
         >
           No results found for your selected filters
         </div>

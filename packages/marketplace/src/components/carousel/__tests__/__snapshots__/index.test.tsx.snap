@@ -8,29 +8,25 @@ exports[`Carousel should match a snapshot with options 1`] = `
       <mock-styled.div />
       <mock-styled.div>
         <mock-styled.mock-styled.a
-          classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+          classname="el-fade-in"
         >
           <mock-styled.span
-            classname="mock-css."
+            classname="el-intent-primary el-icon-new"
             style="font-size: 0.75em;"
           >
             <svg
+              fill="none"
+              height="1em"
               style="font-size: 0.75em;"
-            />
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                fill="currentColor"
+              />
+            </svg>
           </mock-styled.span>
         </mock-styled.mock-styled.a>
         <mock-styled.div
@@ -61,29 +57,25 @@ exports[`Carousel should match a snapshot with options 1`] = `
     <mock-styled.div />
     <mock-styled.div>
       <mock-styled.mock-styled.a
-        classname="mock-css.
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-  animation-name: fade-in;
-"
+        classname="el-fade-in"
       >
         <mock-styled.span
-          classname="mock-css."
+          classname="el-intent-primary el-icon-new"
           style="font-size: 0.75em;"
         >
           <svg
+            fill="none"
+            height="1em"
             style="font-size: 0.75em;"
-          />
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+              fill="currentColor"
+            />
+          </svg>
         </mock-styled.span>
       </mock-styled.mock-styled.a>
       <mock-styled.div

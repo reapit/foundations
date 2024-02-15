@@ -505,6 +505,12 @@ if (typeof window === 'object') {
     value: jest.fn(),
   })
 
+  Object.defineProperty(window, 'URL', {
+    value: {
+      createObjectURL: jest.fn(),
+    },
+  })
+
   // browserMock.js
   Object.defineProperty(document, 'currentScript', {
     value: (document.createElement('div').id = 'coordinate-0-0'),

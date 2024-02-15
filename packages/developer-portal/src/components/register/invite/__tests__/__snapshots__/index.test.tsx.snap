@@ -7,10 +7,10 @@ exports[`AcceptedModal should match snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css."
+        classname="el-is-active"
       />
       <mock-styled.div
-        classname="mock-css."
+        classname="el-is-active"
       >
         <mock-styled.div>
           Reapit Foundations Invitation
@@ -37,7 +37,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
           </mock-styled.p>
           <form>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-form-layout-has-margin"
             >
               <mock-styled.div>
                 <mock-styled.div>
@@ -70,10 +70,10 @@ exports[`AcceptedModal should match snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-button-group-align-right"
               >
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-danger"
                   disabled="false"
                   type="button"
                 >
@@ -81,7 +81,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                   Decline
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-primary"
                   disabled="false"
                   type="submit"
                 >
@@ -98,10 +98,10 @@ exports[`AcceptedModal should match snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css."
+      classname="el-is-active"
     />
     <mock-styled.div
-      classname="mock-css."
+      classname="el-is-active"
     >
       <mock-styled.div>
         Reapit Foundations Invitation
@@ -128,7 +128,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
         </mock-styled.p>
         <form>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-form-layout-has-margin"
           >
             <mock-styled.div>
               <mock-styled.div>
@@ -161,10 +161,10 @@ exports[`AcceptedModal should match snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-button-group-align-right"
             >
               <mock-styled.button
-                classname="mock-css."
+                classname="el-intent-danger"
                 disabled="false"
                 type="button"
               >
@@ -172,7 +172,7 @@ exports[`AcceptedModal should match snapshot 1`] = `
                 Decline
               </mock-styled.button>
               <mock-styled.button
-                classname="mock-css."
+                classname="el-intent-primary"
                 disabled="false"
                 type="submit"
               >
@@ -246,10 +246,10 @@ exports[`AcceptedModal should match snapshot when an invite is accepted or rejec
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="mock-css."
+        classname="el-is-active"
       />
       <mock-styled.div
-        classname="mock-css."
+        classname="el-is-active"
       >
         <mock-styled.div>
           Reapit Foundations Invitation
@@ -276,7 +276,7 @@ exports[`AcceptedModal should match snapshot when an invite is accepted or rejec
           </mock-styled.p>
           <form>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-form-layout-has-margin"
             >
               <mock-styled.div>
                 <mock-styled.div>
@@ -309,10 +309,10 @@ exports[`AcceptedModal should match snapshot when an invite is accepted or rejec
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.div
-                classname="mock-css."
+                classname="el-button-group-align-right"
               >
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-danger"
                   disabled="false"
                   type="button"
                 >
@@ -320,7 +320,7 @@ exports[`AcceptedModal should match snapshot when an invite is accepted or rejec
                   Decline
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css."
+                  classname="el-intent-primary"
                   disabled="false"
                   type="submit"
                 >
@@ -337,10 +337,10 @@ exports[`AcceptedModal should match snapshot when an invite is accepted or rejec
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="mock-css."
+      classname="el-is-active"
     />
     <mock-styled.div
-      classname="mock-css."
+      classname="el-is-active"
     >
       <mock-styled.div>
         Reapit Foundations Invitation
@@ -367,7 +367,7 @@ exports[`AcceptedModal should match snapshot when an invite is accepted or rejec
         </mock-styled.p>
         <form>
           <mock-styled.div
-            classname="mock-css."
+            classname="el-form-layout-has-margin"
           >
             <mock-styled.div>
               <mock-styled.div>
@@ -400,10 +400,10 @@ exports[`AcceptedModal should match snapshot when an invite is accepted or rejec
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.div
-              classname="mock-css."
+              classname="el-button-group-align-right"
             >
               <mock-styled.button
-                classname="mock-css."
+                classname="el-intent-danger"
                 disabled="false"
                 type="button"
               >
@@ -411,7 +411,7 @@ exports[`AcceptedModal should match snapshot when an invite is accepted or rejec
                 Decline
               </mock-styled.button>
               <mock-styled.button
-                classname="mock-css."
+                classname="el-intent-primary"
                 disabled="false"
                 type="submit"
               >

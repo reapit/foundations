@@ -79,7 +79,9 @@ export const SubscribeInnerContainer = styled.div`
 `
 
 export const subscribeContainerExpanded = css`
-  transition: height 0.3s linear, width 0.3s linear;
+  transition:
+    height 0.3s linear,
+    width 0.3s linear;
   height: 28.5rem;
   width: 19rem;
 
@@ -117,7 +119,9 @@ export const subscribeContainerExpanded = css`
 `
 
 export const subscribeContainerContracted = css`
-  transition: height 0.3s linear, width 0.3s linear;
+  transition:
+    height 0.3s linear,
+    width 0.3s linear;
   height: 13em;
   width: 15rem;
 `
@@ -205,7 +209,10 @@ export const subscribingContractedContainer = css`
 `
 
 export const SubscribeImageBars = styled.div`
-  transition: transform 0.3s linear, left 0.3s linear, bottom 0.3s linear;
+  transition:
+    transform 0.3s linear,
+    left 0.3s linear,
+    bottom 0.3s linear;
   position: absolute;
   z-index: 1;
 `
@@ -273,7 +280,10 @@ export const imgBarsSubscribing = css`
 `
 
 export const SubscribeImageDevices = styled.div`
-  transition: transform 0.3s linear, left 0.3s linear, bottom 0.3s linear;
+  transition:
+    transform 0.3s linear,
+    left 0.3s linear,
+    bottom 0.3s linear;
   position: absolute;
   z-index: 3;
 `

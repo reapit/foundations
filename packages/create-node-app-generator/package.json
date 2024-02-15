@@ -2,16 +2,16 @@
   "name": "@reapit/create-node-app-generator",
   "version": "1.0.0",
   "dependencies": {
-    "@nestjs/common": "^9.4.2",
-    "@nestjs/core": "^9.4.2",
-    "@nestjs/platform-express": "^9.4.2",
-    "yeoman-generator": "^5.8.0",
+    "@nestjs/common": "^9.4.3",
+    "@nestjs/core": "^9.4.3",
+    "@nestjs/platform-express": "^9.4.3",
+    "yeoman-generator": "^5.10.0",
     "yo": "^4.3.1",
     "yosay": "^2.0.2"
   },
   "devDependencies": {
     "concurrently": "^7.6.0",
-    "eslint": "^8.41.0"
+    "eslint": "^8.56.0"
   },
   "description": "An opinionated gnerator for scaffolding TypeScript Node apps",
   "keywords": [

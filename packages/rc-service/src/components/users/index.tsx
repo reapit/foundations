@@ -29,9 +29,12 @@ export interface UserFilters {
   email?: string
   name?: string
   organisationName?: string
+  agencyCloudId?: string
   active?: string
   groupId?: string
   mfaEnabled?: string
+  firstLoginDateFrom?: string
+  firstLoginDateTo?: string
 }
 
 export const handleSetAdminFilters =
@@ -76,7 +79,7 @@ export const UsersPage: FC = () => {
             <InputGroup
               {...register('organisationName')}
               type="search"
-              icon="searchSystem"
+              icon="search"
               placeholder="Search by organisation name"
               label="Org Name"
             />
@@ -85,7 +88,7 @@ export const UsersPage: FC = () => {
             <InputGroup
               {...register('email')}
               type="search"
-              icon="searchSystem"
+              icon="search"
               placeholder="Search by email"
               label="User Email"
             />
@@ -94,7 +97,7 @@ export const UsersPage: FC = () => {
             <InputGroup
               {...register('name')}
               type="search"
-              icon="searchSystem"
+              icon="search"
               placeholder="Search by user name"
               label="User Name"
             />
@@ -113,6 +116,15 @@ export const UsersPage: FC = () => {
               </Select>
               <Label htmlFor="myId">Select User Group</Label>
             </InputGroup>
+          </InputWrap>
+          <InputWrap>
+            <InputGroup
+              {...register('agencyCloudId')}
+              type="search"
+              icon="search"
+              placeholder="Search by Negotiator ID"
+              label="Negotiator ID"
+            />
           </InputWrap>
           <InputWrap>
             <Label>User Active</Label>
@@ -168,6 +180,24 @@ export const UsersPage: FC = () => {
               ]}
             />
           </InputWrap>
+          <InputWrap>
+            <InputGroup
+              {...register('firstLoginDateFrom')}
+              type="date"
+              icon="calendar"
+              placeholder="First Login Date From"
+              label="First Login Date From"
+            />
+          </InputWrap>
+          <InputWrap>
+            <InputGroup
+              {...register('firstLoginDateTo')}
+              type="date"
+              icon="calendar"
+              placeholder="First Login Date To"
+              label="First Login Date To"
+            />
+          </InputWrap>
         </FormLayout>
       </form>
       {usersLoading ? (
@@ -187,13 +217,14 @@ export const UsersPage: FC = () => {
                 organisationName,
                 organisationId,
                 agencyCloudNegotiatorId,
+                firstLoginDate,
               } = user
               return {
                 cells: [
                   {
                     label: 'Name',
                     value: name ?? '-',
-                    icon: 'usernameSystem',
+                    icon: 'contact',
                     narrowTable: {
                       showLabel: true,
                     },
@@ -201,7 +232,7 @@ export const UsersPage: FC = () => {
                   {
                     label: 'Email',
                     value: email ?? '-',
-                    icon: 'emailSystem',
+                    icon: 'email',
                     narrowTable: {
                       showLabel: true,
                     },
@@ -209,10 +240,14 @@ export const UsersPage: FC = () => {
                   {
                     label: 'Date Created',
                     value: created ? dayjs(created).format('DD-MM-YYYY') : '-',
-                    icon: 'calendarSystem',
+                    icon: 'calendar',
                     narrowTable: {
                       showLabel: true,
                     },
+                  },
+                  {
+                    label: 'First Login Date',
+                    value: firstLoginDate ? dayjs(firstLoginDate).format('DD-MM-YYYY') : '-',
                   },
                   {
                     label: 'Job Title',
@@ -244,9 +279,7 @@ export const UsersPage: FC = () => {
                   },
                   {
                     label: 'Active',
-                    value: (
-                      <Icon icon={inactive ? 'closeSystem' : 'checkSystem'} intent={inactive ? 'danger' : 'success'} />
-                    ),
+                    value: <Icon icon={inactive ? 'close' : 'check'} intent={inactive ? 'danger' : 'success'} />,
                     narrowTable: {
                       showLabel: true,
                     },

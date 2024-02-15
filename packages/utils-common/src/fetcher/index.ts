@@ -23,7 +23,10 @@ export class FetchError extends Error {
   public name: string
   public status: number
 
-  constructor(public message: string, public response?: Response) {
+  constructor(
+    public message: string,
+    public response?: Response,
+  ) {
     super(message)
 
     Object.setPrototypeOf(this, new.target.prototype) // restore prototype chain

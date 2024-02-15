@@ -8,9 +8,7 @@ exports[`FilterForm should render component 1`] = `
       <mock-styled.div />
       <form>
         <mock-styled.div
-          classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+          classname="el-mb11"
         >
           <mock-styled.div>
             <mock-styled.div>
@@ -36,9 +34,7 @@ exports[`FilterForm should render component 1`] = `
     <mock-styled.div />
     <form>
       <mock-styled.div
-        classname="mock-css.
-  margin-bottom: 2.5rem;
-"
+        classname="el-mb11"
       >
         <mock-styled.div>
           <mock-styled.div>

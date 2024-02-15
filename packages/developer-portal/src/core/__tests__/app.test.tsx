@@ -1,26 +1,17 @@
 import React from 'react'
-import App from '../app'
-import { render, unmountComponentAtNode } from 'react-dom'
 import { render as testRender } from '../../tests/react-testing'
+
+import App from '../app'
+import { createRoot } from 'react-dom/client'
 
 jest.mock('../router')
 
 describe('App', () => {
-  beforeAll(() => {
-    // @ts-ignore
-    delete global.window.location
-    // @ts-ignore
-    global.window ??= Object.create(window)
-    // @ts-ignore
-    global.window.location = {
-      reload: jest.fn(),
-    }
-  })
-
   it('should render without crashing', () => {
     const div = document.createElement('div')
-    render(<App />, div)
-    unmountComponentAtNode(div)
+    const root = createRoot(div)
+    root.render(<App />)
+    root.unmount()
   })
 
   it('should match a snapshot', () => {
