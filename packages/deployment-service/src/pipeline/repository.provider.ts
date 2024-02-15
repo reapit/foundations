@@ -10,11 +10,11 @@ export class RepositoryProvider {
     private readonly repository: Repository<RepositoryEntity>,
   ) {}
 
-  async findOrCreate(repository: Partial<RepositoryEntity>): Promise<RepositoryEntity> {
+  async findOrCreate(repository: Partial<RepositoryEntity>, developerId: string): Promise<RepositoryEntity> {
     const existing = await this.repository.findOne({
       where: {
+        developerId,
         repositoryUrl: repository.repositoryUrl,
-        // organisationId: repository.id, // TODO probably better to use developerId
       },
     })
 
@@ -23,6 +23,7 @@ export class RepositoryProvider {
     return this.repository.save(
       this.repository.create({
         repositoryUrl: repository.repositoryUrl,
+        developerId,
       }),
     )
   }
