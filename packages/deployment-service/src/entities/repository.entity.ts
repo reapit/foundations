@@ -5,7 +5,6 @@ import { GithubRepositoryInterface } from '@reapit/foundations-ts-definitions'
 import { Exclude } from 'class-transformer'
 
 @Entity('repositories')
-// @Unique('repositoryUrl-organisationId', ['organiationId', 'repositoryUrl']) // TODO likely to be developerId instead
 export class RepositoryEntity extends AbstractEntity implements GithubRepositoryInterface {
   @OneToMany(() => PipelineEntity, (pipeline) => pipeline.repository)
   pipelines?: PipelineEntity[]
@@ -20,8 +19,8 @@ export class RepositoryEntity extends AbstractEntity implements GithubRepository
   @Exclude()
   repositoryId?: number
 
-  // @Column()
-  // organisationId: string // TODO likely to be changed to developerId
+  @Column()
+  developerId: string
 
   get isGithub(): boolean {
     return this.repositoryUrl !== undefined && this.repositoryUrl.includes('github')
