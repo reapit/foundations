@@ -14698,6 +14698,10 @@ export interface PropertyModel {
    */
   lostInstructionNote?: string
   /**
+   * The type of development
+   */
+  developmentSiteType?: string
+  /**
    * App specific metadata that has been set against the property
    */
   metadata?: {
@@ -15673,6 +15677,10 @@ export interface PropertyModelPagedResult {
      * The notes regarding the lost instruction
      */
     lostInstructionNote?: string
+    /**
+     * The type of development
+     */
+    developmentSiteType?: string
     /**
      * App specific metadata that has been set against the property
      */
