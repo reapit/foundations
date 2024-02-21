@@ -14698,6 +14698,10 @@ export interface PropertyModel {
    */
   lostInstructionNote?: string
   /**
+   * The type of development
+   */
+  developmentSiteType?: string
+  /**
    * App specific metadata that has been set against the property
    */
   metadata?: {
@@ -15674,6 +15678,10 @@ export interface PropertyModelPagedResult {
      */
     lostInstructionNote?: string
     /**
+     * The type of development
+     */
+    developmentSiteType?: string
+    /**
      * App specific metadata that has been set against the property
      */
     metadata?: {
@@ -16345,6 +16353,22 @@ export interface ReferralsTypes {
   pageSize?: number
   pageNumber?: number
   sortBy?: string
+}
+/**
+ * Request body used to reindex property images
+ * example:
+ * [object Object]
+ */
+export interface ReindexPropertyImagesModel {
+  /**
+   * The unique identifier of the property to update
+   */
+  propertyId?: string
+  /**
+   * Ordered collection of image identifiers for the property.
+   * The first image in the collection will be set as the properties primary image.
+   */
+  imageOrder?: string[]
 }
 /**
  * Representation of renewal options in a tenancy
