@@ -237,6 +237,10 @@ export interface AppDetailModel {
    * Gets the fixed api consumption cost for the app
    */
   fixedApiConsumptionCost?: number // double
+  /**
+   * A flag to determine if an internal install notification should be sent
+   */
+  sendInternalInstallNotification?: boolean
 }
 /**
  * Model to expose app restriction info
@@ -603,6 +607,10 @@ export interface AppSummaryModel {
    * A flag to determine if the app is internal (For reapit staff only)
    */
   isInternalApp?: boolean
+  /**
+   * A flag to determine if an internal install notification should be sent
+   */
+  sendInternalInstallNotification?: boolean
 }
 /**
  * Model to handle paged data and information
@@ -2115,6 +2123,10 @@ export interface UpdateAppModel {
    * A flag to determine if the app is internal (For reapit staff only)
    */
   isInternalApp?: boolean
+  /**
+   * A flag to determine if an internal install notification should be sent
+   */
+  sendInternalInstallNotification?: boolean
 }
 /**
  * The model responsible for updating a customer
