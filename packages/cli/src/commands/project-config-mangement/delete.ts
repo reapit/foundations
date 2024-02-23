@@ -29,11 +29,11 @@ export class ProjectConfigManagementDeleteCommand extends AbstractCommand {
       default: 'local',
     })
     env: string,
-    @Optional({
-      name: 'profile',
-      description: 'The profile to upload the config to (aws config profile)',
-    })
-    profile?: string,
+    // @Optional({
+    //   name: 'profile',
+    //   description: 'The profile to upload the config to (aws config profile)',
+    // })
+    // profile?: string,
   ) {
     const client = new SSMClient() // TODO add credentials for given profile
 

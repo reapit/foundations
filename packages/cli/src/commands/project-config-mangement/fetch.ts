@@ -45,11 +45,11 @@ export class ProjectConfigManagementFetchCommand extends AbstractCommand {
       default: 'config.json',
     })
     fileName: string = 'config.json',
-    @Optional({
-      name: 'profile',
-      description: 'The profile to upload the config to (aws config profile)',
-    })
-    profile?: string,
+    // @Optional({
+    //   name: 'profile',
+    //   description: 'The profile to upload the config to (aws config profile)',
+    // })
+    // profile?: string,
   ) {
     const client = new SSMClient() // TODO add credentials for given profile
 
