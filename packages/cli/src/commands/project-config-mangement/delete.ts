@@ -1,5 +1,5 @@
 import { AbstractCommand } from '../../abstract.command'
-import { Command, Optional, Param } from '../../decorators'
+import { Command, Param } from '../../decorators'
 import { DeleteParameterCommand, SSMClient } from '@aws-sdk/client-ssm'
 import { injectable } from 'tsyringe'
 import { resolveParamName } from './utils'
