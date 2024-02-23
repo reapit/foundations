@@ -6787,6 +6787,44 @@ export interface CreatePropertyAddressModel {
   }
 }
 /**
+ * Model for the creation of a new property appraisal
+ * example:
+ * [object Object]
+ */
+export interface CreatePropertyAppraisalModel {
+  /**
+   * Unique identifier of the appraising company
+   */
+  companyId?: string
+  /**
+   * The date of the appraisal
+   * example:
+   * 2019-08-14
+   */
+  date?: string // date
+  /**
+   * The appraisal value
+   */
+  price?: number // int32
+  /**
+   * Representation of the the commission fee for a property
+   */
+  fee?: {
+    /**
+     * The commission letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The commission letting fee amount
+     */
+    amount?: number // double
+  }
+  /**
+   * Free-text notes associated with the appraisal
+   */
+  notes?: string
+}
+/**
  * Request body used to create a new check
  * example:
  * [object Object]
@@ -12942,6 +12980,103 @@ export interface PropertyAddressModel {
   }
 }
 /**
+ * Representation of a property appraisal
+ */
+export interface PropertyAppraisalModel {
+  /**
+   * Unique identifier of the appraisal
+   */
+  id?: string
+  /**
+   * Unique identifier of the appraising company
+   */
+  companyId?: string
+  /**
+   * Flag indicating whether the appraisal is internal or external
+   */
+  isExternal?: boolean
+  /**
+   * The date of the appraisal
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  date?: string // date-time
+  /**
+   * The appraisal value
+   */
+  price?: number // int32
+  /**
+   * Representation of the the commission fee for a property
+   */
+  fee?: {
+    /**
+     * The commission letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The commission letting fee amount
+     */
+    amount?: number // double
+  }
+  /**
+   * Free-text notes associated with the appraisal
+   */
+  notes?: string
+}
+export interface PropertyAppraisalModelPagedResult {
+  _embedded?: {
+    /**
+     * Unique identifier of the appraisal
+     */
+    id?: string
+    /**
+     * Unique identifier of the appraising company
+     */
+    companyId?: string
+    /**
+     * Flag indicating whether the appraisal is internal or external
+     */
+    isExternal?: boolean
+    /**
+     * The date of the appraisal
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    date?: string // date-time
+    /**
+     * The appraisal value
+     */
+    price?: number // int32
+    /**
+     * Representation of the the commission fee for a property
+     */
+    fee?: {
+      /**
+       * The commission letting fee type (percentage/fixed)
+       */
+      type?: string
+      /**
+       * The commission letting fee amount
+       */
+      amount?: number // double
+    }
+    /**
+     * Free-text notes associated with the appraisal
+     */
+    notes?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+/**
  * Representation of certificate responsibilities configured for a property
  */
 export interface PropertyCertificateResponsibilitiesModel {
@@ -14698,6 +14833,10 @@ export interface PropertyModel {
    */
   lostInstructionNote?: string
   /**
+   * The type of development
+   */
+  developmentSiteType?: string
+  /**
    * App specific metadata that has been set against the property
    */
   metadata?: {
@@ -15674,6 +15813,10 @@ export interface PropertyModelPagedResult {
      */
     lostInstructionNote?: string
     /**
+     * The type of development
+     */
+    developmentSiteType?: string
+    /**
      * App specific metadata that has been set against the property
      */
     metadata?: {
@@ -16345,6 +16488,22 @@ export interface ReferralsTypes {
   pageSize?: number
   pageNumber?: number
   sortBy?: string
+}
+/**
+ * Request body used to reindex property images
+ * example:
+ * [object Object]
+ */
+export interface ReindexPropertyImagesModel {
+  /**
+   * The unique identifier of the property to update
+   */
+  propertyId?: string
+  /**
+   * Ordered collection of image identifiers for the property.
+   * The first image in the collection will be set as the properties primary image.
+   */
+  imageOrder?: string[]
 }
 /**
  * Representation of renewal options in a tenancy
@@ -21842,6 +22001,44 @@ export interface UpdatePropertyAddressModel {
      */
     longitude?: number // double
   }
+}
+/**
+ * Model for the creation of a new property appraisal
+ * example:
+ * [object Object]
+ */
+export interface UpdatePropertyAppraisalModel {
+  /**
+   * Unique identifier of the appraising company
+   */
+  companyId?: string
+  /**
+   * The date of the appraisal
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  date?: string // date-time
+  /**
+   * The appraisal value
+   */
+  price?: number // int32
+  /**
+   * Representation of the the commission fee for a property
+   */
+  fee?: {
+    /**
+     * The commission letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The commission letting fee amount
+     */
+    amount?: number // double
+  }
+  /**
+   * Free-text notes associated with the appraisal
+   */
+  notes?: string
 }
 /**
  * Model for the update of an existing check
