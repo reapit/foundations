@@ -12325,6 +12325,10 @@ export interface OfficeModel {
    */
   active?: boolean
   /**
+   * The region that the office is in
+   */
+  region?: string
+  /**
    * Representation of the physical address of a building or premise
    */
   address?: {
@@ -12451,6 +12455,10 @@ export interface OfficeModelPagedResult {
      */
     active?: boolean
     /**
+     * The region that the office is in
+     */
+    region?: string
+    /**
      * Representation of the physical address of a building or premise
      */
     address?: {
@@ -12557,6 +12565,7 @@ export interface Offices {
   id?: string[]
   address?: string
   name?: string
+  region?: string
   active?: boolean
   createdFrom?: string
   createdTo?: string
