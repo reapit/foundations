@@ -1717,7 +1717,7 @@ export interface AppointmentModel {
      */
     type?: string
     /**
-     * The date the appointment recurs until
+     * The date and time of the last occurrence of the appointment
      * example:
      * 2019-08-14T12:30:02Z
      */
@@ -1924,7 +1924,7 @@ export interface AppointmentModelPagedResult {
        */
       type?: string
       /**
-       * The date the appointment recurs until
+       * The date and time of the last occurrence of the appointment
        * example:
        * 2019-08-14T12:30:02Z
        */
@@ -5189,7 +5189,7 @@ export interface CreateAppointmentModel {
      */
     type?: string
     /**
-     * The date and time when the recurrence will stop. (Required if 'type' is provided)
+     * The date and time of the last occurrence of the appointment. (Required if 'type' is provided)
      * example:
      * 2019-08-14T12:30:02Z
      */
@@ -5215,7 +5215,7 @@ export interface CreateAppointmentRecurrenceModel {
    */
   type?: string
   /**
-   * The date and time when the recurrence will stop. (Required if 'type' is provided)
+   * The date and time of the last occurrence of the appointment. (Required if 'type' is provided)
    * example:
    * 2019-08-14T12:30:02Z
    */
@@ -12325,6 +12325,10 @@ export interface OfficeModel {
    */
   active?: boolean
   /**
+   * The region that the office is in
+   */
+  region?: string
+  /**
    * Representation of the physical address of a building or premise
    */
   address?: {
@@ -12451,6 +12455,10 @@ export interface OfficeModelPagedResult {
      */
     active?: boolean
     /**
+     * The region that the office is in
+     */
+    region?: string
+    /**
      * Representation of the physical address of a building or premise
      */
     address?: {
@@ -12557,6 +12565,7 @@ export interface Offices {
   id?: string[]
   address?: string
   name?: string
+  region?: string
   active?: boolean
   createdFrom?: string
   createdTo?: string
@@ -12988,6 +12997,18 @@ export interface PropertyAppraisalModel {
    */
   id?: string
   /**
+   * The date and time on which the property appraisal was created
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time on which the property appraisal was last modified
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  modified?: string // date-time
+  /**
    * Unique identifier of the appraising company
    */
   companyId?: string
@@ -12998,9 +13019,9 @@ export interface PropertyAppraisalModel {
   /**
    * The date of the appraisal
    * example:
-   * 2019-08-14T12:30:02Z
+   * 2019-08-14
    */
-  date?: string // date-time
+  date?: string // date
   /**
    * The appraisal value
    */
@@ -13022,6 +13043,7 @@ export interface PropertyAppraisalModel {
    * Free-text notes associated with the appraisal
    */
   notes?: string
+  readonly _eTag?: string
 }
 export interface PropertyAppraisalModelPagedResult {
   _embedded?: {
@@ -13029,6 +13051,18 @@ export interface PropertyAppraisalModelPagedResult {
      * Unique identifier of the appraisal
      */
     id?: string
+    /**
+     * The date and time on which the property appraisal was created
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time on which the property appraisal was last modified
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    modified?: string // date-time
     /**
      * Unique identifier of the appraising company
      */
@@ -13040,9 +13074,9 @@ export interface PropertyAppraisalModelPagedResult {
     /**
      * The date of the appraisal
      * example:
-     * 2019-08-14T12:30:02Z
+     * 2019-08-14
      */
-    date?: string // date-time
+    date?: string // date
     /**
      * The appraisal value
      */
@@ -13064,6 +13098,7 @@ export interface PropertyAppraisalModelPagedResult {
      * Free-text notes associated with the appraisal
      */
     notes?: string
+    readonly _eTag?: string
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
@@ -16145,7 +16180,7 @@ export interface RecurrenceModel {
    */
   type?: string
   /**
-   * The date the appointment recurs until
+   * The date and time of the last occurrence of the appointment
    * example:
    * 2019-08-14T12:30:02Z
    */
@@ -20651,7 +20686,7 @@ export interface UpdateAppointmentModel {
      */
     interval?: number // int32
     /**
-     * The date and time when the recurrence will stop
+     * The date and time of the last occurrence of the appointment
      * example:
      * 2019-08-14T12:30:02Z
      */
@@ -20677,7 +20712,7 @@ export interface UpdateAppointmentRecurrenceModel {
    */
   interval?: number // int32
   /**
-   * The date and time when the recurrence will stop
+   * The date and time of the last occurrence of the appointment
    * example:
    * 2019-08-14T12:30:02Z
    */
