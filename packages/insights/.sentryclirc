@@ -1,6 +1,0 @@
-[defaults]
-project=insights
-org=reapit-ltd
-
-[http]
-keepalive=false
