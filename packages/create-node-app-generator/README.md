@@ -1,1 +1,0 @@
-# create-node-app-generator
