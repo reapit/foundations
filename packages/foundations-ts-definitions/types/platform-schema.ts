@@ -6451,6 +6451,14 @@ export interface CreateNegotiatorModel {
    */
   email?: string
   /**
+   * The identifiers of other negotiators whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+   */
+  diaryNegotiatorIds?: string[]
+  /**
+   * The identifiers of other offices whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+   */
+  diaryOfficeIds?: string[]
+  /**
    * App specific metadata to set against the negotiator
    */
   metadata?: {
@@ -11458,6 +11466,14 @@ export interface NegotiatorModel {
    */
   active?: boolean
   /**
+   * The identifiers of other negotiators whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+   */
+  diaryNegotiatorIds?: string[]
+  /**
+   * The identifiers of other offices whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+   */
+  diaryOfficeIds?: string[]
+  /**
    * A collection of additional contact details
    */
   additionalContactDetails?: {
@@ -11539,6 +11555,14 @@ export interface NegotiatorModelPagedResult {
      * A flag determining whether or not the negotiator is active
      */
     active?: boolean
+    /**
+     * The identifiers of other negotiators whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+     */
+    diaryNegotiatorIds?: string[]
+    /**
+     * The identifiers of other offices whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+     */
+    diaryOfficeIds?: string[]
     /**
      * A collection of additional contact details
      */
@@ -19516,6 +19540,10 @@ export interface TransactionModel {
    */
   type?: string
   /**
+   * The type of transaction (credit/debit)
+   */
+  transactionType?: string
+  /**
    * The transaction description
    */
   description?: string
@@ -19598,6 +19626,10 @@ export interface TransactionModelPagedResult {
      * The transaction type (bankersDraft,bankTransfer,cash,cheque,creditCard,debitCard,directDebit,housingBenefit,paymentRequest,standingOrder)
      */
     type?: string
+    /**
+     * The type of transaction (credit/debit)
+     */
+    transactionType?: string
     /**
      * The transaction description
      */
@@ -21776,6 +21808,14 @@ export interface UpdateNegotiatorModel {
    * The email address of the negotiator
    */
   email?: string
+  /**
+   * The identifiers of other negotiators whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+   */
+  diaryNegotiatorIds?: string[]
+  /**
+   * The identifiers of other offices whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+   */
+  diaryOfficeIds?: string[]
   /**
    * App specific metadata to set against the negotiator
    */
