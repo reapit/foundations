@@ -2691,6 +2691,22 @@ export interface CompanyModel {
    */
   negotiatorIds?: string[]
   /**
+   * A flag determining whether or not the company is happy to receive communications by letter
+   */
+  communicationPreferenceLetter?: boolean
+  /**
+   * A flag determining whether or not the company is happy to receive communications by email
+   */
+  communicationPreferenceEmail?: boolean
+  /**
+   * A flag determining whether or not the company is happy to receive communications by phone
+   */
+  communicationPreferencePhone?: boolean
+  /**
+   * A flag determining whether or not the company is happy to receive communications by SMS
+   */
+  communicationPreferenceSms?: boolean
+  /**
    * App specific metadata that has been set against the company
    */
   metadata?: {
@@ -2893,6 +2909,22 @@ export interface CompanyModelPagedResult {
      * A collection of unique identifiers of negotiators attached to the company. The first item in the collection is considered the primary negotiator
      */
     negotiatorIds?: string[]
+    /**
+     * A flag determining whether or not the company is happy to receive communications by letter
+     */
+    communicationPreferenceLetter?: boolean
+    /**
+     * A flag determining whether or not the company is happy to receive communications by email
+     */
+    communicationPreferenceEmail?: boolean
+    /**
+     * A flag determining whether or not the company is happy to receive communications by phone
+     */
+    communicationPreferencePhone?: boolean
+    /**
+     * A flag determining whether or not the company is happy to receive communications by SMS
+     */
+    communicationPreferenceSms?: boolean
     /**
      * App specific metadata that has been set against the company
      */
@@ -5462,6 +5494,22 @@ export interface CreateCompanyModel {
     countryId?: string
   }
   /**
+   * A flag determining whether or not the company is happy to receive communications by letter
+   */
+  communicationPreferenceLetter?: boolean
+  /**
+   * A flag determining whether or not the company is happy to receive communications by email
+   */
+  communicationPreferenceEmail?: boolean
+  /**
+   * A flag determining whether or not the company is happy to receive communications by phone
+   */
+  communicationPreferencePhone?: boolean
+  /**
+   * A flag determining whether or not the company is happy to receive communications by SMS
+   */
+  communicationPreferenceSms?: boolean
+  /**
    * App specific metadata to set against the company
    */
   metadata?: {
@@ -6450,6 +6498,14 @@ export interface CreateNegotiatorModel {
    * The email address of the negotiator
    */
   email?: string
+  /**
+   * The identifiers of other negotiators whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+   */
+  diaryNegotiatorIds?: string[]
+  /**
+   * The identifiers of other offices whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+   */
+  diaryOfficeIds?: string[]
   /**
    * App specific metadata to set against the negotiator
    */
@@ -11458,6 +11514,14 @@ export interface NegotiatorModel {
    */
   active?: boolean
   /**
+   * The identifiers of other negotiators whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+   */
+  diaryNegotiatorIds?: string[]
+  /**
+   * The identifiers of other offices whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+   */
+  diaryOfficeIds?: string[]
+  /**
    * A collection of additional contact details
    */
   additionalContactDetails?: {
@@ -11539,6 +11603,14 @@ export interface NegotiatorModelPagedResult {
      * A flag determining whether or not the negotiator is active
      */
     active?: boolean
+    /**
+     * The identifiers of other negotiators whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+     */
+    diaryNegotiatorIds?: string[]
+    /**
+     * The identifiers of other offices whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+     */
+    diaryOfficeIds?: string[]
     /**
      * A collection of additional contact details
      */
@@ -19516,6 +19588,10 @@ export interface TransactionModel {
    */
   type?: string
   /**
+   * The type of transaction (credit/debit)
+   */
+  transactionType?: string
+  /**
    * The transaction description
    */
   description?: string
@@ -19598,6 +19674,10 @@ export interface TransactionModelPagedResult {
      * The transaction type (bankersDraft,bankTransfer,cash,cheque,creditCard,debitCard,directDebit,housingBenefit,paymentRequest,standingOrder)
      */
     type?: string
+    /**
+     * The type of transaction (credit/debit)
+     */
+    transactionType?: string
     /**
      * The transaction description
      */
@@ -20938,6 +21018,22 @@ export interface UpdateCompanyModel {
     countryId?: string
   }
   /**
+   * A flag determining whether or not the company is happy to receive communications by letter
+   */
+  communicationPreferenceLetter?: boolean
+  /**
+   * A flag determining whether or not the company is happy to receive communications by email
+   */
+  communicationPreferenceEmail?: boolean
+  /**
+   * A flag determining whether or not the company is happy to receive communications by phone
+   */
+  communicationPreferencePhone?: boolean
+  /**
+   * A flag determining whether or not the company is happy to receive communications by SMS
+   */
+  communicationPreferenceSms?: boolean
+  /**
    * App specific metadata to set against the company
    */
   metadata?: {
@@ -21776,6 +21872,14 @@ export interface UpdateNegotiatorModel {
    * The email address of the negotiator
    */
   email?: string
+  /**
+   * The identifiers of other negotiators whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+   */
+  diaryNegotiatorIds?: string[]
+  /**
+   * The identifiers of other offices whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+   */
+  diaryOfficeIds?: string[]
   /**
    * App specific metadata to set against the negotiator
    */
