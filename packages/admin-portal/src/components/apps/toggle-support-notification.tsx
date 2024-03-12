@@ -3,6 +3,12 @@ import { UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-r
 import React, { FC, useEffect } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 
+export const handleSetSupportNotification = (setSupportNotification: (data: any) => void) => () => {
+  setSupportNotification({
+    sendInternalInstallNotification: true,
+  })
+}
+
 export const ToggleSupportNotification: FC<{ appId: string; hasReadAccess: boolean }> = ({ appId, hasReadAccess }) => {
   const { Modal, openModal, closeModal } = useModal()
 
@@ -38,11 +44,7 @@ export const ToggleSupportNotification: FC<{ appId: string; hasReadAccess: boole
             intent="primary"
             disabled={loading}
             loading={loading}
-            onClick={() =>
-              setSupportNotification({
-                sendInternalInstallNotification: true,
-              })
-            }
+            onClick={handleSetSupportNotification(setSupportNotification)}
           >
             Confirm
           </Button>
