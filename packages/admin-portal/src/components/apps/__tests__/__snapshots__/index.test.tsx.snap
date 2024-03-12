@@ -636,12 +636,6 @@ exports[`AppsPage should render a component when has data 1`] = `
                         classname="el-intent-primary"
                       >
                         <mock-styled.div />
-                        Toggle Support Notification
-                      </mock-styled.button>
-                      <mock-styled.button
-                        classname="el-intent-primary"
-                      >
-                        <mock-styled.div />
                         Togggle Featured
                       </mock-styled.button>
                       <mock-styled.button
@@ -1382,12 +1376,6 @@ exports[`AppsPage should render a component when has data 1`] = `
                     >
                       <mock-styled.div />
                       Toggle Subscription
-                    </mock-styled.button>
-                    <mock-styled.button
-                      classname="el-intent-primary"
-                    >
-                      <mock-styled.div />
-                      Toggle Support Notification
                     </mock-styled.button>
                     <mock-styled.button
                       classname="el-intent-primary"
