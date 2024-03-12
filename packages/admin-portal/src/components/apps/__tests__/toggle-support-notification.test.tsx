@@ -9,7 +9,9 @@ jest.mock('@reapit/use-reapit-data', () => ({
 
 describe('ToggleSupportNotification', () => {
   it('should match a snapshot', () => {
-    expect(render(<ToggleSupportNotification appId="MOCK_ID" hasReadAccess={true} />)).toMatchSnapshot()
+    expect(
+      render(<ToggleSupportNotification appId="MOCK_ID" sendInternalInstallNotification={true} />),
+    ).toMatchSnapshot()
   })
 
   it('handleSetSupportNotification', () => {
@@ -17,7 +19,7 @@ describe('ToggleSupportNotification', () => {
 
     const curried = handleSetSupportNotification(setNotificationFunction)
 
-    curried()
+    curried({ target: { value: 'enable' } })
 
     expect(setNotificationFunction).toHaveBeenCalledTimes(1)
   })

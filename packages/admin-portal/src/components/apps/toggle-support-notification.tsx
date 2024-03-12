@@ -1,18 +1,19 @@
-import { BodyText, Button, ButtonGroup, useModal } from '@reapit/elements'
+import { Label, ToggleRadio } from '@reapit/elements'
 import { UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
-import React, { FC, useEffect } from 'react'
+import React, { FC } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 
-export const handleSetSupportNotification = (setSupportNotification: (data: any) => void) => () => {
+export const handleSetSupportNotification = (setSupportNotification: (data: any) => void) => (value) => {
   setSupportNotification({
-    sendInternalInstallNotification: true,
+    sendInternalInstallNotification: value.target.value === 'enable',
   })
 }
 
-export const ToggleSupportNotification: FC<{ appId: string; hasReadAccess: boolean }> = ({ appId, hasReadAccess }) => {
-  const { Modal, openModal, closeModal } = useModal()
-
-  const [loading, , setSupportNotification, done] = useReapitUpdate({
+export const ToggleSupportNotification: FC<{ appId: string; sendInternalInstallNotification: boolean }> = ({
+  appId,
+  sendInternalInstallNotification,
+}) => {
+  const [loading, , setSupportNotification] = useReapitUpdate({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.updateApp],
     method: 'PUT',
@@ -24,32 +25,28 @@ export const ToggleSupportNotification: FC<{ appId: string; hasReadAccess: boole
     },
   })
 
-  useEffect(() => {
-    if (done) closeModal()
-  }, [done])
-
   return (
     <>
-      <Button onClick={openModal} intent="primary" disabled={hasReadAccess}>
-        Toggle Support Notification
-      </Button>
-
-      <Modal title={'Toggle Support Notifications'}>
-        <BodyText>This will enable the support notifications</BodyText>
-        <ButtonGroup alignment="center">
-          <Button intent="secondary" onClick={closeModal}>
-            Cancel
-          </Button>
-          <Button
-            intent="primary"
-            disabled={loading}
-            loading={loading}
-            onClick={handleSetSupportNotification(setSupportNotification)}
-          >
-            Confirm
-          </Button>
-        </ButtonGroup>
-      </Modal>
+      <Label>Support Notification</Label>
+      <ToggleRadio
+        name={`support-notification-${appId}`}
+        options={[
+          {
+            id: 'enable-support-notification' + appId,
+            isChecked: sendInternalInstallNotification,
+            text: 'Enabled',
+            value: 'enable',
+          },
+          {
+            id: 'disable-support-notification' + appId,
+            isChecked: !sendInternalInstallNotification,
+            text: 'Disabled',
+            value: 'disable',
+          },
+        ]}
+        disabled={loading}
+        onChange={handleSetSupportNotification(setSupportNotification)}
+      />
     </>
   )
 }
