@@ -20,6 +20,7 @@ import { CreateSubscriptions } from '../subscriptions/create-subscriptions'
 import { usePermissionsState } from '../../core/use-permissions-state'
 import { ToggleFeatured } from './toggle-featured'
 import { ToggleConsumption } from './toggle-consumption'
+import { ToggleSupportNotification } from './toggle-support-notification'
 
 export interface AppsTableProps {
   apps: AppSummaryModelPagedResult | null
@@ -249,6 +250,7 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
                     >
                       Toggle Subscription
                     </Button>
+                    <ToggleSupportNotification appId={id as string} hasReadAccess={hasReadAccess} />
                     <Button
                       intent="primary"
                       disabled={hasReadAccess}

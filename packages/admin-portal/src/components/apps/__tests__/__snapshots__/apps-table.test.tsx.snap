@@ -291,6 +291,13 @@ exports[`AppsTable should render component with apps 1`] = `
                       disabled="true"
                     >
                       <mock-styled.div />
+                      Toggle Support Notification
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="el-intent-primary"
+                      disabled="true"
+                    >
+                      <mock-styled.div />
                       Togggle Featured
                     </mock-styled.button>
                     <mock-styled.button
@@ -598,6 +605,13 @@ exports[`AppsTable should render component with apps 1`] = `
                   >
                     <mock-styled.div />
                     Toggle Subscription
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="el-intent-primary"
+                    disabled="true"
+                  >
+                    <mock-styled.div />
+                    Toggle Support Notification
                   </mock-styled.button>
                   <mock-styled.button
                     classname="el-intent-primary"
