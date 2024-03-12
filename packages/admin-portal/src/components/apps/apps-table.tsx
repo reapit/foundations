@@ -251,7 +251,6 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
                     >
                       Toggle Subscription
                     </Button>
-                    <ToggleSupportNotification appId={id as string} hasReadAccess={hasReadAccess} />
                     <Button
                       intent="primary"
                       disabled={hasReadAccess}
