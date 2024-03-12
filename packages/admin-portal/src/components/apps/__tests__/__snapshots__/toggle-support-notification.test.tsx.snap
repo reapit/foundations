@@ -6,24 +6,80 @@ exports[`ToggleSupportNotification should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.button
-        classname="el-intent-primary"
-        disabled="true"
+      <mock-styled.label>
+        Support Notification
+      </mock-styled.label>
+      <mock-styled.div
+        classname=""
       >
-        <mock-styled.div />
-        Toggle Support Notification
-      </mock-styled.button>
+        <mock-styled.input
+          id="enable-support-notificationMOCK_ID"
+          name="support-notification-MOCK_ID"
+          type="radio"
+          value="enable"
+        />
+        <mock-styled.label
+          classname=""
+          htmlfor="enable-support-notificationMOCK_ID"
+        >
+          <mock-styled.span>
+            Enabled
+          </mock-styled.span>
+        </mock-styled.label>
+        <mock-styled.input
+          id="disable-support-notificationMOCK_ID"
+          name="support-notification-MOCK_ID"
+          type="radio"
+          value="disable"
+        />
+        <mock-styled.label
+          classname=""
+          htmlfor="disable-support-notificationMOCK_ID"
+        >
+          <mock-styled.span>
+            Disabled
+          </mock-styled.span>
+        </mock-styled.label>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.button
-      classname="el-intent-primary"
-      disabled="true"
+    <mock-styled.label>
+      Support Notification
+    </mock-styled.label>
+    <mock-styled.div
+      classname=""
     >
-      <mock-styled.div />
-      Toggle Support Notification
-    </mock-styled.button>
+      <mock-styled.input
+        id="enable-support-notificationMOCK_ID"
+        name="support-notification-MOCK_ID"
+        type="radio"
+        value="enable"
+      />
+      <mock-styled.label
+        classname=""
+        htmlfor="enable-support-notificationMOCK_ID"
+      >
+        <mock-styled.span>
+          Enabled
+        </mock-styled.span>
+      </mock-styled.label>
+      <mock-styled.input
+        id="disable-support-notificationMOCK_ID"
+        name="support-notification-MOCK_ID"
+        type="radio"
+        value="disable"
+      />
+      <mock-styled.label
+        classname=""
+        htmlfor="disable-support-notificationMOCK_ID"
+      >
+        <mock-styled.span>
+          Disabled
+        </mock-styled.span>
+      </mock-styled.label>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
