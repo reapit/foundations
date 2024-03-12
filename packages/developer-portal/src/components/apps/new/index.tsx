@@ -146,8 +146,6 @@ export const handleSubmitApp =
 
     if (!developerId) return
 
-    console.log('splitscopes', splitScopes)
-
     const baseCreateAppModel: CreateAppModel = {
       authFlow,
       name,

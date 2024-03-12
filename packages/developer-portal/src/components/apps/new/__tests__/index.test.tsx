@@ -144,6 +144,31 @@ describe('AppsNew', () => {
     expect(createApp).not.toHaveBeenCalled()
   })
 
+  it('should add category id 14 for web feed and permissions set', () => {
+    const authFlow = 'authorisationCode'
+    const connectSession = {
+      loginIdentity: {
+        developerId: 'SOME_ID',
+        orgName: 'Some Org',
+      },
+    } as ReapitConnectSession
+    const createApp = jest.fn()
+    const formValues = {
+      redirectUris: 'http://localhost:8080',
+      signoutUris: 'http://localhost:8080/login',
+      scopes: 'agencyCloud/negotiators.read,agencyCloud/offices.read,agencyCloud/properties.read',
+      developerId: connectSession.loginIdentity.developerId,
+    }
+
+    const curried = handleSubmitApp(authFlow, connectSession, [AppNewStepId.websiteFeedStep], createApp)
+
+    curried(formValues)
+
+    expect(createApp).toHaveBeenCalledWith(expect.objectContaining({
+      categoryIds: ['14'],
+    }))
+  })
+
   it('should handle navigate on success', () => {
     const appCreated = {
       id: 'SOME_ID',
