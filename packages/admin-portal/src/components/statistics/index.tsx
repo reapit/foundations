@@ -93,10 +93,31 @@ export const handleDownloadCSV =
           'Status',
           'Installed By',
           'Uninstalled By',
+          'Fixed Consumption',
         ],
         data: installs.map((item) => {
-          const { appName, client, customerName, created, terminatesOn, status, installedBy, uninstalledBy } = item
-          return [appName, client, customerName, created, terminatesOn, status, installedBy, uninstalledBy]
+          const {
+            appName,
+            client,
+            customerName,
+            created,
+            terminatesOn,
+            status,
+            installedBy,
+            uninstalledBy,
+            fixedApiConsumptionCost,
+          } = item
+          return [
+            appName,
+            client,
+            customerName,
+            created,
+            terminatesOn,
+            status,
+            installedBy,
+            uninstalledBy,
+            fixedApiConsumptionCost,
+          ]
         }),
       })
 
