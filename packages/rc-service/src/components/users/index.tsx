@@ -14,6 +14,8 @@ import {
   ToggleRadio,
   Select,
   BodyText,
+  ButtonGroup,
+  Button,
 } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GroupModelPagedResult, UserModelPagedResult } from '@reapit/foundations-ts-definitions'
@@ -24,6 +26,9 @@ import { GetActionNames, getActions, objectToQuery, useReapitGet } from '@reapit
 import debounce from 'just-debounce-it'
 import dayjs from 'dayjs'
 import { UserContent } from './user-content'
+import { getPlatformHeaders, logger } from '@reapit/utils-react'
+import fileSaver from 'file-saver'
+import qs from 'qs'
 
 export interface UserFilters {
   email?: string
@@ -47,6 +52,7 @@ export const UsersPage: FC = () => {
   const [userSearch, setUserSearch] = useState<UserFilters>({})
   const [pageNumber, setPageNumber] = useState<number>(1)
   const { register, watch } = useForm<UserFilters>({ mode: 'all' })
+  const [csvLoading, setCsvLoading] = useState<boolean>(false)
   const emailQuery = {
     email: userSearch.email ? encodeURIComponent(userSearch.email) : undefined,
   }
@@ -68,6 +74,61 @@ export const UsersPage: FC = () => {
     queryParams: { pageSize: 100 },
     fetchWhenTrue: [],
   })
+
+  const downloadAsCSV = async () => {
+    if (csvLoading) return
+    setCsvLoading(true)
+    try {
+      const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
+      if (headers) {
+        const response = await fetch(
+          `${getActions[GetActionNames.getUsers].api}${getActions[GetActionNames.getUsers].path}?${qs.stringify({
+            ...queryParams,
+            pageSize: 2000,
+          })}`,
+          {
+            method: 'get',
+            headers,
+          },
+        )
+        const data = await response.json()
+        const rows = data._embedded.map(
+          ({
+            email,
+            name,
+            organisationName,
+            organisationId,
+            agencyCloudNegotiatorId,
+            created,
+            firstLoginDate,
+            userGroups,
+          }) =>
+            [
+              name,
+              email,
+              organisationId,
+              organisationName,
+              agencyCloudNegotiatorId,
+              created,
+              firstLoginDate,
+              userGroups.map(({ groupId }) => groupId).join(' '),
+            ].join(','),
+        )
+
+        const file = new File(
+          ['email,name,company,companyId,negotiatorId,created,firstLoginDate,userGroups\r\n', rows.join('\r\n')],
+          'rc-service-users.csv',
+          {
+            type: 'text/plain;charset=utf-8',
+          },
+        )
+        fileSaver.saveAs(file)
+      }
+    } catch (error) {
+      logger(error as Error)
+    }
+    setCsvLoading(false)
+  }
 
   useEffect(handleSetAdminFilters(setUserSearch, watch), [])
 
@@ -205,6 +266,11 @@ export const UsersPage: FC = () => {
       ) : users?._embedded?.length ? (
         <>
           <BodyText>Total Users: {users?.totalCount}</BodyText>
+          <ButtonGroup>
+            <Button intent="primary" loading={csvLoading} disabled={csvLoading} onClick={() => downloadAsCSV()}>
+              Download CSV
+            </Button>
+          </ButtonGroup>
           <Table
             className={cx(elFadeIn, elMb11)}
             rows={users?._embedded?.map((user) => {
