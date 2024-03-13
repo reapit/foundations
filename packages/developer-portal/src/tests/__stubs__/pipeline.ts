@@ -11,7 +11,7 @@ export const mockPipelineModelInterface: PipelineModelInterface = {
   name: 'reapit-ltd-internal-tested-dress',
   appType: 'react' as AppTypeEnum.REACT,
   packageManager: 'yarn' as PackageManagerEnum.YARN,
-  repository: 'https://github.com/bashleigh/reapit-react-test',
+  repository: { repositoryUrl: 'https://github.com/bashleigh/reapit-react-test' },
   developerId: '421b65bc-dd09-4c34-90fa-dacc3cd2ff5a',
   subDomain: 'beautiful-land',
   appId: '9763dbf0-f62c-474e-8a42-835977584cf1',

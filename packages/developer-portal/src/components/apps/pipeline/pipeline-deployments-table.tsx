@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import { elMb11, Loader, Pagination, StatusIndicator, Table } from '@reapit/elements'
+import { BodyText, elMb11, Loader, Pagination, StatusIndicator, Table } from '@reapit/elements'
 import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
 import { useAppState } from '../state/use-app-state'
 import { buildStatusToIntent, buildStatusToReadable, runnerTypeToReadable } from '@reapit/utils-common'
@@ -179,7 +179,11 @@ export const PipelineDeploymentTable: FC = () => {
               }),
             )}
           />
-          {pipelineDeployments && (
+          {!pipelineDeployments ||
+            (pipelineDeployments.items.length === 0 && (
+              <BodyText hasGreyText>This pipeline has not yet been deployed.</BodyText>
+            ))}
+          {pipelineDeployments && pipelineDeployments.items.length >= 1 && (
             <Pagination
               currentPage={pipelineDeployments.meta.currentPage}
               numberPages={pipelineDeployments.meta.totalPages}

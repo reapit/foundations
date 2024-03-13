@@ -7,12 +7,13 @@ import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
 import { TaskEntity } from '../entities/task.entity'
 import { BitbucketClientEntity } from '../entities/bitbucket-client.entity'
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions'
+import { RepositoryEntity } from '../entities/repository.entity'
 
 const defaultDatabaseConfig: Partial<MysqlConnectionOptions> & { type: 'mysql' } = {
   logging: true,
   synchronize: false,
   migrationsRun: false,
-  entities: [PipelineEntity, PipelineRunnerEntity, TaskEntity, BitbucketClientEntity],
+  entities: [PipelineEntity, PipelineRunnerEntity, TaskEntity, BitbucketClientEntity, RepositoryEntity],
   subscribers: [SubDomainSubscriber],
   migrations,
   type: 'mysql',

@@ -7,6 +7,7 @@ import { v4 as uuid } from 'uuid'
 import { PackageManagerEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions/deployment-schema'
 import { plainToInstance } from 'class-transformer'
 import { PipelineEntity } from '../../entities/pipeline.entity'
+import { RepositoryProvider } from '../repository.provider'
 
 process.env.NODE_ENV = 'local'
 
@@ -34,6 +35,14 @@ const mockPipeline: Partial<PipelineModelInterface> = {
   buildStatus: 'CREATED',
 }
 
+const mockRepositoryProvider = {
+  findOrCreate: jest.fn((repositoryUrl) =>
+    Promise.resolve({
+      repositoryUrl,
+    }),
+  ),
+}
+
 const mockCredGuard = {}
 
 describe('PipelineController', () => {
@@ -58,6 +67,10 @@ describe('PipelineController', () => {
         {
           provide: EventDispatcher,
           useValue: mockEventDispatcher,
+        },
+        {
+          provide: RepositoryProvider,
+          useValue: mockRepositoryProvider,
         },
       ],
     })

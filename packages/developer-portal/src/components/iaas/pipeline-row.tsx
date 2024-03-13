@@ -49,8 +49,8 @@ export const PipelineRow: FC<PipelineRowProps> = ({ pipeline, connectSession }) 
           {buildStatusToReadable(appPipeline.buildStatus as string)}
         </TableCell>
         <TableCell>
-          <a target="_blank" href={appPipeline.repository} rel="noreferrer">
-            {appPipeline.repository}
+          <a target="_blank" href={appPipeline.repository?.repositoryUrl} rel="noreferrer">
+            {appPipeline.repository?.repositoryUrl}
           </a>
         </TableCell>
         <TableExpandableRowTriggerCell

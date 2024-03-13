@@ -231,6 +231,7 @@ export const createStack = async () => {
     name: 'cloud-deployment-migration',
     entrypoint: 'bundle/migration-run.zip',
     handler: createFileLoc('migration-run', 'migrationRun'),
+    runtime: aws_lambda.Runtime.NODEJS_18_X,
     env,
     vpc,
   })

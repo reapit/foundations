@@ -1283,6 +1283,12 @@ export interface UpdateUserModel {
    * Flag indicating whether or not the user has provided consent for their actions to be tracked in Reapit's products
    */
   consentToTrack?: boolean
+  /**
+   * The date and time at which the user first logged in
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  firstLoginDate?: string // date-time
 }
 /**
  * Request body used to update a user's password to a specific value
@@ -1507,6 +1513,12 @@ export interface UserModel {
    */
   consentToTrackModified?: string // date-time
   /**
+   * The date and time at which the user first logged in
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  firstLoginDate?: string // date-time
+  /**
    * A collection of groups that the user belongs to
    */
   groups?: string[]
@@ -1675,6 +1687,8 @@ export interface Users {
   mfaEnabled?: boolean
   createdFrom?: string
   createdTo?: string
+  firstLoginDateFrom?: string
+  firstLoginDateTo?: string
   active?: boolean
 }
 export interface UsersInfo {

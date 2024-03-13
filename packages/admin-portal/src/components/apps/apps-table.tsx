@@ -20,6 +20,7 @@ import { CreateSubscriptions } from '../subscriptions/create-subscriptions'
 import { usePermissionsState } from '../../core/use-permissions-state'
 import { ToggleFeatured } from './toggle-featured'
 import { ToggleConsumption } from './toggle-consumption'
+import { ToggleSupportNotification } from './toggle-support-notification'
 
 export interface AppsTableProps {
   apps: AppSummaryModelPagedResult | null
@@ -148,6 +149,7 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
             developerId,
             publicListedDate,
             limitToClientIds,
+            sendInternalInstallNotification,
           }) => ({
             cells: [
               {
@@ -280,6 +282,12 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
                   )}
                   {appIdConsumption && appIdConsumption === id && (
                     <ToggleConsumption appIdConsumption={appIdConsumption} apps={apps} appsRefresh={appsRefresh} />
+                  )}
+                  {!hasReadAccess && (
+                    <ToggleSupportNotification
+                      appId={id as string}
+                      sendInternalInstallNotification={sendInternalInstallNotification || false}
+                    />
                   )}
                 </>
               ),

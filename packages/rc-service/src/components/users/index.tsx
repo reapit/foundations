@@ -29,9 +29,12 @@ export interface UserFilters {
   email?: string
   name?: string
   organisationName?: string
+  agencyCloudId?: string
   active?: string
   groupId?: string
   mfaEnabled?: string
+  firstLoginDateFrom?: string
+  firstLoginDateTo?: string
 }
 
 export const handleSetAdminFilters =
@@ -115,6 +118,15 @@ export const UsersPage: FC = () => {
             </InputGroup>
           </InputWrap>
           <InputWrap>
+            <InputGroup
+              {...register('agencyCloudId')}
+              type="search"
+              icon="search"
+              placeholder="Search by Negotiator ID"
+              label="Negotiator ID"
+            />
+          </InputWrap>
+          <InputWrap>
             <Label>User Active</Label>
             <ToggleRadio
               hasGreyBg
@@ -168,6 +180,24 @@ export const UsersPage: FC = () => {
               ]}
             />
           </InputWrap>
+          <InputWrap>
+            <InputGroup
+              {...register('firstLoginDateFrom')}
+              type="date"
+              icon="calendar"
+              placeholder="First Login Date From"
+              label="First Login Date From"
+            />
+          </InputWrap>
+          <InputWrap>
+            <InputGroup
+              {...register('firstLoginDateTo')}
+              type="date"
+              icon="calendar"
+              placeholder="First Login Date To"
+              label="First Login Date To"
+            />
+          </InputWrap>
         </FormLayout>
       </form>
       {usersLoading ? (
@@ -187,6 +217,7 @@ export const UsersPage: FC = () => {
                 organisationName,
                 organisationId,
                 agencyCloudNegotiatorId,
+                firstLoginDate,
               } = user
               return {
                 cells: [
@@ -213,6 +244,10 @@ export const UsersPage: FC = () => {
                     narrowTable: {
                       showLabel: true,
                     },
+                  },
+                  {
+                    label: 'First Login Date',
+                    value: firstLoginDate ? dayjs(firstLoginDate).format('DD-MM-YYYY') : '-',
                   },
                   {
                     label: 'Job Title',

@@ -94,9 +94,11 @@ describe('CodebuildDeployWorkflow', () => {
       buildStatus: 'IN_PROGRESS',
       pipeline: {
         id: pipelineId,
-        repository,
-        installtionId: 'installationId',
-        repositoryId: 'repositoryId',
+        repository: {
+          installtionId: 'installationId',
+          repositoryId: 'repositoryId',
+          repositoryUrl: repository,
+        },
       },
       id: pipelineRunnerId,
       tasks: [
@@ -129,10 +131,12 @@ describe('CodebuildDeployWorkflow', () => {
       ],
       pipeline: {
         id: pipelineId,
-        repository,
+        repository: {
+          repositoryUrl: repository,
+          installtionId: 'installationId',
+          repositoryId: 'repositoryId',
+        },
         buildStatus: 'SUCCEEDED',
-        installtionId: 'installationId',
-        repositoryId: 'repositoryId',
       },
     })
   })
@@ -153,9 +157,11 @@ describe('CodebuildDeployWorkflow', () => {
       buildStatus: 'IN_PROGRESS',
       pipeline: {
         id: pipelineId,
-        repository,
-        installtionId: 'installationId',
-        repositoryId: 'repositoryId',
+        repository: {
+          repositoryUrl: repository,
+          installtionId: 'installationId',
+          repositoryId: 'repositoryId',
+        },
       },
       id: pipelineRunnerId,
       tasks: [
@@ -187,10 +193,12 @@ describe('CodebuildDeployWorkflow', () => {
       ],
       pipeline: {
         id: pipelineId,
-        repository,
+        repository: {
+          repositoryUrl: repository,
+          installtionId: 'installationId',
+          repositoryId: 'repositoryId',
+        },
         buildStatus: 'FAILED',
-        installtionId: 'installationId',
-        repositoryId: 'repositoryId',
       },
     })
   })
@@ -208,9 +216,11 @@ describe('CodebuildDeployWorkflow', () => {
       buildStatus: 'CANCEL',
       pipeline: {
         id: pipelineId,
-        repository,
-        installtionId: 'installationId',
-        repositoryId: 'repositoryId',
+        repository: {
+          repositoryUrl: repository,
+          installtionId: 'installationId',
+          repositoryId: 'repositoryId',
+        },
       },
       id: pipelineRunnerId,
       tasks: [
@@ -239,9 +249,11 @@ describe('CodebuildDeployWorkflow', () => {
       ],
       pipeline: {
         id: pipelineId,
-        repository,
-        installtionId: 'installationId',
-        repositoryId: 'repositoryId',
+        repository: {
+          repositoryUrl: repository,
+          installtionId: 'installationId',
+          repositoryId: 'repositoryId',
+        },
       },
     })
   })

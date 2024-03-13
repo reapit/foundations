@@ -1717,7 +1717,7 @@ export interface AppointmentModel {
      */
     type?: string
     /**
-     * The date the appointment recurs until
+     * The date and time of the last occurrence of the appointment
      * example:
      * 2019-08-14T12:30:02Z
      */
@@ -1924,7 +1924,7 @@ export interface AppointmentModelPagedResult {
        */
       type?: string
       /**
-       * The date the appointment recurs until
+       * The date and time of the last occurrence of the appointment
        * example:
        * 2019-08-14T12:30:02Z
        */
@@ -5189,7 +5189,7 @@ export interface CreateAppointmentModel {
      */
     type?: string
     /**
-     * The date and time when the recurrence will stop. (Required if 'type' is provided)
+     * The date and time of the last occurrence of the appointment. (Required if 'type' is provided)
      * example:
      * 2019-08-14T12:30:02Z
      */
@@ -5215,7 +5215,7 @@ export interface CreateAppointmentRecurrenceModel {
    */
   type?: string
   /**
-   * The date and time when the recurrence will stop. (Required if 'type' is provided)
+   * The date and time of the last occurrence of the appointment. (Required if 'type' is provided)
    * example:
    * 2019-08-14T12:30:02Z
    */
@@ -6785,6 +6785,44 @@ export interface CreatePropertyAddressModel {
      */
     longitude: number // double
   }
+}
+/**
+ * Model for the creation of a new property appraisal
+ * example:
+ * [object Object]
+ */
+export interface CreatePropertyAppraisalModel {
+  /**
+   * Unique identifier of the appraising company
+   */
+  companyId?: string
+  /**
+   * The date of the appraisal
+   * example:
+   * 2019-08-14
+   */
+  date?: string // date
+  /**
+   * The appraisal value
+   */
+  price?: number // int32
+  /**
+   * Representation of the the commission fee for a property
+   */
+  fee?: {
+    /**
+     * The commission letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The commission letting fee amount
+     */
+    amount?: number // double
+  }
+  /**
+   * Free-text notes associated with the appraisal
+   */
+  notes?: string
 }
 /**
  * Request body used to create a new check
@@ -8848,6 +8886,10 @@ export interface CreateWorksOrderItemModel {
    * The cost of the vat associated with the work
    */
   vatAmount?: number // double
+  /**
+   * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+   */
+  reserveAmount?: number // double
 }
 /**
  * Request body used to create a new works order
@@ -8937,6 +8979,10 @@ export interface CreateWorksOrderModel {
      * The cost of the vat associated with the work
      */
     vatAmount?: number // double
+    /**
+     * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+     */
+    reserveAmount?: number // double
   }[]
   /**
    * App specific metadata to set against the works order
@@ -12279,6 +12325,10 @@ export interface OfficeModel {
    */
   active?: boolean
   /**
+   * The region that the office is in
+   */
+  region?: string
+  /**
    * Representation of the physical address of a building or premise
    */
   address?: {
@@ -12405,6 +12455,10 @@ export interface OfficeModelPagedResult {
      */
     active?: boolean
     /**
+     * The region that the office is in
+     */
+    region?: string
+    /**
      * Representation of the physical address of a building or premise
      */
     address?: {
@@ -12511,6 +12565,7 @@ export interface Offices {
   id?: string[]
   address?: string
   name?: string
+  region?: string
   active?: boolean
   createdFrom?: string
   createdTo?: string
@@ -12931,6 +12986,129 @@ export interface PropertyAddressModel {
      * The longitude coordinate of the coordinate pair
      */
     longitude?: number // double
+  }
+}
+/**
+ * Representation of a property appraisal
+ */
+export interface PropertyAppraisalModel {
+  /**
+   * Unique identifier of the appraisal
+   */
+  id?: string
+  /**
+   * The date and time on which the property appraisal was created
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time on which the property appraisal was last modified
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  modified?: string // date-time
+  /**
+   * Unique identifier of the appraising company
+   */
+  companyId?: string
+  /**
+   * Flag indicating whether the appraisal is internal or external
+   */
+  isExternal?: boolean
+  /**
+   * The date of the appraisal
+   * example:
+   * 2019-08-14
+   */
+  date?: string // date
+  /**
+   * The appraisal value
+   */
+  price?: number // int32
+  /**
+   * Representation of the the commission fee for a property
+   */
+  fee?: {
+    /**
+     * The commission letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The commission letting fee amount
+     */
+    amount?: number // double
+  }
+  /**
+   * Free-text notes associated with the appraisal
+   */
+  notes?: string
+  readonly _eTag?: string
+}
+export interface PropertyAppraisalModelPagedResult {
+  _embedded?: {
+    /**
+     * Unique identifier of the appraisal
+     */
+    id?: string
+    /**
+     * The date and time on which the property appraisal was created
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time on which the property appraisal was last modified
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    modified?: string // date-time
+    /**
+     * Unique identifier of the appraising company
+     */
+    companyId?: string
+    /**
+     * Flag indicating whether the appraisal is internal or external
+     */
+    isExternal?: boolean
+    /**
+     * The date of the appraisal
+     * example:
+     * 2019-08-14
+     */
+    date?: string // date
+    /**
+     * The appraisal value
+     */
+    price?: number // int32
+    /**
+     * Representation of the the commission fee for a property
+     */
+    fee?: {
+      /**
+       * The commission letting fee type (percentage/fixed)
+       */
+      type?: string
+      /**
+       * The commission letting fee amount
+       */
+      amount?: number // double
+    }
+    /**
+     * Free-text notes associated with the appraisal
+     */
+    notes?: string
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
   }
 }
 /**
@@ -14690,6 +14868,10 @@ export interface PropertyModel {
    */
   lostInstructionNote?: string
   /**
+   * The type of development
+   */
+  developmentSiteType?: string
+  /**
    * App specific metadata that has been set against the property
    */
   metadata?: {
@@ -15666,6 +15848,10 @@ export interface PropertyModelPagedResult {
      */
     lostInstructionNote?: string
     /**
+     * The type of development
+     */
+    developmentSiteType?: string
+    /**
      * App specific metadata that has been set against the property
      */
     metadata?: {
@@ -15994,7 +16180,7 @@ export interface RecurrenceModel {
    */
   type?: string
   /**
-   * The date the appointment recurs until
+   * The date and time of the last occurrence of the appointment
    * example:
    * 2019-08-14T12:30:02Z
    */
@@ -16337,6 +16523,22 @@ export interface ReferralsTypes {
   pageSize?: number
   pageNumber?: number
   sortBy?: string
+}
+/**
+ * Request body used to reindex property images
+ * example:
+ * [object Object]
+ */
+export interface ReindexPropertyImagesModel {
+  /**
+   * The unique identifier of the property to update
+   */
+  propertyId?: string
+  /**
+   * Ordered collection of image identifiers for the property.
+   * The first image in the collection will be set as the properties primary image.
+   */
+  imageOrder?: string[]
 }
 /**
  * Representation of renewal options in a tenancy
@@ -20484,7 +20686,7 @@ export interface UpdateAppointmentModel {
      */
     interval?: number // int32
     /**
-     * The date and time when the recurrence will stop
+     * The date and time of the last occurrence of the appointment
      * example:
      * 2019-08-14T12:30:02Z
      */
@@ -20510,7 +20712,7 @@ export interface UpdateAppointmentRecurrenceModel {
    */
   interval?: number // int32
   /**
-   * The date and time when the recurrence will stop
+   * The date and time of the last occurrence of the appointment
    * example:
    * 2019-08-14T12:30:02Z
    */
@@ -21834,6 +22036,44 @@ export interface UpdatePropertyAddressModel {
      */
     longitude?: number // double
   }
+}
+/**
+ * Model for the creation of a new property appraisal
+ * example:
+ * [object Object]
+ */
+export interface UpdatePropertyAppraisalModel {
+  /**
+   * Unique identifier of the appraising company
+   */
+  companyId?: string
+  /**
+   * The date of the appraisal
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  date?: string // date-time
+  /**
+   * The appraisal value
+   */
+  price?: number // int32
+  /**
+   * Representation of the the commission fee for a property
+   */
+  fee?: {
+    /**
+     * The commission letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The commission letting fee amount
+     */
+    amount?: number // double
+  }
+  /**
+   * Free-text notes associated with the appraisal
+   */
+  notes?: string
 }
 /**
  * Model for the update of an existing check
@@ -24044,6 +24284,10 @@ export interface UpdateWorksOrderItemModel {
    * The cost of the vat associated with the work
    */
   vatAmount?: number // double
+  /**
+   * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+   */
+  reserveAmount?: number // double
 }
 /**
  * Request body used to update an existing works order
@@ -25126,6 +25370,10 @@ export interface WorksOrderItemModel {
    */
   grossAmount?: number // double
   /**
+   * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+   */
+  reserveAmount?: number // double
+  /**
    * The unique identifier of the nominal account the works order financial transactions are allocated to
    */
   nominalAccountId?: string
@@ -25192,6 +25440,10 @@ export interface WorksOrderItemModelPagedResult {
      * The gross cost of the work to be carried out
      */
     grossAmount?: number // double
+    /**
+     * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+     */
+    reserveAmount?: number // double
     /**
      * The unique identifier of the nominal account the works order financial transactions are allocated to
      */
@@ -25366,6 +25618,10 @@ export interface WorksOrderModel {
      * The gross cost of the work to be carried out
      */
     grossAmount?: number // double
+    /**
+     * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+     */
+    reserveAmount?: number // double
     /**
      * The unique identifier of the nominal account the works order financial transactions are allocated to
      */
@@ -25544,6 +25800,10 @@ export interface WorksOrderModelPagedResult {
        * The gross cost of the work to be carried out
        */
       grossAmount?: number // double
+      /**
+       * The amount of funds to be held back by the agent in landlord payment runs to cover the cost of any works required by the works order item
+       */
+      reserveAmount?: number // double
       /**
        * The unique identifier of the nominal account the works order financial transactions are allocated to
        */

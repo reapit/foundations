@@ -14,6 +14,7 @@ import { PipelineRunnerType } from '@reapit/foundations-ts-definitions/deploymen
 import { EventDispatcher, PusherProvider } from '../events'
 import { Request } from 'express'
 import { PipelineEntity } from '../entities/pipeline.entity'
+import { RepositoryProvider } from '../pipeline/repository.provider'
 
 type GithubCommitEvent = {
   ref: string
@@ -35,6 +36,7 @@ export class GithubWebhookController {
     private readonly pipelineRunnerProvider: PipelineRunnerProvider,
     private readonly eventDispatcher: EventDispatcher,
     private readonly pusherProvider: PusherProvider,
+    private readonly githubRepositoryProvider: RepositoryProvider,
   ) {}
 
   isCommitEvent = (value: any): value is GithubCommitEvent => value.ref && value.commits
@@ -96,15 +98,16 @@ export class GithubWebhookController {
       const repositories = body.repositories_added || body.repositories
       await Promise.all(
         repositories.map(async (repository) => {
-          const repo = `https://github.com/${repository.full_name}`
+          const repositoryUrl = `https://github.com/${repository.full_name}`
 
-          const results = await this.pipelineProvider.updatePipelinesWithRepo(repo, {
-            installationId: body.installation.id,
+          const results = await this.githubRepositoryProvider.updateRepositories({
+            repositoryUrl: repositoryUrl,
             repositoryId: repository.id,
+            installationId: body.installation.id,
           })
 
           if (results && results.affected && results.affected >= 1) {
-            const pipelines = await this.pipelineProvider.findPipelinesByRepositoryId(repository.id)
+            const pipelines = await this.pipelineProvider.findPipelinesByRepositoryUrl(repositoryUrl)
             await this.pusherProvider.triggerArray(
               pipelines.map((pipeline) => ({
                 channel: `private-${pipeline.developerId}`,

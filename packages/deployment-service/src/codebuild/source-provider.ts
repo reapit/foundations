@@ -28,7 +28,7 @@ export class SoruceProvider {
     pipelineRunner: PipelineRunnerEntity
     client?: BitbucketClientData
   }): Promise<string> {
-    if (!pipeline.repository) {
+    if (!pipeline.repository || !pipeline.repository.repositoryUrl) {
       throw new Error('Pipeline repository is not configured')
     }
 
@@ -36,7 +36,7 @@ export class SoruceProvider {
       throw new Error('Cannot process bitbucket source request without client or event')
     }
 
-    const parts = pipeline.repository.split('/')
+    const parts = pipeline.repository.repositoryUrl.split('/')
     const url = `${this.baseBitbucketUrl}/${parts[parts.length - 2]}/${parts[parts.length - 1]}/get/${
       pipeline.branch
     }.zip`
@@ -72,8 +72,8 @@ export class SoruceProvider {
   }
 
   async downloadGithubSourceToS3(pipeline: PipelineEntity, pipelineRunner: PipelineRunnerEntity): Promise<string> {
-    const installationId = pipeline.installationId
-    const parts = pipeline.repository?.split('/') as string[]
+    const installationId = pipeline.repository?.installationId
+    const parts = pipeline.repository?.repositoryUrl?.split('/') as string[]
 
     if (!installationId) {
       throw new Error('Pipeline repository is not configured or repository does not have reapit github app installed')

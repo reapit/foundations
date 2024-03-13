@@ -159,7 +159,7 @@ export const IaaS: FC = () => {
                 },
                 {
                   label: 'Repository',
-                  value: repository,
+                  value: repository?.repositoryUrl,
                   narrowTable: {
                     showLabel: true,
                   },

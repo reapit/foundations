@@ -653,6 +653,43 @@ exports[`AppsPage should render a component when has data 1`] = `
                       </mock-styled.button>
                     </mock-styled.div>
                   </mock-styled.div>
+                  <mock-styled.label>
+                    Support Notification
+                  </mock-styled.label>
+                  <mock-styled.div
+                    classname=""
+                  >
+                    <mock-styled.input
+                      disabled="false"
+                      id="enable-support-notificationf83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
+                      name="support-notification-f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
+                      type="radio"
+                      value="enable"
+                    />
+                    <mock-styled.label
+                      classname=""
+                      htmlfor="enable-support-notificationf83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
+                    >
+                      <mock-styled.span>
+                        Enabled
+                      </mock-styled.span>
+                    </mock-styled.label>
+                    <mock-styled.input
+                      disabled="false"
+                      id="disable-support-notificationf83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
+                      name="support-notification-f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
+                      type="radio"
+                      value="disable"
+                    />
+                    <mock-styled.label
+                      classname=""
+                      htmlfor="disable-support-notificationf83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
+                    >
+                      <mock-styled.span>
+                        Disabled
+                      </mock-styled.span>
+                    </mock-styled.label>
+                  </mock-styled.div>
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
@@ -1360,6 +1397,43 @@ exports[`AppsPage should render a component when has data 1`] = `
                       Delete
                     </mock-styled.button>
                   </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.label>
+                  Support Notification
+                </mock-styled.label>
+                <mock-styled.div
+                  classname=""
+                >
+                  <mock-styled.input
+                    disabled="false"
+                    id="enable-support-notificationf83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
+                    name="support-notification-f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
+                    type="radio"
+                    value="enable"
+                  />
+                  <mock-styled.label
+                    classname=""
+                    htmlfor="enable-support-notificationf83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
+                  >
+                    <mock-styled.span>
+                      Enabled
+                    </mock-styled.span>
+                  </mock-styled.label>
+                  <mock-styled.input
+                    disabled="false"
+                    id="disable-support-notificationf83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
+                    name="support-notification-f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
+                    type="radio"
+                    value="disable"
+                  />
+                  <mock-styled.label
+                    classname=""
+                    htmlfor="disable-support-notificationf83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
+                  >
+                    <mock-styled.span>
+                      Disabled
+                    </mock-styled.span>
+                  </mock-styled.label>
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
