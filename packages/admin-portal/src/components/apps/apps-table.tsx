@@ -149,6 +149,7 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
             developerId,
             publicListedDate,
             limitToClientIds,
+            sendInternalInstallNotification,
           }) => ({
             cells: [
               {
@@ -250,7 +251,6 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
                     >
                       Toggle Subscription
                     </Button>
-                    <ToggleSupportNotification appId={id as string} hasReadAccess={hasReadAccess} />
                     <Button
                       intent="primary"
                       disabled={hasReadAccess}
@@ -282,6 +282,12 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
                   )}
                   {appIdConsumption && appIdConsumption === id && (
                     <ToggleConsumption appIdConsumption={appIdConsumption} apps={apps} appsRefresh={appsRefresh} />
+                  )}
+                  {!hasReadAccess && (
+                    <ToggleSupportNotification
+                      appId={id as string}
+                      sendInternalInstallNotification={sendInternalInstallNotification || false}
+                    />
                   )}
                 </>
               ),

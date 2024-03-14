@@ -152,6 +152,16 @@ export const handleSubmitApp =
       scopes: splitScopes,
       developerId,
       isDirectApi: !stepHistory.includes(AppNewStepId.agencyCloudStep),
+      // categoryIds, if websitefeed was selected and permissions (scopes) include the initial values then
+      // add category id 14 (website integration)
+      categoryIds:
+        stepHistory.includes(AppNewStepId.websiteFeedStep) &&
+        splitScopes &&
+        ['agencyCloud/properties.read', 'agencyCloud/negotiators.read', 'agencyCloud/offices.read'].every((scope) =>
+          splitScopes.includes(scope),
+        )
+          ? ['14']
+          : undefined,
     }
 
     const extraFields =
