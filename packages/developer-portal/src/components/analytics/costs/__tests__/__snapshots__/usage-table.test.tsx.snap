@@ -10,23 +10,41 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="4"
+        role="table"
       >
-        <mock-styled.div>
-          <mock-styled.div>
+        <mock-styled.div
+          role="row"
+        >
+          <mock-styled.div
+            aria-label="Entity Name"
+            role="columnheader"
+          >
             Entity Name
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Total Number Calls"
+            role="columnheader"
+          >
             Total Number Calls
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Total Number Endpoints"
+            role="columnheader"
+          >
             Total Number Endpoints
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Total Cost"
+            role="columnheader"
+          >
             Total Cost
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            role="columnheader"
+          >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -36,7 +54,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                   fill="currentColor"
                 />
               </svg>
@@ -45,13 +63,16 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -63,7 +84,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M6.5 20c-1.517 0-2.813-.525-3.888-1.575C1.537 17.375 1 16.092 1 14.575c0-1.3.392-2.458 1.175-3.475S3.983 9.433 5.25 9.15c.417-1.533 1.25-2.775 2.5-3.725C9 4.475 10.417 4 12 4c1.95 0 3.604.68 4.962 2.037C18.322 7.396 19 9.05 19 11c1.15.133 2.104.63 2.863 1.488A4.407 4.407 0 0 1 23 15.5c0 1.25-.438 2.313-1.313 3.188S19.75 20 18.5 20h-12Zm0-2h12c.7 0 1.292-.242 1.775-.725.483-.483.725-1.075.725-1.775s-.242-1.292-.725-1.775C19.792 13.242 19.2 13 18.5 13H17v-2c0-1.383-.488-2.563-1.463-3.537C14.563 6.487 13.383 6 12 6s-2.563.487-3.537 1.463C7.488 8.437 7 9.617 7 11h-.5c-.967 0-1.792.342-2.475 1.025A3.372 3.372 0 0 0 3 14.5c0 .967.342 1.792 1.025 2.475A3.372 3.372 0 0 0 6.5 18Z"
+                    d="M6.5 20q-2.275 0-3.887-1.575T1 14.575q0-1.95 1.175-3.475Q3.349 9.575 5.25 9.15q.625-2.3 2.5-3.725T12 4q2.925 0 4.962 2.037T19 11q1.725.2 2.863 1.488A4.4 4.4 0 0 1 23 15.5q0 1.875-1.312 3.188Q20.375 20 18.5 20zm0-2h12q1.05 0 1.775-.725T21 15.5t-.725-1.775T18.5 13H17v-2q0-2.075-1.463-3.537Q14.075 6 12 6 9.925 6 8.463 7.463 7 8.925 7 11h-.5q-1.45 0-2.475 1.025A3.37 3.37 0 0 0 3 14.5q0 1.45 1.025 2.475A3.37 3.37 0 0 0 6.5 18"
                     fill="currentColor"
                   />
                 </svg>
@@ -76,6 +97,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Total Number Calls"
@@ -85,6 +107,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Total Number Endpoints"
@@ -94,9 +117,11 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -108,7 +133,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M6.988 21.203c-.32 0-.589-.11-.808-.33-.22-.219-.33-.488-.33-.807v-.462c0-.207.047-.396.14-.566.094-.17.219-.305.376-.404a5.088 5.088 0 0 0 1.517-1.512 3.696 3.696 0 0 0 .591-2.056 4.002 4.002 0 0 0-.113-.928H6.81c-.32 0-.589-.11-.809-.33-.22-.22-.329-.489-.329-.808 0-.32.11-.589.33-.808.219-.22.488-.33.808-.33h.428a20.448 20.448 0 0 1-.94-1.704c-.298-.603-.447-1.344-.447-2.224 0-1.573.547-2.906 1.64-3.998 1.092-1.093 2.425-1.64 3.998-1.64 1.06 0 2.015.252 2.864.756a5.81 5.81 0 0 1 2.034 2.01.793.793 0 0 1 .031.795c-.132.27-.344.47-.633.603-.282.116-.56.123-.834.021a1.562 1.562 0 0 1-.696-.52 3.465 3.465 0 0 0-1.192-1.01 3.339 3.339 0 0 0-1.574-.38c-.93 0-1.724.327-2.38.98-.655.654-.983 1.448-.983 2.383 0 .788.187 1.45.559 1.985.372.535.77 1.183 1.195 1.943h3.109c.32 0 .589.11.808.33.22.22.33.489.33.808 0 .32-.11.588-.33.808-.22.22-.489.33-.808.33h-2.314c.03.133.05.28.06.438.01.16.015.322.015.49 0 .793-.135 1.513-.404 2.16a6.57 6.57 0 0 1-1.018 1.702h4.661c.548 0 .997-.131 1.347-.394.351-.263.58-.63.69-1.1.07-.287.198-.53.382-.731.184-.201.427-.302.73-.302.32 0 .584.11.796.327.21.217.316.486.316.805 0 1.06-.467 1.937-1.401 2.63-.934.694-1.887 1.04-2.86 1.04h-7Z"
+                    d="M6.988 21.203q-.48 0-.808-.33-.33-.329-.33-.807v-.462q0-.31.14-.566t.376-.404a5.1 5.1 0 0 0 1.517-1.512 3.7 3.7 0 0 0 .591-2.056q0-.251-.031-.49a4 4 0 0 0-.082-.439H6.81q-.48 0-.809-.329-.33-.33-.329-.808 0-.48.33-.808.328-.33.808-.33h.428a21 21 0 0 1-.94-1.704q-.447-.904-.447-2.224 0-2.36 1.64-3.998 1.638-1.64 3.998-1.64 1.59 0 2.864.756a5.8 5.8 0 0 1 2.034 2.01.79.79 0 0 1 .031.795q-.199.404-.633.603-.423.174-.834.021a1.56 1.56 0 0 1-.696-.52 3.5 3.5 0 0 0-1.192-1.01 3.34 3.34 0 0 0-1.574-.38q-1.396 0-2.38.98-.983.98-.983 2.383 0 1.182.559 1.985.558.803 1.195 1.943h3.109q.48 0 .808.33.33.33.33.808t-.33.808q-.33.33-.808.33h-2.314q.045.2.06.438.015.239.015.49 0 1.19-.404 2.16a6.6 6.6 0 0 1-1.018 1.702h4.661q.822 0 1.347-.394.526-.395.69-1.1.105-.43.382-.731.276-.302.73-.302.479 0 .796.327.316.326.316.805 0 1.59-1.401 2.63-1.4 1.04-2.86 1.04z"
                     fill="currentColor"
                   />
                 </svg>
@@ -121,9 +146,11 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname=""
+              role="cell"
             >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -133,7 +160,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                     fill="currentColor"
                   />
                 </svg>
@@ -141,6 +168,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
+            aria-hidden="false"
             classname=""
           >
             <mock-styled.div>
@@ -204,23 +232,41 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="4"
+      role="table"
     >
-      <mock-styled.div>
-        <mock-styled.div>
+      <mock-styled.div
+        role="row"
+      >
+        <mock-styled.div
+          aria-label="Entity Name"
+          role="columnheader"
+        >
           Entity Name
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Total Number Calls"
+          role="columnheader"
+        >
           Total Number Calls
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Total Number Endpoints"
+          role="columnheader"
+        >
           Total Number Endpoints
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Total Cost"
+          role="columnheader"
+        >
           Total Cost
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          role="columnheader"
+        >
           <mock-styled.span
             classname="el-intent-default el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -230,7 +276,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                 fill="currentColor"
               />
             </svg>
@@ -239,13 +285,16 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -257,7 +306,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M6.5 20c-1.517 0-2.813-.525-3.888-1.575C1.537 17.375 1 16.092 1 14.575c0-1.3.392-2.458 1.175-3.475S3.983 9.433 5.25 9.15c.417-1.533 1.25-2.775 2.5-3.725C9 4.475 10.417 4 12 4c1.95 0 3.604.68 4.962 2.037C18.322 7.396 19 9.05 19 11c1.15.133 2.104.63 2.863 1.488A4.407 4.407 0 0 1 23 15.5c0 1.25-.438 2.313-1.313 3.188S19.75 20 18.5 20h-12Zm0-2h12c.7 0 1.292-.242 1.775-.725.483-.483.725-1.075.725-1.775s-.242-1.292-.725-1.775C19.792 13.242 19.2 13 18.5 13H17v-2c0-1.383-.488-2.563-1.463-3.537C14.563 6.487 13.383 6 12 6s-2.563.487-3.537 1.463C7.488 8.437 7 9.617 7 11h-.5c-.967 0-1.792.342-2.475 1.025A3.372 3.372 0 0 0 3 14.5c0 .967.342 1.792 1.025 2.475A3.372 3.372 0 0 0 6.5 18Z"
+                  d="M6.5 20q-2.275 0-3.887-1.575T1 14.575q0-1.95 1.175-3.475Q3.349 9.575 5.25 9.15q.625-2.3 2.5-3.725T12 4q2.925 0 4.962 2.037T19 11q1.725.2 2.863 1.488A4.4 4.4 0 0 1 23 15.5q0 1.875-1.312 3.188Q20.375 20 18.5 20zm0-2h12q1.05 0 1.775-.725T21 15.5t-.725-1.775T18.5 13H17v-2q0-2.075-1.463-3.537Q14.075 6 12 6 9.925 6 8.463 7.463 7 8.925 7 11h-.5q-1.45 0-2.475 1.025A3.37 3.37 0 0 0 3 14.5q0 1.45 1.025 2.475A3.37 3.37 0 0 0 6.5 18"
                   fill="currentColor"
                 />
               </svg>
@@ -270,6 +319,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Total Number Calls"
@@ -279,6 +329,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Total Number Endpoints"
@@ -288,9 +339,11 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -302,7 +355,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M6.988 21.203c-.32 0-.589-.11-.808-.33-.22-.219-.33-.488-.33-.807v-.462c0-.207.047-.396.14-.566.094-.17.219-.305.376-.404a5.088 5.088 0 0 0 1.517-1.512 3.696 3.696 0 0 0 .591-2.056 4.002 4.002 0 0 0-.113-.928H6.81c-.32 0-.589-.11-.809-.33-.22-.22-.329-.489-.329-.808 0-.32.11-.589.33-.808.219-.22.488-.33.808-.33h.428a20.448 20.448 0 0 1-.94-1.704c-.298-.603-.447-1.344-.447-2.224 0-1.573.547-2.906 1.64-3.998 1.092-1.093 2.425-1.64 3.998-1.64 1.06 0 2.015.252 2.864.756a5.81 5.81 0 0 1 2.034 2.01.793.793 0 0 1 .031.795c-.132.27-.344.47-.633.603-.282.116-.56.123-.834.021a1.562 1.562 0 0 1-.696-.52 3.465 3.465 0 0 0-1.192-1.01 3.339 3.339 0 0 0-1.574-.38c-.93 0-1.724.327-2.38.98-.655.654-.983 1.448-.983 2.383 0 .788.187 1.45.559 1.985.372.535.77 1.183 1.195 1.943h3.109c.32 0 .589.11.808.33.22.22.33.489.33.808 0 .32-.11.588-.33.808-.22.22-.489.33-.808.33h-2.314c.03.133.05.28.06.438.01.16.015.322.015.49 0 .793-.135 1.513-.404 2.16a6.57 6.57 0 0 1-1.018 1.702h4.661c.548 0 .997-.131 1.347-.394.351-.263.58-.63.69-1.1.07-.287.198-.53.382-.731.184-.201.427-.302.73-.302.32 0 .584.11.796.327.21.217.316.486.316.805 0 1.06-.467 1.937-1.401 2.63-.934.694-1.887 1.04-2.86 1.04h-7Z"
+                  d="M6.988 21.203q-.48 0-.808-.33-.33-.329-.33-.807v-.462q0-.31.14-.566t.376-.404a5.1 5.1 0 0 0 1.517-1.512 3.7 3.7 0 0 0 .591-2.056q0-.251-.031-.49a4 4 0 0 0-.082-.439H6.81q-.48 0-.809-.329-.33-.33-.329-.808 0-.48.33-.808.328-.33.808-.33h.428a21 21 0 0 1-.94-1.704q-.447-.904-.447-2.224 0-2.36 1.64-3.998 1.638-1.64 3.998-1.64 1.59 0 2.864.756a5.8 5.8 0 0 1 2.034 2.01.79.79 0 0 1 .031.795q-.199.404-.633.603-.423.174-.834.021a1.56 1.56 0 0 1-.696-.52 3.5 3.5 0 0 0-1.192-1.01 3.34 3.34 0 0 0-1.574-.38q-1.396 0-2.38.98-.983.98-.983 2.383 0 1.182.559 1.985.558.803 1.195 1.943h3.109q.48 0 .808.33.33.33.33.808t-.33.808q-.33.33-.808.33h-2.314q.045.2.06.438.015.239.015.49 0 1.19-.404 2.16a6.6 6.6 0 0 1-1.018 1.702h4.661q.822 0 1.347-.394.526-.395.69-1.1.105-.43.382-.731.276-.302.73-.302.479 0 .796.327.316.326.316.805 0 1.59-1.401 2.63-1.4 1.04-2.86 1.04z"
                   fill="currentColor"
                 />
               </svg>
@@ -315,9 +368,11 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname=""
+            role="cell"
           >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -327,7 +382,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                   fill="currentColor"
                 />
               </svg>
@@ -335,6 +390,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
+          aria-hidden="false"
           classname=""
         >
           <mock-styled.div>

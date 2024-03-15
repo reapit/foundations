@@ -156,22 +156,22 @@ exports[`PipelinesAbout should match snapshot 1`] = `
             </svg>
           </mock-styled.div>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Pipeline Deployments
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Pipelines are configurations used to deploy applications to our infrastructure. Think of them like a CI / CD runner like Github Actions, Travis or CircleCI
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             A Pipeline can be created via the developer portal or via our CLI NPM package.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             When you have created a pipeline for your app, you can either deploy it from the command line from a zip file, or by pulling directly from a Github or Bitbucket repo. This will give you a link to your deployed service in the Reapit Platform Cloud.
           </mock-styled.p>
@@ -463,17 +463,17 @@ exports[`PipelinesAbout should match snapshot 1`] = `
             </svg>
           </mock-styled.div>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Pipeline Documentation
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             For more on how to get started with Pipelines and deploying to Reapit infrastructure as a Service (IAAS), visit the doucmentation link below.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Please note, this service is a public Alpha and there may be some reliabilty issues while we refine our processes. As such, for now you should only use our infra for internal testing, pre-production applications and non-mission critical services.
           </mock-styled.p>
@@ -639,22 +639,22 @@ exports[`PipelinesAbout should match snapshot 1`] = `
           </svg>
         </mock-styled.div>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Pipeline Deployments
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Pipelines are configurations used to deploy applications to our infrastructure. Think of them like a CI / CD runner like Github Actions, Travis or CircleCI
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           A Pipeline can be created via the developer portal or via our CLI NPM package.
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           When you have created a pipeline for your app, you can either deploy it from the command line from a zip file, or by pulling directly from a Github or Bitbucket repo. This will give you a link to your deployed service in the Reapit Platform Cloud.
         </mock-styled.p>
@@ -946,17 +946,17 @@ exports[`PipelinesAbout should match snapshot 1`] = `
           </svg>
         </mock-styled.div>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Pipeline Documentation
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           For more on how to get started with Pipelines and deploying to Reapit infrastructure as a Service (IAAS), visit the doucmentation link below.
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Please note, this service is a public Alpha and there may be some reliabilty issues while we refine our processes. As such, for now you should only use our infra for internal testing, pre-production applications and non-mission critical services.
         </mock-styled.p>

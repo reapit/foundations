@@ -14,8 +14,10 @@ exports[`AppCard should match a snapshot for a regular user 1`] = `
         <mock-styled.div>
           <mock-styled.div
             classname=""
+            role="img"
           >
             <mock-styled.div
+              role="img"
               style="font-size: 1.953125em; width: 50px; height: 50px;"
             >
               <svg
@@ -59,8 +61,10 @@ exports[`AppCard should match a snapshot for a regular user 1`] = `
       <mock-styled.div>
         <mock-styled.div
           classname=""
+          role="img"
         >
           <mock-styled.div
+            role="img"
             style="font-size: 1.953125em; width: 50px; height: 50px;"
           >
             <svg
@@ -161,8 +165,10 @@ exports[`AppCard should match a snapshot for an admin 1`] = `
         <mock-styled.div>
           <mock-styled.div
             classname=""
+            role="img"
           >
             <mock-styled.div
+              role="img"
               style="font-size: 1.953125em; width: 50px; height: 50px;"
             >
               <svg
@@ -206,8 +212,10 @@ exports[`AppCard should match a snapshot for an admin 1`] = `
       <mock-styled.div>
         <mock-styled.div
           classname=""
+          role="img"
         >
           <mock-styled.div
+            role="img"
             style="font-size: 1.953125em; width: 50px; height: 50px;"
           >
             <svg
@@ -308,8 +316,10 @@ exports[`AppCard should match a snapshot for an admin with delete protection 1`]
         <mock-styled.div>
           <mock-styled.div
             classname=""
+            role="img"
           >
             <mock-styled.div
+              role="img"
               style="font-size: 1.953125em; width: 50px; height: 50px;"
             >
               <svg
@@ -353,8 +363,10 @@ exports[`AppCard should match a snapshot for an admin with delete protection 1`]
       <mock-styled.div>
         <mock-styled.div
           classname=""
+          role="img"
         >
           <mock-styled.div
+            role="img"
             style="font-size: 1.953125em; width: 50px; height: 50px;"
           >
             <svg

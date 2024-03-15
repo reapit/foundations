@@ -10,7 +10,7 @@ exports[`WebhooksExtraFields should match a snapshot 1`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add any semi-structured fields that you would like included in the webhook payload. If you
           '
@@ -22,8 +22,8 @@ exports[`WebhooksExtraFields should match a snapshot 1`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+            <div
+              class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
             >
               <mock-styled.div>
                 <mock-styled.input
@@ -38,7 +38,7 @@ exports[`WebhooksExtraFields should match a snapshot 1`] = `
                   Semi-structured Fields
                 </mock-styled.label>
               </mock-styled.div>
-            </mock-styled.div>
+            </div>
             <mock-styled.div>
               <mock-styled.input
                 id="semi-structured-fields"
@@ -62,7 +62,7 @@ exports[`WebhooksExtraFields should match a snapshot 1`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Add any semi-structured fields that you would like included in the webhook payload. If you
         '
@@ -74,8 +74,8 @@ exports[`WebhooksExtraFields should match a snapshot 1`] = `
     >
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+          <div
+            class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
           >
             <mock-styled.div>
               <mock-styled.input
@@ -90,7 +90,7 @@ exports[`WebhooksExtraFields should match a snapshot 1`] = `
                 Semi-structured Fields
               </mock-styled.label>
             </mock-styled.div>
-          </mock-styled.div>
+          </div>
           <mock-styled.div>
             <mock-styled.input
               id="semi-structured-fields"

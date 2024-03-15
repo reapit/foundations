@@ -7,7 +7,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         Desktop
       </mock-styled.h1>
@@ -30,7 +30,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
             class="el-fade-in"
           >
             <mock-styled.p
-              classname="el-mb6 mock-css.
+              classname="el-text-base el-mb6 mock-css.
   color: var(--color-grey-500);
 "
             >
@@ -91,26 +91,26 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                 class="el-fade-in"
               >
                 <mock-styled.h2
-                  classname=""
+                  classname="el-text-base"
                 >
                   About Foundations Desktop API
                 </mock-styled.h2>
                 <mock-styled.p
-                  classname="el-mb6 mock-css.
+                  classname="el-text-base el-mb6 mock-css.
   color: var(--color-grey-500);
 "
                 >
                   Developers that would like to integrate with or extend the functionality of Agency Cloud can use the Foundations Desktop API to build web applications for Reapit's app Marketplace that trigger events in the Agency Cloud desktop application, as well as associating their apps with common actions in Agency Cloud to replace default behaviours and screens.
                 </mock-styled.p>
                 <mock-styled.p
-                  classname="el-mb6 mock-css.
+                  classname="el-text-base el-mb6 mock-css.
   color: var(--color-grey-500);
 "
                 >
                   For example, a developer building a Marketplace app that provides AML and ID checking, can use the Desktop API to associate their app with the default ID checking screen in Agency Cloud. When a customer clicks the default button to launch the ID check screen, the developer's associated app would be presented instead.
                 </mock-styled.p>
                 <mock-styled.p
-                  classname="el-mb6 mock-css.
+                  classname="el-text-base el-mb6 mock-css.
   color: var(--color-grey-500);
 "
                 >
@@ -135,14 +135,14 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                 class="el-fade-in"
               >
                 <mock-styled.h2
-                  classname=""
+                  classname="el-text-base"
                 >
                   How your app integrates with the Developer Edition of Agency Cloud
                 </mock-styled.h2>
                 <mock-styled.div>
                   <svg />
                   <mock-styled.p
-                    classname="mock-css.
+                    classname="el-text-base mock-css.
   color: var(--color-grey-500);
 "
                   >
@@ -164,7 +164,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.h1
-                  classname=""
+                  classname="el-text-base"
                 >
                   Developer Edition
                 </mock-styled.h1>
@@ -343,7 +343,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.h1
-      classname=""
+      classname="el-text-base"
     >
       Desktop
     </mock-styled.h1>
@@ -366,7 +366,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
           class="el-fade-in"
         >
           <mock-styled.p
-            classname="el-mb6 mock-css.
+            classname="el-text-base el-mb6 mock-css.
   color: var(--color-grey-500);
 "
           >
@@ -427,26 +427,26 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
               class="el-fade-in"
             >
               <mock-styled.h2
-                classname=""
+                classname="el-text-base"
               >
                 About Foundations Desktop API
               </mock-styled.h2>
               <mock-styled.p
-                classname="el-mb6 mock-css.
+                classname="el-text-base el-mb6 mock-css.
   color: var(--color-grey-500);
 "
               >
                 Developers that would like to integrate with or extend the functionality of Agency Cloud can use the Foundations Desktop API to build web applications for Reapit's app Marketplace that trigger events in the Agency Cloud desktop application, as well as associating their apps with common actions in Agency Cloud to replace default behaviours and screens.
               </mock-styled.p>
               <mock-styled.p
-                classname="el-mb6 mock-css.
+                classname="el-text-base el-mb6 mock-css.
   color: var(--color-grey-500);
 "
               >
                 For example, a developer building a Marketplace app that provides AML and ID checking, can use the Desktop API to associate their app with the default ID checking screen in Agency Cloud. When a customer clicks the default button to launch the ID check screen, the developer's associated app would be presented instead.
               </mock-styled.p>
               <mock-styled.p
-                classname="el-mb6 mock-css.
+                classname="el-text-base el-mb6 mock-css.
   color: var(--color-grey-500);
 "
               >
@@ -471,14 +471,14 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
               class="el-fade-in"
             >
               <mock-styled.h2
-                classname=""
+                classname="el-text-base"
               >
                 How your app integrates with the Developer Edition of Agency Cloud
               </mock-styled.h2>
               <mock-styled.div>
                 <svg />
                 <mock-styled.p
-                  classname="mock-css.
+                  classname="el-text-base mock-css.
   color: var(--color-grey-500);
 "
                 >
@@ -500,7 +500,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.h1
-                classname=""
+                classname="el-text-base"
               >
                 Developer Edition
               </mock-styled.h1>

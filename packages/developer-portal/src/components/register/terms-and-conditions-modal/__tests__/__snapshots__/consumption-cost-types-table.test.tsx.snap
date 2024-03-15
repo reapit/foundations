@@ -10,24 +10,38 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
         classname="el-mb11"
         data-has-call-to-action="false"
         data-has-expandable-action="false"
+        role="table"
       >
-        <mock-styled.div>
-          <mock-styled.div>
+        <mock-styled.div
+          role="row"
+        >
+          <mock-styled.div
+            aria-label="Type"
+            role="columnheader"
+          >
             Type
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Amount"
+            role="columnheader"
+          >
             Amount
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Payable"
+            role="columnheader"
+          >
             Payable
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Type"
@@ -37,6 +51,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Amount"
@@ -46,6 +61,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Payable"
@@ -57,10 +73,12 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Type"
@@ -70,6 +88,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Amount"
@@ -79,6 +98,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Payable"
@@ -90,10 +110,12 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Type"
@@ -103,6 +125,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Amount"
@@ -112,6 +135,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Payable"
@@ -123,10 +147,12 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Type"
@@ -136,6 +162,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Amount"
@@ -145,6 +172,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Payable"
@@ -156,10 +184,12 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Type"
@@ -169,6 +199,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Amount"
@@ -176,6 +207,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Payable"
@@ -185,10 +217,12 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Type"
@@ -198,6 +232,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Amount"
@@ -205,6 +240,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Payable"
@@ -221,24 +257,38 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
       classname="el-mb11"
       data-has-call-to-action="false"
       data-has-expandable-action="false"
+      role="table"
     >
-      <mock-styled.div>
-        <mock-styled.div>
+      <mock-styled.div
+        role="row"
+      >
+        <mock-styled.div
+          aria-label="Type"
+          role="columnheader"
+        >
           Type
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Amount"
+          role="columnheader"
+        >
           Amount
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Payable"
+          role="columnheader"
+        >
           Payable
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Type"
@@ -248,6 +298,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Amount"
@@ -257,6 +308,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Payable"
@@ -268,10 +320,12 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Type"
@@ -281,6 +335,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Amount"
@@ -290,6 +345,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Payable"
@@ -301,10 +357,12 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Type"
@@ -314,6 +372,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Amount"
@@ -323,6 +382,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Payable"
@@ -334,10 +394,12 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Type"
@@ -347,6 +409,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Amount"
@@ -356,6 +419,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Payable"
@@ -367,10 +431,12 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Type"
@@ -380,6 +446,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Amount"
@@ -387,6 +454,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Payable"
@@ -396,10 +464,12 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Type"
@@ -409,6 +479,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Amount"
@@ -416,6 +487,7 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Payable"

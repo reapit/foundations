@@ -6,11 +6,11 @@ exports[`Api should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.div>
             <mock-styled.div
@@ -34,20 +34,20 @@ exports[`Api should match a snapshot 1`] = `
               Desktop
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname="el-hfull"
+        </aside>
+        <section
+          class="el-page-container el-hfull"
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -71,11 +71,11 @@ exports[`Api should match a snapshot 1`] = `
             Desktop
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname="el-hfull"
+      </aside>
+      <section
+        class="el-page-container el-hfull"
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

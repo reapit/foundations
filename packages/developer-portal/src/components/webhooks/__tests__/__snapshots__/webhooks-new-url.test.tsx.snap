@@ -10,7 +10,7 @@ exports[`WebhooksNewUrl should match a snapshot 1`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -41,7 +41,7 @@ exports[`WebhooksNewUrl should match a snapshot 1`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Add a url to receive your webhook payload here. The url must be a secure https endpoint.
       </mock-styled.p>

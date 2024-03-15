@@ -10,7 +10,7 @@ exports[`WebhooksPingForm should match a snapshot 1`] = `
         class="el-p8"
       >
         <mock-styled.h2
-          classname="el-ml3"
+          classname="el-text-base el-ml3"
         >
           Test Webhook Subscription
         </mock-styled.h2>
@@ -44,7 +44,7 @@ exports[`WebhooksPingForm should match a snapshot 1`] = `
             classname=""
           >
             <mock-styled.p
-              classname=""
+              classname="el-text-base"
             >
               To test your Webhook subscription, please select a subscription topic and an example payload for that topic will be sent to the configured URL. For more information, please
                
@@ -85,7 +85,7 @@ exports[`WebhooksPingForm should match a snapshot 1`] = `
       class="el-p8"
     >
       <mock-styled.h2
-        classname="el-ml3"
+        classname="el-text-base el-ml3"
       >
         Test Webhook Subscription
       </mock-styled.h2>
@@ -119,7 +119,7 @@ exports[`WebhooksPingForm should match a snapshot 1`] = `
           classname=""
         >
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             To test your Webhook subscription, please select a subscription topic and an example payload for that topic will be sent to the configured URL. For more information, please
              

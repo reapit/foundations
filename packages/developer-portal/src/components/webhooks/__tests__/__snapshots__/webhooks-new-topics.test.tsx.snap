@@ -10,7 +10,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -29,6 +29,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -40,7 +41,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -56,7 +57,11 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r1:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -74,7 +79,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
       </mock-styled.p>
@@ -93,6 +98,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
           />
           <mock-styled.span
             classname="el-intent-default el-icon-new"
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -104,7 +110,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                 fill="currentColor"
               />
             </svg>
@@ -120,7 +126,11 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
             Search to get started
           </mock-styled.span>
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-controls=":r1:"
+          aria-haspopup="listbox"
+          role="combobox"
+        >
           <mock-styled.input
             id="topic-ids"
           />
@@ -195,7 +205,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -214,6 +224,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -225,7 +236,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -241,7 +252,11 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r0:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -259,7 +274,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
       </mock-styled.p>
@@ -278,6 +293,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
           />
           <mock-styled.span
             classname="el-intent-default el-icon-new"
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -289,7 +305,7 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                 fill="currentColor"
               />
             </svg>
@@ -305,7 +321,11 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
             Search to get started
           </mock-styled.span>
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-controls=":r0:"
+          aria-haspopup="listbox"
+          role="combobox"
+        >
           <mock-styled.input
             id="topic-ids"
           />

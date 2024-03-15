@@ -7,12 +7,12 @@ exports[`AnalyticsCalculator should match snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         Calculator
       </mock-styled.h1>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         You can calculate the estimated monthly cost below using our Cost Calculator. Just select the number of endpoints and enter the amount of API calls below. To see the full Foundations Pricing, please click
          
@@ -123,12 +123,12 @@ exports[`AnalyticsCalculator should match snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.h1
-      classname=""
+      classname="el-text-base"
     >
       Calculator
     </mock-styled.h1>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       You can calculate the estimated monthly cost below using our Cost Calculator. Just select the number of endpoints and enter the amount of API calls below. To see the full Foundations Pricing, please click
        
