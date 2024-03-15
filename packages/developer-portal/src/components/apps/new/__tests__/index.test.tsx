@@ -164,9 +164,11 @@ describe('AppsNew', () => {
 
     curried(formValues)
 
-    expect(createApp).toHaveBeenCalledWith(expect.objectContaining({
-      categoryIds: ['14'],
-    }))
+    expect(createApp).toHaveBeenCalledWith(
+      expect.objectContaining({
+        categoryIds: ['14'],
+      }),
+    )
   })
 
   it('should handle navigate on success', () => {
