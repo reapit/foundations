@@ -34,12 +34,12 @@ exports[`FetchAuthenticators should render component with data 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="el-has-no-margin"
+            classname="el-text-base el-has-no-margin"
           >
             Authenticator Type
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text el-has-no-margin"
+            classname="el-text-base el-has-grey-text el-has-no-margin"
           >
             Authenticator App
           </mock-styled.p>
@@ -48,12 +48,12 @@ exports[`FetchAuthenticators should render component with data 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="el-has-no-margin"
+            classname="el-text-base el-has-no-margin"
           >
             Status
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text el-has-no-margin"
+            classname="el-text-base el-has-grey-text el-has-no-margin"
           >
             Active
           </mock-styled.p>
@@ -62,12 +62,12 @@ exports[`FetchAuthenticators should render component with data 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="el-has-no-margin"
+            classname="el-text-base el-has-no-margin"
           >
             Created
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text el-has-no-margin"
+            classname="el-text-base el-has-grey-text el-has-no-margin"
           >
             11/11/2022 11:03
           </mock-styled.p>
@@ -76,12 +76,12 @@ exports[`FetchAuthenticators should render component with data 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="el-has-no-margin"
+            classname="el-text-base el-has-no-margin"
           >
             Last Updated
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text el-has-no-margin"
+            classname="el-text-base el-has-grey-text el-has-no-margin"
           >
             11/11/2022 11:03
           </mock-styled.p>
@@ -125,12 +125,12 @@ exports[`FetchAuthenticators should render component with data 1`] = `
         classname=""
       >
         <mock-styled.h2
-          classname="el-has-no-margin"
+          classname="el-text-base el-has-no-margin"
         >
           Authenticator Type
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Authenticator App
         </mock-styled.p>
@@ -139,12 +139,12 @@ exports[`FetchAuthenticators should render component with data 1`] = `
         classname=""
       >
         <mock-styled.h2
-          classname="el-has-no-margin"
+          classname="el-text-base el-has-no-margin"
         >
           Status
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Active
         </mock-styled.p>
@@ -153,12 +153,12 @@ exports[`FetchAuthenticators should render component with data 1`] = `
         classname=""
       >
         <mock-styled.h2
-          classname="el-has-no-margin"
+          classname="el-text-base el-has-no-margin"
         >
           Created
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           11/11/2022 11:03
         </mock-styled.p>
@@ -167,12 +167,12 @@ exports[`FetchAuthenticators should render component with data 1`] = `
         classname=""
       >
         <mock-styled.h2
-          classname="el-has-no-margin"
+          classname="el-text-base el-has-no-margin"
         >
           Last Updated
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           11/11/2022 11:03
         </mock-styled.p>

@@ -6,14 +6,15 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.span
             classname="el-mb5 el-icon-size-large"
+            role="img"
           >
             <svg
               fill="none"
@@ -49,56 +50,56 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                     fill="#d8dee4"
                   />
                   <path
-                    d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563a.25.25 0 0 1 .026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a84.494 84.494 0 0 0 2.024 3.345 38.902 38.902 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454Z"
+                    d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563l.026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a85 85 0 0 0 2.024 3.345 38.9 38.9 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454"
                     fill="#798da1"
                   />
                   <path
-                    d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11ZM67.963 74.133c-.707.378-1.427.737-2.16 1.078-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208ZM50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116-.166-3.184-3.837-5.608-8.2-5.414-4.363.194-8.046 2.805-7.88 5.989.166 3.184 4.12 5.735 8.482 5.541Z"
+                    d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11M67.963 74.133q-1.06.567-2.16 1.078c-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208M50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116s-3.837-5.608-8.2-5.414-8.046 2.805-7.88 5.989 4.12 5.735 8.482 5.541"
                     fill="#9faebc"
                   />
                 </g>
                 <path
-                  d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463-.073.56-.11 1.13-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.181 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-.58-.038-1.15-.111-1.71Z"
+                  d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463q-.11.84-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.182 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122q0-.87-.111-1.71"
                   fill="#798da1"
                 />
                 <path
-                  d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185Z"
+                  d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185"
                   fill="#798da1"
                 />
                 <path
-                  d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.284 4.284 0 0 0 2.434 3.864l-.675 4.635a.861.861 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.301 4.301 0 0 0 24.5 26.31Z"
+                  d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.28 4.28 0 0 0 2.434 3.864l-.675 4.635a.86.86 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.3 4.3 0 0 0 24.5 26.31"
                   fill="#9faebc"
                 />
                 <path
-                  d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173.108-.005.216-.014.323-.026 2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48Z"
+                  d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173q.162-.008.323-.026c2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48"
                   fill="#FFE5C7"
                 />
                 <path
-                  d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381l-.013.002ZM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5.365 5.365 0 0 0-.356-.183 2.998 2.998 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.39 3.39 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573ZM60.685 28.792a1.736 1.736 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413ZM43.452 28.669c.093.034.18.075.264.123 1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536Z"
+                  d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381zM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5 5 0 0 0-.356-.183 3 3 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.4 3.4 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573M60.685 28.792a2 2 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413M43.452 28.669q.139.051.264.123c1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536"
                   fill="#506478"
                 />
                 <path
-                  d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55Z"
+                  d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55"
                   fill="#fff"
                 />
                 <path
-                  d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19Z"
+                  d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19"
                   fill="#506478"
                 />
                 <path
-                  d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548Z"
+                  d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548"
                   fill="#fff"
                 />
                 <path
-                  d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768.477-6.92-1.175-19.01 5.289-19.63Z"
+                  d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768S27.182 8.95 33.646 8.33"
                   fill="#506478"
                 />
                 <path
-                  d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76 27.297 76 34 69.18 34 60.941 34 52.702 27.297 46 19.059 46Z"
+                  d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76S34 69.18 34 60.941 27.297 46 19.059 46"
                   fill="#7e9bfa"
                 />
                 <path
-                  d="M25.452 55.844a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.544 1.544 0 0 1-1.108.454c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375 8.097-8.098Z"
+                  d="M25.452 55.845a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.54 1.54 0 0 1-1.108.453c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375z"
                   fill="#fff"
                 />
               </g>
@@ -115,12 +116,12 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
             </svg>
           </mock-styled.span>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Your User Config
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             This page allows you to configure and reset the Multi Factor Authentication (MFA) devices for your organisation users. For more information on how to do this, please refer to the documentation link below.
           </mock-styled.p>
@@ -141,12 +142,12 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
             class="el-mb5"
           >
             <mock-styled.h2
-              classname=""
+              classname="el-text-base"
             >
               Organisations
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
             </mock-styled.p>
@@ -182,12 +183,12 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
           </div>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname="el-hfull"
+        </aside>
+        <section
+          class="el-page-container el-hfull"
         >
           <mock-styled.h1
-            classname=""
+            classname="el-text-base"
           >
             Users List 
             - XTM Estates Ltd
@@ -331,7 +332,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
             </mock-styled.div>
           </form>
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             Total Users: 
             1
@@ -341,23 +342,41 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
             data-has-call-to-action="false"
             data-has-expandable-action="true"
             data-num-columns-excl-action-col="4"
+            role="table"
           >
-            <mock-styled.div>
-              <mock-styled.div>
+            <mock-styled.div
+              role="row"
+            >
+              <mock-styled.div
+                aria-label="Name"
+                role="columnheader"
+              >
                 Name
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                aria-label="Email"
+                role="columnheader"
+              >
                 Email
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                aria-label="Job Title"
+                role="columnheader"
+              >
                 Job Title
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                aria-label="Active"
+                role="columnheader"
+              >
                 Active
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                role="columnheader"
+              >
                 <mock-styled.span
                   classname="el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
@@ -367,7 +386,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                      d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                       fill="currentColor"
                     />
                   </svg>
@@ -376,10 +395,12 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname=""
+              role="row"
             >
               <mock-styled.div>
                 <mock-styled.div
                   classname="el-table-cell-has-dark-text"
+                  role="cell"
                 >
                   <mock-styled.div
                     data-narrow-label="Name"
@@ -389,6 +410,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                 </mock-styled.div>
                 <mock-styled.div
                   classname="el-table-cell-has-dark-text"
+                  role="cell"
                 >
                   <mock-styled.div
                     data-narrow-label="Email"
@@ -398,6 +420,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                 </mock-styled.div>
                 <mock-styled.div
                   classname="el-table-cell-has-dark-text"
+                  role="cell"
                 >
                   <mock-styled.div
                     data-narrow-label="Job Title"
@@ -405,12 +428,14 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                 </mock-styled.div>
                 <mock-styled.div
                   classname="el-table-cell-has-dark-text"
+                  role="cell"
                 >
                   <mock-styled.div
                     data-narrow-label="Active"
                   >
                     <mock-styled.span
                       classname="el-intent-success el-icon-new"
+                      role="img"
                     >
                       <svg
                         fill="none"
@@ -421,7 +446,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                       >
                         <path
                           clip-rule="evenodd"
-                          d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.321 1.321 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87Z"
+                          d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.32 1.32 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87"
                           fill="currentColor"
                           fill-rule="evenodd"
                         />
@@ -431,9 +456,11 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                 </mock-styled.div>
                 <mock-styled.div
                   classname=""
+                  role="cell"
                 >
                   <mock-styled.span
                     classname="el-intent-default el-icon-new"
+                    role="img"
                   >
                     <svg
                       fill="none"
@@ -443,7 +470,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                        d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                         fill="currentColor"
                       />
                     </svg>
@@ -451,6 +478,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
+                aria-hidden="false"
                 classname=""
               >
                 <mock-styled.div>
@@ -481,11 +509,14 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.button
+              aria-label="Previous"
               data-testid="back-button"
+              role="button"
               type="button"
             >
               <mock-styled.span
                 classname="el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -495,7 +526,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                    d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
                     fill="currentColor"
                   />
                 </svg>
@@ -509,11 +540,14 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
               1
             </mock-styled.div>
             <mock-styled.button
+              aria-label="Next"
               data-testid="forward-button"
+              role="button"
               type="button"
             >
               <mock-styled.span
                 classname="el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -523,27 +557,28 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                    d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
                     fill="currentColor"
                   />
                 </svg>
               </mock-styled.span>
             </mock-styled.button>
           </mock-styled.div>
-        </mock-styled.section>
-      </mock-styled.div>
+        </section>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.span
           classname="el-mb5 el-icon-size-large"
+          role="img"
         >
           <svg
             fill="none"
@@ -579,56 +614,56 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                   fill="#d8dee4"
                 />
                 <path
-                  d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563a.25.25 0 0 1 .026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a84.494 84.494 0 0 0 2.024 3.345 38.902 38.902 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454Z"
+                  d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563l.026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a85 85 0 0 0 2.024 3.345 38.9 38.9 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454"
                   fill="#798da1"
                 />
                 <path
-                  d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11ZM67.963 74.133c-.707.378-1.427.737-2.16 1.078-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208ZM50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116-.166-3.184-3.837-5.608-8.2-5.414-4.363.194-8.046 2.805-7.88 5.989.166 3.184 4.12 5.735 8.482 5.541Z"
+                  d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11M67.963 74.133q-1.06.567-2.16 1.078c-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208M50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116s-3.837-5.608-8.2-5.414-8.046 2.805-7.88 5.989 4.12 5.735 8.482 5.541"
                   fill="#9faebc"
                 />
               </g>
               <path
-                d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463-.073.56-.11 1.13-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.181 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-.58-.038-1.15-.111-1.71Z"
+                d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463q-.11.84-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.182 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122q0-.87-.111-1.71"
                 fill="#798da1"
               />
               <path
-                d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185Z"
+                d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185"
                 fill="#798da1"
               />
               <path
-                d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.284 4.284 0 0 0 2.434 3.864l-.675 4.635a.861.861 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.301 4.301 0 0 0 24.5 26.31Z"
+                d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.28 4.28 0 0 0 2.434 3.864l-.675 4.635a.86.86 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.3 4.3 0 0 0 24.5 26.31"
                 fill="#9faebc"
               />
               <path
-                d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173.108-.005.216-.014.323-.026 2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48Z"
+                d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173q.162-.008.323-.026c2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48"
                 fill="#FFE5C7"
               />
               <path
-                d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381l-.013.002ZM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5.365 5.365 0 0 0-.356-.183 2.998 2.998 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.39 3.39 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573ZM60.685 28.792a1.736 1.736 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413ZM43.452 28.669c.093.034.18.075.264.123 1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536Z"
+                d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381zM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5 5 0 0 0-.356-.183 3 3 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.4 3.4 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573M60.685 28.792a2 2 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413M43.452 28.669q.139.051.264.123c1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536"
                 fill="#506478"
               />
               <path
-                d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55Z"
+                d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55"
                 fill="#fff"
               />
               <path
-                d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19Z"
+                d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19"
                 fill="#506478"
               />
               <path
-                d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548Z"
+                d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548"
                 fill="#fff"
               />
               <path
-                d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768.477-6.92-1.175-19.01 5.289-19.63Z"
+                d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768S27.182 8.95 33.646 8.33"
                 fill="#506478"
               />
               <path
-                d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76 27.297 76 34 69.18 34 60.941 34 52.702 27.297 46 19.059 46Z"
+                d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76S34 69.18 34 60.941 27.297 46 19.059 46"
                 fill="#7e9bfa"
               />
               <path
-                d="M25.452 55.844a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.544 1.544 0 0 1-1.108.454c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375 8.097-8.098Z"
+                d="M25.452 55.845a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.54 1.54 0 0 1-1.108.453c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375z"
                 fill="#fff"
               />
             </g>
@@ -645,12 +680,12 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
           </svg>
         </mock-styled.span>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Your User Config
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This page allows you to configure and reset the Multi Factor Authentication (MFA) devices for your organisation users. For more information on how to do this, please refer to the documentation link below.
         </mock-styled.p>
@@ -671,12 +706,12 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
           class="el-mb5"
         >
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Organisations
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
           </mock-styled.p>
@@ -712,12 +747,12 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
         </div>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname="el-hfull"
+      </aside>
+      <section
+        class="el-page-container el-hfull"
       >
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           Users List 
           - XTM Estates Ltd
@@ -861,7 +896,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
           </mock-styled.div>
         </form>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Total Users: 
           1
@@ -871,23 +906,41 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="4"
+          role="table"
         >
-          <mock-styled.div>
-            <mock-styled.div>
+          <mock-styled.div
+            role="row"
+          >
+            <mock-styled.div
+              aria-label="Name"
+              role="columnheader"
+            >
               Name
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Email"
+              role="columnheader"
+            >
               Email
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Job Title"
+              role="columnheader"
+            >
               Job Title
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Active"
+              role="columnheader"
+            >
               Active
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              role="columnheader"
+            >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -897,7 +950,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                    d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                     fill="currentColor"
                   />
                 </svg>
@@ -906,10 +959,12 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname=""
+            role="row"
           >
             <mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Name"
@@ -919,6 +974,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Email"
@@ -928,6 +984,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Job Title"
@@ -935,12 +992,14 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Active"
                 >
                   <mock-styled.span
                     classname="el-intent-success el-icon-new"
+                    role="img"
                   >
                     <svg
                       fill="none"
@@ -951,7 +1010,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                     >
                       <path
                         clip-rule="evenodd"
-                        d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.321 1.321 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87Z"
+                        d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.32 1.32 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87"
                         fill="currentColor"
                         fill-rule="evenodd"
                       />
@@ -961,9 +1020,11 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname=""
+                role="cell"
               >
                 <mock-styled.span
                   classname="el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
@@ -973,7 +1034,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                       fill="currentColor"
                     />
                   </svg>
@@ -981,6 +1042,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
+              aria-hidden="false"
               classname=""
             >
               <mock-styled.div>
@@ -1011,11 +1073,14 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.button
+            aria-label="Previous"
             data-testid="back-button"
+            role="button"
             type="button"
           >
             <mock-styled.span
               classname="el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -1025,7 +1090,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                  d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
                   fill="currentColor"
                 />
               </svg>
@@ -1039,11 +1104,14 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
             1
           </mock-styled.div>
           <mock-styled.button
+            aria-label="Next"
             data-testid="forward-button"
+            role="button"
             type="button"
           >
             <mock-styled.span
               classname="el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -1053,15 +1121,15 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                  d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
                   fill="currentColor"
                 />
               </svg>
             </mock-styled.span>
           </mock-styled.button>
         </mock-styled.div>
-      </mock-styled.section>
-    </mock-styled.div>
+      </section>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1123,14 +1191,15 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.span
             classname="el-mb5 el-icon-size-large"
+            role="img"
           >
             <svg
               fill="none"
@@ -1166,56 +1235,56 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                     fill="#d8dee4"
                   />
                   <path
-                    d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563a.25.25 0 0 1 .026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a84.494 84.494 0 0 0 2.024 3.345 38.902 38.902 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454Z"
+                    d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563l.026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a85 85 0 0 0 2.024 3.345 38.9 38.9 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454"
                     fill="#798da1"
                   />
                   <path
-                    d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11ZM67.963 74.133c-.707.378-1.427.737-2.16 1.078-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208ZM50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116-.166-3.184-3.837-5.608-8.2-5.414-4.363.194-8.046 2.805-7.88 5.989.166 3.184 4.12 5.735 8.482 5.541Z"
+                    d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11M67.963 74.133q-1.06.567-2.16 1.078c-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208M50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116s-3.837-5.608-8.2-5.414-8.046 2.805-7.88 5.989 4.12 5.735 8.482 5.541"
                     fill="#9faebc"
                   />
                 </g>
                 <path
-                  d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463-.073.56-.11 1.13-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.181 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-.58-.038-1.15-.111-1.71Z"
+                  d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463q-.11.84-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.182 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122q0-.87-.111-1.71"
                   fill="#798da1"
                 />
                 <path
-                  d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185Z"
+                  d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185"
                   fill="#798da1"
                 />
                 <path
-                  d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.284 4.284 0 0 0 2.434 3.864l-.675 4.635a.861.861 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.301 4.301 0 0 0 24.5 26.31Z"
+                  d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.28 4.28 0 0 0 2.434 3.864l-.675 4.635a.86.86 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.3 4.3 0 0 0 24.5 26.31"
                   fill="#9faebc"
                 />
                 <path
-                  d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173.108-.005.216-.014.323-.026 2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48Z"
+                  d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173q.162-.008.323-.026c2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48"
                   fill="#FFE5C7"
                 />
                 <path
-                  d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381l-.013.002ZM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5.365 5.365 0 0 0-.356-.183 2.998 2.998 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.39 3.39 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573ZM60.685 28.792a1.736 1.736 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413ZM43.452 28.669c.093.034.18.075.264.123 1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536Z"
+                  d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381zM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5 5 0 0 0-.356-.183 3 3 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.4 3.4 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573M60.685 28.792a2 2 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413M43.452 28.669q.139.051.264.123c1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536"
                   fill="#506478"
                 />
                 <path
-                  d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55Z"
+                  d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55"
                   fill="#fff"
                 />
                 <path
-                  d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19Z"
+                  d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19"
                   fill="#506478"
                 />
                 <path
-                  d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548Z"
+                  d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548"
                   fill="#fff"
                 />
                 <path
-                  d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768.477-6.92-1.175-19.01 5.289-19.63Z"
+                  d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768S27.182 8.95 33.646 8.33"
                   fill="#506478"
                 />
                 <path
-                  d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76 27.297 76 34 69.18 34 60.941 34 52.702 27.297 46 19.059 46Z"
+                  d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76S34 69.18 34 60.941 27.297 46 19.059 46"
                   fill="#7e9bfa"
                 />
                 <path
-                  d="M25.452 55.844a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.544 1.544 0 0 1-1.108.454c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375 8.097-8.098Z"
+                  d="M25.452 55.845a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.54 1.54 0 0 1-1.108.453c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375z"
                   fill="#fff"
                 />
               </g>
@@ -1232,12 +1301,12 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             </svg>
           </mock-styled.span>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Your User Config
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             This page allows you to configure and reset the Multi Factor Authentication (MFA) devices for your organisation users. For more information on how to do this, please refer to the documentation link below.
           </mock-styled.p>
@@ -1254,12 +1323,12 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             <mock-styled.div />
             Download CSV
           </mock-styled.button>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname="el-hfull"
+        </aside>
+        <section
+          class="el-page-container el-hfull"
         >
           <mock-styled.h1
-            classname=""
+            classname="el-text-base"
           >
             Users List 
           </mock-styled.h1>
@@ -1408,20 +1477,21 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
               <mock-styled.div />
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.section>
-      </mock-styled.div>
+        </section>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.span
           classname="el-mb5 el-icon-size-large"
+          role="img"
         >
           <svg
             fill="none"
@@ -1457,56 +1527,56 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                   fill="#d8dee4"
                 />
                 <path
-                  d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563a.25.25 0 0 1 .026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a84.494 84.494 0 0 0 2.024 3.345 38.902 38.902 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454Z"
+                  d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563l.026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a85 85 0 0 0 2.024 3.345 38.9 38.9 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454"
                   fill="#798da1"
                 />
                 <path
-                  d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11ZM67.963 74.133c-.707.378-1.427.737-2.16 1.078-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208ZM50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116-.166-3.184-3.837-5.608-8.2-5.414-4.363.194-8.046 2.805-7.88 5.989.166 3.184 4.12 5.735 8.482 5.541Z"
+                  d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11M67.963 74.133q-1.06.567-2.16 1.078c-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208M50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116s-3.837-5.608-8.2-5.414-8.046 2.805-7.88 5.989 4.12 5.735 8.482 5.541"
                   fill="#9faebc"
                 />
               </g>
               <path
-                d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463-.073.56-.11 1.13-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.181 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-.58-.038-1.15-.111-1.71Z"
+                d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463q-.11.84-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.182 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122q0-.87-.111-1.71"
                 fill="#798da1"
               />
               <path
-                d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185Z"
+                d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185"
                 fill="#798da1"
               />
               <path
-                d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.284 4.284 0 0 0 2.434 3.864l-.675 4.635a.861.861 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.301 4.301 0 0 0 24.5 26.31Z"
+                d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.28 4.28 0 0 0 2.434 3.864l-.675 4.635a.86.86 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.3 4.3 0 0 0 24.5 26.31"
                 fill="#9faebc"
               />
               <path
-                d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173.108-.005.216-.014.323-.026 2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48Z"
+                d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173q.162-.008.323-.026c2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48"
                 fill="#FFE5C7"
               />
               <path
-                d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381l-.013.002ZM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5.365 5.365 0 0 0-.356-.183 2.998 2.998 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.39 3.39 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573ZM60.685 28.792a1.736 1.736 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413ZM43.452 28.669c.093.034.18.075.264.123 1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536Z"
+                d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381zM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5 5 0 0 0-.356-.183 3 3 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.4 3.4 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573M60.685 28.792a2 2 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413M43.452 28.669q.139.051.264.123c1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536"
                 fill="#506478"
               />
               <path
-                d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55Z"
+                d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55"
                 fill="#fff"
               />
               <path
-                d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19Z"
+                d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19"
                 fill="#506478"
               />
               <path
-                d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548Z"
+                d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548"
                 fill="#fff"
               />
               <path
-                d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768.477-6.92-1.175-19.01 5.289-19.63Z"
+                d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768S27.182 8.95 33.646 8.33"
                 fill="#506478"
               />
               <path
-                d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76 27.297 76 34 69.18 34 60.941 34 52.702 27.297 46 19.059 46Z"
+                d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76S34 69.18 34 60.941 27.297 46 19.059 46"
                 fill="#7e9bfa"
               />
               <path
-                d="M25.452 55.844a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.544 1.544 0 0 1-1.108.454c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375 8.097-8.098Z"
+                d="M25.452 55.845a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.54 1.54 0 0 1-1.108.453c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375z"
                 fill="#fff"
               />
             </g>
@@ -1523,12 +1593,12 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
           </svg>
         </mock-styled.span>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Your User Config
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This page allows you to configure and reset the Multi Factor Authentication (MFA) devices for your organisation users. For more information on how to do this, please refer to the documentation link below.
         </mock-styled.p>
@@ -1545,12 +1615,12 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
           <mock-styled.div />
           Download CSV
         </mock-styled.button>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname="el-hfull"
+      </aside>
+      <section
+        class="el-page-container el-hfull"
       >
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           Users List 
         </mock-styled.h1>
@@ -1699,8 +1769,8 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             <mock-styled.div />
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.section>
-    </mock-styled.div>
+      </section>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1762,14 +1832,15 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.span
             classname="el-mb5 el-icon-size-large"
+            role="img"
           >
             <svg
               fill="none"
@@ -1805,56 +1876,56 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
                     fill="#d8dee4"
                   />
                   <path
-                    d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563a.25.25 0 0 1 .026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a84.494 84.494 0 0 0 2.024 3.345 38.902 38.902 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454Z"
+                    d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563l.026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a85 85 0 0 0 2.024 3.345 38.9 38.9 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454"
                     fill="#798da1"
                   />
                   <path
-                    d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11ZM67.963 74.133c-.707.378-1.427.737-2.16 1.078-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208ZM50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116-.166-3.184-3.837-5.608-8.2-5.414-4.363.194-8.046 2.805-7.88 5.989.166 3.184 4.12 5.735 8.482 5.541Z"
+                    d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11M67.963 74.133q-1.06.567-2.16 1.078c-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208M50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116s-3.837-5.608-8.2-5.414-8.046 2.805-7.88 5.989 4.12 5.735 8.482 5.541"
                     fill="#9faebc"
                   />
                 </g>
                 <path
-                  d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463-.073.56-.11 1.13-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.181 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-.58-.038-1.15-.111-1.71Z"
+                  d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463q-.11.84-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.182 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122q0-.87-.111-1.71"
                   fill="#798da1"
                 />
                 <path
-                  d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185Z"
+                  d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185"
                   fill="#798da1"
                 />
                 <path
-                  d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.284 4.284 0 0 0 2.434 3.864l-.675 4.635a.861.861 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.301 4.301 0 0 0 24.5 26.31Z"
+                  d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.28 4.28 0 0 0 2.434 3.864l-.675 4.635a.86.86 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.3 4.3 0 0 0 24.5 26.31"
                   fill="#9faebc"
                 />
                 <path
-                  d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173.108-.005.216-.014.323-.026 2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48Z"
+                  d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173q.162-.008.323-.026c2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48"
                   fill="#FFE5C7"
                 />
                 <path
-                  d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381l-.013.002ZM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5.365 5.365 0 0 0-.356-.183 2.998 2.998 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.39 3.39 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573ZM60.685 28.792a1.736 1.736 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413ZM43.452 28.669c.093.034.18.075.264.123 1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536Z"
+                  d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381zM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5 5 0 0 0-.356-.183 3 3 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.4 3.4 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573M60.685 28.792a2 2 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413M43.452 28.669q.139.051.264.123c1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536"
                   fill="#506478"
                 />
                 <path
-                  d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55Z"
+                  d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55"
                   fill="#fff"
                 />
                 <path
-                  d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19Z"
+                  d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19"
                   fill="#506478"
                 />
                 <path
-                  d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548Z"
+                  d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548"
                   fill="#fff"
                 />
                 <path
-                  d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768.477-6.92-1.175-19.01 5.289-19.63Z"
+                  d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768S27.182 8.95 33.646 8.33"
                   fill="#506478"
                 />
                 <path
-                  d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76 27.297 76 34 69.18 34 60.941 34 52.702 27.297 46 19.059 46Z"
+                  d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76S34 69.18 34 60.941 27.297 46 19.059 46"
                   fill="#7e9bfa"
                 />
                 <path
-                  d="M25.452 55.844a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.544 1.544 0 0 1-1.108.454c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375 8.097-8.098Z"
+                  d="M25.452 55.845a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.54 1.54 0 0 1-1.108.453c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375z"
                   fill="#fff"
                 />
               </g>
@@ -1871,12 +1942,12 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
             </svg>
           </mock-styled.span>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Your User Config
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             This page allows you to configure and reset the Multi Factor Authentication (MFA) devices for your organisation users. For more information on how to do this, please refer to the documentation link below.
           </mock-styled.p>
@@ -1897,12 +1968,12 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
             class="el-mb5"
           >
             <mock-styled.h2
-              classname=""
+              classname="el-text-base"
             >
               Organisations
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
             </mock-styled.p>
@@ -1938,12 +2009,12 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
               </mock-styled.div>
             </mock-styled.div>
           </div>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname="el-hfull"
+        </aside>
+        <section
+          class="el-page-container el-hfull"
         >
           <mock-styled.h1
-            classname=""
+            classname="el-text-base"
           >
             Users List 
           </mock-styled.h1>
@@ -2087,6 +2158,7 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
           </form>
           <mock-styled.div
             classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+            role="alertdialog"
           >
             <div
               class="el-pn-icon"
@@ -2094,6 +2166,7 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
             >
               <mock-styled.span
                 classname="el-icon-new"
+                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -2105,7 +2178,7 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                     fill="currentColor"
                   />
                 </svg>
@@ -2117,20 +2190,21 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
               Please select an organisation from the left hand side before proceeding.
             </div>
           </mock-styled.div>
-        </mock-styled.section>
-      </mock-styled.div>
+        </section>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.span
           classname="el-mb5 el-icon-size-large"
+          role="img"
         >
           <svg
             fill="none"
@@ -2166,56 +2240,56 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
                   fill="#d8dee4"
                 />
                 <path
-                  d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563a.25.25 0 0 1 .026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a84.494 84.494 0 0 0 2.024 3.345 38.902 38.902 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454Z"
+                  d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563l.026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a85 85 0 0 0 2.024 3.345 38.9 38.9 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454"
                   fill="#798da1"
                 />
                 <path
-                  d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11ZM67.963 74.133c-.707.378-1.427.737-2.16 1.078-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208ZM50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116-.166-3.184-3.837-5.608-8.2-5.414-4.363.194-8.046 2.805-7.88 5.989.166 3.184 4.12 5.735 8.482 5.541Z"
+                  d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11M67.963 74.133q-1.06.567-2.16 1.078c-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208M50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116s-3.837-5.608-8.2-5.414-8.046 2.805-7.88 5.989 4.12 5.735 8.482 5.541"
                   fill="#9faebc"
                 />
               </g>
               <path
-                d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463-.073.56-.11 1.13-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.181 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-.58-.038-1.15-.111-1.71Z"
+                d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463q-.11.84-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.182 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122q0-.87-.111-1.71"
                 fill="#798da1"
               />
               <path
-                d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185Z"
+                d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185"
                 fill="#798da1"
               />
               <path
-                d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.284 4.284 0 0 0 2.434 3.864l-.675 4.635a.861.861 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.301 4.301 0 0 0 24.5 26.31Z"
+                d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.28 4.28 0 0 0 2.434 3.864l-.675 4.635a.86.86 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.3 4.3 0 0 0 24.5 26.31"
                 fill="#9faebc"
               />
               <path
-                d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173.108-.005.216-.014.323-.026 2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48Z"
+                d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173q.162-.008.323-.026c2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48"
                 fill="#FFE5C7"
               />
               <path
-                d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381l-.013.002ZM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5.365 5.365 0 0 0-.356-.183 2.998 2.998 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.39 3.39 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573ZM60.685 28.792a1.736 1.736 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413ZM43.452 28.669c.093.034.18.075.264.123 1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536Z"
+                d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381zM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5 5 0 0 0-.356-.183 3 3 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.4 3.4 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573M60.685 28.792a2 2 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413M43.452 28.669q.139.051.264.123c1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536"
                 fill="#506478"
               />
               <path
-                d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55Z"
+                d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55"
                 fill="#fff"
               />
               <path
-                d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19Z"
+                d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19"
                 fill="#506478"
               />
               <path
-                d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548Z"
+                d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548"
                 fill="#fff"
               />
               <path
-                d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768.477-6.92-1.175-19.01 5.289-19.63Z"
+                d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768S27.182 8.95 33.646 8.33"
                 fill="#506478"
               />
               <path
-                d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76 27.297 76 34 69.18 34 60.941 34 52.702 27.297 46 19.059 46Z"
+                d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76S34 69.18 34 60.941 27.297 46 19.059 46"
                 fill="#7e9bfa"
               />
               <path
-                d="M25.452 55.844a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.544 1.544 0 0 1-1.108.454c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375 8.097-8.098Z"
+                d="M25.452 55.845a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.54 1.54 0 0 1-1.108.453c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375z"
                 fill="#fff"
               />
             </g>
@@ -2232,12 +2306,12 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
           </svg>
         </mock-styled.span>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Your User Config
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This page allows you to configure and reset the Multi Factor Authentication (MFA) devices for your organisation users. For more information on how to do this, please refer to the documentation link below.
         </mock-styled.p>
@@ -2258,12 +2332,12 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
           class="el-mb5"
         >
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Organisations
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
           </mock-styled.p>
@@ -2299,12 +2373,12 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
             </mock-styled.div>
           </mock-styled.div>
         </div>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname="el-hfull"
+      </aside>
+      <section
+        class="el-page-container el-hfull"
       >
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           Users List 
         </mock-styled.h1>
@@ -2448,6 +2522,7 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
         </form>
         <mock-styled.div
           classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+          role="alertdialog"
         >
           <div
             class="el-pn-icon"
@@ -2455,6 +2530,7 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
           >
             <mock-styled.span
               classname="el-icon-new"
+              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -2466,7 +2542,7 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                   fill="currentColor"
                 />
               </svg>
@@ -2478,8 +2554,8 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
             Please select an organisation from the left hand side before proceeding.
           </div>
         </mock-styled.div>
-      </mock-styled.section>
-    </mock-styled.div>
+      </section>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -2541,14 +2617,15 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.span
             classname="el-mb5 el-icon-size-large"
+            role="img"
           >
             <svg
               fill="none"
@@ -2584,56 +2661,56 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                     fill="#d8dee4"
                   />
                   <path
-                    d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563a.25.25 0 0 1 .026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a84.494 84.494 0 0 0 2.024 3.345 38.902 38.902 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454Z"
+                    d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563l.026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a85 85 0 0 0 2.024 3.345 38.9 38.9 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454"
                     fill="#798da1"
                   />
                   <path
-                    d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11ZM67.963 74.133c-.707.378-1.427.737-2.16 1.078-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208ZM50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116-.166-3.184-3.837-5.608-8.2-5.414-4.363.194-8.046 2.805-7.88 5.989.166 3.184 4.12 5.735 8.482 5.541Z"
+                    d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11M67.963 74.133q-1.06.567-2.16 1.078c-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208M50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116s-3.837-5.608-8.2-5.414-8.046 2.805-7.88 5.989 4.12 5.735 8.482 5.541"
                     fill="#9faebc"
                   />
                 </g>
                 <path
-                  d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463-.073.56-.11 1.13-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.181 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-.58-.038-1.15-.111-1.71Z"
+                  d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463q-.11.84-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.182 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122q0-.87-.111-1.71"
                   fill="#798da1"
                 />
                 <path
-                  d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185Z"
+                  d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185"
                   fill="#798da1"
                 />
                 <path
-                  d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.284 4.284 0 0 0 2.434 3.864l-.675 4.635a.861.861 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.301 4.301 0 0 0 24.5 26.31Z"
+                  d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.28 4.28 0 0 0 2.434 3.864l-.675 4.635a.86.86 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.3 4.3 0 0 0 24.5 26.31"
                   fill="#9faebc"
                 />
                 <path
-                  d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173.108-.005.216-.014.323-.026 2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48Z"
+                  d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173q.162-.008.323-.026c2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48"
                   fill="#FFE5C7"
                 />
                 <path
-                  d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381l-.013.002ZM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5.365 5.365 0 0 0-.356-.183 2.998 2.998 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.39 3.39 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573ZM60.685 28.792a1.736 1.736 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413ZM43.452 28.669c.093.034.18.075.264.123 1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536Z"
+                  d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381zM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5 5 0 0 0-.356-.183 3 3 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.4 3.4 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573M60.685 28.792a2 2 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413M43.452 28.669q.139.051.264.123c1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536"
                   fill="#506478"
                 />
                 <path
-                  d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55Z"
+                  d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55"
                   fill="#fff"
                 />
                 <path
-                  d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19Z"
+                  d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19"
                   fill="#506478"
                 />
                 <path
-                  d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548Z"
+                  d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548"
                   fill="#fff"
                 />
                 <path
-                  d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768.477-6.92-1.175-19.01 5.289-19.63Z"
+                  d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768S27.182 8.95 33.646 8.33"
                   fill="#506478"
                 />
                 <path
-                  d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76 27.297 76 34 69.18 34 60.941 34 52.702 27.297 46 19.059 46Z"
+                  d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76S34 69.18 34 60.941 27.297 46 19.059 46"
                   fill="#7e9bfa"
                 />
                 <path
-                  d="M25.452 55.844a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.544 1.544 0 0 1-1.108.454c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375 8.097-8.098Z"
+                  d="M25.452 55.845a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.54 1.54 0 0 1-1.108.453c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375z"
                   fill="#fff"
                 />
               </g>
@@ -2650,12 +2727,12 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
             </svg>
           </mock-styled.span>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Your User Config
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             This page allows you to configure and reset the Multi Factor Authentication (MFA) devices for your organisation users. For more information on how to do this, please refer to the documentation link below.
           </mock-styled.p>
@@ -2672,12 +2749,12 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
             <mock-styled.div />
             Download CSV
           </mock-styled.button>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname="el-hfull"
+        </aside>
+        <section
+          class="el-page-container el-hfull"
         >
           <mock-styled.h1
-            classname=""
+            classname="el-text-base"
           >
             Users List 
             - XTM Estates Ltd
@@ -2821,7 +2898,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
             </mock-styled.div>
           </form>
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             Total Users: 
             1
@@ -2831,23 +2908,41 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
             data-has-call-to-action="false"
             data-has-expandable-action="true"
             data-num-columns-excl-action-col="4"
+            role="table"
           >
-            <mock-styled.div>
-              <mock-styled.div>
+            <mock-styled.div
+              role="row"
+            >
+              <mock-styled.div
+                aria-label="Name"
+                role="columnheader"
+              >
                 Name
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                aria-label="Email"
+                role="columnheader"
+              >
                 Email
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                aria-label="Job Title"
+                role="columnheader"
+              >
                 Job Title
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                aria-label="Active"
+                role="columnheader"
+              >
                 Active
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                role="columnheader"
+              >
                 <mock-styled.span
                   classname="el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
@@ -2857,7 +2952,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                      d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                       fill="currentColor"
                     />
                   </svg>
@@ -2866,10 +2961,12 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname=""
+              role="row"
             >
               <mock-styled.div>
                 <mock-styled.div
                   classname="el-table-cell-has-dark-text"
+                  role="cell"
                 >
                   <mock-styled.div
                     data-narrow-label="Name"
@@ -2879,6 +2976,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                 </mock-styled.div>
                 <mock-styled.div
                   classname="el-table-cell-has-dark-text"
+                  role="cell"
                 >
                   <mock-styled.div
                     data-narrow-label="Email"
@@ -2888,6 +2986,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                 </mock-styled.div>
                 <mock-styled.div
                   classname="el-table-cell-has-dark-text"
+                  role="cell"
                 >
                   <mock-styled.div
                     data-narrow-label="Job Title"
@@ -2895,12 +2994,14 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                 </mock-styled.div>
                 <mock-styled.div
                   classname="el-table-cell-has-dark-text"
+                  role="cell"
                 >
                   <mock-styled.div
                     data-narrow-label="Active"
                   >
                     <mock-styled.span
                       classname="el-intent-success el-icon-new"
+                      role="img"
                     >
                       <svg
                         fill="none"
@@ -2911,7 +3012,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                       >
                         <path
                           clip-rule="evenodd"
-                          d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.321 1.321 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87Z"
+                          d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.32 1.32 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87"
                           fill="currentColor"
                           fill-rule="evenodd"
                         />
@@ -2921,9 +3022,11 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                 </mock-styled.div>
                 <mock-styled.div
                   classname=""
+                  role="cell"
                 >
                   <mock-styled.span
                     classname="el-intent-default el-icon-new"
+                    role="img"
                   >
                     <svg
                       fill="none"
@@ -2933,7 +3036,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                        d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                         fill="currentColor"
                       />
                     </svg>
@@ -2941,6 +3044,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
+                aria-hidden="false"
                 classname=""
               >
                 <mock-styled.div>
@@ -2971,11 +3075,14 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.button
+              aria-label="Previous"
               data-testid="back-button"
+              role="button"
               type="button"
             >
               <mock-styled.span
                 classname="el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -2985,7 +3092,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                    d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
                     fill="currentColor"
                   />
                 </svg>
@@ -2999,11 +3106,14 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
               1
             </mock-styled.div>
             <mock-styled.button
+              aria-label="Next"
               data-testid="forward-button"
+              role="button"
               type="button"
             >
               <mock-styled.span
                 classname="el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -3013,27 +3123,28 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                    d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
                     fill="currentColor"
                   />
                 </svg>
               </mock-styled.span>
             </mock-styled.button>
           </mock-styled.div>
-        </mock-styled.section>
-      </mock-styled.div>
+        </section>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.span
           classname="el-mb5 el-icon-size-large"
+          role="img"
         >
           <svg
             fill="none"
@@ -3069,56 +3180,56 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                   fill="#d8dee4"
                 />
                 <path
-                  d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563a.25.25 0 0 1 .026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a84.494 84.494 0 0 0 2.024 3.345 38.902 38.902 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454Z"
+                  d="M19.99 75.5c0-8.423 6.595-13.399 10.468-16.97 3.154-2.907 9.8-4.333 11.197-3.81 2.514-3.312 5.728-6.72 5.728-6.72s5.71 1.059 9.216 6.563l.026-.033c.786-.843 2.684-.324 6.944 1.438 4.73 1.956 6.564 5.617 8.197 8.876.389.777.766 1.53 1.169 2.233a85 85 0 0 0 2.024 3.345 38.9 38.9 0 0 1-25.886 11.532c-10.753.516-21.698.232-29.084-6.454"
                   fill="#798da1"
                 />
                 <path
-                  d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11ZM67.963 74.133c-.707.378-1.427.737-2.16 1.078-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208ZM50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116-.166-3.184-3.837-5.608-8.2-5.414-4.363.194-8.046 2.805-7.88 5.989.166 3.184 4.12 5.735 8.482 5.541Z"
+                  d="M32.452 80c-.835-.281-1.658-.172-2.468-.5 1.499-5 5.497-10.5 5.497-10.5s-2.896 6.5-3.029 11M67.963 74.133q-1.06.567-2.16 1.078c-.678-4.289-2.358-8.286-2.358-8.286s2.47 3.707 4.518 7.208M50.459 60.541c4.363-.194 7.765-2.932 7.598-6.116s-3.837-5.608-8.2-5.414-8.046 2.805-7.88 5.989 4.12 5.735 8.482 5.541"
                   fill="#9faebc"
                 />
               </g>
               <path
-                d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463-.073.56-.11 1.13-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.181 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-.58-.038-1.15-.111-1.71Z"
+                d="M32.514 13.49c.071-.14.111-.297.111-.463v-.328C32.625 7 26.745 2.009 19.5 2c-7.245.009-13.125 5-13.125 10.699v.328c0 .166.04.324.111.463q-.11.84-.111 1.709v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122c0-3.925 3.164-7.107 7.067-7.107s7.067 3.182 7.067 7.107v8.122c0 .56.452 1.015 1.01 1.015h4.038c.558 0 1.01-.454 1.01-1.015v-8.122q0-.87-.111-1.71"
                 fill="#798da1"
               />
               <path
-                d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185Z"
+                d="M7.147 16.713h24.706c2.843 0 5.147 2.321 5.147 5.185v14.917C37 39.679 34.696 42 31.853 42H7.147C4.304 42 2 39.678 2 36.815V21.898c0-2.864 2.304-5.185 5.147-5.185"
                 fill="#798da1"
               />
               <path
-                d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.284 4.284 0 0 0 2.434 3.864l-.675 4.635a.861.861 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.301 4.301 0 0 0 24.5 26.31Z"
+                d="M24.5 26.31c.01-2.37-1.94-4.3-4.357-4.31-2.416-.01-4.383 1.903-4.393 4.273a4.28 4.28 0 0 0 2.434 3.864l-.675 4.635a.86.86 0 0 0 .866.978h3.5a.867.867 0 0 0 .875-.978l-.676-4.635A4.3 4.3 0 0 0 24.5 26.31"
                 fill="#9faebc"
               />
               <path
-                d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173.108-.005.216-.014.323-.026 2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48Z"
+                d="M29.013 32.248c-.97 1.04-1.54 2.5-1.464 4.09.144 2.992 2.524 5.308 5.315 5.173q.162-.008.323-.026c2.107 6.702 6.8 15.136 17.039 14.642 11.387-.548 15.634-9.085 16.97-16.618 2.465-.464 4.272-2.83 4.14-5.584a5.65 5.65 0 0 0-1.241-3.294c-.668 1.574-2.454.939-3.097-.577-.543-1.28-.63-2.62-.715-3.966-.114-1.765-.227-3.538-1.376-5.191-3.43-4.933-6.214-4.247-10.644-3.156-1.512.372-3.216.791-5.203 1.05-6.109.798-12.218-2.375-12.218-2.375s-4.377 6.35-3.714 16.312c.153 2.309-2.752 2.387-4.115-.48"
                 fill="#FFE5C7"
               />
               <path
-                d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381l-.013.002ZM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5.365 5.365 0 0 0-.356-.183 2.998 2.998 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.39 3.39 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573ZM60.685 28.792a1.736 1.736 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413ZM43.452 28.669c.093.034.18.075.264.123 1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536Z"
+                d="M40.72 26.582c-.5.083-1.096.181-1.069-.298.189-3.32 7.522-2.032 6.477-.092-.218.404-.763.127-1.337-.166-.395-.202-.805-.41-1.13-.408-1.363.013-1.76.314-2.115.581-.217.164-.418.316-.814.381zM59.002 24.506c1.147-.127 2.804.276 3.305 1.213.25.47.039.637-.58.81-.53.15-.881-.042-1.265-.251a5 5 0 0 0-.356-.183 3 3 0 0 0-1.49-.245c-.298.027-.498.11-.713.2a3.4 3.4 0 0 1-.579.195c-.35.08-.802.135-.823-.166-.07-.985 1.54-1.466 2.5-1.573M60.685 28.792a2 2 0 0 0-.264-.123c-3.074-1.13-4.118 3.745-1.873 4.536 3.24 1.142 4.062-3.313 2.137-4.413M43.452 28.669q.139.051.264.123c1.924 1.1 1.102 5.555-2.138 4.413-2.244-.791-1.201-5.665 1.874-4.536"
                 fill="#506478"
               />
               <path
-                d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55Z"
+                d="M60.306 29.332c-.341-.324-.99-.036-.898.404.047.225.092.404.3.557.316.234.95-.04.924-.412-.017-.243-.149-.38-.326-.55"
                 fill="#fff"
               />
               <path
-                d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19Z"
+                d="M42.99 44.254s7.57 4.518 13.34 1.19c-3.13 4.518-11.581 3.826-13.34-1.19"
                 fill="#506478"
               />
               <path
-                d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548Z"
+                d="M43.336 29.332c-.341-.324-.99-.036-.898.404.048.224.093.404.3.557.316.234.95-.04.924-.413-.017-.242-.149-.38-.326-.548"
                 fill="#fff"
               />
               <path
-                d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768.477-6.92-1.175-19.01 5.289-19.63Z"
+                d="M33.646 8.329C37.884 2.193 46.823.762 54.908 2.278c4.577.858 19.606 6.05 15.308 14.859.25 2.639.392 5.3.394 7.952.002 1.685.033 3.496-.383 5.143-.522 2.064-2.538 1.453-3.23-.178-1.255-2.961-.066-6.245-2.09-9.157-4.6-6.617-8.041-3.124-15.847-2.106-6.11.797-12.218-2.375-12.218-2.375s-4.377 6.35-3.715 16.311c.21 3.143-5.247 2.153-4.77-4.768S27.182 8.95 33.646 8.33"
                 fill="#506478"
               />
               <path
-                d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76 27.297 76 34 69.18 34 60.941 34 52.702 27.297 46 19.059 46Z"
+                d="M19.059 46C10.819 46 4 52.703 4 60.941 4 69.181 10.82 76 19.059 76S34 69.18 34 60.941 27.297 46 19.059 46"
                 fill="#7e9bfa"
               />
               <path
-                d="M25.452 55.844a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.544 1.544 0 0 1-1.108.454c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375 8.097-8.098Z"
+                d="M25.452 55.845a1.549 1.549 0 0 1 2.19 2.19l-9.18 9.18a1.54 1.54 0 0 1-1.108.453c-.4.003-.802-.148-1.107-.454l-5.458-5.457a1.549 1.549 0 0 1 2.19-2.19l4.376 4.375z"
                 fill="#fff"
               />
             </g>
@@ -3135,12 +3246,12 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
           </svg>
         </mock-styled.span>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Your User Config
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This page allows you to configure and reset the Multi Factor Authentication (MFA) devices for your organisation users. For more information on how to do this, please refer to the documentation link below.
         </mock-styled.p>
@@ -3157,12 +3268,12 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
           <mock-styled.div />
           Download CSV
         </mock-styled.button>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname="el-hfull"
+      </aside>
+      <section
+        class="el-page-container el-hfull"
       >
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           Users List 
           - XTM Estates Ltd
@@ -3306,7 +3417,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
           </mock-styled.div>
         </form>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Total Users: 
           1
@@ -3316,23 +3427,41 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="4"
+          role="table"
         >
-          <mock-styled.div>
-            <mock-styled.div>
+          <mock-styled.div
+            role="row"
+          >
+            <mock-styled.div
+              aria-label="Name"
+              role="columnheader"
+            >
               Name
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Email"
+              role="columnheader"
+            >
               Email
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Job Title"
+              role="columnheader"
+            >
               Job Title
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Active"
+              role="columnheader"
+            >
               Active
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              role="columnheader"
+            >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -3342,7 +3471,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                    d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                     fill="currentColor"
                   />
                 </svg>
@@ -3351,10 +3480,12 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname=""
+            role="row"
           >
             <mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Name"
@@ -3364,6 +3495,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Email"
@@ -3373,6 +3505,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Job Title"
@@ -3380,12 +3513,14 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Active"
                 >
                   <mock-styled.span
                     classname="el-intent-success el-icon-new"
+                    role="img"
                   >
                     <svg
                       fill="none"
@@ -3396,7 +3531,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                     >
                       <path
                         clip-rule="evenodd"
-                        d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.321 1.321 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87Z"
+                        d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.32 1.32 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87"
                         fill="currentColor"
                         fill-rule="evenodd"
                       />
@@ -3406,9 +3541,11 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname=""
+                role="cell"
               >
                 <mock-styled.span
                   classname="el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
@@ -3418,7 +3555,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                       fill="currentColor"
                     />
                   </svg>
@@ -3426,6 +3563,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
+              aria-hidden="false"
               classname=""
             >
               <mock-styled.div>
@@ -3456,11 +3594,14 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.button
+            aria-label="Previous"
             data-testid="back-button"
+            role="button"
             type="button"
           >
             <mock-styled.span
               classname="el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -3470,7 +3611,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                  d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
                   fill="currentColor"
                 />
               </svg>
@@ -3484,11 +3625,14 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
             1
           </mock-styled.div>
           <mock-styled.button
+            aria-label="Next"
             data-testid="forward-button"
+            role="button"
             type="button"
           >
             <mock-styled.span
               classname="el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -3498,15 +3642,15 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                  d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
                   fill="currentColor"
                 />
               </svg>
             </mock-styled.span>
           </mock-styled.button>
         </mock-styled.div>
-      </mock-styled.section>
-    </mock-styled.div>
+      </section>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
