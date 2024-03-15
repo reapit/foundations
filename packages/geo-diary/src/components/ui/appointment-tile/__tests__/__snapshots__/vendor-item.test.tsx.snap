@@ -13,6 +13,7 @@ exports[`VendorItem should match snapshot with vendors in state 1`] = `
         <mock-styled.div>
           <mock-styled.span
             classname="el-intent-primary el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -22,12 +23,12 @@ exports[`VendorItem should match snapshot with vendors in state 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M22 3a1 1 0 1 1 0 2H4v17H2V3a1 1 0 0 1 2 0h18Z"
+                d="M22 3a1 1 0 1 1 0 2H4v17H2V3a1 1 0 0 1 2 0z"
                 fill="currentColor"
               />
               <path
                 clip-rule="evenodd"
-                d="M8 7h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm0 10h12V9H8v8Z"
+                d="M8 7h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2m0 10h12V9H8z"
                 fill="currentColor"
                 fill-rule="evenodd"
               />
@@ -54,6 +55,7 @@ exports[`VendorItem should match snapshot with vendors in state 1`] = `
       <mock-styled.div>
         <mock-styled.span
           classname="el-intent-primary el-icon-new"
+          role="img"
         >
           <svg
             fill="none"
@@ -63,12 +65,12 @@ exports[`VendorItem should match snapshot with vendors in state 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M22 3a1 1 0 1 1 0 2H4v17H2V3a1 1 0 0 1 2 0h18Z"
+              d="M22 3a1 1 0 1 1 0 2H4v17H2V3a1 1 0 0 1 2 0z"
               fill="currentColor"
             />
             <path
               clip-rule="evenodd"
-              d="M8 7h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm0 10h12V9H8v8Z"
+              d="M8 7h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2m0 10h12V9H8z"
               fill="currentColor"
               fill-rule="evenodd"
             />

@@ -7,8 +7,8 @@ exports[`RoutesComponent should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
        
-      <mock-styled.main
-        classname=""
+      <main
+        class="el-main-container"
       >
         <mock-styled.div
           classname="el-is-full-page"
@@ -17,14 +17,14 @@ exports[`RoutesComponent should match a snapshot 1`] = `
             <mock-styled.div />
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.main>
+      </main>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
      
-    <mock-styled.main
-      classname=""
+    <main
+      class="el-main-container"
     >
       <mock-styled.div
         classname="el-is-full-page"
@@ -33,7 +33,7 @@ exports[`RoutesComponent should match a snapshot 1`] = `
           <mock-styled.div />
         </mock-styled.div>
       </mock-styled.div>
-    </mock-styled.main>
+    </main>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

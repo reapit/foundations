@@ -9,6 +9,7 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
        
       <mock-styled.div
         classname="el-intent-danger el-is-active el-pn-is-full-width"
+        role="alertdialog"
       >
         <div
           class="el-pn-icon"
@@ -16,6 +17,7 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -27,7 +29,7 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                 fill="currentColor"
               />
             </svg>
@@ -46,6 +48,7 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
      
     <mock-styled.div
       classname="el-intent-danger el-is-active el-pn-is-full-width"
+      role="alertdialog"
     >
       <div
         class="el-pn-icon"
@@ -53,6 +56,7 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
       >
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
@@ -64,7 +68,7 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
               fill="currentColor"
             />
           </svg>

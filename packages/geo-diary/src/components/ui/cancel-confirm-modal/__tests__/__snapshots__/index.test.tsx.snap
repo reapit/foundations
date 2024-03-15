@@ -11,7 +11,7 @@ exports[`CancelConfirmModal should match snapshot 1`] = `
         class="el-mb6"
       >
         <mock-styled.p
-          classname="el-text-center"
+          classname="el-text-base el-text-center"
         >
           Are you sure you want to cancel this appointment?
         </mock-styled.p>
@@ -46,7 +46,7 @@ exports[`CancelConfirmModal should match snapshot 1`] = `
       class="el-mb6"
     >
       <mock-styled.p
-        classname="el-text-center"
+        classname="el-text-base el-text-center"
       >
         Are you sure you want to cancel this appointment?
       </mock-styled.p>
