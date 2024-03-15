@@ -19,7 +19,7 @@ import {
   elMb7,
   useModal,
 } from '@reapit/elements'
-import { DisplayChip, twoColTable } from './__styles__'
+import { DisplayChip, threeColTable } from './__styles__'
 import {
   GetActionNames,
   SendFunction,
@@ -307,12 +307,14 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, userGrou
       {userInfo && shouldFetch.officeGroups && userInfo.officeGroupIds ? (
         <>
           <Table>
-            <TableHeadersRow className={twoColTable}>
+            <TableHeadersRow className={threeColTable}>
               <TableHeader>Group Name</TableHeader>
+              <TableHeader>Office Group Id</TableHeader>
               <TableHeader>Office Ids</TableHeader>
             </TableHeadersRow>
-            <TableRow className={twoColTable}>
+            <TableRow className={threeColTable}>
               <TableCell>{userInfo.officeGroupName}</TableCell>
+              <TableCell>{userInfo.officeGroupId}</TableCell>
               <TableCell>{userInfo.officeGroupIds}</TableCell>
             </TableRow>
           </Table>

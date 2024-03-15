@@ -23,6 +23,6 @@ export const DisplayChip = styled.span`
   display: inline-block;
 `
 
-export const twoColTable = css`
-  grid-template-columns: repeat(2, 1fr);
+export const threeColTable = css`
+  grid-template-columns: repeat(3, 1fr);
 `
