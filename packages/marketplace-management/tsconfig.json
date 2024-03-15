@@ -11,5 +11,5 @@
     }
   },
   "include": ["src"],
-  "exclude": ["public", "dist", "./webpack.config.js", "node_modules", "src/tests/coverage"]
+  "exclude": ["public", "dist", "node_modules", "src/tests/coverage"]
 }
