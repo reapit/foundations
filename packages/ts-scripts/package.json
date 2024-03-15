@@ -46,7 +46,6 @@
     "@graphql-tools/jest-transform": "^1.2.3",
     "@linaria/babel-preset": "^5.0.4",
     "@linaria/shaker": "^5.0.3",
-    "@linaria/webpack-loader": "^5.0.4",
     "@octokit/rest": "^16.43.2",
     "@sentry/vite-plugin": "^0.7.2",
     "@swc/core": "^1.4.8",
