@@ -7,16 +7,17 @@ exports[`SimpleAppsCollection should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.mock-styled.div>
-        <mock-styled.div
-          classname="el-flex-justify-between"
+        <div
+          class="el-flex-container el-flex-justify-between"
         >
-          <mock-styled.div
-            classname="el-flex-column el-flex-justify-center"
+          <div
+            class="el-flex-container el-flex-column el-flex-justify-center"
           >
-            <mock-styled.div
-              classname=""
+            <div
+              class="el-flex-container"
             >
               <mock-styled.div
+                role="img"
                 style="font-size: 1.25em; width: 32px; height: 32px;"
               >
                 <svg
@@ -35,24 +36,25 @@ exports[`SimpleAppsCollection should match a snapshot 1`] = `
               <mock-styled.mock-styled.p>
                 MOCK_APP_NAME
               </mock-styled.mock-styled.p>
-            </mock-styled.div>
+            </div>
             <mock-styled.mock-styled.p>
               Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
             </mock-styled.mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </mock-styled.mock-styled.div>
       <mock-styled.mock-styled.div>
-        <mock-styled.div
-          classname="el-flex-justify-between"
+        <div
+          class="el-flex-container el-flex-justify-between"
         >
-          <mock-styled.div
-            classname="el-flex-column el-flex-justify-center"
+          <div
+            class="el-flex-container el-flex-column el-flex-justify-center"
           >
-            <mock-styled.div
-              classname=""
+            <div
+              class="el-flex-container"
             >
               <mock-styled.div
+                role="img"
                 style="font-size: 1.25em; width: 32px; height: 32px;"
               >
                 <svg
@@ -71,28 +73,29 @@ exports[`SimpleAppsCollection should match a snapshot 1`] = `
               <mock-styled.mock-styled.p>
                 MOCK_APP_NAME_ANOTHER
               </mock-styled.mock-styled.p>
-            </mock-styled.div>
+            </div>
             <mock-styled.mock-styled.p>
               Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
             </mock-styled.mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </mock-styled.mock-styled.div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
     <mock-styled.mock-styled.div>
-      <mock-styled.div
-        classname="el-flex-justify-between"
+      <div
+        class="el-flex-container el-flex-justify-between"
       >
-        <mock-styled.div
-          classname="el-flex-column el-flex-justify-center"
+        <div
+          class="el-flex-container el-flex-column el-flex-justify-center"
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="el-flex-container"
           >
             <mock-styled.div
+              role="img"
               style="font-size: 1.25em; width: 32px; height: 32px;"
             >
               <svg
@@ -111,24 +114,25 @@ exports[`SimpleAppsCollection should match a snapshot 1`] = `
             <mock-styled.mock-styled.p>
               MOCK_APP_NAME
             </mock-styled.mock-styled.p>
-          </mock-styled.div>
+          </div>
           <mock-styled.mock-styled.p>
             Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
           </mock-styled.mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
     </mock-styled.mock-styled.div>
     <mock-styled.mock-styled.div>
-      <mock-styled.div
-        classname="el-flex-justify-between"
+      <div
+        class="el-flex-container el-flex-justify-between"
       >
-        <mock-styled.div
-          classname="el-flex-column el-flex-justify-center"
+        <div
+          class="el-flex-container el-flex-column el-flex-justify-center"
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="el-flex-container"
           >
             <mock-styled.div
+              role="img"
               style="font-size: 1.25em; width: 32px; height: 32px;"
             >
               <svg
@@ -147,12 +151,12 @@ exports[`SimpleAppsCollection should match a snapshot 1`] = `
             <mock-styled.mock-styled.p>
               MOCK_APP_NAME_ANOTHER
             </mock-styled.mock-styled.p>
-          </mock-styled.div>
+          </div>
           <mock-styled.mock-styled.p>
             Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
           </mock-styled.mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
     </mock-styled.mock-styled.div>
   </div>,
   "debug": [Function],

@@ -10,7 +10,7 @@ exports[`AppsInstalledSuggested should match a snapshot  1`] = `
         class="el-fade-in"
       >
         <mock-styled.h2
-          classname="el-has-bold-text"
+          classname="el-text-base el-has-bold-text"
         >
           Suggested Apps
         </mock-styled.h2>
@@ -39,7 +39,7 @@ exports[`AppsInstalledSuggested should match a snapshot  1`] = `
       class="el-fade-in"
     >
       <mock-styled.h2
-        classname="el-has-bold-text"
+        classname="el-text-base el-has-bold-text"
       >
         Suggested Apps
       </mock-styled.h2>
