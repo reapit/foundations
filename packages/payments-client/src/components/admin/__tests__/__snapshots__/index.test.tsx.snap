@@ -6,14 +6,15 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname=""
+      <div
+        class="el-flex-container"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.span
             classname="el-mb5 el-icon-size-large"
+            role="img"
           >
             <svg
               fill="none"
@@ -27,7 +28,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                 fill="#d8dee4"
               />
               <path
-                d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569-5.883 0-10.658 4.287-10.658 9.569v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149Zm-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19 1.961 0 3.553 1.429 3.553 3.19 0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914-1.18 0-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552Zm-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741 3.524 0 6.395 2.577 6.395 5.741v5.741h-12.79V11.07Z"
+                d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569S6.842 5.787 6.842 11.069v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149m-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19s3.553 1.429 3.553 3.19c0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914s-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552m-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741s6.395 2.577 6.395 5.741v5.741h-12.79z"
                 fill="#9faebc"
               />
               <circle
@@ -37,18 +38,18 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                 r="2.5"
               />
               <path
-                d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713-3.885 1.842-5.513 6.528-3.618 10.412a8.036 8.036 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603 2.627.929ZM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928Z"
+                d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713s-5.513 6.528-3.618 10.412a8.04 8.04 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603zM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928"
                 fill="#798da1"
               />
             </svg>
           </mock-styled.span>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             This form is required to get started with Reapit Payments.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
           </mock-styled.p>
@@ -72,17 +73,18 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             <mock-styled.div />
             Delete Config
           </mock-styled.button>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname=""
+        </aside>
+        <section
+          class="el-page-container"
         >
           <mock-styled.h1
-            classname=""
+            classname="el-text-base"
           >
             Reapit Payments App Configuration
           </mock-styled.h1>
           <mock-styled.div
             classname="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline"
+            role="alertdialog"
           >
             <div
               class="el-pn-icon"
@@ -90,6 +92,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             >
               <mock-styled.span
                 classname="el-icon-new"
+                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -101,7 +104,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                     fill="currentColor"
                   />
                 </svg>
@@ -115,12 +118,12 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
           </mock-styled.div>
           <form>
             <mock-styled.h2
-              classname=""
+              classname="el-text-base"
             >
               Company Details
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               These details are required to personalise emails sent to your customers, both receipts and requests for payment.
             </mock-styled.p>
@@ -147,8 +150,8 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                   <mock-styled.label>
                     Email Logo Url
                   </mock-styled.label>
-                  <mock-styled.div
-                    classname="el-flex-align-center"
+                  <div
+                    class="el-flex-container el-flex-align-center"
                   >
                     <mock-styled.button
                       classname="el-mr4 el-intent-neutral"
@@ -162,12 +165,14 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                       type="file"
                     />
                     <mock-styled.input
+                      aria-hidden="true"
                       id="test-static-id"
                       name="logoUri"
                     />
                     <mock-styled.div>
                       <mock-styled.span
                         classname="el-mr4 el-intent-primary el-icon-new"
+                        role="button"
                         style="font-size: 1rem;"
                       >
                         <svg
@@ -179,13 +184,14 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M22.475 11.594c-3-5.9-10.2-8.3-16.1-5.3-2.3 1.2-4.1 3-5.3 5.3-.1.3-.1.6 0 .9 3 5.9 10.2 8.3 16.1 5.3 2.3-1.2 4.1-3 5.3-5.3.1-.3.1-.7 0-.9Zm-10.7 5.4c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5Zm0-8c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3Z"
+                            d="M22.475 11.594c-3-5.9-10.2-8.3-16.1-5.3-2.3 1.2-4.1 3-5.3 5.3q-.15.45 0 .9c3 5.9 10.2 8.3 16.1 5.3 2.3-1.2 4.1-3 5.3-5.3.1-.3.1-.7 0-.9m-10.7 5.4c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5m0-8c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3"
                             fill="currentColor"
                           />
                         </svg>
                       </mock-styled.span>
                       <mock-styled.span
                         classname="el-mr4 el-intent-primary el-icon-new"
+                        role="button"
                         style="font-size: 1rem;"
                       >
                         <svg
@@ -197,28 +203,28 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l5.66-5.66Z"
+                            d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0z"
                             fill="currentColor"
                           />
                         </svg>
                       </mock-styled.span>
                     </mock-styled.div>
-                  </mock-styled.div>
+                  </div>
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.h2
-              classname=""
+              classname="el-text-base"
             >
               Opayo Credientials
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
             </mock-styled.p>
             <mock-styled.p
-              classname="el-has-grey-text el-has-bold-text"
+              classname="el-text-base el-has-grey-text el-has-bold-text"
             >
               Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
             </mock-styled.p>
@@ -303,20 +309,21 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
               </mock-styled.div>
             </mock-styled.div>
           </form>
-        </mock-styled.section>
-      </mock-styled.div>
+        </section>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname=""
+    <div
+      class="el-flex-container"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.span
           classname="el-mb5 el-icon-size-large"
+          role="img"
         >
           <svg
             fill="none"
@@ -330,7 +337,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
               fill="#d8dee4"
             />
             <path
-              d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569-5.883 0-10.658 4.287-10.658 9.569v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149Zm-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19 1.961 0 3.553 1.429 3.553 3.19 0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914-1.18 0-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552Zm-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741 3.524 0 6.395 2.577 6.395 5.741v5.741h-12.79V11.07Z"
+              d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569S6.842 5.787 6.842 11.069v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149m-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19s3.553 1.429 3.553 3.19c0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914s-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552m-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741s6.395 2.577 6.395 5.741v5.741h-12.79z"
               fill="#9faebc"
             />
             <circle
@@ -340,18 +347,18 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
               r="2.5"
             />
             <path
-              d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713-3.885 1.842-5.513 6.528-3.618 10.412a8.036 8.036 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603 2.627.929ZM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928Z"
+              d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713s-5.513 6.528-3.618 10.412a8.04 8.04 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603zM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928"
               fill="#798da1"
             />
           </svg>
         </mock-styled.span>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This form is required to get started with Reapit Payments.
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
         </mock-styled.p>
@@ -375,17 +382,18 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
           <mock-styled.div />
           Delete Config
         </mock-styled.button>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname=""
+      </aside>
+      <section
+        class="el-page-container"
       >
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           Reapit Payments App Configuration
         </mock-styled.h1>
         <mock-styled.div
           classname="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline"
+          role="alertdialog"
         >
           <div
             class="el-pn-icon"
@@ -393,6 +401,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
           >
             <mock-styled.span
               classname="el-icon-new"
+              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -404,7 +413,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                   fill="currentColor"
                 />
               </svg>
@@ -418,12 +427,12 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
         </mock-styled.div>
         <form>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Company Details
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             These details are required to personalise emails sent to your customers, both receipts and requests for payment.
           </mock-styled.p>
@@ -450,8 +459,8 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                 <mock-styled.label>
                   Email Logo Url
                 </mock-styled.label>
-                <mock-styled.div
-                  classname="el-flex-align-center"
+                <div
+                  class="el-flex-container el-flex-align-center"
                 >
                   <mock-styled.button
                     classname="el-mr4 el-intent-neutral"
@@ -465,12 +474,14 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                     type="file"
                   />
                   <mock-styled.input
+                    aria-hidden="true"
                     id="test-static-id"
                     name="logoUri"
                   />
                   <mock-styled.div>
                     <mock-styled.span
                       classname="el-mr4 el-intent-primary el-icon-new"
+                      role="button"
                       style="font-size: 1rem;"
                     >
                       <svg
@@ -482,13 +493,14 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M22.475 11.594c-3-5.9-10.2-8.3-16.1-5.3-2.3 1.2-4.1 3-5.3 5.3-.1.3-.1.6 0 .9 3 5.9 10.2 8.3 16.1 5.3 2.3-1.2 4.1-3 5.3-5.3.1-.3.1-.7 0-.9Zm-10.7 5.4c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5Zm0-8c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3Z"
+                          d="M22.475 11.594c-3-5.9-10.2-8.3-16.1-5.3-2.3 1.2-4.1 3-5.3 5.3q-.15.45 0 .9c3 5.9 10.2 8.3 16.1 5.3 2.3-1.2 4.1-3 5.3-5.3.1-.3.1-.7 0-.9m-10.7 5.4c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5m0-8c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3"
                           fill="currentColor"
                         />
                       </svg>
                     </mock-styled.span>
                     <mock-styled.span
                       classname="el-mr4 el-intent-primary el-icon-new"
+                      role="button"
                       style="font-size: 1rem;"
                     >
                       <svg
@@ -500,28 +512,28 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l5.66-5.66Z"
+                          d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0z"
                           fill="currentColor"
                         />
                       </svg>
                     </mock-styled.span>
                   </mock-styled.div>
-                </mock-styled.div>
+                </div>
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Opayo Credientials
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text el-has-bold-text"
+            classname="el-text-base el-has-grey-text el-has-bold-text"
           >
             Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
           </mock-styled.p>
@@ -606,8 +618,8 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
             </mock-styled.div>
           </mock-styled.div>
         </form>
-      </mock-styled.section>
-    </mock-styled.div>
+      </section>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -669,14 +681,15 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname=""
+      <div
+        class="el-flex-container"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.span
             classname="el-mb5 el-icon-size-large"
+            role="img"
           >
             <svg
               fill="none"
@@ -690,7 +703,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                 fill="#d8dee4"
               />
               <path
-                d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569-5.883 0-10.658 4.287-10.658 9.569v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149Zm-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19 1.961 0 3.553 1.429 3.553 3.19 0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914-1.18 0-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552Zm-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741 3.524 0 6.395 2.577 6.395 5.741v5.741h-12.79V11.07Z"
+                d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569S6.842 5.787 6.842 11.069v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149m-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19s3.553 1.429 3.553 3.19c0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914s-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552m-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741s6.395 2.577 6.395 5.741v5.741h-12.79z"
                 fill="#9faebc"
               />
               <circle
@@ -700,18 +713,18 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                 r="2.5"
               />
               <path
-                d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713-3.885 1.842-5.513 6.528-3.618 10.412a8.036 8.036 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603 2.627.929ZM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928Z"
+                d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713s-5.513 6.528-3.618 10.412a8.04 8.04 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603zM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928"
                 fill="#798da1"
               />
             </svg>
           </mock-styled.span>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             This form is required to get started with Reapit Payments.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
           </mock-styled.p>
@@ -735,17 +748,18 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
             <mock-styled.div />
             Delete Config
           </mock-styled.button>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname=""
+        </aside>
+        <section
+          class="el-page-container"
         >
           <mock-styled.h1
-            classname=""
+            classname="el-text-base"
           >
             Reapit Payments App Configuration
           </mock-styled.h1>
           <mock-styled.div
             classname="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline"
+            role="alertdialog"
           >
             <div
               class="el-pn-icon"
@@ -753,6 +767,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
             >
               <mock-styled.span
                 classname="el-icon-new"
+                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -764,7 +779,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                     fill="currentColor"
                   />
                 </svg>
@@ -778,12 +793,12 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
           </mock-styled.div>
           <form>
             <mock-styled.h2
-              classname=""
+              classname="el-text-base"
             >
               Company Details
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               These details are required to personalise emails sent to your customers, both receipts and requests for payment.
             </mock-styled.p>
@@ -810,8 +825,8 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                   <mock-styled.label>
                     Email Logo Url
                   </mock-styled.label>
-                  <mock-styled.div
-                    classname="el-flex-align-center"
+                  <div
+                    class="el-flex-container el-flex-align-center"
                   >
                     <mock-styled.button
                       classname="el-mr4 el-intent-neutral"
@@ -825,12 +840,14 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                       type="file"
                     />
                     <mock-styled.input
+                      aria-hidden="true"
                       id="test-static-id"
                       name="logoUri"
                     />
                     <mock-styled.div>
                       <mock-styled.span
                         classname="el-mr4 el-intent-primary el-icon-new"
+                        role="button"
                         style="font-size: 1rem;"
                       >
                         <svg
@@ -842,13 +859,14 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M22.475 11.594c-3-5.9-10.2-8.3-16.1-5.3-2.3 1.2-4.1 3-5.3 5.3-.1.3-.1.6 0 .9 3 5.9 10.2 8.3 16.1 5.3 2.3-1.2 4.1-3 5.3-5.3.1-.3.1-.7 0-.9Zm-10.7 5.4c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5Zm0-8c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3Z"
+                            d="M22.475 11.594c-3-5.9-10.2-8.3-16.1-5.3-2.3 1.2-4.1 3-5.3 5.3q-.15.45 0 .9c3 5.9 10.2 8.3 16.1 5.3 2.3-1.2 4.1-3 5.3-5.3.1-.3.1-.7 0-.9m-10.7 5.4c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5m0-8c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3"
                             fill="currentColor"
                           />
                         </svg>
                       </mock-styled.span>
                       <mock-styled.span
                         classname="el-mr4 el-intent-primary el-icon-new"
+                        role="button"
                         style="font-size: 1rem;"
                       >
                         <svg
@@ -860,28 +878,28 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l5.66-5.66Z"
+                            d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0z"
                             fill="currentColor"
                           />
                         </svg>
                       </mock-styled.span>
                     </mock-styled.div>
-                  </mock-styled.div>
+                  </div>
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.h2
-              classname=""
+              classname="el-text-base"
             >
               Opayo Credientials
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
             </mock-styled.p>
             <mock-styled.p
-              classname="el-has-grey-text el-has-bold-text"
+              classname="el-text-base el-has-grey-text el-has-bold-text"
             >
               Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
             </mock-styled.p>
@@ -966,20 +984,21 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
           </form>
-        </mock-styled.section>
-      </mock-styled.div>
+        </section>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname=""
+    <div
+      class="el-flex-container"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.span
           classname="el-mb5 el-icon-size-large"
+          role="img"
         >
           <svg
             fill="none"
@@ -993,7 +1012,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
               fill="#d8dee4"
             />
             <path
-              d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569-5.883 0-10.658 4.287-10.658 9.569v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149Zm-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19 1.961 0 3.553 1.429 3.553 3.19 0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914-1.18 0-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552Zm-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741 3.524 0 6.395 2.577 6.395 5.741v5.741h-12.79V11.07Z"
+              d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569S6.842 5.787 6.842 11.069v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149m-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19s3.553 1.429 3.553 3.19c0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914s-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552m-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741s6.395 2.577 6.395 5.741v5.741h-12.79z"
               fill="#9faebc"
             />
             <circle
@@ -1003,18 +1022,18 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
               r="2.5"
             />
             <path
-              d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713-3.885 1.842-5.513 6.528-3.618 10.412a8.036 8.036 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603 2.627.929ZM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928Z"
+              d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713s-5.513 6.528-3.618 10.412a8.04 8.04 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603zM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928"
               fill="#798da1"
             />
           </svg>
         </mock-styled.span>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This form is required to get started with Reapit Payments.
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
         </mock-styled.p>
@@ -1038,17 +1057,18 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
           <mock-styled.div />
           Delete Config
         </mock-styled.button>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname=""
+      </aside>
+      <section
+        class="el-page-container"
       >
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           Reapit Payments App Configuration
         </mock-styled.h1>
         <mock-styled.div
           classname="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline"
+          role="alertdialog"
         >
           <div
             class="el-pn-icon"
@@ -1056,6 +1076,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
           >
             <mock-styled.span
               classname="el-icon-new"
+              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -1067,7 +1088,7 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                   fill="currentColor"
                 />
               </svg>
@@ -1081,12 +1102,12 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
         </mock-styled.div>
         <form>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Company Details
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             These details are required to personalise emails sent to your customers, both receipts and requests for payment.
           </mock-styled.p>
@@ -1113,8 +1134,8 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                 <mock-styled.label>
                   Email Logo Url
                 </mock-styled.label>
-                <mock-styled.div
-                  classname="el-flex-align-center"
+                <div
+                  class="el-flex-container el-flex-align-center"
                 >
                   <mock-styled.button
                     classname="el-mr4 el-intent-neutral"
@@ -1128,12 +1149,14 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                     type="file"
                   />
                   <mock-styled.input
+                    aria-hidden="true"
                     id="test-static-id"
                     name="logoUri"
                   />
                   <mock-styled.div>
                     <mock-styled.span
                       classname="el-mr4 el-intent-primary el-icon-new"
+                      role="button"
                       style="font-size: 1rem;"
                     >
                       <svg
@@ -1145,13 +1168,14 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M22.475 11.594c-3-5.9-10.2-8.3-16.1-5.3-2.3 1.2-4.1 3-5.3 5.3-.1.3-.1.6 0 .9 3 5.9 10.2 8.3 16.1 5.3 2.3-1.2 4.1-3 5.3-5.3.1-.3.1-.7 0-.9Zm-10.7 5.4c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5Zm0-8c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3Z"
+                          d="M22.475 11.594c-3-5.9-10.2-8.3-16.1-5.3-2.3 1.2-4.1 3-5.3 5.3q-.15.45 0 .9c3 5.9 10.2 8.3 16.1 5.3 2.3-1.2 4.1-3 5.3-5.3.1-.3.1-.7 0-.9m-10.7 5.4c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5m0-8c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3"
                           fill="currentColor"
                         />
                       </svg>
                     </mock-styled.span>
                     <mock-styled.span
                       classname="el-mr4 el-intent-primary el-icon-new"
+                      role="button"
                       style="font-size: 1rem;"
                     >
                       <svg
@@ -1163,28 +1187,28 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l5.66-5.66Z"
+                          d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0z"
                           fill="currentColor"
                         />
                       </svg>
                     </mock-styled.span>
                   </mock-styled.div>
-                </mock-styled.div>
+                </div>
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Opayo Credientials
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text el-has-bold-text"
+            classname="el-text-base el-has-grey-text el-has-bold-text"
           >
             Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
           </mock-styled.p>
@@ -1269,8 +1293,8 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
         </form>
-      </mock-styled.section>
-    </mock-styled.div>
+      </section>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1332,14 +1356,15 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname=""
+      <div
+        class="el-flex-container"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.span
             classname="el-mb5 el-icon-size-large"
+            role="img"
           >
             <svg
               fill="none"
@@ -1353,7 +1378,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                 fill="#d8dee4"
               />
               <path
-                d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569-5.883 0-10.658 4.287-10.658 9.569v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149Zm-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19 1.961 0 3.553 1.429 3.553 3.19 0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914-1.18 0-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552Zm-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741 3.524 0 6.395 2.577 6.395 5.741v5.741h-12.79V11.07Z"
+                d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569S6.842 5.787 6.842 11.069v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149m-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19s3.553 1.429 3.553 3.19c0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914s-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552m-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741s6.395 2.577 6.395 5.741v5.741h-12.79z"
                 fill="#9faebc"
               />
               <circle
@@ -1363,18 +1388,18 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                 r="2.5"
               />
               <path
-                d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713-3.885 1.842-5.513 6.528-3.618 10.412a8.036 8.036 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603 2.627.929ZM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928Z"
+                d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713s-5.513 6.528-3.618 10.412a8.04 8.04 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603zM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928"
                 fill="#798da1"
               />
             </svg>
           </mock-styled.span>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             This form is required to get started with Reapit Payments.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
           </mock-styled.p>
@@ -1398,17 +1423,18 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
             <mock-styled.div />
             Delete Config
           </mock-styled.button>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname=""
+        </aside>
+        <section
+          class="el-page-container"
         >
           <mock-styled.h1
-            classname=""
+            classname="el-text-base"
           >
             Reapit Payments App Configuration
           </mock-styled.h1>
           <mock-styled.div
             classname="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline"
+            role="alertdialog"
           >
             <div
               class="el-pn-icon"
@@ -1416,6 +1442,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
             >
               <mock-styled.span
                 classname="el-icon-new"
+                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -1427,7 +1454,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                     fill="currentColor"
                   />
                 </svg>
@@ -1441,12 +1468,12 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
           </mock-styled.div>
           <form>
             <mock-styled.h2
-              classname=""
+              classname="el-text-base"
             >
               Company Details
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               These details are required to personalise emails sent to your customers, both receipts and requests for payment.
             </mock-styled.p>
@@ -1473,8 +1500,8 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                   <mock-styled.label>
                     Email Logo Url
                   </mock-styled.label>
-                  <mock-styled.div
-                    classname="el-flex-align-center"
+                  <div
+                    class="el-flex-container el-flex-align-center"
                   >
                     <mock-styled.button
                       classname="el-mr4 el-intent-neutral"
@@ -1488,12 +1515,14 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                       type="file"
                     />
                     <mock-styled.input
+                      aria-hidden="true"
                       id="test-static-id"
                       name="logoUri"
                     />
                     <mock-styled.div>
                       <mock-styled.span
                         classname="el-mr4 el-intent-primary el-icon-new"
+                        role="button"
                         style="font-size: 1rem;"
                       >
                         <svg
@@ -1505,13 +1534,14 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M22.475 11.594c-3-5.9-10.2-8.3-16.1-5.3-2.3 1.2-4.1 3-5.3 5.3-.1.3-.1.6 0 .9 3 5.9 10.2 8.3 16.1 5.3 2.3-1.2 4.1-3 5.3-5.3.1-.3.1-.7 0-.9Zm-10.7 5.4c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5Zm0-8c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3Z"
+                            d="M22.475 11.594c-3-5.9-10.2-8.3-16.1-5.3-2.3 1.2-4.1 3-5.3 5.3q-.15.45 0 .9c3 5.9 10.2 8.3 16.1 5.3 2.3-1.2 4.1-3 5.3-5.3.1-.3.1-.7 0-.9m-10.7 5.4c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5m0-8c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3"
                             fill="currentColor"
                           />
                         </svg>
                       </mock-styled.span>
                       <mock-styled.span
                         classname="el-mr4 el-intent-primary el-icon-new"
+                        role="button"
                         style="font-size: 1rem;"
                       >
                         <svg
@@ -1523,28 +1553,28 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l5.66-5.66Z"
+                            d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0z"
                             fill="currentColor"
                           />
                         </svg>
                       </mock-styled.span>
                     </mock-styled.div>
-                  </mock-styled.div>
+                  </div>
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.h2
-              classname=""
+              classname="el-text-base"
             >
               Opayo Credientials
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
             </mock-styled.p>
             <mock-styled.p
-              classname="el-has-grey-text el-has-bold-text"
+              classname="el-text-base el-has-grey-text el-has-bold-text"
             >
               Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
             </mock-styled.p>
@@ -1629,20 +1659,21 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
           </form>
-        </mock-styled.section>
-      </mock-styled.div>
+        </section>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname=""
+    <div
+      class="el-flex-container"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.span
           classname="el-mb5 el-icon-size-large"
+          role="img"
         >
           <svg
             fill="none"
@@ -1656,7 +1687,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
               fill="#d8dee4"
             />
             <path
-              d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569-5.883 0-10.658 4.287-10.658 9.569v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149Zm-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19 1.961 0 3.553 1.429 3.553 3.19 0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914-1.18 0-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552Zm-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741 3.524 0 6.395 2.577 6.395 5.741v5.741h-12.79V11.07Z"
+              d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569S6.842 5.787 6.842 11.069v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149m-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19s3.553 1.429 3.553 3.19c0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914s-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552m-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741s6.395 2.577 6.395 5.741v5.741h-12.79z"
               fill="#9faebc"
             />
             <circle
@@ -1666,18 +1697,18 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
               r="2.5"
             />
             <path
-              d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713-3.885 1.842-5.513 6.528-3.618 10.412a8.036 8.036 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603 2.627.929ZM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928Z"
+              d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713s-5.513 6.528-3.618 10.412a8.04 8.04 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603zM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928"
               fill="#798da1"
             />
           </svg>
         </mock-styled.span>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This form is required to get started with Reapit Payments.
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
         </mock-styled.p>
@@ -1701,17 +1732,18 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
           <mock-styled.div />
           Delete Config
         </mock-styled.button>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname=""
+      </aside>
+      <section
+        class="el-page-container"
       >
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           Reapit Payments App Configuration
         </mock-styled.h1>
         <mock-styled.div
           classname="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline"
+          role="alertdialog"
         >
           <div
             class="el-pn-icon"
@@ -1719,6 +1751,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
           >
             <mock-styled.span
               classname="el-icon-new"
+              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -1730,7 +1763,7 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                   fill="currentColor"
                 />
               </svg>
@@ -1744,12 +1777,12 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
         </mock-styled.div>
         <form>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Company Details
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             These details are required to personalise emails sent to your customers, both receipts and requests for payment.
           </mock-styled.p>
@@ -1776,8 +1809,8 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                 <mock-styled.label>
                   Email Logo Url
                 </mock-styled.label>
-                <mock-styled.div
-                  classname="el-flex-align-center"
+                <div
+                  class="el-flex-container el-flex-align-center"
                 >
                   <mock-styled.button
                     classname="el-mr4 el-intent-neutral"
@@ -1791,12 +1824,14 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                     type="file"
                   />
                   <mock-styled.input
+                    aria-hidden="true"
                     id="test-static-id"
                     name="logoUri"
                   />
                   <mock-styled.div>
                     <mock-styled.span
                       classname="el-mr4 el-intent-primary el-icon-new"
+                      role="button"
                       style="font-size: 1rem;"
                     >
                       <svg
@@ -1808,13 +1843,14 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M22.475 11.594c-3-5.9-10.2-8.3-16.1-5.3-2.3 1.2-4.1 3-5.3 5.3-.1.3-.1.6 0 .9 3 5.9 10.2 8.3 16.1 5.3 2.3-1.2 4.1-3 5.3-5.3.1-.3.1-.7 0-.9Zm-10.7 5.4c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5Zm0-8c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3Z"
+                          d="M22.475 11.594c-3-5.9-10.2-8.3-16.1-5.3-2.3 1.2-4.1 3-5.3 5.3q-.15.45 0 .9c3 5.9 10.2 8.3 16.1 5.3 2.3-1.2 4.1-3 5.3-5.3.1-.3.1-.7 0-.9m-10.7 5.4c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5m0-8c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3"
                           fill="currentColor"
                         />
                       </svg>
                     </mock-styled.span>
                     <mock-styled.span
                       classname="el-mr4 el-intent-primary el-icon-new"
+                      role="button"
                       style="font-size: 1rem;"
                     >
                       <svg
@@ -1826,28 +1862,28 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l5.66-5.66Z"
+                          d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0z"
                           fill="currentColor"
                         />
                       </svg>
                     </mock-styled.span>
                   </mock-styled.div>
-                </mock-styled.div>
+                </div>
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Opayo Credientials
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text el-has-bold-text"
+            classname="el-text-base el-has-grey-text el-has-bold-text"
           >
             Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
           </mock-styled.p>
@@ -1932,8 +1968,8 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
         </form>
-      </mock-styled.section>
-    </mock-styled.div>
+      </section>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
