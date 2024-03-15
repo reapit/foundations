@@ -12,12 +12,12 @@ exports[`FilterForm should render component with data 1`] = `
         >
           <mock-styled.div>
             <mock-styled.h2
-              classname=""
+              classname="el-text-base"
             >
               Filters
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               Apply a filter to get started. Developer and month are required by default.
             </mock-styled.p>
@@ -29,7 +29,12 @@ exports[`FilterForm should render component with data 1`] = `
             >
               Company
             </mock-styled.label>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r1:"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <input
                 id="developer-search-box"
                 readonly=""
@@ -39,6 +44,7 @@ exports[`FilterForm should render component with data 1`] = `
               <mock-styled.div>
                 <mock-styled.span
                   classname="el-intent-default el-icon-new"
+                  role="img"
                   style="font-size: 1rem;"
                 >
                   <svg
@@ -50,7 +56,7 @@ exports[`FilterForm should render component with data 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                      d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                       fill="currentColor"
                     />
                   </svg>
@@ -138,12 +144,12 @@ exports[`FilterForm should render component with data 1`] = `
       >
         <mock-styled.div>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Filters
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Apply a filter to get started. Developer and month are required by default.
           </mock-styled.p>
@@ -155,7 +161,12 @@ exports[`FilterForm should render component with data 1`] = `
           >
             Company
           </mock-styled.label>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r1:"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <input
               id="developer-search-box"
               readonly=""
@@ -165,6 +176,7 @@ exports[`FilterForm should render component with data 1`] = `
             <mock-styled.div>
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
                 style="font-size: 1rem;"
               >
                 <svg
@@ -176,7 +188,7 @@ exports[`FilterForm should render component with data 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                    d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                     fill="currentColor"
                   />
                 </svg>
@@ -321,12 +333,12 @@ exports[`FilterForm should render component with no data 1`] = `
         >
           <mock-styled.div>
             <mock-styled.h2
-              classname=""
+              classname="el-text-base"
             >
               Filters
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               Apply a filter to get started. Developer and month are required by default.
             </mock-styled.p>
@@ -338,7 +350,12 @@ exports[`FilterForm should render component with no data 1`] = `
             >
               Company
             </mock-styled.label>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r0:"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <input
                 id="developer-search-box"
                 readonly=""
@@ -348,6 +365,7 @@ exports[`FilterForm should render component with no data 1`] = `
               <mock-styled.div>
                 <mock-styled.span
                   classname="el-intent-default el-icon-new"
+                  role="img"
                   style="font-size: 1rem;"
                 >
                   <svg
@@ -359,7 +377,7 @@ exports[`FilterForm should render component with no data 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                      d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                       fill="currentColor"
                     />
                   </svg>
@@ -434,12 +452,12 @@ exports[`FilterForm should render component with no data 1`] = `
       >
         <mock-styled.div>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Filters
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Apply a filter to get started. Developer and month are required by default.
           </mock-styled.p>
@@ -451,7 +469,12 @@ exports[`FilterForm should render component with no data 1`] = `
           >
             Company
           </mock-styled.label>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r0:"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <input
               id="developer-search-box"
               readonly=""
@@ -461,6 +484,7 @@ exports[`FilterForm should render component with no data 1`] = `
             <mock-styled.div>
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
                 style="font-size: 1rem;"
               >
                 <svg
@@ -472,7 +496,7 @@ exports[`FilterForm should render component with no data 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                    d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                     fill="currentColor"
                   />
                 </svg>
