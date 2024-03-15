@@ -5415,15 +5415,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@homeservenow/serverless-aws-handler@npm:^0.2.4":
-  version: 0.2.4
-  resolution: "@homeservenow/serverless-aws-handler@npm:0.2.4"
-  dependencies:
-    lodash.merge: "npm:^4.6.2"
-  checksum: 6422b28c22ea977420f3bc21211e576182b29732420f5248c3a240410ff8f11979b5856d1844e6d52af7c5466fd7964713b3486b88b2e933514533d027f82f06
-  languageName: node
-  linkType: hard
-
 "@hookform/resolvers@npm:^2.9.11":
   version: 2.9.11
   resolution: "@hookform/resolvers@npm:2.9.11"
@@ -7732,7 +7723,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/utils-node@workspace:packages/utils-node"
   dependencies:
-    "@homeservenow/serverless-aws-handler": "npm:^0.2.4"
     "@linaria/core": "npm:^5.0.2"
     "@linaria/react": "npm:^5.0.3"
     "@linaria/shaker": "npm:^5.0.3"

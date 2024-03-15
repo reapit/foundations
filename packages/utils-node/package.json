@@ -26,7 +26,6 @@
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
   },
   "dependencies": {
-    "@homeservenow/serverless-aws-handler": "^0.2.4",
     "@linaria/core": "^5.0.2",
     "@linaria/react": "^5.0.3",
     "@reapit/connect-session": "workspace:packages/connect-session",
