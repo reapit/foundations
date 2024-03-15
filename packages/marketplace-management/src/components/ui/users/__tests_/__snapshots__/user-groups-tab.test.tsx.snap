@@ -6,35 +6,50 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-justify-between"
+      <div
+        class="el-flex-container el-flex-justify-between"
       >
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           SOME_NAME
            User Groups
         </mock-styled.h1>
-      </mock-styled.div>
+      </div>
       <mock-styled.div
         classname="el-fade-in el-mb11"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="3"
+        role="table"
       >
-        <mock-styled.div>
-          <mock-styled.div>
+        <mock-styled.div
+          role="row"
+        >
+          <mock-styled.div
+            aria-label="Group Name"
+            role="columnheader"
+          >
             Group Name
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Description"
+            role="columnheader"
+          >
             Description
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Member Count"
+            role="columnheader"
+          >
             Member Count
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            role="columnheader"
+          >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -44,7 +59,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                   fill="currentColor"
                 />
               </svg>
@@ -53,10 +68,12 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Group Name"
@@ -66,6 +83,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Description"
@@ -75,6 +93,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Member Count"
@@ -84,9 +103,11 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname=""
+              role="cell"
             >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -96,7 +117,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                     fill="currentColor"
                   />
                 </svg>
@@ -104,6 +125,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
+            aria-hidden="false"
             classname=""
           >
             <mock-styled.div>
@@ -111,12 +133,12 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                 class="el-p8"
               >
                 <mock-styled.h2
-                  classname=""
+                  classname="el-text-base"
                 >
                   Edit User Group
                 </mock-styled.h2>
                 <mock-styled.p
-                  classname="el-has-grey-text el-has-section-margin"
+                  classname="el-text-base el-has-grey-text el-has-section-margin"
                 >
                   The list below contains all available member groups for your organisation. You can manage users associated to each group by selecting them from the list below.
                 </mock-styled.p>
@@ -134,6 +156,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                       />
                       <mock-styled.span
                         classname=""
+                        role="img"
                         style="font-size: 1rem;"
                       >
                         <svg
@@ -145,7 +168,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="m19.756 18.578-5.688-5.687a7.878 7.878 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0 3.552.001 0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.879 7.879 0 0 0 4.973-1.765l5.687 5.688a.831.831 0 0 0 1.179 0 .832.832 0 0 0 0-1.179Zm-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25Z"
+                            d="m19.756 18.578-5.688-5.687a7.88 7.88 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0S0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.88 7.88 0 0 0 4.973-1.765l5.687 5.688a.83.83 0 0 0 1.179 0 .83.83 0 0 0 0-1.179m-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25"
                             fill="currentColor"
                           />
                         </svg>
@@ -156,7 +179,11 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                         Users
                       </mock-styled.label>
                     </mock-styled.div>
-                    <mock-styled.div>
+                    <mock-styled.div
+                      aria-controls=":r0:"
+                      aria-haspopup="listbox"
+                      role="combobox"
+                    >
                       <mock-styled.input
                         id="user-groups-ids-MarketplaceAdmin"
                         name="userIds"
@@ -218,10 +245,12 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Group Name"
@@ -231,6 +260,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Description"
@@ -240,6 +270,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Member Count"
@@ -249,9 +280,11 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname=""
+              role="cell"
             >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -261,7 +294,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                     fill="currentColor"
                   />
                 </svg>
@@ -269,6 +302,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
+            aria-hidden="false"
             classname=""
           >
             <mock-styled.div>
@@ -276,12 +310,12 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                 class="el-p8"
               >
                 <mock-styled.h2
-                  classname=""
+                  classname="el-text-base"
                 >
                   Edit User Group
                 </mock-styled.h2>
                 <mock-styled.p
-                  classname="el-has-grey-text el-has-section-margin"
+                  classname="el-text-base el-has-grey-text el-has-section-margin"
                 >
                   The list below contains all available member groups for your organisation. You can manage users associated to each group by selecting them from the list below.
                 </mock-styled.p>
@@ -299,6 +333,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                       />
                       <mock-styled.span
                         classname=""
+                        role="img"
                         style="font-size: 1rem;"
                       >
                         <svg
@@ -310,7 +345,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="m19.756 18.578-5.688-5.687a7.878 7.878 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0 3.552.001 0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.879 7.879 0 0 0 4.973-1.765l5.687 5.688a.831.831 0 0 0 1.179 0 .832.832 0 0 0 0-1.179Zm-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25Z"
+                            d="m19.756 18.578-5.688-5.687a7.88 7.88 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0S0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.88 7.88 0 0 0 4.973-1.765l5.687 5.688a.83.83 0 0 0 1.179 0 .83.83 0 0 0 0-1.179m-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25"
                             fill="currentColor"
                           />
                         </svg>
@@ -321,7 +356,11 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                         Users
                       </mock-styled.label>
                     </mock-styled.div>
-                    <mock-styled.div>
+                    <mock-styled.div
+                      aria-controls=":r1:"
+                      aria-haspopup="listbox"
+                      role="combobox"
+                    >
                       <mock-styled.input
                         id="user-groups-ids-OrganisationAdmin"
                         name="userIds"
@@ -383,10 +422,12 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Group Name"
@@ -396,6 +437,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Description"
@@ -405,6 +447,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Member Count"
@@ -414,9 +457,11 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname=""
+              role="cell"
             >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -426,7 +471,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                     fill="currentColor"
                   />
                 </svg>
@@ -434,6 +479,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
+            aria-hidden="false"
             classname=""
           >
             <mock-styled.div>
@@ -441,12 +487,12 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                 class="el-p8"
               >
                 <mock-styled.h2
-                  classname=""
+                  classname="el-text-base"
                 >
                   Edit User Group
                 </mock-styled.h2>
                 <mock-styled.p
-                  classname="el-has-grey-text el-has-section-margin"
+                  classname="el-text-base el-has-grey-text el-has-section-margin"
                 >
                   The list below contains all available member groups for your organisation. You can manage users associated to each group by selecting them from the list below.
                 </mock-styled.p>
@@ -464,6 +510,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                       />
                       <mock-styled.span
                         classname=""
+                        role="img"
                         style="font-size: 1rem;"
                       >
                         <svg
@@ -475,7 +522,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="m19.756 18.578-5.688-5.687a7.878 7.878 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0 3.552.001 0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.879 7.879 0 0 0 4.973-1.765l5.687 5.688a.831.831 0 0 0 1.179 0 .832.832 0 0 0 0-1.179Zm-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25Z"
+                            d="m19.756 18.578-5.688-5.687a7.88 7.88 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0S0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.88 7.88 0 0 0 4.973-1.765l5.687 5.688a.83.83 0 0 0 1.179 0 .83.83 0 0 0 0-1.179m-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25"
                             fill="currentColor"
                           />
                         </svg>
@@ -486,7 +533,11 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                         Users
                       </mock-styled.label>
                     </mock-styled.div>
-                    <mock-styled.div>
+                    <mock-styled.div
+                      aria-controls=":r2:"
+                      aria-haspopup="listbox"
+                      role="combobox"
+                    >
                       <mock-styled.input
                         id="user-groups-ids-ReapitUserAdmin"
                         name="userIds"
@@ -549,11 +600,14 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.button
+          aria-label="Previous"
           data-testid="back-button"
+          role="button"
           type="button"
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -563,7 +617,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
                 fill="currentColor"
               />
             </svg>
@@ -577,11 +631,14 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
           1
         </mock-styled.div>
         <mock-styled.button
+          aria-label="Next"
           data-testid="forward-button"
+          role="button"
           type="button"
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -591,7 +648,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
                 fill="currentColor"
               />
             </svg>
@@ -602,35 +659,50 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-justify-between"
+    <div
+      class="el-flex-container el-flex-justify-between"
     >
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         SOME_NAME
          User Groups
       </mock-styled.h1>
-    </mock-styled.div>
+    </div>
     <mock-styled.div
       classname="el-fade-in el-mb11"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="3"
+      role="table"
     >
-      <mock-styled.div>
-        <mock-styled.div>
+      <mock-styled.div
+        role="row"
+      >
+        <mock-styled.div
+          aria-label="Group Name"
+          role="columnheader"
+        >
           Group Name
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Description"
+          role="columnheader"
+        >
           Description
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Member Count"
+          role="columnheader"
+        >
           Member Count
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          role="columnheader"
+        >
           <mock-styled.span
             classname="el-intent-default el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -640,7 +712,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                 fill="currentColor"
               />
             </svg>
@@ -649,10 +721,12 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Group Name"
@@ -662,6 +736,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Description"
@@ -671,6 +746,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Member Count"
@@ -680,9 +756,11 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname=""
+            role="cell"
           >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -692,7 +770,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                   fill="currentColor"
                 />
               </svg>
@@ -700,6 +778,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
+          aria-hidden="false"
           classname=""
         >
           <mock-styled.div>
@@ -707,12 +786,12 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
               class="el-p8"
             >
               <mock-styled.h2
-                classname=""
+                classname="el-text-base"
               >
                 Edit User Group
               </mock-styled.h2>
               <mock-styled.p
-                classname="el-has-grey-text el-has-section-margin"
+                classname="el-text-base el-has-grey-text el-has-section-margin"
               >
                 The list below contains all available member groups for your organisation. You can manage users associated to each group by selecting them from the list below.
               </mock-styled.p>
@@ -730,6 +809,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                     />
                     <mock-styled.span
                       classname=""
+                      role="img"
                       style="font-size: 1rem;"
                     >
                       <svg
@@ -741,7 +821,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="m19.756 18.578-5.688-5.687a7.878 7.878 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0 3.552.001 0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.879 7.879 0 0 0 4.973-1.765l5.687 5.688a.831.831 0 0 0 1.179 0 .832.832 0 0 0 0-1.179Zm-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25Z"
+                          d="m19.756 18.578-5.688-5.687a7.88 7.88 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0S0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.88 7.88 0 0 0 4.973-1.765l5.687 5.688a.83.83 0 0 0 1.179 0 .83.83 0 0 0 0-1.179m-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25"
                           fill="currentColor"
                         />
                       </svg>
@@ -752,7 +832,11 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                       Users
                     </mock-styled.label>
                   </mock-styled.div>
-                  <mock-styled.div>
+                  <mock-styled.div
+                    aria-controls=":r0:"
+                    aria-haspopup="listbox"
+                    role="combobox"
+                  >
                     <mock-styled.input
                       id="user-groups-ids-MarketplaceAdmin"
                       name="userIds"
@@ -814,10 +898,12 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Group Name"
@@ -827,6 +913,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Description"
@@ -836,6 +923,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Member Count"
@@ -845,9 +933,11 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname=""
+            role="cell"
           >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -857,7 +947,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                   fill="currentColor"
                 />
               </svg>
@@ -865,6 +955,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
+          aria-hidden="false"
           classname=""
         >
           <mock-styled.div>
@@ -872,12 +963,12 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
               class="el-p8"
             >
               <mock-styled.h2
-                classname=""
+                classname="el-text-base"
               >
                 Edit User Group
               </mock-styled.h2>
               <mock-styled.p
-                classname="el-has-grey-text el-has-section-margin"
+                classname="el-text-base el-has-grey-text el-has-section-margin"
               >
                 The list below contains all available member groups for your organisation. You can manage users associated to each group by selecting them from the list below.
               </mock-styled.p>
@@ -895,6 +986,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                     />
                     <mock-styled.span
                       classname=""
+                      role="img"
                       style="font-size: 1rem;"
                     >
                       <svg
@@ -906,7 +998,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="m19.756 18.578-5.688-5.687a7.878 7.878 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0 3.552.001 0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.879 7.879 0 0 0 4.973-1.765l5.687 5.688a.831.831 0 0 0 1.179 0 .832.832 0 0 0 0-1.179Zm-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25Z"
+                          d="m19.756 18.578-5.688-5.687a7.88 7.88 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0S0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.88 7.88 0 0 0 4.973-1.765l5.687 5.688a.83.83 0 0 0 1.179 0 .83.83 0 0 0 0-1.179m-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25"
                           fill="currentColor"
                         />
                       </svg>
@@ -917,7 +1009,11 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                       Users
                     </mock-styled.label>
                   </mock-styled.div>
-                  <mock-styled.div>
+                  <mock-styled.div
+                    aria-controls=":r1:"
+                    aria-haspopup="listbox"
+                    role="combobox"
+                  >
                     <mock-styled.input
                       id="user-groups-ids-OrganisationAdmin"
                       name="userIds"
@@ -979,10 +1075,12 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Group Name"
@@ -992,6 +1090,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Description"
@@ -1001,6 +1100,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Member Count"
@@ -1010,9 +1110,11 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname=""
+            role="cell"
           >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -1022,7 +1124,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                   fill="currentColor"
                 />
               </svg>
@@ -1030,6 +1132,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
+          aria-hidden="false"
           classname=""
         >
           <mock-styled.div>
@@ -1037,12 +1140,12 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
               class="el-p8"
             >
               <mock-styled.h2
-                classname=""
+                classname="el-text-base"
               >
                 Edit User Group
               </mock-styled.h2>
               <mock-styled.p
-                classname="el-has-grey-text el-has-section-margin"
+                classname="el-text-base el-has-grey-text el-has-section-margin"
               >
                 The list below contains all available member groups for your organisation. You can manage users associated to each group by selecting them from the list below.
               </mock-styled.p>
@@ -1060,6 +1163,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                     />
                     <mock-styled.span
                       classname=""
+                      role="img"
                       style="font-size: 1rem;"
                     >
                       <svg
@@ -1071,7 +1175,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="m19.756 18.578-5.688-5.687a7.878 7.878 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0 3.552.001 0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.879 7.879 0 0 0 4.973-1.765l5.687 5.688a.831.831 0 0 0 1.179 0 .832.832 0 0 0 0-1.179Zm-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25Z"
+                          d="m19.756 18.578-5.688-5.687a7.88 7.88 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0S0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.88 7.88 0 0 0 4.973-1.765l5.687 5.688a.83.83 0 0 0 1.179 0 .83.83 0 0 0 0-1.179m-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25"
                           fill="currentColor"
                         />
                       </svg>
@@ -1082,7 +1186,11 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
                       Users
                     </mock-styled.label>
                   </mock-styled.div>
-                  <mock-styled.div>
+                  <mock-styled.div
+                    aria-controls=":r2:"
+                    aria-haspopup="listbox"
+                    role="combobox"
+                  >
                     <mock-styled.input
                       id="user-groups-ids-ReapitUserAdmin"
                       name="userIds"
@@ -1145,11 +1253,14 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
     </mock-styled.div>
     <mock-styled.div>
       <mock-styled.button
+        aria-label="Previous"
         data-testid="back-button"
+        role="button"
         type="button"
       >
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
         >
           <svg
             fill="none"
@@ -1159,7 +1270,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+              d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
               fill="currentColor"
             />
           </svg>
@@ -1173,11 +1284,14 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
         1
       </mock-styled.div>
       <mock-styled.button
+        aria-label="Next"
         data-testid="forward-button"
+        role="button"
         type="button"
       >
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
         >
           <svg
             fill="none"
@@ -1187,7 +1301,7 @@ exports[`UserGroupsTab should match a snapshot where there is data 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+              d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
               fill="currentColor"
             />
           </svg>
@@ -1255,18 +1369,19 @@ exports[`UserGroupsTab should match a snapshot where there is data but no user g
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-justify-between"
+      <div
+        class="el-flex-container el-flex-justify-between"
       >
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           SOME_NAME
            User Groups
         </mock-styled.h1>
-      </mock-styled.div>
+      </div>
       <mock-styled.div
         classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+        role="alertdialog"
       >
         <div
           class="el-pn-icon"
@@ -1274,6 +1389,7 @@ exports[`UserGroupsTab should match a snapshot where there is data but no user g
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -1285,7 +1401,7 @@ exports[`UserGroupsTab should match a snapshot where there is data but no user g
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                 fill="currentColor"
               />
             </svg>
@@ -1301,18 +1417,19 @@ exports[`UserGroupsTab should match a snapshot where there is data but no user g
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-justify-between"
+    <div
+      class="el-flex-container el-flex-justify-between"
     >
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         SOME_NAME
          User Groups
       </mock-styled.h1>
-    </mock-styled.div>
+    </div>
     <mock-styled.div
       classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+      role="alertdialog"
     >
       <div
         class="el-pn-icon"
@@ -1320,6 +1437,7 @@ exports[`UserGroupsTab should match a snapshot where there is data but no user g
       >
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
@@ -1331,7 +1449,7 @@ exports[`UserGroupsTab should match a snapshot where there is data but no user g
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
               fill="currentColor"
             />
           </svg>
@@ -1404,17 +1522,18 @@ exports[`UserGroupsTab should match a snapshot where there is no orgId 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-justify-between"
+      <div
+        class="el-flex-container el-flex-justify-between"
       >
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           User Groups
         </mock-styled.h1>
-      </mock-styled.div>
+      </div>
       <mock-styled.div
         classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+        role="alertdialog"
       >
         <div
           class="el-pn-icon"
@@ -1422,6 +1541,7 @@ exports[`UserGroupsTab should match a snapshot where there is no orgId 1`] = `
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -1433,7 +1553,7 @@ exports[`UserGroupsTab should match a snapshot where there is no orgId 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                 fill="currentColor"
               />
             </svg>
@@ -1449,17 +1569,18 @@ exports[`UserGroupsTab should match a snapshot where there is no orgId 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-justify-between"
+    <div
+      class="el-flex-container el-flex-justify-between"
     >
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         User Groups
       </mock-styled.h1>
-    </mock-styled.div>
+    </div>
     <mock-styled.div
       classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+      role="alertdialog"
     >
       <div
         class="el-pn-icon"
@@ -1467,6 +1588,7 @@ exports[`UserGroupsTab should match a snapshot where there is no orgId 1`] = `
       >
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
@@ -1478,7 +1600,7 @@ exports[`UserGroupsTab should match a snapshot where there is no orgId 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
               fill="currentColor"
             />
           </svg>

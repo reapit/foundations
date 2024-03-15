@@ -6,12 +6,12 @@ exports[`AppInstallationSection should match a snapshot when SPECIFIC_OFFICE_GRO
   "baseElement": <body>
     <div>
       <mock-styled.h2
-        classname=""
+        classname="el-text-base"
       >
         Installation
       </mock-styled.h2>
       <mock-styled.p
-        classname="el-has-grey-text el-has-section-margin"
+        classname="el-text-base el-has-grey-text el-has-section-margin"
       >
         Please select the type of installation you require for this app:
       </mock-styled.p>
@@ -35,7 +35,7 @@ exports[`AppInstallationSection should match a snapshot when SPECIFIC_OFFICE_GRO
             </mock-styled.label>
           </mock-styled.div>
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             This will grant the app access to all data for all users and offices across your organisation
           </mock-styled.p>
@@ -57,7 +57,7 @@ exports[`AppInstallationSection should match a snapshot when SPECIFIC_OFFICE_GRO
             </mock-styled.label>
           </mock-styled.div>
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             This will grant the app access to only data for the specific offices inside of each office group
           </mock-styled.p>
@@ -82,12 +82,12 @@ exports[`AppInstallationSection should match a snapshot when SPECIFIC_OFFICE_GRO
   </body>,
   "container": <div>
     <mock-styled.h2
-      classname=""
+      classname="el-text-base"
     >
       Installation
     </mock-styled.h2>
     <mock-styled.p
-      classname="el-has-grey-text el-has-section-margin"
+      classname="el-text-base el-has-grey-text el-has-section-margin"
     >
       Please select the type of installation you require for this app:
     </mock-styled.p>
@@ -111,7 +111,7 @@ exports[`AppInstallationSection should match a snapshot when SPECIFIC_OFFICE_GRO
           </mock-styled.label>
         </mock-styled.div>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           This will grant the app access to all data for all users and offices across your organisation
         </mock-styled.p>
@@ -133,7 +133,7 @@ exports[`AppInstallationSection should match a snapshot when SPECIFIC_OFFICE_GRO
           </mock-styled.label>
         </mock-styled.div>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           This will grant the app access to only data for the specific offices inside of each office group
         </mock-styled.p>
@@ -215,12 +215,12 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
   "baseElement": <body>
     <div>
       <mock-styled.h2
-        classname=""
+        classname="el-text-base"
       >
         Installation
       </mock-styled.h2>
       <mock-styled.p
-        classname="el-has-grey-text el-has-section-margin"
+        classname="el-text-base el-has-grey-text el-has-section-margin"
       >
         Please select the type of installation you require for this app:
       </mock-styled.p>
@@ -244,7 +244,7 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
             </mock-styled.label>
           </mock-styled.div>
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             This will grant the app access to all data for all users and offices across your organisation
           </mock-styled.p>
@@ -266,7 +266,7 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
             </mock-styled.label>
           </mock-styled.div>
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             This will grant the app access to only data for the specific offices inside of each office group
           </mock-styled.p>
@@ -291,12 +291,12 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
   </body>,
   "container": <div>
     <mock-styled.h2
-      classname=""
+      classname="el-text-base"
     >
       Installation
     </mock-styled.h2>
     <mock-styled.p
-      classname="el-has-grey-text el-has-section-margin"
+      classname="el-text-base el-has-grey-text el-has-section-margin"
     >
       Please select the type of installation you require for this app:
     </mock-styled.p>
@@ -320,7 +320,7 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
           </mock-styled.label>
         </mock-styled.div>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           This will grant the app access to all data for all users and offices across your organisation
         </mock-styled.p>
@@ -342,7 +342,7 @@ exports[`AppInstallationSection should match a snapshot when WHOLE_ORG is select
           </mock-styled.label>
         </mock-styled.div>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           This will grant the app access to only data for the specific offices inside of each office group
         </mock-styled.p>

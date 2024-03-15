@@ -6,11 +6,11 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.div>
             <mock-styled.div
@@ -26,6 +26,7 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
           </mock-styled.div>
           <mock-styled.span
             classname="el-mb5 el-icon-size-large"
+            role="img"
           >
             <svg
               fill="none"
@@ -38,55 +39,55 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
                 clip-path="url(#vendorInfographic_svg__a)"
               >
                 <path
-                  d="M2.552 16.672A9.962 9.962 0 0 1 0 10C0 4.477 4.477 0 10 0s10 4.477 10 10a9.962 9.962 0 0 1-2.552 6.672H2.552Z"
+                  d="M2.552 16.672A9.96 9.96 0 0 1 0 10C0 4.477 4.477 0 10 0s10 4.477 10 10a9.96 9.96 0 0 1-2.552 6.672z"
                   fill="#798da1"
                 />
                 <path
-                  d="M5.893 3.897c.279-1.085 1.322-1.202 1.322-1.202S7.441.768 10 .768s2.785 1.927 2.785 1.927 1.043.117 1.322 1.202c.279 1.085-.442 2.628-.442 2.628L10 8.018 6.335 6.525s-.72-1.543-.442-2.628Z"
+                  d="M5.893 3.897c.279-1.085 1.322-1.202 1.322-1.202S7.441.768 10 .768s2.785 1.927 2.785 1.927 1.043.117 1.322 1.202-.442 2.628-.442 2.628L10 8.018 6.335 6.525s-.72-1.543-.442-2.628"
                   fill="#d8dee4"
                 />
                 <path
-                  d="M14.107 3.897c.279 1.085-.442 2.628-.442 2.628l-1.768.72-.45-.546V4.304c1.097-.228 1.338-.984 1.338-1.609 0 0 1.043.118 1.322 1.202Z"
+                  d="M14.107 3.897c.279 1.085-.442 2.628-.442 2.628l-1.768.72-.45-.546V4.304c1.097-.228 1.338-.984 1.338-1.609 0 0 1.043.118 1.322 1.202"
                   fill="#d8dee4"
                 />
                 <path
-                  d="M7.302 7.175s-.348-.847-.967-.65c-.62.196.015 2.03 1.224 2.145l-.257-1.495ZM12.698 7.175s.348-.847.967-.65c.62.196-.015 2.03-1.224 2.145l.257-1.495Z"
+                  d="M7.302 7.175s-.348-.847-.967-.65c-.62.196.015 2.03 1.224 2.145zM12.698 7.175s.348-.847.967-.65c.62.196-.015 2.03-1.224 2.145z"
                   fill="#fff"
                 />
                 <path
-                  d="M2.552 16.672c.38-1.108.805-2.141 1.159-2.453.86-.759 4.582-1.372 4.582-1.372L10 14.167l1.707-1.32s3.723.613 4.582 1.372c.353.312.78 1.345 1.159 2.453A9.974 9.974 0 0 1 10 20a9.974 9.974 0 0 1-7.448-3.328Z"
+                  d="M2.552 16.672c.38-1.108.805-2.141 1.159-2.453.86-.759 4.582-1.372 4.582-1.372L10 14.167l1.707-1.32s3.723.613 4.582 1.372c.353.312.78 1.345 1.159 2.453A9.97 9.97 0 0 1 10 20a9.97 9.97 0 0 1-7.448-3.328"
                   fill="#d8dee4"
                 />
                 <path
-                  d="M5.913 18.633a9.996 9.996 0 0 0 8.735-5.128c.707.207 1.345.452 1.641.714.354.312.78 1.345 1.159 2.453A9.974 9.974 0 0 1 10 20c-1.881 0-3.64-.52-5.144-1.423.348.036.7.056 1.057.056Z"
+                  d="M5.913 18.633a10 10 0 0 0 8.735-5.128c.707.207 1.345.452 1.641.714.354.312.78 1.345 1.159 2.453A9.97 9.97 0 0 1 10 20c-1.881 0-3.64-.52-5.144-1.423q.522.055 1.057.056"
                   fill="#d8dee4"
                 />
                 <path
-                  d="m9.42 15.948.58-.88.58.88.504 3.994a10.107 10.107 0 0 1-2.168 0l.504-3.994Z"
+                  d="m9.42 15.949.58-.881.58.88.504 3.994a10 10 0 0 1-2.168 0z"
                   fill="#798da1"
                 />
                 <path
-                  d="M9.39 16.083h1.22c.09 0 .167-.06.19-.146l.49-1.885H8.71l.49 1.885c.023.086.1.146.19.146Z"
+                  d="M9.39 16.083h1.22c.09 0 .167-.06.19-.146l.49-1.885H8.71l.49 1.885c.023.086.1.146.19.146"
                   fill="#798da1"
                 />
                 <path
-                  d="m10.018 15.937.49-1.885h.781l-.49 1.885a.195.195 0 0 1-.188.146h-.782c.09 0 .167-.06.19-.146Z"
+                  d="m10.018 15.937.49-1.885h.781l-.49 1.885a.195.195 0 0 1-.188.146h-.782c.09 0 .167-.06.19-.146"
                   fill="#798da1"
                 />
                 <path
-                  d="M11.707 8.47v4.377c0 .665-.764 1.205-1.707 1.205-.943 0-1.707-.54-1.707-1.205V8.469h3.414Z"
+                  d="M11.707 8.47v4.377c0 .665-.764 1.205-1.707 1.205s-1.707-.54-1.707-1.205V8.469z"
                   fill="#fff"
                 />
                 <path
-                  d="M11.707 12.305 10 14.052s.664 1.2 1.094 1.2c.43 0 1.172-2.304 1.172-2.304l-.56-.643ZM8.293 12.305 10 14.052s-.664 1.2-1.094 1.2c-.43 0-1.172-2.304-1.172-2.304l.56-.643Z"
+                  d="M11.707 12.305 10 14.052s.664 1.2 1.094 1.2 1.172-2.304 1.172-2.304zM8.293 12.305 10 14.052s-.664 1.2-1.094 1.2-1.172-2.304-1.172-2.304z"
                   fill="#fff"
                 />
                 <path
-                  d="m4.407 17.04.45 1.537a10.014 10.014 0 0 1-.833-.558v-.923c0-.226.32-.272.383-.055ZM15.976 17.096v.923c-.268.2-.546.386-.833.558l.45-1.536c.063-.217.383-.171.383.055Z"
+                  d="m4.407 17.04.45 1.537a10 10 0 0 1-.833-.558v-.923c0-.226.32-.272.383-.055M15.976 17.096v.923q-.402.3-.833.558l.45-1.536c.063-.217.383-.171.383.055"
                   fill="#798da1"
                 />
                 <path
-                  d="M7.215 6.107c.171-.417.183-1.693.637-1.875.453-.182.833.312 2.148.312 1.315 0 1.695-.494 2.149-.312.453.182.465 1.458.636 1.875.16.388.36.467.386.476.002.06.003.122.003.183 0 2.338-1.421 5.079-3.174 5.079S6.826 9.104 6.826 6.766l.003-.183c.027-.009.227-.088.386-.476Z"
+                  d="M7.215 6.107c.171-.417.183-1.693.637-1.875.453-.182.833.312 2.148.312s1.695-.494 2.149-.312.465 1.458.636 1.875c.16.388.36.467.386.476q.003.09.003.183c0 2.338-1.421 5.079-3.174 5.079S6.826 9.104 6.826 6.766l.003-.183c.027-.009.227-.088.386-.476"
                   fill="#fff"
                 />
               </g>
@@ -95,16 +96,15 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
                   id="vendorInfographic_svg__a"
                 >
                   <path
-                    d="M0 0h20v20H0z"
+                    d="M0 20h20V0H0z"
                     fill="#fff"
-                    transform="matrix(1 0 0 -1 0 20)"
                   />
                 </clippath>
               </defs>
             </svg>
           </mock-styled.span>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             This list contains all available member groups for your organisation. You can manage users associated to each group by selecting the dropown.
           </mock-styled.p>
@@ -118,12 +118,12 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
             class="el-mb5"
           >
             <mock-styled.p
-              classname=""
+              classname="el-text-base"
             >
               Organisations
             </mock-styled.p>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
             </mock-styled.p>
@@ -159,20 +159,20 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
               </mock-styled.div>
             </mock-styled.div>
           </div>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname="el-hfull"
+        </aside>
+        <section
+          class="el-page-container el-hfull"
         >
-          <mock-styled.div
-            classname="el-flex-justify-between"
+          <div
+            class="el-flex-container el-flex-justify-between"
           >
             <mock-styled.h1
-              classname=""
+              classname="el-text-base"
             >
               SOME_NAME
                Users
             </mock-styled.h1>
-          </mock-styled.div>
+          </div>
           <form>
             <mock-styled.div
               classname="el-form-layout-has-margin"
@@ -216,17 +216,17 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
               <mock-styled.div />
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.section>
-      </mock-styled.div>
+        </section>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -242,6 +242,7 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
         </mock-styled.div>
         <mock-styled.span
           classname="el-mb5 el-icon-size-large"
+          role="img"
         >
           <svg
             fill="none"
@@ -254,55 +255,55 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
               clip-path="url(#vendorInfographic_svg__a)"
             >
               <path
-                d="M2.552 16.672A9.962 9.962 0 0 1 0 10C0 4.477 4.477 0 10 0s10 4.477 10 10a9.962 9.962 0 0 1-2.552 6.672H2.552Z"
+                d="M2.552 16.672A9.96 9.96 0 0 1 0 10C0 4.477 4.477 0 10 0s10 4.477 10 10a9.96 9.96 0 0 1-2.552 6.672z"
                 fill="#798da1"
               />
               <path
-                d="M5.893 3.897c.279-1.085 1.322-1.202 1.322-1.202S7.441.768 10 .768s2.785 1.927 2.785 1.927 1.043.117 1.322 1.202c.279 1.085-.442 2.628-.442 2.628L10 8.018 6.335 6.525s-.72-1.543-.442-2.628Z"
+                d="M5.893 3.897c.279-1.085 1.322-1.202 1.322-1.202S7.441.768 10 .768s2.785 1.927 2.785 1.927 1.043.117 1.322 1.202-.442 2.628-.442 2.628L10 8.018 6.335 6.525s-.72-1.543-.442-2.628"
                 fill="#d8dee4"
               />
               <path
-                d="M14.107 3.897c.279 1.085-.442 2.628-.442 2.628l-1.768.72-.45-.546V4.304c1.097-.228 1.338-.984 1.338-1.609 0 0 1.043.118 1.322 1.202Z"
+                d="M14.107 3.897c.279 1.085-.442 2.628-.442 2.628l-1.768.72-.45-.546V4.304c1.097-.228 1.338-.984 1.338-1.609 0 0 1.043.118 1.322 1.202"
                 fill="#d8dee4"
               />
               <path
-                d="M7.302 7.175s-.348-.847-.967-.65c-.62.196.015 2.03 1.224 2.145l-.257-1.495ZM12.698 7.175s.348-.847.967-.65c.62.196-.015 2.03-1.224 2.145l.257-1.495Z"
+                d="M7.302 7.175s-.348-.847-.967-.65c-.62.196.015 2.03 1.224 2.145zM12.698 7.175s.348-.847.967-.65c.62.196-.015 2.03-1.224 2.145z"
                 fill="#fff"
               />
               <path
-                d="M2.552 16.672c.38-1.108.805-2.141 1.159-2.453.86-.759 4.582-1.372 4.582-1.372L10 14.167l1.707-1.32s3.723.613 4.582 1.372c.353.312.78 1.345 1.159 2.453A9.974 9.974 0 0 1 10 20a9.974 9.974 0 0 1-7.448-3.328Z"
+                d="M2.552 16.672c.38-1.108.805-2.141 1.159-2.453.86-.759 4.582-1.372 4.582-1.372L10 14.167l1.707-1.32s3.723.613 4.582 1.372c.353.312.78 1.345 1.159 2.453A9.97 9.97 0 0 1 10 20a9.97 9.97 0 0 1-7.448-3.328"
                 fill="#d8dee4"
               />
               <path
-                d="M5.913 18.633a9.996 9.996 0 0 0 8.735-5.128c.707.207 1.345.452 1.641.714.354.312.78 1.345 1.159 2.453A9.974 9.974 0 0 1 10 20c-1.881 0-3.64-.52-5.144-1.423.348.036.7.056 1.057.056Z"
+                d="M5.913 18.633a10 10 0 0 0 8.735-5.128c.707.207 1.345.452 1.641.714.354.312.78 1.345 1.159 2.453A9.97 9.97 0 0 1 10 20c-1.881 0-3.64-.52-5.144-1.423q.522.055 1.057.056"
                 fill="#d8dee4"
               />
               <path
-                d="m9.42 15.948.58-.88.58.88.504 3.994a10.107 10.107 0 0 1-2.168 0l.504-3.994Z"
+                d="m9.42 15.949.58-.881.58.88.504 3.994a10 10 0 0 1-2.168 0z"
                 fill="#798da1"
               />
               <path
-                d="M9.39 16.083h1.22c.09 0 .167-.06.19-.146l.49-1.885H8.71l.49 1.885c.023.086.1.146.19.146Z"
+                d="M9.39 16.083h1.22c.09 0 .167-.06.19-.146l.49-1.885H8.71l.49 1.885c.023.086.1.146.19.146"
                 fill="#798da1"
               />
               <path
-                d="m10.018 15.937.49-1.885h.781l-.49 1.885a.195.195 0 0 1-.188.146h-.782c.09 0 .167-.06.19-.146Z"
+                d="m10.018 15.937.49-1.885h.781l-.49 1.885a.195.195 0 0 1-.188.146h-.782c.09 0 .167-.06.19-.146"
                 fill="#798da1"
               />
               <path
-                d="M11.707 8.47v4.377c0 .665-.764 1.205-1.707 1.205-.943 0-1.707-.54-1.707-1.205V8.469h3.414Z"
+                d="M11.707 8.47v4.377c0 .665-.764 1.205-1.707 1.205s-1.707-.54-1.707-1.205V8.469z"
                 fill="#fff"
               />
               <path
-                d="M11.707 12.305 10 14.052s.664 1.2 1.094 1.2c.43 0 1.172-2.304 1.172-2.304l-.56-.643ZM8.293 12.305 10 14.052s-.664 1.2-1.094 1.2c-.43 0-1.172-2.304-1.172-2.304l.56-.643Z"
+                d="M11.707 12.305 10 14.052s.664 1.2 1.094 1.2 1.172-2.304 1.172-2.304zM8.293 12.305 10 14.052s-.664 1.2-1.094 1.2-1.172-2.304-1.172-2.304z"
                 fill="#fff"
               />
               <path
-                d="m4.407 17.04.45 1.537a10.014 10.014 0 0 1-.833-.558v-.923c0-.226.32-.272.383-.055ZM15.976 17.096v.923c-.268.2-.546.386-.833.558l.45-1.536c.063-.217.383-.171.383.055Z"
+                d="m4.407 17.04.45 1.537a10 10 0 0 1-.833-.558v-.923c0-.226.32-.272.383-.055M15.976 17.096v.923q-.402.3-.833.558l.45-1.536c.063-.217.383-.171.383.055"
                 fill="#798da1"
               />
               <path
-                d="M7.215 6.107c.171-.417.183-1.693.637-1.875.453-.182.833.312 2.148.312 1.315 0 1.695-.494 2.149-.312.453.182.465 1.458.636 1.875.16.388.36.467.386.476.002.06.003.122.003.183 0 2.338-1.421 5.079-3.174 5.079S6.826 9.104 6.826 6.766l.003-.183c.027-.009.227-.088.386-.476Z"
+                d="M7.215 6.107c.171-.417.183-1.693.637-1.875.453-.182.833.312 2.148.312s1.695-.494 2.149-.312.465 1.458.636 1.875c.16.388.36.467.386.476q.003.09.003.183c0 2.338-1.421 5.079-3.174 5.079S6.826 9.104 6.826 6.766l.003-.183c.027-.009.227-.088.386-.476"
                 fill="#fff"
               />
             </g>
@@ -311,16 +312,15 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
                 id="vendorInfographic_svg__a"
               >
                 <path
-                  d="M0 0h20v20H0z"
+                  d="M0 20h20V0H0z"
                   fill="#fff"
-                  transform="matrix(1 0 0 -1 0 20)"
                 />
               </clippath>
             </defs>
           </svg>
         </mock-styled.span>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This list contains all available member groups for your organisation. You can manage users associated to each group by selecting the dropown.
         </mock-styled.p>
@@ -334,12 +334,12 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
           class="el-mb5"
         >
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             Organisations
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
           </mock-styled.p>
@@ -375,20 +375,20 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
             </mock-styled.div>
           </mock-styled.div>
         </div>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname="el-hfull"
+      </aside>
+      <section
+        class="el-page-container el-hfull"
       >
-        <mock-styled.div
-          classname="el-flex-justify-between"
+        <div
+          class="el-flex-container el-flex-justify-between"
         >
           <mock-styled.h1
-            classname=""
+            classname="el-text-base"
           >
             SOME_NAME
              Users
           </mock-styled.h1>
-        </mock-styled.div>
+        </div>
         <form>
           <mock-styled.div
             classname="el-form-layout-has-margin"
@@ -432,8 +432,8 @@ exports[`UsersPage should match a snapshot for the users groups tab 1`] = `
             <mock-styled.div />
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.section>
-    </mock-styled.div>
+      </section>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -495,11 +495,11 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.div>
             <mock-styled.div
@@ -515,6 +515,7 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
           </mock-styled.div>
           <mock-styled.span
             classname="el-mb5 el-icon-size-large"
+            role="img"
           >
             <svg
               fill="none"
@@ -527,55 +528,55 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
                 clip-path="url(#vendorInfographic_svg__a)"
               >
                 <path
-                  d="M2.552 16.672A9.962 9.962 0 0 1 0 10C0 4.477 4.477 0 10 0s10 4.477 10 10a9.962 9.962 0 0 1-2.552 6.672H2.552Z"
+                  d="M2.552 16.672A9.96 9.96 0 0 1 0 10C0 4.477 4.477 0 10 0s10 4.477 10 10a9.96 9.96 0 0 1-2.552 6.672z"
                   fill="#798da1"
                 />
                 <path
-                  d="M5.893 3.897c.279-1.085 1.322-1.202 1.322-1.202S7.441.768 10 .768s2.785 1.927 2.785 1.927 1.043.117 1.322 1.202c.279 1.085-.442 2.628-.442 2.628L10 8.018 6.335 6.525s-.72-1.543-.442-2.628Z"
+                  d="M5.893 3.897c.279-1.085 1.322-1.202 1.322-1.202S7.441.768 10 .768s2.785 1.927 2.785 1.927 1.043.117 1.322 1.202-.442 2.628-.442 2.628L10 8.018 6.335 6.525s-.72-1.543-.442-2.628"
                   fill="#d8dee4"
                 />
                 <path
-                  d="M14.107 3.897c.279 1.085-.442 2.628-.442 2.628l-1.768.72-.45-.546V4.304c1.097-.228 1.338-.984 1.338-1.609 0 0 1.043.118 1.322 1.202Z"
+                  d="M14.107 3.897c.279 1.085-.442 2.628-.442 2.628l-1.768.72-.45-.546V4.304c1.097-.228 1.338-.984 1.338-1.609 0 0 1.043.118 1.322 1.202"
                   fill="#d8dee4"
                 />
                 <path
-                  d="M7.302 7.175s-.348-.847-.967-.65c-.62.196.015 2.03 1.224 2.145l-.257-1.495ZM12.698 7.175s.348-.847.967-.65c.62.196-.015 2.03-1.224 2.145l.257-1.495Z"
+                  d="M7.302 7.175s-.348-.847-.967-.65c-.62.196.015 2.03 1.224 2.145zM12.698 7.175s.348-.847.967-.65c.62.196-.015 2.03-1.224 2.145z"
                   fill="#fff"
                 />
                 <path
-                  d="M2.552 16.672c.38-1.108.805-2.141 1.159-2.453.86-.759 4.582-1.372 4.582-1.372L10 14.167l1.707-1.32s3.723.613 4.582 1.372c.353.312.78 1.345 1.159 2.453A9.974 9.974 0 0 1 10 20a9.974 9.974 0 0 1-7.448-3.328Z"
+                  d="M2.552 16.672c.38-1.108.805-2.141 1.159-2.453.86-.759 4.582-1.372 4.582-1.372L10 14.167l1.707-1.32s3.723.613 4.582 1.372c.353.312.78 1.345 1.159 2.453A9.97 9.97 0 0 1 10 20a9.97 9.97 0 0 1-7.448-3.328"
                   fill="#d8dee4"
                 />
                 <path
-                  d="M5.913 18.633a9.996 9.996 0 0 0 8.735-5.128c.707.207 1.345.452 1.641.714.354.312.78 1.345 1.159 2.453A9.974 9.974 0 0 1 10 20c-1.881 0-3.64-.52-5.144-1.423.348.036.7.056 1.057.056Z"
+                  d="M5.913 18.633a10 10 0 0 0 8.735-5.128c.707.207 1.345.452 1.641.714.354.312.78 1.345 1.159 2.453A9.97 9.97 0 0 1 10 20c-1.881 0-3.64-.52-5.144-1.423q.522.055 1.057.056"
                   fill="#d8dee4"
                 />
                 <path
-                  d="m9.42 15.948.58-.88.58.88.504 3.994a10.107 10.107 0 0 1-2.168 0l.504-3.994Z"
+                  d="m9.42 15.949.58-.881.58.88.504 3.994a10 10 0 0 1-2.168 0z"
                   fill="#798da1"
                 />
                 <path
-                  d="M9.39 16.083h1.22c.09 0 .167-.06.19-.146l.49-1.885H8.71l.49 1.885c.023.086.1.146.19.146Z"
+                  d="M9.39 16.083h1.22c.09 0 .167-.06.19-.146l.49-1.885H8.71l.49 1.885c.023.086.1.146.19.146"
                   fill="#798da1"
                 />
                 <path
-                  d="m10.018 15.937.49-1.885h.781l-.49 1.885a.195.195 0 0 1-.188.146h-.782c.09 0 .167-.06.19-.146Z"
+                  d="m10.018 15.937.49-1.885h.781l-.49 1.885a.195.195 0 0 1-.188.146h-.782c.09 0 .167-.06.19-.146"
                   fill="#798da1"
                 />
                 <path
-                  d="M11.707 8.47v4.377c0 .665-.764 1.205-1.707 1.205-.943 0-1.707-.54-1.707-1.205V8.469h3.414Z"
+                  d="M11.707 8.47v4.377c0 .665-.764 1.205-1.707 1.205s-1.707-.54-1.707-1.205V8.469z"
                   fill="#fff"
                 />
                 <path
-                  d="M11.707 12.305 10 14.052s.664 1.2 1.094 1.2c.43 0 1.172-2.304 1.172-2.304l-.56-.643ZM8.293 12.305 10 14.052s-.664 1.2-1.094 1.2c-.43 0-1.172-2.304-1.172-2.304l.56-.643Z"
+                  d="M11.707 12.305 10 14.052s.664 1.2 1.094 1.2 1.172-2.304 1.172-2.304zM8.293 12.305 10 14.052s-.664 1.2-1.094 1.2-1.172-2.304-1.172-2.304z"
                   fill="#fff"
                 />
                 <path
-                  d="m4.407 17.04.45 1.537a10.014 10.014 0 0 1-.833-.558v-.923c0-.226.32-.272.383-.055ZM15.976 17.096v.923c-.268.2-.546.386-.833.558l.45-1.536c.063-.217.383-.171.383.055Z"
+                  d="m4.407 17.04.45 1.537a10 10 0 0 1-.833-.558v-.923c0-.226.32-.272.383-.055M15.976 17.096v.923q-.402.3-.833.558l.45-1.536c.063-.217.383-.171.383.055"
                   fill="#798da1"
                 />
                 <path
-                  d="M7.215 6.107c.171-.417.183-1.693.637-1.875.453-.182.833.312 2.148.312 1.315 0 1.695-.494 2.149-.312.453.182.465 1.458.636 1.875.16.388.36.467.386.476.002.06.003.122.003.183 0 2.338-1.421 5.079-3.174 5.079S6.826 9.104 6.826 6.766l.003-.183c.027-.009.227-.088.386-.476Z"
+                  d="M7.215 6.107c.171-.417.183-1.693.637-1.875.453-.182.833.312 2.148.312s1.695-.494 2.149-.312.465 1.458.636 1.875c.16.388.36.467.386.476q.003.09.003.183c0 2.338-1.421 5.079-3.174 5.079S6.826 9.104 6.826 6.766l.003-.183c.027-.009.227-.088.386-.476"
                   fill="#fff"
                 />
               </g>
@@ -584,16 +585,15 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
                   id="vendorInfographic_svg__a"
                 >
                   <path
-                    d="M0 0h20v20H0z"
+                    d="M0 20h20V0H0z"
                     fill="#fff"
-                    transform="matrix(1 0 0 -1 0 20)"
                   />
                 </clippath>
               </defs>
             </svg>
           </mock-styled.span>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             This list contains all available member groups for your organisation. You can manage users associated to each group by selecting the dropown.
           </mock-styled.p>
@@ -607,12 +607,12 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
             class="el-mb5"
           >
             <mock-styled.p
-              classname=""
+              classname="el-text-base"
             >
               Organisations
             </mock-styled.p>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
             </mock-styled.p>
@@ -648,20 +648,20 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
               </mock-styled.div>
             </mock-styled.div>
           </div>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname="el-hfull"
+        </aside>
+        <section
+          class="el-page-container el-hfull"
         >
-          <mock-styled.div
-            classname="el-flex-justify-between"
+          <div
+            class="el-flex-container el-flex-justify-between"
           >
             <mock-styled.h1
-              classname=""
+              classname="el-text-base"
             >
               SOME_NAME
                Users
             </mock-styled.h1>
-          </mock-styled.div>
+          </div>
           <form>
             <mock-styled.div
               classname="el-form-layout-has-margin"
@@ -705,17 +705,17 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
               <mock-styled.div />
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.section>
-      </mock-styled.div>
+        </section>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -731,6 +731,7 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
         </mock-styled.div>
         <mock-styled.span
           classname="el-mb5 el-icon-size-large"
+          role="img"
         >
           <svg
             fill="none"
@@ -743,55 +744,55 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
               clip-path="url(#vendorInfographic_svg__a)"
             >
               <path
-                d="M2.552 16.672A9.962 9.962 0 0 1 0 10C0 4.477 4.477 0 10 0s10 4.477 10 10a9.962 9.962 0 0 1-2.552 6.672H2.552Z"
+                d="M2.552 16.672A9.96 9.96 0 0 1 0 10C0 4.477 4.477 0 10 0s10 4.477 10 10a9.96 9.96 0 0 1-2.552 6.672z"
                 fill="#798da1"
               />
               <path
-                d="M5.893 3.897c.279-1.085 1.322-1.202 1.322-1.202S7.441.768 10 .768s2.785 1.927 2.785 1.927 1.043.117 1.322 1.202c.279 1.085-.442 2.628-.442 2.628L10 8.018 6.335 6.525s-.72-1.543-.442-2.628Z"
+                d="M5.893 3.897c.279-1.085 1.322-1.202 1.322-1.202S7.441.768 10 .768s2.785 1.927 2.785 1.927 1.043.117 1.322 1.202-.442 2.628-.442 2.628L10 8.018 6.335 6.525s-.72-1.543-.442-2.628"
                 fill="#d8dee4"
               />
               <path
-                d="M14.107 3.897c.279 1.085-.442 2.628-.442 2.628l-1.768.72-.45-.546V4.304c1.097-.228 1.338-.984 1.338-1.609 0 0 1.043.118 1.322 1.202Z"
+                d="M14.107 3.897c.279 1.085-.442 2.628-.442 2.628l-1.768.72-.45-.546V4.304c1.097-.228 1.338-.984 1.338-1.609 0 0 1.043.118 1.322 1.202"
                 fill="#d8dee4"
               />
               <path
-                d="M7.302 7.175s-.348-.847-.967-.65c-.62.196.015 2.03 1.224 2.145l-.257-1.495ZM12.698 7.175s.348-.847.967-.65c.62.196-.015 2.03-1.224 2.145l.257-1.495Z"
+                d="M7.302 7.175s-.348-.847-.967-.65c-.62.196.015 2.03 1.224 2.145zM12.698 7.175s.348-.847.967-.65c.62.196-.015 2.03-1.224 2.145z"
                 fill="#fff"
               />
               <path
-                d="M2.552 16.672c.38-1.108.805-2.141 1.159-2.453.86-.759 4.582-1.372 4.582-1.372L10 14.167l1.707-1.32s3.723.613 4.582 1.372c.353.312.78 1.345 1.159 2.453A9.974 9.974 0 0 1 10 20a9.974 9.974 0 0 1-7.448-3.328Z"
+                d="M2.552 16.672c.38-1.108.805-2.141 1.159-2.453.86-.759 4.582-1.372 4.582-1.372L10 14.167l1.707-1.32s3.723.613 4.582 1.372c.353.312.78 1.345 1.159 2.453A9.97 9.97 0 0 1 10 20a9.97 9.97 0 0 1-7.448-3.328"
                 fill="#d8dee4"
               />
               <path
-                d="M5.913 18.633a9.996 9.996 0 0 0 8.735-5.128c.707.207 1.345.452 1.641.714.354.312.78 1.345 1.159 2.453A9.974 9.974 0 0 1 10 20c-1.881 0-3.64-.52-5.144-1.423.348.036.7.056 1.057.056Z"
+                d="M5.913 18.633a10 10 0 0 0 8.735-5.128c.707.207 1.345.452 1.641.714.354.312.78 1.345 1.159 2.453A9.97 9.97 0 0 1 10 20c-1.881 0-3.64-.52-5.144-1.423q.522.055 1.057.056"
                 fill="#d8dee4"
               />
               <path
-                d="m9.42 15.948.58-.88.58.88.504 3.994a10.107 10.107 0 0 1-2.168 0l.504-3.994Z"
+                d="m9.42 15.949.58-.881.58.88.504 3.994a10 10 0 0 1-2.168 0z"
                 fill="#798da1"
               />
               <path
-                d="M9.39 16.083h1.22c.09 0 .167-.06.19-.146l.49-1.885H8.71l.49 1.885c.023.086.1.146.19.146Z"
+                d="M9.39 16.083h1.22c.09 0 .167-.06.19-.146l.49-1.885H8.71l.49 1.885c.023.086.1.146.19.146"
                 fill="#798da1"
               />
               <path
-                d="m10.018 15.937.49-1.885h.781l-.49 1.885a.195.195 0 0 1-.188.146h-.782c.09 0 .167-.06.19-.146Z"
+                d="m10.018 15.937.49-1.885h.781l-.49 1.885a.195.195 0 0 1-.188.146h-.782c.09 0 .167-.06.19-.146"
                 fill="#798da1"
               />
               <path
-                d="M11.707 8.47v4.377c0 .665-.764 1.205-1.707 1.205-.943 0-1.707-.54-1.707-1.205V8.469h3.414Z"
+                d="M11.707 8.47v4.377c0 .665-.764 1.205-1.707 1.205s-1.707-.54-1.707-1.205V8.469z"
                 fill="#fff"
               />
               <path
-                d="M11.707 12.305 10 14.052s.664 1.2 1.094 1.2c.43 0 1.172-2.304 1.172-2.304l-.56-.643ZM8.293 12.305 10 14.052s-.664 1.2-1.094 1.2c-.43 0-1.172-2.304-1.172-2.304l.56-.643Z"
+                d="M11.707 12.305 10 14.052s.664 1.2 1.094 1.2 1.172-2.304 1.172-2.304zM8.293 12.305 10 14.052s-.664 1.2-1.094 1.2-1.172-2.304-1.172-2.304z"
                 fill="#fff"
               />
               <path
-                d="m4.407 17.04.45 1.537a10.014 10.014 0 0 1-.833-.558v-.923c0-.226.32-.272.383-.055ZM15.976 17.096v.923c-.268.2-.546.386-.833.558l.45-1.536c.063-.217.383-.171.383.055Z"
+                d="m4.407 17.04.45 1.537a10 10 0 0 1-.833-.558v-.923c0-.226.32-.272.383-.055M15.976 17.096v.923q-.402.3-.833.558l.45-1.536c.063-.217.383-.171.383.055"
                 fill="#798da1"
               />
               <path
-                d="M7.215 6.107c.171-.417.183-1.693.637-1.875.453-.182.833.312 2.148.312 1.315 0 1.695-.494 2.149-.312.453.182.465 1.458.636 1.875.16.388.36.467.386.476.002.06.003.122.003.183 0 2.338-1.421 5.079-3.174 5.079S6.826 9.104 6.826 6.766l.003-.183c.027-.009.227-.088.386-.476Z"
+                d="M7.215 6.107c.171-.417.183-1.693.637-1.875.453-.182.833.312 2.148.312s1.695-.494 2.149-.312.465 1.458.636 1.875c.16.388.36.467.386.476q.003.09.003.183c0 2.338-1.421 5.079-3.174 5.079S6.826 9.104 6.826 6.766l.003-.183c.027-.009.227-.088.386-.476"
                 fill="#fff"
               />
             </g>
@@ -800,16 +801,15 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
                 id="vendorInfographic_svg__a"
               >
                 <path
-                  d="M0 0h20v20H0z"
+                  d="M0 20h20V0H0z"
                   fill="#fff"
-                  transform="matrix(1 0 0 -1 0 20)"
                 />
               </clippath>
             </defs>
           </svg>
         </mock-styled.span>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This list contains all available member groups for your organisation. You can manage users associated to each group by selecting the dropown.
         </mock-styled.p>
@@ -823,12 +823,12 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
           class="el-mb5"
         >
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             Organisations
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
           </mock-styled.p>
@@ -864,20 +864,20 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
             </mock-styled.div>
           </mock-styled.div>
         </div>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname="el-hfull"
+      </aside>
+      <section
+        class="el-page-container el-hfull"
       >
-        <mock-styled.div
-          classname="el-flex-justify-between"
+        <div
+          class="el-flex-container el-flex-justify-between"
         >
           <mock-styled.h1
-            classname=""
+            classname="el-text-base"
           >
             SOME_NAME
              Users
           </mock-styled.h1>
-        </mock-styled.div>
+        </div>
         <form>
           <mock-styled.div
             classname="el-form-layout-has-margin"
@@ -921,8 +921,8 @@ exports[`UsersPage should match a snapshot for the users tab 1`] = `
             <mock-styled.div />
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.section>
-    </mock-styled.div>
+      </section>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

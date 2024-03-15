@@ -10,12 +10,12 @@ exports[`AppUninstallationSection should match a snapshot when theres no install
         class="el-mb11"
       >
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Current Installations
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This app is not currently installed. You can either install for your organisation or specific office groups in the section below.
         </mock-styled.p>
@@ -28,12 +28,12 @@ exports[`AppUninstallationSection should match a snapshot when theres no install
       class="el-mb11"
     >
       <mock-styled.h2
-        classname=""
+        classname="el-text-base"
       >
         Current Installations
       </mock-styled.h2>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         This app is not currently installed. You can either install for your organisation or specific office groups in the section below.
       </mock-styled.p>
@@ -103,12 +103,12 @@ exports[`AppUninstallationSection should match a snapshot, for a group installat
         class="el-mb11"
       >
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Current Installations
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This app is currently installed for 
           1 group
@@ -136,12 +136,12 @@ exports[`AppUninstallationSection should match a snapshot, for a group installat
       class="el-mb11"
     >
       <mock-styled.h2
-        classname=""
+        classname="el-text-base"
       >
         Current Installations
       </mock-styled.h2>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         This app is currently installed for 
         1 group
@@ -226,12 +226,12 @@ exports[`AppUninstallationSection should match a snapshot, for an all orgs insta
         class="el-mb11"
       >
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Current Installations
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This app is currently installed for 
           your whole orgainsation
@@ -259,12 +259,12 @@ exports[`AppUninstallationSection should match a snapshot, for an all orgs insta
       class="el-mb11"
     >
       <mock-styled.h2
-        classname=""
+        classname="el-text-base"
       >
         Current Installations
       </mock-styled.h2>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         This app is currently installed for 
         your whole orgainsation
@@ -349,12 +349,12 @@ exports[`AppUninstallationSection should match a snapshot, for multiple group in
         class="el-mb11"
       >
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Current Installations
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This app is currently installed for 
           2 groups
@@ -382,12 +382,12 @@ exports[`AppUninstallationSection should match a snapshot, for multiple group in
       class="el-mb11"
     >
       <mock-styled.h2
-        classname=""
+        classname="el-text-base"
       >
         Current Installations
       </mock-styled.h2>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         This app is currently installed for 
         2 groups
