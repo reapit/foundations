@@ -7,7 +7,7 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
          
@@ -16,12 +16,12 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
         </a>
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
       </mock-styled.p>
@@ -51,7 +51,11 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r0:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="desktopIntegrationTypeIds"
               label="Integration Type"
@@ -63,6 +67,7 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
             >
               <mock-styled.span
                 classname="el-ml2 el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -72,7 +77,7 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                    d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                     fill="currentColor"
                   />
                 </svg>
@@ -140,7 +145,7 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
        
@@ -149,12 +154,12 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
       </a>
     </mock-styled.p>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
     </mock-styled.p>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
     </mock-styled.p>
@@ -184,7 +189,11 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-controls=":r0:"
+          aria-haspopup="listbox"
+          role="combobox"
+        >
           <mock-styled.input
             id="desktopIntegrationTypeIds"
             label="Integration Type"
@@ -196,6 +205,7 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
           >
             <mock-styled.span
               classname="el-ml2 el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -205,7 +215,7 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                  d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                   fill="currentColor"
                 />
               </svg>
@@ -330,7 +340,7 @@ exports[`AcIntegrationTab should match a snapshot when loading 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
          
@@ -339,12 +349,12 @@ exports[`AcIntegrationTab should match a snapshot when loading 1`] = `
         </a>
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
       </mock-styled.p>
@@ -422,7 +432,7 @@ exports[`AcIntegrationTab should match a snapshot when loading 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
        
@@ -431,12 +441,12 @@ exports[`AcIntegrationTab should match a snapshot when loading 1`] = `
       </a>
     </mock-styled.p>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
     </mock-styled.p>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
     </mock-styled.p>
@@ -571,7 +581,7 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
     <div>
       <mock-styled.div />
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
          
@@ -580,12 +590,12 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
         </a>
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
       </mock-styled.p>
@@ -615,7 +625,11 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r1:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="desktopIntegrationTypeIds"
               label="Integration Type"
@@ -627,6 +641,7 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
             >
               <mock-styled.span
                 classname="el-ml2 el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -636,7 +651,7 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                    d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                     fill="currentColor"
                   />
                 </svg>
@@ -687,7 +702,7 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
   "container": <div>
     <mock-styled.div />
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
        
@@ -696,12 +711,12 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
       </a>
     </mock-styled.p>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
     </mock-styled.p>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
     </mock-styled.p>
@@ -731,7 +746,11 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-controls=":r1:"
+          aria-haspopup="listbox"
+          role="combobox"
+        >
           <mock-styled.input
             id="desktopIntegrationTypeIds"
             label="Integration Type"
@@ -743,6 +762,7 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
           >
             <mock-styled.span
               classname="el-ml2 el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -752,7 +772,7 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                  d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                   fill="currentColor"
                 />
               </svg>

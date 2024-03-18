@@ -7,22 +7,26 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
     <div>
       <mock-styled.div />
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         Webhooks
       </mock-styled.h1>
       <mock-styled.div
+        aria-hidden="true"
         classname=""
       />
       <mock-styled.div
         classname=""
+        id=":r3:"
       >
         <mock-styled.button
+          aria-controls=":r3:"
           classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -32,7 +36,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2M4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2m16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2"
                 fill="currentColor"
               />
             </svg>
@@ -41,11 +45,14 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
       </mock-styled.div>
       <mock-styled.div
         classname="el-tabs-full-width"
+        role="tablist"
       >
         <mock-styled.div>
           <mock-styled.input
+            aria-selected="true"
             id="webhook-tab-about"
             name="webhook-tabs"
+            role="tab"
             type="radio"
             value="/webhooks/about"
           />
@@ -59,8 +66,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="webhook-tab-new"
             name="webhook-tabs"
+            role="tab"
             type="radio"
             value="/webhooks/new"
           />
@@ -74,8 +83,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="webhook-tab-manage"
             name="webhook-tabs"
+            role="tab"
             type="radio"
             value="/webhooks/manage"
           />
@@ -89,8 +100,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="webhook-tab-logs"
             name="webhook-tabs"
+            role="tab"
             type="radio"
             value="/webhooks/logs"
           />
@@ -113,22 +126,26 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
   "container": <div>
     <mock-styled.div />
     <mock-styled.h1
-      classname=""
+      classname="el-text-base"
     >
       Webhooks
     </mock-styled.h1>
     <mock-styled.div
+      aria-hidden="true"
       classname=""
     />
     <mock-styled.div
       classname=""
+      id=":r3:"
     >
       <mock-styled.button
+        aria-controls=":r3:"
         classname="el-floating-button el-intent-primary"
       >
         <mock-styled.div />
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
         >
           <svg
             fill="none"
@@ -138,7 +155,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2M4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2m16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2"
               fill="currentColor"
             />
           </svg>
@@ -147,11 +164,14 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
     </mock-styled.div>
     <mock-styled.div
       classname="el-tabs-full-width"
+      role="tablist"
     >
       <mock-styled.div>
         <mock-styled.input
+          aria-selected="true"
           id="webhook-tab-about"
           name="webhook-tabs"
+          role="tab"
           type="radio"
           value="/webhooks/about"
         />
@@ -165,8 +185,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="webhook-tab-new"
           name="webhook-tabs"
+          role="tab"
           type="radio"
           value="/webhooks/new"
         />
@@ -180,8 +202,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="webhook-tab-manage"
           name="webhook-tabs"
+          role="tab"
           type="radio"
           value="/webhooks/manage"
         />
@@ -195,8 +219,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="webhook-tab-logs"
           name="webhook-tabs"
+          role="tab"
           type="radio"
           value="/webhooks/logs"
         />
@@ -276,22 +302,26 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
     <div>
       <mock-styled.div />
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         Webhooks
       </mock-styled.h1>
       <mock-styled.div
+        aria-hidden="true"
         classname=""
       />
       <mock-styled.div
         classname=""
+        id=":r2:"
       >
         <mock-styled.button
+          aria-controls=":r2:"
           classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -301,7 +331,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2M4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2m16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2"
                 fill="currentColor"
               />
             </svg>
@@ -310,11 +340,14 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
       </mock-styled.div>
       <mock-styled.div
         classname="el-tabs-full-width"
+        role="tablist"
       >
         <mock-styled.div>
           <mock-styled.input
+            aria-selected="false"
             id="webhook-tab-about"
             name="webhook-tabs"
+            role="tab"
             type="radio"
             value="/webhooks/about"
           />
@@ -328,8 +361,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="webhook-tab-new"
             name="webhook-tabs"
+            role="tab"
             type="radio"
             value="/webhooks/new"
           />
@@ -343,8 +378,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="webhook-tab-manage"
             name="webhook-tabs"
+            role="tab"
             type="radio"
             value="/webhooks/manage"
           />
@@ -358,8 +395,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="true"
             id="webhook-tab-logs"
             name="webhook-tabs"
+            role="tab"
             type="radio"
             value="/webhooks/logs"
           />
@@ -382,22 +421,26 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
   "container": <div>
     <mock-styled.div />
     <mock-styled.h1
-      classname=""
+      classname="el-text-base"
     >
       Webhooks
     </mock-styled.h1>
     <mock-styled.div
+      aria-hidden="true"
       classname=""
     />
     <mock-styled.div
       classname=""
+      id=":r2:"
     >
       <mock-styled.button
+        aria-controls=":r2:"
         classname="el-floating-button el-intent-primary"
       >
         <mock-styled.div />
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
         >
           <svg
             fill="none"
@@ -407,7 +450,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2M4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2m16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2"
               fill="currentColor"
             />
           </svg>
@@ -416,11 +459,14 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
     </mock-styled.div>
     <mock-styled.div
       classname="el-tabs-full-width"
+      role="tablist"
     >
       <mock-styled.div>
         <mock-styled.input
+          aria-selected="false"
           id="webhook-tab-about"
           name="webhook-tabs"
+          role="tab"
           type="radio"
           value="/webhooks/about"
         />
@@ -434,8 +480,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="webhook-tab-new"
           name="webhook-tabs"
+          role="tab"
           type="radio"
           value="/webhooks/new"
         />
@@ -449,8 +497,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="webhook-tab-manage"
           name="webhook-tabs"
+          role="tab"
           type="radio"
           value="/webhooks/manage"
         />
@@ -464,8 +514,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="true"
           id="webhook-tab-logs"
           name="webhook-tabs"
+          role="tab"
           type="radio"
           value="/webhooks/logs"
         />
@@ -545,22 +597,26 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
     <div>
       <mock-styled.div />
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         Webhooks
       </mock-styled.h1>
       <mock-styled.div
+        aria-hidden="true"
         classname=""
       />
       <mock-styled.div
         classname=""
+        id=":r1:"
       >
         <mock-styled.button
+          aria-controls=":r1:"
           classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -570,7 +626,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2M4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2m16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2"
                 fill="currentColor"
               />
             </svg>
@@ -579,11 +635,14 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
       </mock-styled.div>
       <mock-styled.div
         classname="el-tabs-full-width"
+        role="tablist"
       >
         <mock-styled.div>
           <mock-styled.input
+            aria-selected="false"
             id="webhook-tab-about"
             name="webhook-tabs"
+            role="tab"
             type="radio"
             value="/webhooks/about"
           />
@@ -597,8 +656,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="webhook-tab-new"
             name="webhook-tabs"
+            role="tab"
             type="radio"
             value="/webhooks/new"
           />
@@ -612,8 +673,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="true"
             id="webhook-tab-manage"
             name="webhook-tabs"
+            role="tab"
             type="radio"
             value="/webhooks/manage"
           />
@@ -627,8 +690,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="webhook-tab-logs"
             name="webhook-tabs"
+            role="tab"
             type="radio"
             value="/webhooks/logs"
           />
@@ -651,22 +716,26 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
   "container": <div>
     <mock-styled.div />
     <mock-styled.h1
-      classname=""
+      classname="el-text-base"
     >
       Webhooks
     </mock-styled.h1>
     <mock-styled.div
+      aria-hidden="true"
       classname=""
     />
     <mock-styled.div
       classname=""
+      id=":r1:"
     >
       <mock-styled.button
+        aria-controls=":r1:"
         classname="el-floating-button el-intent-primary"
       >
         <mock-styled.div />
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
         >
           <svg
             fill="none"
@@ -676,7 +745,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2M4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2m16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2"
               fill="currentColor"
             />
           </svg>
@@ -685,11 +754,14 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
     </mock-styled.div>
     <mock-styled.div
       classname="el-tabs-full-width"
+      role="tablist"
     >
       <mock-styled.div>
         <mock-styled.input
+          aria-selected="false"
           id="webhook-tab-about"
           name="webhook-tabs"
+          role="tab"
           type="radio"
           value="/webhooks/about"
         />
@@ -703,8 +775,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="webhook-tab-new"
           name="webhook-tabs"
+          role="tab"
           type="radio"
           value="/webhooks/new"
         />
@@ -718,8 +792,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="true"
           id="webhook-tab-manage"
           name="webhook-tabs"
+          role="tab"
           type="radio"
           value="/webhooks/manage"
         />
@@ -733,8 +809,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="webhook-tab-logs"
           name="webhook-tabs"
+          role="tab"
           type="radio"
           value="/webhooks/logs"
         />
@@ -814,22 +892,26 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
     <div>
       <mock-styled.div />
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         Webhooks
       </mock-styled.h1>
       <mock-styled.div
+        aria-hidden="true"
         classname=""
       />
       <mock-styled.div
         classname=""
+        id=":r0:"
       >
         <mock-styled.button
+          aria-controls=":r0:"
           classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -839,7 +921,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2M4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2m16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2"
                 fill="currentColor"
               />
             </svg>
@@ -848,11 +930,14 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
       </mock-styled.div>
       <mock-styled.div
         classname="el-tabs-full-width"
+        role="tablist"
       >
         <mock-styled.div>
           <mock-styled.input
+            aria-selected="false"
             id="webhook-tab-about"
             name="webhook-tabs"
+            role="tab"
             type="radio"
             value="/webhooks/about"
           />
@@ -866,8 +951,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="true"
             id="webhook-tab-new"
             name="webhook-tabs"
+            role="tab"
             type="radio"
             value="/webhooks/new"
           />
@@ -881,8 +968,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="webhook-tab-manage"
             name="webhook-tabs"
+            role="tab"
             type="radio"
             value="/webhooks/manage"
           />
@@ -896,8 +985,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="webhook-tab-logs"
             name="webhook-tabs"
+            role="tab"
             type="radio"
             value="/webhooks/logs"
           />
@@ -920,22 +1011,26 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
   "container": <div>
     <mock-styled.div />
     <mock-styled.h1
-      classname=""
+      classname="el-text-base"
     >
       Webhooks
     </mock-styled.h1>
     <mock-styled.div
+      aria-hidden="true"
       classname=""
     />
     <mock-styled.div
       classname=""
+      id=":r0:"
     >
       <mock-styled.button
+        aria-controls=":r0:"
         classname="el-floating-button el-intent-primary"
       >
         <mock-styled.div />
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
         >
           <svg
             fill="none"
@@ -945,7 +1040,7 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2M4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2m16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2"
               fill="currentColor"
             />
           </svg>
@@ -954,11 +1049,14 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
     </mock-styled.div>
     <mock-styled.div
       classname="el-tabs-full-width"
+      role="tablist"
     >
       <mock-styled.div>
         <mock-styled.input
+          aria-selected="false"
           id="webhook-tab-about"
           name="webhook-tabs"
+          role="tab"
           type="radio"
           value="/webhooks/about"
         />
@@ -972,8 +1070,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="true"
           id="webhook-tab-new"
           name="webhook-tabs"
+          role="tab"
           type="radio"
           value="/webhooks/new"
         />
@@ -987,8 +1087,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="webhook-tab-manage"
           name="webhook-tabs"
+          role="tab"
           type="radio"
           value="/webhooks/manage"
         />
@@ -1002,8 +1104,10 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="webhook-tab-logs"
           name="webhook-tabs"
+          role="tab"
           type="radio"
           value="/webhooks/logs"
         />

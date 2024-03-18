@@ -10,27 +10,41 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="2"
+        role="table"
       >
-        <mock-styled.div>
-          <mock-styled.div>
+        <mock-styled.div
+          role="row"
+        >
+          <mock-styled.div
+            aria-label="Type"
+            role="columnheader"
+          >
             Type
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Period"
+            role="columnheader"
+          >
             Period
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            role="columnheader"
+          >
             Download
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -42,7 +56,7 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M6.5 20c-1.517 0-2.813-.525-3.888-1.575C1.537 17.375 1 16.092 1 14.575c0-1.3.392-2.458 1.175-3.475S3.983 9.433 5.25 9.15c.417-1.533 1.25-2.775 2.5-3.725C9 4.475 10.417 4 12 4c1.95 0 3.604.68 4.962 2.037C18.322 7.396 19 9.05 19 11c1.15.133 2.104.63 2.863 1.488A4.407 4.407 0 0 1 23 15.5c0 1.25-.438 2.313-1.313 3.188S19.75 20 18.5 20h-12Zm0-2h12c.7 0 1.292-.242 1.775-.725.483-.483.725-1.075.725-1.775s-.242-1.292-.725-1.775C19.792 13.242 19.2 13 18.5 13H17v-2c0-1.383-.488-2.563-1.463-3.537C14.563 6.487 13.383 6 12 6s-2.563.487-3.537 1.463C7.488 8.437 7 9.617 7 11h-.5c-.967 0-1.792.342-2.475 1.025A3.372 3.372 0 0 0 3 14.5c0 .967.342 1.792 1.025 2.475A3.372 3.372 0 0 0 6.5 18Z"
+                    d="M6.5 20q-2.275 0-3.887-1.575T1 14.575q0-1.95 1.175-3.475Q3.349 9.575 5.25 9.15q.625-2.3 2.5-3.725T12 4q2.925 0 4.962 2.037T19 11q1.725.2 2.863 1.488A4.4 4.4 0 0 1 23 15.5q0 1.875-1.312 3.188Q20.375 20 18.5 20zm0-2h12q1.05 0 1.775-.725T21 15.5t-.725-1.775T18.5 13H17v-2q0-2.075-1.463-3.537Q14.075 6 12 6 9.925 6 8.463 7.463 7 8.925 7 11h-.5q-1.45 0-2.475 1.025A3.37 3.37 0 0 0 3 14.5q0 1.45 1.025 2.475A3.37 3.37 0 0 0 6.5 18"
                     fill="currentColor"
                   />
                 </svg>
@@ -55,6 +69,7 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Period"
@@ -62,10 +77,13 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
                 October 2019
               </mock-styled.div>
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              role="cell"
+            >
               <mock-styled.div>
                 <mock-styled.span
                   classname="el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
@@ -75,7 +93,7 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M21 16a1 1 0 0 0-1 1v2H4v-2a1 1 0 1 0-2 0v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a1 1 0 0 0-1-1Zm-9.71-1.29a1 1 0 0 0 1.42 0l5-5a1.004 1.004 0 1 0-1.42-1.42L13 11.59V4a1 1 0 1 0-2 0v7.59l-3.29-3.3a1.004 1.004 0 0 0-1.42 1.42l5 5Z"
+                      d="M21 16a1 1 0 0 0-1 1v2H4v-2a1 1 0 1 0-2 0v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a1 1 0 0 0-1-1m-9.71-1.29a1 1 0 0 0 1.42 0l5-5a1.004 1.004 0 1 0-1.42-1.42L13 11.59V4a1 1 0 1 0-2 0v7.59l-3.29-3.3a1.004 1.004 0 0 0-1.42 1.42z"
                       fill="currentColor"
                     />
                   </svg>
@@ -86,13 +104,16 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -104,7 +125,7 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M6.5 20c-1.517 0-2.813-.525-3.888-1.575C1.537 17.375 1 16.092 1 14.575c0-1.3.392-2.458 1.175-3.475S3.983 9.433 5.25 9.15c.417-1.533 1.25-2.775 2.5-3.725C9 4.475 10.417 4 12 4c1.95 0 3.604.68 4.962 2.037C18.322 7.396 19 9.05 19 11c1.15.133 2.104.63 2.863 1.488A4.407 4.407 0 0 1 23 15.5c0 1.25-.438 2.313-1.313 3.188S19.75 20 18.5 20h-12Zm0-2h12c.7 0 1.292-.242 1.775-.725.483-.483.725-1.075.725-1.775s-.242-1.292-.725-1.775C19.792 13.242 19.2 13 18.5 13H17v-2c0-1.383-.488-2.563-1.463-3.537C14.563 6.487 13.383 6 12 6s-2.563.487-3.537 1.463C7.488 8.437 7 9.617 7 11h-.5c-.967 0-1.792.342-2.475 1.025A3.372 3.372 0 0 0 3 14.5c0 .967.342 1.792 1.025 2.475A3.372 3.372 0 0 0 6.5 18Z"
+                    d="M6.5 20q-2.275 0-3.887-1.575T1 14.575q0-1.95 1.175-3.475Q3.349 9.575 5.25 9.15q.625-2.3 2.5-3.725T12 4q2.925 0 4.962 2.037T19 11q1.725.2 2.863 1.488A4.4 4.4 0 0 1 23 15.5q0 1.875-1.312 3.188Q20.375 20 18.5 20zm0-2h12q1.05 0 1.775-.725T21 15.5t-.725-1.775T18.5 13H17v-2q0-2.075-1.463-3.537Q14.075 6 12 6 9.925 6 8.463 7.463 7 8.925 7 11h-.5q-1.45 0-2.475 1.025A3.37 3.37 0 0 0 3 14.5q0 1.45 1.025 2.475A3.37 3.37 0 0 0 6.5 18"
                     fill="currentColor"
                   />
                 </svg>
@@ -117,6 +138,7 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Period"
@@ -124,10 +146,13 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
                 October 2019
               </mock-styled.div>
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              role="cell"
+            >
               <mock-styled.div>
                 <mock-styled.span
                   classname="el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
@@ -137,7 +162,7 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l5.66-5.66Z"
+                      d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0z"
                       fill="currentColor"
                     />
                   </svg>
@@ -149,6 +174,7 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+        role="alertdialog"
       >
         <div
           class="el-pn-icon"
@@ -156,6 +182,7 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -167,7 +194,7 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                 fill="currentColor"
               />
             </svg>
@@ -187,27 +214,41 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
       data-has-call-to-action="true"
       data-has-expandable-action="false"
       data-num-columns-excl-action-col="2"
+      role="table"
     >
-      <mock-styled.div>
-        <mock-styled.div>
+      <mock-styled.div
+        role="row"
+      >
+        <mock-styled.div
+          aria-label="Type"
+          role="columnheader"
+        >
           Type
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Period"
+          role="columnheader"
+        >
           Period
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          role="columnheader"
+        >
           Download
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -219,7 +260,7 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M6.5 20c-1.517 0-2.813-.525-3.888-1.575C1.537 17.375 1 16.092 1 14.575c0-1.3.392-2.458 1.175-3.475S3.983 9.433 5.25 9.15c.417-1.533 1.25-2.775 2.5-3.725C9 4.475 10.417 4 12 4c1.95 0 3.604.68 4.962 2.037C18.322 7.396 19 9.05 19 11c1.15.133 2.104.63 2.863 1.488A4.407 4.407 0 0 1 23 15.5c0 1.25-.438 2.313-1.313 3.188S19.75 20 18.5 20h-12Zm0-2h12c.7 0 1.292-.242 1.775-.725.483-.483.725-1.075.725-1.775s-.242-1.292-.725-1.775C19.792 13.242 19.2 13 18.5 13H17v-2c0-1.383-.488-2.563-1.463-3.537C14.563 6.487 13.383 6 12 6s-2.563.487-3.537 1.463C7.488 8.437 7 9.617 7 11h-.5c-.967 0-1.792.342-2.475 1.025A3.372 3.372 0 0 0 3 14.5c0 .967.342 1.792 1.025 2.475A3.372 3.372 0 0 0 6.5 18Z"
+                  d="M6.5 20q-2.275 0-3.887-1.575T1 14.575q0-1.95 1.175-3.475Q3.349 9.575 5.25 9.15q.625-2.3 2.5-3.725T12 4q2.925 0 4.962 2.037T19 11q1.725.2 2.863 1.488A4.4 4.4 0 0 1 23 15.5q0 1.875-1.312 3.188Q20.375 20 18.5 20zm0-2h12q1.05 0 1.775-.725T21 15.5t-.725-1.775T18.5 13H17v-2q0-2.075-1.463-3.537Q14.075 6 12 6 9.925 6 8.463 7.463 7 8.925 7 11h-.5q-1.45 0-2.475 1.025A3.37 3.37 0 0 0 3 14.5q0 1.45 1.025 2.475A3.37 3.37 0 0 0 6.5 18"
                   fill="currentColor"
                 />
               </svg>
@@ -232,6 +273,7 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Period"
@@ -239,10 +281,13 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
               October 2019
             </mock-styled.div>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            role="cell"
+          >
             <mock-styled.div>
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -252,7 +297,7 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M21 16a1 1 0 0 0-1 1v2H4v-2a1 1 0 1 0-2 0v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a1 1 0 0 0-1-1Zm-9.71-1.29a1 1 0 0 0 1.42 0l5-5a1.004 1.004 0 1 0-1.42-1.42L13 11.59V4a1 1 0 1 0-2 0v7.59l-3.29-3.3a1.004 1.004 0 0 0-1.42 1.42l5 5Z"
+                    d="M21 16a1 1 0 0 0-1 1v2H4v-2a1 1 0 1 0-2 0v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a1 1 0 0 0-1-1m-9.71-1.29a1 1 0 0 0 1.42 0l5-5a1.004 1.004 0 1 0-1.42-1.42L13 11.59V4a1 1 0 1 0-2 0v7.59l-3.29-3.3a1.004 1.004 0 0 0-1.42 1.42z"
                     fill="currentColor"
                   />
                 </svg>
@@ -263,13 +308,16 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -281,7 +329,7 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M6.5 20c-1.517 0-2.813-.525-3.888-1.575C1.537 17.375 1 16.092 1 14.575c0-1.3.392-2.458 1.175-3.475S3.983 9.433 5.25 9.15c.417-1.533 1.25-2.775 2.5-3.725C9 4.475 10.417 4 12 4c1.95 0 3.604.68 4.962 2.037C18.322 7.396 19 9.05 19 11c1.15.133 2.104.63 2.863 1.488A4.407 4.407 0 0 1 23 15.5c0 1.25-.438 2.313-1.313 3.188S19.75 20 18.5 20h-12Zm0-2h12c.7 0 1.292-.242 1.775-.725.483-.483.725-1.075.725-1.775s-.242-1.292-.725-1.775C19.792 13.242 19.2 13 18.5 13H17v-2c0-1.383-.488-2.563-1.463-3.537C14.563 6.487 13.383 6 12 6s-2.563.487-3.537 1.463C7.488 8.437 7 9.617 7 11h-.5c-.967 0-1.792.342-2.475 1.025A3.372 3.372 0 0 0 3 14.5c0 .967.342 1.792 1.025 2.475A3.372 3.372 0 0 0 6.5 18Z"
+                  d="M6.5 20q-2.275 0-3.887-1.575T1 14.575q0-1.95 1.175-3.475Q3.349 9.575 5.25 9.15q.625-2.3 2.5-3.725T12 4q2.925 0 4.962 2.037T19 11q1.725.2 2.863 1.488A4.4 4.4 0 0 1 23 15.5q0 1.875-1.312 3.188Q20.375 20 18.5 20zm0-2h12q1.05 0 1.775-.725T21 15.5t-.725-1.775T18.5 13H17v-2q0-2.075-1.463-3.537Q14.075 6 12 6 9.925 6 8.463 7.463 7 8.925 7 11h-.5q-1.45 0-2.475 1.025A3.37 3.37 0 0 0 3 14.5q0 1.45 1.025 2.475A3.37 3.37 0 0 0 6.5 18"
                   fill="currentColor"
                 />
               </svg>
@@ -294,6 +342,7 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Period"
@@ -301,10 +350,13 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
               October 2019
             </mock-styled.div>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            role="cell"
+          >
             <mock-styled.div>
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -314,7 +366,7 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l5.66-5.66Z"
+                    d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0z"
                     fill="currentColor"
                   />
                 </svg>
@@ -326,6 +378,7 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
     </mock-styled.div>
     <mock-styled.div
       classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+      role="alertdialog"
     >
       <div
         class="el-pn-icon"
@@ -333,6 +386,7 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
       >
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
@@ -344,7 +398,7 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
               fill="currentColor"
             />
           </svg>

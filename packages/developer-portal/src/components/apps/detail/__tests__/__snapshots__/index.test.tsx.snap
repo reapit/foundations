@@ -7,17 +7,17 @@ exports[`AppDetail should match snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         will-test-dev-co-voracious-person
       </mock-styled.h1>
       <mock-styled.h2
-        classname=""
+        classname="el-text-base"
       >
         Authenticating Your App
       </mock-styled.h2>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Client-side Apps use our identity provider
          
@@ -32,7 +32,7 @@ exports[`AppDetail should match snapshot 1`] = `
          You will need the Client Id and Redirect Uris below to configure Reapit Connect.
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text el-has-section-margin"
+        classname="el-text-base el-has-grey-text el-has-section-margin"
       >
         To make this process easier, we provide you with an authentication module for client-side apps,
          
@@ -52,11 +52,12 @@ exports[`AppDetail should match snapshot 1`] = `
         <mock-styled.div
           classname=""
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="el-flex-container"
           >
             <mock-styled.span
               classname="el-mr4 el-icon-size-medium"
+              role="img"
             >
               <svg
                 fill="none"
@@ -70,7 +71,7 @@ exports[`AppDetail should match snapshot 1`] = `
                   fill="#d8dee4"
                 />
                 <path
-                  d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569-5.883 0-10.658 4.287-10.658 9.569v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149Zm-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19 1.961 0 3.553 1.429 3.553 3.19 0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914-1.18 0-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552Zm-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741 3.524 0 6.395 2.577 6.395 5.741v5.741h-12.79V11.07Z"
+                  d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569S6.842 5.787 6.842 11.069v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149m-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19s3.553 1.429 3.553 3.19c0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914s-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552m-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741s6.395 2.577 6.395 5.741v5.741h-12.79z"
                   fill="#9faebc"
                 />
                 <circle
@@ -80,24 +81,24 @@ exports[`AppDetail should match snapshot 1`] = `
                   r="2.5"
                 />
                 <path
-                  d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713-3.885 1.842-5.513 6.528-3.618 10.412a8.036 8.036 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603 2.627.929ZM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928Z"
+                  d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713s-5.513 6.528-3.618 10.412a8.04 8.04 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603zM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928"
                   fill="#798da1"
                 />
               </svg>
             </mock-styled.span>
             <div>
               <mock-styled.h2
-                classname="el-has-no-margin"
+                classname="el-text-base el-has-no-margin"
               >
                 Authentication Client Id
               </mock-styled.h2>
               <mock-styled.p
-                classname="el-has-grey-text"
+                classname="el-text-base el-has-grey-text"
               >
                 MOCK_EXTERNAL_ID
               </mock-styled.p>
             </div>
-          </mock-styled.div>
+          </div>
           <mock-styled.button
             classname="el-intent-neutral"
           >
@@ -108,11 +109,12 @@ exports[`AppDetail should match snapshot 1`] = `
         <mock-styled.div
           classname=""
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="el-flex-container"
           >
             <mock-styled.span
               classname="el-mr4 el-icon-size-medium"
+              role="img"
             >
               <svg
                 fill="none"
@@ -122,89 +124,89 @@ exports[`AppDetail should match snapshot 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+                  d="M66.74 35.076 39.999 25.65v18.992z"
                   fill="#607890"
                 />
                 <path
-                  d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+                  d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567z"
                   fill="#9faebc"
                 />
                 <path
-                  d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+                  d="M50.579 7.466H28.61c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952"
                   fill="#d8dee4"
                 />
                 <path
-                  d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+                  d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664"
                   fill="#d8dee4"
                 />
                 <path
-                  d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+                  d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935z"
                   fill="#506478"
                 />
                 <path
-                  d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+                  d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24z"
                   fill="#8EDDFF"
                 />
                 <path
-                  d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+                  d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526z"
                   fill="#9faebc"
                 />
                 <path
-                  d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+                  d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349z"
                   fill="#798da1"
                 />
                 <path
-                  d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+                  d="M66.74 69.576v-34.5l-26.741 9.593V78.2z"
                   fill="#506478"
                 />
                 <path
-                  d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+                  d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624z"
                   fill="#607890"
                 />
                 <path
-                  d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+                  d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638z"
                   fill="#d8dee4"
                 />
                 <path
-                  d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+                  d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638z"
                   fill="#7e9bfa"
                 />
                 <path
-                  d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+                  d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638z"
                   fill="#798da1"
                 />
                 <path
-                  d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+                  d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448z"
                   fill="#7e9bfa"
                 />
                 <path
-                  d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+                  d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47z"
                   fill="#fff"
                 />
                 <path
-                  d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+                  d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.565l1.427-4.475a2.464 2.464 0 0 0-1.59-3.084z"
                   fill="#d8dee4"
                 />
               </svg>
             </mock-styled.span>
             <div>
               <mock-styled.h2
-                classname="el-has-no-margin"
+                classname="el-text-base el-has-no-margin"
               >
                 App Id
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css.
+                classname="el-text-base el-has-grey-text mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
- el-has-grey-text"
+"
               >
                 MOCK_APP_ID
               </mock-styled.p>
             </div>
-          </mock-styled.div>
+          </div>
           <mock-styled.button
             classname="el-intent-neutral"
           >
@@ -216,17 +218,17 @@ exports[`AppDetail should match snapshot 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="el-has-no-margin"
+            classname="el-text-base el-has-no-margin"
           >
             Redirect Uri(s)
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css.
+            classname="el-text-base el-has-grey-text el-has-no-margin mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
- el-has-grey-text el-has-no-margin"
+"
           >
             https://foo.bar
           </mock-styled.p>
@@ -235,17 +237,17 @@ exports[`AppDetail should match snapshot 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="el-has-no-margin"
+            classname="el-text-base el-has-no-margin"
           >
             Sign Out Uri(s)
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css.
+            classname="el-text-base el-has-grey-text el-has-no-margin mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
- el-has-grey-text el-has-no-margin"
+"
           >
             https://foo.bar
           </mock-styled.p>
@@ -257,12 +259,12 @@ exports[`AppDetail should match snapshot 1`] = `
             classname=""
           >
             <mock-styled.h2
-              classname="el-has-no-margin"
+              classname="el-text-base el-has-no-margin"
             >
               Integration Type
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text el-has-no-margin"
+              classname="el-text-base el-has-grey-text el-has-no-margin"
             >
               You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
             </mock-styled.p>
@@ -275,12 +277,12 @@ exports[`AppDetail should match snapshot 1`] = `
             classname=""
           >
             <mock-styled.h2
-              classname="el-has-no-margin"
+              classname="el-text-base el-has-no-margin"
             >
               App Status
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text el-has-no-margin"
+              classname="el-text-base el-has-grey-text el-has-no-margin"
             >
               Your app is live and public in the AppMarket with a pending revision under review
             </mock-styled.p>
@@ -290,7 +292,7 @@ exports[`AppDetail should match snapshot 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="el-has-no-margin"
+            classname="el-text-base el-has-no-margin"
           >
             Permissions
           </mock-styled.h2>
@@ -307,17 +309,17 @@ exports[`AppDetail should match snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.h1
-      classname=""
+      classname="el-text-base"
     >
       will-test-dev-co-voracious-person
     </mock-styled.h1>
     <mock-styled.h2
-      classname=""
+      classname="el-text-base"
     >
       Authenticating Your App
     </mock-styled.h2>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       Client-side Apps use our identity provider
        
@@ -332,7 +334,7 @@ exports[`AppDetail should match snapshot 1`] = `
        You will need the Client Id and Redirect Uris below to configure Reapit Connect.
     </mock-styled.p>
     <mock-styled.p
-      classname="el-has-grey-text el-has-section-margin"
+      classname="el-text-base el-has-grey-text el-has-section-margin"
     >
       To make this process easier, we provide you with an authentication module for client-side apps,
        
@@ -352,11 +354,12 @@ exports[`AppDetail should match snapshot 1`] = `
       <mock-styled.div
         classname=""
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="el-flex-container"
         >
           <mock-styled.span
             classname="el-mr4 el-icon-size-medium"
+            role="img"
           >
             <svg
               fill="none"
@@ -370,7 +373,7 @@ exports[`AppDetail should match snapshot 1`] = `
                 fill="#d8dee4"
               />
               <path
-                d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569-5.883 0-10.658 4.287-10.658 9.569v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149Zm-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19 1.961 0 3.553 1.429 3.553 3.19 0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914-1.18 0-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552Zm-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741 3.524 0 6.395 2.577 6.395 5.741v5.741h-12.79V11.07Z"
+                d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569S6.842 5.787 6.842 11.069v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149m-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19s3.553 1.429 3.553 3.19c0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914s-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552m-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741s6.395 2.577 6.395 5.741v5.741h-12.79z"
                 fill="#9faebc"
               />
               <circle
@@ -380,24 +383,24 @@ exports[`AppDetail should match snapshot 1`] = `
                 r="2.5"
               />
               <path
-                d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713-3.885 1.842-5.513 6.528-3.618 10.412a8.036 8.036 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603 2.627.929ZM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928Z"
+                d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713s-5.513 6.528-3.618 10.412a8.04 8.04 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603zM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928"
                 fill="#798da1"
               />
             </svg>
           </mock-styled.span>
           <div>
             <mock-styled.h2
-              classname="el-has-no-margin"
+              classname="el-text-base el-has-no-margin"
             >
               Authentication Client Id
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               MOCK_EXTERNAL_ID
             </mock-styled.p>
           </div>
-        </mock-styled.div>
+        </div>
         <mock-styled.button
           classname="el-intent-neutral"
         >
@@ -408,11 +411,12 @@ exports[`AppDetail should match snapshot 1`] = `
       <mock-styled.div
         classname=""
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="el-flex-container"
         >
           <mock-styled.span
             classname="el-mr4 el-icon-size-medium"
+            role="img"
           >
             <svg
               fill="none"
@@ -422,89 +426,89 @@ exports[`AppDetail should match snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+                d="M66.74 35.076 39.999 25.65v18.992z"
                 fill="#607890"
               />
               <path
-                d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+                d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567z"
                 fill="#9faebc"
               />
               <path
-                d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+                d="M50.579 7.466H28.61c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952"
                 fill="#d8dee4"
               />
               <path
-                d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+                d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664"
                 fill="#d8dee4"
               />
               <path
-                d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+                d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935z"
                 fill="#506478"
               />
               <path
-                d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+                d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24z"
                 fill="#8EDDFF"
               />
               <path
-                d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+                d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526z"
                 fill="#9faebc"
               />
               <path
-                d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+                d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349z"
                 fill="#798da1"
               />
               <path
-                d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+                d="M66.74 69.576v-34.5l-26.741 9.593V78.2z"
                 fill="#506478"
               />
               <path
-                d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+                d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624z"
                 fill="#607890"
               />
               <path
-                d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+                d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638z"
                 fill="#d8dee4"
               />
               <path
-                d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+                d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638z"
                 fill="#7e9bfa"
               />
               <path
-                d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+                d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638z"
                 fill="#798da1"
               />
               <path
-                d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+                d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448z"
                 fill="#7e9bfa"
               />
               <path
-                d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+                d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47z"
                 fill="#fff"
               />
               <path
-                d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+                d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.565l1.427-4.475a2.464 2.464 0 0 0-1.59-3.084z"
                 fill="#d8dee4"
               />
             </svg>
           </mock-styled.span>
           <div>
             <mock-styled.h2
-              classname="el-has-no-margin"
+              classname="el-text-base el-has-no-margin"
             >
               App Id
             </mock-styled.h2>
             <mock-styled.p
-              classname="mock-css.
+              classname="el-text-base el-has-grey-text mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
- el-has-grey-text"
+"
             >
               MOCK_APP_ID
             </mock-styled.p>
           </div>
-        </mock-styled.div>
+        </div>
         <mock-styled.button
           classname="el-intent-neutral"
         >
@@ -516,17 +520,17 @@ exports[`AppDetail should match snapshot 1`] = `
         classname=""
       >
         <mock-styled.h2
-          classname="el-has-no-margin"
+          classname="el-text-base el-has-no-margin"
         >
           Redirect Uri(s)
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css.
+          classname="el-text-base el-has-grey-text el-has-no-margin mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
- el-has-grey-text el-has-no-margin"
+"
         >
           https://foo.bar
         </mock-styled.p>
@@ -535,17 +539,17 @@ exports[`AppDetail should match snapshot 1`] = `
         classname=""
       >
         <mock-styled.h2
-          classname="el-has-no-margin"
+          classname="el-text-base el-has-no-margin"
         >
           Sign Out Uri(s)
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css.
+          classname="el-text-base el-has-grey-text el-has-no-margin mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
- el-has-grey-text el-has-no-margin"
+"
         >
           https://foo.bar
         </mock-styled.p>
@@ -557,12 +561,12 @@ exports[`AppDetail should match snapshot 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="el-has-no-margin"
+            classname="el-text-base el-has-no-margin"
           >
             Integration Type
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text el-has-no-margin"
+            classname="el-text-base el-has-grey-text el-has-no-margin"
           >
             You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
           </mock-styled.p>
@@ -575,12 +579,12 @@ exports[`AppDetail should match snapshot 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="el-has-no-margin"
+            classname="el-text-base el-has-no-margin"
           >
             App Status
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text el-has-no-margin"
+            classname="el-text-base el-has-grey-text el-has-no-margin"
           >
             Your app is live and public in the AppMarket with a pending revision under review
           </mock-styled.p>
@@ -590,7 +594,7 @@ exports[`AppDetail should match snapshot 1`] = `
         classname=""
       >
         <mock-styled.h2
-          classname="el-has-no-margin"
+          classname="el-text-base el-has-no-margin"
         >
           Permissions
         </mock-styled.h2>
@@ -664,17 +668,17 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         will-test-dev-co-voracious-person
       </mock-styled.h1>
       <mock-styled.h2
-        classname=""
+        classname="el-text-base"
       >
         Authenticating Your App
       </mock-styled.h2>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Client-side Apps use our identity provider
          
@@ -689,7 +693,7 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
          You will need the Client Id and Redirect Uris below to configure Reapit Connect.
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text el-has-section-margin"
+        classname="el-text-base el-has-grey-text el-has-section-margin"
       >
         To make this process easier, we provide you with an authentication module for client-side apps,
          
@@ -709,11 +713,12 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
         <mock-styled.div
           classname=""
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="el-flex-container"
           >
             <mock-styled.span
               classname="el-mr4 el-icon-size-medium"
+              role="img"
             >
               <svg
                 fill="none"
@@ -727,7 +732,7 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
                   fill="#d8dee4"
                 />
                 <path
-                  d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569-5.883 0-10.658 4.287-10.658 9.569v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149Zm-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19 1.961 0 3.553 1.429 3.553 3.19 0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914-1.18 0-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552Zm-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741 3.524 0 6.395 2.577 6.395 5.741v5.741h-12.79V11.07Z"
+                  d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569S6.842 5.787 6.842 11.069v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149m-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19s3.553 1.429 3.553 3.19c0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914s-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552m-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741s6.395 2.577 6.395 5.741v5.741h-12.79z"
                   fill="#9faebc"
                 />
                 <circle
@@ -737,24 +742,24 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
                   r="2.5"
                 />
                 <path
-                  d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713-3.885 1.842-5.513 6.528-3.618 10.412a8.036 8.036 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603 2.627.929ZM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928Z"
+                  d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713s-5.513 6.528-3.618 10.412a8.04 8.04 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603zM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928"
                   fill="#798da1"
                 />
               </svg>
             </mock-styled.span>
             <div>
               <mock-styled.h2
-                classname="el-has-no-margin"
+                classname="el-text-base el-has-no-margin"
               >
                 Authentication Client Id
               </mock-styled.h2>
               <mock-styled.p
-                classname="el-has-grey-text"
+                classname="el-text-base el-has-grey-text"
               >
                 MOCK_EXTERNAL_ID
               </mock-styled.p>
             </div>
-          </mock-styled.div>
+          </div>
           <mock-styled.button
             classname="el-intent-neutral"
           >
@@ -765,11 +770,12 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
         <mock-styled.div
           classname=""
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="el-flex-container"
           >
             <mock-styled.span
               classname="el-mr4 el-icon-size-medium"
+              role="img"
             >
               <svg
                 fill="none"
@@ -779,89 +785,89 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+                  d="M66.74 35.076 39.999 25.65v18.992z"
                   fill="#607890"
                 />
                 <path
-                  d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+                  d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567z"
                   fill="#9faebc"
                 />
                 <path
-                  d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+                  d="M50.579 7.466H28.61c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952"
                   fill="#d8dee4"
                 />
                 <path
-                  d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+                  d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664"
                   fill="#d8dee4"
                 />
                 <path
-                  d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+                  d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935z"
                   fill="#506478"
                 />
                 <path
-                  d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+                  d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24z"
                   fill="#8EDDFF"
                 />
                 <path
-                  d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+                  d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526z"
                   fill="#9faebc"
                 />
                 <path
-                  d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+                  d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349z"
                   fill="#798da1"
                 />
                 <path
-                  d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+                  d="M66.74 69.576v-34.5l-26.741 9.593V78.2z"
                   fill="#506478"
                 />
                 <path
-                  d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+                  d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624z"
                   fill="#607890"
                 />
                 <path
-                  d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+                  d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638z"
                   fill="#d8dee4"
                 />
                 <path
-                  d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+                  d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638z"
                   fill="#7e9bfa"
                 />
                 <path
-                  d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+                  d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638z"
                   fill="#798da1"
                 />
                 <path
-                  d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+                  d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448z"
                   fill="#7e9bfa"
                 />
                 <path
-                  d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+                  d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47z"
                   fill="#fff"
                 />
                 <path
-                  d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+                  d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.565l1.427-4.475a2.464 2.464 0 0 0-1.59-3.084z"
                   fill="#d8dee4"
                 />
               </svg>
             </mock-styled.span>
             <div>
               <mock-styled.h2
-                classname="el-has-no-margin"
+                classname="el-text-base el-has-no-margin"
               >
                 App Id
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css.
+                classname="el-text-base el-has-grey-text mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
- el-has-grey-text"
+"
               >
                 MOCK_APP_ID
               </mock-styled.p>
             </div>
-          </mock-styled.div>
+          </div>
           <mock-styled.button
             classname="el-intent-neutral"
           >
@@ -873,17 +879,17 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="el-has-no-margin"
+            classname="el-text-base el-has-no-margin"
           >
             Redirect Uri(s)
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css.
+            classname="el-text-base el-has-grey-text el-has-no-margin mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
- el-has-grey-text el-has-no-margin"
+"
           >
             https://foo.bar
           </mock-styled.p>
@@ -892,17 +898,17 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="el-has-no-margin"
+            classname="el-text-base el-has-no-margin"
           >
             Sign Out Uri(s)
           </mock-styled.h2>
           <mock-styled.p
-            classname="mock-css.
+            classname="el-text-base el-has-grey-text el-has-no-margin mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
- el-has-grey-text el-has-no-margin"
+"
           >
             https://foo.bar
           </mock-styled.p>
@@ -914,12 +920,12 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
             classname=""
           >
             <mock-styled.h2
-              classname="el-has-no-margin"
+              classname="el-text-base el-has-no-margin"
             >
               Integration Type
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text el-has-no-margin"
+              classname="el-text-base el-has-grey-text el-has-no-margin"
             >
               You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
             </mock-styled.p>
@@ -932,12 +938,12 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
             classname=""
           >
             <mock-styled.h2
-              classname="el-has-no-margin"
+              classname="el-text-base el-has-no-margin"
             >
               App Status
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text el-has-no-margin"
+              classname="el-text-base el-has-grey-text el-has-no-margin"
             >
               Your app is live and public in the AppMarket with a pending revision under review
             </mock-styled.p>
@@ -947,7 +953,7 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="el-has-no-margin"
+            classname="el-text-base el-has-no-margin"
           >
             Permissions
           </mock-styled.h2>
@@ -964,17 +970,17 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.h1
-      classname=""
+      classname="el-text-base"
     >
       will-test-dev-co-voracious-person
     </mock-styled.h1>
     <mock-styled.h2
-      classname=""
+      classname="el-text-base"
     >
       Authenticating Your App
     </mock-styled.h2>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       Client-side Apps use our identity provider
        
@@ -989,7 +995,7 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
        You will need the Client Id and Redirect Uris below to configure Reapit Connect.
     </mock-styled.p>
     <mock-styled.p
-      classname="el-has-grey-text el-has-section-margin"
+      classname="el-text-base el-has-grey-text el-has-section-margin"
     >
       To make this process easier, we provide you with an authentication module for client-side apps,
        
@@ -1009,11 +1015,12 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
       <mock-styled.div
         classname=""
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="el-flex-container"
         >
           <mock-styled.span
             classname="el-mr4 el-icon-size-medium"
+            role="img"
           >
             <svg
               fill="none"
@@ -1027,7 +1034,7 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
                 fill="#d8dee4"
               />
               <path
-                d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569-5.883 0-10.658 4.287-10.658 9.569v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149Zm-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19 1.961 0 3.553 1.429 3.553 3.19 0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914-1.18 0-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552Zm-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741 3.524 0 6.395 2.577 6.395 5.741v5.741h-12.79V11.07Z"
+                d="M29.721 16.81h-1.563V11.07c0-5.282-4.775-9.569-10.658-9.569S6.842 5.787 6.842 11.069v5.741H5.28c-.71 0-1.279.51-1.279 1.149v19.393c0 .625.568 1.148 1.279 1.148h24.442c.71 0 1.279-.523 1.279-1.148V17.959c0-.638-.568-1.149-1.279-1.149m-15.774 9.57c0-1.761 1.592-3.19 3.553-3.19s3.553 1.429 3.553 3.19c0 1.02-.526 1.951-1.421 2.551v2.552c0 1.059-.953 1.914-2.132 1.914s-2.132-.855-2.132-1.914V28.93c-.895-.6-1.42-1.531-1.42-2.552m-2.842-15.311c0-3.164 2.87-5.741 6.395-5.741s6.395 2.577 6.395 5.741v5.741h-12.79z"
                 fill="#9faebc"
               />
               <circle
@@ -1037,24 +1044,24 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
                 r="2.5"
               />
               <path
-                d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713-3.885 1.842-5.513 6.528-3.618 10.412a8.036 8.036 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603 2.627.929ZM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928Z"
+                d="m30.841 31.04-.904 2.604L35.19 35.5 37 30.294l-5.599-11.477c1.516-2.24 1.809-5.206.517-7.854-1.895-3.885-6.624-5.555-10.509-3.713s-5.513 6.528-3.618 10.412a8.04 8.04 0 0 0 6.547 4.505l.43.883 2.627.928-.904 2.603 2.627.928-.904 2.603zM21.366 11.62c-.43-.883.021-2.185.904-2.603.883-.42 2.197.045 2.628.928.517 1.06-.022 2.184-.905 2.603-1.06.502-2.11.131-2.627-.928"
                 fill="#798da1"
               />
             </svg>
           </mock-styled.span>
           <div>
             <mock-styled.h2
-              classname="el-has-no-margin"
+              classname="el-text-base el-has-no-margin"
             >
               Authentication Client Id
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               MOCK_EXTERNAL_ID
             </mock-styled.p>
           </div>
-        </mock-styled.div>
+        </div>
         <mock-styled.button
           classname="el-intent-neutral"
         >
@@ -1065,11 +1072,12 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
       <mock-styled.div
         classname=""
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="el-flex-container"
         >
           <mock-styled.span
             classname="el-mr4 el-icon-size-medium"
+            role="img"
           >
             <svg
               fill="none"
@@ -1079,89 +1087,89 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+                d="M66.74 35.076 39.999 25.65v18.992z"
                 fill="#607890"
               />
               <path
-                d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+                d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567z"
                 fill="#9faebc"
               />
               <path
-                d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+                d="M50.579 7.466H28.61c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952"
                 fill="#d8dee4"
               />
               <path
-                d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+                d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664"
                 fill="#d8dee4"
               />
               <path
-                d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+                d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935z"
                 fill="#506478"
               />
               <path
-                d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+                d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24z"
                 fill="#8EDDFF"
               />
               <path
-                d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+                d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526z"
                 fill="#9faebc"
               />
               <path
-                d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+                d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349z"
                 fill="#798da1"
               />
               <path
-                d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+                d="M66.74 69.576v-34.5l-26.741 9.593V78.2z"
                 fill="#506478"
               />
               <path
-                d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+                d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624z"
                 fill="#607890"
               />
               <path
-                d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+                d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638z"
                 fill="#d8dee4"
               />
               <path
-                d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+                d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638z"
                 fill="#7e9bfa"
               />
               <path
-                d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+                d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638z"
                 fill="#798da1"
               />
               <path
-                d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+                d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448z"
                 fill="#7e9bfa"
               />
               <path
-                d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+                d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47z"
                 fill="#fff"
               />
               <path
-                d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+                d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.565l1.427-4.475a2.464 2.464 0 0 0-1.59-3.084z"
                 fill="#d8dee4"
               />
             </svg>
           </mock-styled.span>
           <div>
             <mock-styled.h2
-              classname="el-has-no-margin"
+              classname="el-text-base el-has-no-margin"
             >
               App Id
             </mock-styled.h2>
             <mock-styled.p
-              classname="mock-css.
+              classname="el-text-base el-has-grey-text mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
- el-has-grey-text"
+"
             >
               MOCK_APP_ID
             </mock-styled.p>
           </div>
-        </mock-styled.div>
+        </div>
         <mock-styled.button
           classname="el-intent-neutral"
         >
@@ -1173,17 +1181,17 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
         classname=""
       >
         <mock-styled.h2
-          classname="el-has-no-margin"
+          classname="el-text-base el-has-no-margin"
         >
           Redirect Uri(s)
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css.
+          classname="el-text-base el-has-grey-text el-has-no-margin mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
- el-has-grey-text el-has-no-margin"
+"
         >
           https://foo.bar
         </mock-styled.p>
@@ -1192,17 +1200,17 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
         classname=""
       >
         <mock-styled.h2
-          classname="el-has-no-margin"
+          classname="el-text-base el-has-no-margin"
         >
           Sign Out Uri(s)
         </mock-styled.h2>
         <mock-styled.p
-          classname="mock-css.
+          classname="el-text-base el-has-grey-text el-has-no-margin mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
- el-has-grey-text el-has-no-margin"
+"
         >
           https://foo.bar
         </mock-styled.p>
@@ -1214,12 +1222,12 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="el-has-no-margin"
+            classname="el-text-base el-has-no-margin"
           >
             Integration Type
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text el-has-no-margin"
+            classname="el-text-base el-has-grey-text el-has-no-margin"
           >
             You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
           </mock-styled.p>
@@ -1232,12 +1240,12 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
           classname=""
         >
           <mock-styled.h2
-            classname="el-has-no-margin"
+            classname="el-text-base el-has-no-margin"
           >
             App Status
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text el-has-no-margin"
+            classname="el-text-base el-has-grey-text el-has-no-margin"
           >
             Your app is live and public in the AppMarket with a pending revision under review
           </mock-styled.p>
@@ -1247,7 +1255,7 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
         classname=""
       >
         <mock-styled.h2
-          classname="el-has-no-margin"
+          classname="el-text-base el-has-no-margin"
         >
           Permissions
         </mock-styled.h2>
@@ -1401,6 +1409,7 @@ exports[`AppDetail should match snapshot where no app found 1`] = `
       <mock-styled.div />
       <mock-styled.div
         classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+        role="alertdialog"
       >
         <div
           class="el-pn-icon"
@@ -1408,6 +1417,7 @@ exports[`AppDetail should match snapshot where no app found 1`] = `
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -1419,7 +1429,7 @@ exports[`AppDetail should match snapshot where no app found 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                 fill="currentColor"
               />
             </svg>
@@ -1437,6 +1447,7 @@ exports[`AppDetail should match snapshot where no app found 1`] = `
     <mock-styled.div />
     <mock-styled.div
       classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+      role="alertdialog"
     >
       <div
         class="el-pn-icon"
@@ -1444,6 +1455,7 @@ exports[`AppDetail should match snapshot where no app found 1`] = `
       >
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
@@ -1455,7 +1467,7 @@ exports[`AppDetail should match snapshot where no app found 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
               fill="currentColor"
             />
           </svg>

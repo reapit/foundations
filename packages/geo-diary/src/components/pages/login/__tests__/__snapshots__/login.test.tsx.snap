@@ -106,20 +106,20 @@ exports[`Login should match a snapshot 1`] = `
             alt="Reapit Connect Graphic"
             src="[object Object]"
           />
-          <mock-styled.div
-            classname="el-flex-column"
+          <div
+            class="el-flex-container el-flex-column"
           >
             <mock-styled.h1
-              classname="el-has-no-margin el-has-centered-text"
+              classname="el-text-base el-has-no-margin el-has-centered-text"
             >
               Welcome
             </mock-styled.h1>
             <mock-styled.h2
-              classname="el-has-centered-text"
+              classname="el-text-base el-has-centered-text"
             >
               to Geo Diary
             </mock-styled.h2>
-          </mock-styled.div>
+          </div>
           <mock-styled.div
             classname="el-mb12"
           >
@@ -135,7 +135,7 @@ exports[`Login should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           />
         </mock-styled.div>
       </mock-styled.div>
@@ -243,20 +243,20 @@ exports[`Login should match a snapshot 1`] = `
           alt="Reapit Connect Graphic"
           src="[object Object]"
         />
-        <mock-styled.div
-          classname="el-flex-column"
+        <div
+          class="el-flex-container el-flex-column"
         >
           <mock-styled.h1
-            classname="el-has-no-margin el-has-centered-text"
+            classname="el-text-base el-has-no-margin el-has-centered-text"
           >
             Welcome
           </mock-styled.h1>
           <mock-styled.h2
-            classname="el-has-centered-text"
+            classname="el-text-base el-has-centered-text"
           >
             to Geo Diary
           </mock-styled.h2>
-        </mock-styled.div>
+        </div>
         <mock-styled.div
           classname="el-mb12"
         >
@@ -272,7 +272,7 @@ exports[`Login should match a snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         />
       </mock-styled.div>
     </mock-styled.div>

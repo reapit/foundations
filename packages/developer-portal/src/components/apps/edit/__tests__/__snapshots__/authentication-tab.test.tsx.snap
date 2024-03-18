@@ -7,7 +7,7 @@ exports[`AuthenticationTab should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         When using the Reapit Connect
          
@@ -57,7 +57,7 @@ exports[`AuthenticationTab should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       When using the Reapit Connect
        

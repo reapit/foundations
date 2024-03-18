@@ -9,11 +9,11 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
       <form
         class="el-p8"
       >
-        <mock-styled.div
-          classname="el-flex-justify-between el-flex-align-center el-mb11"
+        <div
+          class="el-flex-container el-flex-justify-between el-flex-align-center el-mb11"
         >
           <mock-styled.h2
-            classname="el-has-bold-text"
+            classname="el-text-base el-has-bold-text"
           >
             Edit Webhook
           </mock-styled.h2>
@@ -44,7 +44,7 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
               </mock-styled.button>
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.div>
+        </div>
         <mock-styled.div
           classname=""
         >
@@ -64,8 +64,8 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+            <div
+              class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
             >
               <mock-styled.div
                 classname="mock-css.
@@ -79,6 +79,7 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
                 />
                 <mock-styled.span
                   classname="el-icon-new"
+                  role="img"
                   style="font-size: 1rem;"
                 >
                   <svg
@@ -90,7 +91,7 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                      d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                       fill="currentColor"
                     />
                   </svg>
@@ -101,8 +102,12 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
                   Subscription topics
                 </mock-styled.label>
               </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
+            </div>
+            <mock-styled.div
+              aria-controls=":r0:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="topic-edit-ids-MOCK_ID"
                 name="topicIds"
@@ -118,7 +123,11 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
             >
               Subscription customers
             </mock-styled.label>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r1:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="customer-edit-ids-MOCK_ID"
                 name="customerIds"
@@ -173,8 +182,8 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+            <div
+              class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
             >
               <mock-styled.div>
                 <mock-styled.input
@@ -189,7 +198,7 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
                   Semi-structured Fields
                 </mock-styled.label>
               </mock-styled.div>
-            </mock-styled.div>
+            </div>
             <mock-styled.div>
               <mock-styled.input
                 id="semi-structured-fields-MOCK_ID"
@@ -254,11 +263,11 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
     <form
       class="el-p8"
     >
-      <mock-styled.div
-        classname="el-flex-justify-between el-flex-align-center el-mb11"
+      <div
+        class="el-flex-container el-flex-justify-between el-flex-align-center el-mb11"
       >
         <mock-styled.h2
-          classname="el-has-bold-text"
+          classname="el-text-base el-has-bold-text"
         >
           Edit Webhook
         </mock-styled.h2>
@@ -289,7 +298,7 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
             </mock-styled.button>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.div>
+      </div>
       <mock-styled.div
         classname=""
       >
@@ -309,8 +318,8 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+          <div
+            class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
           >
             <mock-styled.div
               classname="mock-css.
@@ -324,6 +333,7 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
               />
               <mock-styled.span
                 classname="el-icon-new"
+                role="img"
                 style="font-size: 1rem;"
               >
                 <svg
@@ -335,7 +345,7 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                    d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                     fill="currentColor"
                   />
                 </svg>
@@ -346,8 +356,12 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
                 Subscription topics
               </mock-styled.label>
             </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <mock-styled.div
+            aria-controls=":r0:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-edit-ids-MOCK_ID"
               name="topicIds"
@@ -363,7 +377,11 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
           >
             Subscription customers
           </mock-styled.label>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r1:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="customer-edit-ids-MOCK_ID"
               name="customerIds"
@@ -418,8 +436,8 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+          <div
+            class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
           >
             <mock-styled.div>
               <mock-styled.input
@@ -434,7 +452,7 @@ exports[`WebhooksManageForm should match a snapshot 1`] = `
                 Semi-structured Fields
               </mock-styled.label>
             </mock-styled.div>
-          </mock-styled.div>
+          </div>
           <mock-styled.div>
             <mock-styled.input
               id="semi-structured-fields-MOCK_ID"

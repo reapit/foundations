@@ -7,12 +7,12 @@ exports[`AppListingTab should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to submit your app for approval, it all needs to be completed.
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text el-has-section-margin"
+        classname="el-text-base el-has-grey-text el-has-section-margin"
       >
         For information on listing your app 
         <a>
@@ -230,7 +230,11 @@ exports[`AppListingTab should match a snapshot 1`] = `
             <mock-styled.label>
               App Categories
             </mock-styled.label>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r0:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="app-edit-categories-select"
                 value="Mock field value"
@@ -240,6 +244,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
               >
                 <mock-styled.span
                   classname="el-ml2 el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
@@ -249,7 +254,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                      d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                       fill="currentColor"
                     />
                   </svg>
@@ -302,8 +307,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
             <mock-styled.label>
               Upload Icon Image
             </mock-styled.label>
-            <mock-styled.div
-              classname="el-flex-align-center"
+            <div
+              class="el-flex-container el-flex-align-center"
             >
               <mock-styled.button
                 classname="el-mr4 el-intent-neutral"
@@ -321,11 +326,11 @@ exports[`AppListingTab should match a snapshot 1`] = `
                 value=""
               />
               <mock-styled.p
-                classname="el-has-grey-text el-has-no-margin"
+                classname="el-text-base el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 192px x 192px
               </mock-styled.p>
-            </mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
@@ -333,8 +338,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
             <mock-styled.label>
               Upload Featured Image
             </mock-styled.label>
-            <mock-styled.div
-              classname="el-flex-align-center"
+            <div
+              class="el-flex-container el-flex-align-center"
             >
               <mock-styled.button
                 classname="el-mr4 el-intent-neutral"
@@ -352,11 +357,11 @@ exports[`AppListingTab should match a snapshot 1`] = `
                 value=""
               />
               <mock-styled.p
-                classname="el-has-grey-text el-has-no-margin"
+                classname="el-text-base el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 990px x 444px
               </mock-styled.p>
-            </mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
@@ -364,8 +369,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
             <mock-styled.label>
               Upload Other Listing Image
             </mock-styled.label>
-            <mock-styled.div
-              classname="el-flex-align-center"
+            <div
+              class="el-flex-container el-flex-align-center"
             >
               <mock-styled.button
                 classname="el-mr4 el-intent-neutral"
@@ -383,11 +388,11 @@ exports[`AppListingTab should match a snapshot 1`] = `
                 value=""
               />
               <mock-styled.p
-                classname="el-has-grey-text el-has-no-margin"
+                classname="el-text-base el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 1196x x 914px
               </mock-styled.p>
-            </mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
@@ -395,8 +400,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
             <mock-styled.label>
               Upload Other Listing Image
             </mock-styled.label>
-            <mock-styled.div
-              classname="el-flex-align-center"
+            <div
+              class="el-flex-container el-flex-align-center"
             >
               <mock-styled.button
                 classname="el-mr4 el-intent-neutral"
@@ -414,11 +419,11 @@ exports[`AppListingTab should match a snapshot 1`] = `
                 value=""
               />
               <mock-styled.p
-                classname="el-has-grey-text el-has-no-margin"
+                classname="el-text-base el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 1196x x 914px
               </mock-styled.p>
-            </mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
@@ -426,8 +431,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
             <mock-styled.label>
               Upload Other Listing Image
             </mock-styled.label>
-            <mock-styled.div
-              classname="el-flex-align-center"
+            <div
+              class="el-flex-container el-flex-align-center"
             >
               <mock-styled.button
                 classname="el-mr4 el-intent-neutral"
@@ -445,11 +450,11 @@ exports[`AppListingTab should match a snapshot 1`] = `
                 value=""
               />
               <mock-styled.p
-                classname="el-has-grey-text el-has-no-margin"
+                classname="el-text-base el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 1196x x 914px
               </mock-styled.p>
-            </mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
@@ -457,8 +462,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
             <mock-styled.label>
               Upload Other Listing Image
             </mock-styled.label>
-            <mock-styled.div
-              classname="el-flex-align-center"
+            <div
+              class="el-flex-container el-flex-align-center"
             >
               <mock-styled.button
                 classname="el-mr4 el-intent-neutral"
@@ -476,11 +481,11 @@ exports[`AppListingTab should match a snapshot 1`] = `
                 value=""
               />
               <mock-styled.p
-                classname="el-has-grey-text el-has-no-margin"
+                classname="el-text-base el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 1196x x 914px
               </mock-styled.p>
-            </mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
@@ -489,12 +494,12 @@ exports[`AppListingTab should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to submit your app for approval, it all needs to be completed.
     </mock-styled.p>
     <mock-styled.p
-      classname="el-has-grey-text el-has-section-margin"
+      classname="el-text-base el-has-grey-text el-has-section-margin"
     >
       For information on listing your app 
       <a>
@@ -712,7 +717,11 @@ exports[`AppListingTab should match a snapshot 1`] = `
           <mock-styled.label>
             App Categories
           </mock-styled.label>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r0:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="app-edit-categories-select"
               value="Mock field value"
@@ -722,6 +731,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
             >
               <mock-styled.span
                 classname="el-ml2 el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -731,7 +741,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                    d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                     fill="currentColor"
                   />
                 </svg>
@@ -784,8 +794,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
           <mock-styled.label>
             Upload Icon Image
           </mock-styled.label>
-          <mock-styled.div
-            classname="el-flex-align-center"
+          <div
+            class="el-flex-container el-flex-align-center"
           >
             <mock-styled.button
               classname="el-mr4 el-intent-neutral"
@@ -803,11 +813,11 @@ exports[`AppListingTab should match a snapshot 1`] = `
               value=""
             />
             <mock-styled.p
-              classname="el-has-grey-text el-has-no-margin"
+              classname="el-text-base el-has-grey-text el-has-no-margin"
             >
               Dimensions: 192px x 192px
             </mock-styled.p>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
@@ -815,8 +825,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
           <mock-styled.label>
             Upload Featured Image
           </mock-styled.label>
-          <mock-styled.div
-            classname="el-flex-align-center"
+          <div
+            class="el-flex-container el-flex-align-center"
           >
             <mock-styled.button
               classname="el-mr4 el-intent-neutral"
@@ -834,11 +844,11 @@ exports[`AppListingTab should match a snapshot 1`] = `
               value=""
             />
             <mock-styled.p
-              classname="el-has-grey-text el-has-no-margin"
+              classname="el-text-base el-has-grey-text el-has-no-margin"
             >
               Dimensions: 990px x 444px
             </mock-styled.p>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
@@ -846,8 +856,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
           <mock-styled.label>
             Upload Other Listing Image
           </mock-styled.label>
-          <mock-styled.div
-            classname="el-flex-align-center"
+          <div
+            class="el-flex-container el-flex-align-center"
           >
             <mock-styled.button
               classname="el-mr4 el-intent-neutral"
@@ -865,11 +875,11 @@ exports[`AppListingTab should match a snapshot 1`] = `
               value=""
             />
             <mock-styled.p
-              classname="el-has-grey-text el-has-no-margin"
+              classname="el-text-base el-has-grey-text el-has-no-margin"
             >
               Dimensions: 1196x x 914px
             </mock-styled.p>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
@@ -877,8 +887,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
           <mock-styled.label>
             Upload Other Listing Image
           </mock-styled.label>
-          <mock-styled.div
-            classname="el-flex-align-center"
+          <div
+            class="el-flex-container el-flex-align-center"
           >
             <mock-styled.button
               classname="el-mr4 el-intent-neutral"
@@ -896,11 +906,11 @@ exports[`AppListingTab should match a snapshot 1`] = `
               value=""
             />
             <mock-styled.p
-              classname="el-has-grey-text el-has-no-margin"
+              classname="el-text-base el-has-grey-text el-has-no-margin"
             >
               Dimensions: 1196x x 914px
             </mock-styled.p>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
@@ -908,8 +918,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
           <mock-styled.label>
             Upload Other Listing Image
           </mock-styled.label>
-          <mock-styled.div
-            classname="el-flex-align-center"
+          <div
+            class="el-flex-container el-flex-align-center"
           >
             <mock-styled.button
               classname="el-mr4 el-intent-neutral"
@@ -927,11 +937,11 @@ exports[`AppListingTab should match a snapshot 1`] = `
               value=""
             />
             <mock-styled.p
-              classname="el-has-grey-text el-has-no-margin"
+              classname="el-text-base el-has-grey-text el-has-no-margin"
             >
               Dimensions: 1196x x 914px
             </mock-styled.p>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
@@ -939,8 +949,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
           <mock-styled.label>
             Upload Other Listing Image
           </mock-styled.label>
-          <mock-styled.div
-            classname="el-flex-align-center"
+          <div
+            class="el-flex-container el-flex-align-center"
           >
             <mock-styled.button
               classname="el-mr4 el-intent-neutral"
@@ -958,11 +968,11 @@ exports[`AppListingTab should match a snapshot 1`] = `
               value=""
             />
             <mock-styled.p
-              classname="el-has-grey-text el-has-no-margin"
+              classname="el-text-base el-has-grey-text el-has-no-margin"
             >
               Dimensions: 1196x x 914px
             </mock-styled.p>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
       </mock-styled.div>
     </mock-styled.div>
@@ -1028,12 +1038,12 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to submit your app for approval, it all needs to be completed.
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text el-has-section-margin"
+        classname="el-text-base el-has-grey-text el-has-section-margin"
       >
         For information on listing your app 
         <a>
@@ -1075,6 +1085,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             />
             <mock-styled.span
               classname="el-intent-danger el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -1086,7 +1097,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425h-2.2Z"
+                  d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425z"
                   fill="currentColor"
                 />
               </svg>
@@ -1112,6 +1123,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             />
             <mock-styled.span
               classname="el-intent-danger el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -1123,7 +1135,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425h-2.2Z"
+                  d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425z"
                   fill="currentColor"
                 />
               </svg>
@@ -1149,6 +1161,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             />
             <mock-styled.span
               classname="el-intent-danger el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -1160,7 +1173,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425h-2.2Z"
+                  d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425z"
                   fill="currentColor"
                 />
               </svg>
@@ -1186,6 +1199,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             />
             <mock-styled.span
               classname="el-intent-danger el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -1197,7 +1211,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425h-2.2Z"
+                  d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425z"
                   fill="currentColor"
                 />
               </svg>
@@ -1223,6 +1237,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             />
             <mock-styled.span
               classname="el-intent-danger el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -1234,7 +1249,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425h-2.2Z"
+                  d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425z"
                   fill="currentColor"
                 />
               </svg>
@@ -1260,6 +1275,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             />
             <mock-styled.span
               classname="el-intent-danger el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -1271,7 +1287,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425h-2.2Z"
+                  d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425z"
                   fill="currentColor"
                 />
               </svg>
@@ -1329,6 +1345,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             />
             <mock-styled.span
               classname="el-intent-danger el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -1340,7 +1357,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425h-2.2Z"
+                  d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425z"
                   fill="currentColor"
                 />
               </svg>
@@ -1365,6 +1382,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             />
             <mock-styled.span
               classname="el-intent-danger el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -1376,7 +1394,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425h-2.2Z"
+                  d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425z"
                   fill="currentColor"
                 />
               </svg>
@@ -1411,7 +1429,11 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             <mock-styled.label>
               App Categories
             </mock-styled.label>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r2:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="app-edit-categories-select"
               />
@@ -1420,6 +1442,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               >
                 <mock-styled.span
                   classname="el-ml2 el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
@@ -1429,7 +1452,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                      d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                       fill="currentColor"
                     />
                   </svg>
@@ -1468,6 +1491,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             />
             <mock-styled.span
               classname="el-intent-danger el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -1479,7 +1503,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425h-2.2Z"
+                  d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425z"
                   fill="currentColor"
                 />
               </svg>
@@ -1508,8 +1532,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             <mock-styled.label>
               Upload Icon Image
             </mock-styled.label>
-            <mock-styled.div
-              classname="el-flex-align-center"
+            <div
+              class="el-flex-container el-flex-align-center"
             >
               <mock-styled.button
                 classname="el-mr4 el-intent-neutral"
@@ -1526,11 +1550,11 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 id="test-static-id"
               />
               <mock-styled.p
-                classname="el-has-grey-text el-has-no-margin"
+                classname="el-text-base el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 192px x 192px
               </mock-styled.p>
-            </mock-styled.div>
+            </div>
           </mock-styled.div>
           <mock-styled.p>
             An Error
@@ -1541,8 +1565,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             <mock-styled.label>
               Upload Featured Image
             </mock-styled.label>
-            <mock-styled.div
-              classname="el-flex-align-center"
+            <div
+              class="el-flex-container el-flex-align-center"
             >
               <mock-styled.button
                 classname="el-mr4 el-intent-neutral"
@@ -1559,11 +1583,11 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 id="test-static-id"
               />
               <mock-styled.p
-                classname="el-has-grey-text el-has-no-margin"
+                classname="el-text-base el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 990px x 444px
               </mock-styled.p>
-            </mock-styled.div>
+            </div>
           </mock-styled.div>
           <mock-styled.p>
             An Error
@@ -1574,8 +1598,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             <mock-styled.label>
               Upload Other Listing Image
             </mock-styled.label>
-            <mock-styled.div
-              classname="el-flex-align-center"
+            <div
+              class="el-flex-container el-flex-align-center"
             >
               <mock-styled.button
                 classname="el-mr4 el-intent-neutral"
@@ -1592,11 +1616,11 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 id="test-static-id"
               />
               <mock-styled.p
-                classname="el-has-grey-text el-has-no-margin"
+                classname="el-text-base el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 1196x x 914px
               </mock-styled.p>
-            </mock-styled.div>
+            </div>
           </mock-styled.div>
           <mock-styled.p>
             An Error
@@ -1607,8 +1631,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             <mock-styled.label>
               Upload Other Listing Image
             </mock-styled.label>
-            <mock-styled.div
-              classname="el-flex-align-center"
+            <div
+              class="el-flex-container el-flex-align-center"
             >
               <mock-styled.button
                 classname="el-mr4 el-intent-neutral"
@@ -1625,11 +1649,11 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 id="test-static-id"
               />
               <mock-styled.p
-                classname="el-has-grey-text el-has-no-margin"
+                classname="el-text-base el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 1196x x 914px
               </mock-styled.p>
-            </mock-styled.div>
+            </div>
           </mock-styled.div>
           <mock-styled.p>
             An Error
@@ -1640,8 +1664,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             <mock-styled.label>
               Upload Other Listing Image
             </mock-styled.label>
-            <mock-styled.div
-              classname="el-flex-align-center"
+            <div
+              class="el-flex-container el-flex-align-center"
             >
               <mock-styled.button
                 classname="el-mr4 el-intent-neutral"
@@ -1658,11 +1682,11 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 id="test-static-id"
               />
               <mock-styled.p
-                classname="el-has-grey-text el-has-no-margin"
+                classname="el-text-base el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 1196x x 914px
               </mock-styled.p>
-            </mock-styled.div>
+            </div>
           </mock-styled.div>
           <mock-styled.p>
             An Error
@@ -1673,8 +1697,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             <mock-styled.label>
               Upload Other Listing Image
             </mock-styled.label>
-            <mock-styled.div
-              classname="el-flex-align-center"
+            <div
+              class="el-flex-container el-flex-align-center"
             >
               <mock-styled.button
                 classname="el-mr4 el-intent-neutral"
@@ -1691,11 +1715,11 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 id="test-static-id"
               />
               <mock-styled.p
-                classname="el-has-grey-text el-has-no-margin"
+                classname="el-text-base el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 1196x x 914px
               </mock-styled.p>
-            </mock-styled.div>
+            </div>
           </mock-styled.div>
           <mock-styled.p>
             An Error
@@ -1707,12 +1731,12 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to submit your app for approval, it all needs to be completed.
     </mock-styled.p>
     <mock-styled.p
-      classname="el-has-grey-text el-has-section-margin"
+      classname="el-text-base el-has-grey-text el-has-section-margin"
     >
       For information on listing your app 
       <a>
@@ -1754,6 +1778,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
           />
           <mock-styled.span
             classname="el-intent-danger el-icon-new"
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -1765,7 +1790,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425h-2.2Z"
+                d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425z"
                 fill="currentColor"
               />
             </svg>
@@ -1791,6 +1816,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
           />
           <mock-styled.span
             classname="el-intent-danger el-icon-new"
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -1802,7 +1828,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425h-2.2Z"
+                d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425z"
                 fill="currentColor"
               />
             </svg>
@@ -1828,6 +1854,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
           />
           <mock-styled.span
             classname="el-intent-danger el-icon-new"
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -1839,7 +1866,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425h-2.2Z"
+                d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425z"
                 fill="currentColor"
               />
             </svg>
@@ -1865,6 +1892,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
           />
           <mock-styled.span
             classname="el-intent-danger el-icon-new"
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -1876,7 +1904,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425h-2.2Z"
+                d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425z"
                 fill="currentColor"
               />
             </svg>
@@ -1902,6 +1930,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
           />
           <mock-styled.span
             classname="el-intent-danger el-icon-new"
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -1913,7 +1942,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425h-2.2Z"
+                d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425z"
                 fill="currentColor"
               />
             </svg>
@@ -1939,6 +1968,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
           />
           <mock-styled.span
             classname="el-intent-danger el-icon-new"
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -1950,7 +1980,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425h-2.2Z"
+                d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425z"
                 fill="currentColor"
               />
             </svg>
@@ -2008,6 +2038,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
           />
           <mock-styled.span
             classname="el-intent-danger el-icon-new"
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -2019,7 +2050,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425h-2.2Z"
+                d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425z"
                 fill="currentColor"
               />
             </svg>
@@ -2044,6 +2075,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
           />
           <mock-styled.span
             classname="el-intent-danger el-icon-new"
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -2055,7 +2087,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425h-2.2Z"
+                d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425z"
                 fill="currentColor"
               />
             </svg>
@@ -2090,7 +2122,11 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
           <mock-styled.label>
             App Categories
           </mock-styled.label>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r2:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="app-edit-categories-select"
             />
@@ -2099,6 +2135,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             >
               <mock-styled.span
                 classname="el-ml2 el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -2108,7 +2145,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                    d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                     fill="currentColor"
                   />
                 </svg>
@@ -2147,6 +2184,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
           />
           <mock-styled.span
             classname="el-intent-danger el-icon-new"
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -2158,7 +2196,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425h-2.2Z"
+                d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425z"
                 fill="currentColor"
               />
             </svg>
@@ -2187,8 +2225,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
           <mock-styled.label>
             Upload Icon Image
           </mock-styled.label>
-          <mock-styled.div
-            classname="el-flex-align-center"
+          <div
+            class="el-flex-container el-flex-align-center"
           >
             <mock-styled.button
               classname="el-mr4 el-intent-neutral"
@@ -2205,11 +2243,11 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               id="test-static-id"
             />
             <mock-styled.p
-              classname="el-has-grey-text el-has-no-margin"
+              classname="el-text-base el-has-grey-text el-has-no-margin"
             >
               Dimensions: 192px x 192px
             </mock-styled.p>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
         <mock-styled.p>
           An Error
@@ -2220,8 +2258,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
           <mock-styled.label>
             Upload Featured Image
           </mock-styled.label>
-          <mock-styled.div
-            classname="el-flex-align-center"
+          <div
+            class="el-flex-container el-flex-align-center"
           >
             <mock-styled.button
               classname="el-mr4 el-intent-neutral"
@@ -2238,11 +2276,11 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               id="test-static-id"
             />
             <mock-styled.p
-              classname="el-has-grey-text el-has-no-margin"
+              classname="el-text-base el-has-grey-text el-has-no-margin"
             >
               Dimensions: 990px x 444px
             </mock-styled.p>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
         <mock-styled.p>
           An Error
@@ -2253,8 +2291,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
           <mock-styled.label>
             Upload Other Listing Image
           </mock-styled.label>
-          <mock-styled.div
-            classname="el-flex-align-center"
+          <div
+            class="el-flex-container el-flex-align-center"
           >
             <mock-styled.button
               classname="el-mr4 el-intent-neutral"
@@ -2271,11 +2309,11 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               id="test-static-id"
             />
             <mock-styled.p
-              classname="el-has-grey-text el-has-no-margin"
+              classname="el-text-base el-has-grey-text el-has-no-margin"
             >
               Dimensions: 1196x x 914px
             </mock-styled.p>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
         <mock-styled.p>
           An Error
@@ -2286,8 +2324,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
           <mock-styled.label>
             Upload Other Listing Image
           </mock-styled.label>
-          <mock-styled.div
-            classname="el-flex-align-center"
+          <div
+            class="el-flex-container el-flex-align-center"
           >
             <mock-styled.button
               classname="el-mr4 el-intent-neutral"
@@ -2304,11 +2342,11 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               id="test-static-id"
             />
             <mock-styled.p
-              classname="el-has-grey-text el-has-no-margin"
+              classname="el-text-base el-has-grey-text el-has-no-margin"
             >
               Dimensions: 1196x x 914px
             </mock-styled.p>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
         <mock-styled.p>
           An Error
@@ -2319,8 +2357,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
           <mock-styled.label>
             Upload Other Listing Image
           </mock-styled.label>
-          <mock-styled.div
-            classname="el-flex-align-center"
+          <div
+            class="el-flex-container el-flex-align-center"
           >
             <mock-styled.button
               classname="el-mr4 el-intent-neutral"
@@ -2337,11 +2375,11 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               id="test-static-id"
             />
             <mock-styled.p
-              classname="el-has-grey-text el-has-no-margin"
+              classname="el-text-base el-has-grey-text el-has-no-margin"
             >
               Dimensions: 1196x x 914px
             </mock-styled.p>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
         <mock-styled.p>
           An Error
@@ -2352,8 +2390,8 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
           <mock-styled.label>
             Upload Other Listing Image
           </mock-styled.label>
-          <mock-styled.div
-            classname="el-flex-align-center"
+          <div
+            class="el-flex-container el-flex-align-center"
           >
             <mock-styled.button
               classname="el-mr4 el-intent-neutral"
@@ -2370,11 +2408,11 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               id="test-static-id"
             />
             <mock-styled.p
-              classname="el-has-grey-text el-has-no-margin"
+              classname="el-text-base el-has-grey-text el-has-no-margin"
             >
               Dimensions: 1196x x 914px
             </mock-styled.p>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
         <mock-styled.p>
           An Error

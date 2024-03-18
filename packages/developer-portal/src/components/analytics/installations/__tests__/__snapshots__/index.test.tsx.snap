@@ -7,40 +7,44 @@ exports[`AnalyticsInstallations should match snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         Installations
       </mock-styled.h1>
-      <mock-styled.div
-        classname="el-flex-wrap"
+      <div
+        class="el-flex-container el-flex-wrap"
       >
         <mock-styled.div>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Installations Per Day
           </mock-styled.h2>
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Installations Per App
           </mock-styled.h2>
         </mock-styled.div>
-      </mock-styled.div>
+      </div>
       <mock-styled.div
+        aria-hidden="true"
         classname=""
       />
       <mock-styled.div
         classname=""
+        id=":r0:"
       >
         <mock-styled.button
+          aria-controls=":r0:"
           classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -50,7 +54,7 @@ exports[`AnalyticsInstallations should match snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2M4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2m16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2"
                 fill="currentColor"
               />
             </svg>
@@ -62,40 +66,44 @@ exports[`AnalyticsInstallations should match snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.h1
-      classname=""
+      classname="el-text-base"
     >
       Installations
     </mock-styled.h1>
-    <mock-styled.div
-      classname="el-flex-wrap"
+    <div
+      class="el-flex-container el-flex-wrap"
     >
       <mock-styled.div>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Installations Per Day
         </mock-styled.h2>
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Installations Per App
         </mock-styled.h2>
       </mock-styled.div>
-    </mock-styled.div>
+    </div>
     <mock-styled.div
+      aria-hidden="true"
       classname=""
     />
     <mock-styled.div
       classname=""
+      id=":r0:"
     >
       <mock-styled.button
+        aria-controls=":r0:"
         classname="el-floating-button el-intent-primary"
       >
         <mock-styled.div />
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
         >
           <svg
             fill="none"
@@ -105,7 +113,7 @@ exports[`AnalyticsInstallations should match snapshot 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2M4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2m16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2"
               fill="currentColor"
             />
           </svg>
@@ -179,40 +187,44 @@ exports[`AnalyticsInstallations should match snapshot for mobile view 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         Installations
       </mock-styled.h1>
-      <mock-styled.div
-        classname="el-flex-wrap"
+      <div
+        class="el-flex-container el-flex-wrap"
       >
         <mock-styled.div>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Installations Per Day
           </mock-styled.h2>
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Installations Per App
           </mock-styled.h2>
         </mock-styled.div>
-      </mock-styled.div>
+      </div>
       <mock-styled.div
+        aria-hidden="true"
         classname=""
       />
       <mock-styled.div
         classname=""
+        id=":r2:"
       >
         <mock-styled.button
+          aria-controls=":r2:"
           classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -222,7 +234,7 @@ exports[`AnalyticsInstallations should match snapshot for mobile view 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2M4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2m16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2"
                 fill="currentColor"
               />
             </svg>
@@ -234,40 +246,44 @@ exports[`AnalyticsInstallations should match snapshot for mobile view 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.h1
-      classname=""
+      classname="el-text-base"
     >
       Installations
     </mock-styled.h1>
-    <mock-styled.div
-      classname="el-flex-wrap"
+    <div
+      class="el-flex-container el-flex-wrap"
     >
       <mock-styled.div>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Installations Per Day
         </mock-styled.h2>
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Installations Per App
         </mock-styled.h2>
       </mock-styled.div>
-    </mock-styled.div>
+    </div>
     <mock-styled.div
+      aria-hidden="true"
       classname=""
     />
     <mock-styled.div
       classname=""
+      id=":r2:"
     >
       <mock-styled.button
+        aria-controls=":r2:"
         classname="el-floating-button el-intent-primary"
       >
         <mock-styled.div />
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
         >
           <svg
             fill="none"
@@ -277,7 +293,7 @@ exports[`AnalyticsInstallations should match snapshot for mobile view 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2M4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2m16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2"
               fill="currentColor"
             />
           </svg>

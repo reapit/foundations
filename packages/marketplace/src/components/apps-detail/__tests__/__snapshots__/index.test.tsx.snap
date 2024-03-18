@@ -6,11 +6,12 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.section
-        classname=""
+      <section
+        class="el-page-container"
       >
         <mock-styled.div
           classname="el-intent-primary"
+          role="alertdialog"
         >
           <div
             class="el-pn-icon"
@@ -18,6 +19,7 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
           >
             <mock-styled.span
               classname="el-icon-new"
+              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -29,7 +31,7 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                   fill="currentColor"
                 />
               </svg>
@@ -44,6 +46,7 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.span
             classname="el-intent-primary el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -53,17 +56,18 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
                 fill="currentColor"
               />
             </svg>
           </mock-styled.span>
         </mock-styled.div>
-        <mock-styled.div
-          classname="el-mb5"
+        <div
+          class="el-flex-container el-mb5"
         >
           <mock-styled.div>
             <mock-styled.div
+              role="img"
               style="font-size: 2.8125em; width: 72px; height: 72px;"
             >
               <svg
@@ -80,24 +84,25 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
               </svg>
             </mock-styled.div>
           </mock-styled.div>
-          <mock-styled.div
-            classname="el-flex-column el-flex-justify-between"
+          <div
+            class="el-flex-container el-flex-column el-flex-justify-between"
           >
-            <mock-styled.div
-              classname="el-flex-column"
+            <div
+              class="el-flex-container el-flex-column"
             >
               <mock-styled.h1
-                classname="el-has-no-margin"
+                classname="el-text-base el-has-no-margin"
               />
               <mock-styled.p
-                classname="el-has-grey-text"
+                classname="el-text-base el-has-grey-text"
               />
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="el-flex-container"
             >
               <mock-styled.span
                 classname="el-mr5 el-intent-success el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -108,20 +113,20 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
                 >
                   <path
                     clip-rule="evenodd"
-                    d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.321 1.321 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87Z"
+                    d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.32 1.32 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87"
                     fill="currentColor"
                     fill-rule="evenodd"
                   />
                 </svg>
               </mock-styled.span>
               <mock-styled.p
-                classname="el-mr5 el-has-no-margin"
+                classname="el-text-base el-has-no-margin el-mr5"
               >
                 Verified by Reapit
               </mock-styled.p>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+            </div>
+          </div>
+        </div>
         <mock-styled.div
           classname="el-mb11"
         >
@@ -132,7 +137,7 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.h2
-              classname="el-has-bold-text"
+              classname="el-text-base el-has-bold-text"
             >
               About App
             </mock-styled.h2>
@@ -143,6 +148,7 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
                 <mock-styled.div>
                   <mock-styled.div
                     classname="el-mb7"
+                    role="img"
                     style="font-size: 7.5em;"
                   >
                     <svg
@@ -213,17 +219,17 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
             >
               <mock-styled.div>
                 <mock-styled.h2
-                  classname="el-has-no-margin"
+                  classname="el-text-base el-has-no-margin"
                 >
                   Pricing Policy
                 </mock-styled.h2>
                 <mock-styled.p
-                  classname="mock-css.
+                  classname="el-text-base el-has-grey-text el-has-no-margin mock-css.
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
- el-has-grey-text el-has-no-margin"
+"
                 >
                   Free
                 </mock-styled.p>
@@ -233,35 +239,36 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
               class="el-mb11"
             >
               <mock-styled.h2
-                classname="el-has-bold-text"
+                classname="el-text-base el-has-bold-text"
               >
                 About Developer
               </mock-styled.h2>
               <mock-styled.p
-                classname="el-has-grey-text el-has-no-margin"
+                classname="el-text-base el-has-grey-text el-has-no-margin"
               />
             </div>
             <div
               class="el-mb11"
             >
               <mock-styled.h2
-                classname="el-has-bold-text"
+                classname="el-text-base el-has-bold-text"
               >
                 Permissions
               </mock-styled.h2>
             </div>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.section>
+      </section>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.section
-      classname=""
+    <section
+      class="el-page-container"
     >
       <mock-styled.div
         classname="el-intent-primary"
+        role="alertdialog"
       >
         <div
           class="el-pn-icon"
@@ -269,6 +276,7 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -280,7 +288,7 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                 fill="currentColor"
               />
             </svg>
@@ -295,6 +303,7 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.span
           classname="el-intent-primary el-icon-new"
+          role="img"
         >
           <svg
             fill="none"
@@ -304,17 +313,18 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+              d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
               fill="currentColor"
             />
           </svg>
         </mock-styled.span>
       </mock-styled.div>
-      <mock-styled.div
-        classname="el-mb5"
+      <div
+        class="el-flex-container el-mb5"
       >
         <mock-styled.div>
           <mock-styled.div
+            role="img"
             style="font-size: 2.8125em; width: 72px; height: 72px;"
           >
             <svg
@@ -331,24 +341,25 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
             </svg>
           </mock-styled.div>
         </mock-styled.div>
-        <mock-styled.div
-          classname="el-flex-column el-flex-justify-between"
+        <div
+          class="el-flex-container el-flex-column el-flex-justify-between"
         >
-          <mock-styled.div
-            classname="el-flex-column"
+          <div
+            class="el-flex-container el-flex-column"
           >
             <mock-styled.h1
-              classname="el-has-no-margin"
+              classname="el-text-base el-has-no-margin"
             />
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             />
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="el-flex-container"
           >
             <mock-styled.span
               classname="el-mr5 el-intent-success el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -359,20 +370,20 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
               >
                 <path
                   clip-rule="evenodd"
-                  d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.321 1.321 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87Z"
+                  d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.32 1.32 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87"
                   fill="currentColor"
                   fill-rule="evenodd"
                 />
               </svg>
             </mock-styled.span>
             <mock-styled.p
-              classname="el-mr5 el-has-no-margin"
+              classname="el-text-base el-has-no-margin el-mr5"
             >
               Verified by Reapit
             </mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+          </div>
+        </div>
+      </div>
       <mock-styled.div
         classname="el-mb11"
       >
@@ -383,7 +394,7 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.h2
-            classname="el-has-bold-text"
+            classname="el-text-base el-has-bold-text"
           >
             About App
           </mock-styled.h2>
@@ -394,6 +405,7 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
               <mock-styled.div>
                 <mock-styled.div
                   classname="el-mb7"
+                  role="img"
                   style="font-size: 7.5em;"
                 >
                   <svg
@@ -464,17 +476,17 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
           >
             <mock-styled.div>
               <mock-styled.h2
-                classname="el-has-no-margin"
+                classname="el-text-base el-has-no-margin"
               >
                 Pricing Policy
               </mock-styled.h2>
               <mock-styled.p
-                classname="mock-css.
+                classname="el-text-base el-has-grey-text el-has-no-margin mock-css.
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
- el-has-grey-text el-has-no-margin"
+"
               >
                 Free
               </mock-styled.p>
@@ -484,26 +496,26 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
             class="el-mb11"
           >
             <mock-styled.h2
-              classname="el-has-bold-text"
+              classname="el-text-base el-has-bold-text"
             >
               About Developer
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text el-has-no-margin"
+              classname="el-text-base el-has-grey-text el-has-no-margin"
             />
           </div>
           <div
             class="el-mb11"
           >
             <mock-styled.h2
-              classname="el-has-bold-text"
+              classname="el-text-base el-has-bold-text"
             >
               Permissions
             </mock-styled.h2>
           </div>
         </mock-styled.div>
       </mock-styled.div>
-    </mock-styled.section>
+    </section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

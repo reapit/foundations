@@ -9,12 +9,12 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
         class="el-p8"
       >
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Edit User
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text el-has-section-margin"
+          classname="el-text-base el-has-grey-text el-has-section-margin"
         >
           Please use the section below to manage which groups this user belongs to:
         </mock-styled.p>
@@ -22,7 +22,11 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
           classname="el-form-layout-has-margin el-fade-in"
         >
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r0:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="user-groups-ids-GR1"
                 name="groupIds"
@@ -95,12 +99,12 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
       class="el-p8"
     >
       <mock-styled.h2
-        classname=""
+        classname="el-text-base"
       >
         Edit User
       </mock-styled.h2>
       <mock-styled.p
-        classname="el-has-grey-text el-has-section-margin"
+        classname="el-text-base el-has-grey-text el-has-section-margin"
       >
         Please use the section below to manage which groups this user belongs to:
       </mock-styled.p>
@@ -108,7 +112,11 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
         classname="el-form-layout-has-margin el-fade-in"
       >
         <mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r0:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="user-groups-ids-GR1"
               name="groupIds"

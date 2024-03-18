@@ -6,8 +6,8 @@ exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-mb5"
+      <div
+        class="el-flex-container el-mb5"
       >
         <mock-styled.div>
           <mock-styled.img
@@ -16,28 +16,29 @@ exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
             src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
           />
         </mock-styled.div>
-        <mock-styled.div
-          classname="el-flex-column el-flex-justify-between"
+        <div
+          class="el-flex-container el-flex-column el-flex-justify-between"
         >
-          <mock-styled.div
-            classname="el-flex-column"
+          <div
+            class="el-flex-container el-flex-column"
           >
             <mock-styled.h1
-              classname="el-has-no-margin"
+              classname="el-text-base el-has-no-margin"
             >
               will-test-dev-co-voracious-person
             </mock-styled.h1>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
             </mock-styled.p>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="el-flex-container"
           >
             <mock-styled.span
               classname="el-mr5 el-intent-success el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -48,14 +49,14 @@ exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
               >
                 <path
                   clip-rule="evenodd"
-                  d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.321 1.321 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87Z"
+                  d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.32 1.32 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87"
                   fill="currentColor"
                   fill-rule="evenodd"
                 />
               </svg>
             </mock-styled.span>
             <mock-styled.p
-              classname="el-mr5 el-has-no-margin"
+              classname="el-text-base el-has-no-margin el-mr5"
             >
               Verified by Reapit
             </mock-styled.p>
@@ -71,19 +72,19 @@ exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.p
-              classname="el-mr5 el-has-bold-text el-has-no-margin"
+              classname="el-text-base el-has-bold-text el-has-no-margin el-mr5"
             >
               Integration
             </mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-mb5"
+    <div
+      class="el-flex-container el-mb5"
     >
       <mock-styled.div>
         <mock-styled.img
@@ -92,28 +93,29 @@ exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
           src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
         />
       </mock-styled.div>
-      <mock-styled.div
-        classname="el-flex-column el-flex-justify-between"
+      <div
+        class="el-flex-container el-flex-column el-flex-justify-between"
       >
-        <mock-styled.div
-          classname="el-flex-column"
+        <div
+          class="el-flex-container el-flex-column"
         >
           <mock-styled.h1
-            classname="el-has-no-margin"
+            classname="el-text-base el-has-no-margin"
           >
             will-test-dev-co-voracious-person
           </mock-styled.h1>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
           </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="el-flex-container"
         >
           <mock-styled.span
             classname="el-mr5 el-intent-success el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -124,14 +126,14 @@ exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
             >
               <path
                 clip-rule="evenodd"
-                d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.321 1.321 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87Z"
+                d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.32 1.32 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87"
                 fill="currentColor"
                 fill-rule="evenodd"
               />
             </svg>
           </mock-styled.span>
           <mock-styled.p
-            classname="el-mr5 el-has-no-margin"
+            classname="el-text-base el-has-no-margin el-mr5"
           >
             Verified by Reapit
           </mock-styled.p>
@@ -147,13 +149,13 @@ exports[`AppsDetailHeader should match a snapshot for desktop 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.p
-            classname="el-mr5 el-has-bold-text el-has-no-margin"
+            classname="el-text-base el-has-bold-text el-has-no-margin el-mr5"
           >
             Integration
           </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -215,30 +217,31 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-mb5"
+      <div
+        class="el-flex-container el-mb5"
       >
-        <mock-styled.div
-          classname="el-flex-column el-flex-justify-between"
+        <div
+          class="el-flex-container el-flex-column el-flex-justify-between"
         >
-          <mock-styled.div
-            classname="el-flex-justify-between el-flex-align-end el-mb3"
+          <div
+            class="el-flex-container el-flex-justify-between el-flex-align-end el-mb3"
           >
             <mock-styled.h2
-              classname="mock-css.
+              classname="el-text-base el-has-bold-text el-has-no-margin mock-css.
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
- el-has-bold-text el-has-no-margin"
+"
             >
               will-test-dev-co-voracious-person
             </mock-styled.h2>
-            <mock-styled.div
-              classname=""
+            <div
+              class="el-flex-container"
             >
               <mock-styled.span
                 classname="el-mr2 el-intent-success el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -249,26 +252,26 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
                 >
                   <path
                     clip-rule="evenodd"
-                    d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.321 1.321 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87Z"
+                    d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.32 1.32 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87"
                     fill="currentColor"
                     fill-rule="evenodd"
                   />
                 </svg>
               </mock-styled.span>
               <mock-styled.p
-                classname="el-mr2 mock-css.
+                classname="el-text-base el-has-no-margin el-mr2 mock-css.
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
- el-has-no-margin"
+"
               >
                 Verified by Reapit
               </mock-styled.p>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+            </div>
+          </div>
+          <div
+            class="el-flex-container"
           >
             <mock-styled.div>
               <mock-styled.img
@@ -278,13 +281,13 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
               />
             </mock-styled.div>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
             </mock-styled.p>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="el-flex-container"
           >
             <mock-styled.div
               classname=""
@@ -298,41 +301,42 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.p
-              classname="el-mr5 el-has-bold-text el-has-no-margin"
+              classname="el-text-base el-has-bold-text el-has-no-margin el-mr5"
             >
               Integration
             </mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-mb5"
+    <div
+      class="el-flex-container el-mb5"
     >
-      <mock-styled.div
-        classname="el-flex-column el-flex-justify-between"
+      <div
+        class="el-flex-container el-flex-column el-flex-justify-between"
       >
-        <mock-styled.div
-          classname="el-flex-justify-between el-flex-align-end el-mb3"
+        <div
+          class="el-flex-container el-flex-justify-between el-flex-align-end el-mb3"
         >
           <mock-styled.h2
-            classname="mock-css.
+            classname="el-text-base el-has-bold-text el-has-no-margin mock-css.
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
- el-has-bold-text el-has-no-margin"
+"
           >
             will-test-dev-co-voracious-person
           </mock-styled.h2>
-          <mock-styled.div
-            classname=""
+          <div
+            class="el-flex-container"
           >
             <mock-styled.span
               classname="el-mr2 el-intent-success el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -343,26 +347,26 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
               >
                 <path
                   clip-rule="evenodd"
-                  d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.321 1.321 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87Z"
+                  d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.32 1.32 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87"
                   fill="currentColor"
                   fill-rule="evenodd"
                 />
               </svg>
             </mock-styled.span>
             <mock-styled.p
-              classname="el-mr2 mock-css.
+              classname="el-text-base el-has-no-margin el-mr2 mock-css.
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
- el-has-no-margin"
+"
             >
               Verified by Reapit
             </mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </div>
+        </div>
+        <div
+          class="el-flex-container"
         >
           <mock-styled.div>
             <mock-styled.img
@@ -372,13 +376,13 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
             />
           </mock-styled.div>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
           </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="el-flex-container"
         >
           <mock-styled.div
             classname=""
@@ -392,13 +396,13 @@ exports[`AppsDetailHeader should match a snapshot for mobile 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.p
-            classname="el-mr5 el-has-bold-text el-has-no-margin"
+            classname="el-text-base el-has-bold-text el-has-no-margin el-mr5"
           >
             Integration
           </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

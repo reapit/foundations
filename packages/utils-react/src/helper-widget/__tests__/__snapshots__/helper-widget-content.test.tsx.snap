@@ -7,7 +7,7 @@ exports[`HelperWidgetContent should match a snapshot for docs 1`] = `
     <div>
       <mock-styled.div>
         <mock-styled.h2
-          classname="el-has-bold-text el-has-no-margin"
+          classname="el-text-base el-has-bold-text el-has-no-margin"
         >
           Webhooks
         </mock-styled.h2>
@@ -16,12 +16,12 @@ exports[`HelperWidgetContent should match a snapshot for docs 1`] = `
         classname="el-fade-in"
       >
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Webhook Docs
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
         </mock-styled.p>
@@ -33,12 +33,12 @@ exports[`HelperWidgetContent should match a snapshot for docs 1`] = `
         classname="el-fade-in"
       >
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Webhook Docs
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
         </mock-styled.p>
@@ -51,7 +51,7 @@ exports[`HelperWidgetContent should match a snapshot for docs 1`] = `
   "container": <div>
     <mock-styled.div>
       <mock-styled.h2
-        classname="el-has-bold-text el-has-no-margin"
+        classname="el-text-base el-has-bold-text el-has-no-margin"
       >
         Webhooks
       </mock-styled.h2>
@@ -60,12 +60,12 @@ exports[`HelperWidgetContent should match a snapshot for docs 1`] = `
       classname="el-fade-in"
     >
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Webhook Docs
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
       </mock-styled.p>
@@ -77,12 +77,12 @@ exports[`HelperWidgetContent should match a snapshot for docs 1`] = `
       classname="el-fade-in"
     >
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Webhook Docs
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
       </mock-styled.p>
@@ -152,7 +152,7 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
     <div>
       <mock-styled.div>
         <mock-styled.h2
-          classname="el-has-bold-text el-has-no-margin"
+          classname="el-text-base el-has-bold-text el-has-no-margin"
         >
           Webhooks
         </mock-styled.h2>
@@ -229,12 +229,12 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
           />
         </svg>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Webhook Video
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
         </mock-styled.p>
@@ -314,12 +314,12 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
           />
         </svg>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Webhook Video
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
         </mock-styled.p>
@@ -332,7 +332,7 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
   "container": <div>
     <mock-styled.div>
       <mock-styled.h2
-        classname="el-has-bold-text el-has-no-margin"
+        classname="el-text-base el-has-bold-text el-has-no-margin"
       >
         Webhooks
       </mock-styled.h2>
@@ -409,12 +409,12 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
         />
       </svg>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Webhook Video
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
       </mock-styled.p>
@@ -494,12 +494,12 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
         />
       </svg>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Webhook Video
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
       </mock-styled.p>

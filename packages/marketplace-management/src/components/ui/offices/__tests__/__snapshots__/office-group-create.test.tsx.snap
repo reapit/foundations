@@ -8,7 +8,7 @@ exports[`OfficeGroupCreate should match a snapshot 1`] = `
       <mock-styled.div />
       <form>
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           SOME_NAME
            Create Office Group
@@ -31,7 +31,7 @@ exports[`OfficeGroupCreate should match a snapshot 1`] = `
               >
                 <mock-styled.div>
                   <mock-styled.p
-                    classname="el-has-grey-text"
+                    classname="el-text-base el-has-grey-text"
                   >
                     Add a name for your office group.
                   </mock-styled.p>
@@ -62,7 +62,7 @@ exports[`OfficeGroupCreate should match a snapshot 1`] = `
     <mock-styled.div />
     <form>
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         SOME_NAME
          Create Office Group
@@ -85,7 +85,7 @@ exports[`OfficeGroupCreate should match a snapshot 1`] = `
             >
               <mock-styled.div>
                 <mock-styled.p
-                  classname="el-has-grey-text"
+                  classname="el-text-base el-has-grey-text"
                 >
                   Add a name for your office group.
                 </mock-styled.p>
@@ -173,7 +173,7 @@ exports[`OfficeGroupCreate should match a snapshot where there is no orgId 1`] =
       <mock-styled.div />
       <form>
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           SOME_NAME
            Create Office Group
@@ -196,7 +196,7 @@ exports[`OfficeGroupCreate should match a snapshot where there is no orgId 1`] =
               >
                 <mock-styled.div>
                   <mock-styled.p
-                    classname="el-has-grey-text"
+                    classname="el-text-base el-has-grey-text"
                   >
                     Add a name for your office group.
                   </mock-styled.p>
@@ -227,7 +227,7 @@ exports[`OfficeGroupCreate should match a snapshot where there is no orgId 1`] =
     <mock-styled.div />
     <form>
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         SOME_NAME
          Create Office Group
@@ -250,7 +250,7 @@ exports[`OfficeGroupCreate should match a snapshot where there is no orgId 1`] =
             >
               <mock-styled.div>
                 <mock-styled.p
-                  classname="el-has-grey-text"
+                  classname="el-text-base el-has-grey-text"
                 >
                   Add a name for your office group.
                 </mock-styled.p>

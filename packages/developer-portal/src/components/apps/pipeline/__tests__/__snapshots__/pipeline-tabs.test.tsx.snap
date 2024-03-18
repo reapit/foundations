@@ -8,11 +8,14 @@ exports[`PipelineTabs should match snapshot 1`] = `
       <mock-styled.div />
       <mock-styled.div
         classname="el-tabs-full-width"
+        role="tablist"
       >
         <mock-styled.div>
           <mock-styled.input
+            aria-selected="true"
             id="deployments"
             name="pipeline-tabs"
+            role="tab"
             type="radio"
             value="deployments"
           />
@@ -26,8 +29,10 @@ exports[`PipelineTabs should match snapshot 1`] = `
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="configure"
             name="pipeline-tabs"
+            role="tab"
             type="radio"
             value="configure"
           />
@@ -41,8 +46,10 @@ exports[`PipelineTabs should match snapshot 1`] = `
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="environment"
             name="pipeline-tabs"
+            role="tab"
             type="radio"
             value="environment"
           />
@@ -66,11 +73,14 @@ exports[`PipelineTabs should match snapshot 1`] = `
     <mock-styled.div />
     <mock-styled.div
       classname="el-tabs-full-width"
+      role="tablist"
     >
       <mock-styled.div>
         <mock-styled.input
+          aria-selected="true"
           id="deployments"
           name="pipeline-tabs"
+          role="tab"
           type="radio"
           value="deployments"
         />
@@ -84,8 +94,10 @@ exports[`PipelineTabs should match snapshot 1`] = `
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="configure"
           name="pipeline-tabs"
+          role="tab"
           type="radio"
           value="configure"
         />
@@ -99,8 +111,10 @@ exports[`PipelineTabs should match snapshot 1`] = `
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="environment"
           name="pipeline-tabs"
+          role="tab"
           type="radio"
           value="environment"
         />

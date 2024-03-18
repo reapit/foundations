@@ -8,11 +8,14 @@ exports[`PipelineConfigure Should match snapshot 1`] = `
       <mock-styled.div />
       <mock-styled.div
         classname="el-tabs-full-width"
+        role="tablist"
       >
         <mock-styled.div>
           <mock-styled.input
+            aria-selected="true"
             id="deployments"
             name="pipeline-tabs"
+            role="tab"
             type="radio"
             value="deployments"
           />
@@ -26,8 +29,10 @@ exports[`PipelineConfigure Should match snapshot 1`] = `
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="configure"
             name="pipeline-tabs"
+            role="tab"
             type="radio"
             value="configure"
           />
@@ -41,8 +46,10 @@ exports[`PipelineConfigure Should match snapshot 1`] = `
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="environment"
             name="pipeline-tabs"
+            role="tab"
             type="radio"
             value="environment"
           />
@@ -61,7 +68,7 @@ exports[`PipelineConfigure Should match snapshot 1`] = `
         />
       </mock-styled.div>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Tell us about how we should build your application here. We assume that your application is a front end app and that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your application is bundled and that bundle is output to a local directory that we can deploy for you.
       </mock-styled.p>
@@ -160,11 +167,14 @@ exports[`PipelineConfigure Should match snapshot 1`] = `
     <mock-styled.div />
     <mock-styled.div
       classname="el-tabs-full-width"
+      role="tablist"
     >
       <mock-styled.div>
         <mock-styled.input
+          aria-selected="true"
           id="deployments"
           name="pipeline-tabs"
+          role="tab"
           type="radio"
           value="deployments"
         />
@@ -178,8 +188,10 @@ exports[`PipelineConfigure Should match snapshot 1`] = `
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="configure"
           name="pipeline-tabs"
+          role="tab"
           type="radio"
           value="configure"
         />
@@ -193,8 +205,10 @@ exports[`PipelineConfigure Should match snapshot 1`] = `
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="environment"
           name="pipeline-tabs"
+          role="tab"
           type="radio"
           value="environment"
         />
@@ -213,7 +227,7 @@ exports[`PipelineConfigure Should match snapshot 1`] = `
       />
     </mock-styled.div>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       Tell us about how we should build your application here. We assume that your application is a front end app and that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your application is bundled and that bundle is output to a local directory that we can deploy for you.
     </mock-styled.p>

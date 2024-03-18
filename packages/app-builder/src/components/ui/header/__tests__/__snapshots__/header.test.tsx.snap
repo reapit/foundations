@@ -2,8 +2,8 @@
 
 exports[`Header should match a snapshot 1`] = `
 <DocumentFragment>
-  <mock-styled.div
-    classname="el-flex-justify-center mock-css.
+  <div
+    class="el-flex-container el-flex-justify-center mock-css.
   background: #fff;
   /* height: 52px; */
   padding-top: 12px;
@@ -11,8 +11,8 @@ exports[`Header should match a snapshot 1`] = `
   border-bottom: 1px solid #e3e3e3;
 "
   >
-    <mock-styled.div
-      classname="el-flex-justify-end el-flex-align-center el-flex1 el-mt-auto el-mb-auto"
+    <div
+      class="el-flex-container el-flex-justify-end el-flex-align-center el-flex1 el-mt-auto el-mb-auto"
       style="padding-left: 17px; padding-right: 17px;"
     >
       <mock-styled.div
@@ -139,7 +139,7 @@ exports[`Header should match a snapshot 1`] = `
           </defs>
         </svg>
       </mock-styled.div>
-    </mock-styled.div>
+    </div>
     <div
       class="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-bottom type-dark"
       data-id="tooltip"
@@ -263,6 +263,6 @@ exports[`Header should match a snapshot 1`] = `
   
       </style>
     </div>
-  </mock-styled.div>
+  </div>
 </DocumentFragment>
 `;

@@ -7,8 +7,8 @@ exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div>
-        <mock-styled.div
-          classname="el-flex-column"
+        <div
+          class="el-flex-container el-flex-column"
         >
           <mock-styled.mock-styled.h2>
             New in AppMarket
@@ -80,6 +80,7 @@ exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.div
+                    role="img"
                     style="font-size: 7.8125em;"
                   >
                     <svg
@@ -134,15 +135,15 @@ exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.div>
+        </div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
     <mock-styled.div>
-      <mock-styled.div
-        classname="el-flex-column"
+      <div
+        class="el-flex-container el-flex-column"
       >
         <mock-styled.mock-styled.h2>
           New in AppMarket
@@ -214,6 +215,7 @@ exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.div
+                  role="img"
                   style="font-size: 7.8125em;"
                 >
                   <svg
@@ -268,7 +270,7 @@ exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.div>
+      </div>
     </mock-styled.div>
   </div>,
   "debug": [Function],
@@ -332,8 +334,8 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div>
-        <mock-styled.div
-          classname="el-flex-column"
+        <div
+          class="el-flex-container el-flex-column"
         >
           <mock-styled.mock-styled.h2>
             New in AppMarket
@@ -346,6 +348,7 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
                 <mock-styled.div>
                   <mock-styled.div
                     classname="el-mb7"
+                    role="img"
                     style="font-size: 2.8125em; width: 72px; height: 72px;"
                   >
                     <svg
@@ -411,6 +414,7 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.div
+                    role="img"
                     style="font-size: 7.8125em;"
                   >
                     <svg
@@ -465,15 +469,15 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.div>
+        </div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
     <mock-styled.div>
-      <mock-styled.div
-        classname="el-flex-column"
+      <div
+        class="el-flex-container el-flex-column"
       >
         <mock-styled.mock-styled.h2>
           New in AppMarket
@@ -486,6 +490,7 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
               <mock-styled.div>
                 <mock-styled.div
                   classname="el-mb7"
+                  role="img"
                   style="font-size: 2.8125em; width: 72px; height: 72px;"
                 >
                   <svg
@@ -551,6 +556,7 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.div
+                  role="img"
                   style="font-size: 7.8125em;"
                 >
                   <svg
@@ -605,7 +611,7 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.div>
+      </div>
     </mock-styled.div>
   </div>,
   "debug": [Function],

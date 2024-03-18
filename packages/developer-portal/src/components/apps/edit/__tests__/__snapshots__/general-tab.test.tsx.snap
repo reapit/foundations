@@ -111,22 +111,22 @@ exports[`GeneralTab should match a snapshot 1`] = `
             </g>
           </svg>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Manage App Listing
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             This page is the starting point for completing your app listing, and initiating the approvals process for your app to go live with customer data.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             As an app developer, you need to provide us with a number of pieces of information about your integration and have it approved by our team, prior to going live with customer data. For apps that wish to integrate with the AgencyCloud CRM, and be publicly listed in the AppMarket, the approvals process is more involved than for simple server-side or single customer private apps. Regardless of your target audience, you should start to complete your app listing as soon as possible.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             You can check the status of your app listing at any time by using the button below, prior to submitting for approval.
           </mock-styled.p>
@@ -348,17 +348,17 @@ exports[`GeneralTab should match a snapshot 1`] = `
             </g>
           </svg>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             App Listing Documentation
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             As you make changes, you should save your changes in the left hand side menu. You can do this as many times as you like until your app is listed, or live in the AppMarket.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             When you are ready for your app to be reviewed by a member of our team, click the ‘Submit Review’ button. If you are looking for guidance on what we look for when reviewing app, there is a dedicated page 
             <a>
@@ -366,12 +366,12 @@ exports[`GeneralTab should match a snapshot 1`] = `
             </a>
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             When your app is live, you will need to create revisions to your app for our team to review. You can only have one live revision outstanding at any given time.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             For guidelines on completing your app listing, visit the documentation link below before getting started.
           </mock-styled.p>
@@ -492,22 +492,22 @@ exports[`GeneralTab should match a snapshot 1`] = `
           </g>
         </svg>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Manage App Listing
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This page is the starting point for completing your app listing, and initiating the approvals process for your app to go live with customer data.
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           As an app developer, you need to provide us with a number of pieces of information about your integration and have it approved by our team, prior to going live with customer data. For apps that wish to integrate with the AgencyCloud CRM, and be publicly listed in the AppMarket, the approvals process is more involved than for simple server-side or single customer private apps. Regardless of your target audience, you should start to complete your app listing as soon as possible.
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           You can check the status of your app listing at any time by using the button below, prior to submitting for approval.
         </mock-styled.p>
@@ -729,17 +729,17 @@ exports[`GeneralTab should match a snapshot 1`] = `
           </g>
         </svg>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           App Listing Documentation
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           As you make changes, you should save your changes in the left hand side menu. You can do this as many times as you like until your app is listed, or live in the AppMarket.
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           When you are ready for your app to be reviewed by a member of our team, click the ‘Submit Review’ button. If you are looking for guidance on what we look for when reviewing app, there is a dedicated page 
           <a>
@@ -747,12 +747,12 @@ exports[`GeneralTab should match a snapshot 1`] = `
           </a>
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           When your app is live, you will need to create revisions to your app for our team to review. You can only have one live revision outstanding at any given time.
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           For guidelines on completing your app listing, visit the documentation link below before getting started.
         </mock-styled.p>

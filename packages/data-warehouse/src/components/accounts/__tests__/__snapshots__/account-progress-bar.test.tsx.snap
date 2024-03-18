@@ -13,6 +13,9 @@ exports[`AccountProgressBar should match a snapshot for 0 complete 1`] = `
           classname="el-mb7"
         >
           <mock-styled.div
+            aria-valuemax="100"
+            aria-valuemin="0"
+            aria-valuenow="0"
             style="width: 0%;"
           >
             <mock-styled.div />
@@ -33,6 +36,9 @@ exports[`AccountProgressBar should match a snapshot for 0 complete 1`] = `
         classname="el-mb7"
       >
         <mock-styled.div
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="0"
           style="width: 0%;"
         >
           <mock-styled.div />
@@ -110,6 +116,9 @@ exports[`AccountProgressBar should match a snapshot for 19 complete 1`] = `
           classname="el-mb7"
         >
           <mock-styled.div
+            aria-valuemax="100"
+            aria-valuemin="0"
+            aria-valuenow="19"
             style="width: 19%;"
           >
             <mock-styled.div />
@@ -130,6 +139,9 @@ exports[`AccountProgressBar should match a snapshot for 19 complete 1`] = `
         classname="el-mb7"
       >
         <mock-styled.div
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="19"
           style="width: 19%;"
         >
           <mock-styled.div />
@@ -207,6 +219,9 @@ exports[`AccountProgressBar should match a snapshot for 39 complete 1`] = `
           classname="el-mb7"
         >
           <mock-styled.div
+            aria-valuemax="100"
+            aria-valuemin="0"
+            aria-valuenow="39"
             style="width: 39%;"
           >
             <mock-styled.div />
@@ -227,6 +242,9 @@ exports[`AccountProgressBar should match a snapshot for 39 complete 1`] = `
         classname="el-mb7"
       >
         <mock-styled.div
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="39"
           style="width: 39%;"
         >
           <mock-styled.div />
@@ -304,6 +322,9 @@ exports[`AccountProgressBar should match a snapshot for 59 complete 1`] = `
           classname="el-mb7"
         >
           <mock-styled.div
+            aria-valuemax="100"
+            aria-valuemin="0"
+            aria-valuenow="59"
             style="width: 59%;"
           >
             <mock-styled.div />
@@ -324,6 +345,9 @@ exports[`AccountProgressBar should match a snapshot for 59 complete 1`] = `
         classname="el-mb7"
       >
         <mock-styled.div
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="59"
           style="width: 59%;"
         >
           <mock-styled.div />
@@ -401,6 +425,9 @@ exports[`AccountProgressBar should match a snapshot for 79 complete 1`] = `
           classname="el-mb7"
         >
           <mock-styled.div
+            aria-valuemax="100"
+            aria-valuemin="0"
+            aria-valuenow="79"
             style="width: 79%;"
           >
             <mock-styled.div />
@@ -421,6 +448,9 @@ exports[`AccountProgressBar should match a snapshot for 79 complete 1`] = `
         classname="el-mb7"
       >
         <mock-styled.div
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="79"
           style="width: 79%;"
         >
           <mock-styled.div />
@@ -498,6 +528,9 @@ exports[`AccountProgressBar should match a snapshot for 94 complete 1`] = `
           classname="el-mb7"
         >
           <mock-styled.div
+            aria-valuemax="100"
+            aria-valuemin="0"
+            aria-valuenow="94"
             style="width: 94%;"
           >
             <mock-styled.div />
@@ -518,6 +551,9 @@ exports[`AccountProgressBar should match a snapshot for 94 complete 1`] = `
         classname="el-mb7"
       >
         <mock-styled.div
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="94"
           style="width: 94%;"
         >
           <mock-styled.div />
@@ -595,6 +631,9 @@ exports[`AccountProgressBar should match a snapshot for 99 complete 1`] = `
           classname="el-mb7"
         >
           <mock-styled.div
+            aria-valuemax="100"
+            aria-valuemin="0"
+            aria-valuenow="99"
             style="width: 99%;"
           >
             <mock-styled.div />
@@ -615,6 +654,9 @@ exports[`AccountProgressBar should match a snapshot for 99 complete 1`] = `
         classname="el-mb7"
       >
         <mock-styled.div
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="99"
           style="width: 99%;"
         >
           <mock-styled.div />
@@ -692,6 +734,9 @@ exports[`AccountProgressBar should match a snapshot for 100 complete 1`] = `
           classname="el-mb7"
         >
           <mock-styled.div
+            aria-valuemax="100"
+            aria-valuemin="0"
+            aria-valuenow="100"
             style="width: 100%;"
           >
             <mock-styled.div />
@@ -717,6 +762,9 @@ exports[`AccountProgressBar should match a snapshot for 100 complete 1`] = `
         classname="el-mb7"
       >
         <mock-styled.div
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="100"
           style="width: 100%;"
         >
           <mock-styled.div />

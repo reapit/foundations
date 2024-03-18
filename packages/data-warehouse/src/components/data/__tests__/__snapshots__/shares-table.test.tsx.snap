@@ -11,26 +11,47 @@ exports[`SharesTable should match a snapshot 1`] = `
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="5"
+        role="table"
       >
-        <mock-styled.div>
-          <mock-styled.div>
+        <mock-styled.div
+          role="row"
+        >
+          <mock-styled.div
+            aria-label="Data Set Name"
+            role="columnheader"
+          >
             Data Set Name
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Database"
+            role="columnheader"
+          >
             Database
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Schema"
+            role="columnheader"
+          >
             Schema
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Warehouse"
+            role="columnheader"
+          >
             Warehouse
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Region"
+            role="columnheader"
+          >
             Region
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            role="columnheader"
+          >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -40,7 +61,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                   fill="currentColor"
                 />
               </svg>
@@ -49,10 +70,12 @@ exports[`SharesTable should match a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Data Set Name"
@@ -62,6 +85,7 @@ exports[`SharesTable should match a snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Database"
@@ -71,6 +95,7 @@ exports[`SharesTable should match a snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Schema"
@@ -80,6 +105,7 @@ exports[`SharesTable should match a snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Warehouse"
@@ -89,6 +115,7 @@ exports[`SharesTable should match a snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Region"
@@ -98,9 +125,11 @@ exports[`SharesTable should match a snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname=""
+              role="cell"
             >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -110,7 +139,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                     fill="currentColor"
                   />
                 </svg>
@@ -118,6 +147,7 @@ exports[`SharesTable should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
+            aria-hidden="false"
             classname=""
           >
             <mock-styled.div>
@@ -166,26 +196,47 @@ exports[`SharesTable should match a snapshot 1`] = `
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="5"
+      role="table"
     >
-      <mock-styled.div>
-        <mock-styled.div>
+      <mock-styled.div
+        role="row"
+      >
+        <mock-styled.div
+          aria-label="Data Set Name"
+          role="columnheader"
+        >
           Data Set Name
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Database"
+          role="columnheader"
+        >
           Database
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Schema"
+          role="columnheader"
+        >
           Schema
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Warehouse"
+          role="columnheader"
+        >
           Warehouse
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Region"
+          role="columnheader"
+        >
           Region
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          role="columnheader"
+        >
           <mock-styled.span
             classname="el-intent-default el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -195,7 +246,7 @@ exports[`SharesTable should match a snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                 fill="currentColor"
               />
             </svg>
@@ -204,10 +255,12 @@ exports[`SharesTable should match a snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Data Set Name"
@@ -217,6 +270,7 @@ exports[`SharesTable should match a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Database"
@@ -226,6 +280,7 @@ exports[`SharesTable should match a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Schema"
@@ -235,6 +290,7 @@ exports[`SharesTable should match a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Warehouse"
@@ -244,6 +300,7 @@ exports[`SharesTable should match a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Region"
@@ -253,9 +310,11 @@ exports[`SharesTable should match a snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname=""
+            role="cell"
           >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -265,7 +324,7 @@ exports[`SharesTable should match a snapshot 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                   fill="currentColor"
                 />
               </svg>
@@ -273,6 +332,7 @@ exports[`SharesTable should match a snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
+          aria-hidden="false"
           classname=""
         >
           <mock-styled.div>

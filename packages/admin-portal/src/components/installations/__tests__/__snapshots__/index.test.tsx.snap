@@ -6,11 +6,11 @@ exports[`Installations should render component when loading 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.section
-        classname=""
+      <section
+        class="el-page-container"
       >
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           Installations
         </mock-styled.h1>
@@ -30,6 +30,7 @@ exports[`Installations should render component when loading 1`] = `
                   />
                   <mock-styled.span
                     classname=""
+                    role="img"
                     style="font-size: 1rem;"
                   >
                     <svg
@@ -41,7 +42,7 @@ exports[`Installations should render component when loading 1`] = `
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="m19.756 18.578-5.688-5.687a7.878 7.878 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0 3.552.001 0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.879 7.879 0 0 0 4.973-1.765l5.687 5.688a.831.831 0 0 0 1.179 0 .832.832 0 0 0 0-1.179Zm-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25Z"
+                        d="m19.756 18.578-5.688-5.687a7.88 7.88 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0S0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.88 7.88 0 0 0 4.973-1.765l5.687 5.688a.83.83 0 0 0 1.179 0 .83.83 0 0 0 0-1.179m-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25"
                         fill="currentColor"
                       />
                     </svg>
@@ -52,7 +53,11 @@ exports[`Installations should render component when loading 1`] = `
                     Search Apps
                   </mock-styled.label>
                 </mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.div
+                  aria-controls=":r0:"
+                  aria-haspopup="listbox"
+                  role="combobox"
+                >
                   <mock-styled.input
                     id="app-ids-select"
                     name="appIds"
@@ -62,6 +67,7 @@ exports[`Installations should render component when loading 1`] = `
                   >
                     <mock-styled.span
                       classname="el-ml2 el-intent-default el-icon-new"
+                      role="img"
                     >
                       <svg
                         fill="none"
@@ -71,7 +77,7 @@ exports[`Installations should render component when loading 1`] = `
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                          d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                           fill="currentColor"
                         />
                       </svg>
@@ -90,7 +96,12 @@ exports[`Installations should render component when loading 1`] = `
               >
                 Company
               </mock-styled.label>
-              <mock-styled.div>
+              <mock-styled.div
+                aria-controls=":r1:"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                role="combobox"
+              >
                 <input
                   id="developer-search-box"
                   readonly=""
@@ -100,6 +111,7 @@ exports[`Installations should render component when loading 1`] = `
                 <mock-styled.div>
                   <mock-styled.span
                     classname="el-intent-default el-icon-new"
+                    role="img"
                     style="font-size: 1rem;"
                   >
                     <svg
@@ -111,7 +123,7 @@ exports[`Installations should render component when loading 1`] = `
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                        d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                         fill="currentColor"
                       />
                     </svg>
@@ -132,7 +144,12 @@ exports[`Installations should render component when loading 1`] = `
               >
                 Client
               </mock-styled.label>
-              <mock-styled.div>
+              <mock-styled.div
+                aria-controls=":r2:"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                role="combobox"
+              >
                 <input
                   id="client-search-box"
                   readonly=""
@@ -142,6 +159,7 @@ exports[`Installations should render component when loading 1`] = `
                 <mock-styled.div>
                   <mock-styled.span
                     classname="el-intent-default el-icon-new"
+                    role="img"
                     style="font-size: 1rem;"
                   >
                     <svg
@@ -153,7 +171,7 @@ exports[`Installations should render component when loading 1`] = `
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                        d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                         fill="currentColor"
                       />
                     </svg>
@@ -276,16 +294,16 @@ exports[`Installations should render component when loading 1`] = `
             <mock-styled.div />
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.section>
+      </section>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.section
-      classname=""
+    <section
+      class="el-page-container"
     >
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         Installations
       </mock-styled.h1>
@@ -305,6 +323,7 @@ exports[`Installations should render component when loading 1`] = `
                 />
                 <mock-styled.span
                   classname=""
+                  role="img"
                   style="font-size: 1rem;"
                 >
                   <svg
@@ -316,7 +335,7 @@ exports[`Installations should render component when loading 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="m19.756 18.578-5.688-5.687a7.878 7.878 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0 3.552.001 0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.879 7.879 0 0 0 4.973-1.765l5.687 5.688a.831.831 0 0 0 1.179 0 .832.832 0 0 0 0-1.179Zm-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25Z"
+                      d="m19.756 18.578-5.688-5.687a7.88 7.88 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0S0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.88 7.88 0 0 0 4.973-1.765l5.687 5.688a.83.83 0 0 0 1.179 0 .83.83 0 0 0 0-1.179m-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25"
                       fill="currentColor"
                     />
                   </svg>
@@ -327,7 +346,11 @@ exports[`Installations should render component when loading 1`] = `
                   Search Apps
                 </mock-styled.label>
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                aria-controls=":r0:"
+                aria-haspopup="listbox"
+                role="combobox"
+              >
                 <mock-styled.input
                   id="app-ids-select"
                   name="appIds"
@@ -337,6 +360,7 @@ exports[`Installations should render component when loading 1`] = `
                 >
                   <mock-styled.span
                     classname="el-ml2 el-intent-default el-icon-new"
+                    role="img"
                   >
                     <svg
                       fill="none"
@@ -346,7 +370,7 @@ exports[`Installations should render component when loading 1`] = `
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                        d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                         fill="currentColor"
                       />
                     </svg>
@@ -365,7 +389,12 @@ exports[`Installations should render component when loading 1`] = `
             >
               Company
             </mock-styled.label>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r1:"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <input
                 id="developer-search-box"
                 readonly=""
@@ -375,6 +404,7 @@ exports[`Installations should render component when loading 1`] = `
               <mock-styled.div>
                 <mock-styled.span
                   classname="el-intent-default el-icon-new"
+                  role="img"
                   style="font-size: 1rem;"
                 >
                   <svg
@@ -386,7 +416,7 @@ exports[`Installations should render component when loading 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                      d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                       fill="currentColor"
                     />
                   </svg>
@@ -407,7 +437,12 @@ exports[`Installations should render component when loading 1`] = `
             >
               Client
             </mock-styled.label>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r2:"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <input
                 id="client-search-box"
                 readonly=""
@@ -417,6 +452,7 @@ exports[`Installations should render component when loading 1`] = `
               <mock-styled.div>
                 <mock-styled.span
                   classname="el-intent-default el-icon-new"
+                  role="img"
                   style="font-size: 1rem;"
                 >
                   <svg
@@ -428,7 +464,7 @@ exports[`Installations should render component when loading 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                      d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                       fill="currentColor"
                     />
                   </svg>
@@ -551,7 +587,7 @@ exports[`Installations should render component when loading 1`] = `
           <mock-styled.div />
         </mock-styled.div>
       </mock-styled.div>
-    </mock-styled.section>
+    </section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -613,11 +649,11 @@ exports[`Installations should render component with data 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.section
-        classname=""
+      <section
+        class="el-page-container"
       >
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           Installations
         </mock-styled.h1>
@@ -637,6 +673,7 @@ exports[`Installations should render component with data 1`] = `
                   />
                   <mock-styled.span
                     classname=""
+                    role="img"
                     style="font-size: 1rem;"
                   >
                     <svg
@@ -648,7 +685,7 @@ exports[`Installations should render component with data 1`] = `
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="m19.756 18.578-5.688-5.687a7.878 7.878 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0 3.552.001 0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.879 7.879 0 0 0 4.973-1.765l5.687 5.688a.831.831 0 0 0 1.179 0 .832.832 0 0 0 0-1.179Zm-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25Z"
+                        d="m19.756 18.578-5.688-5.687a7.88 7.88 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0S0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.88 7.88 0 0 0 4.973-1.765l5.687 5.688a.83.83 0 0 0 1.179 0 .83.83 0 0 0 0-1.179m-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25"
                         fill="currentColor"
                       />
                     </svg>
@@ -659,7 +696,11 @@ exports[`Installations should render component with data 1`] = `
                     Search Apps
                   </mock-styled.label>
                 </mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.div
+                  aria-controls=":r4:"
+                  aria-haspopup="listbox"
+                  role="combobox"
+                >
                   <mock-styled.input
                     id="app-ids-select"
                     name="appIds"
@@ -669,6 +710,7 @@ exports[`Installations should render component with data 1`] = `
                   >
                     <mock-styled.span
                       classname="el-ml2 el-intent-default el-icon-new"
+                      role="img"
                     >
                       <svg
                         fill="none"
@@ -678,7 +720,7 @@ exports[`Installations should render component with data 1`] = `
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                          d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                           fill="currentColor"
                         />
                       </svg>
@@ -697,7 +739,12 @@ exports[`Installations should render component with data 1`] = `
               >
                 Company
               </mock-styled.label>
-              <mock-styled.div>
+              <mock-styled.div
+                aria-controls=":r5:"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                role="combobox"
+              >
                 <input
                   id="developer-search-box"
                   readonly=""
@@ -707,6 +754,7 @@ exports[`Installations should render component with data 1`] = `
                 <mock-styled.div>
                   <mock-styled.span
                     classname="el-intent-default el-icon-new"
+                    role="img"
                     style="font-size: 1rem;"
                   >
                     <svg
@@ -718,7 +766,7 @@ exports[`Installations should render component with data 1`] = `
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                        d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                         fill="currentColor"
                       />
                     </svg>
@@ -739,7 +787,12 @@ exports[`Installations should render component with data 1`] = `
               >
                 Client
               </mock-styled.label>
-              <mock-styled.div>
+              <mock-styled.div
+                aria-controls=":r6:"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                role="combobox"
+              >
                 <input
                   id="client-search-box"
                   readonly=""
@@ -749,6 +802,7 @@ exports[`Installations should render component with data 1`] = `
                 <mock-styled.div>
                   <mock-styled.span
                     classname="el-intent-default el-icon-new"
+                    role="img"
                     style="font-size: 1rem;"
                   >
                     <svg
@@ -760,7 +814,7 @@ exports[`Installations should render component with data 1`] = `
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                        d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                         fill="currentColor"
                       />
                     </svg>
@@ -881,35 +935,65 @@ exports[`Installations should render component with data 1`] = `
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="8"
+          role="table"
         >
-          <mock-styled.div>
-            <mock-styled.div>
+          <mock-styled.div
+            role="row"
+          >
+            <mock-styled.div
+              aria-label="Customer Name"
+              role="columnheader"
+            >
               Customer Name
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="App Name"
+              role="columnheader"
+            >
               App Name
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Reapit Customer Code"
+              role="columnheader"
+            >
               Reapit Customer Code
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Customer Address"
+              role="columnheader"
+            >
               Customer Address
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Date Installed"
+              role="columnheader"
+            >
               Date Installed
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Installed By"
+              role="columnheader"
+            >
               Installed By
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Date Uninstalled"
+              role="columnheader"
+            >
               Date Uninstalled
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Uninstalled By"
+              role="columnheader"
+            >
               Uninstalled By
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              role="columnheader"
+            >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -919,7 +1003,7 @@ exports[`Installations should render component with data 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                    d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                     fill="currentColor"
                   />
                 </svg>
@@ -928,13 +1012,16 @@ exports[`Installations should render component with data 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname=""
+            role="row"
           >
             <mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.span
                   classname="el-intent-default"
+                  role="img"
                   style="font-size: 1.25rem;"
                 >
                   <svg
@@ -949,19 +1036,19 @@ exports[`Installations should render component with data 1`] = `
                       clip-path="url(#flatInfographic_svg__a)"
                     >
                       <path
-                        d="M20 20h-9V4h9v16Z"
+                        d="M20 20h-9V4h9v16"
                         fill="#d8dee4"
                       />
                       <path
-                        d="M13 2h-1v18h1V2ZM1.28 0v1.787H0V20h12V0H1.28Z"
+                        d="M13 2h-1v18h1zM1.28 0v1.787H0V20h12V0z"
                         fill="#798da1"
                       />
                       <path
-                        d="M5.149 4.505H3.617V6.38H5.15V4.505ZM8.962 4.505H7.43V6.38h1.532V4.505ZM3.617 8.255H5.15v1.875H3.617V8.255ZM8.962 8.255H7.43v1.875h1.532V8.255ZM3.617 12.006H5.15v1.875H3.617v-1.875ZM8.962 12.006H7.43v1.875h1.532v-1.875ZM3.617 15.756H5.15v1.875H3.617v-1.875ZM8.962 15.756H7.43v1.875h1.532v-1.875Z"
+                        d="M5.149 4.505H3.617V6.38H5.15zM8.962 4.505H7.43V6.38h1.532zM3.617 8.255H5.15v1.875H3.617zM8.962 8.255H7.43v1.875h1.532zM3.617 12.006H5.15v1.875H3.617zM8.962 12.006H7.43v1.875h1.532zM3.617 15.756H5.15v1.875H3.617zM8.962 15.756H7.43v1.875h1.532z"
                         fill="#fff"
                       />
                       <path
-                        d="M16.281 8.255h-1.532v1.875h1.532V8.255ZM16.281 12.006h-1.532v1.875h1.532v-1.875Z"
+                        d="M16.281 8.255h-1.532v1.875h1.532zM16.281 12.006h-1.532v1.875h1.532z"
                         fill="#798da1"
                       />
                     </g>
@@ -985,9 +1072,11 @@ exports[`Installations should render component with data 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.span
                   classname="el-intent-default"
+                  role="img"
                   style="font-size: 1.25rem;"
                 >
                   <svg
@@ -1000,24 +1089,24 @@ exports[`Installations should render component with data 1`] = `
                   >
                     <path
                       clip-rule="evenodd"
-                      d="M19.833 2h15.334C37.28 2 39 3.615 39 5.6v28.8c0 1.985-1.72 3.6-3.833 3.6H19.833C17.72 38 16 36.385 16 34.4V5.6C16 3.615 17.72 2 19.833 2Z"
+                      d="M19.833 2h15.334C37.28 2 39 3.615 39 5.6v28.8c0 1.985-1.72 3.6-3.833 3.6H19.833C17.72 38 16 36.385 16 34.4V5.6C16 3.615 17.72 2 19.833 2"
                       fill="#d8dee4"
                       fill-rule="evenodd"
                     />
                     <path
-                      d="M27.948 35.27c1.126 0 2.038-.895 2.038-2 0-1.104-.912-2-2.038-2s-2.038.896-2.038 2c0 1.105.912 2 2.038 2Z"
+                      d="M27.948 35.27c1.126 0 2.038-.895 2.038-2s-.912-2-2.038-2-2.038.896-2.038 2 .912 2 2.038 2"
                       fill="#798da1"
                     />
                     <path
-                      d="M18 14h15.558c.797 0 1.442.63 1.442 1.408v9.184C35 25.37 34.355 26 33.557 26H18V14Z"
+                      d="M18 14h15.558c.797 0 1.442.63 1.442 1.408v9.184C35 25.37 34.355 26 33.557 26H18z"
                       fill="#9faebc"
                     />
                     <path
-                      d="M21 7.403v25.194c0 1.155-1.35 1.814-2.294 1.12L1.572 21.118a1.381 1.381 0 0 1 0-2.238L18.707 6.284C19.65 5.589 21 6.248 21 7.403Z"
+                      d="M21 7.403v25.194c0 1.155-1.35 1.814-2.294 1.12L1.572 21.12a1.38 1.38 0 0 1 0-2.239L18.707 6.284C19.65 5.589 21 6.248 21 7.403"
                       fill="#9faebc"
                     />
                     <path
-                      d="M31 4h-4a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2ZM24 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
+                      d="M31 4h-4a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2M24 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2"
                       fill="#798da1"
                     />
                   </svg>
@@ -1030,6 +1119,7 @@ exports[`Installations should render component with data 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Reapit Customer Code"
@@ -1039,6 +1129,7 @@ exports[`Installations should render component with data 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Customer Address"
@@ -1048,6 +1139,7 @@ exports[`Installations should render component with data 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Date Installed"
@@ -1057,6 +1149,7 @@ exports[`Installations should render component with data 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Installed By"
@@ -1066,6 +1159,7 @@ exports[`Installations should render component with data 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Date Uninstalled"
@@ -1075,6 +1169,7 @@ exports[`Installations should render component with data 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Uninstalled By"
@@ -1082,9 +1177,11 @@ exports[`Installations should render component with data 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname=""
+                role="cell"
               >
                 <mock-styled.span
                   classname="el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
@@ -1094,7 +1191,7 @@ exports[`Installations should render component with data 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                       fill="currentColor"
                     />
                   </svg>
@@ -1102,6 +1199,7 @@ exports[`Installations should render component with data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
+              aria-hidden="false"
               classname=""
             >
               <mock-styled.div>
@@ -1130,11 +1228,14 @@ exports[`Installations should render component with data 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.button
+            aria-label="Previous"
             data-testid="back-button"
+            role="button"
             type="button"
           >
             <mock-styled.span
               classname="el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -1144,7 +1245,7 @@ exports[`Installations should render component with data 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                  d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
                   fill="currentColor"
                 />
               </svg>
@@ -1158,11 +1259,14 @@ exports[`Installations should render component with data 1`] = `
             1
           </mock-styled.div>
           <mock-styled.button
+            aria-label="Next"
             data-testid="forward-button"
+            role="button"
             type="button"
           >
             <mock-styled.span
               classname="el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -1172,23 +1276,23 @@ exports[`Installations should render component with data 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                  d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
                   fill="currentColor"
                 />
               </svg>
             </mock-styled.span>
           </mock-styled.button>
         </mock-styled.div>
-      </mock-styled.section>
+      </section>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.section
-      classname=""
+    <section
+      class="el-page-container"
     >
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         Installations
       </mock-styled.h1>
@@ -1208,6 +1312,7 @@ exports[`Installations should render component with data 1`] = `
                 />
                 <mock-styled.span
                   classname=""
+                  role="img"
                   style="font-size: 1rem;"
                 >
                   <svg
@@ -1219,7 +1324,7 @@ exports[`Installations should render component with data 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="m19.756 18.578-5.688-5.687a7.878 7.878 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0 3.552.001 0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.879 7.879 0 0 0 4.973-1.765l5.687 5.688a.831.831 0 0 0 1.179 0 .832.832 0 0 0 0-1.179Zm-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25Z"
+                      d="m19.756 18.578-5.688-5.687a7.88 7.88 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0S0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.88 7.88 0 0 0 4.973-1.765l5.687 5.688a.83.83 0 0 0 1.179 0 .83.83 0 0 0 0-1.179m-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25"
                       fill="currentColor"
                     />
                   </svg>
@@ -1230,7 +1335,11 @@ exports[`Installations should render component with data 1`] = `
                   Search Apps
                 </mock-styled.label>
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                aria-controls=":r4:"
+                aria-haspopup="listbox"
+                role="combobox"
+              >
                 <mock-styled.input
                   id="app-ids-select"
                   name="appIds"
@@ -1240,6 +1349,7 @@ exports[`Installations should render component with data 1`] = `
                 >
                   <mock-styled.span
                     classname="el-ml2 el-intent-default el-icon-new"
+                    role="img"
                   >
                     <svg
                       fill="none"
@@ -1249,7 +1359,7 @@ exports[`Installations should render component with data 1`] = `
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                        d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                         fill="currentColor"
                       />
                     </svg>
@@ -1268,7 +1378,12 @@ exports[`Installations should render component with data 1`] = `
             >
               Company
             </mock-styled.label>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r5:"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <input
                 id="developer-search-box"
                 readonly=""
@@ -1278,6 +1393,7 @@ exports[`Installations should render component with data 1`] = `
               <mock-styled.div>
                 <mock-styled.span
                   classname="el-intent-default el-icon-new"
+                  role="img"
                   style="font-size: 1rem;"
                 >
                   <svg
@@ -1289,7 +1405,7 @@ exports[`Installations should render component with data 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                      d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                       fill="currentColor"
                     />
                   </svg>
@@ -1310,7 +1426,12 @@ exports[`Installations should render component with data 1`] = `
             >
               Client
             </mock-styled.label>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r6:"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <input
                 id="client-search-box"
                 readonly=""
@@ -1320,6 +1441,7 @@ exports[`Installations should render component with data 1`] = `
               <mock-styled.div>
                 <mock-styled.span
                   classname="el-intent-default el-icon-new"
+                  role="img"
                   style="font-size: 1rem;"
                 >
                   <svg
@@ -1331,7 +1453,7 @@ exports[`Installations should render component with data 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                      d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                       fill="currentColor"
                     />
                   </svg>
@@ -1452,35 +1574,65 @@ exports[`Installations should render component with data 1`] = `
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="8"
+        role="table"
       >
-        <mock-styled.div>
-          <mock-styled.div>
+        <mock-styled.div
+          role="row"
+        >
+          <mock-styled.div
+            aria-label="Customer Name"
+            role="columnheader"
+          >
             Customer Name
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="App Name"
+            role="columnheader"
+          >
             App Name
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Reapit Customer Code"
+            role="columnheader"
+          >
             Reapit Customer Code
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Customer Address"
+            role="columnheader"
+          >
             Customer Address
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Date Installed"
+            role="columnheader"
+          >
             Date Installed
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Installed By"
+            role="columnheader"
+          >
             Installed By
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Date Uninstalled"
+            role="columnheader"
+          >
             Date Uninstalled
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Uninstalled By"
+            role="columnheader"
+          >
             Uninstalled By
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            role="columnheader"
+          >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -1490,7 +1642,7 @@ exports[`Installations should render component with data 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                   fill="currentColor"
                 />
               </svg>
@@ -1499,13 +1651,16 @@ exports[`Installations should render component with data 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.span
                 classname="el-intent-default"
+                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -1520,19 +1675,19 @@ exports[`Installations should render component with data 1`] = `
                     clip-path="url(#flatInfographic_svg__a)"
                   >
                     <path
-                      d="M20 20h-9V4h9v16Z"
+                      d="M20 20h-9V4h9v16"
                       fill="#d8dee4"
                     />
                     <path
-                      d="M13 2h-1v18h1V2ZM1.28 0v1.787H0V20h12V0H1.28Z"
+                      d="M13 2h-1v18h1zM1.28 0v1.787H0V20h12V0z"
                       fill="#798da1"
                     />
                     <path
-                      d="M5.149 4.505H3.617V6.38H5.15V4.505ZM8.962 4.505H7.43V6.38h1.532V4.505ZM3.617 8.255H5.15v1.875H3.617V8.255ZM8.962 8.255H7.43v1.875h1.532V8.255ZM3.617 12.006H5.15v1.875H3.617v-1.875ZM8.962 12.006H7.43v1.875h1.532v-1.875ZM3.617 15.756H5.15v1.875H3.617v-1.875ZM8.962 15.756H7.43v1.875h1.532v-1.875Z"
+                      d="M5.149 4.505H3.617V6.38H5.15zM8.962 4.505H7.43V6.38h1.532zM3.617 8.255H5.15v1.875H3.617zM8.962 8.255H7.43v1.875h1.532zM3.617 12.006H5.15v1.875H3.617zM8.962 12.006H7.43v1.875h1.532zM3.617 15.756H5.15v1.875H3.617zM8.962 15.756H7.43v1.875h1.532z"
                       fill="#fff"
                     />
                     <path
-                      d="M16.281 8.255h-1.532v1.875h1.532V8.255ZM16.281 12.006h-1.532v1.875h1.532v-1.875Z"
+                      d="M16.281 8.255h-1.532v1.875h1.532zM16.281 12.006h-1.532v1.875h1.532z"
                       fill="#798da1"
                     />
                   </g>
@@ -1556,9 +1711,11 @@ exports[`Installations should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.span
                 classname="el-intent-default"
+                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -1571,24 +1728,24 @@ exports[`Installations should render component with data 1`] = `
                 >
                   <path
                     clip-rule="evenodd"
-                    d="M19.833 2h15.334C37.28 2 39 3.615 39 5.6v28.8c0 1.985-1.72 3.6-3.833 3.6H19.833C17.72 38 16 36.385 16 34.4V5.6C16 3.615 17.72 2 19.833 2Z"
+                    d="M19.833 2h15.334C37.28 2 39 3.615 39 5.6v28.8c0 1.985-1.72 3.6-3.833 3.6H19.833C17.72 38 16 36.385 16 34.4V5.6C16 3.615 17.72 2 19.833 2"
                     fill="#d8dee4"
                     fill-rule="evenodd"
                   />
                   <path
-                    d="M27.948 35.27c1.126 0 2.038-.895 2.038-2 0-1.104-.912-2-2.038-2s-2.038.896-2.038 2c0 1.105.912 2 2.038 2Z"
+                    d="M27.948 35.27c1.126 0 2.038-.895 2.038-2s-.912-2-2.038-2-2.038.896-2.038 2 .912 2 2.038 2"
                     fill="#798da1"
                   />
                   <path
-                    d="M18 14h15.558c.797 0 1.442.63 1.442 1.408v9.184C35 25.37 34.355 26 33.557 26H18V14Z"
+                    d="M18 14h15.558c.797 0 1.442.63 1.442 1.408v9.184C35 25.37 34.355 26 33.557 26H18z"
                     fill="#9faebc"
                   />
                   <path
-                    d="M21 7.403v25.194c0 1.155-1.35 1.814-2.294 1.12L1.572 21.118a1.381 1.381 0 0 1 0-2.238L18.707 6.284C19.65 5.589 21 6.248 21 7.403Z"
+                    d="M21 7.403v25.194c0 1.155-1.35 1.814-2.294 1.12L1.572 21.12a1.38 1.38 0 0 1 0-2.239L18.707 6.284C19.65 5.589 21 6.248 21 7.403"
                     fill="#9faebc"
                   />
                   <path
-                    d="M31 4h-4a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2ZM24 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
+                    d="M31 4h-4a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2M24 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2"
                     fill="#798da1"
                   />
                 </svg>
@@ -1601,6 +1758,7 @@ exports[`Installations should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Reapit Customer Code"
@@ -1610,6 +1768,7 @@ exports[`Installations should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Customer Address"
@@ -1619,6 +1778,7 @@ exports[`Installations should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Date Installed"
@@ -1628,6 +1788,7 @@ exports[`Installations should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Installed By"
@@ -1637,6 +1798,7 @@ exports[`Installations should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Date Uninstalled"
@@ -1646,6 +1808,7 @@ exports[`Installations should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Uninstalled By"
@@ -1653,9 +1816,11 @@ exports[`Installations should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname=""
+              role="cell"
             >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -1665,7 +1830,7 @@ exports[`Installations should render component with data 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                     fill="currentColor"
                   />
                 </svg>
@@ -1673,6 +1838,7 @@ exports[`Installations should render component with data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
+            aria-hidden="false"
             classname=""
           >
             <mock-styled.div>
@@ -1701,11 +1867,14 @@ exports[`Installations should render component with data 1`] = `
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.button
+          aria-label="Previous"
           data-testid="back-button"
+          role="button"
           type="button"
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -1715,7 +1884,7 @@ exports[`Installations should render component with data 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
                 fill="currentColor"
               />
             </svg>
@@ -1729,11 +1898,14 @@ exports[`Installations should render component with data 1`] = `
           1
         </mock-styled.div>
         <mock-styled.button
+          aria-label="Next"
           data-testid="forward-button"
+          role="button"
           type="button"
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -1743,14 +1915,14 @@ exports[`Installations should render component with data 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
                 fill="currentColor"
               />
             </svg>
           </mock-styled.span>
         </mock-styled.button>
       </mock-styled.div>
-    </mock-styled.section>
+    </section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -9,7 +9,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
       <mock-styled.ol>
         <mock-styled.li>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Definitions and Interpretation
           </mock-styled.h2>
@@ -313,7 +313,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.li>
         <mock-styled.li>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Foundations Platform and Applications
           </mock-styled.h2>
@@ -434,7 +434,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.li>
         <mock-styled.li>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Fees and Payment
           </mock-styled.h2>
@@ -469,7 +469,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.li>
         <mock-styled.li>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Intellectual Property Rights and Indemnity
           </mock-styled.h2>
@@ -561,7 +561,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.li>
         <mock-styled.li>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Developer Feedback
           </mock-styled.h2>
@@ -587,7 +587,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.li>
         <mock-styled.li>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Data and Data Protection
           </mock-styled.h2>
@@ -669,7 +669,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.li>
         <mock-styled.li>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Confidentiality
           </mock-styled.h2>
@@ -719,7 +719,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.li>
         <mock-styled.li>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Representations, Warranties and Undertakings
           </mock-styled.h2>
@@ -772,7 +772,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.li>
         <mock-styled.li>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Force Majeure
           </mock-styled.h2>
@@ -798,7 +798,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.li>
         <mock-styled.li>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Limitation of Liability
           </mock-styled.h2>
@@ -909,7 +909,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.li>
         <mock-styled.li>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Term and Termination
           </mock-styled.h2>
@@ -965,7 +965,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.li>
         <mock-styled.li>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Consequences of Termination
           </mock-styled.h2>
@@ -991,7 +991,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.li>
         <mock-styled.li>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Notices
           </mock-styled.h2>
@@ -1031,7 +1031,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.li>
         <mock-styled.li>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Miscellaneous
           </mock-styled.h2>
@@ -1119,7 +1119,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.li>
         <mock-styled.li>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Disputes
           </mock-styled.h2>
@@ -1147,7 +1147,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.li>
         <mock-styled.li>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Governing Law and Jurisdiction
           </mock-styled.h2>
@@ -1165,7 +1165,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
     <mock-styled.ol>
       <mock-styled.li>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Definitions and Interpretation
         </mock-styled.h2>
@@ -1469,7 +1469,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
       </mock-styled.li>
       <mock-styled.li>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Foundations Platform and Applications
         </mock-styled.h2>
@@ -1590,7 +1590,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
       </mock-styled.li>
       <mock-styled.li>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Fees and Payment
         </mock-styled.h2>
@@ -1625,7 +1625,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
       </mock-styled.li>
       <mock-styled.li>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Intellectual Property Rights and Indemnity
         </mock-styled.h2>
@@ -1717,7 +1717,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
       </mock-styled.li>
       <mock-styled.li>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Developer Feedback
         </mock-styled.h2>
@@ -1743,7 +1743,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
       </mock-styled.li>
       <mock-styled.li>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Data and Data Protection
         </mock-styled.h2>
@@ -1825,7 +1825,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
       </mock-styled.li>
       <mock-styled.li>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Confidentiality
         </mock-styled.h2>
@@ -1875,7 +1875,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
       </mock-styled.li>
       <mock-styled.li>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Representations, Warranties and Undertakings
         </mock-styled.h2>
@@ -1928,7 +1928,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
       </mock-styled.li>
       <mock-styled.li>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Force Majeure
         </mock-styled.h2>
@@ -1954,7 +1954,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
       </mock-styled.li>
       <mock-styled.li>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Limitation of Liability
         </mock-styled.h2>
@@ -2065,7 +2065,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
       </mock-styled.li>
       <mock-styled.li>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Term and Termination
         </mock-styled.h2>
@@ -2121,7 +2121,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
       </mock-styled.li>
       <mock-styled.li>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Consequences of Termination
         </mock-styled.h2>
@@ -2147,7 +2147,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
       </mock-styled.li>
       <mock-styled.li>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Notices
         </mock-styled.h2>
@@ -2187,7 +2187,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
       </mock-styled.li>
       <mock-styled.li>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Miscellaneous
         </mock-styled.h2>
@@ -2275,7 +2275,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
       </mock-styled.li>
       <mock-styled.li>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Disputes
         </mock-styled.h2>
@@ -2303,7 +2303,7 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
       </mock-styled.li>
       <mock-styled.li>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Governing Law and Jurisdiction
         </mock-styled.h2>
