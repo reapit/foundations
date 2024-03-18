@@ -7,17 +7,20 @@ exports[`AppEditPage should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         will-test-dev-co-voracious-person
       </mock-styled.h1>
       <mock-styled.div
         classname="el-tabs-full-width"
+        role="tablist"
       >
         <mock-styled.div>
           <mock-styled.input
+            aria-selected="false"
             id="general"
             name="app-edit-tabs"
+            role="tab"
             type="radio"
             value="general"
           />
@@ -31,8 +34,10 @@ exports[`AppEditPage should match a snapshot 1`] = `
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="app-listing"
             name="app-edit-tabs"
+            role="tab"
             type="radio"
             value="app-listing"
           />
@@ -46,8 +51,10 @@ exports[`AppEditPage should match a snapshot 1`] = `
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="authentication"
             name="app-edit-tabs"
+            role="tab"
             type="radio"
             value="authentication"
           />
@@ -61,8 +68,10 @@ exports[`AppEditPage should match a snapshot 1`] = `
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="permissions"
             name="app-edit-tabs"
+            role="tab"
             type="radio"
             value="permissions"
           />
@@ -76,8 +85,10 @@ exports[`AppEditPage should match a snapshot 1`] = `
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="ac-integration"
             name="app-edit-tabs"
+            role="tab"
             type="radio"
             value="ac-integration"
           />
@@ -97,17 +108,21 @@ exports[`AppEditPage should match a snapshot 1`] = `
       </mock-styled.div>
       <form />
       <mock-styled.div
+        aria-hidden="true"
         classname=""
       />
       <mock-styled.div
         classname=""
+        id=":r1:"
       >
         <mock-styled.button
+          aria-controls=":r1:"
           classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -117,7 +132,7 @@ exports[`AppEditPage should match a snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2M4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2m16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2"
                 fill="currentColor"
               />
             </svg>
@@ -129,17 +144,20 @@ exports[`AppEditPage should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.h1
-      classname=""
+      classname="el-text-base"
     >
       will-test-dev-co-voracious-person
     </mock-styled.h1>
     <mock-styled.div
       classname="el-tabs-full-width"
+      role="tablist"
     >
       <mock-styled.div>
         <mock-styled.input
+          aria-selected="false"
           id="general"
           name="app-edit-tabs"
+          role="tab"
           type="radio"
           value="general"
         />
@@ -153,8 +171,10 @@ exports[`AppEditPage should match a snapshot 1`] = `
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="app-listing"
           name="app-edit-tabs"
+          role="tab"
           type="radio"
           value="app-listing"
         />
@@ -168,8 +188,10 @@ exports[`AppEditPage should match a snapshot 1`] = `
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="authentication"
           name="app-edit-tabs"
+          role="tab"
           type="radio"
           value="authentication"
         />
@@ -183,8 +205,10 @@ exports[`AppEditPage should match a snapshot 1`] = `
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="permissions"
           name="app-edit-tabs"
+          role="tab"
           type="radio"
           value="permissions"
         />
@@ -198,8 +222,10 @@ exports[`AppEditPage should match a snapshot 1`] = `
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="ac-integration"
           name="app-edit-tabs"
+          role="tab"
           type="radio"
           value="ac-integration"
         />
@@ -219,17 +245,21 @@ exports[`AppEditPage should match a snapshot 1`] = `
     </mock-styled.div>
     <form />
     <mock-styled.div
+      aria-hidden="true"
       classname=""
     />
     <mock-styled.div
       classname=""
+      id=":r1:"
     >
       <mock-styled.button
+        aria-controls=":r1:"
         classname="el-floating-button el-intent-primary"
       >
         <mock-styled.div />
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
         >
           <svg
             fill="none"
@@ -239,7 +269,7 @@ exports[`AppEditPage should match a snapshot 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2M4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2m16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2"
               fill="currentColor"
             />
           </svg>
@@ -388,6 +418,7 @@ exports[`AppEditPage should match snapshot where no app found 1`] = `
       <mock-styled.div />
       <mock-styled.div
         classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+        role="alertdialog"
       >
         <div
           class="el-pn-icon"
@@ -395,6 +426,7 @@ exports[`AppEditPage should match snapshot where no app found 1`] = `
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -406,7 +438,7 @@ exports[`AppEditPage should match snapshot where no app found 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                 fill="currentColor"
               />
             </svg>
@@ -424,6 +456,7 @@ exports[`AppEditPage should match snapshot where no app found 1`] = `
     <mock-styled.div />
     <mock-styled.div
       classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+      role="alertdialog"
     >
       <div
         class="el-pn-icon"
@@ -431,6 +464,7 @@ exports[`AppEditPage should match snapshot where no app found 1`] = `
       >
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
@@ -442,7 +476,7 @@ exports[`AppEditPage should match snapshot where no app found 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
               fill="currentColor"
             />
           </svg>

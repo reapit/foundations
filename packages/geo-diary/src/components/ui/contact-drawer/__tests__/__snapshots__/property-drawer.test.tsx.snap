@@ -153,7 +153,7 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
 "
       >
         <mock-styled.h2
-          classname="el-has-no-margin"
+          classname="el-text-base el-has-no-margin"
         >
           Property Information
         </mock-styled.h2>
@@ -454,7 +454,7 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
 "
     >
       <mock-styled.h2
-        classname="el-has-no-margin"
+        classname="el-text-base el-has-no-margin"
       >
         Property Information
       </mock-styled.h2>

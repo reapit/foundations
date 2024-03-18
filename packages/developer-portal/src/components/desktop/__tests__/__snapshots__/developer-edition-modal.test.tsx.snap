@@ -12,14 +12,19 @@ exports[`DeveloperEditionModal should match snapshot when has a subscription alr
           classname="el-is-active"
         />
         <mock-styled.div
+          aria-describedby=":r6:"
+          aria-modal="true"
           classname="el-is-active"
+          role="dialog"
         >
           <mock-styled.div>
             Existing Subscription
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            id=":r6:"
+          >
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               It looks as though you already have a subscription in place for the Developer Edition of Agency Cloud. To download, please use the ‘Download Now’ button below. For more information or support using the Developer Edition, please 
               <a
@@ -135,14 +140,19 @@ exports[`DeveloperEditionModal should match snapshot when has billing content an
           classname="el-is-active"
         />
         <mock-styled.div
+          aria-describedby=":ra:"
+          aria-modal="true"
           classname="el-is-active"
+          role="dialog"
         >
           <mock-styled.div>
             Account Information Required
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            id=":ra:"
+          >
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               <p>
                 Before you can subscribe to the Developer Edition of Agency Cloud, billing information will need to be submitted. Please ask the Admin of your organisation to visit this page to contact a member of the team.
@@ -252,14 +262,19 @@ exports[`DeveloperEditionModal should match snapshot when has billing content an
           classname="el-is-active"
         />
         <mock-styled.div
+          aria-describedby=":r8:"
+          aria-modal="true"
           classname="el-is-active"
+          role="dialog"
         >
           <mock-styled.div>
             Account Information Required
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            id=":r8:"
+          >
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               <p>
                 Before you can subscribe to the Developer Edition of AgencyCloud, we will first need to verify your account information. Please
@@ -376,14 +391,19 @@ exports[`DeveloperEditionModal should match snapshot when has client data 1`] = 
           classname="el-is-active"
         />
         <mock-styled.div
+          aria-describedby=":rc:"
+          aria-modal="true"
           classname="el-is-active"
+          role="dialog"
         >
           <mock-styled.div>
             Unable to create subscription
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            id=":rc:"
+          >
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               Your account is currently set to use 
               <strong>
@@ -505,19 +525,24 @@ exports[`DeveloperEditionModal should match snapshot when has subscribed 1`] = `
           classname="el-is-active"
         />
         <mock-styled.div
+          aria-describedby=":r4:"
+          aria-modal="true"
           classname="el-is-active"
+          role="dialog"
         >
           <mock-styled.div>
             Success
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            id=":r4:"
+          >
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               You have successfully subscribed 1 Agency Cloud user licence and an email has been sent to the following members of your organisation with instructions on how to get started.
             </mock-styled.p>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               Joe Dev
                - 
@@ -530,7 +555,7 @@ exports[`DeveloperEditionModal should match snapshot when has subscribed 1`] = `
               </a>
             </mock-styled.p>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               We have added your subscription to your monthly billing. To manage your subscriptions please visit the 'Billing' tab.
             </mock-styled.p>
@@ -709,14 +734,19 @@ exports[`DeveloperEditionModal should match snapshot when visible 1`] = `
           classname="el-is-active"
         />
         <mock-styled.div
+          aria-describedby=":r1:"
+          aria-modal="true"
           classname="el-is-active"
+          role="dialog"
         >
           <mock-styled.div>
             Agency Cloud Developer Edition
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            id=":r1:"
+          >
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               The Agency Cloud Developer Edition is a licensed product. 
               By confirming the subscription below, a subscription of £300 will automatically be added to your monthly billing.
@@ -731,7 +761,7 @@ exports[`DeveloperEditionModal should match snapshot when visible 1`] = `
               </a>
             </mock-styled.p>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               To proceed, please confirm your subscription below for 
               <strong>

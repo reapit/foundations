@@ -6,14 +6,15 @@ exports[`ElementsPage should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.span
             classname="el-mb5 el-icon-size-large"
+            role="img"
           >
             <svg
               fill="none"
@@ -23,70 +24,70 @@ exports[`ElementsPage should match a snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M66.74 34.076 39.997 24.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+                d="M66.74 34.076 39.997 24.65l-26.74 9.425 26.74 9.567z"
                 fill="#9faebc"
               />
               <path
-                d="M66.74 34.076 39.999 24.65v18.992l26.74-9.567Z"
+                d="M66.74 34.076 39.999 24.65v18.992z"
                 fill="#607890"
               />
               <path
-                d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+                d="M50.579 7.466H28.61c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952"
                 fill="#d8dee4"
               />
               <path
-                d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+                d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664"
                 fill="#d8dee4"
               />
               <path
-                d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+                d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935z"
                 fill="#506478"
               />
               <path
-                d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+                d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24z"
                 fill="#d8dee4"
               />
               <path
-                d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+                d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526z"
                 fill="#9faebc"
               />
               <path
-                d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+                d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349z"
                 fill="#798da1"
               />
               <path
-                d="m39.998 43.67-26.74-9.595v34.501l26.74 8.624V43.67Z"
+                d="m39.998 43.67-26.74-9.595v34.501l26.74 8.624z"
                 fill="#607890"
               />
               <path
-                d="M66.74 68.576v-34.5l-26.741 9.593V77.2l26.74-8.624Z"
+                d="M66.74 68.576v-34.5l-26.741 9.593V77.2z"
                 fill="#506478"
               />
               <path
-                d="M13.257 34.076 4 45.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+                d="M13.257 34.076 4 45.214l27.244 10.067 8.754-11.638z"
                 fill="#d8dee4"
               />
               <path
-                d="M66.74 34.075 76 45.214 48.756 55.28l-8.757-11.638 26.74-9.568Z"
+                d="M66.74 34.075 76 45.214 48.756 55.28l-8.757-11.638z"
                 fill="#798da1"
               />
               <path
-                d="M41 9a7 7 0 0 1 7-7h11a7 7 0 1 1 0 14H48a7 7 0 0 1-7-7Z"
+                d="M41 9a7 7 0 0 1 7-7h11a7 7 0 1 1 0 14H48a7 7 0 0 1-7-7"
                 fill="#9faebc"
               />
               <path
-                d="M72.084 17.688c-.461-1.78-2.297-2.803-4-2.088-.439-1.694-2.15-2.77-3.885-2.126V9.106c-.001-4.138-5.998-4.145-6 0v16.112l-2.879-3.006a2.913 2.913 0 0 0-4.242 0c-1.169 1.218-1.173 3.206 0 4.43l7.93 8.28c1.89 1.971 4.45 3.078 7.12 3.078C71.692 38 76.2 33.293 76.2 27.485v-6.894c0-2.201-2.13-3.736-4.116-2.903Z"
+                d="M72.084 17.688c-.461-1.78-2.297-2.803-4-2.088-.439-1.694-2.15-2.77-3.885-2.126V9.106c-.001-4.138-5.998-4.145-6 0v16.112l-2.879-3.006a2.913 2.913 0 0 0-4.242 0c-1.169 1.218-1.173 3.206 0 4.43l7.93 8.28c1.89 1.971 4.45 3.078 7.12 3.078C71.692 38 76.2 33.293 76.2 27.485v-6.894c0-2.201-2.13-3.736-4.116-2.903"
                 fill="#7e9bfa"
               />
             </svg>
           </mock-styled.span>
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             Reapit Elements
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Elements is a UI toolkit built in React JS, exporting a library of CSS classes to help you build clean, interactive user interfaces for the Reapit Foundations ecosystem. It is based on the Reapit Foundations Design System, our in house styleguide.
           </mock-styled.p>
@@ -102,12 +103,12 @@ exports[`ElementsPage should match a snapshot 1`] = `
             <mock-styled.div />
             Storybook
           </mock-styled.button>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname="el-hfull"
+        </aside>
+        <section
+          class="el-page-container el-hfull"
         >
           <mock-styled.h1
-            classname=""
+            classname="el-text-base"
           >
             Elements
           </mock-styled.h1>
@@ -119,20 +120,21 @@ exports[`ElementsPage should match a snapshot 1`] = `
 "
             frameborder="0"
           />
-        </mock-styled.section>
-      </mock-styled.div>
+        </section>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.span
           classname="el-mb5 el-icon-size-large"
+          role="img"
         >
           <svg
             fill="none"
@@ -142,70 +144,70 @@ exports[`ElementsPage should match a snapshot 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M66.74 34.076 39.997 24.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+              d="M66.74 34.076 39.997 24.65l-26.74 9.425 26.74 9.567z"
               fill="#9faebc"
             />
             <path
-              d="M66.74 34.076 39.999 24.65v18.992l26.74-9.567Z"
+              d="M66.74 34.076 39.999 24.65v18.992z"
               fill="#607890"
             />
             <path
-              d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+              d="M50.579 7.466H28.61c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952"
               fill="#d8dee4"
             />
             <path
-              d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+              d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664"
               fill="#d8dee4"
             />
             <path
-              d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935z"
               fill="#506478"
             />
             <path
-              d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24z"
               fill="#d8dee4"
             />
             <path
-              d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+              d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526z"
               fill="#9faebc"
             />
             <path
-              d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+              d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349z"
               fill="#798da1"
             />
             <path
-              d="m39.998 43.67-26.74-9.595v34.501l26.74 8.624V43.67Z"
+              d="m39.998 43.67-26.74-9.595v34.501l26.74 8.624z"
               fill="#607890"
             />
             <path
-              d="M66.74 68.576v-34.5l-26.741 9.593V77.2l26.74-8.624Z"
+              d="M66.74 68.576v-34.5l-26.741 9.593V77.2z"
               fill="#506478"
             />
             <path
-              d="M13.257 34.076 4 45.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+              d="M13.257 34.076 4 45.214l27.244 10.067 8.754-11.638z"
               fill="#d8dee4"
             />
             <path
-              d="M66.74 34.075 76 45.214 48.756 55.28l-8.757-11.638 26.74-9.568Z"
+              d="M66.74 34.075 76 45.214 48.756 55.28l-8.757-11.638z"
               fill="#798da1"
             />
             <path
-              d="M41 9a7 7 0 0 1 7-7h11a7 7 0 1 1 0 14H48a7 7 0 0 1-7-7Z"
+              d="M41 9a7 7 0 0 1 7-7h11a7 7 0 1 1 0 14H48a7 7 0 0 1-7-7"
               fill="#9faebc"
             />
             <path
-              d="M72.084 17.688c-.461-1.78-2.297-2.803-4-2.088-.439-1.694-2.15-2.77-3.885-2.126V9.106c-.001-4.138-5.998-4.145-6 0v16.112l-2.879-3.006a2.913 2.913 0 0 0-4.242 0c-1.169 1.218-1.173 3.206 0 4.43l7.93 8.28c1.89 1.971 4.45 3.078 7.12 3.078C71.692 38 76.2 33.293 76.2 27.485v-6.894c0-2.201-2.13-3.736-4.116-2.903Z"
+              d="M72.084 17.688c-.461-1.78-2.297-2.803-4-2.088-.439-1.694-2.15-2.77-3.885-2.126V9.106c-.001-4.138-5.998-4.145-6 0v16.112l-2.879-3.006a2.913 2.913 0 0 0-4.242 0c-1.169 1.218-1.173 3.206 0 4.43l7.93 8.28c1.89 1.971 4.45 3.078 7.12 3.078C71.692 38 76.2 33.293 76.2 27.485v-6.894c0-2.201-2.13-3.736-4.116-2.903"
               fill="#7e9bfa"
             />
           </svg>
         </mock-styled.span>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Reapit Elements
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Elements is a UI toolkit built in React JS, exporting a library of CSS classes to help you build clean, interactive user interfaces for the Reapit Foundations ecosystem. It is based on the Reapit Foundations Design System, our in house styleguide.
         </mock-styled.p>
@@ -221,12 +223,12 @@ exports[`ElementsPage should match a snapshot 1`] = `
           <mock-styled.div />
           Storybook
         </mock-styled.button>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname="el-hfull"
+      </aside>
+      <section
+        class="el-page-container el-hfull"
       >
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           Elements
         </mock-styled.h1>
@@ -238,8 +240,8 @@ exports[`ElementsPage should match a snapshot 1`] = `
 "
           frameborder="0"
         />
-      </mock-styled.section>
-    </mock-styled.div>
+      </section>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

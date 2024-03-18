@@ -6,11 +6,11 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.div>
             <mock-styled.div
@@ -26,6 +26,7 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
           </mock-styled.div>
           <mock-styled.span
             classname="el-mb5 el-icon-size-large"
+            role="img"
           >
             <svg
               fill="none"
@@ -38,19 +39,19 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
                 clip-path="url(#developmentInfographic_svg__a)"
               >
                 <path
-                  d="M12.54.586A.586.586 0 0 0 11.952 0H8.047a.586.586 0 0 0-.586.586v.977h5.078V.586Z"
+                  d="M12.54.586A.586.586 0 0 0 11.952 0H8.047a.586.586 0 0 0-.586.586v.977h5.078z"
                   fill="#798da1"
                 />
                 <path
-                  d="M19.414 18.828H16.25V10.04a.586.586 0 0 0-.26-.487l-3.517-2.344a.586.586 0 0 0-.91.487v11.133H7.851V5.742a.586.586 0 0 0-.586-.586H3.75a.586.586 0 0 0-.586.586v7.813h1.367c.97 0 1.758.788 1.758 1.758v3.515H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172Zm-6.094-6.836a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0v-1.172Zm0 3.516a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0v-1.172Zm-7.226-3.516a.586.586 0 0 1-1.172 0V10.82a.586.586 0 0 1 1.172 0v1.172Zm0-3.515a.586.586 0 0 1-1.172 0V7.305a.586.586 0 0 1 1.172 0v1.172Z"
+                  d="M19.414 18.828H16.25V10.04a.59.59 0 0 0-.26-.487l-3.517-2.344a.586.586 0 0 0-.91.487v11.133H7.852V5.742a.586.586 0 0 0-.586-.586H3.75a.586.586 0 0 0-.586.586v7.813h1.367c.97 0 1.758.788 1.758 1.758v3.515H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172m-6.094-6.836a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0zm0 3.516a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0zm-7.226-3.516a.586.586 0 0 1-1.172 0V10.82a.586.586 0 0 1 1.172 0zm0-3.515a.586.586 0 0 1-1.172 0V7.305a.586.586 0 0 1 1.172 0z"
                   fill="#d8dee4"
                 />
                 <path
-                  d="M19.414 18.828h-.234v-5.664a.586.586 0 0 0-.324-.524l-1.434-.717v6.905H10.39V7.695a1.755 1.755 0 0 1 1.757-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086H5.117v-3.515a.586.586 0 0 0-.586-.586H1.406a.586.586 0 0 0-.586.585v3.516H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172ZM2.383 17.461a.586.586 0 0 1 1.172 0v1.367H2.383v-1.367Z"
+                  d="M19.414 18.828h-.234v-5.664a.59.59 0 0 0-.324-.524l-1.434-.717v6.905H10.39V7.695a1.755 1.755 0 0 1 1.757-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086H5.117v-3.515a.586.586 0 0 0-.586-.586H1.406a.586.586 0 0 0-.586.585v3.516H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172M2.383 17.461a.586.586 0 0 1 1.172 0v1.367H2.383z"
                   fill="#798da1"
                 />
                 <path
-                  d="M10.39 18.828V7.695a1.755 1.755 0 0 1 1.758-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086h1.368Z"
+                  d="M10.39 18.828V7.695a1.755 1.755 0 0 1 1.758-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086z"
                   fill="#798da1"
                 />
               </g>
@@ -67,7 +68,7 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
             </svg>
           </mock-styled.span>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             You can create an office group with this wizard. If you want to update the information later, refer to the office groups page.
           </mock-styled.p>
@@ -75,12 +76,12 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
             class="el-mb5"
           >
             <mock-styled.p
-              classname=""
+              classname="el-text-base"
             >
               Organisations
             </mock-styled.p>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
             </mock-styled.p>
@@ -116,20 +117,20 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
               </mock-styled.div>
             </mock-styled.div>
           </div>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname="el-hfull"
+        </aside>
+        <section
+          class="el-page-container el-hfull"
         >
-          <mock-styled.div
-            classname="el-flex-justify-between"
+          <div
+            class="el-flex-container el-flex-justify-between"
           >
             <mock-styled.h1
-              classname=""
+              classname="el-text-base"
             >
               SOME_NAME
                Offices
             </mock-styled.h1>
-          </mock-styled.div>
+          </div>
           <form>
             <mock-styled.div
               classname="el-form-layout-has-margin el-fade-in"
@@ -150,8 +151,8 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div>
-                <mock-styled.div
-                  classname="el-flex-grow el-flex-align-end el-hfull"
+                <div
+                  class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
                 >
                   <mock-styled.div>
                     <mock-styled.div
@@ -166,7 +167,7 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
                       </mock-styled.button>
                     </mock-styled.div>
                   </mock-styled.div>
-                </mock-styled.div>
+                </div>
               </mock-styled.div>
             </mock-styled.div>
           </form>
@@ -177,17 +178,17 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
               <mock-styled.div />
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.section>
-      </mock-styled.div>
+        </section>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -203,6 +204,7 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
         </mock-styled.div>
         <mock-styled.span
           classname="el-mb5 el-icon-size-large"
+          role="img"
         >
           <svg
             fill="none"
@@ -215,19 +217,19 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
               clip-path="url(#developmentInfographic_svg__a)"
             >
               <path
-                d="M12.54.586A.586.586 0 0 0 11.952 0H8.047a.586.586 0 0 0-.586.586v.977h5.078V.586Z"
+                d="M12.54.586A.586.586 0 0 0 11.952 0H8.047a.586.586 0 0 0-.586.586v.977h5.078z"
                 fill="#798da1"
               />
               <path
-                d="M19.414 18.828H16.25V10.04a.586.586 0 0 0-.26-.487l-3.517-2.344a.586.586 0 0 0-.91.487v11.133H7.851V5.742a.586.586 0 0 0-.586-.586H3.75a.586.586 0 0 0-.586.586v7.813h1.367c.97 0 1.758.788 1.758 1.758v3.515H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172Zm-6.094-6.836a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0v-1.172Zm0 3.516a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0v-1.172Zm-7.226-3.516a.586.586 0 0 1-1.172 0V10.82a.586.586 0 0 1 1.172 0v1.172Zm0-3.515a.586.586 0 0 1-1.172 0V7.305a.586.586 0 0 1 1.172 0v1.172Z"
+                d="M19.414 18.828H16.25V10.04a.59.59 0 0 0-.26-.487l-3.517-2.344a.586.586 0 0 0-.91.487v11.133H7.852V5.742a.586.586 0 0 0-.586-.586H3.75a.586.586 0 0 0-.586.586v7.813h1.367c.97 0 1.758.788 1.758 1.758v3.515H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172m-6.094-6.836a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0zm0 3.516a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0zm-7.226-3.516a.586.586 0 0 1-1.172 0V10.82a.586.586 0 0 1 1.172 0zm0-3.515a.586.586 0 0 1-1.172 0V7.305a.586.586 0 0 1 1.172 0z"
                 fill="#d8dee4"
               />
               <path
-                d="M19.414 18.828h-.234v-5.664a.586.586 0 0 0-.324-.524l-1.434-.717v6.905H10.39V7.695a1.755 1.755 0 0 1 1.757-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086H5.117v-3.515a.586.586 0 0 0-.586-.586H1.406a.586.586 0 0 0-.586.585v3.516H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172ZM2.383 17.461a.586.586 0 0 1 1.172 0v1.367H2.383v-1.367Z"
+                d="M19.414 18.828h-.234v-5.664a.59.59 0 0 0-.324-.524l-1.434-.717v6.905H10.39V7.695a1.755 1.755 0 0 1 1.757-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086H5.117v-3.515a.586.586 0 0 0-.586-.586H1.406a.586.586 0 0 0-.586.585v3.516H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172M2.383 17.461a.586.586 0 0 1 1.172 0v1.367H2.383z"
                 fill="#798da1"
               />
               <path
-                d="M10.39 18.828V7.695a1.755 1.755 0 0 1 1.758-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086h1.368Z"
+                d="M10.39 18.828V7.695a1.755 1.755 0 0 1 1.758-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086z"
                 fill="#798da1"
               />
             </g>
@@ -244,7 +246,7 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
           </svg>
         </mock-styled.span>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           You can create an office group with this wizard. If you want to update the information later, refer to the office groups page.
         </mock-styled.p>
@@ -252,12 +254,12 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
           class="el-mb5"
         >
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             Organisations
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
           </mock-styled.p>
@@ -293,20 +295,20 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
             </mock-styled.div>
           </mock-styled.div>
         </div>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname="el-hfull"
+      </aside>
+      <section
+        class="el-page-container el-hfull"
       >
-        <mock-styled.div
-          classname="el-flex-justify-between"
+        <div
+          class="el-flex-container el-flex-justify-between"
         >
           <mock-styled.h1
-            classname=""
+            classname="el-text-base"
           >
             SOME_NAME
              Offices
           </mock-styled.h1>
-        </mock-styled.div>
+        </div>
         <form>
           <mock-styled.div
             classname="el-form-layout-has-margin el-fade-in"
@@ -327,8 +329,8 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.div
-                classname="el-flex-grow el-flex-align-end el-hfull"
+              <div
+                class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
               >
                 <mock-styled.div>
                   <mock-styled.div
@@ -343,7 +345,7 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
-              </mock-styled.div>
+              </div>
             </mock-styled.div>
           </mock-styled.div>
         </form>
@@ -354,8 +356,8 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
             <mock-styled.div />
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.section>
-    </mock-styled.div>
+      </section>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -417,11 +419,11 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.div>
             <mock-styled.div
@@ -437,6 +439,7 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
           </mock-styled.div>
           <mock-styled.span
             classname="el-mb5 el-icon-size-large"
+            role="img"
           >
             <svg
               fill="none"
@@ -449,19 +452,19 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
                 clip-path="url(#developmentInfographic_svg__a)"
               >
                 <path
-                  d="M12.54.586A.586.586 0 0 0 11.952 0H8.047a.586.586 0 0 0-.586.586v.977h5.078V.586Z"
+                  d="M12.54.586A.586.586 0 0 0 11.952 0H8.047a.586.586 0 0 0-.586.586v.977h5.078z"
                   fill="#798da1"
                 />
                 <path
-                  d="M19.414 18.828H16.25V10.04a.586.586 0 0 0-.26-.487l-3.517-2.344a.586.586 0 0 0-.91.487v11.133H7.851V5.742a.586.586 0 0 0-.586-.586H3.75a.586.586 0 0 0-.586.586v7.813h1.367c.97 0 1.758.788 1.758 1.758v3.515H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172Zm-6.094-6.836a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0v-1.172Zm0 3.516a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0v-1.172Zm-7.226-3.516a.586.586 0 0 1-1.172 0V10.82a.586.586 0 0 1 1.172 0v1.172Zm0-3.515a.586.586 0 0 1-1.172 0V7.305a.586.586 0 0 1 1.172 0v1.172Z"
+                  d="M19.414 18.828H16.25V10.04a.59.59 0 0 0-.26-.487l-3.517-2.344a.586.586 0 0 0-.91.487v11.133H7.852V5.742a.586.586 0 0 0-.586-.586H3.75a.586.586 0 0 0-.586.586v7.813h1.367c.97 0 1.758.788 1.758 1.758v3.515H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172m-6.094-6.836a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0zm0 3.516a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0zm-7.226-3.516a.586.586 0 0 1-1.172 0V10.82a.586.586 0 0 1 1.172 0zm0-3.515a.586.586 0 0 1-1.172 0V7.305a.586.586 0 0 1 1.172 0z"
                   fill="#d8dee4"
                 />
                 <path
-                  d="M19.414 18.828h-.234v-5.664a.586.586 0 0 0-.324-.524l-1.434-.717v6.905H10.39V7.695a1.755 1.755 0 0 1 1.757-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086H5.117v-3.515a.586.586 0 0 0-.586-.586H1.406a.586.586 0 0 0-.586.585v3.516H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172ZM2.383 17.461a.586.586 0 0 1 1.172 0v1.367H2.383v-1.367Z"
+                  d="M19.414 18.828h-.234v-5.664a.59.59 0 0 0-.324-.524l-1.434-.717v6.905H10.39V7.695a1.755 1.755 0 0 1 1.757-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086H5.117v-3.515a.586.586 0 0 0-.586-.586H1.406a.586.586 0 0 0-.586.585v3.516H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172M2.383 17.461a.586.586 0 0 1 1.172 0v1.367H2.383z"
                   fill="#798da1"
                 />
                 <path
-                  d="M10.39 18.828V7.695a1.755 1.755 0 0 1 1.758-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086h1.368Z"
+                  d="M10.39 18.828V7.695a1.755 1.755 0 0 1 1.758-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086z"
                   fill="#798da1"
                 />
               </g>
@@ -478,7 +481,7 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
             </svg>
           </mock-styled.span>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             You can create an office group with this wizard. If you want to update the information later, refer to the office groups page.
           </mock-styled.p>
@@ -486,12 +489,12 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
             class="el-mb5"
           >
             <mock-styled.p
-              classname=""
+              classname="el-text-base"
             >
               Organisations
             </mock-styled.p>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
             </mock-styled.p>
@@ -527,20 +530,20 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
               </mock-styled.div>
             </mock-styled.div>
           </div>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname="el-hfull"
+        </aside>
+        <section
+          class="el-page-container el-hfull"
         >
-          <mock-styled.div
-            classname="el-flex-justify-between"
+          <div
+            class="el-flex-container el-flex-justify-between"
           >
             <mock-styled.h1
-              classname=""
+              classname="el-text-base"
             >
               SOME_NAME
                Offices
             </mock-styled.h1>
-          </mock-styled.div>
+          </div>
           <form>
             <mock-styled.div
               classname="el-form-layout-has-margin el-fade-in"
@@ -561,8 +564,8 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div>
-                <mock-styled.div
-                  classname="el-flex-grow el-flex-align-end el-hfull"
+                <div
+                  class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
                 >
                   <mock-styled.div>
                     <mock-styled.div
@@ -577,7 +580,7 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
                       </mock-styled.button>
                     </mock-styled.div>
                   </mock-styled.div>
-                </mock-styled.div>
+                </div>
               </mock-styled.div>
             </mock-styled.div>
           </form>
@@ -588,17 +591,17 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
               <mock-styled.div />
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.section>
-      </mock-styled.div>
+        </section>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -614,6 +617,7 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
         </mock-styled.div>
         <mock-styled.span
           classname="el-mb5 el-icon-size-large"
+          role="img"
         >
           <svg
             fill="none"
@@ -626,19 +630,19 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
               clip-path="url(#developmentInfographic_svg__a)"
             >
               <path
-                d="M12.54.586A.586.586 0 0 0 11.952 0H8.047a.586.586 0 0 0-.586.586v.977h5.078V.586Z"
+                d="M12.54.586A.586.586 0 0 0 11.952 0H8.047a.586.586 0 0 0-.586.586v.977h5.078z"
                 fill="#798da1"
               />
               <path
-                d="M19.414 18.828H16.25V10.04a.586.586 0 0 0-.26-.487l-3.517-2.344a.586.586 0 0 0-.91.487v11.133H7.851V5.742a.586.586 0 0 0-.586-.586H3.75a.586.586 0 0 0-.586.586v7.813h1.367c.97 0 1.758.788 1.758 1.758v3.515H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172Zm-6.094-6.836a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0v-1.172Zm0 3.516a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0v-1.172Zm-7.226-3.516a.586.586 0 0 1-1.172 0V10.82a.586.586 0 0 1 1.172 0v1.172Zm0-3.515a.586.586 0 0 1-1.172 0V7.305a.586.586 0 0 1 1.172 0v1.172Z"
+                d="M19.414 18.828H16.25V10.04a.59.59 0 0 0-.26-.487l-3.517-2.344a.586.586 0 0 0-.91.487v11.133H7.852V5.742a.586.586 0 0 0-.586-.586H3.75a.586.586 0 0 0-.586.586v7.813h1.367c.97 0 1.758.788 1.758 1.758v3.515H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172m-6.094-6.836a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0zm0 3.516a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0zm-7.226-3.516a.586.586 0 0 1-1.172 0V10.82a.586.586 0 0 1 1.172 0zm0-3.515a.586.586 0 0 1-1.172 0V7.305a.586.586 0 0 1 1.172 0z"
                 fill="#d8dee4"
               />
               <path
-                d="M19.414 18.828h-.234v-5.664a.586.586 0 0 0-.324-.524l-1.434-.717v6.905H10.39V7.695a1.755 1.755 0 0 1 1.757-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086H5.117v-3.515a.586.586 0 0 0-.586-.586H1.406a.586.586 0 0 0-.586.585v3.516H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172ZM2.383 17.461a.586.586 0 0 1 1.172 0v1.367H2.383v-1.367Z"
+                d="M19.414 18.828h-.234v-5.664a.59.59 0 0 0-.324-.524l-1.434-.717v6.905H10.39V7.695a1.755 1.755 0 0 1 1.757-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086H5.117v-3.515a.586.586 0 0 0-.586-.586H1.406a.586.586 0 0 0-.586.585v3.516H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172M2.383 17.461a.586.586 0 0 1 1.172 0v1.367H2.383z"
                 fill="#798da1"
               />
               <path
-                d="M10.39 18.828V7.695a1.755 1.755 0 0 1 1.758-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086h1.368Z"
+                d="M10.39 18.828V7.695a1.755 1.755 0 0 1 1.758-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086z"
                 fill="#798da1"
               />
             </g>
@@ -655,7 +659,7 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
           </svg>
         </mock-styled.span>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           You can create an office group with this wizard. If you want to update the information later, refer to the office groups page.
         </mock-styled.p>
@@ -663,12 +667,12 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
           class="el-mb5"
         >
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             Organisations
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
           </mock-styled.p>
@@ -704,20 +708,20 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
             </mock-styled.div>
           </mock-styled.div>
         </div>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname="el-hfull"
+      </aside>
+      <section
+        class="el-page-container el-hfull"
       >
-        <mock-styled.div
-          classname="el-flex-justify-between"
+        <div
+          class="el-flex-container el-flex-justify-between"
         >
           <mock-styled.h1
-            classname=""
+            classname="el-text-base"
           >
             SOME_NAME
              Offices
           </mock-styled.h1>
-        </mock-styled.div>
+        </div>
         <form>
           <mock-styled.div
             classname="el-form-layout-has-margin el-fade-in"
@@ -738,8 +742,8 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.div
-                classname="el-flex-grow el-flex-align-end el-hfull"
+              <div
+                class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
               >
                 <mock-styled.div>
                   <mock-styled.div
@@ -754,7 +758,7 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
-              </mock-styled.div>
+              </div>
             </mock-styled.div>
           </mock-styled.div>
         </form>
@@ -765,8 +769,8 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
             <mock-styled.div />
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.section>
-    </mock-styled.div>
+      </section>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -828,11 +832,11 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.div>
             <mock-styled.div
@@ -848,6 +852,7 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
           </mock-styled.div>
           <mock-styled.span
             classname="el-mb5 el-icon-size-large"
+            role="img"
           >
             <svg
               fill="none"
@@ -860,19 +865,19 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
                 clip-path="url(#developmentInfographic_svg__a)"
               >
                 <path
-                  d="M12.54.586A.586.586 0 0 0 11.952 0H8.047a.586.586 0 0 0-.586.586v.977h5.078V.586Z"
+                  d="M12.54.586A.586.586 0 0 0 11.952 0H8.047a.586.586 0 0 0-.586.586v.977h5.078z"
                   fill="#798da1"
                 />
                 <path
-                  d="M19.414 18.828H16.25V10.04a.586.586 0 0 0-.26-.487l-3.517-2.344a.586.586 0 0 0-.91.487v11.133H7.851V5.742a.586.586 0 0 0-.586-.586H3.75a.586.586 0 0 0-.586.586v7.813h1.367c.97 0 1.758.788 1.758 1.758v3.515H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172Zm-6.094-6.836a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0v-1.172Zm0 3.516a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0v-1.172Zm-7.226-3.516a.586.586 0 0 1-1.172 0V10.82a.586.586 0 0 1 1.172 0v1.172Zm0-3.515a.586.586 0 0 1-1.172 0V7.305a.586.586 0 0 1 1.172 0v1.172Z"
+                  d="M19.414 18.828H16.25V10.04a.59.59 0 0 0-.26-.487l-3.517-2.344a.586.586 0 0 0-.91.487v11.133H7.852V5.742a.586.586 0 0 0-.586-.586H3.75a.586.586 0 0 0-.586.586v7.813h1.367c.97 0 1.758.788 1.758 1.758v3.515H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172m-6.094-6.836a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0zm0 3.516a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0zm-7.226-3.516a.586.586 0 0 1-1.172 0V10.82a.586.586 0 0 1 1.172 0zm0-3.515a.586.586 0 0 1-1.172 0V7.305a.586.586 0 0 1 1.172 0z"
                   fill="#d8dee4"
                 />
                 <path
-                  d="M19.414 18.828h-.234v-5.664a.586.586 0 0 0-.324-.524l-1.434-.717v6.905H10.39V7.695a1.755 1.755 0 0 1 1.757-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086H5.117v-3.515a.586.586 0 0 0-.586-.586H1.406a.586.586 0 0 0-.586.585v3.516H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172ZM2.383 17.461a.586.586 0 0 1 1.172 0v1.367H2.383v-1.367Z"
+                  d="M19.414 18.828h-.234v-5.664a.59.59 0 0 0-.324-.524l-1.434-.717v6.905H10.39V7.695a1.755 1.755 0 0 1 1.757-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086H5.117v-3.515a.586.586 0 0 0-.586-.586H1.406a.586.586 0 0 0-.586.585v3.516H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172M2.383 17.461a.586.586 0 0 1 1.172 0v1.367H2.383z"
                   fill="#798da1"
                 />
                 <path
-                  d="M10.39 18.828V7.695a1.755 1.755 0 0 1 1.758-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086h1.368Z"
+                  d="M10.39 18.828V7.695a1.755 1.755 0 0 1 1.758-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086z"
                   fill="#798da1"
                 />
               </g>
@@ -889,7 +894,7 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
             </svg>
           </mock-styled.span>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             You can create an office group with this wizard. If you want to update the information later, refer to the office groups page.
           </mock-styled.p>
@@ -897,12 +902,12 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
             class="el-mb5"
           >
             <mock-styled.p
-              classname=""
+              classname="el-text-base"
             >
               Organisations
             </mock-styled.p>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
             </mock-styled.p>
@@ -938,20 +943,20 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
               </mock-styled.div>
             </mock-styled.div>
           </div>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname="el-hfull"
+        </aside>
+        <section
+          class="el-page-container el-hfull"
         >
-          <mock-styled.div
-            classname="el-flex-justify-between"
+          <div
+            class="el-flex-container el-flex-justify-between"
           >
             <mock-styled.h1
-              classname=""
+              classname="el-text-base"
             >
               SOME_NAME
                Offices
             </mock-styled.h1>
-          </mock-styled.div>
+          </div>
           <form>
             <mock-styled.div
               classname="el-form-layout-has-margin el-fade-in"
@@ -972,8 +977,8 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div>
-                <mock-styled.div
-                  classname="el-flex-grow el-flex-align-end el-hfull"
+                <div
+                  class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
                 >
                   <mock-styled.div>
                     <mock-styled.div
@@ -988,7 +993,7 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
                       </mock-styled.button>
                     </mock-styled.div>
                   </mock-styled.div>
-                </mock-styled.div>
+                </div>
               </mock-styled.div>
             </mock-styled.div>
           </form>
@@ -999,17 +1004,17 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
               <mock-styled.div />
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.section>
-      </mock-styled.div>
+        </section>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -1025,6 +1030,7 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
         </mock-styled.div>
         <mock-styled.span
           classname="el-mb5 el-icon-size-large"
+          role="img"
         >
           <svg
             fill="none"
@@ -1037,19 +1043,19 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
               clip-path="url(#developmentInfographic_svg__a)"
             >
               <path
-                d="M12.54.586A.586.586 0 0 0 11.952 0H8.047a.586.586 0 0 0-.586.586v.977h5.078V.586Z"
+                d="M12.54.586A.586.586 0 0 0 11.952 0H8.047a.586.586 0 0 0-.586.586v.977h5.078z"
                 fill="#798da1"
               />
               <path
-                d="M19.414 18.828H16.25V10.04a.586.586 0 0 0-.26-.487l-3.517-2.344a.586.586 0 0 0-.91.487v11.133H7.851V5.742a.586.586 0 0 0-.586-.586H3.75a.586.586 0 0 0-.586.586v7.813h1.367c.97 0 1.758.788 1.758 1.758v3.515H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172Zm-6.094-6.836a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0v-1.172Zm0 3.516a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0v-1.172Zm-7.226-3.516a.586.586 0 0 1-1.172 0V10.82a.586.586 0 0 1 1.172 0v1.172Zm0-3.515a.586.586 0 0 1-1.172 0V7.305a.586.586 0 0 1 1.172 0v1.172Z"
+                d="M19.414 18.828H16.25V10.04a.59.59 0 0 0-.26-.487l-3.517-2.344a.586.586 0 0 0-.91.487v11.133H7.852V5.742a.586.586 0 0 0-.586-.586H3.75a.586.586 0 0 0-.586.586v7.813h1.367c.97 0 1.758.788 1.758 1.758v3.515H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172m-6.094-6.836a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0zm0 3.516a.586.586 0 0 1 1.172 0v1.172a.586.586 0 0 1-1.172 0zm-7.226-3.516a.586.586 0 0 1-1.172 0V10.82a.586.586 0 0 1 1.172 0zm0-3.515a.586.586 0 0 1-1.172 0V7.305a.586.586 0 0 1 1.172 0z"
                 fill="#d8dee4"
               />
               <path
-                d="M19.414 18.828h-.234v-5.664a.586.586 0 0 0-.324-.524l-1.434-.717v6.905H10.39V7.695a1.755 1.755 0 0 1 1.757-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086H5.117v-3.515a.586.586 0 0 0-.586-.586H1.406a.586.586 0 0 0-.586.585v3.516H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172ZM2.383 17.461a.586.586 0 0 1 1.172 0v1.367H2.383v-1.367Z"
+                d="M19.414 18.828h-.234v-5.664a.59.59 0 0 0-.324-.524l-1.434-.717v6.905H10.39V7.695a1.755 1.755 0 0 1 1.757-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086H5.117v-3.515a.586.586 0 0 0-.586-.586H1.406a.586.586 0 0 0-.586.585v3.516H.586a.586.586 0 0 0 0 1.172h18.828a.586.586 0 1 0 0-1.172M2.383 17.461a.586.586 0 0 1 1.172 0v1.367H2.383z"
                 fill="#798da1"
               />
               <path
-                d="M10.39 18.828V7.695a1.755 1.755 0 0 1 1.758-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086h1.368Z"
+                d="M10.39 18.828V7.695a1.755 1.755 0 0 1 1.758-1.758c.349 0 .686.103.976.296l.587.391V3.32a.586.586 0 0 0-.586-.586h-6.25a.586.586 0 0 0-.586.586v.664h.977c.969 0 1.757.789 1.757 1.758v13.086z"
                 fill="#798da1"
               />
             </g>
@@ -1066,7 +1072,7 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
           </svg>
         </mock-styled.span>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           You can create an office group with this wizard. If you want to update the information later, refer to the office groups page.
         </mock-styled.p>
@@ -1074,12 +1080,12 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
           class="el-mb5"
         >
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             Organisations
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
           </mock-styled.p>
@@ -1115,20 +1121,20 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
             </mock-styled.div>
           </mock-styled.div>
         </div>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname="el-hfull"
+      </aside>
+      <section
+        class="el-page-container el-hfull"
       >
-        <mock-styled.div
-          classname="el-flex-justify-between"
+        <div
+          class="el-flex-container el-flex-justify-between"
         >
           <mock-styled.h1
-            classname=""
+            classname="el-text-base"
           >
             SOME_NAME
              Offices
           </mock-styled.h1>
-        </mock-styled.div>
+        </div>
         <form>
           <mock-styled.div
             classname="el-form-layout-has-margin el-fade-in"
@@ -1149,8 +1155,8 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.div
-                classname="el-flex-grow el-flex-align-end el-hfull"
+              <div
+                class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
               >
                 <mock-styled.div>
                   <mock-styled.div
@@ -1165,7 +1171,7 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
-              </mock-styled.div>
+              </div>
             </mock-styled.div>
           </mock-styled.div>
         </form>
@@ -1176,8 +1182,8 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
             <mock-styled.div />
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.section>
-    </mock-styled.div>
+      </section>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -186,8 +186,6 @@ export const AppDetail: FC = () => {
           <BodyText hasGreyText hasSectionMargin>
             For website developers, you might find our code examples useful. We offer examples in the following
             languages <LinkChip onClick={openNewPage(ExternalPages.codeExampleNodeWebsite)}>Node JS</LinkChip>
-            <LinkChip onClick={openNewPage(ExternalPages.codeExamplePHPWebsite)}>.NET</LinkChip>
-            <LinkChip onClick={openNewPage(ExternalPages.codeExampleNetWebsite)}>PHP</LinkChip>
           </BodyText>
         </>
       )}

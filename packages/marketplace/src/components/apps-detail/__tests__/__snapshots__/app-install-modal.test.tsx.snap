@@ -10,7 +10,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           As an organisation admin, you have control over 
           enabling
@@ -25,12 +25,12 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
           Reapit Connect Management App.
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Desktop Integration
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
         </mock-styled.p>
@@ -45,7 +45,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
           </mock-styled.div>
         </div>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           For more information regarding Desktop Integration types, please
            
@@ -59,12 +59,12 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
           .
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Pricing Information
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Will Test DevCo
            have specified that there is a cost for using this 
@@ -84,7 +84,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
           .
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           You will not be charged by Reapit Ltd for any costs associated with using this
            
@@ -92,19 +92,19 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
           .
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Data Permissions
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           By 
           enabling
            this app, you are granting the following permissions to your data:
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Information about your organisation and the names/email addresses of your users
         </mock-styled.p>
@@ -146,7 +146,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         As an organisation admin, you have control over 
         enabling
@@ -161,12 +161,12 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
         Reapit Connect Management App.
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Desktop Integration
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </mock-styled.p>
@@ -181,7 +181,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
         </mock-styled.div>
       </div>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         For more information regarding Desktop Integration types, please
          
@@ -195,12 +195,12 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
         .
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Pricing Information
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Will Test DevCo
          have specified that there is a cost for using this 
@@ -220,7 +220,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
         .
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         You will not be charged by Reapit Ltd for any costs associated with using this
          
@@ -228,19 +228,19 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
         .
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Data Permissions
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         By 
         enabling
          this app, you are granting the following permissions to your data:
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Information about your organisation and the names/email addresses of your users
       </mock-styled.p>
@@ -339,7 +339,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           As an organisation admin, you have control over 
           enabling
@@ -354,12 +354,12 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
           Reapit Connect Management App.
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Desktop Integration
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
         </mock-styled.p>
@@ -374,7 +374,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
           </mock-styled.div>
         </div>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           For more information regarding Desktop Integration types, please
            
@@ -388,12 +388,12 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
           .
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Pricing Information
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Will Test DevCo
            have specified that there is a cost for using this 
@@ -413,7 +413,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
           .
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           You will not be charged by Reapit Ltd for any costs associated with using this
            
@@ -421,19 +421,19 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
           .
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Data Permissions
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           By 
           enabling
            this app, you are granting the following permissions to your data:
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Information about your organisation and the names/email addresses of your users
         </mock-styled.p>
@@ -475,7 +475,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         As an organisation admin, you have control over 
         enabling
@@ -490,12 +490,12 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
         Reapit Connect Management App.
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Desktop Integration
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </mock-styled.p>
@@ -510,7 +510,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
         </mock-styled.div>
       </div>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         For more information regarding Desktop Integration types, please
          
@@ -524,12 +524,12 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
         .
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Pricing Information
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Will Test DevCo
          have specified that there is a cost for using this 
@@ -549,7 +549,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
         .
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         You will not be charged by Reapit Ltd for any costs associated with using this
          
@@ -557,19 +557,19 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
         .
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Data Permissions
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         By 
         enabling
          this app, you are granting the following permissions to your data:
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Information about your organisation and the names/email addresses of your users
       </mock-styled.p>
@@ -668,7 +668,7 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           You are about to 
           enable
@@ -681,12 +681,12 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
            Users and Offices within your Organisation.
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Desktop Integration
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
         </mock-styled.p>
@@ -701,7 +701,7 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
           </mock-styled.div>
         </div>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           For more information regarding Desktop Integration types, please
            
@@ -715,12 +715,12 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
           .
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Pricing Information
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Will Test DevCo
            have specified there is no cost for using this 
@@ -728,19 +728,19 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
           .
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Data Permissions
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           By 
           enabling
            this app, you are granting the following permissions to your data:
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Information about your organisation and the names/email addresses of your users
         </mock-styled.p>
@@ -782,7 +782,7 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         You are about to 
         enable
@@ -795,12 +795,12 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
          Users and Offices within your Organisation.
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Desktop Integration
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </mock-styled.p>
@@ -815,7 +815,7 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
         </mock-styled.div>
       </div>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         For more information regarding Desktop Integration types, please
          
@@ -829,12 +829,12 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
         .
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Pricing Information
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Will Test DevCo
          have specified there is no cost for using this 
@@ -842,19 +842,19 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
         .
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Data Permissions
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         By 
         enabling
          this app, you are granting the following permissions to your data:
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Information about your organisation and the names/email addresses of your users
       </mock-styled.p>
@@ -953,7 +953,7 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           You are about to 
           enable
@@ -964,12 +964,12 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
           MOCK_OFFICE_GROUP
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Desktop Integration
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
         </mock-styled.p>
@@ -984,7 +984,7 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
           </mock-styled.div>
         </div>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           For more information regarding Desktop Integration types, please
            
@@ -998,12 +998,12 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
           .
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Pricing Information
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Will Test DevCo
            have specified that there is a cost for using this 
@@ -1023,7 +1023,7 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
           .
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           You will not be charged by Reapit Ltd for any costs associated with using this
            
@@ -1031,19 +1031,19 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
           .
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Data Permissions
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           By 
           enabling
            this app, you are granting the following permissions to your data:
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Information about your organisation and the names/email addresses of your users
         </mock-styled.p>
@@ -1085,7 +1085,7 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         You are about to 
         enable
@@ -1096,12 +1096,12 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
         MOCK_OFFICE_GROUP
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Desktop Integration
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </mock-styled.p>
@@ -1116,7 +1116,7 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
         </mock-styled.div>
       </div>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         For more information regarding Desktop Integration types, please
          
@@ -1130,12 +1130,12 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
         .
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Pricing Information
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Will Test DevCo
          have specified that there is a cost for using this 
@@ -1155,7 +1155,7 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
         .
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         You will not be charged by Reapit Ltd for any costs associated with using this
          
@@ -1163,19 +1163,19 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
         .
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Data Permissions
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         By 
         enabling
          this app, you are granting the following permissions to your data:
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Information about your organisation and the names/email addresses of your users
       </mock-styled.p>
@@ -1274,7 +1274,7 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           You are about to 
           enable
@@ -1287,12 +1287,12 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
            Users and Offices within your Organisation.
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Desktop Integration
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
         </mock-styled.p>
@@ -1307,7 +1307,7 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
           </mock-styled.div>
         </div>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           For more information regarding Desktop Integration types, please
            
@@ -1321,12 +1321,12 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
           .
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Pricing Information
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           There may be a cost associated to using this 
           integration
@@ -1337,19 +1337,19 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
            directly for information about pricing.
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Data Permissions
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           By 
           enabling
            this app, you are granting the following permissions to your data:
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Information about your organisation and the names/email addresses of your users
         </mock-styled.p>
@@ -1391,7 +1391,7 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         You are about to 
         enable
@@ -1404,12 +1404,12 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
          Users and Offices within your Organisation.
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Desktop Integration
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </mock-styled.p>
@@ -1424,7 +1424,7 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
         </mock-styled.div>
       </div>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         For more information regarding Desktop Integration types, please
          
@@ -1438,12 +1438,12 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
         .
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Pricing Information
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         There may be a cost associated to using this 
         integration
@@ -1454,19 +1454,19 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
          directly for information about pricing.
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Data Permissions
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         By 
         enabling
          this app, you are granting the following permissions to your data:
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Information about your organisation and the names/email addresses of your users
       </mock-styled.p>
@@ -1565,7 +1565,7 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           You are about to 
           enable
@@ -1578,12 +1578,12 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
            Users and Offices within your Organisation.
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Desktop Integration
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
         </mock-styled.p>
@@ -1598,7 +1598,7 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
           </mock-styled.div>
         </div>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           For more information regarding Desktop Integration types, please
            
@@ -1612,12 +1612,12 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
           .
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Pricing Information
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Will Test DevCo
            have specified that there is a cost for using this 
@@ -1637,7 +1637,7 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
           .
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           You will not be charged by Reapit Ltd for any costs associated with using this
            
@@ -1645,19 +1645,19 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
           .
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Data Permissions
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           By 
           enabling
            this app, you are granting the following permissions to your data:
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Information about your organisation and the names/email addresses of your users
         </mock-styled.p>
@@ -1699,7 +1699,7 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         You are about to 
         enable
@@ -1712,12 +1712,12 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
          Users and Offices within your Organisation.
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Desktop Integration
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </mock-styled.p>
@@ -1732,7 +1732,7 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
         </mock-styled.div>
       </div>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         For more information regarding Desktop Integration types, please
          
@@ -1746,12 +1746,12 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
         .
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Pricing Information
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Will Test DevCo
          have specified that there is a cost for using this 
@@ -1771,7 +1771,7 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
         .
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         You will not be charged by Reapit Ltd for any costs associated with using this
          
@@ -1779,19 +1779,19 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
         .
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Data Permissions
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         By 
         enabling
          this app, you are granting the following permissions to your data:
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Information about your organisation and the names/email addresses of your users
       </mock-styled.p>

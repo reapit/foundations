@@ -6,12 +6,12 @@ exports[`AppToggleVisibilitySection should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.h2
-        classname=""
+        classname="el-text-base"
       >
         Application Visibility
       </mock-styled.h2>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the Marketplace to any offices/users inside of your organisation.
       </mock-styled.p>
@@ -34,12 +34,12 @@ exports[`AppToggleVisibilitySection should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <mock-styled.h2
-      classname=""
+      classname="el-text-base"
     >
       Application Visibility
     </mock-styled.h2>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the Marketplace to any offices/users inside of your organisation.
     </mock-styled.p>

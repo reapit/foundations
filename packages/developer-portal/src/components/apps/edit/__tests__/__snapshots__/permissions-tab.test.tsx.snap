@@ -7,7 +7,7 @@ exports[`PermissionsTab should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
          
@@ -29,7 +29,11 @@ exports[`PermissionsTab should match a snapshot 1`] = `
             <mock-styled.label>
               Permissions
             </mock-styled.label>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r0:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 errormessage="At least one Permission is required"
                 id="app-edit-scopes-select"
@@ -41,6 +45,7 @@ exports[`PermissionsTab should match a snapshot 1`] = `
               >
                 <mock-styled.span
                   classname="el-ml2 el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
@@ -50,7 +55,7 @@ exports[`PermissionsTab should match a snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                      d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                       fill="currentColor"
                     />
                   </svg>
@@ -78,7 +83,7 @@ exports[`PermissionsTab should match a snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
       </mock-styled.p>
@@ -90,7 +95,11 @@ exports[`PermissionsTab should match a snapshot 1`] = `
             <mock-styled.label>
               Reapit Products
             </mock-styled.label>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r1:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="app-edit-products-select"
                 label="Reapit Products"
@@ -101,6 +110,7 @@ exports[`PermissionsTab should match a snapshot 1`] = `
               >
                 <mock-styled.span
                   classname="el-ml2 el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
@@ -110,7 +120,7 @@ exports[`PermissionsTab should match a snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                      d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                       fill="currentColor"
                     />
                   </svg>
@@ -138,7 +148,7 @@ exports[`PermissionsTab should match a snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘Customer ID’ as a comma separated list. For more information on how to find the Customer ID,
          
@@ -194,7 +204,7 @@ exports[`PermissionsTab should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
        
@@ -216,7 +226,11 @@ exports[`PermissionsTab should match a snapshot 1`] = `
           <mock-styled.label>
             Permissions
           </mock-styled.label>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r0:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               errormessage="At least one Permission is required"
               id="app-edit-scopes-select"
@@ -228,6 +242,7 @@ exports[`PermissionsTab should match a snapshot 1`] = `
             >
               <mock-styled.span
                 classname="el-ml2 el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -237,7 +252,7 @@ exports[`PermissionsTab should match a snapshot 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                    d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                     fill="currentColor"
                   />
                 </svg>
@@ -265,7 +280,7 @@ exports[`PermissionsTab should match a snapshot 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
     </mock-styled.p>
@@ -277,7 +292,11 @@ exports[`PermissionsTab should match a snapshot 1`] = `
           <mock-styled.label>
             Reapit Products
           </mock-styled.label>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r1:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="app-edit-products-select"
               label="Reapit Products"
@@ -288,6 +307,7 @@ exports[`PermissionsTab should match a snapshot 1`] = `
             >
               <mock-styled.span
                 classname="el-ml2 el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -297,7 +317,7 @@ exports[`PermissionsTab should match a snapshot 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                    d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                     fill="currentColor"
                   />
                 </svg>
@@ -325,7 +345,7 @@ exports[`PermissionsTab should match a snapshot 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘Customer ID’ as a comma separated list. For more information on how to find the Customer ID,
        
@@ -438,7 +458,7 @@ exports[`PermissionsTab should match a snapshot when loading 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
          
@@ -463,7 +483,7 @@ exports[`PermissionsTab should match a snapshot when loading 1`] = `
         classname="el-form-layout-has-margin"
       />
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
       </mock-styled.p>
@@ -478,7 +498,7 @@ exports[`PermissionsTab should match a snapshot when loading 1`] = `
         classname="el-form-layout-has-margin"
       />
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘Customer ID’ as a comma separated list. For more information on how to find the Customer ID,
          
@@ -541,7 +561,7 @@ exports[`PermissionsTab should match a snapshot when loading 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
        
@@ -566,7 +586,7 @@ exports[`PermissionsTab should match a snapshot when loading 1`] = `
       classname="el-form-layout-has-margin"
     />
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
     </mock-styled.p>
@@ -581,7 +601,7 @@ exports[`PermissionsTab should match a snapshot when loading 1`] = `
       classname="el-form-layout-has-margin"
     />
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘Customer ID’ as a comma separated list. For more information on how to find the Customer ID,
        

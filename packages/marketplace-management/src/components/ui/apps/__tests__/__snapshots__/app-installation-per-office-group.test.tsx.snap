@@ -28,7 +28,11 @@ exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-controls=":r0:"
+          aria-haspopup="listbox"
+          role="combobox"
+        >
           <mock-styled.input
             id="select-groups-to-install"
           />
@@ -37,6 +41,7 @@ exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
           >
             <mock-styled.span
               classname="el-ml2 el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -46,7 +51,7 @@ exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                  d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                   fill="currentColor"
                 />
               </svg>
@@ -307,7 +312,11 @@ exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.div>
-      <mock-styled.div>
+      <mock-styled.div
+        aria-controls=":r0:"
+        aria-haspopup="listbox"
+        role="combobox"
+      >
         <mock-styled.input
           id="select-groups-to-install"
         />
@@ -316,6 +325,7 @@ exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="el-ml2 el-intent-default el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -325,7 +335,7 @@ exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                 fill="currentColor"
               />
             </svg>

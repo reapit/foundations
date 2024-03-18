@@ -18,7 +18,7 @@ exports[`LandlordDrawer should match snapshot with landlords in state and an AML
 "
       >
         <mock-styled.h2
-          classname="el-has-no-margin"
+          classname="el-text-base el-has-no-margin"
         >
           Mr John Smith
         </mock-styled.h2>
@@ -921,7 +921,7 @@ exports[`LandlordDrawer should match snapshot with landlords in state and an AML
 "
     >
       <mock-styled.h2
-        classname="el-has-no-margin"
+        classname="el-text-base el-has-no-margin"
       >
         Mr John Smith
       </mock-styled.h2>

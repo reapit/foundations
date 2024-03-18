@@ -7,7 +7,7 @@ exports[`AppInstallationConfirmationModal should match a snapshot when an uninst
     <div>
       <mock-styled.div />
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Are you sure you wish to uninstall 
         TEST APP
@@ -43,7 +43,7 @@ exports[`AppInstallationConfirmationModal should match a snapshot when an uninst
   "container": <div>
     <mock-styled.div />
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       Are you sure you wish to uninstall 
       TEST APP
@@ -136,31 +136,31 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
     <div>
       <mock-styled.div />
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Please confirm that you wish to action the following with this app:
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Installation for 
         1
          office group
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Uninstallation for 
         1
          office group
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Before you confirm, please check to ensure you have reviewed and agree with the Desktop Types (if applicable), Pricing Information and Data Permissions.
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         If you are uncertain, please cancel and look at the information located on the app listing.
       </mock-styled.p>
@@ -190,31 +190,31 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
   "container": <div>
     <mock-styled.div />
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       Please confirm that you wish to action the following with this app:
     </mock-styled.p>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       Installation for 
       1
        office group
     </mock-styled.p>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       Uninstallation for 
       1
        office group
     </mock-styled.p>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       Before you confirm, please check to ensure you have reviewed and agree with the Desktop Types (if applicable), Pricing Information and Data Permissions.
     </mock-styled.p>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       If you are uncertain, please cancel and look at the information located on the app listing.
     </mock-styled.p>
@@ -301,17 +301,17 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
     <div>
       <mock-styled.div />
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         By confirming this installation, you are granting this app access to all data inside of your organisation and all users and offices will have access to this app inside of the AppMarket.
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Before you confirm, please check to ensure you have reviewed and agree with the Desktop Types (if applicable), Pricing Information and Data Permissions.
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         If you are uncertain, please cancel and look at the information located on the app listing.
       </mock-styled.p>
@@ -341,17 +341,17 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
   "container": <div>
     <mock-styled.div />
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       By confirming this installation, you are granting this app access to all data inside of your organisation and all users and offices will have access to this app inside of the AppMarket.
     </mock-styled.p>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       Before you confirm, please check to ensure you have reviewed and agree with the Desktop Types (if applicable), Pricing Information and Data Permissions.
     </mock-styled.p>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       If you are uncertain, please cancel and look at the information located on the app listing.
     </mock-styled.p>

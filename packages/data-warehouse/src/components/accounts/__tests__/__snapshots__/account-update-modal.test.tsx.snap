@@ -8,7 +8,7 @@ exports[`AccountUpdateModal should match a snapshot 1`] = `
       <mock-styled.div />
       <form>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Enter new password below
         </mock-styled.p>
@@ -75,7 +75,7 @@ exports[`AccountUpdateModal should match a snapshot 1`] = `
     <mock-styled.div />
     <form>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Enter new password below
       </mock-styled.p>

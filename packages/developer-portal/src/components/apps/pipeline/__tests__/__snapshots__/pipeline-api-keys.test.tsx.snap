@@ -7,17 +7,17 @@ exports[`ApiKeys should match snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Manage your API keys here for use with the Reapit CLI tool. The CLI allows you to deploy your application as a zip folder from a local build on the command line, rather than having to grant access to your private repos.
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         You only need an API key to use the Reapit CLI. If you prefer to use the web UI to manage your deployments, you can pass on this page.
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         For more on the Reapit CLI visit 
         <a>
@@ -29,30 +29,43 @@ exports[`ApiKeys should match snapshot 1`] = `
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="2"
+        role="table"
       >
-        <mock-styled.div>
-          <mock-styled.div>
+        <mock-styled.div
+          role="row"
+        >
+          <mock-styled.div
+            aria-label="API Key"
+            role="columnheader"
+          >
             API Key
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Expires"
+            role="columnheader"
+          >
             Expires
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            role="columnheader"
+          >
             Delete Key
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="API Key"
               >
-                <mock-styled.div
-                  classname=""
+                <div
+                  class="el-flex-container"
                 >
                   <span
                     class="el-mr3"
@@ -65,11 +78,12 @@ exports[`ApiKeys should match snapshot 1`] = `
                     <mock-styled.div />
                     Copy
                   </mock-styled.button>
-                </mock-styled.div>
+                </div>
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Expires"
@@ -77,10 +91,13 @@ exports[`ApiKeys should match snapshot 1`] = `
                 25 Apr 2023 04:28:25
               </mock-styled.div>
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              role="cell"
+            >
               <mock-styled.div>
                 <mock-styled.span
                   classname="el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
@@ -90,12 +107,12 @@ exports[`ApiKeys should match snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M9 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0v-6ZM13 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0v-6Z"
+                      d="M9 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0zM13 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0z"
                       fill="currentColor"
                     />
                     <path
                       clip-rule="evenodd"
-                      d="M18 5h3a1 1 0 1 1 0 2h-.06l-.69 11.31a5 5 0 0 1-5 4.69H8.77a5 5 0 0 1-5-4.69L3.06 7H3a1 1 0 1 1 0-2h3V4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v1ZM9 3a1 1 0 0 0-1 1v1h8V4a1 1 0 0 0-1-1H9Zm6.24 18a3 3 0 0 0 3-2.81L18.94 7H5.06l.7 11.19a3 3 0 0 0 3 2.81h6.48Z"
+                      d="M18 5h3a1 1 0 1 1 0 2h-.06l-.69 11.31a5 5 0 0 1-5 4.69H8.77a5 5 0 0 1-5-4.69L3.06 7H3a1 1 0 1 1 0-2h3V4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3zM9 3a1 1 0 0 0-1 1v1h8V4a1 1 0 0 0-1-1zm6.24 18a3 3 0 0 0 3-2.81L18.94 7H5.06l.7 11.19a3 3 0 0 0 3 2.81z"
                       fill="currentColor"
                       fill-rule="evenodd"
                     />
@@ -131,17 +148,17 @@ exports[`ApiKeys should match snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       Manage your API keys here for use with the Reapit CLI tool. The CLI allows you to deploy your application as a zip folder from a local build on the command line, rather than having to grant access to your private repos.
     </mock-styled.p>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       You only need an API key to use the Reapit CLI. If you prefer to use the web UI to manage your deployments, you can pass on this page.
     </mock-styled.p>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       For more on the Reapit CLI visit 
       <a>
@@ -153,30 +170,43 @@ exports[`ApiKeys should match snapshot 1`] = `
       data-has-call-to-action="true"
       data-has-expandable-action="false"
       data-num-columns-excl-action-col="2"
+      role="table"
     >
-      <mock-styled.div>
-        <mock-styled.div>
+      <mock-styled.div
+        role="row"
+      >
+        <mock-styled.div
+          aria-label="API Key"
+          role="columnheader"
+        >
           API Key
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Expires"
+          role="columnheader"
+        >
           Expires
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          role="columnheader"
+        >
           Delete Key
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="API Key"
             >
-              <mock-styled.div
-                classname=""
+              <div
+                class="el-flex-container"
               >
                 <span
                   class="el-mr3"
@@ -189,11 +219,12 @@ exports[`ApiKeys should match snapshot 1`] = `
                   <mock-styled.div />
                   Copy
                 </mock-styled.button>
-              </mock-styled.div>
+              </div>
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Expires"
@@ -201,10 +232,13 @@ exports[`ApiKeys should match snapshot 1`] = `
               25 Apr 2023 04:28:25
             </mock-styled.div>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            role="cell"
+          >
             <mock-styled.div>
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -214,12 +248,12 @@ exports[`ApiKeys should match snapshot 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M9 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0v-6ZM13 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0v-6Z"
+                    d="M9 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0zM13 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0z"
                     fill="currentColor"
                   />
                   <path
                     clip-rule="evenodd"
-                    d="M18 5h3a1 1 0 1 1 0 2h-.06l-.69 11.31a5 5 0 0 1-5 4.69H8.77a5 5 0 0 1-5-4.69L3.06 7H3a1 1 0 1 1 0-2h3V4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v1ZM9 3a1 1 0 0 0-1 1v1h8V4a1 1 0 0 0-1-1H9Zm6.24 18a3 3 0 0 0 3-2.81L18.94 7H5.06l.7 11.19a3 3 0 0 0 3 2.81h6.48Z"
+                    d="M18 5h3a1 1 0 1 1 0 2h-.06l-.69 11.31a5 5 0 0 1-5 4.69H8.77a5 5 0 0 1-5-4.69L3.06 7H3a1 1 0 1 1 0-2h3V4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3zM9 3a1 1 0 0 0-1 1v1h8V4a1 1 0 0 0-1-1zm6.24 18a3 3 0 0 0 3-2.81L18.94 7H5.06l.7 11.19a3 3 0 0 0 3 2.81z"
                     fill="currentColor"
                     fill-rule="evenodd"
                   />

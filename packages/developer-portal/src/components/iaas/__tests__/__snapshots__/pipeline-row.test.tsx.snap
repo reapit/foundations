@@ -40,6 +40,7 @@ exports[`PipelineRow should match snapshot 1`] = `
           >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -49,7 +50,7 @@ exports[`PipelineRow should match snapshot 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                   fill="currentColor"
                 />
               </svg>
@@ -60,8 +61,8 @@ exports[`PipelineRow should match snapshot 1`] = `
           classname=""
         >
           <mock-styled.div>
-            <mock-styled.div
-              classname="el-flex-justify-center el-flex-align-center"
+            <div
+              class="el-flex-container el-flex-justify-center el-flex-align-center"
             >
               <mock-styled.div>
                 <mock-styled.div
@@ -87,7 +88,7 @@ exports[`PipelineRow should match snapshot 1`] = `
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
-            </mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
@@ -129,6 +130,7 @@ exports[`PipelineRow should match snapshot 1`] = `
         >
           <mock-styled.span
             classname="el-intent-default el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -138,7 +140,7 @@ exports[`PipelineRow should match snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                 fill="currentColor"
               />
             </svg>
@@ -149,8 +151,8 @@ exports[`PipelineRow should match snapshot 1`] = `
         classname=""
       >
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-flex-justify-center el-flex-align-center"
+          <div
+            class="el-flex-container el-flex-justify-center el-flex-align-center"
           >
             <mock-styled.div>
               <mock-styled.div
@@ -176,7 +178,7 @@ exports[`PipelineRow should match snapshot 1`] = `
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
       </mock-styled.div>
     </mock-styled.div>

@@ -10,25 +10,30 @@ exports[`AcceptedModal should match snapshot 1`] = `
         classname="el-is-active"
       />
       <mock-styled.div
+        aria-describedby=":r0:"
+        aria-modal="true"
         classname="el-is-active"
+        role="dialog"
       >
         <mock-styled.div>
           Reapit Foundations Invitation
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          id=":r0:"
+        >
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             You have been invited to join the '
             ' organisation on Reapit Foundations.
           </mock-styled.p>
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             Before confirming your account, please ensure your details are correct below.
           </mock-styled.p>
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             <strong>
               Important: 
@@ -101,25 +106,30 @@ exports[`AcceptedModal should match snapshot 1`] = `
       classname="el-is-active"
     />
     <mock-styled.div
+      aria-describedby=":r0:"
+      aria-modal="true"
       classname="el-is-active"
+      role="dialog"
     >
       <mock-styled.div>
         Reapit Foundations Invitation
       </mock-styled.div>
-      <mock-styled.div>
+      <mock-styled.div
+        id=":r0:"
+      >
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           You have been invited to join the '
           ' organisation on Reapit Foundations.
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Before confirming your account, please ensure your details are correct below.
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           <strong>
             Important: 
@@ -249,25 +259,30 @@ exports[`AcceptedModal should match snapshot when an invite is accepted or rejec
         classname="el-is-active"
       />
       <mock-styled.div
+        aria-describedby=":r1:"
+        aria-modal="true"
         classname="el-is-active"
+        role="dialog"
       >
         <mock-styled.div>
           Reapit Foundations Invitation
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          id=":r1:"
+        >
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             You have been invited to join the '
             ' organisation on Reapit Foundations.
           </mock-styled.p>
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             Before confirming your account, please ensure your details are correct below.
           </mock-styled.p>
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             <strong>
               Important: 
@@ -340,25 +355,30 @@ exports[`AcceptedModal should match snapshot when an invite is accepted or rejec
       classname="el-is-active"
     />
     <mock-styled.div
+      aria-describedby=":r1:"
+      aria-modal="true"
       classname="el-is-active"
+      role="dialog"
     >
       <mock-styled.div>
         Reapit Foundations Invitation
       </mock-styled.div>
-      <mock-styled.div>
+      <mock-styled.div
+        id=":r1:"
+      >
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           You have been invited to join the '
           ' organisation on Reapit Foundations.
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Before confirming your account, please ensure your details are correct below.
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           <strong>
             Important: 

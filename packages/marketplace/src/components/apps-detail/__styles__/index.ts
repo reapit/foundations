@@ -1,5 +1,5 @@
 import { forDesktopAndAbove } from './../../../core/__styles__/media'
-import { ElModalBody } from './../../../../../elements/src/components/modal/__styles__/index'
+import { ElModalBody } from '@reapit/elements'
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { forMobileAndAbove, forTabletAndAbove, forWidescreenAndAbove } from '../../../core/__styles__/media'

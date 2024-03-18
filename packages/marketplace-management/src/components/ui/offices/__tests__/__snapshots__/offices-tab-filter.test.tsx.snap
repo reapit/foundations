@@ -25,8 +25,8 @@ exports[`OfficeTabFilterForm should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="el-flex-grow el-flex-align-end el-hfull"
+            <div
+              class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
             >
               <mock-styled.div>
                 <mock-styled.div
@@ -41,7 +41,7 @@ exports[`OfficeTabFilterForm should match a snapshot 1`] = `
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
-            </mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
       </form>
@@ -68,8 +68,8 @@ exports[`OfficeTabFilterForm should match a snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-flex-grow el-flex-align-end el-hfull"
+          <div
+            class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
           >
             <mock-styled.div>
               <mock-styled.div
@@ -84,7 +84,7 @@ exports[`OfficeTabFilterForm should match a snapshot 1`] = `
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
       </mock-styled.div>
     </form>

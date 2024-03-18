@@ -5,8 +5,8 @@ exports[`StepOptionsContent should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="el-flex-column el-wfull el-fade-in"
+      <div
+        class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -46,12 +46,12 @@ exports[`StepOptionsContent should match a snapshot 1`] = `
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="el-flex-column el-wfull el-fade-in"
+    <div
+      class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
@@ -91,7 +91,7 @@ exports[`StepOptionsContent should match a snapshot 1`] = `
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -152,8 +152,8 @@ exports[`StepOptionsContent should match a snapshot 2`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="el-flex-column el-wfull el-fade-in"
+      <div
+        class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -193,12 +193,12 @@ exports[`StepOptionsContent should match a snapshot 2`] = `
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="el-flex-column el-wfull el-fade-in"
+    <div
+      class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
@@ -238,7 +238,7 @@ exports[`StepOptionsContent should match a snapshot 2`] = `
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -299,8 +299,8 @@ exports[`StepOptionsContent should match a snapshot 3`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="el-flex-column el-wfull el-fade-in"
+      <div
+        class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -340,12 +340,12 @@ exports[`StepOptionsContent should match a snapshot 3`] = `
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="el-flex-column el-wfull el-fade-in"
+    <div
+      class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
@@ -385,7 +385,7 @@ exports[`StepOptionsContent should match a snapshot 3`] = `
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -446,8 +446,8 @@ exports[`StepOptionsContent should match a snapshot 4`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="el-flex-column el-wfull el-fade-in"
+      <div
+        class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -487,12 +487,12 @@ exports[`StepOptionsContent should match a snapshot 4`] = `
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="el-flex-column el-wfull el-fade-in"
+    <div
+      class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
@@ -532,7 +532,7 @@ exports[`StepOptionsContent should match a snapshot 4`] = `
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -593,8 +593,8 @@ exports[`StepOptionsContent should match a snapshot 5`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="el-flex-column el-wfull el-fade-in"
+      <div
+        class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -634,12 +634,12 @@ exports[`StepOptionsContent should match a snapshot 5`] = `
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="el-flex-column el-wfull el-fade-in"
+    <div
+      class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
@@ -679,7 +679,7 @@ exports[`StepOptionsContent should match a snapshot 5`] = `
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -740,8 +740,8 @@ exports[`StepOptionsContent should match a snapshot 6`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="el-flex-column el-wfull el-fade-in"
+      <div
+        class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -781,12 +781,12 @@ exports[`StepOptionsContent should match a snapshot 6`] = `
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="el-flex-column el-wfull el-fade-in"
+    <div
+      class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
@@ -826,7 +826,7 @@ exports[`StepOptionsContent should match a snapshot 6`] = `
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -887,8 +887,8 @@ exports[`StepOptionsContent should match a snapshot 7`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="el-flex-column el-wfull el-fade-in"
+      <div
+        class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -928,12 +928,12 @@ exports[`StepOptionsContent should match a snapshot 7`] = `
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="el-flex-column el-wfull el-fade-in"
+    <div
+      class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
@@ -973,7 +973,7 @@ exports[`StepOptionsContent should match a snapshot 7`] = `
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1034,8 +1034,8 @@ exports[`StepOptionsContent should match a snapshot 8`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="el-flex-column el-wfull el-fade-in"
+      <div
+        class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -1075,12 +1075,12 @@ exports[`StepOptionsContent should match a snapshot 8`] = `
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="el-flex-column el-wfull el-fade-in"
+    <div
+      class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
@@ -1120,7 +1120,7 @@ exports[`StepOptionsContent should match a snapshot 8`] = `
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1181,8 +1181,8 @@ exports[`StepOptionsContent should match a snapshot 9`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="el-flex-column el-wfull el-fade-in"
+      <div
+        class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -1222,12 +1222,12 @@ exports[`StepOptionsContent should match a snapshot 9`] = `
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="el-flex-column el-wfull el-fade-in"
+    <div
+      class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
@@ -1267,7 +1267,7 @@ exports[`StepOptionsContent should match a snapshot 9`] = `
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1328,8 +1328,8 @@ exports[`StepOptionsContent should match a snapshot 10`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="el-flex-column el-wfull el-fade-in"
+      <div
+        class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -1369,12 +1369,12 @@ exports[`StepOptionsContent should match a snapshot 10`] = `
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="el-flex-column el-wfull el-fade-in"
+    <div
+      class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
@@ -1414,7 +1414,7 @@ exports[`StepOptionsContent should match a snapshot 10`] = `
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1475,8 +1475,8 @@ exports[`StepOptionsContent should match a snapshot 11`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="el-flex-column el-wfull el-fade-in"
+      <div
+        class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -1516,12 +1516,12 @@ exports[`StepOptionsContent should match a snapshot 11`] = `
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="el-flex-column el-wfull el-fade-in"
+    <div
+      class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
         <mock-styled.div
@@ -1561,7 +1561,7 @@ exports[`StepOptionsContent should match a snapshot 11`] = `
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -8,7 +8,7 @@ exports[`PaymentRequestModal should match a snapshot 1`] = `
       <mock-styled.div />
       <form>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           The below form will send an email request for payment to your customer with an embedded link to our card processing page. You should set an expiry for this payment request and an email address to receive the request. The default expiry is a week.
         </mock-styled.p>
@@ -75,7 +75,7 @@ exports[`PaymentRequestModal should match a snapshot 1`] = `
     <mock-styled.div />
     <form>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         The below form will send an email request for payment to your customer with an embedded link to our card processing page. You should set an expiry for this payment request and an email address to receive the request. The default expiry is a week.
       </mock-styled.p>

@@ -1717,7 +1717,7 @@ export interface AppointmentModel {
      */
     type?: string
     /**
-     * The date the appointment recurs until
+     * The date and time of the last occurrence of the appointment
      * example:
      * 2019-08-14T12:30:02Z
      */
@@ -1924,7 +1924,7 @@ export interface AppointmentModelPagedResult {
        */
       type?: string
       /**
-       * The date the appointment recurs until
+       * The date and time of the last occurrence of the appointment
        * example:
        * 2019-08-14T12:30:02Z
        */
@@ -2691,6 +2691,22 @@ export interface CompanyModel {
    */
   negotiatorIds?: string[]
   /**
+   * A flag determining whether or not the company is happy to receive communications by letter
+   */
+  communicationPreferenceLetter?: boolean
+  /**
+   * A flag determining whether or not the company is happy to receive communications by email
+   */
+  communicationPreferenceEmail?: boolean
+  /**
+   * A flag determining whether or not the company is happy to receive communications by phone
+   */
+  communicationPreferencePhone?: boolean
+  /**
+   * A flag determining whether or not the company is happy to receive communications by SMS
+   */
+  communicationPreferenceSms?: boolean
+  /**
    * App specific metadata that has been set against the company
    */
   metadata?: {
@@ -2893,6 +2909,22 @@ export interface CompanyModelPagedResult {
      * A collection of unique identifiers of negotiators attached to the company. The first item in the collection is considered the primary negotiator
      */
     negotiatorIds?: string[]
+    /**
+     * A flag determining whether or not the company is happy to receive communications by letter
+     */
+    communicationPreferenceLetter?: boolean
+    /**
+     * A flag determining whether or not the company is happy to receive communications by email
+     */
+    communicationPreferenceEmail?: boolean
+    /**
+     * A flag determining whether or not the company is happy to receive communications by phone
+     */
+    communicationPreferencePhone?: boolean
+    /**
+     * A flag determining whether or not the company is happy to receive communications by SMS
+     */
+    communicationPreferenceSms?: boolean
     /**
      * App specific metadata that has been set against the company
      */
@@ -5189,7 +5221,7 @@ export interface CreateAppointmentModel {
      */
     type?: string
     /**
-     * The date and time when the recurrence will stop. (Required if 'type' is provided)
+     * The date and time of the last occurrence of the appointment. (Required if 'type' is provided)
      * example:
      * 2019-08-14T12:30:02Z
      */
@@ -5215,7 +5247,7 @@ export interface CreateAppointmentRecurrenceModel {
    */
   type?: string
   /**
-   * The date and time when the recurrence will stop. (Required if 'type' is provided)
+   * The date and time of the last occurrence of the appointment. (Required if 'type' is provided)
    * example:
    * 2019-08-14T12:30:02Z
    */
@@ -5461,6 +5493,22 @@ export interface CreateCompanyModel {
      */
     countryId?: string
   }
+  /**
+   * A flag determining whether or not the company is happy to receive communications by letter
+   */
+  communicationPreferenceLetter?: boolean
+  /**
+   * A flag determining whether or not the company is happy to receive communications by email
+   */
+  communicationPreferenceEmail?: boolean
+  /**
+   * A flag determining whether or not the company is happy to receive communications by phone
+   */
+  communicationPreferencePhone?: boolean
+  /**
+   * A flag determining whether or not the company is happy to receive communications by SMS
+   */
+  communicationPreferenceSms?: boolean
   /**
    * App specific metadata to set against the company
    */
@@ -6451,6 +6499,14 @@ export interface CreateNegotiatorModel {
    */
   email?: string
   /**
+   * The identifiers of other negotiators whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+   */
+  diaryNegotiatorIds?: string[]
+  /**
+   * The identifiers of other offices whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+   */
+  diaryOfficeIds?: string[]
+  /**
    * App specific metadata to set against the negotiator
    */
   metadata?: {
@@ -6785,6 +6841,44 @@ export interface CreatePropertyAddressModel {
      */
     longitude: number // double
   }
+}
+/**
+ * Model for the creation of a new property appraisal
+ * example:
+ * [object Object]
+ */
+export interface CreatePropertyAppraisalModel {
+  /**
+   * Unique identifier of the appraising company
+   */
+  companyId?: string
+  /**
+   * The date of the appraisal
+   * example:
+   * 2019-08-14
+   */
+  date?: string // date
+  /**
+   * The appraisal value
+   */
+  price?: number // int32
+  /**
+   * Representation of the the commission fee for a property
+   */
+  fee?: {
+    /**
+     * The commission letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The commission letting fee amount
+     */
+    amount?: number // double
+  }
+  /**
+   * Free-text notes associated with the appraisal
+   */
+  notes?: string
 }
 /**
  * Request body used to create a new check
@@ -11420,6 +11514,14 @@ export interface NegotiatorModel {
    */
   active?: boolean
   /**
+   * The identifiers of other negotiators whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+   */
+  diaryNegotiatorIds?: string[]
+  /**
+   * The identifiers of other offices whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+   */
+  diaryOfficeIds?: string[]
+  /**
    * A collection of additional contact details
    */
   additionalContactDetails?: {
@@ -11501,6 +11603,14 @@ export interface NegotiatorModelPagedResult {
      * A flag determining whether or not the negotiator is active
      */
     active?: boolean
+    /**
+     * The identifiers of other negotiators whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+     */
+    diaryNegotiatorIds?: string[]
+    /**
+     * The identifiers of other offices whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+     */
+    diaryOfficeIds?: string[]
     /**
      * A collection of additional contact details
      */
@@ -12287,6 +12397,10 @@ export interface OfficeModel {
    */
   active?: boolean
   /**
+   * The region that the office is in
+   */
+  region?: string
+  /**
    * Representation of the physical address of a building or premise
    */
   address?: {
@@ -12413,6 +12527,10 @@ export interface OfficeModelPagedResult {
      */
     active?: boolean
     /**
+     * The region that the office is in
+     */
+    region?: string
+    /**
      * Representation of the physical address of a building or premise
      */
     address?: {
@@ -12519,6 +12637,7 @@ export interface Offices {
   id?: string[]
   address?: string
   name?: string
+  region?: string
   active?: boolean
   createdFrom?: string
   createdTo?: string
@@ -12939,6 +13058,129 @@ export interface PropertyAddressModel {
      * The longitude coordinate of the coordinate pair
      */
     longitude?: number // double
+  }
+}
+/**
+ * Representation of a property appraisal
+ */
+export interface PropertyAppraisalModel {
+  /**
+   * Unique identifier of the appraisal
+   */
+  id?: string
+  /**
+   * The date and time on which the property appraisal was created
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time on which the property appraisal was last modified
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  modified?: string // date-time
+  /**
+   * Unique identifier of the appraising company
+   */
+  companyId?: string
+  /**
+   * Flag indicating whether the appraisal is internal or external
+   */
+  isExternal?: boolean
+  /**
+   * The date of the appraisal
+   * example:
+   * 2019-08-14
+   */
+  date?: string // date
+  /**
+   * The appraisal value
+   */
+  price?: number // int32
+  /**
+   * Representation of the the commission fee for a property
+   */
+  fee?: {
+    /**
+     * The commission letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The commission letting fee amount
+     */
+    amount?: number // double
+  }
+  /**
+   * Free-text notes associated with the appraisal
+   */
+  notes?: string
+  readonly _eTag?: string
+}
+export interface PropertyAppraisalModelPagedResult {
+  _embedded?: {
+    /**
+     * Unique identifier of the appraisal
+     */
+    id?: string
+    /**
+     * The date and time on which the property appraisal was created
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time on which the property appraisal was last modified
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    modified?: string // date-time
+    /**
+     * Unique identifier of the appraising company
+     */
+    companyId?: string
+    /**
+     * Flag indicating whether the appraisal is internal or external
+     */
+    isExternal?: boolean
+    /**
+     * The date of the appraisal
+     * example:
+     * 2019-08-14
+     */
+    date?: string // date
+    /**
+     * The appraisal value
+     */
+    price?: number // int32
+    /**
+     * Representation of the the commission fee for a property
+     */
+    fee?: {
+      /**
+       * The commission letting fee type (percentage/fixed)
+       */
+      type?: string
+      /**
+       * The commission letting fee amount
+       */
+      amount?: number // double
+    }
+    /**
+     * Free-text notes associated with the appraisal
+     */
+    notes?: string
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
   }
 }
 /**
@@ -14698,6 +14940,10 @@ export interface PropertyModel {
    */
   lostInstructionNote?: string
   /**
+   * The type of development
+   */
+  developmentSiteType?: string
+  /**
    * App specific metadata that has been set against the property
    */
   metadata?: {
@@ -15674,6 +15920,10 @@ export interface PropertyModelPagedResult {
      */
     lostInstructionNote?: string
     /**
+     * The type of development
+     */
+    developmentSiteType?: string
+    /**
      * App specific metadata that has been set against the property
      */
     metadata?: {
@@ -16002,7 +16252,7 @@ export interface RecurrenceModel {
    */
   type?: string
   /**
-   * The date the appointment recurs until
+   * The date and time of the last occurrence of the appointment
    * example:
    * 2019-08-14T12:30:02Z
    */
@@ -16345,6 +16595,22 @@ export interface ReferralsTypes {
   pageSize?: number
   pageNumber?: number
   sortBy?: string
+}
+/**
+ * Request body used to reindex property images
+ * example:
+ * [object Object]
+ */
+export interface ReindexPropertyImagesModel {
+  /**
+   * The unique identifier of the property to update
+   */
+  propertyId?: string
+  /**
+   * Ordered collection of image identifiers for the property.
+   * The first image in the collection will be set as the properties primary image.
+   */
+  imageOrder?: string[]
 }
 /**
  * Representation of renewal options in a tenancy
@@ -17501,6 +17767,18 @@ export interface TenancyContactModel {
    */
   fromArchive?: boolean
   /**
+   * The date the tenant moved in (or will move in) to the property
+   * example:
+   * 2019-08-14
+   */
+  occupyOn?: string // date
+  /**
+   * The date the tenant vacated (or is due to vacate) the property
+   * example:
+   * 2019-08-14
+   */
+  vacateOn?: string // date
+  /**
    * Representation of the physical address of a building or premise
    */
   primaryAddress?: {
@@ -18255,6 +18533,18 @@ export interface TenancyModel {
      */
     fromArchive?: boolean
     /**
+     * The date the tenant moved in (or will move in) to the property
+     * example:
+     * 2019-08-14
+     */
+    occupyOn?: string // date
+    /**
+     * The date the tenant vacated (or is due to vacate) the property
+     * example:
+     * 2019-08-14
+     */
+    vacateOn?: string // date
+    /**
      * Representation of the physical address of a building or premise
      */
     primaryAddress?: {
@@ -18621,6 +18911,18 @@ export interface TenancyModelPagedResult {
        * A flag denoting whether or not this roie on the system is now archived
        */
       fromArchive?: boolean
+      /**
+       * The date the tenant moved in (or will move in) to the property
+       * example:
+       * 2019-08-14
+       */
+      occupyOn?: string // date
+      /**
+       * The date the tenant vacated (or is due to vacate) the property
+       * example:
+       * 2019-08-14
+       */
+      vacateOn?: string // date
       /**
        * Representation of the physical address of a building or premise
        */
@@ -19322,6 +19624,10 @@ export interface TransactionModel {
    */
   type?: string
   /**
+   * The type of transaction (credit/debit)
+   */
+  transactionType?: string
+  /**
    * The transaction description
    */
   description?: string
@@ -19404,6 +19710,10 @@ export interface TransactionModelPagedResult {
      * The transaction type (bankersDraft,bankTransfer,cash,cheque,creditCard,debitCard,directDebit,housingBenefit,paymentRequest,standingOrder)
      */
     type?: string
+    /**
+     * The type of transaction (credit/debit)
+     */
+    transactionType?: string
     /**
      * The transaction description
      */
@@ -19532,6 +19842,7 @@ export interface Transactions {
     | 'receipt'
     | 'rent'
     | 'rentGuarantee'
+    | 'rentInsurance'
     | 'recoveryPayment'
     | 'reserveFund'
     | 'tenantAdminFee'
@@ -20492,7 +20803,7 @@ export interface UpdateAppointmentModel {
      */
     interval?: number // int32
     /**
-     * The date and time when the recurrence will stop
+     * The date and time of the last occurrence of the appointment
      * example:
      * 2019-08-14T12:30:02Z
      */
@@ -20518,7 +20829,7 @@ export interface UpdateAppointmentRecurrenceModel {
    */
   interval?: number // int32
   /**
-   * The date and time when the recurrence will stop
+   * The date and time of the last occurrence of the appointment
    * example:
    * 2019-08-14T12:30:02Z
    */
@@ -20743,6 +21054,22 @@ export interface UpdateCompanyModel {
      */
     countryId?: string
   }
+  /**
+   * A flag determining whether or not the company is happy to receive communications by letter
+   */
+  communicationPreferenceLetter?: boolean
+  /**
+   * A flag determining whether or not the company is happy to receive communications by email
+   */
+  communicationPreferenceEmail?: boolean
+  /**
+   * A flag determining whether or not the company is happy to receive communications by phone
+   */
+  communicationPreferencePhone?: boolean
+  /**
+   * A flag determining whether or not the company is happy to receive communications by SMS
+   */
+  communicationPreferenceSms?: boolean
   /**
    * App specific metadata to set against the company
    */
@@ -21583,6 +21910,14 @@ export interface UpdateNegotiatorModel {
    */
   email?: string
   /**
+   * The identifiers of other negotiators whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+   */
+  diaryNegotiatorIds?: string[]
+  /**
+   * The identifiers of other offices whose diaries should be displayed to this negotiator when rendering diary/calendar view components in applicants
+   */
+  diaryOfficeIds?: string[]
+  /**
    * App specific metadata to set against the negotiator
    */
   metadata?: {
@@ -21842,6 +22177,44 @@ export interface UpdatePropertyAddressModel {
      */
     longitude?: number // double
   }
+}
+/**
+ * Model for the creation of a new property appraisal
+ * example:
+ * [object Object]
+ */
+export interface UpdatePropertyAppraisalModel {
+  /**
+   * Unique identifier of the appraising company
+   */
+  companyId?: string
+  /**
+   * The date of the appraisal
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  date?: string // date-time
+  /**
+   * The appraisal value
+   */
+  price?: number // int32
+  /**
+   * Representation of the the commission fee for a property
+   */
+  fee?: {
+    /**
+     * The commission letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The commission letting fee amount
+     */
+    amount?: number // double
+  }
+  /**
+   * Free-text notes associated with the appraisal
+   */
+  notes?: string
 }
 /**
  * Model for the update of an existing check

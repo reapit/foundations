@@ -87,6 +87,7 @@ exports[`WebhooksManage should match a snapshot where no appId 1`] = `
       <mock-styled.div />
       <mock-styled.div
         classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+        role="alertdialog"
       >
         <div
           class="el-pn-icon"
@@ -94,6 +95,7 @@ exports[`WebhooksManage should match a snapshot where no appId 1`] = `
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -105,7 +107,7 @@ exports[`WebhooksManage should match a snapshot where no appId 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                 fill="currentColor"
               />
             </svg>
@@ -123,6 +125,7 @@ exports[`WebhooksManage should match a snapshot where no appId 1`] = `
     <mock-styled.div />
     <mock-styled.div
       classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+      role="alertdialog"
     >
       <div
         class="el-pn-icon"
@@ -130,6 +133,7 @@ exports[`WebhooksManage should match a snapshot where no appId 1`] = `
       >
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
@@ -141,7 +145,7 @@ exports[`WebhooksManage should match a snapshot where no appId 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
               fill="currentColor"
             />
           </svg>
@@ -216,6 +220,7 @@ exports[`WebhooksManage should match a snapshot where no data 1`] = `
       <mock-styled.div />
       <mock-styled.div
         classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+        role="alertdialog"
       >
         <div
           class="el-pn-icon"
@@ -223,6 +228,7 @@ exports[`WebhooksManage should match a snapshot where no data 1`] = `
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -234,7 +240,7 @@ exports[`WebhooksManage should match a snapshot where no data 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                 fill="currentColor"
               />
             </svg>
@@ -252,6 +258,7 @@ exports[`WebhooksManage should match a snapshot where no data 1`] = `
     <mock-styled.div />
     <mock-styled.div
       classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+      role="alertdialog"
     >
       <div
         class="el-pn-icon"
@@ -259,6 +266,7 @@ exports[`WebhooksManage should match a snapshot where no data 1`] = `
       >
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
@@ -270,7 +278,7 @@ exports[`WebhooksManage should match a snapshot where no data 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
               fill="currentColor"
             />
           </svg>
@@ -348,23 +356,41 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="4"
+        role="table"
       >
-        <mock-styled.div>
-          <mock-styled.div>
+        <mock-styled.div
+          role="row"
+        >
+          <mock-styled.div
+            aria-label="URL"
+            role="columnheader"
+          >
             URL
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Topics"
+            role="columnheader"
+          >
             Topics
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Customer"
+            role="columnheader"
+          >
             Customer
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Status"
+            role="columnheader"
+          >
             Status
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            role="columnheader"
+          >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -374,7 +400,7 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                   fill="currentColor"
                 />
               </svg>
@@ -383,10 +409,12 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div>
                 https://en7u51gyc2mf7.x.pipedream.net
@@ -394,16 +422,19 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div />
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div />
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div>
                 <mock-styled.span
@@ -415,9 +446,11 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
             </mock-styled.div>
             <mock-styled.div
               classname=""
+              role="cell"
             >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -427,7 +460,7 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                     fill="currentColor"
                   />
                 </svg>
@@ -435,11 +468,12 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
+            aria-hidden="false"
             classname=""
           >
             <mock-styled.div>
-              <mock-styled.div
-                classname="el-flex-justify-center"
+              <div
+                class="el-flex-container el-flex-justify-center"
               >
                 <mock-styled.div>
                   <mock-styled.div
@@ -466,18 +500,21 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
                     </mock-styled.button>
                   </mock-styled.div>
                 </mock-styled.div>
-              </mock-styled.div>
+              </div>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.button
+          aria-label="Previous"
           data-testid="back-button"
+          role="button"
           type="button"
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -487,7 +524,7 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
                 fill="currentColor"
               />
             </svg>
@@ -501,11 +538,14 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
           1
         </mock-styled.div>
         <mock-styled.button
+          aria-label="Next"
           data-testid="forward-button"
+          role="button"
           type="button"
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -515,7 +555,7 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
                 fill="currentColor"
               />
             </svg>
@@ -531,23 +571,41 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="4"
+      role="table"
     >
-      <mock-styled.div>
-        <mock-styled.div>
+      <mock-styled.div
+        role="row"
+      >
+        <mock-styled.div
+          aria-label="URL"
+          role="columnheader"
+        >
           URL
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Topics"
+          role="columnheader"
+        >
           Topics
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Customer"
+          role="columnheader"
+        >
           Customer
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Status"
+          role="columnheader"
+        >
           Status
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          role="columnheader"
+        >
           <mock-styled.span
             classname="el-intent-default el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -557,7 +615,7 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                 fill="currentColor"
               />
             </svg>
@@ -566,10 +624,12 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div>
               https://en7u51gyc2mf7.x.pipedream.net
@@ -577,16 +637,19 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div />
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div />
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div>
               <mock-styled.span
@@ -598,9 +661,11 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
           </mock-styled.div>
           <mock-styled.div
             classname=""
+            role="cell"
           >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -610,7 +675,7 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                   fill="currentColor"
                 />
               </svg>
@@ -618,11 +683,12 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
+          aria-hidden="false"
           classname=""
         >
           <mock-styled.div>
-            <mock-styled.div
-              classname="el-flex-justify-center"
+            <div
+              class="el-flex-container el-flex-justify-center"
             >
               <mock-styled.div>
                 <mock-styled.div
@@ -649,18 +715,21 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
                   </mock-styled.button>
                 </mock-styled.div>
               </mock-styled.div>
-            </mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.div>
       <mock-styled.button
+        aria-label="Previous"
         data-testid="back-button"
+        role="button"
         type="button"
       >
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
         >
           <svg
             fill="none"
@@ -670,7 +739,7 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+              d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
               fill="currentColor"
             />
           </svg>
@@ -684,11 +753,14 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
         1
       </mock-styled.div>
       <mock-styled.button
+        aria-label="Next"
         data-testid="forward-button"
+        role="button"
         type="button"
       >
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
         >
           <svg
             fill="none"
@@ -698,7 +770,7 @@ exports[`WebhooksManage should match a snapshot where there are subscriptions 1`
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+              d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
               fill="currentColor"
             />
           </svg>

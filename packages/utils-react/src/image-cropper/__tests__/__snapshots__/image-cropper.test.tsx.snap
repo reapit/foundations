@@ -6,8 +6,8 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 1
   "baseElement": <body>
     <div>
       <mock-styled.div>
-        <mock-styled.div
-          classname="el-flex-align-center"
+        <div
+          class="el-flex-container el-flex-align-center"
         >
           <mock-styled.button
             classname="el-mr4 el-intent-neutral"
@@ -25,18 +25,18 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 1
             name="inputImage"
           />
           <mock-styled.p
-            classname="el-has-grey-text el-has-no-margin"
+            classname="el-text-base el-has-grey-text el-has-no-margin"
           >
             Upload File
           </mock-styled.p>
-        </mock-styled.div>
+        </div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div>
-      <mock-styled.div
-        classname="el-flex-align-center"
+      <div
+        class="el-flex-container el-flex-align-center"
       >
         <mock-styled.button
           classname="el-mr4 el-intent-neutral"
@@ -54,11 +54,11 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 1
           name="inputImage"
         />
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Upload File
         </mock-styled.p>
-      </mock-styled.div>
+      </div>
     </mock-styled.div>
   </div>,
   "debug": [Function],
@@ -121,8 +121,8 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 2
   "baseElement": <body>
     <div>
       <mock-styled.div>
-        <mock-styled.div
-          classname="el-flex-align-center"
+        <div
+          class="el-flex-container el-flex-align-center"
         >
           <mock-styled.button
             classname="el-mr4 el-intent-neutral"
@@ -140,17 +140,17 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 2
             name="inputImage"
           />
           <mock-styled.p
-            classname="el-has-grey-text el-has-no-margin"
+            classname="el-text-base el-has-grey-text el-has-no-margin"
           >
             Upload File
           </mock-styled.p>
-        </mock-styled.div>
+        </div>
       </mock-styled.div>
     </div>
     <div>
       <mock-styled.div>
-        <mock-styled.div
-          classname="el-flex-align-center"
+        <div
+          class="el-flex-container el-flex-align-center"
         >
           <mock-styled.button
             classname="el-mr4 el-intent-neutral"
@@ -168,18 +168,18 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 2
             name="inputImage"
           />
           <mock-styled.p
-            classname="el-has-grey-text el-has-no-margin"
+            classname="el-text-base el-has-grey-text el-has-no-margin"
           >
             Upload File
           </mock-styled.p>
-        </mock-styled.div>
+        </div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div>
-      <mock-styled.div
-        classname="el-flex-align-center"
+      <div
+        class="el-flex-container el-flex-align-center"
       >
         <mock-styled.button
           classname="el-mr4 el-intent-neutral"
@@ -197,11 +197,11 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 2
           name="inputImage"
         />
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Upload File
         </mock-styled.p>
-      </mock-styled.div>
+      </div>
     </mock-styled.div>
   </div>,
   "debug": [Function],

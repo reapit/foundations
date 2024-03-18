@@ -7,17 +7,20 @@ exports[`PipelineNew Should match snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         New Pipeline
       </mock-styled.h1>
       <mock-styled.div
         classname="el-tabs-full-width"
+        role="tablist"
       >
         <mock-styled.div>
           <mock-styled.input
+            aria-selected="true"
             id="deployments"
             name="pipeline-tabs"
+            role="tab"
             type="radio"
             value="deployments"
           />
@@ -31,8 +34,10 @@ exports[`PipelineNew Should match snapshot 1`] = `
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="configure"
             name="pipeline-tabs"
+            role="tab"
             type="radio"
             value="configure"
           />
@@ -46,8 +51,10 @@ exports[`PipelineNew Should match snapshot 1`] = `
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="environment"
             name="pipeline-tabs"
+            role="tab"
             type="radio"
             value="environment"
           />
@@ -66,7 +73,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
         />
       </mock-styled.div>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Tell us about how we should build your application here. We assume that your application is a front end app and that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your application is bundled and that bundle is output to a local directory that we can deploy for you.
       </mock-styled.p>
@@ -160,17 +167,21 @@ exports[`PipelineNew Should match snapshot 1`] = `
         </mock-styled.div>
       </form>
       <mock-styled.div
+        aria-hidden="true"
         classname=""
       />
       <mock-styled.div
         classname=""
+        id=":r0:"
       >
         <mock-styled.button
+          aria-controls=":r0:"
           classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -180,7 +191,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2M4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2m16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2"
                 fill="currentColor"
               />
             </svg>
@@ -192,17 +203,20 @@ exports[`PipelineNew Should match snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.h1
-      classname=""
+      classname="el-text-base"
     >
       New Pipeline
     </mock-styled.h1>
     <mock-styled.div
       classname="el-tabs-full-width"
+      role="tablist"
     >
       <mock-styled.div>
         <mock-styled.input
+          aria-selected="true"
           id="deployments"
           name="pipeline-tabs"
+          role="tab"
           type="radio"
           value="deployments"
         />
@@ -216,8 +230,10 @@ exports[`PipelineNew Should match snapshot 1`] = `
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="configure"
           name="pipeline-tabs"
+          role="tab"
           type="radio"
           value="configure"
         />
@@ -231,8 +247,10 @@ exports[`PipelineNew Should match snapshot 1`] = `
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="environment"
           name="pipeline-tabs"
+          role="tab"
           type="radio"
           value="environment"
         />
@@ -251,7 +269,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
       />
     </mock-styled.div>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       Tell us about how we should build your application here. We assume that your application is a front end app and that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your application is bundled and that bundle is output to a local directory that we can deploy for you.
     </mock-styled.p>
@@ -345,17 +363,21 @@ exports[`PipelineNew Should match snapshot 1`] = `
       </mock-styled.div>
     </form>
     <mock-styled.div
+      aria-hidden="true"
       classname=""
     />
     <mock-styled.div
       classname=""
+      id=":r0:"
     >
       <mock-styled.button
+        aria-controls=":r0:"
         classname="el-floating-button el-intent-primary"
       >
         <mock-styled.div />
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
         >
           <svg
             fill="none"
@@ -365,7 +387,7 @@ exports[`PipelineNew Should match snapshot 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2M4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2m16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2"
               fill="currentColor"
             />
           </svg>
@@ -439,17 +461,20 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         New Pipeline
       </mock-styled.h1>
       <mock-styled.div
         classname="el-tabs-full-width"
+        role="tablist"
       >
         <mock-styled.div>
           <mock-styled.input
+            aria-selected="true"
             id="deployments"
             name="pipeline-tabs"
+            role="tab"
             type="radio"
             value="deployments"
           />
@@ -463,8 +488,10 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="configure"
             name="pipeline-tabs"
+            role="tab"
             type="radio"
             value="configure"
           />
@@ -478,8 +505,10 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             id="environment"
             name="pipeline-tabs"
+            role="tab"
             type="radio"
             value="environment"
           />
@@ -498,7 +527,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
         />
       </mock-styled.div>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Tell us about how we should build your application here. We assume that your application is a front end app and that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your application is bundled and that bundle is output to a local directory that we can deploy for you.
       </mock-styled.p>
@@ -592,17 +621,21 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
         </mock-styled.div>
       </form>
       <mock-styled.div
+        aria-hidden="true"
         classname=""
       />
       <mock-styled.div
         classname=""
+        id=":r2:"
       >
         <mock-styled.button
+          aria-controls=":r2:"
           classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -612,7 +645,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+                d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2M4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2m16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2"
                 fill="currentColor"
               />
             </svg>
@@ -624,17 +657,20 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.h1
-      classname=""
+      classname="el-text-base"
     >
       New Pipeline
     </mock-styled.h1>
     <mock-styled.div
       classname="el-tabs-full-width"
+      role="tablist"
     >
       <mock-styled.div>
         <mock-styled.input
+          aria-selected="true"
           id="deployments"
           name="pipeline-tabs"
+          role="tab"
           type="radio"
           value="deployments"
         />
@@ -648,8 +684,10 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="configure"
           name="pipeline-tabs"
+          role="tab"
           type="radio"
           value="configure"
         />
@@ -663,8 +701,10 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           id="environment"
           name="pipeline-tabs"
+          role="tab"
           type="radio"
           value="environment"
         />
@@ -683,7 +723,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
       />
     </mock-styled.div>
     <mock-styled.p
-      classname="el-has-grey-text"
+      classname="el-text-base el-has-grey-text"
     >
       Tell us about how we should build your application here. We assume that your application is a front end app and that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your application is bundled and that bundle is output to a local directory that we can deploy for you.
     </mock-styled.p>
@@ -777,17 +817,21 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
       </mock-styled.div>
     </form>
     <mock-styled.div
+      aria-hidden="true"
       classname=""
     />
     <mock-styled.div
       classname=""
+      id=":r2:"
     >
       <mock-styled.button
+        aria-controls=":r2:"
         classname="el-floating-button el-intent-primary"
       >
         <mock-styled.div />
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
         >
           <svg
             fill="none"
@@ -797,7 +841,7 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+              d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2M4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2m16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2"
               fill="currentColor"
             />
           </svg>

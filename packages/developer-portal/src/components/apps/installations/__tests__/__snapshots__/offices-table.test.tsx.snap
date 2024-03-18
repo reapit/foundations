@@ -10,12 +10,12 @@ exports[`OfficesTable should match a snapshot 1`] = `
         class="el-mt5"
       >
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Total Offices
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           1
         </mock-styled.p>
@@ -63,12 +63,12 @@ exports[`OfficesTable should match a snapshot 1`] = `
       class="el-mt5"
     >
       <mock-styled.h2
-        classname=""
+        classname="el-text-base"
       >
         Total Offices
       </mock-styled.h2>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         1
       </mock-styled.p>

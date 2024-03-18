@@ -23,8 +23,10 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.div
                 classname=""
+                role="img"
               >
                 <mock-styled.div
+                  role="img"
                   style="font-size: 1.953125em; width: 50px; height: 50px;"
                 >
                   <svg
@@ -48,8 +50,8 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
                   MOCK_APP_NAME
                 </mock-styled.h5>
                 <mock-styled.h6>
-                  <mock-styled.div
-                    classname="el-flex-justify-between el-flex-align-center"
+                  <div
+                    class="el-flex-container el-flex-justify-between el-flex-align-center"
                   >
                      
                     <mock-styled.span
@@ -57,7 +59,7 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
                     >
                       FREE
                     </mock-styled.span>
-                  </mock-styled.div>
+                  </div>
                 </mock-styled.h6>
                 <mock-styled.h6 />
               </mock-styled.div>
@@ -80,8 +82,10 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.div
                 classname=""
+                role="img"
               >
                 <mock-styled.div
+                  role="img"
                   style="font-size: 1.953125em; width: 50px; height: 50px;"
                 >
                   <svg
@@ -105,8 +109,8 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
                   MOCK_APP_NAME_ANOTHER
                 </mock-styled.h5>
                 <mock-styled.h6>
-                  <mock-styled.div
-                    classname="el-flex-justify-between el-flex-align-center"
+                  <div
+                    class="el-flex-container el-flex-justify-between el-flex-align-center"
                   >
                      
                     <mock-styled.span
@@ -114,7 +118,7 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
                     >
                       FREE
                     </mock-styled.span>
-                  </mock-styled.div>
+                  </div>
                 </mock-styled.h6>
                 <mock-styled.h6 />
               </mock-styled.div>
@@ -148,8 +152,10 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div
               classname=""
+              role="img"
             >
               <mock-styled.div
+                role="img"
                 style="font-size: 1.953125em; width: 50px; height: 50px;"
               >
                 <svg
@@ -173,8 +179,8 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
                 MOCK_APP_NAME
               </mock-styled.h5>
               <mock-styled.h6>
-                <mock-styled.div
-                  classname="el-flex-justify-between el-flex-align-center"
+                <div
+                  class="el-flex-container el-flex-justify-between el-flex-align-center"
                 >
                    
                   <mock-styled.span
@@ -182,7 +188,7 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
                   >
                     FREE
                   </mock-styled.span>
-                </mock-styled.div>
+                </div>
               </mock-styled.h6>
               <mock-styled.h6 />
             </mock-styled.div>
@@ -205,8 +211,10 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.div
               classname=""
+              role="img"
             >
               <mock-styled.div
+                role="img"
                 style="font-size: 1.953125em; width: 50px; height: 50px;"
               >
                 <svg
@@ -230,8 +238,8 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
                 MOCK_APP_NAME_ANOTHER
               </mock-styled.h5>
               <mock-styled.h6>
-                <mock-styled.div
-                  classname="el-flex-justify-between el-flex-align-center"
+                <div
+                  class="el-flex-container el-flex-justify-between el-flex-align-center"
                 >
                    
                   <mock-styled.span
@@ -239,7 +247,7 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
                   >
                     FREE
                   </mock-styled.span>
-                </mock-styled.div>
+                </div>
               </mock-styled.h6>
               <mock-styled.h6 />
             </mock-styled.div>

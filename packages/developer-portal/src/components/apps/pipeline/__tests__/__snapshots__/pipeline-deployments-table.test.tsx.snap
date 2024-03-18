@@ -11,26 +11,47 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="5"
+        role="table"
       >
-        <mock-styled.div>
-          <mock-styled.div>
+        <mock-styled.div
+          role="row"
+        >
+          <mock-styled.div
+            aria-label="Release Type"
+            role="columnheader"
+          >
             Release Type
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Created"
+            role="columnheader"
+          >
             Created
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Status"
+            role="columnheader"
+          >
             Status
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Version"
+            role="columnheader"
+          >
             Version
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Currently Deployed"
+            role="columnheader"
+          >
             Currently Deployed
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            role="columnheader"
+          >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -40,7 +61,7 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                   fill="currentColor"
                 />
               </svg>
@@ -49,10 +70,12 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Release Type"
@@ -62,6 +85,7 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Created"
@@ -71,6 +95,7 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Status"
@@ -83,6 +108,7 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Version"
@@ -90,6 +116,7 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Currently Deployed"
@@ -99,9 +126,11 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname=""
+              role="cell"
             >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -111,7 +140,7 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                     fill="currentColor"
                   />
                 </svg>
@@ -119,6 +148,7 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
+            aria-hidden="false"
             classname=""
           >
             <mock-styled.div>
@@ -307,11 +337,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.button
+          aria-label="Previous"
           data-testid="back-button"
+          role="button"
           type="button"
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -321,7 +354,7 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
                 fill="currentColor"
               />
             </svg>
@@ -335,11 +368,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
           1
         </mock-styled.div>
         <mock-styled.button
+          aria-label="Next"
           data-testid="forward-button"
+          role="button"
           type="button"
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -349,7 +385,7 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
                 fill="currentColor"
               />
             </svg>
@@ -365,26 +401,47 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="5"
+      role="table"
     >
-      <mock-styled.div>
-        <mock-styled.div>
+      <mock-styled.div
+        role="row"
+      >
+        <mock-styled.div
+          aria-label="Release Type"
+          role="columnheader"
+        >
           Release Type
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Created"
+          role="columnheader"
+        >
           Created
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Status"
+          role="columnheader"
+        >
           Status
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Version"
+          role="columnheader"
+        >
           Version
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Currently Deployed"
+          role="columnheader"
+        >
           Currently Deployed
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          role="columnheader"
+        >
           <mock-styled.span
             classname="el-intent-default el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -394,7 +451,7 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                 fill="currentColor"
               />
             </svg>
@@ -403,10 +460,12 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Release Type"
@@ -416,6 +475,7 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Created"
@@ -425,6 +485,7 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Status"
@@ -437,6 +498,7 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Version"
@@ -444,6 +506,7 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname="el-table-cell-has-dark-text"
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Currently Deployed"
@@ -453,9 +516,11 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname=""
+            role="cell"
           >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -465,7 +530,7 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                   fill="currentColor"
                 />
               </svg>
@@ -473,6 +538,7 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
+          aria-hidden="false"
           classname=""
         >
           <mock-styled.div>
@@ -661,11 +727,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
     </mock-styled.div>
     <mock-styled.div>
       <mock-styled.button
+        aria-label="Previous"
         data-testid="back-button"
+        role="button"
         type="button"
       >
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
         >
           <svg
             fill="none"
@@ -675,7 +744,7 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+              d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
               fill="currentColor"
             />
           </svg>
@@ -689,11 +758,14 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
         1
       </mock-styled.div>
       <mock-styled.button
+        aria-label="Next"
         data-testid="forward-button"
+        role="button"
         type="button"
       >
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
         >
           <svg
             fill="none"
@@ -703,7 +775,7 @@ exports[`PipelineDeploymentTable should match snapshot 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+              d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
               fill="currentColor"
             />
           </svg>

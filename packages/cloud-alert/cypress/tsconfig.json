@@ -1,8 +1,0 @@
-{
-  "extends": "../tsconfig.json",
-  "types": ["cypress", "./support"],
-  "include": [
-    "../node_modules/cypress",
-    "./*/*.ts"
-  ]
-}
