@@ -19,6 +19,7 @@ import {
 } from './commands'
 import { ParentCommand } from './parent.command'
 import { IntroCommand } from './intro'
+import { ProjectConfigManagementCommand } from './commands/project-config-mangement'
 
 const checkVersion = async () => {
   const checkVersion = container.resolve(CheckVersionCommand)
@@ -96,6 +97,11 @@ const boot = async (
   }
 }
 
-boot(IntroCommand, [AuthCommand, ConfigCommand, PipelineCommand, BootstrapCommand, ReleaseCommand]).catch((error) =>
-  console.error(error),
-)
+boot(IntroCommand, [
+  AuthCommand,
+  ConfigCommand,
+  PipelineCommand,
+  BootstrapCommand,
+  ReleaseCommand,
+  ProjectConfigManagementCommand,
+]).catch((error) => console.error(error))

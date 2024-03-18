@@ -38,7 +38,7 @@ export class LoginService {
     readonly devMode: boolean = true,
   ) {
     this.clientId = devMode ? '2c8jt1gp2hb0tcc8s88m8lig3d' : '' // TODO add prod clientId
-    this.connectOAuthUrl = `https://connect.${devMode ? 'dev' : 'prod'}.paas.reapit.cloud`
+    this.connectOAuthUrl = `https://connect.${devMode ? 'dev.paas' : ''}.reapit.cloud`
     this.connectUrl = `${this.connectOAuthUrl}/login`
   }
 

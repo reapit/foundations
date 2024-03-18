@@ -4,6 +4,7 @@
   "description": "A cli tool for reapit cloud",
   "main": "dist/index.js",
   "dependencies": {
+    "@aws-sdk/client-ssm": "^3.515.0",
     "@reapit/connect-session": "workspace:^",
     "adm-zip": "^0.5.12",
     "ansi-regex": "^6.0.1",
