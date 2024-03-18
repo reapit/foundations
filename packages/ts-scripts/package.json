@@ -43,7 +43,7 @@
     "@babel/preset-typescript": "^7.23.3",
     "@babel/runtime": "^7.24.0",
     "@babel/types": "^7.24.0",
-    "@graphql-tools/jest-transform": "^1.2.3",
+    "@graphql-tools/jest-transform": "^2.0.0",
     "@linaria/babel-preset": "^5.0.4",
     "@linaria/shaker": "^5.0.3",
     "@octokit/rest": "^16.43.2",

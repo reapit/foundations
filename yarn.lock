@@ -6434,17 +6434,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/jest-transform@npm:^1.2.3":
-  version: 1.2.3
-  resolution: "@graphql-tools/jest-transform@npm:1.2.3"
+"@graphql-tools/jest-transform@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@graphql-tools/jest-transform@npm:2.0.0"
   dependencies:
-    "@graphql-tools/webpack-loader": "npm:6.7.2"
+    "@graphql-tools/webpack-loader": "npm:7.0.0"
     "@jest/transform": "npm:^29.0.0"
     "@jest/types": "npm:^29.0.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: 93abdf10da35d65dfccaa9933cb3a5e02978e80c364f9887a1bac75b6ae1d64fab07039ffbddc291f24fae28a222d9ccf822f25090291624cd2d4595aa5513db
+  checksum: c8e44e0f99aa3b8cadea13ea24577395e943fbd48c78a48668c60524b23632157c71f72ec41228ca0e1d83e33968d3034eda96039d886df358142518c8635bd2
   languageName: node
   linkType: hard
 
@@ -6537,14 +6537,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/optimize@npm:1.4.0":
-  version: 1.4.0
-  resolution: "@graphql-tools/optimize@npm:1.4.0"
+"@graphql-tools/optimize@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@graphql-tools/optimize@npm:2.0.0"
   dependencies:
     tslib: "npm:^2.4.0"
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: bccbc596f2007ae706ee948e900f3174aa80ef043e8ae3467f735a10df0b31873bafdd20c0ef09b662171363a31e2d0859adb362bbf762da00245f8e9fd501b0
+  checksum: 7f79c0e1852abc571308e887d27d613da5b797256c8c6eb6c5fe7ca77f09e61524778ae281cebc0b698c51d4fe1074e2b8e0d0627b8e2dcf505aa6ed09b49a2f
   languageName: node
   linkType: hard
 
@@ -6671,25 +6671,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/webpack-loader-runtime@npm:6.4.1":
-  version: 6.4.1
-  resolution: "@graphql-tools/webpack-loader-runtime@npm:6.4.1"
+"@graphql-tools/webpack-loader-runtime@npm:7.0.0":
+  version: 7.0.0
+  resolution: "@graphql-tools/webpack-loader-runtime@npm:7.0.0"
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: 462d4e5a56ac3e737812c8ca6b88b627b4eab946ebc8fe096ab57b968209d227fd8e9b2ad4a141a09d1b27dddcdc38e32993a88ca30df874b9b2f01882055e37
+  checksum: 717ece0babdf01d11c8a8b854098d706e82f59717e6a9b5e65589c8ac2bbdb77ffcd19b1c9fe1ff39ce23c9d5f32f00e57f8db29d9ac71c40c7e809b6fc12d13
   languageName: node
   linkType: hard
 
-"@graphql-tools/webpack-loader@npm:6.7.2":
-  version: 6.7.2
-  resolution: "@graphql-tools/webpack-loader@npm:6.7.2"
+"@graphql-tools/webpack-loader@npm:7.0.0":
+  version: 7.0.0
+  resolution: "@graphql-tools/webpack-loader@npm:7.0.0"
   dependencies:
-    "@graphql-tools/optimize": "npm:1.4.0"
-    "@graphql-tools/webpack-loader-runtime": "npm:6.4.1"
+    "@graphql-tools/optimize": "npm:2.0.0"
+    "@graphql-tools/webpack-loader-runtime": "npm:7.0.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: a33703ddee485e031703867914c3e1aba409d0202799ff0dbdd0bc72b17ed670d64b0bc9e9a3e0bbd0b9fb7fbdbd051aca438ca0502b0ec1d3da2642db1a6154
+  checksum: 9922322940db7fbead8b05c8880ca23737a3d6d67281c0a7ddb0babe874ae3320e4f1c16beacd83ec96776f03cc5f5bad6e4ca4015574cb94834ee749b53294b
   languageName: node
   linkType: hard
 
@@ -9047,7 +9047,7 @@ __metadata:
     "@babel/preset-typescript": "npm:^7.23.3"
     "@babel/runtime": "npm:^7.24.0"
     "@babel/types": "npm:^7.24.0"
-    "@graphql-tools/jest-transform": "npm:^1.2.3"
+    "@graphql-tools/jest-transform": "npm:^2.0.0"
     "@linaria/babel-preset": "npm:^5.0.4"
     "@linaria/shaker": "npm:^5.0.3"
     "@octokit/rest": "npm:^16.43.2"
