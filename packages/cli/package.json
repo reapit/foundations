@@ -56,7 +56,7 @@
   },
   "scripts": {
     "run": "ts-node src/index.ts",
-    "build": "tsc -p .",
+    "build": "tsup",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
     "conf": "yarn config-manager --namespace cloud --entity cli --name local --mode fetch",
