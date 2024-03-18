@@ -55,6 +55,7 @@ export const PipelineEnvironment = () => {
   const { Modal, openModal, closeModal } = useModal()
   const [keys, setKeys] = useState<string[]>([])
   const [tableExpanded, setTableExpanded] = useState<false | string>(false)
+  const [deletingKeys, setDeletingKeys] = useState<string[]>([])
 
   const [fetchedKeys, isFetching] = useReapitGet<string[]>({
     reapitConnectBrowserSession,
@@ -75,6 +76,18 @@ export const PipelineEnvironment = () => {
       pipelineId: appId,
     },
     method: 'PUT',
+    headers: {
+      Authorization: connectSession?.idToken as string,
+    },
+  })
+
+  const [deleting, , deleteParam] = useReapitUpdate<void, void>({
+    reapitConnectBrowserSession,
+    action: updateActions[UpdateActionNames.deletePipelineEnvironment],
+    uriParams: {
+      pipelineId: appId,
+    },
+    method: 'DELETE',
     headers: {
       Authorization: connectSession?.idToken as string,
     },
@@ -141,16 +154,35 @@ export const PipelineEnvironment = () => {
                   <TableRow>
                     <TableCell>{key}</TableCell>
                     <TableCell>
-                      <Button
-                        intent="default"
-                        onClick={() => {
-                          resetField('key')
-                          resetField('value')
-                          setTableExpanded(key === tableExpanded ? false : key)
-                        }}
-                      >
-                        Update
-                      </Button>
+                      <ButtonGroup>
+                        <Button
+                          intent="default"
+                          onClick={() => {
+                            resetField('key')
+                            resetField('value')
+                            setTableExpanded(key === tableExpanded ? false : key)
+                          }}
+                        >
+                          Update
+                        </Button>
+                        <Button
+                          intent="danger"
+                          loading={deleting && deletingKeys.includes(key)}
+                          disabled={deleting && deletingKeys.includes(key)}
+                          onClick={async () => {
+                            setDeletingKeys([...deletingKeys, key])
+                            await deleteParam(undefined, {
+                              uriParams: {
+                                key,
+                              },
+                            })
+                            setDeletingKeys(deletingKeys.filter((filterKey) => filterKey !== key))
+                            setKeys(keys.filter((filterKey) => filterKey !== key))
+                          }}
+                        >
+                          Delete
+                        </Button>
+                      </ButtonGroup>
                     </TableCell>
                   </TableRow>
                   <PipelineEnvUpdateTableRow
