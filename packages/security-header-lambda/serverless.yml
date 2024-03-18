@@ -97,12 +97,6 @@ functions:
           includeBody: false
           stage: ${opt:stage, 'dev'}
       - preExistingCloudFront:
-          distributionId: ${self:custom.env.insightsCfDistId}
-          eventType: origin-response
-          pathPattern: '*'
-          includeBody: false
-          stage: ${opt:stage, 'dev'}
-      - preExistingCloudFront:
           distributionId: ${self:custom.env.paymentsPortalCfDistId}
           eventType: origin-response
           pathPattern: '*'
