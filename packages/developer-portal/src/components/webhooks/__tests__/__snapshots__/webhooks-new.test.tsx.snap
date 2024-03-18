@@ -26,7 +26,7 @@ exports[`WebhooksNew should match a snapshot 1`] = `
                 class="el-mb11"
               >
                 <mock-styled.p
-                  classname="el-has-grey-text el-has-no-margin"
+                  classname="el-text-base el-has-grey-text el-has-no-margin"
                 >
                   First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
                 </mock-styled.p>
@@ -89,7 +89,7 @@ exports[`WebhooksNew should match a snapshot 1`] = `
               class="el-mb11"
             >
               <mock-styled.p
-                classname="el-has-grey-text el-has-no-margin"
+                classname="el-text-base el-has-grey-text el-has-no-margin"
               >
                 First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
               </mock-styled.p>
@@ -193,7 +193,7 @@ exports[`getStepContent should match a snapshot for step content 1 1`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -234,7 +234,7 @@ exports[`getStepContent should match a snapshot for step content 1 1`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
       </mock-styled.p>
@@ -332,7 +332,7 @@ exports[`getStepContent should match a snapshot for step content 1 2`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -372,7 +372,7 @@ exports[`getStepContent should match a snapshot for step content 1 2`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -403,7 +403,7 @@ exports[`getStepContent should match a snapshot for step content 1 2`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Add a url to receive your webhook payload here. The url must be a secure https endpoint.
       </mock-styled.p>
@@ -491,7 +491,7 @@ exports[`getStepContent should match a snapshot for step content 1 3`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -531,7 +531,7 @@ exports[`getStepContent should match a snapshot for step content 1 3`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -561,7 +561,7 @@ exports[`getStepContent should match a snapshot for step content 1 3`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -580,6 +580,7 @@ exports[`getStepContent should match a snapshot for step content 1 3`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -591,7 +592,7 @@ exports[`getStepContent should match a snapshot for step content 1 3`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -607,7 +608,11 @@ exports[`getStepContent should match a snapshot for step content 1 3`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r0:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -625,7 +630,7 @@ exports[`getStepContent should match a snapshot for step content 1 3`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
       </mock-styled.p>
@@ -644,6 +649,7 @@ exports[`getStepContent should match a snapshot for step content 1 3`] = `
           />
           <mock-styled.span
             classname="el-intent-default el-icon-new"
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -655,7 +661,7 @@ exports[`getStepContent should match a snapshot for step content 1 3`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                 fill="currentColor"
               />
             </svg>
@@ -671,7 +677,11 @@ exports[`getStepContent should match a snapshot for step content 1 3`] = `
             Search to get started
           </mock-styled.span>
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-controls=":r0:"
+          aria-haspopup="listbox"
+          role="combobox"
+        >
           <mock-styled.input
             id="topic-ids"
           />
@@ -746,7 +756,7 @@ exports[`getStepContent should match a snapshot for step content 1 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -786,7 +796,7 @@ exports[`getStepContent should match a snapshot for step content 1 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -816,7 +826,7 @@ exports[`getStepContent should match a snapshot for step content 1 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -835,6 +845,7 @@ exports[`getStepContent should match a snapshot for step content 1 4`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -846,7 +857,7 @@ exports[`getStepContent should match a snapshot for step content 1 4`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -862,7 +873,11 @@ exports[`getStepContent should match a snapshot for step content 1 4`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r0:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -879,7 +894,7 @@ exports[`getStepContent should match a snapshot for step content 1 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </mock-styled.p>
@@ -889,7 +904,11 @@ exports[`getStepContent should match a snapshot for step content 1 4`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r1:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="customer-ids"
               />
@@ -955,7 +974,7 @@ exports[`getStepContent should match a snapshot for step content 1 4`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
       </mock-styled.p>
@@ -965,7 +984,11 @@ exports[`getStepContent should match a snapshot for step content 1 4`] = `
     >
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r1:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="customer-ids"
             />
@@ -1088,7 +1111,7 @@ exports[`getStepContent should match a snapshot for step content 1 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -1128,7 +1151,7 @@ exports[`getStepContent should match a snapshot for step content 1 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -1158,7 +1181,7 @@ exports[`getStepContent should match a snapshot for step content 1 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -1177,6 +1200,7 @@ exports[`getStepContent should match a snapshot for step content 1 5`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -1188,7 +1212,7 @@ exports[`getStepContent should match a snapshot for step content 1 5`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -1204,7 +1228,11 @@ exports[`getStepContent should match a snapshot for step content 1 5`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r0:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -1221,7 +1249,7 @@ exports[`getStepContent should match a snapshot for step content 1 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </mock-styled.p>
@@ -1231,7 +1259,11 @@ exports[`getStepContent should match a snapshot for step content 1 5`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r1:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="customer-ids"
               />
@@ -1296,7 +1328,7 @@ exports[`getStepContent should match a snapshot for step content 1 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add any semi-structured fields that you would like included in the webhook payload. If you
           '
@@ -1308,8 +1340,8 @@ exports[`getStepContent should match a snapshot for step content 1 5`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+            <div
+              class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
             >
               <mock-styled.div>
                 <mock-styled.input
@@ -1324,7 +1356,7 @@ exports[`getStepContent should match a snapshot for step content 1 5`] = `
                   Semi-structured Fields
                 </mock-styled.label>
               </mock-styled.div>
-            </mock-styled.div>
+            </div>
             <mock-styled.div>
               <mock-styled.input
                 id="semi-structured-fields"
@@ -1348,7 +1380,7 @@ exports[`getStepContent should match a snapshot for step content 1 5`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Add any semi-structured fields that you would like included in the webhook payload. If you
         '
@@ -1360,8 +1392,8 @@ exports[`getStepContent should match a snapshot for step content 1 5`] = `
     >
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+          <div
+            class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
           >
             <mock-styled.div>
               <mock-styled.input
@@ -1376,7 +1408,7 @@ exports[`getStepContent should match a snapshot for step content 1 5`] = `
                 Semi-structured Fields
               </mock-styled.label>
             </mock-styled.div>
-          </mock-styled.div>
+          </div>
           <mock-styled.div>
             <mock-styled.input
               id="semi-structured-fields"
@@ -1457,7 +1489,7 @@ exports[`getStepContent should match a snapshot for step content 1 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -1497,7 +1529,7 @@ exports[`getStepContent should match a snapshot for step content 1 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -1527,7 +1559,7 @@ exports[`getStepContent should match a snapshot for step content 1 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -1546,6 +1578,7 @@ exports[`getStepContent should match a snapshot for step content 1 6`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -1557,7 +1590,7 @@ exports[`getStepContent should match a snapshot for step content 1 6`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -1573,7 +1606,11 @@ exports[`getStepContent should match a snapshot for step content 1 6`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r0:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -1590,7 +1627,7 @@ exports[`getStepContent should match a snapshot for step content 1 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </mock-styled.p>
@@ -1600,7 +1637,11 @@ exports[`getStepContent should match a snapshot for step content 1 6`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r1:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="customer-ids"
               />
@@ -1665,7 +1706,7 @@ exports[`getStepContent should match a snapshot for step content 1 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add any semi-structured fields that you would like included in the webhook payload. If you
           '
@@ -1677,8 +1718,8 @@ exports[`getStepContent should match a snapshot for step content 1 6`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+            <div
+              class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
             >
               <mock-styled.div>
                 <mock-styled.input
@@ -1693,7 +1734,7 @@ exports[`getStepContent should match a snapshot for step content 1 6`] = `
                   Semi-structured Fields
                 </mock-styled.label>
               </mock-styled.div>
-            </mock-styled.div>
+            </div>
             <mock-styled.div>
               <mock-styled.input
                 id="semi-structured-fields"
@@ -1716,7 +1757,7 @@ exports[`getStepContent should match a snapshot for step content 1 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
         </mock-styled.p>
@@ -1774,7 +1815,7 @@ exports[`getStepContent should match a snapshot for step content 1 6`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
       </mock-styled.p>
@@ -1889,7 +1930,7 @@ exports[`getStepContent should match a snapshot for step content 2 1`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -1930,7 +1971,7 @@ exports[`getStepContent should match a snapshot for step content 2 1`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
       </mock-styled.p>
@@ -2028,7 +2069,7 @@ exports[`getStepContent should match a snapshot for step content 2 2`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -2068,7 +2109,7 @@ exports[`getStepContent should match a snapshot for step content 2 2`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -2099,7 +2140,7 @@ exports[`getStepContent should match a snapshot for step content 2 2`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Add a url to receive your webhook payload here. The url must be a secure https endpoint.
       </mock-styled.p>
@@ -2187,7 +2228,7 @@ exports[`getStepContent should match a snapshot for step content 2 3`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -2227,7 +2268,7 @@ exports[`getStepContent should match a snapshot for step content 2 3`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -2257,7 +2298,7 @@ exports[`getStepContent should match a snapshot for step content 2 3`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -2276,6 +2317,7 @@ exports[`getStepContent should match a snapshot for step content 2 3`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -2287,7 +2329,7 @@ exports[`getStepContent should match a snapshot for step content 2 3`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -2303,7 +2345,11 @@ exports[`getStepContent should match a snapshot for step content 2 3`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r2:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -2321,7 +2367,7 @@ exports[`getStepContent should match a snapshot for step content 2 3`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
       </mock-styled.p>
@@ -2340,6 +2386,7 @@ exports[`getStepContent should match a snapshot for step content 2 3`] = `
           />
           <mock-styled.span
             classname="el-intent-default el-icon-new"
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -2351,7 +2398,7 @@ exports[`getStepContent should match a snapshot for step content 2 3`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                 fill="currentColor"
               />
             </svg>
@@ -2367,7 +2414,11 @@ exports[`getStepContent should match a snapshot for step content 2 3`] = `
             Search to get started
           </mock-styled.span>
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-controls=":r2:"
+          aria-haspopup="listbox"
+          role="combobox"
+        >
           <mock-styled.input
             id="topic-ids"
           />
@@ -2442,7 +2493,7 @@ exports[`getStepContent should match a snapshot for step content 2 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -2482,7 +2533,7 @@ exports[`getStepContent should match a snapshot for step content 2 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -2512,7 +2563,7 @@ exports[`getStepContent should match a snapshot for step content 2 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -2531,6 +2582,7 @@ exports[`getStepContent should match a snapshot for step content 2 4`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -2542,7 +2594,7 @@ exports[`getStepContent should match a snapshot for step content 2 4`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -2558,7 +2610,11 @@ exports[`getStepContent should match a snapshot for step content 2 4`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r2:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -2575,7 +2631,7 @@ exports[`getStepContent should match a snapshot for step content 2 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </mock-styled.p>
@@ -2585,7 +2641,11 @@ exports[`getStepContent should match a snapshot for step content 2 4`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r3:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="customer-ids"
               />
@@ -2651,7 +2711,7 @@ exports[`getStepContent should match a snapshot for step content 2 4`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
       </mock-styled.p>
@@ -2661,7 +2721,11 @@ exports[`getStepContent should match a snapshot for step content 2 4`] = `
     >
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r3:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="customer-ids"
             />
@@ -2784,7 +2848,7 @@ exports[`getStepContent should match a snapshot for step content 2 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -2824,7 +2888,7 @@ exports[`getStepContent should match a snapshot for step content 2 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -2854,7 +2918,7 @@ exports[`getStepContent should match a snapshot for step content 2 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -2873,6 +2937,7 @@ exports[`getStepContent should match a snapshot for step content 2 5`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -2884,7 +2949,7 @@ exports[`getStepContent should match a snapshot for step content 2 5`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -2900,7 +2965,11 @@ exports[`getStepContent should match a snapshot for step content 2 5`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r2:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -2917,7 +2986,7 @@ exports[`getStepContent should match a snapshot for step content 2 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </mock-styled.p>
@@ -2927,7 +2996,11 @@ exports[`getStepContent should match a snapshot for step content 2 5`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r3:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="customer-ids"
               />
@@ -2992,7 +3065,7 @@ exports[`getStepContent should match a snapshot for step content 2 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add any semi-structured fields that you would like included in the webhook payload. If you
           '
@@ -3004,8 +3077,8 @@ exports[`getStepContent should match a snapshot for step content 2 5`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+            <div
+              class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
             >
               <mock-styled.div>
                 <mock-styled.input
@@ -3020,7 +3093,7 @@ exports[`getStepContent should match a snapshot for step content 2 5`] = `
                   Semi-structured Fields
                 </mock-styled.label>
               </mock-styled.div>
-            </mock-styled.div>
+            </div>
             <mock-styled.div>
               <mock-styled.input
                 id="semi-structured-fields"
@@ -3044,7 +3117,7 @@ exports[`getStepContent should match a snapshot for step content 2 5`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Add any semi-structured fields that you would like included in the webhook payload. If you
         '
@@ -3056,8 +3129,8 @@ exports[`getStepContent should match a snapshot for step content 2 5`] = `
     >
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+          <div
+            class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
           >
             <mock-styled.div>
               <mock-styled.input
@@ -3072,7 +3145,7 @@ exports[`getStepContent should match a snapshot for step content 2 5`] = `
                 Semi-structured Fields
               </mock-styled.label>
             </mock-styled.div>
-          </mock-styled.div>
+          </div>
           <mock-styled.div>
             <mock-styled.input
               id="semi-structured-fields"
@@ -3153,7 +3226,7 @@ exports[`getStepContent should match a snapshot for step content 2 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -3193,7 +3266,7 @@ exports[`getStepContent should match a snapshot for step content 2 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -3223,7 +3296,7 @@ exports[`getStepContent should match a snapshot for step content 2 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -3242,6 +3315,7 @@ exports[`getStepContent should match a snapshot for step content 2 6`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -3253,7 +3327,7 @@ exports[`getStepContent should match a snapshot for step content 2 6`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -3269,7 +3343,11 @@ exports[`getStepContent should match a snapshot for step content 2 6`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r2:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -3286,7 +3364,7 @@ exports[`getStepContent should match a snapshot for step content 2 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </mock-styled.p>
@@ -3296,7 +3374,11 @@ exports[`getStepContent should match a snapshot for step content 2 6`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r3:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="customer-ids"
               />
@@ -3361,7 +3443,7 @@ exports[`getStepContent should match a snapshot for step content 2 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add any semi-structured fields that you would like included in the webhook payload. If you
           '
@@ -3373,8 +3455,8 @@ exports[`getStepContent should match a snapshot for step content 2 6`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+            <div
+              class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
             >
               <mock-styled.div>
                 <mock-styled.input
@@ -3389,7 +3471,7 @@ exports[`getStepContent should match a snapshot for step content 2 6`] = `
                   Semi-structured Fields
                 </mock-styled.label>
               </mock-styled.div>
-            </mock-styled.div>
+            </div>
             <mock-styled.div>
               <mock-styled.input
                 id="semi-structured-fields"
@@ -3412,7 +3494,7 @@ exports[`getStepContent should match a snapshot for step content 2 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
         </mock-styled.p>
@@ -3470,7 +3552,7 @@ exports[`getStepContent should match a snapshot for step content 2 6`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
       </mock-styled.p>
@@ -3585,7 +3667,7 @@ exports[`getStepContent should match a snapshot for step content 3 1`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -3626,7 +3708,7 @@ exports[`getStepContent should match a snapshot for step content 3 1`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
       </mock-styled.p>
@@ -3724,7 +3806,7 @@ exports[`getStepContent should match a snapshot for step content 3 2`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -3764,7 +3846,7 @@ exports[`getStepContent should match a snapshot for step content 3 2`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -3795,7 +3877,7 @@ exports[`getStepContent should match a snapshot for step content 3 2`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Add a url to receive your webhook payload here. The url must be a secure https endpoint.
       </mock-styled.p>
@@ -3883,7 +3965,7 @@ exports[`getStepContent should match a snapshot for step content 3 3`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -3923,7 +4005,7 @@ exports[`getStepContent should match a snapshot for step content 3 3`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -3953,7 +4035,7 @@ exports[`getStepContent should match a snapshot for step content 3 3`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -3972,6 +4054,7 @@ exports[`getStepContent should match a snapshot for step content 3 3`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -3983,7 +4066,7 @@ exports[`getStepContent should match a snapshot for step content 3 3`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -3999,7 +4082,11 @@ exports[`getStepContent should match a snapshot for step content 3 3`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r4:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -4017,7 +4104,7 @@ exports[`getStepContent should match a snapshot for step content 3 3`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
       </mock-styled.p>
@@ -4036,6 +4123,7 @@ exports[`getStepContent should match a snapshot for step content 3 3`] = `
           />
           <mock-styled.span
             classname="el-intent-default el-icon-new"
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -4047,7 +4135,7 @@ exports[`getStepContent should match a snapshot for step content 3 3`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                 fill="currentColor"
               />
             </svg>
@@ -4063,7 +4151,11 @@ exports[`getStepContent should match a snapshot for step content 3 3`] = `
             Search to get started
           </mock-styled.span>
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-controls=":r4:"
+          aria-haspopup="listbox"
+          role="combobox"
+        >
           <mock-styled.input
             id="topic-ids"
           />
@@ -4138,7 +4230,7 @@ exports[`getStepContent should match a snapshot for step content 3 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -4178,7 +4270,7 @@ exports[`getStepContent should match a snapshot for step content 3 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -4208,7 +4300,7 @@ exports[`getStepContent should match a snapshot for step content 3 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -4227,6 +4319,7 @@ exports[`getStepContent should match a snapshot for step content 3 4`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -4238,7 +4331,7 @@ exports[`getStepContent should match a snapshot for step content 3 4`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -4254,7 +4347,11 @@ exports[`getStepContent should match a snapshot for step content 3 4`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r4:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -4271,7 +4368,7 @@ exports[`getStepContent should match a snapshot for step content 3 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </mock-styled.p>
@@ -4281,7 +4378,11 @@ exports[`getStepContent should match a snapshot for step content 3 4`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r5:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="customer-ids"
               />
@@ -4347,7 +4448,7 @@ exports[`getStepContent should match a snapshot for step content 3 4`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
       </mock-styled.p>
@@ -4357,7 +4458,11 @@ exports[`getStepContent should match a snapshot for step content 3 4`] = `
     >
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r5:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="customer-ids"
             />
@@ -4480,7 +4585,7 @@ exports[`getStepContent should match a snapshot for step content 3 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -4520,7 +4625,7 @@ exports[`getStepContent should match a snapshot for step content 3 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -4550,7 +4655,7 @@ exports[`getStepContent should match a snapshot for step content 3 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -4569,6 +4674,7 @@ exports[`getStepContent should match a snapshot for step content 3 5`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -4580,7 +4686,7 @@ exports[`getStepContent should match a snapshot for step content 3 5`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -4596,7 +4702,11 @@ exports[`getStepContent should match a snapshot for step content 3 5`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r4:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -4613,7 +4723,7 @@ exports[`getStepContent should match a snapshot for step content 3 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </mock-styled.p>
@@ -4623,7 +4733,11 @@ exports[`getStepContent should match a snapshot for step content 3 5`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r5:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="customer-ids"
               />
@@ -4688,7 +4802,7 @@ exports[`getStepContent should match a snapshot for step content 3 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add any semi-structured fields that you would like included in the webhook payload. If you
           '
@@ -4700,8 +4814,8 @@ exports[`getStepContent should match a snapshot for step content 3 5`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+            <div
+              class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
             >
               <mock-styled.div>
                 <mock-styled.input
@@ -4716,7 +4830,7 @@ exports[`getStepContent should match a snapshot for step content 3 5`] = `
                   Semi-structured Fields
                 </mock-styled.label>
               </mock-styled.div>
-            </mock-styled.div>
+            </div>
             <mock-styled.div>
               <mock-styled.input
                 id="semi-structured-fields"
@@ -4740,7 +4854,7 @@ exports[`getStepContent should match a snapshot for step content 3 5`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Add any semi-structured fields that you would like included in the webhook payload. If you
         '
@@ -4752,8 +4866,8 @@ exports[`getStepContent should match a snapshot for step content 3 5`] = `
     >
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+          <div
+            class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
           >
             <mock-styled.div>
               <mock-styled.input
@@ -4768,7 +4882,7 @@ exports[`getStepContent should match a snapshot for step content 3 5`] = `
                 Semi-structured Fields
               </mock-styled.label>
             </mock-styled.div>
-          </mock-styled.div>
+          </div>
           <mock-styled.div>
             <mock-styled.input
               id="semi-structured-fields"
@@ -4849,7 +4963,7 @@ exports[`getStepContent should match a snapshot for step content 3 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -4889,7 +5003,7 @@ exports[`getStepContent should match a snapshot for step content 3 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -4919,7 +5033,7 @@ exports[`getStepContent should match a snapshot for step content 3 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -4938,6 +5052,7 @@ exports[`getStepContent should match a snapshot for step content 3 6`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -4949,7 +5064,7 @@ exports[`getStepContent should match a snapshot for step content 3 6`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -4965,7 +5080,11 @@ exports[`getStepContent should match a snapshot for step content 3 6`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r4:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -4982,7 +5101,7 @@ exports[`getStepContent should match a snapshot for step content 3 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </mock-styled.p>
@@ -4992,7 +5111,11 @@ exports[`getStepContent should match a snapshot for step content 3 6`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r5:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="customer-ids"
               />
@@ -5057,7 +5180,7 @@ exports[`getStepContent should match a snapshot for step content 3 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add any semi-structured fields that you would like included in the webhook payload. If you
           '
@@ -5069,8 +5192,8 @@ exports[`getStepContent should match a snapshot for step content 3 6`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+            <div
+              class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
             >
               <mock-styled.div>
                 <mock-styled.input
@@ -5085,7 +5208,7 @@ exports[`getStepContent should match a snapshot for step content 3 6`] = `
                   Semi-structured Fields
                 </mock-styled.label>
               </mock-styled.div>
-            </mock-styled.div>
+            </div>
             <mock-styled.div>
               <mock-styled.input
                 id="semi-structured-fields"
@@ -5108,7 +5231,7 @@ exports[`getStepContent should match a snapshot for step content 3 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
         </mock-styled.p>
@@ -5166,7 +5289,7 @@ exports[`getStepContent should match a snapshot for step content 3 6`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
       </mock-styled.p>
@@ -5281,7 +5404,7 @@ exports[`getStepContent should match a snapshot for step content 4 1`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -5322,7 +5445,7 @@ exports[`getStepContent should match a snapshot for step content 4 1`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
       </mock-styled.p>
@@ -5420,7 +5543,7 @@ exports[`getStepContent should match a snapshot for step content 4 2`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -5460,7 +5583,7 @@ exports[`getStepContent should match a snapshot for step content 4 2`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -5491,7 +5614,7 @@ exports[`getStepContent should match a snapshot for step content 4 2`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Add a url to receive your webhook payload here. The url must be a secure https endpoint.
       </mock-styled.p>
@@ -5579,7 +5702,7 @@ exports[`getStepContent should match a snapshot for step content 4 3`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -5619,7 +5742,7 @@ exports[`getStepContent should match a snapshot for step content 4 3`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -5649,7 +5772,7 @@ exports[`getStepContent should match a snapshot for step content 4 3`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -5668,6 +5791,7 @@ exports[`getStepContent should match a snapshot for step content 4 3`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -5679,7 +5803,7 @@ exports[`getStepContent should match a snapshot for step content 4 3`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -5695,7 +5819,11 @@ exports[`getStepContent should match a snapshot for step content 4 3`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r6:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -5713,7 +5841,7 @@ exports[`getStepContent should match a snapshot for step content 4 3`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
       </mock-styled.p>
@@ -5732,6 +5860,7 @@ exports[`getStepContent should match a snapshot for step content 4 3`] = `
           />
           <mock-styled.span
             classname="el-intent-default el-icon-new"
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -5743,7 +5872,7 @@ exports[`getStepContent should match a snapshot for step content 4 3`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                 fill="currentColor"
               />
             </svg>
@@ -5759,7 +5888,11 @@ exports[`getStepContent should match a snapshot for step content 4 3`] = `
             Search to get started
           </mock-styled.span>
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-controls=":r6:"
+          aria-haspopup="listbox"
+          role="combobox"
+        >
           <mock-styled.input
             id="topic-ids"
           />
@@ -5834,7 +5967,7 @@ exports[`getStepContent should match a snapshot for step content 4 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -5874,7 +6007,7 @@ exports[`getStepContent should match a snapshot for step content 4 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -5904,7 +6037,7 @@ exports[`getStepContent should match a snapshot for step content 4 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -5923,6 +6056,7 @@ exports[`getStepContent should match a snapshot for step content 4 4`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -5934,7 +6068,7 @@ exports[`getStepContent should match a snapshot for step content 4 4`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -5950,7 +6084,11 @@ exports[`getStepContent should match a snapshot for step content 4 4`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r6:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -5967,7 +6105,7 @@ exports[`getStepContent should match a snapshot for step content 4 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </mock-styled.p>
@@ -5977,7 +6115,11 @@ exports[`getStepContent should match a snapshot for step content 4 4`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r7:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="customer-ids"
               />
@@ -6043,7 +6185,7 @@ exports[`getStepContent should match a snapshot for step content 4 4`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
       </mock-styled.p>
@@ -6053,7 +6195,11 @@ exports[`getStepContent should match a snapshot for step content 4 4`] = `
     >
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r7:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="customer-ids"
             />
@@ -6176,7 +6322,7 @@ exports[`getStepContent should match a snapshot for step content 4 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -6216,7 +6362,7 @@ exports[`getStepContent should match a snapshot for step content 4 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -6246,7 +6392,7 @@ exports[`getStepContent should match a snapshot for step content 4 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -6265,6 +6411,7 @@ exports[`getStepContent should match a snapshot for step content 4 5`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -6276,7 +6423,7 @@ exports[`getStepContent should match a snapshot for step content 4 5`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -6292,7 +6439,11 @@ exports[`getStepContent should match a snapshot for step content 4 5`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r6:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -6309,7 +6460,7 @@ exports[`getStepContent should match a snapshot for step content 4 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </mock-styled.p>
@@ -6319,7 +6470,11 @@ exports[`getStepContent should match a snapshot for step content 4 5`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r7:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="customer-ids"
               />
@@ -6384,7 +6539,7 @@ exports[`getStepContent should match a snapshot for step content 4 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add any semi-structured fields that you would like included in the webhook payload. If you
           '
@@ -6396,8 +6551,8 @@ exports[`getStepContent should match a snapshot for step content 4 5`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+            <div
+              class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
             >
               <mock-styled.div>
                 <mock-styled.input
@@ -6412,7 +6567,7 @@ exports[`getStepContent should match a snapshot for step content 4 5`] = `
                   Semi-structured Fields
                 </mock-styled.label>
               </mock-styled.div>
-            </mock-styled.div>
+            </div>
             <mock-styled.div>
               <mock-styled.input
                 id="semi-structured-fields"
@@ -6436,7 +6591,7 @@ exports[`getStepContent should match a snapshot for step content 4 5`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Add any semi-structured fields that you would like included in the webhook payload. If you
         '
@@ -6448,8 +6603,8 @@ exports[`getStepContent should match a snapshot for step content 4 5`] = `
     >
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+          <div
+            class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
           >
             <mock-styled.div>
               <mock-styled.input
@@ -6464,7 +6619,7 @@ exports[`getStepContent should match a snapshot for step content 4 5`] = `
                 Semi-structured Fields
               </mock-styled.label>
             </mock-styled.div>
-          </mock-styled.div>
+          </div>
           <mock-styled.div>
             <mock-styled.input
               id="semi-structured-fields"
@@ -6545,7 +6700,7 @@ exports[`getStepContent should match a snapshot for step content 4 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -6585,7 +6740,7 @@ exports[`getStepContent should match a snapshot for step content 4 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -6615,7 +6770,7 @@ exports[`getStepContent should match a snapshot for step content 4 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -6634,6 +6789,7 @@ exports[`getStepContent should match a snapshot for step content 4 6`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -6645,7 +6801,7 @@ exports[`getStepContent should match a snapshot for step content 4 6`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -6661,7 +6817,11 @@ exports[`getStepContent should match a snapshot for step content 4 6`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r6:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -6678,7 +6838,7 @@ exports[`getStepContent should match a snapshot for step content 4 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </mock-styled.p>
@@ -6688,7 +6848,11 @@ exports[`getStepContent should match a snapshot for step content 4 6`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r7:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="customer-ids"
               />
@@ -6753,7 +6917,7 @@ exports[`getStepContent should match a snapshot for step content 4 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add any semi-structured fields that you would like included in the webhook payload. If you
           '
@@ -6765,8 +6929,8 @@ exports[`getStepContent should match a snapshot for step content 4 6`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+            <div
+              class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
             >
               <mock-styled.div>
                 <mock-styled.input
@@ -6781,7 +6945,7 @@ exports[`getStepContent should match a snapshot for step content 4 6`] = `
                   Semi-structured Fields
                 </mock-styled.label>
               </mock-styled.div>
-            </mock-styled.div>
+            </div>
             <mock-styled.div>
               <mock-styled.input
                 id="semi-structured-fields"
@@ -6804,7 +6968,7 @@ exports[`getStepContent should match a snapshot for step content 4 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
         </mock-styled.p>
@@ -6862,7 +7026,7 @@ exports[`getStepContent should match a snapshot for step content 4 6`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
       </mock-styled.p>
@@ -6977,7 +7141,7 @@ exports[`getStepContent should match a snapshot for step content 5 1`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -7018,7 +7182,7 @@ exports[`getStepContent should match a snapshot for step content 5 1`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
       </mock-styled.p>
@@ -7116,7 +7280,7 @@ exports[`getStepContent should match a snapshot for step content 5 2`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -7156,7 +7320,7 @@ exports[`getStepContent should match a snapshot for step content 5 2`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -7187,7 +7351,7 @@ exports[`getStepContent should match a snapshot for step content 5 2`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Add a url to receive your webhook payload here. The url must be a secure https endpoint.
       </mock-styled.p>
@@ -7275,7 +7439,7 @@ exports[`getStepContent should match a snapshot for step content 5 3`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -7315,7 +7479,7 @@ exports[`getStepContent should match a snapshot for step content 5 3`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -7345,7 +7509,7 @@ exports[`getStepContent should match a snapshot for step content 5 3`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -7364,6 +7528,7 @@ exports[`getStepContent should match a snapshot for step content 5 3`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -7375,7 +7540,7 @@ exports[`getStepContent should match a snapshot for step content 5 3`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -7391,7 +7556,11 @@ exports[`getStepContent should match a snapshot for step content 5 3`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r8:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -7409,7 +7578,7 @@ exports[`getStepContent should match a snapshot for step content 5 3`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
       </mock-styled.p>
@@ -7428,6 +7597,7 @@ exports[`getStepContent should match a snapshot for step content 5 3`] = `
           />
           <mock-styled.span
             classname="el-intent-default el-icon-new"
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -7439,7 +7609,7 @@ exports[`getStepContent should match a snapshot for step content 5 3`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                 fill="currentColor"
               />
             </svg>
@@ -7455,7 +7625,11 @@ exports[`getStepContent should match a snapshot for step content 5 3`] = `
             Search to get started
           </mock-styled.span>
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-controls=":r8:"
+          aria-haspopup="listbox"
+          role="combobox"
+        >
           <mock-styled.input
             id="topic-ids"
           />
@@ -7530,7 +7704,7 @@ exports[`getStepContent should match a snapshot for step content 5 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -7570,7 +7744,7 @@ exports[`getStepContent should match a snapshot for step content 5 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -7600,7 +7774,7 @@ exports[`getStepContent should match a snapshot for step content 5 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -7619,6 +7793,7 @@ exports[`getStepContent should match a snapshot for step content 5 4`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -7630,7 +7805,7 @@ exports[`getStepContent should match a snapshot for step content 5 4`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -7646,7 +7821,11 @@ exports[`getStepContent should match a snapshot for step content 5 4`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r8:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -7663,7 +7842,7 @@ exports[`getStepContent should match a snapshot for step content 5 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </mock-styled.p>
@@ -7673,7 +7852,11 @@ exports[`getStepContent should match a snapshot for step content 5 4`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r9:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="customer-ids"
               />
@@ -7739,7 +7922,7 @@ exports[`getStepContent should match a snapshot for step content 5 4`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
       </mock-styled.p>
@@ -7749,7 +7932,11 @@ exports[`getStepContent should match a snapshot for step content 5 4`] = `
     >
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r9:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="customer-ids"
             />
@@ -7872,7 +8059,7 @@ exports[`getStepContent should match a snapshot for step content 5 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -7912,7 +8099,7 @@ exports[`getStepContent should match a snapshot for step content 5 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -7942,7 +8129,7 @@ exports[`getStepContent should match a snapshot for step content 5 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -7961,6 +8148,7 @@ exports[`getStepContent should match a snapshot for step content 5 5`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -7972,7 +8160,7 @@ exports[`getStepContent should match a snapshot for step content 5 5`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -7988,7 +8176,11 @@ exports[`getStepContent should match a snapshot for step content 5 5`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r8:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -8005,7 +8197,7 @@ exports[`getStepContent should match a snapshot for step content 5 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </mock-styled.p>
@@ -8015,7 +8207,11 @@ exports[`getStepContent should match a snapshot for step content 5 5`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r9:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="customer-ids"
               />
@@ -8080,7 +8276,7 @@ exports[`getStepContent should match a snapshot for step content 5 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add any semi-structured fields that you would like included in the webhook payload. If you
           '
@@ -8092,8 +8288,8 @@ exports[`getStepContent should match a snapshot for step content 5 5`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+            <div
+              class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
             >
               <mock-styled.div>
                 <mock-styled.input
@@ -8108,7 +8304,7 @@ exports[`getStepContent should match a snapshot for step content 5 5`] = `
                   Semi-structured Fields
                 </mock-styled.label>
               </mock-styled.div>
-            </mock-styled.div>
+            </div>
             <mock-styled.div>
               <mock-styled.input
                 id="semi-structured-fields"
@@ -8132,7 +8328,7 @@ exports[`getStepContent should match a snapshot for step content 5 5`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Add any semi-structured fields that you would like included in the webhook payload. If you
         '
@@ -8144,8 +8340,8 @@ exports[`getStepContent should match a snapshot for step content 5 5`] = `
     >
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+          <div
+            class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
           >
             <mock-styled.div>
               <mock-styled.input
@@ -8160,7 +8356,7 @@ exports[`getStepContent should match a snapshot for step content 5 5`] = `
                 Semi-structured Fields
               </mock-styled.label>
             </mock-styled.div>
-          </mock-styled.div>
+          </div>
           <mock-styled.div>
             <mock-styled.input
               id="semi-structured-fields"
@@ -8241,7 +8437,7 @@ exports[`getStepContent should match a snapshot for step content 5 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -8281,7 +8477,7 @@ exports[`getStepContent should match a snapshot for step content 5 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -8311,7 +8507,7 @@ exports[`getStepContent should match a snapshot for step content 5 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -8330,6 +8526,7 @@ exports[`getStepContent should match a snapshot for step content 5 6`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -8341,7 +8538,7 @@ exports[`getStepContent should match a snapshot for step content 5 6`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -8357,7 +8554,11 @@ exports[`getStepContent should match a snapshot for step content 5 6`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r8:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -8374,7 +8575,7 @@ exports[`getStepContent should match a snapshot for step content 5 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </mock-styled.p>
@@ -8384,7 +8585,11 @@ exports[`getStepContent should match a snapshot for step content 5 6`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r9:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="customer-ids"
               />
@@ -8449,7 +8654,7 @@ exports[`getStepContent should match a snapshot for step content 5 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add any semi-structured fields that you would like included in the webhook payload. If you
           '
@@ -8461,8 +8666,8 @@ exports[`getStepContent should match a snapshot for step content 5 6`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+            <div
+              class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
             >
               <mock-styled.div>
                 <mock-styled.input
@@ -8477,7 +8682,7 @@ exports[`getStepContent should match a snapshot for step content 5 6`] = `
                   Semi-structured Fields
                 </mock-styled.label>
               </mock-styled.div>
-            </mock-styled.div>
+            </div>
             <mock-styled.div>
               <mock-styled.input
                 id="semi-structured-fields"
@@ -8500,7 +8705,7 @@ exports[`getStepContent should match a snapshot for step content 5 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
         </mock-styled.p>
@@ -8558,7 +8763,7 @@ exports[`getStepContent should match a snapshot for step content 5 6`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
       </mock-styled.p>
@@ -8673,7 +8878,7 @@ exports[`getStepContent should match a snapshot for step content 6 1`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -8714,7 +8919,7 @@ exports[`getStepContent should match a snapshot for step content 6 1`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
       </mock-styled.p>
@@ -8812,7 +9017,7 @@ exports[`getStepContent should match a snapshot for step content 6 2`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -8852,7 +9057,7 @@ exports[`getStepContent should match a snapshot for step content 6 2`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -8883,7 +9088,7 @@ exports[`getStepContent should match a snapshot for step content 6 2`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Add a url to receive your webhook payload here. The url must be a secure https endpoint.
       </mock-styled.p>
@@ -8971,7 +9176,7 @@ exports[`getStepContent should match a snapshot for step content 6 3`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -9011,7 +9216,7 @@ exports[`getStepContent should match a snapshot for step content 6 3`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -9041,7 +9246,7 @@ exports[`getStepContent should match a snapshot for step content 6 3`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -9060,6 +9265,7 @@ exports[`getStepContent should match a snapshot for step content 6 3`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -9071,7 +9277,7 @@ exports[`getStepContent should match a snapshot for step content 6 3`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -9087,7 +9293,11 @@ exports[`getStepContent should match a snapshot for step content 6 3`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":ra:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -9105,7 +9315,7 @@ exports[`getStepContent should match a snapshot for step content 6 3`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
       </mock-styled.p>
@@ -9124,6 +9334,7 @@ exports[`getStepContent should match a snapshot for step content 6 3`] = `
           />
           <mock-styled.span
             classname="el-intent-default el-icon-new"
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -9135,7 +9346,7 @@ exports[`getStepContent should match a snapshot for step content 6 3`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                 fill="currentColor"
               />
             </svg>
@@ -9151,7 +9362,11 @@ exports[`getStepContent should match a snapshot for step content 6 3`] = `
             Search to get started
           </mock-styled.span>
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-controls=":ra:"
+          aria-haspopup="listbox"
+          role="combobox"
+        >
           <mock-styled.input
             id="topic-ids"
           />
@@ -9226,7 +9441,7 @@ exports[`getStepContent should match a snapshot for step content 6 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -9266,7 +9481,7 @@ exports[`getStepContent should match a snapshot for step content 6 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -9296,7 +9511,7 @@ exports[`getStepContent should match a snapshot for step content 6 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -9315,6 +9530,7 @@ exports[`getStepContent should match a snapshot for step content 6 4`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -9326,7 +9542,7 @@ exports[`getStepContent should match a snapshot for step content 6 4`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -9342,7 +9558,11 @@ exports[`getStepContent should match a snapshot for step content 6 4`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":ra:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -9359,7 +9579,7 @@ exports[`getStepContent should match a snapshot for step content 6 4`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </mock-styled.p>
@@ -9369,7 +9589,11 @@ exports[`getStepContent should match a snapshot for step content 6 4`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":rb:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="customer-ids"
               />
@@ -9435,7 +9659,7 @@ exports[`getStepContent should match a snapshot for step content 6 4`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
       </mock-styled.p>
@@ -9445,7 +9669,11 @@ exports[`getStepContent should match a snapshot for step content 6 4`] = `
     >
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":rb:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="customer-ids"
             />
@@ -9568,7 +9796,7 @@ exports[`getStepContent should match a snapshot for step content 6 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -9608,7 +9836,7 @@ exports[`getStepContent should match a snapshot for step content 6 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -9638,7 +9866,7 @@ exports[`getStepContent should match a snapshot for step content 6 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -9657,6 +9885,7 @@ exports[`getStepContent should match a snapshot for step content 6 5`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -9668,7 +9897,7 @@ exports[`getStepContent should match a snapshot for step content 6 5`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -9684,7 +9913,11 @@ exports[`getStepContent should match a snapshot for step content 6 5`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":ra:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -9701,7 +9934,7 @@ exports[`getStepContent should match a snapshot for step content 6 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </mock-styled.p>
@@ -9711,7 +9944,11 @@ exports[`getStepContent should match a snapshot for step content 6 5`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":rb:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="customer-ids"
               />
@@ -9776,7 +10013,7 @@ exports[`getStepContent should match a snapshot for step content 6 5`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add any semi-structured fields that you would like included in the webhook payload. If you
           '
@@ -9788,8 +10025,8 @@ exports[`getStepContent should match a snapshot for step content 6 5`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+            <div
+              class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
             >
               <mock-styled.div>
                 <mock-styled.input
@@ -9804,7 +10041,7 @@ exports[`getStepContent should match a snapshot for step content 6 5`] = `
                   Semi-structured Fields
                 </mock-styled.label>
               </mock-styled.div>
-            </mock-styled.div>
+            </div>
             <mock-styled.div>
               <mock-styled.input
                 id="semi-structured-fields"
@@ -9828,7 +10065,7 @@ exports[`getStepContent should match a snapshot for step content 6 5`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Add any semi-structured fields that you would like included in the webhook payload. If you
         '
@@ -9840,8 +10077,8 @@ exports[`getStepContent should match a snapshot for step content 6 5`] = `
     >
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+          <div
+            class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
           >
             <mock-styled.div>
               <mock-styled.input
@@ -9856,7 +10093,7 @@ exports[`getStepContent should match a snapshot for step content 6 5`] = `
                 Semi-structured Fields
               </mock-styled.label>
             </mock-styled.div>
-          </mock-styled.div>
+          </div>
           <mock-styled.div>
             <mock-styled.input
               id="semi-structured-fields"
@@ -9937,7 +10174,7 @@ exports[`getStepContent should match a snapshot for step content 6 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -9977,7 +10214,7 @@ exports[`getStepContent should match a snapshot for step content 6 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add a url to receive your webhook payload here. The url must be a secure https endpoint.
         </mock-styled.p>
@@ -10007,7 +10244,7 @@ exports[`getStepContent should match a snapshot for step content 6 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
         </mock-styled.p>
@@ -10026,6 +10263,7 @@ exports[`getStepContent should match a snapshot for step content 6 6`] = `
             />
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -10037,7 +10275,7 @@ exports[`getStepContent should match a snapshot for step content 6 6`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
                   fill="currentColor"
                 />
               </svg>
@@ -10053,7 +10291,11 @@ exports[`getStepContent should match a snapshot for step content 6 6`] = `
               Search to get started
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":ra:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="topic-ids"
             />
@@ -10070,7 +10312,7 @@ exports[`getStepContent should match a snapshot for step content 6 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
         </mock-styled.p>
@@ -10080,7 +10322,11 @@ exports[`getStepContent should match a snapshot for step content 6 6`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":rb:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="customer-ids"
               />
@@ -10145,7 +10391,7 @@ exports[`getStepContent should match a snapshot for step content 6 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Add any semi-structured fields that you would like included in the webhook payload. If you
           '
@@ -10157,8 +10403,8 @@ exports[`getStepContent should match a snapshot for step content 6 6`] = `
       >
         <mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
+            <div
+              class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
             >
               <mock-styled.div>
                 <mock-styled.input
@@ -10173,7 +10419,7 @@ exports[`getStepContent should match a snapshot for step content 6 6`] = `
                   Semi-structured Fields
                 </mock-styled.label>
               </mock-styled.div>
-            </mock-styled.div>
+            </div>
             <mock-styled.div>
               <mock-styled.input
                 id="semi-structured-fields"
@@ -10196,7 +10442,7 @@ exports[`getStepContent should match a snapshot for step content 6 6`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
         </mock-styled.p>
@@ -10254,7 +10500,7 @@ exports[`getStepContent should match a snapshot for step content 6 6`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
       </mock-styled.p>

@@ -10,7 +10,7 @@ exports[`WebhooksNewApp should match a snapshot where there are apps 1`] = `
         class="el-mb11"
       >
         <mock-styled.p
-          classname="el-has-grey-text el-has-no-margin"
+          classname="el-text-base el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
         </mock-styled.p>
@@ -51,7 +51,7 @@ exports[`WebhooksNewApp should match a snapshot where there are apps 1`] = `
       class="el-mb11"
     >
       <mock-styled.p
-        classname="el-has-grey-text el-has-no-margin"
+        classname="el-text-base el-has-grey-text el-has-no-margin"
       >
         First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
       </mock-styled.p>

@@ -8,12 +8,12 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
       <mock-styled.div />
       <form>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Any changes have been saved successfully.
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
         </mock-styled.p>
@@ -34,12 +34,12 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
           </mock-styled.label>
         </mock-styled.div>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           You can find your Reapit Reference from any Reapit correspondence under the ‘Account’ section.
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
         </mock-styled.p>
@@ -70,12 +70,12 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
     <mock-styled.div />
     <form>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Any changes have been saved successfully.
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
       </mock-styled.p>
@@ -96,12 +96,12 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
         </mock-styled.label>
       </mock-styled.div>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         You can find your Reapit Reference from any Reapit correspondence under the ‘Account’ section.
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
       </mock-styled.p>
@@ -189,12 +189,12 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
       <mock-styled.div />
       <form>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Any changes have been saved successfully.
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
         </mock-styled.p>
@@ -215,12 +215,12 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
           </mock-styled.label>
         </mock-styled.div>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           You can find your Reapit Reference from any Reapit correspondence under the ‘Account’ section.
         </mock-styled.p>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
         </mock-styled.p>
@@ -251,12 +251,12 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
     <mock-styled.div />
     <form>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Any changes have been saved successfully.
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
       </mock-styled.p>
@@ -277,12 +277,12 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
         </mock-styled.label>
       </mock-styled.div>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         You can find your Reapit Reference from any Reapit correspondence under the ‘Account’ section.
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
       </mock-styled.p>
@@ -369,7 +369,7 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
     <div>
       <mock-styled.div />
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         We are currently verifying your account information. This is typically done within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
       </mock-styled.p>
@@ -390,7 +390,7 @@ exports[`SubmitReviewModal should match a snapshot where a customer and status i
   "container": <div>
     <mock-styled.div />
     <mock-styled.p
-      classname=""
+      classname="el-text-base"
     >
       We are currently verifying your account information. This is typically done within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
     </mock-styled.p>
@@ -468,17 +468,17 @@ exports[`SubmitReviewModal should match a snapshot where not a customer 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Any changes have been saved successfully.
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         However, before you can list an app in the AppMarket ('Submit for approval'), you will first need to submit your account information.
       </mock-styled.p>
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Please
          
@@ -510,17 +510,17 @@ exports[`SubmitReviewModal should match a snapshot where not a customer 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.p
-      classname=""
+      classname="el-text-base"
     >
       Any changes have been saved successfully.
     </mock-styled.p>
     <mock-styled.p
-      classname=""
+      classname="el-text-base"
     >
       However, before you can list an app in the AppMarket ('Submit for approval'), you will first need to submit your account information.
     </mock-styled.p>
     <mock-styled.p
-      classname=""
+      classname="el-text-base"
     >
       Please
        

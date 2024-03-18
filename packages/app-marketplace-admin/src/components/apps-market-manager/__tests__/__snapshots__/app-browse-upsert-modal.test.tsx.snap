@@ -10,6 +10,8 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
         classname="el-is-active"
       />
       <mock-styled.div
+        aria-describedby=":r0:"
+        aria-modal="true"
         classname="mock-css.
   top: 0;
   right: 0;
@@ -20,29 +22,32 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
   overflow-y: auto;
   transform: inherit;
  el-is-active"
+        role="dialog"
       >
         <mock-styled.div>
           AppMarket Item
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          id=":r0:"
+        >
           <form>
             <mock-styled.h2
-              classname=""
+              classname="el-text-base"
             >
               Filters
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               Featured and simple apps should be configured to include;
             </mock-styled.p>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               - A set of filters eg categories, or named apps that you want to return when the See All link is clicked on. The simplest way to do this is to specify exactly the apps you want in the collection by name.
             </mock-styled.p>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               - A title that describes the collection
             </mock-styled.p>
@@ -60,6 +65,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   />
                   <mock-styled.span
                     classname=""
+                    role="img"
                     style="font-size: 1rem;"
                   >
                     <svg
@@ -71,7 +77,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="m19.756 18.578-5.688-5.687a7.878 7.878 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0 3.552.001 0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.879 7.879 0 0 0 4.973-1.765l5.687 5.688a.831.831 0 0 0 1.179 0 .832.832 0 0 0 0-1.179Zm-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25Z"
+                        d="m19.756 18.578-5.688-5.687a7.88 7.88 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0S0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.88 7.88 0 0 0 4.973-1.765l5.687 5.688a.83.83 0 0 0 1.179 0 .83.83 0 0 0 0-1.179m-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25"
                         fill="currentColor"
                       />
                     </svg>
@@ -82,7 +88,11 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                     Search Apps
                   </mock-styled.label>
                 </mock-styled.div>
-                <mock-styled.div>
+                <mock-styled.div
+                  aria-controls=":r1:"
+                  aria-haspopup="listbox"
+                  role="combobox"
+                >
                   <mock-styled.input
                     id="select-multi-apps"
                   />
@@ -91,6 +101,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   >
                     <mock-styled.span
                       classname="el-ml2 el-intent-default el-icon-new"
+                      role="img"
                     >
                       <svg
                         fill="none"
@@ -100,7 +111,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                          d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                           fill="currentColor"
                         />
                       </svg>
@@ -116,7 +127,11 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   <mock-styled.label>
                     Categories
                   </mock-styled.label>
-                  <mock-styled.div>
+                  <mock-styled.div
+                    aria-controls=":r2:"
+                    aria-haspopup="listbox"
+                    role="combobox"
+                  >
                     <mock-styled.input
                       id="filters.category"
                       name="filters.category"
@@ -126,6 +141,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                     >
                       <mock-styled.span
                         classname="el-ml2 el-intent-default el-icon-new"
+                        role="img"
                       >
                         <svg
                           fill="none"
@@ -135,7 +151,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                            d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                             fill="currentColor"
                           />
                         </svg>
@@ -255,7 +271,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.h2
-              classname=""
+              classname="el-text-base"
             >
               Advertising Content
             </mock-styled.h2>
@@ -315,7 +331,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   Icon Preview
                 </mock-styled.label>
                 <mock-styled.p
-                  classname="el-has-grey-text"
+                  classname="el-text-base el-has-grey-text"
                 >
                   No Icon Selected
                 </mock-styled.p>
@@ -326,8 +342,8 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                     <mock-styled.label>
                       Image
                     </mock-styled.label>
-                    <mock-styled.div
-                      classname="el-flex-align-center"
+                    <div
+                      class="el-flex-container el-flex-align-center"
                     >
                       <mock-styled.button
                         classname="el-mr4 el-intent-neutral"
@@ -341,21 +357,22 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                         type="file"
                       />
                       <mock-styled.input
+                        aria-hidden="true"
                         id="test-static-id"
                         name="content.imageUrl"
                       />
                       <mock-styled.p
-                        classname="el-has-grey-text el-has-no-margin"
+                        classname="el-text-base el-has-grey-text el-has-no-margin"
                       >
                         Upload Image
                       </mock-styled.p>
-                    </mock-styled.div>
+                    </div>
                   </mock-styled.div>
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.h2
-              classname=""
+              classname="el-text-base"
             >
               Live
             </mock-styled.h2>
@@ -389,6 +406,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
               <mock-styled.div>
                 <mock-styled.div
                   classname="el-mb5 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+                  role="alertdialog"
                 >
                   <div
                     class="el-pn-icon"
@@ -396,6 +414,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   >
                     <mock-styled.span
                       classname="el-icon-new"
+                      role="img"
                       style="font-size: 1.25rem;"
                     >
                       <svg
@@ -407,7 +426,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                          d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                           fill="currentColor"
                         />
                       </svg>
@@ -466,6 +485,8 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
       classname="el-is-active"
     />
     <mock-styled.div
+      aria-describedby=":r0:"
+      aria-modal="true"
       classname="mock-css.
   top: 0;
   right: 0;
@@ -476,29 +497,32 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
   overflow-y: auto;
   transform: inherit;
  el-is-active"
+      role="dialog"
     >
       <mock-styled.div>
         AppMarket Item
       </mock-styled.div>
-      <mock-styled.div>
+      <mock-styled.div
+        id=":r0:"
+      >
         <form>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Filters
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Featured and simple apps should be configured to include;
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             - A set of filters eg categories, or named apps that you want to return when the See All link is clicked on. The simplest way to do this is to specify exactly the apps you want in the collection by name.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             - A title that describes the collection
           </mock-styled.p>
@@ -516,6 +540,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                 />
                 <mock-styled.span
                   classname=""
+                  role="img"
                   style="font-size: 1rem;"
                 >
                   <svg
@@ -527,7 +552,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="m19.756 18.578-5.688-5.687a7.878 7.878 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0 3.552.001 0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.879 7.879 0 0 0 4.973-1.765l5.687 5.688a.831.831 0 0 0 1.179 0 .832.832 0 0 0 0-1.179Zm-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25Z"
+                      d="m19.756 18.578-5.688-5.687a7.88 7.88 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0S0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.88 7.88 0 0 0 4.973-1.765l5.687 5.688a.83.83 0 0 0 1.179 0 .83.83 0 0 0 0-1.179m-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25"
                       fill="currentColor"
                     />
                   </svg>
@@ -538,7 +563,11 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   Search Apps
                 </mock-styled.label>
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                aria-controls=":r1:"
+                aria-haspopup="listbox"
+                role="combobox"
+              >
                 <mock-styled.input
                   id="select-multi-apps"
                 />
@@ -547,6 +576,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                 >
                   <mock-styled.span
                     classname="el-ml2 el-intent-default el-icon-new"
+                    role="img"
                   >
                     <svg
                       fill="none"
@@ -556,7 +586,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                        d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                         fill="currentColor"
                       />
                     </svg>
@@ -572,7 +602,11 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                 <mock-styled.label>
                   Categories
                 </mock-styled.label>
-                <mock-styled.div>
+                <mock-styled.div
+                  aria-controls=":r2:"
+                  aria-haspopup="listbox"
+                  role="combobox"
+                >
                   <mock-styled.input
                     id="filters.category"
                     name="filters.category"
@@ -582,6 +616,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   >
                     <mock-styled.span
                       classname="el-ml2 el-intent-default el-icon-new"
+                      role="img"
                     >
                       <svg
                         fill="none"
@@ -591,7 +626,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+                          d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
                           fill="currentColor"
                         />
                       </svg>
@@ -711,7 +746,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Advertising Content
           </mock-styled.h2>
@@ -771,7 +806,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                 Icon Preview
               </mock-styled.label>
               <mock-styled.p
-                classname="el-has-grey-text"
+                classname="el-text-base el-has-grey-text"
               >
                 No Icon Selected
               </mock-styled.p>
@@ -782,8 +817,8 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   <mock-styled.label>
                     Image
                   </mock-styled.label>
-                  <mock-styled.div
-                    classname="el-flex-align-center"
+                  <div
+                    class="el-flex-container el-flex-align-center"
                   >
                     <mock-styled.button
                       classname="el-mr4 el-intent-neutral"
@@ -797,21 +832,22 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                       type="file"
                     />
                     <mock-styled.input
+                      aria-hidden="true"
                       id="test-static-id"
                       name="content.imageUrl"
                     />
                     <mock-styled.p
-                      classname="el-has-grey-text el-has-no-margin"
+                      classname="el-text-base el-has-grey-text el-has-no-margin"
                     >
                       Upload Image
                     </mock-styled.p>
-                  </mock-styled.div>
+                  </div>
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             Live
           </mock-styled.h2>
@@ -845,6 +881,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.div
                 classname="el-mb5 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+                role="alertdialog"
               >
                 <div
                   class="el-pn-icon"
@@ -852,6 +889,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                 >
                   <mock-styled.span
                     classname="el-icon-new"
+                    role="img"
                     style="font-size: 1.25rem;"
                   >
                     <svg
@@ -863,7 +901,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                        d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                         fill="currentColor"
                       />
                     </svg>

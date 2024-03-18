@@ -9,12 +9,12 @@ exports[`EditUserGroupForm should match a snapshot where there is data 1`] = `
         class="el-p8"
       >
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Edit User Group
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text el-has-section-margin"
+          classname="el-text-base el-has-grey-text el-has-section-margin"
         >
           The list below contains all available member groups for your organisation. You can manage users associated to each group by selecting them from the list below.
         </mock-styled.p>
@@ -32,6 +32,7 @@ exports[`EditUserGroupForm should match a snapshot where there is data 1`] = `
               />
               <mock-styled.span
                 classname=""
+                role="img"
                 style="font-size: 1rem;"
               >
                 <svg
@@ -43,7 +44,7 @@ exports[`EditUserGroupForm should match a snapshot where there is data 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="m19.756 18.578-5.688-5.687a7.878 7.878 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0 3.552.001 0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.879 7.879 0 0 0 4.973-1.765l5.687 5.688a.831.831 0 0 0 1.179 0 .832.832 0 0 0 0-1.179Zm-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25Z"
+                    d="m19.756 18.578-5.688-5.687a7.88 7.88 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0S0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.88 7.88 0 0 0 4.973-1.765l5.687 5.688a.83.83 0 0 0 1.179 0 .83.83 0 0 0 0-1.179m-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25"
                     fill="currentColor"
                   />
                 </svg>
@@ -54,7 +55,11 @@ exports[`EditUserGroupForm should match a snapshot where there is data 1`] = `
                 Users
               </mock-styled.label>
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-controls=":r0:"
+              aria-haspopup="listbox"
+              role="combobox"
+            >
               <mock-styled.input
                 id="user-groups-ids-MarketplaceAdmin"
                 name="userIds"
@@ -118,12 +123,12 @@ exports[`EditUserGroupForm should match a snapshot where there is data 1`] = `
       class="el-p8"
     >
       <mock-styled.h2
-        classname=""
+        classname="el-text-base"
       >
         Edit User Group
       </mock-styled.h2>
       <mock-styled.p
-        classname="el-has-grey-text el-has-section-margin"
+        classname="el-text-base el-has-grey-text el-has-section-margin"
       >
         The list below contains all available member groups for your organisation. You can manage users associated to each group by selecting them from the list below.
       </mock-styled.p>
@@ -141,6 +146,7 @@ exports[`EditUserGroupForm should match a snapshot where there is data 1`] = `
             />
             <mock-styled.span
               classname=""
+              role="img"
               style="font-size: 1rem;"
             >
               <svg
@@ -152,7 +158,7 @@ exports[`EditUserGroupForm should match a snapshot where there is data 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m19.756 18.578-5.688-5.687a7.878 7.878 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0 3.552.001 0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.879 7.879 0 0 0 4.973-1.765l5.687 5.688a.831.831 0 0 0 1.179 0 .832.832 0 0 0 0-1.179Zm-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25Z"
+                  d="m19.756 18.578-5.688-5.687a7.88 7.88 0 0 0 1.765-4.973C15.833 3.553 12.281 0 7.917 0S0 3.553 0 7.918s3.552 7.916 7.917 7.916a7.88 7.88 0 0 0 4.973-1.765l5.687 5.688a.83.83 0 0 0 1.179 0 .83.83 0 0 0 0-1.179m-11.84-4.41a6.256 6.256 0 0 1-6.25-6.25 6.256 6.256 0 0 1 6.25-6.25 6.256 6.256 0 0 1 6.25 6.25 6.256 6.256 0 0 1-6.25 6.25"
                   fill="currentColor"
                 />
               </svg>
@@ -163,7 +169,11 @@ exports[`EditUserGroupForm should match a snapshot where there is data 1`] = `
               Users
             </mock-styled.label>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-controls=":r0:"
+            aria-haspopup="listbox"
+            role="combobox"
+          >
             <mock-styled.input
               id="user-groups-ids-MarketplaceAdmin"
               name="userIds"

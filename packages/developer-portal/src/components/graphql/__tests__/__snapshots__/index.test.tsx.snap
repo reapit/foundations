@@ -7,7 +7,7 @@ exports[`GraphQLPage should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         GraphQL
       </mock-styled.h1>
@@ -24,7 +24,7 @@ exports[`GraphQLPage should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div />
     <mock-styled.h1
-      classname=""
+      classname="el-text-base"
     >
       GraphQL
     </mock-styled.h1>

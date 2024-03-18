@@ -6,14 +6,15 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.span
             classname="el-mb5 el-icon-size-large"
+            role="img"
           >
             <svg
               fill="none"
@@ -23,55 +24,55 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M67 34.428 40 25l-27 9.428L40 44l27-9.572Z"
+                d="M67 34.429 40 25l-27 9.429L40 44z"
                 fill="#9faebc"
               />
               <path
-                d="M67 34.428 40 25v19l27-9.572Z"
+                d="M67 34.429 40 25v19z"
                 fill="#607890"
               />
               <path
-                d="M52.564 11.252C51.958 4.945 46.676 0 40.272 0S28.586 4.945 27.979 11.252c-4.1.588-7.263 4.156-7.263 8.455 0 4.709 3.796 8.54 8.461 8.54h22.19c4.665 0 8.46-3.831 8.46-8.54 0-4.3-3.163-7.867-7.263-8.455Z"
+                d="M52.564 11.252C51.958 4.945 46.676 0 40.272 0S28.586 4.945 27.979 11.252c-4.1.588-7.263 4.156-7.263 8.455 0 4.709 3.796 8.54 8.461 8.54h22.19c4.665 0 8.46-3.831 8.46-8.54 0-4.3-3.163-7.867-7.263-8.455"
                 fill="#7e9bfa"
               />
               <path
-                d="M47.849 23.471a.363.363 0 0 0-.335-.228H43.54V14h-6.524v9.243h-3.988a.364.364 0 0 0-.335.228.375.375 0 0 0 .078.403l7.232 7.4a.36.36 0 0 0 .514 0l7.252-7.4a.374.374 0 0 0 .079-.403Z"
+                d="M47.849 23.471a.36.36 0 0 0-.335-.228H43.54V14h-6.524v9.243h-3.988a.36.36 0 0 0-.335.228.38.38 0 0 0 .078.403l7.232 7.4a.36.36 0 0 0 .514 0l7.252-7.4a.37.37 0 0 0 .079-.403"
                 fill="#fff"
               />
               <path
-                d="M40.272 33.413c-2.775 0-5.04-2.305-5.111-5.166h-7.927c.048.446.113.89.2 1.329.105.535.558.92 1.085.92h2.002c.058.154.12.308.184.46l-1.416 1.47a1.182 1.182 0 0 0-.14 1.446 14.978 14.978 0 0 0 1.84 2.335 14.635 14.635 0 0 0 2.25 1.91c.439.3 1.022.24 1.394-.147l1.416-1.47c.147.068.295.132.444.192v2.078c0 .546.37 1.017.886 1.126a14.011 14.011 0 0 0 5.785 0c.516-.11.887-.58.887-1.126v-2.078c.149-.06.297-.124.443-.191l1.416 1.47c.372.385.955.446 1.394.145a14.638 14.638 0 0 0 2.251-1.909c.688-.713 1.306-1.5 1.84-2.335.29-.456.231-1.06-.14-1.447l-1.417-1.47c.065-.151.126-.305.184-.46h2.002c.527 0 .98-.384 1.085-.92.087-.438.152-.882.2-1.328h-7.926c-.072 2.861-2.337 5.166-5.111 5.166Z"
+                d="M40.272 33.414c-2.775 0-5.04-2.306-5.111-5.167h-7.927q.07.67.2 1.329c.105.535.558.92 1.085.92h2.002q.088.232.184.46l-1.416 1.47a1.18 1.18 0 0 0-.14 1.446 15 15 0 0 0 1.84 2.335 14.6 14.6 0 0 0 2.25 1.91c.439.3 1.022.24 1.394-.147l1.416-1.47q.22.102.444.192v2.078c0 .546.37 1.017.886 1.126a14 14 0 0 0 5.785 0c.516-.11.887-.58.887-1.126v-2.078q.224-.09.443-.191l1.416 1.47c.372.385.955.446 1.394.145a14.6 14.6 0 0 0 2.251-1.909c.688-.713 1.306-1.5 1.84-2.335.29-.456.231-1.06-.14-1.447l-1.417-1.47q.097-.227.184-.46h2.002c.527 0 .98-.384 1.085-.92q.13-.658.2-1.328h-7.926c-.072 2.861-2.337 5.166-5.111 5.166"
                 fill="#fff"
               />
               <path
-                d="M40 43.566 13 34.5v33.901L40 77V43.566Z"
+                d="M40 43.566 13 34.5v33.901L40 77z"
                 fill="#607890"
               />
               <path
-                d="M67 68.401V34l-27 9.566V77l27-8.599Z"
+                d="M67 68.401V34l-27 9.566V77z"
                 fill="#506478"
               />
               <path
-                d="M13.258 34 4 45.03 31.246 55 40 43.475 13.258 34Z"
+                d="M13.258 34 4 45.03 31.246 55 40 43.475z"
                 fill="#d8dee4"
               />
               <path
-                d="M66.74 34 76 45.03 48.757 55 40 43.475 66.74 34Z"
+                d="M66.74 34 76 45.03 48.757 55 40 43.475z"
                 fill="#798da1"
               />
             </svg>
           </mock-styled.span>
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             Support
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Your first step is to provision a user account for the solution using the button below.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Please see also below for more resources amd assistance.
           </mock-styled.p>
@@ -102,27 +103,27 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
             <mock-styled.div />
             Help
           </mock-styled.button>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname=""
+        </aside>
+        <section
+          class="el-page-container"
         >
           <mock-styled.h1
-            classname=""
+            classname="el-text-base"
           >
             User Accounts
           </mock-styled.h1>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             In order to access your organisations data warehouse, you must first create the user accounts to access it. You are to manage and create as many user accounts as you wish without any additional costs. We recommend that each individual user or application is provided with a unique set of credentials.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Please note that creating the first user account is a long running process and can take several minutes to complete.
           </mock-styled.p>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             User Account Details
           </mock-styled.h2>
@@ -131,17 +132,29 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
             data-has-call-to-action="false"
             data-has-expandable-action="true"
             data-num-columns-excl-action-col="2"
+            role="table"
           >
-            <mock-styled.div>
-              <mock-styled.div>
+            <mock-styled.div
+              role="row"
+            >
+              <mock-styled.div
+                aria-label="User Name"
+                role="columnheader"
+              >
                 User Name
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                aria-label="Status"
+                role="columnheader"
+              >
                 Status
               </mock-styled.div>
-              <mock-styled.div>
+              <mock-styled.div
+                role="columnheader"
+              >
                 <mock-styled.span
                   classname="el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
@@ -151,7 +164,7 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                      d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                       fill="currentColor"
                     />
                   </svg>
@@ -160,13 +173,16 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname=""
+              role="row"
             >
               <mock-styled.div>
                 <mock-styled.div
                   classname="el-table-cell-has-dark-text"
+                  role="cell"
                 >
                   <mock-styled.span
                     classname="el-intent-default el-icon-new"
+                    role="img"
                     style="font-size: 1.25rem;"
                   >
                     <svg
@@ -178,7 +194,7 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M12 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5Zm0-11a3.49 3.49 0 0 0-3.5 3.5c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 12 13a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25A3.49 3.49 0 0 0 12 4Z"
+                        d="M12 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5m0-11a3.49 3.49 0 0 0-3.5 3.5c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 12 13a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25A3.49 3.49 0 0 0 12 4"
                         fill="currentColor"
                       />
                     </svg>
@@ -191,6 +207,7 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                 </mock-styled.div>
                 <mock-styled.div
                   classname="el-table-cell-has-dark-text"
+                  role="cell"
                 >
                   <mock-styled.div
                     data-narrow-label="Status"
@@ -200,9 +217,11 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                 </mock-styled.div>
                 <mock-styled.div
                   classname=""
+                  role="cell"
                 >
                   <mock-styled.span
                     classname="el-intent-default el-icon-new"
+                    role="img"
                   >
                     <svg
                       fill="none"
@@ -212,7 +231,7 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                        d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                         fill="currentColor"
                       />
                     </svg>
@@ -220,6 +239,7 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                 </mock-styled.div>
               </mock-styled.div>
               <mock-styled.div
+                aria-hidden="false"
                 classname=""
               >
                 <mock-styled.div>
@@ -247,20 +267,21 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.section>
-      </mock-styled.div>
+        </section>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.span
           classname="el-mb5 el-icon-size-large"
+          role="img"
         >
           <svg
             fill="none"
@@ -270,55 +291,55 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M67 34.428 40 25l-27 9.428L40 44l27-9.572Z"
+              d="M67 34.429 40 25l-27 9.429L40 44z"
               fill="#9faebc"
             />
             <path
-              d="M67 34.428 40 25v19l27-9.572Z"
+              d="M67 34.429 40 25v19z"
               fill="#607890"
             />
             <path
-              d="M52.564 11.252C51.958 4.945 46.676 0 40.272 0S28.586 4.945 27.979 11.252c-4.1.588-7.263 4.156-7.263 8.455 0 4.709 3.796 8.54 8.461 8.54h22.19c4.665 0 8.46-3.831 8.46-8.54 0-4.3-3.163-7.867-7.263-8.455Z"
+              d="M52.564 11.252C51.958 4.945 46.676 0 40.272 0S28.586 4.945 27.979 11.252c-4.1.588-7.263 4.156-7.263 8.455 0 4.709 3.796 8.54 8.461 8.54h22.19c4.665 0 8.46-3.831 8.46-8.54 0-4.3-3.163-7.867-7.263-8.455"
               fill="#7e9bfa"
             />
             <path
-              d="M47.849 23.471a.363.363 0 0 0-.335-.228H43.54V14h-6.524v9.243h-3.988a.364.364 0 0 0-.335.228.375.375 0 0 0 .078.403l7.232 7.4a.36.36 0 0 0 .514 0l7.252-7.4a.374.374 0 0 0 .079-.403Z"
+              d="M47.849 23.471a.36.36 0 0 0-.335-.228H43.54V14h-6.524v9.243h-3.988a.36.36 0 0 0-.335.228.38.38 0 0 0 .078.403l7.232 7.4a.36.36 0 0 0 .514 0l7.252-7.4a.37.37 0 0 0 .079-.403"
               fill="#fff"
             />
             <path
-              d="M40.272 33.413c-2.775 0-5.04-2.305-5.111-5.166h-7.927c.048.446.113.89.2 1.329.105.535.558.92 1.085.92h2.002c.058.154.12.308.184.46l-1.416 1.47a1.182 1.182 0 0 0-.14 1.446 14.978 14.978 0 0 0 1.84 2.335 14.635 14.635 0 0 0 2.25 1.91c.439.3 1.022.24 1.394-.147l1.416-1.47c.147.068.295.132.444.192v2.078c0 .546.37 1.017.886 1.126a14.011 14.011 0 0 0 5.785 0c.516-.11.887-.58.887-1.126v-2.078c.149-.06.297-.124.443-.191l1.416 1.47c.372.385.955.446 1.394.145a14.638 14.638 0 0 0 2.251-1.909c.688-.713 1.306-1.5 1.84-2.335.29-.456.231-1.06-.14-1.447l-1.417-1.47c.065-.151.126-.305.184-.46h2.002c.527 0 .98-.384 1.085-.92.087-.438.152-.882.2-1.328h-7.926c-.072 2.861-2.337 5.166-5.111 5.166Z"
+              d="M40.272 33.414c-2.775 0-5.04-2.306-5.111-5.167h-7.927q.07.67.2 1.329c.105.535.558.92 1.085.92h2.002q.088.232.184.46l-1.416 1.47a1.18 1.18 0 0 0-.14 1.446 15 15 0 0 0 1.84 2.335 14.6 14.6 0 0 0 2.25 1.91c.439.3 1.022.24 1.394-.147l1.416-1.47q.22.102.444.192v2.078c0 .546.37 1.017.886 1.126a14 14 0 0 0 5.785 0c.516-.11.887-.58.887-1.126v-2.078q.224-.09.443-.191l1.416 1.47c.372.385.955.446 1.394.145a14.6 14.6 0 0 0 2.251-1.909c.688-.713 1.306-1.5 1.84-2.335.29-.456.231-1.06-.14-1.447l-1.417-1.47q.097-.227.184-.46h2.002c.527 0 .98-.384 1.085-.92q.13-.658.2-1.328h-7.926c-.072 2.861-2.337 5.166-5.111 5.166"
               fill="#fff"
             />
             <path
-              d="M40 43.566 13 34.5v33.901L40 77V43.566Z"
+              d="M40 43.566 13 34.5v33.901L40 77z"
               fill="#607890"
             />
             <path
-              d="M67 68.401V34l-27 9.566V77l27-8.599Z"
+              d="M67 68.401V34l-27 9.566V77z"
               fill="#506478"
             />
             <path
-              d="M13.258 34 4 45.03 31.246 55 40 43.475 13.258 34Z"
+              d="M13.258 34 4 45.03 31.246 55 40 43.475z"
               fill="#d8dee4"
             />
             <path
-              d="M66.74 34 76 45.03 48.757 55 40 43.475 66.74 34Z"
+              d="M66.74 34 76 45.03 48.757 55 40 43.475z"
               fill="#798da1"
             />
           </svg>
         </mock-styled.span>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Support
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Your first step is to provision a user account for the solution using the button below.
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Please see also below for more resources amd assistance.
         </mock-styled.p>
@@ -349,27 +370,27 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
           <mock-styled.div />
           Help
         </mock-styled.button>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname=""
+      </aside>
+      <section
+        class="el-page-container"
       >
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           User Accounts
         </mock-styled.h1>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           In order to access your organisations data warehouse, you must first create the user accounts to access it. You are to manage and create as many user accounts as you wish without any additional costs. We recommend that each individual user or application is provided with a unique set of credentials.
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Please note that creating the first user account is a long running process and can take several minutes to complete.
         </mock-styled.p>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           User Account Details
         </mock-styled.h2>
@@ -378,17 +399,29 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="2"
+          role="table"
         >
-          <mock-styled.div>
-            <mock-styled.div>
+          <mock-styled.div
+            role="row"
+          >
+            <mock-styled.div
+              aria-label="User Name"
+              role="columnheader"
+            >
               User Name
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Status"
+              role="columnheader"
+            >
               Status
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              role="columnheader"
+            >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -398,7 +431,7 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                    d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                     fill="currentColor"
                   />
                 </svg>
@@ -407,13 +440,16 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname=""
+            role="row"
           >
             <mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.span
                   classname="el-intent-default el-icon-new"
+                  role="img"
                   style="font-size: 1.25rem;"
                 >
                   <svg
@@ -425,7 +461,7 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M12 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5Zm0-11a3.49 3.49 0 0 0-3.5 3.5c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 12 13a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25A3.49 3.49 0 0 0 12 4Z"
+                      d="M12 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5m0-11a3.49 3.49 0 0 0-3.5 3.5c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 12 13a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25A3.49 3.49 0 0 0 12 4"
                       fill="currentColor"
                     />
                   </svg>
@@ -438,6 +474,7 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Status"
@@ -447,9 +484,11 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname=""
+                role="cell"
               >
                 <mock-styled.span
                   classname="el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
@@ -459,7 +498,7 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                       fill="currentColor"
                     />
                   </svg>
@@ -467,6 +506,7 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
+              aria-hidden="false"
               classname=""
             >
               <mock-styled.div>
@@ -494,8 +534,8 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.section>
-    </mock-styled.div>
+      </section>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -557,14 +597,15 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.span
             classname="el-mb5 el-icon-size-large"
+            role="img"
           >
             <svg
               fill="none"
@@ -574,55 +615,55 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M67 34.428 40 25l-27 9.428L40 44l27-9.572Z"
+                d="M67 34.429 40 25l-27 9.429L40 44z"
                 fill="#9faebc"
               />
               <path
-                d="M67 34.428 40 25v19l27-9.572Z"
+                d="M67 34.429 40 25v19z"
                 fill="#607890"
               />
               <path
-                d="M52.564 11.252C51.958 4.945 46.676 0 40.272 0S28.586 4.945 27.979 11.252c-4.1.588-7.263 4.156-7.263 8.455 0 4.709 3.796 8.54 8.461 8.54h22.19c4.665 0 8.46-3.831 8.46-8.54 0-4.3-3.163-7.867-7.263-8.455Z"
+                d="M52.564 11.252C51.958 4.945 46.676 0 40.272 0S28.586 4.945 27.979 11.252c-4.1.588-7.263 4.156-7.263 8.455 0 4.709 3.796 8.54 8.461 8.54h22.19c4.665 0 8.46-3.831 8.46-8.54 0-4.3-3.163-7.867-7.263-8.455"
                 fill="#7e9bfa"
               />
               <path
-                d="M47.849 23.471a.363.363 0 0 0-.335-.228H43.54V14h-6.524v9.243h-3.988a.364.364 0 0 0-.335.228.375.375 0 0 0 .078.403l7.232 7.4a.36.36 0 0 0 .514 0l7.252-7.4a.374.374 0 0 0 .079-.403Z"
+                d="M47.849 23.471a.36.36 0 0 0-.335-.228H43.54V14h-6.524v9.243h-3.988a.36.36 0 0 0-.335.228.38.38 0 0 0 .078.403l7.232 7.4a.36.36 0 0 0 .514 0l7.252-7.4a.37.37 0 0 0 .079-.403"
                 fill="#fff"
               />
               <path
-                d="M40.272 33.413c-2.775 0-5.04-2.305-5.111-5.166h-7.927c.048.446.113.89.2 1.329.105.535.558.92 1.085.92h2.002c.058.154.12.308.184.46l-1.416 1.47a1.182 1.182 0 0 0-.14 1.446 14.978 14.978 0 0 0 1.84 2.335 14.635 14.635 0 0 0 2.25 1.91c.439.3 1.022.24 1.394-.147l1.416-1.47c.147.068.295.132.444.192v2.078c0 .546.37 1.017.886 1.126a14.011 14.011 0 0 0 5.785 0c.516-.11.887-.58.887-1.126v-2.078c.149-.06.297-.124.443-.191l1.416 1.47c.372.385.955.446 1.394.145a14.638 14.638 0 0 0 2.251-1.909c.688-.713 1.306-1.5 1.84-2.335.29-.456.231-1.06-.14-1.447l-1.417-1.47c.065-.151.126-.305.184-.46h2.002c.527 0 .98-.384 1.085-.92.087-.438.152-.882.2-1.328h-7.926c-.072 2.861-2.337 5.166-5.111 5.166Z"
+                d="M40.272 33.414c-2.775 0-5.04-2.306-5.111-5.167h-7.927q.07.67.2 1.329c.105.535.558.92 1.085.92h2.002q.088.232.184.46l-1.416 1.47a1.18 1.18 0 0 0-.14 1.446 15 15 0 0 0 1.84 2.335 14.6 14.6 0 0 0 2.25 1.91c.439.3 1.022.24 1.394-.147l1.416-1.47q.22.102.444.192v2.078c0 .546.37 1.017.886 1.126a14 14 0 0 0 5.785 0c.516-.11.887-.58.887-1.126v-2.078q.224-.09.443-.191l1.416 1.47c.372.385.955.446 1.394.145a14.6 14.6 0 0 0 2.251-1.909c.688-.713 1.306-1.5 1.84-2.335.29-.456.231-1.06-.14-1.447l-1.417-1.47q.097-.227.184-.46h2.002c.527 0 .98-.384 1.085-.92q.13-.658.2-1.328h-7.926c-.072 2.861-2.337 5.166-5.111 5.166"
                 fill="#fff"
               />
               <path
-                d="M40 43.566 13 34.5v33.901L40 77V43.566Z"
+                d="M40 43.566 13 34.5v33.901L40 77z"
                 fill="#607890"
               />
               <path
-                d="M67 68.401V34l-27 9.566V77l27-8.599Z"
+                d="M67 68.401V34l-27 9.566V77z"
                 fill="#506478"
               />
               <path
-                d="M13.258 34 4 45.03 31.246 55 40 43.475 13.258 34Z"
+                d="M13.258 34 4 45.03 31.246 55 40 43.475z"
                 fill="#d8dee4"
               />
               <path
-                d="M66.74 34 76 45.03 48.757 55 40 43.475 66.74 34Z"
+                d="M66.74 34 76 45.03 48.757 55 40 43.475z"
                 fill="#798da1"
               />
             </svg>
           </mock-styled.span>
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             Support
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Your first step is to provision a user account for the solution using the button below.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Please see also below for more resources amd assistance.
           </mock-styled.p>
@@ -653,32 +694,33 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
             <mock-styled.div />
             Help
           </mock-styled.button>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname=""
+        </aside>
+        <section
+          class="el-page-container"
         >
           <mock-styled.h1
-            classname=""
+            classname="el-text-base"
           >
             User Accounts
           </mock-styled.h1>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             In order to access your organisations data warehouse, you must first create the user accounts to access it. You are to manage and create as many user accounts as you wish without any additional costs. We recommend that each individual user or application is provided with a unique set of credentials.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Please note that creating the first user account is a long running process and can take several minutes to complete.
           </mock-styled.p>
           <mock-styled.h2
-            classname=""
+            classname="el-text-base"
           >
             User Account Details
           </mock-styled.h2>
           <mock-styled.div
             classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+            role="alertdialog"
           >
             <div
               class="el-pn-icon"
@@ -686,6 +728,7 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
             >
               <mock-styled.span
                 classname="el-icon-new"
+                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -697,7 +740,7 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                     fill="currentColor"
                   />
                 </svg>
@@ -709,20 +752,21 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
               No accounts yet provisioned for your organisation
             </div>
           </mock-styled.div>
-        </mock-styled.section>
-      </mock-styled.div>
+        </section>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.span
           classname="el-mb5 el-icon-size-large"
+          role="img"
         >
           <svg
             fill="none"
@@ -732,55 +776,55 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M67 34.428 40 25l-27 9.428L40 44l27-9.572Z"
+              d="M67 34.429 40 25l-27 9.429L40 44z"
               fill="#9faebc"
             />
             <path
-              d="M67 34.428 40 25v19l27-9.572Z"
+              d="M67 34.429 40 25v19z"
               fill="#607890"
             />
             <path
-              d="M52.564 11.252C51.958 4.945 46.676 0 40.272 0S28.586 4.945 27.979 11.252c-4.1.588-7.263 4.156-7.263 8.455 0 4.709 3.796 8.54 8.461 8.54h22.19c4.665 0 8.46-3.831 8.46-8.54 0-4.3-3.163-7.867-7.263-8.455Z"
+              d="M52.564 11.252C51.958 4.945 46.676 0 40.272 0S28.586 4.945 27.979 11.252c-4.1.588-7.263 4.156-7.263 8.455 0 4.709 3.796 8.54 8.461 8.54h22.19c4.665 0 8.46-3.831 8.46-8.54 0-4.3-3.163-7.867-7.263-8.455"
               fill="#7e9bfa"
             />
             <path
-              d="M47.849 23.471a.363.363 0 0 0-.335-.228H43.54V14h-6.524v9.243h-3.988a.364.364 0 0 0-.335.228.375.375 0 0 0 .078.403l7.232 7.4a.36.36 0 0 0 .514 0l7.252-7.4a.374.374 0 0 0 .079-.403Z"
+              d="M47.849 23.471a.36.36 0 0 0-.335-.228H43.54V14h-6.524v9.243h-3.988a.36.36 0 0 0-.335.228.38.38 0 0 0 .078.403l7.232 7.4a.36.36 0 0 0 .514 0l7.252-7.4a.37.37 0 0 0 .079-.403"
               fill="#fff"
             />
             <path
-              d="M40.272 33.413c-2.775 0-5.04-2.305-5.111-5.166h-7.927c.048.446.113.89.2 1.329.105.535.558.92 1.085.92h2.002c.058.154.12.308.184.46l-1.416 1.47a1.182 1.182 0 0 0-.14 1.446 14.978 14.978 0 0 0 1.84 2.335 14.635 14.635 0 0 0 2.25 1.91c.439.3 1.022.24 1.394-.147l1.416-1.47c.147.068.295.132.444.192v2.078c0 .546.37 1.017.886 1.126a14.011 14.011 0 0 0 5.785 0c.516-.11.887-.58.887-1.126v-2.078c.149-.06.297-.124.443-.191l1.416 1.47c.372.385.955.446 1.394.145a14.638 14.638 0 0 0 2.251-1.909c.688-.713 1.306-1.5 1.84-2.335.29-.456.231-1.06-.14-1.447l-1.417-1.47c.065-.151.126-.305.184-.46h2.002c.527 0 .98-.384 1.085-.92.087-.438.152-.882.2-1.328h-7.926c-.072 2.861-2.337 5.166-5.111 5.166Z"
+              d="M40.272 33.414c-2.775 0-5.04-2.306-5.111-5.167h-7.927q.07.67.2 1.329c.105.535.558.92 1.085.92h2.002q.088.232.184.46l-1.416 1.47a1.18 1.18 0 0 0-.14 1.446 15 15 0 0 0 1.84 2.335 14.6 14.6 0 0 0 2.25 1.91c.439.3 1.022.24 1.394-.147l1.416-1.47q.22.102.444.192v2.078c0 .546.37 1.017.886 1.126a14 14 0 0 0 5.785 0c.516-.11.887-.58.887-1.126v-2.078q.224-.09.443-.191l1.416 1.47c.372.385.955.446 1.394.145a14.6 14.6 0 0 0 2.251-1.909c.688-.713 1.306-1.5 1.84-2.335.29-.456.231-1.06-.14-1.447l-1.417-1.47q.097-.227.184-.46h2.002c.527 0 .98-.384 1.085-.92q.13-.658.2-1.328h-7.926c-.072 2.861-2.337 5.166-5.111 5.166"
               fill="#fff"
             />
             <path
-              d="M40 43.566 13 34.5v33.901L40 77V43.566Z"
+              d="M40 43.566 13 34.5v33.901L40 77z"
               fill="#607890"
             />
             <path
-              d="M67 68.401V34l-27 9.566V77l27-8.599Z"
+              d="M67 68.401V34l-27 9.566V77z"
               fill="#506478"
             />
             <path
-              d="M13.258 34 4 45.03 31.246 55 40 43.475 13.258 34Z"
+              d="M13.258 34 4 45.03 31.246 55 40 43.475z"
               fill="#d8dee4"
             />
             <path
-              d="M66.74 34 76 45.03 48.757 55 40 43.475 66.74 34Z"
+              d="M66.74 34 76 45.03 48.757 55 40 43.475z"
               fill="#798da1"
             />
           </svg>
         </mock-styled.span>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Support
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Your first step is to provision a user account for the solution using the button below.
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Please see also below for more resources amd assistance.
         </mock-styled.p>
@@ -811,32 +855,33 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
           <mock-styled.div />
           Help
         </mock-styled.button>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname=""
+      </aside>
+      <section
+        class="el-page-container"
       >
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           User Accounts
         </mock-styled.h1>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           In order to access your organisations data warehouse, you must first create the user accounts to access it. You are to manage and create as many user accounts as you wish without any additional costs. We recommend that each individual user or application is provided with a unique set of credentials.
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Please note that creating the first user account is a long running process and can take several minutes to complete.
         </mock-styled.p>
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           User Account Details
         </mock-styled.h2>
         <mock-styled.div
           classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+          role="alertdialog"
         >
           <div
             class="el-pn-icon"
@@ -844,6 +889,7 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
           >
             <mock-styled.span
               classname="el-icon-new"
+              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -855,7 +901,7 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                   fill="currentColor"
                 />
               </svg>
@@ -867,8 +913,8 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
             No accounts yet provisioned for your organisation
           </div>
         </mock-styled.div>
-      </mock-styled.section>
-    </mock-styled.div>
+      </section>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

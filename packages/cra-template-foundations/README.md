@@ -1,5 +1,11 @@
 # CRA Template Foundations
 
+# Deprecated
+
+Please visit our [vite documentation](https://foundations-documentation.reapit.cloud/app-development/vite-template) on how to get started.
+
+> This package is no longer being maintained.
+
 A quick start Create React App template for use with the Reapit Foundations Platform made with [Create-React-App](https://create-react-app.dev/)
 
 For full documentaion [here](https://foundations-documentation.reapit.cloud/app-development/create-react-app-template).

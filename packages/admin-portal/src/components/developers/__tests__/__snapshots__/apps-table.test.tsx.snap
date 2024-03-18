@@ -10,12 +10,12 @@ exports[`AppsTable should render component with apps 1`] = `
         class="el-mt5"
       >
         <mock-styled.h2
-          classname=""
+          classname="el-text-base"
         >
           Total Apps
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           1
         </mock-styled.p>
@@ -24,35 +24,65 @@ exports[`AppsTable should render component with apps 1`] = `
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="8"
+          role="table"
         >
-          <mock-styled.div>
-            <mock-styled.div>
+          <mock-styled.div
+            role="row"
+          >
+            <mock-styled.div
+              aria-label="App Name"
+              role="columnheader"
+            >
               App Name
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="AppId"
+              role="columnheader"
+            >
               AppId
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Summary"
+              role="columnheader"
+            >
               Summary
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Listed"
+              role="columnheader"
+            >
               Listed
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Integration"
+              role="columnheader"
+            >
               Integration
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Featured"
+              role="columnheader"
+            >
               Featured
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Created"
+              role="columnheader"
+            >
               Created
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Publicly Listed"
+              role="columnheader"
+            >
               Publicly Listed
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              role="columnheader"
+            >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -62,7 +92,7 @@ exports[`AppsTable should render component with apps 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                    d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                     fill="currentColor"
                   />
                 </svg>
@@ -71,10 +101,12 @@ exports[`AppsTable should render component with apps 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname=""
+            role="row"
           >
             <mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="App Name"
@@ -84,6 +116,7 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="AppId"
@@ -93,6 +126,7 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Summary"
@@ -102,12 +136,14 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Listed"
                 >
                   <mock-styled.span
                     classname="el-icon-new"
+                    role="img"
                   >
                     <svg
                       fill="none"
@@ -118,7 +154,7 @@ exports[`AppsTable should render component with apps 1`] = `
                     >
                       <path
                         clip-rule="evenodd"
-                        d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.321 1.321 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87Z"
+                        d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.32 1.32 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87"
                         fill="currentColor"
                         fill-rule="evenodd"
                       />
@@ -128,12 +164,14 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Integration"
                 >
                   <mock-styled.span
                     classname="el-icon-new"
+                    role="img"
                   >
                     <svg
                       fill="none"
@@ -143,7 +181,7 @@ exports[`AppsTable should render component with apps 1`] = `
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l5.66-5.66Z"
+                        d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0z"
                         fill="currentColor"
                       />
                     </svg>
@@ -152,12 +190,14 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Featured"
                 >
                   <mock-styled.span
                     classname="el-icon-new"
+                    role="img"
                   >
                     <svg
                       fill="none"
@@ -167,7 +207,7 @@ exports[`AppsTable should render component with apps 1`] = `
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l5.66-5.66Z"
+                        d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0z"
                         fill="currentColor"
                       />
                     </svg>
@@ -176,6 +216,7 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Created"
@@ -185,6 +226,7 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Publicly Listed"
@@ -194,9 +236,11 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname=""
+                role="cell"
               >
                 <mock-styled.span
                   classname="el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
@@ -206,7 +250,7 @@ exports[`AppsTable should render component with apps 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                       fill="currentColor"
                     />
                   </svg>
@@ -214,11 +258,13 @@ exports[`AppsTable should render component with apps 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
+              aria-hidden="false"
               classname=""
             >
               <mock-styled.div>
                 <mock-styled.div
                   classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+                  role="alertdialog"
                 >
                   <div
                     class="el-pn-icon"
@@ -226,6 +272,7 @@ exports[`AppsTable should render component with apps 1`] = `
                   >
                     <mock-styled.span
                       classname="el-icon-new"
+                      role="img"
                       style="font-size: 1.25rem;"
                     >
                       <svg
@@ -237,7 +284,7 @@ exports[`AppsTable should render component with apps 1`] = `
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                          d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                           fill="currentColor"
                         />
                       </svg>
@@ -255,11 +302,14 @@ exports[`AppsTable should render component with apps 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.button
+            aria-label="Previous"
             data-testid="back-button"
+            role="button"
             type="button"
           >
             <mock-styled.span
               classname="el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -269,7 +319,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                  d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
                   fill="currentColor"
                 />
               </svg>
@@ -283,11 +333,14 @@ exports[`AppsTable should render component with apps 1`] = `
             1
           </mock-styled.div>
           <mock-styled.button
+            aria-label="Next"
             data-testid="forward-button"
+            role="button"
             type="button"
           >
             <mock-styled.span
               classname="el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -297,7 +350,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                  d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
                   fill="currentColor"
                 />
               </svg>
@@ -313,12 +366,12 @@ exports[`AppsTable should render component with apps 1`] = `
       class="el-mt5"
     >
       <mock-styled.h2
-        classname=""
+        classname="el-text-base"
       >
         Total Apps
       </mock-styled.h2>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         1
       </mock-styled.p>
@@ -327,35 +380,65 @@ exports[`AppsTable should render component with apps 1`] = `
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="8"
+        role="table"
       >
-        <mock-styled.div>
-          <mock-styled.div>
+        <mock-styled.div
+          role="row"
+        >
+          <mock-styled.div
+            aria-label="App Name"
+            role="columnheader"
+          >
             App Name
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="AppId"
+            role="columnheader"
+          >
             AppId
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Summary"
+            role="columnheader"
+          >
             Summary
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Listed"
+            role="columnheader"
+          >
             Listed
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Integration"
+            role="columnheader"
+          >
             Integration
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Featured"
+            role="columnheader"
+          >
             Featured
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Created"
+            role="columnheader"
+          >
             Created
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Publicly Listed"
+            role="columnheader"
+          >
             Publicly Listed
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            role="columnheader"
+          >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -365,7 +448,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                   fill="currentColor"
                 />
               </svg>
@@ -374,10 +457,12 @@ exports[`AppsTable should render component with apps 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="App Name"
@@ -387,6 +472,7 @@ exports[`AppsTable should render component with apps 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="AppId"
@@ -396,6 +482,7 @@ exports[`AppsTable should render component with apps 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Summary"
@@ -405,12 +492,14 @@ exports[`AppsTable should render component with apps 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Listed"
               >
                 <mock-styled.span
                   classname="el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
@@ -421,7 +510,7 @@ exports[`AppsTable should render component with apps 1`] = `
                   >
                     <path
                       clip-rule="evenodd"
-                      d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.321 1.321 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87Z"
+                      d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.32 1.32 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87"
                       fill="currentColor"
                       fill-rule="evenodd"
                     />
@@ -431,12 +520,14 @@ exports[`AppsTable should render component with apps 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Integration"
               >
                 <mock-styled.span
                   classname="el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
@@ -446,7 +537,7 @@ exports[`AppsTable should render component with apps 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l5.66-5.66Z"
+                      d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0z"
                       fill="currentColor"
                     />
                   </svg>
@@ -455,12 +546,14 @@ exports[`AppsTable should render component with apps 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Featured"
               >
                 <mock-styled.span
                   classname="el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
@@ -470,7 +563,7 @@ exports[`AppsTable should render component with apps 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l5.66-5.66Z"
+                      d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0z"
                       fill="currentColor"
                     />
                   </svg>
@@ -479,6 +572,7 @@ exports[`AppsTable should render component with apps 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Created"
@@ -488,6 +582,7 @@ exports[`AppsTable should render component with apps 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Publicly Listed"
@@ -497,9 +592,11 @@ exports[`AppsTable should render component with apps 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname=""
+              role="cell"
             >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -509,7 +606,7 @@ exports[`AppsTable should render component with apps 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                     fill="currentColor"
                   />
                 </svg>
@@ -517,11 +614,13 @@ exports[`AppsTable should render component with apps 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
+            aria-hidden="false"
             classname=""
           >
             <mock-styled.div>
               <mock-styled.div
                 classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+                role="alertdialog"
               >
                 <div
                   class="el-pn-icon"
@@ -529,6 +628,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 >
                   <mock-styled.span
                     classname="el-icon-new"
+                    role="img"
                     style="font-size: 1.25rem;"
                   >
                     <svg
@@ -540,7 +640,7 @@ exports[`AppsTable should render component with apps 1`] = `
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                        d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                         fill="currentColor"
                       />
                     </svg>
@@ -558,11 +658,14 @@ exports[`AppsTable should render component with apps 1`] = `
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.button
+          aria-label="Previous"
           data-testid="back-button"
+          role="button"
           type="button"
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -572,7 +675,7 @@ exports[`AppsTable should render component with apps 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
                 fill="currentColor"
               />
             </svg>
@@ -586,11 +689,14 @@ exports[`AppsTable should render component with apps 1`] = `
           1
         </mock-styled.div>
         <mock-styled.button
+          aria-label="Next"
           data-testid="forward-button"
+          role="button"
           type="button"
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -600,7 +706,7 @@ exports[`AppsTable should render component with apps 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
                 fill="currentColor"
               />
             </svg>
@@ -753,6 +859,7 @@ exports[`AppsTable should render component with no apps and not loading 1`] = `
       >
         <mock-styled.div
           classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+          role="alertdialog"
         >
           <div
             class="el-pn-icon"
@@ -760,6 +867,7 @@ exports[`AppsTable should render component with no apps and not loading 1`] = `
           >
             <mock-styled.span
               classname="el-icon-new"
+              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -771,7 +879,7 @@ exports[`AppsTable should render component with no apps and not loading 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                   fill="currentColor"
                 />
               </svg>
@@ -793,6 +901,7 @@ exports[`AppsTable should render component with no apps and not loading 1`] = `
     >
       <mock-styled.div
         classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+        role="alertdialog"
       >
         <div
           class="el-pn-icon"
@@ -800,6 +909,7 @@ exports[`AppsTable should render component with no apps and not loading 1`] = `
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -811,7 +921,7 @@ exports[`AppsTable should render component with no apps and not loading 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                 fill="currentColor"
               />
             </svg>

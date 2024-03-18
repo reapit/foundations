@@ -12,14 +12,19 @@ exports[`AcceptPermissionChangePage should match snapshot  1`] = `
           classname="el-is-active"
         />
         <mock-styled.div
+          aria-describedby=":r1:"
+          aria-modal="true"
           classname="el-is-active"
+          role="dialog"
         >
           <mock-styled.div>
             Requested Permissions
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            id=":r1:"
+          >
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               To accept the permissions as requested by 
               will-test-dev-co-voracious-person

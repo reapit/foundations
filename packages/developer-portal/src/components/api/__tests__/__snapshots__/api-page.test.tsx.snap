@@ -6,11 +6,11 @@ exports[`ApiPage should match a snapshot for the /desktop page 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.div>
             <mock-styled.div
@@ -34,20 +34,20 @@ exports[`ApiPage should match a snapshot for the /desktop page 1`] = `
               Desktop
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname="el-hfull"
+        </aside>
+        <section
+          class="el-page-container el-hfull"
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -71,11 +71,11 @@ exports[`ApiPage should match a snapshot for the /desktop page 1`] = `
             Desktop
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname="el-hfull"
+      </aside>
+      <section
+        class="el-page-container el-hfull"
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -137,11 +137,11 @@ exports[`ApiPage should match a snapshot for the /graphql page 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.div>
             <mock-styled.div
@@ -165,20 +165,20 @@ exports[`ApiPage should match a snapshot for the /graphql page 1`] = `
               Desktop
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname="el-hfull"
+        </aside>
+        <section
+          class="el-page-container el-hfull"
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -202,11 +202,11 @@ exports[`ApiPage should match a snapshot for the /graphql page 1`] = `
             Desktop
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname="el-hfull"
+      </aside>
+      <section
+        class="el-page-container el-hfull"
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -268,11 +268,11 @@ exports[`ApiPage should match a snapshot for the /swagger page 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.div>
             <mock-styled.div
@@ -296,20 +296,20 @@ exports[`ApiPage should match a snapshot for the /swagger page 1`] = `
               Desktop
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname="el-hfull"
+        </aside>
+        <section
+          class="el-page-container el-hfull"
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -333,11 +333,11 @@ exports[`ApiPage should match a snapshot for the /swagger page 1`] = `
             Desktop
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname="el-hfull"
+      </aside>
+      <section
+        class="el-page-container el-hfull"
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -399,11 +399,11 @@ exports[`ApiPage should match a snapshot for the /webhooks page 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.div>
             <mock-styled.div
@@ -427,20 +427,20 @@ exports[`ApiPage should match a snapshot for the /webhooks page 1`] = `
               Desktop
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname="el-hfull"
+        </aside>
+        <section
+          class="el-page-container el-hfull"
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -464,11 +464,11 @@ exports[`ApiPage should match a snapshot for the /webhooks page 1`] = `
             Desktop
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname="el-hfull"
+      </aside>
+      <section
+        class="el-page-container el-hfull"
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -530,11 +530,11 @@ exports[`ApiPage should match a snapshot for the /webhooks/about page 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.div>
             <mock-styled.div
@@ -558,20 +558,20 @@ exports[`ApiPage should match a snapshot for the /webhooks/about page 1`] = `
               Desktop
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname="el-hfull"
+        </aside>
+        <section
+          class="el-page-container el-hfull"
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -595,11 +595,11 @@ exports[`ApiPage should match a snapshot for the /webhooks/about page 1`] = `
             Desktop
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname="el-hfull"
+      </aside>
+      <section
+        class="el-page-container el-hfull"
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -661,11 +661,11 @@ exports[`ApiPage should match a snapshot for the /webhooks/logs page 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.div>
             <mock-styled.div
@@ -689,20 +689,20 @@ exports[`ApiPage should match a snapshot for the /webhooks/logs page 1`] = `
               Desktop
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname="el-hfull"
+        </aside>
+        <section
+          class="el-page-container el-hfull"
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -726,11 +726,11 @@ exports[`ApiPage should match a snapshot for the /webhooks/logs page 1`] = `
             Desktop
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname="el-hfull"
+      </aside>
+      <section
+        class="el-page-container el-hfull"
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -792,11 +792,11 @@ exports[`ApiPage should match a snapshot for the /webhooks/manage page 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.div>
             <mock-styled.div
@@ -820,20 +820,20 @@ exports[`ApiPage should match a snapshot for the /webhooks/manage page 1`] = `
               Desktop
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname="el-hfull"
+        </aside>
+        <section
+          class="el-page-container el-hfull"
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -857,11 +857,11 @@ exports[`ApiPage should match a snapshot for the /webhooks/manage page 1`] = `
             Desktop
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname="el-hfull"
+      </aside>
+      <section
+        class="el-page-container el-hfull"
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -923,11 +923,11 @@ exports[`ApiPage should match a snapshot for the /webhooks/new page 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.div>
             <mock-styled.div
@@ -951,20 +951,20 @@ exports[`ApiPage should match a snapshot for the /webhooks/new page 1`] = `
               Desktop
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname="el-hfull"
+        </aside>
+        <section
+          class="el-page-container el-hfull"
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.div>
           <mock-styled.div
@@ -988,11 +988,11 @@ exports[`ApiPage should match a snapshot for the /webhooks/new page 1`] = `
             Desktop
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname="el-hfull"
+      </aside>
+      <section
+        class="el-page-container el-hfull"
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -12,6 +12,7 @@ exports[`Carousel should match a snapshot with options 1`] = `
         >
           <mock-styled.span
             classname="el-intent-primary el-icon-new"
+            role="img"
             style="font-size: 0.75em;"
           >
             <svg
@@ -23,7 +24,7 @@ exports[`Carousel should match a snapshot with options 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
                 fill="currentColor"
               />
             </svg>
@@ -61,6 +62,7 @@ exports[`Carousel should match a snapshot with options 1`] = `
       >
         <mock-styled.span
           classname="el-intent-primary el-icon-new"
+          role="img"
           style="font-size: 0.75em;"
         >
           <svg
@@ -72,7 +74,7 @@ exports[`Carousel should match a snapshot with options 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+              d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
               fill="currentColor"
             />
           </svg>

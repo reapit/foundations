@@ -1,9 +1,0 @@
-{
-  "appEnv": "local",
-  "sentryDsn": "",
-  "connectClientId": "<%= clientId %>",
-  "connectUserPoolId": "<%= userPoolId %>",
-  "connectOAuthUrl": "https://connect.dev.paas.reapit.cloud",
-  "platformApiUrl": "https://platform.dev.paas.reapit.cloud",
-  "marketplaceUrl": "https://marketplace.dev.paas.reapit.cloud"
-}

@@ -10,17 +10,17 @@ exports[`AppBrowseManageTable should match a snapshot 1`] = `
         class="el-mb11"
       >
         <mock-styled.h2
-          classname="el-has-capitalised-text"
+          classname="el-text-base el-has-capitalised-text"
         >
           featured apps
         </mock-styled.h2>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           Featured apps are lists of apps, grouped as a collection that sit below the filter collections typically. They have slightly larger tiles and slightly greater prominence than Simple Apps.
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           You can add as many to a collection as you like however, the list will be paginatied by the UI at some resolutions in line with the design. All apps selected will be returned when hitting the See All link.
         </mock-styled.p>
@@ -41,17 +41,17 @@ exports[`AppBrowseManageTable should match a snapshot 1`] = `
       class="el-mb11"
     >
       <mock-styled.h2
-        classname="el-has-capitalised-text"
+        classname="el-text-base el-has-capitalised-text"
       >
         featured apps
       </mock-styled.h2>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         Featured apps are lists of apps, grouped as a collection that sit below the filter collections typically. They have slightly larger tiles and slightly greater prominence than Simple Apps.
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         You can add as many to a collection as you like however, the list will be paginatied by the UI at some resolutions in line with the design. All apps selected will be returned when hitting the See All link.
       </mock-styled.p>

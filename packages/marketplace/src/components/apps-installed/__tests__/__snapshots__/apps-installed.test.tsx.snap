@@ -101,6 +101,7 @@ exports[`AppsInstalled should match a snapshot with data 1`] = `
             >
               <mock-styled.div>
                 <mock-styled.div
+                  role="img"
                   style="font-size: 2.5em; width: 64px; height: 64px;"
                 >
                   <svg
@@ -126,6 +127,7 @@ exports[`AppsInstalled should match a snapshot with data 1`] = `
             >
               <mock-styled.div>
                 <mock-styled.div
+                  role="img"
                   style="font-size: 2.5em; width: 64px; height: 64px;"
                 >
                   <svg
@@ -190,6 +192,7 @@ exports[`AppsInstalled should match a snapshot with data 1`] = `
           >
             <mock-styled.div>
               <mock-styled.div
+                role="img"
                 style="font-size: 2.5em; width: 64px; height: 64px;"
               >
                 <svg
@@ -215,6 +218,7 @@ exports[`AppsInstalled should match a snapshot with data 1`] = `
           >
             <mock-styled.div>
               <mock-styled.div
+                role="img"
                 style="font-size: 2.5em; width: 64px; height: 64px;"
               >
                 <svg

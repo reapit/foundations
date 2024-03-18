@@ -9,12 +9,12 @@ exports[`OrgIdSelect should match a snapshot 1`] = `
         class="el-mb5"
       >
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Organisations
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
         </mock-styled.p>
@@ -57,12 +57,12 @@ exports[`OrgIdSelect should match a snapshot 1`] = `
       class="el-mb5"
     >
       <mock-styled.p
-        classname=""
+        classname="el-text-base"
       >
         Organisations
       </mock-styled.p>
       <mock-styled.p
-        classname="el-has-grey-text"
+        classname="el-text-base el-has-grey-text"
       >
         You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
       </mock-styled.p>

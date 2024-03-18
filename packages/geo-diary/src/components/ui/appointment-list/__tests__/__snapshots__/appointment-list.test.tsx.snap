@@ -31,6 +31,7 @@ exports[`AppointmentList should match snapshot with appointments 1`] = `
             <mock-styled.div>
               <mock-styled.span
                 classname="el-intent-primary el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -40,7 +41,7 @@ exports[`AppointmentList should match snapshot with appointments 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="m22.923 9.165-10.5-7a1 1 0 0 0-1.1 0l-10.45 7a1 1 0 0 0 1.1 1.66l.9-.63v11.3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-11.3l.95.63a.94.94 0 0 0 .55.17 1 1 0 0 0 .55-1.83Zm-4.05 11.33h-14V8.865l7-4.67 7 4.67v11.63Z"
+                    d="m22.923 9.165-10.5-7a1 1 0 0 0-1.1 0l-10.45 7a1 1 0 0 0 1.1 1.66l.9-.63v11.3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-11.3l.95.63a.94.94 0 0 0 .55.17 1 1 0 0 0 .55-1.83m-4.05 11.33h-14V8.865l7-4.67 7 4.67z"
                     fill="currentColor"
                   />
                 </svg>
@@ -61,6 +62,7 @@ exports[`AppointmentList should match snapshot with appointments 1`] = `
             <mock-styled.div>
               <mock-styled.span
                 classname="el-intent-primary el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -70,7 +72,7 @@ exports[`AppointmentList should match snapshot with appointments 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M18 14.5a2.49 2.49 0 0 0 2.35-2.35c.094-.545.144-1.097.15-1.65a2.5 2.5 0 0 0-5 0c.006.553.056 1.105.15 1.65A2.49 2.49 0 0 0 18 14.5ZM8 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5Zm0-2a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25a3.5 3.5 0 1 0-7 0c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 8 13Zm10 3a8.38 8.38 0 0 0-1.61.15A5.63 5.63 0 0 1 18 20h6c0-2.21-2.69-4-6-4Z"
+                    d="M18 14.5a2.49 2.49 0 0 0 2.35-2.35q.141-.819.15-1.65a2.5 2.5 0 0 0-5 0q.009.831.15 1.65A2.49 2.49 0 0 0 18 14.5M8 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5m0-2a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25a3.5 3.5 0 1 0-7 0c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 8 13m10 3a8.4 8.4 0 0 0-1.61.15A5.63 5.63 0 0 1 18 20h6c0-2.21-2.69-4-6-4"
                     fill="currentColor"
                   />
                 </svg>
@@ -89,6 +91,7 @@ exports[`AppointmentList should match snapshot with appointments 1`] = `
             <mock-styled.div>
               <mock-styled.span
                 classname="el-intent-primary el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -98,7 +101,7 @@ exports[`AppointmentList should match snapshot with appointments 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M3 16.172v5h5l12.59-12.59a2 2 0 0 0 0-2.82l-2.18-2.18a2 2 0 0 0-2.82 0L3 16.172Zm4.17 3H5v-2.17l8.41-8.42 2.18 2.18-8.42 8.41Zm7.66-12L17 5.002l2.17 2.17L17 9.342l-2.17-2.17Z"
+                    d="M3 16.172v5h5l12.59-12.59a2 2 0 0 0 0-2.82l-2.18-2.18a2 2 0 0 0-2.82 0zm4.17 3H5v-2.17l8.41-8.42 2.18 2.18zm7.66-12L17 5.002l2.17 2.17L17 9.342z"
                     fill="currentColor"
                   />
                 </svg>
@@ -144,6 +147,7 @@ exports[`AppointmentList should match snapshot with appointments 1`] = `
           <mock-styled.div>
             <mock-styled.span
               classname="el-intent-primary el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -153,7 +157,7 @@ exports[`AppointmentList should match snapshot with appointments 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m22.923 9.165-10.5-7a1 1 0 0 0-1.1 0l-10.45 7a1 1 0 0 0 1.1 1.66l.9-.63v11.3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-11.3l.95.63a.94.94 0 0 0 .55.17 1 1 0 0 0 .55-1.83Zm-4.05 11.33h-14V8.865l7-4.67 7 4.67v11.63Z"
+                  d="m22.923 9.165-10.5-7a1 1 0 0 0-1.1 0l-10.45 7a1 1 0 0 0 1.1 1.66l.9-.63v11.3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-11.3l.95.63a.94.94 0 0 0 .55.17 1 1 0 0 0 .55-1.83m-4.05 11.33h-14V8.865l7-4.67 7 4.67z"
                   fill="currentColor"
                 />
               </svg>
@@ -174,6 +178,7 @@ exports[`AppointmentList should match snapshot with appointments 1`] = `
           <mock-styled.div>
             <mock-styled.span
               classname="el-intent-primary el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -183,7 +188,7 @@ exports[`AppointmentList should match snapshot with appointments 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M18 14.5a2.49 2.49 0 0 0 2.35-2.35c.094-.545.144-1.097.15-1.65a2.5 2.5 0 0 0-5 0c.006.553.056 1.105.15 1.65A2.49 2.49 0 0 0 18 14.5ZM8 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5Zm0-2a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25a3.5 3.5 0 1 0-7 0c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 8 13Zm10 3a8.38 8.38 0 0 0-1.61.15A5.63 5.63 0 0 1 18 20h6c0-2.21-2.69-4-6-4Z"
+                  d="M18 14.5a2.49 2.49 0 0 0 2.35-2.35q.141-.819.15-1.65a2.5 2.5 0 0 0-5 0q.009.831.15 1.65A2.49 2.49 0 0 0 18 14.5M8 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5m0-2a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25a3.5 3.5 0 1 0-7 0c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 8 13m10 3a8.4 8.4 0 0 0-1.61.15A5.63 5.63 0 0 1 18 20h6c0-2.21-2.69-4-6-4"
                   fill="currentColor"
                 />
               </svg>
@@ -202,6 +207,7 @@ exports[`AppointmentList should match snapshot with appointments 1`] = `
           <mock-styled.div>
             <mock-styled.span
               classname="el-intent-primary el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -211,7 +217,7 @@ exports[`AppointmentList should match snapshot with appointments 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M3 16.172v5h5l12.59-12.59a2 2 0 0 0 0-2.82l-2.18-2.18a2 2 0 0 0-2.82 0L3 16.172Zm4.17 3H5v-2.17l8.41-8.42 2.18 2.18-8.42 8.41Zm7.66-12L17 5.002l2.17 2.17L17 9.342l-2.17-2.17Z"
+                  d="M3 16.172v5h5l12.59-12.59a2 2 0 0 0 0-2.82l-2.18-2.18a2 2 0 0 0-2.82 0zm4.17 3H5v-2.17l8.41-8.42 2.18 2.18zm7.66-12L17 5.002l2.17 2.17L17 9.342z"
                   fill="currentColor"
                 />
               </svg>
@@ -292,6 +298,7 @@ exports[`AppointmentList should match snapshot with no appointments 1`] = `
        
       <mock-styled.div
         classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+        role="alertdialog"
       >
         <div
           class="el-pn-icon"
@@ -299,6 +306,7 @@ exports[`AppointmentList should match snapshot with no appointments 1`] = `
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -310,7 +318,7 @@ exports[`AppointmentList should match snapshot with no appointments 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
                 fill="currentColor"
               />
             </svg>
@@ -329,6 +337,7 @@ exports[`AppointmentList should match snapshot with no appointments 1`] = `
      
     <mock-styled.div
       classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+      role="alertdialog"
     >
       <div
         class="el-pn-icon"
@@ -336,6 +345,7 @@ exports[`AppointmentList should match snapshot with no appointments 1`] = `
       >
         <mock-styled.span
           classname="el-icon-new"
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
@@ -347,7 +357,7 @@ exports[`AppointmentList should match snapshot with no appointments 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
               fill="currentColor"
             />
           </svg>

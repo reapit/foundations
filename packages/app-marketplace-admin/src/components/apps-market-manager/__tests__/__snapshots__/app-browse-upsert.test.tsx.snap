@@ -6,14 +6,15 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.div
-        classname="el-flex-auto"
+      <div
+        class="el-flex-container el-flex-auto"
       >
-        <mock-styled.aside
-          classname=""
+        <aside
+          class="el-secondary-nav-container"
         >
           <mock-styled.span
             classname="el-mb3 el-icon-size-large"
+            role="img"
           >
             <svg
               fill="none"
@@ -23,83 +24,83 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+                d="M66.74 35.076 39.999 25.65v18.992z"
                 fill="#607890"
               />
               <path
-                d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+                d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567z"
                 fill="#9faebc"
               />
               <path
-                d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+                d="M50.579 7.466H28.61c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952"
                 fill="#d8dee4"
               />
               <path
-                d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+                d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664"
                 fill="#d8dee4"
               />
               <path
-                d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+                d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935z"
                 fill="#506478"
               />
               <path
-                d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+                d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24z"
                 fill="#8EDDFF"
               />
               <path
-                d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+                d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526z"
                 fill="#9faebc"
               />
               <path
-                d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+                d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349z"
                 fill="#798da1"
               />
               <path
-                d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+                d="M66.74 69.576v-34.5l-26.741 9.593V78.2z"
                 fill="#506478"
               />
               <path
-                d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+                d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624z"
                 fill="#607890"
               />
               <path
-                d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+                d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638z"
                 fill="#d8dee4"
               />
               <path
-                d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+                d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638z"
                 fill="#7e9bfa"
               />
               <path
-                d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+                d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638z"
                 fill="#798da1"
               />
               <path
-                d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+                d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448z"
                 fill="#7e9bfa"
               />
               <path
-                d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+                d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47z"
                 fill="#fff"
               />
               <path
-                d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+                d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.565l1.427-4.475a2.464 2.464 0 0 0-1.59-3.084z"
                 fill="#d8dee4"
               />
             </svg>
           </mock-styled.span>
           <mock-styled.p
-            classname=""
+            classname="el-text-base"
           >
             Getting Started
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             The AppMarket does not render anything on the browse page without this dashboard. Each section on the page is configured by type and differing information is required for each confg item type.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             All config items can be configured to go live bettween given dates using the config options provided, or can be toggled on or off in live time.
           </mock-styled.p>
@@ -109,12 +110,12 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
             <mock-styled.div />
             View Docs
           </mock-styled.button>
-        </mock-styled.aside>
-        <mock-styled.section
-          classname=""
+        </aside>
+        <section
+          class="el-page-container"
         >
           <mock-styled.h1
-            classname=""
+            classname="el-text-base"
           >
             AppMarket Configuration Table
           </mock-styled.h1>
@@ -122,12 +123,12 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
             class="el-mb11"
           >
             <mock-styled.h2
-              classname="el-has-capitalised-text"
+              classname="el-text-base el-has-capitalised-text"
             >
               featured hero apps
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               Featured Hero apps are the first thing you will see in on the browse apps page and therefore the most prominant and important. There should be only 1 Featured Hero set to live at any given time.
             </mock-styled.p>
@@ -144,12 +145,12 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
             class="el-mb11"
           >
             <mock-styled.h2
-              classname="el-has-capitalised-text"
+              classname="el-text-base el-has-capitalised-text"
             >
               hero apps
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               Hero apps are of secondary prominance to the Featured Hero. There should only be 2 Heros set to live at any given time
             </mock-styled.p>
@@ -166,17 +167,17 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
             class="el-mb11"
           >
             <mock-styled.h2
-              classname="el-has-capitalised-text"
+              classname="el-text-base el-has-capitalised-text"
             >
               apps filters
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               App Filters are tiles that on the user clicking, set a pre-defined set of filters is applied to the page which will then render the filtered results as a related collection.
             </mock-styled.p>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               You can have any number of Filter Collections live however, 6 is advised in line with the design.
             </mock-styled.p>
@@ -193,17 +194,17 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
             class="el-mb11"
           >
             <mock-styled.h2
-              classname="el-has-capitalised-text"
+              classname="el-text-base el-has-capitalised-text"
             >
               featured apps
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               Featured apps are lists of apps, grouped as a collection that sit below the filter collections typically. They have slightly larger tiles and slightly greater prominence than Simple Apps.
             </mock-styled.p>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               You can add as many to a collection as you like however, the list will be paginatied by the UI at some resolutions in line with the design. All apps selected will be returned when hitting the See All link.
             </mock-styled.p>
@@ -220,17 +221,17 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
             class="el-mb11"
           >
             <mock-styled.h2
-              classname="el-has-capitalised-text"
+              classname="el-text-base el-has-capitalised-text"
             >
               simple apps
             </mock-styled.h2>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             >
               Simple apps behave almost identically to featured apps however, they are of slightly less prominence on the page.
             </mock-styled.p>
             <mock-styled.p
-              classname="el-has-grey-text"
+              classname="el-text-base el-has-grey-text"
             />
             <mock-styled.div />
             <br />
@@ -241,20 +242,21 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
               Add
             </mock-styled.button>
           </div>
-        </mock-styled.section>
-      </mock-styled.div>
+        </section>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.div
-      classname="el-flex-auto"
+    <div
+      class="el-flex-container el-flex-auto"
     >
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="el-secondary-nav-container"
       >
         <mock-styled.span
           classname="el-mb3 el-icon-size-large"
+          role="img"
         >
           <svg
             fill="none"
@@ -264,83 +266,83 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M66.74 35.076 39.999 25.65v18.992l26.74-9.567Z"
+              d="M66.74 35.076 39.999 25.65v18.992z"
               fill="#607890"
             />
             <path
-              d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567 26.741-9.567Z"
+              d="M66.74 35.076 39.997 25.65l-26.74 9.425 26.74 9.567z"
               fill="#9faebc"
             />
             <path
-              d="M50.578 7.466H28.611c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952Z"
+              d="M50.579 7.466H28.61c-2.131 0-3.865 1.773-3.865 3.952V58.74c0 2.179 1.734 3.952 3.865 3.952h21.967c2.132 0 3.866-1.773 3.866-3.952V11.418c0-2.179-1.734-3.952-3.866-3.952"
               fill="#d8dee4"
             />
             <path
-              d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664Z"
+              d="M50.566 9.754H47.3a.563.563 0 0 0-.558.57c0 .754-.604 1.372-1.342 1.372H33.764c-.739 0-1.343-.618-1.343-1.373 0-.314-.25-.57-.558-.57H28.6c-.9 0-1.628.746-1.628 1.665v37.337h25.223V11.418c0-.919-.73-1.664-1.629-1.664"
               fill="#d8dee4"
             />
             <path
-              d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935V28.526Z"
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v14.483H28.935z"
               fill="#506478"
             />
             <path
-              d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24l-21.345-8.24Z"
+              d="m28.935 28.526 10.673-10.488L50.28 28.526v8.24z"
               fill="#8EDDFF"
             />
             <path
-              d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526v14.483Z"
+              d="M50.28 43.009h-6.247l-8.85-20.622 4.425-4.349L50.28 28.526z"
               fill="#9faebc"
             />
             <path
-              d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349L50.28 28.526Z"
+              d="M50.28 28.526v8.24l-10.672-4.068-4.425-10.311 4.425-4.349z"
               fill="#798da1"
             />
             <path
-              d="M66.74 69.576v-34.5l-26.741 9.593V78.2l26.74-8.624Z"
+              d="M66.74 69.576v-34.5l-26.741 9.593V78.2z"
               fill="#506478"
             />
             <path
-              d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624V44.67Z"
+              d="m39.998 44.67-26.74-9.595v34.501l26.74 8.624z"
               fill="#607890"
             />
             <path
-              d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638-26.74-9.567Z"
+              d="M13.257 35.076 4 46.214l27.244 10.067 8.754-11.638z"
               fill="#d8dee4"
             />
             <path
-              d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.567Z"
+              d="M66.74 35.076 76 46.214 48.756 56.28l-8.757-11.638z"
               fill="#7e9bfa"
             />
             <path
-              d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638 26.74-9.568Z"
+              d="M66.74 35.075 76 46.214 48.756 56.28l-8.757-11.638z"
               fill="#798da1"
             />
             <path
-              d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448l5.968-9.793Z"
+              d="M53.859 6.928c1.76-2.89 5.548-3.794 8.46-2.019l9.709 5.922c2.91 1.775 3.843 5.558 2.082 8.448l-5.968 9.793c-1.761 2.89-5.549 3.794-8.46 2.019l-9.71-5.922c-2.91-1.775-3.843-5.558-2.081-8.448z"
               fill="#7e9bfa"
             />
             <path
-              d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47L28.94 26.1Z"
+              d="M28.94 26.1a3.73 3.73 0 0 0-.48 5.2l3.317 4.048a3.607 3.607 0 0 0 5.13.47l3.969-3.348a3.73 3.73 0 0 0 .482-5.202L38.04 23.22a3.607 3.607 0 0 0-5.13-.47z"
               fill="#fff"
             />
             <path
-              d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.566l1.427-4.474a2.464 2.464 0 0 0-1.59-3.084l-4.365-1.42Z"
+              d="M15.163 13.013a2.427 2.427 0 0 0-3.072 1.566l-1.426 4.474a2.464 2.464 0 0 0 1.59 3.084l4.364 1.421a2.427 2.427 0 0 0 3.072-1.565l1.427-4.475a2.464 2.464 0 0 0-1.59-3.084z"
               fill="#d8dee4"
             />
           </svg>
         </mock-styled.span>
         <mock-styled.p
-          classname=""
+          classname="el-text-base"
         >
           Getting Started
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           The AppMarket does not render anything on the browse page without this dashboard. Each section on the page is configured by type and differing information is required for each confg item type.
         </mock-styled.p>
         <mock-styled.p
-          classname="el-has-grey-text"
+          classname="el-text-base el-has-grey-text"
         >
           All config items can be configured to go live bettween given dates using the config options provided, or can be toggled on or off in live time.
         </mock-styled.p>
@@ -350,12 +352,12 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
           <mock-styled.div />
           View Docs
         </mock-styled.button>
-      </mock-styled.aside>
-      <mock-styled.section
-        classname=""
+      </aside>
+      <section
+        class="el-page-container"
       >
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           AppMarket Configuration Table
         </mock-styled.h1>
@@ -363,12 +365,12 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
           class="el-mb11"
         >
           <mock-styled.h2
-            classname="el-has-capitalised-text"
+            classname="el-text-base el-has-capitalised-text"
           >
             featured hero apps
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Featured Hero apps are the first thing you will see in on the browse apps page and therefore the most prominant and important. There should be only 1 Featured Hero set to live at any given time.
           </mock-styled.p>
@@ -385,12 +387,12 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
           class="el-mb11"
         >
           <mock-styled.h2
-            classname="el-has-capitalised-text"
+            classname="el-text-base el-has-capitalised-text"
           >
             hero apps
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Hero apps are of secondary prominance to the Featured Hero. There should only be 2 Heros set to live at any given time
           </mock-styled.p>
@@ -407,17 +409,17 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
           class="el-mb11"
         >
           <mock-styled.h2
-            classname="el-has-capitalised-text"
+            classname="el-text-base el-has-capitalised-text"
           >
             apps filters
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             App Filters are tiles that on the user clicking, set a pre-defined set of filters is applied to the page which will then render the filtered results as a related collection.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             You can have any number of Filter Collections live however, 6 is advised in line with the design.
           </mock-styled.p>
@@ -434,17 +436,17 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
           class="el-mb11"
         >
           <mock-styled.h2
-            classname="el-has-capitalised-text"
+            classname="el-text-base el-has-capitalised-text"
           >
             featured apps
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Featured apps are lists of apps, grouped as a collection that sit below the filter collections typically. They have slightly larger tiles and slightly greater prominence than Simple Apps.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             You can add as many to a collection as you like however, the list will be paginatied by the UI at some resolutions in line with the design. All apps selected will be returned when hitting the See All link.
           </mock-styled.p>
@@ -461,17 +463,17 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
           class="el-mb11"
         >
           <mock-styled.h2
-            classname="el-has-capitalised-text"
+            classname="el-text-base el-has-capitalised-text"
           >
             simple apps
           </mock-styled.h2>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           >
             Simple apps behave almost identically to featured apps however, they are of slightly less prominence on the page.
           </mock-styled.p>
           <mock-styled.p
-            classname="el-has-grey-text"
+            classname="el-text-base el-has-grey-text"
           />
           <mock-styled.div />
           <br />
@@ -482,8 +484,8 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
             Add
           </mock-styled.button>
         </div>
-      </mock-styled.section>
-    </mock-styled.div>
+      </section>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -6,11 +6,11 @@ exports[`Customers should render component when loading 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.section
-        classname=""
+      <section
+        class="el-page-container"
       >
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           Customers
         </mock-styled.h1>
@@ -57,16 +57,16 @@ exports[`Customers should render component when loading 1`] = `
             <mock-styled.div />
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.section>
+      </section>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.section
-      classname=""
+    <section
+      class="el-page-container"
     >
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         Customers
       </mock-styled.h1>
@@ -113,7 +113,7 @@ exports[`Customers should render component when loading 1`] = `
           <mock-styled.div />
         </mock-styled.div>
       </mock-styled.div>
-    </mock-styled.section>
+    </section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -175,11 +175,11 @@ exports[`Customers should render component with data 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div />
-      <mock-styled.section
-        classname=""
+      <section
+        class="el-page-container"
       >
         <mock-styled.h1
-          classname=""
+          classname="el-text-base"
         >
           Customers
         </mock-styled.h1>
@@ -224,26 +224,47 @@ exports[`Customers should render component with data 1`] = `
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="5"
+          role="table"
         >
-          <mock-styled.div>
-            <mock-styled.div>
+          <mock-styled.div
+            role="row"
+          >
+            <mock-styled.div
+              aria-label="Customer Name"
+              role="columnheader"
+            >
               Customer Name
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Agency Cloud Id"
+              role="columnheader"
+            >
               Agency Cloud Id
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Customer Id"
+              role="columnheader"
+            >
               Customer Id
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Customer Billing Reference"
+              role="columnheader"
+            >
               Customer Billing Reference
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-label="Customer Address"
+              role="columnheader"
+            >
               Customer Address
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              role="columnheader"
+            >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -253,7 +274,7 @@ exports[`Customers should render component with data 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                    d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                     fill="currentColor"
                   />
                 </svg>
@@ -262,13 +283,16 @@ exports[`Customers should render component with data 1`] = `
           </mock-styled.div>
           <mock-styled.div
             classname=""
+            role="row"
           >
             <mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.span
                   classname="el-intent-default"
+                  role="img"
                   style="font-size: 1.25rem;"
                 >
                   <svg
@@ -283,19 +307,19 @@ exports[`Customers should render component with data 1`] = `
                       clip-path="url(#flatInfographic_svg__a)"
                     >
                       <path
-                        d="M20 20h-9V4h9v16Z"
+                        d="M20 20h-9V4h9v16"
                         fill="#d8dee4"
                       />
                       <path
-                        d="M13 2h-1v18h1V2ZM1.28 0v1.787H0V20h12V0H1.28Z"
+                        d="M13 2h-1v18h1zM1.28 0v1.787H0V20h12V0z"
                         fill="#798da1"
                       />
                       <path
-                        d="M5.149 4.505H3.617V6.38H5.15V4.505ZM8.962 4.505H7.43V6.38h1.532V4.505ZM3.617 8.255H5.15v1.875H3.617V8.255ZM8.962 8.255H7.43v1.875h1.532V8.255ZM3.617 12.006H5.15v1.875H3.617v-1.875ZM8.962 12.006H7.43v1.875h1.532v-1.875ZM3.617 15.756H5.15v1.875H3.617v-1.875ZM8.962 15.756H7.43v1.875h1.532v-1.875Z"
+                        d="M5.149 4.505H3.617V6.38H5.15zM8.962 4.505H7.43V6.38h1.532zM3.617 8.255H5.15v1.875H3.617zM8.962 8.255H7.43v1.875h1.532zM3.617 12.006H5.15v1.875H3.617zM8.962 12.006H7.43v1.875h1.532zM3.617 15.756H5.15v1.875H3.617zM8.962 15.756H7.43v1.875h1.532z"
                         fill="#fff"
                       />
                       <path
-                        d="M16.281 8.255h-1.532v1.875h1.532V8.255ZM16.281 12.006h-1.532v1.875h1.532v-1.875Z"
+                        d="M16.281 8.255h-1.532v1.875h1.532zM16.281 12.006h-1.532v1.875h1.532z"
                         fill="#798da1"
                       />
                     </g>
@@ -319,6 +343,7 @@ exports[`Customers should render component with data 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Agency Cloud Id"
@@ -328,6 +353,7 @@ exports[`Customers should render component with data 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Customer Id"
@@ -337,6 +363,7 @@ exports[`Customers should render component with data 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Customer Billing Reference"
@@ -346,6 +373,7 @@ exports[`Customers should render component with data 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname="el-table-cell-has-dark-text"
+                role="cell"
               >
                 <mock-styled.div
                   data-narrow-label="Customer Address"
@@ -355,9 +383,11 @@ exports[`Customers should render component with data 1`] = `
               </mock-styled.div>
               <mock-styled.div
                 classname=""
+                role="cell"
               >
                 <mock-styled.span
                   classname="el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
@@ -367,7 +397,7 @@ exports[`Customers should render component with data 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                       fill="currentColor"
                     />
                   </svg>
@@ -375,6 +405,7 @@ exports[`Customers should render component with data 1`] = `
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.div
+              aria-hidden="false"
               classname=""
             >
               <mock-styled.div>
@@ -396,11 +427,14 @@ exports[`Customers should render component with data 1`] = `
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.button
+            aria-label="Previous"
             data-testid="back-button"
+            role="button"
             type="button"
           >
             <mock-styled.span
               classname="el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -410,7 +444,7 @@ exports[`Customers should render component with data 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                  d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
                   fill="currentColor"
                 />
               </svg>
@@ -424,11 +458,14 @@ exports[`Customers should render component with data 1`] = `
             1
           </mock-styled.div>
           <mock-styled.button
+            aria-label="Next"
             data-testid="forward-button"
+            role="button"
             type="button"
           >
             <mock-styled.span
               classname="el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -438,23 +475,23 @@ exports[`Customers should render component with data 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                  d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
                   fill="currentColor"
                 />
               </svg>
             </mock-styled.span>
           </mock-styled.button>
         </mock-styled.div>
-      </mock-styled.section>
+      </section>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
-    <mock-styled.section
-      classname=""
+    <section
+      class="el-page-container"
     >
       <mock-styled.h1
-        classname=""
+        classname="el-text-base"
       >
         Customers
       </mock-styled.h1>
@@ -499,26 +536,47 @@ exports[`Customers should render component with data 1`] = `
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="5"
+        role="table"
       >
-        <mock-styled.div>
-          <mock-styled.div>
+        <mock-styled.div
+          role="row"
+        >
+          <mock-styled.div
+            aria-label="Customer Name"
+            role="columnheader"
+          >
             Customer Name
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Agency Cloud Id"
+            role="columnheader"
+          >
             Agency Cloud Id
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Customer Id"
+            role="columnheader"
+          >
             Customer Id
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Customer Billing Reference"
+            role="columnheader"
+          >
             Customer Billing Reference
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Customer Address"
+            role="columnheader"
+          >
             Customer Address
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            role="columnheader"
+          >
             <mock-styled.span
               classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
@@ -528,7 +586,7 @@ exports[`Customers should render component with data 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
                   fill="currentColor"
                 />
               </svg>
@@ -537,13 +595,16 @@ exports[`Customers should render component with data 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.span
                 classname="el-intent-default"
+                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -558,19 +619,19 @@ exports[`Customers should render component with data 1`] = `
                     clip-path="url(#flatInfographic_svg__a)"
                   >
                     <path
-                      d="M20 20h-9V4h9v16Z"
+                      d="M20 20h-9V4h9v16"
                       fill="#d8dee4"
                     />
                     <path
-                      d="M13 2h-1v18h1V2ZM1.28 0v1.787H0V20h12V0H1.28Z"
+                      d="M13 2h-1v18h1zM1.28 0v1.787H0V20h12V0z"
                       fill="#798da1"
                     />
                     <path
-                      d="M5.149 4.505H3.617V6.38H5.15V4.505ZM8.962 4.505H7.43V6.38h1.532V4.505ZM3.617 8.255H5.15v1.875H3.617V8.255ZM8.962 8.255H7.43v1.875h1.532V8.255ZM3.617 12.006H5.15v1.875H3.617v-1.875ZM8.962 12.006H7.43v1.875h1.532v-1.875ZM3.617 15.756H5.15v1.875H3.617v-1.875ZM8.962 15.756H7.43v1.875h1.532v-1.875Z"
+                      d="M5.149 4.505H3.617V6.38H5.15zM8.962 4.505H7.43V6.38h1.532zM3.617 8.255H5.15v1.875H3.617zM8.962 8.255H7.43v1.875h1.532zM3.617 12.006H5.15v1.875H3.617zM8.962 12.006H7.43v1.875h1.532zM3.617 15.756H5.15v1.875H3.617zM8.962 15.756H7.43v1.875h1.532z"
                       fill="#fff"
                     />
                     <path
-                      d="M16.281 8.255h-1.532v1.875h1.532V8.255ZM16.281 12.006h-1.532v1.875h1.532v-1.875Z"
+                      d="M16.281 8.255h-1.532v1.875h1.532zM16.281 12.006h-1.532v1.875h1.532z"
                       fill="#798da1"
                     />
                   </g>
@@ -594,6 +655,7 @@ exports[`Customers should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Agency Cloud Id"
@@ -603,6 +665,7 @@ exports[`Customers should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Customer Id"
@@ -612,6 +675,7 @@ exports[`Customers should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Customer Billing Reference"
@@ -621,6 +685,7 @@ exports[`Customers should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname="el-table-cell-has-dark-text"
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Customer Address"
@@ -630,9 +695,11 @@ exports[`Customers should render component with data 1`] = `
             </mock-styled.div>
             <mock-styled.div
               classname=""
+              role="cell"
             >
               <mock-styled.span
                 classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
@@ -642,7 +709,7 @@ exports[`Customers should render component with data 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
                     fill="currentColor"
                   />
                 </svg>
@@ -650,6 +717,7 @@ exports[`Customers should render component with data 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
+            aria-hidden="false"
             classname=""
           >
             <mock-styled.div>
@@ -671,11 +739,14 @@ exports[`Customers should render component with data 1`] = `
       </mock-styled.div>
       <mock-styled.div>
         <mock-styled.button
+          aria-label="Previous"
           data-testid="back-button"
+          role="button"
           type="button"
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -685,7 +756,7 @@ exports[`Customers should render component with data 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+                d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
                 fill="currentColor"
               />
             </svg>
@@ -699,11 +770,14 @@ exports[`Customers should render component with data 1`] = `
           1
         </mock-styled.div>
         <mock-styled.button
+          aria-label="Next"
           data-testid="forward-button"
+          role="button"
           type="button"
         >
           <mock-styled.span
             classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
@@ -713,14 +787,14 @@ exports[`Customers should render component with data 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+                d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
                 fill="currentColor"
               />
             </svg>
           </mock-styled.span>
         </mock-styled.button>
       </mock-styled.div>
-    </mock-styled.section>
+    </section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
