@@ -192,8 +192,8 @@ export const renderDiffContent = ({ key, revision, app, desktopIntegrationTypes 
       revision.desktopIntegrationTypeIds,
       desktopIntegrationTypes.data,
     )
-    const sortedOldArray = [...oldIntegrationTypeArray].sort((a,b) => a.localeCompare(b))
-    const sortedNewArray = [...newIntegrationTypeArray].sort((a,b) => a.localeCompare(b))
+    const sortedOldArray = [...oldIntegrationTypeArray].sort((a, b) => a.localeCompare(b))
+    const sortedNewArray = [...newIntegrationTypeArray].sort((a, b) => a.localeCompare(b))
     return (
       <DiffViewer
         currentString={sortedOldArray.join(', ')}

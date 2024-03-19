@@ -3,9 +3,9 @@ import { Context } from '@apollo/client'
 import { gql } from 'apollo-server-core'
 import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
 import { AbstractCrudService } from './abstract-crud-resolver'
-import { Applicant } from '@/entities/applicant'
-import { Property } from '@/entities/property'
-import { Negotiator } from '@/entities/negotiator'
+import { Applicant } from '../entities/applicant'
+import { Property } from '../entities/property'
+import { Negotiator } from '../entities/negotiator'
 
 type OfferEmbed = {
   applicant: Applicant

@@ -1,7 +1,7 @@
 import DataLoader from 'dataloader'
 import { getConfigurationsByType } from './services'
-import { ServerContext } from '@/utils'
-import handleError from '@/utils/handle-error'
+import { ServerContext } from '../../utils'
+import handleError from '../../utils/handle-error'
 import { ConfigurationType } from './configurations'
 
 export const generateConfigurationBatchLoaderFn = (context: ServerContext) => async (keys: string[]) => {

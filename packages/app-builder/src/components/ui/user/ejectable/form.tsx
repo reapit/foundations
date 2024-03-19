@@ -10,7 +10,7 @@ import { useObjectGet } from '../../../hooks/objects/use-object-get'
 import { usePageId } from '../../../hooks/use-page-id'
 import { FormContextProvider } from '../../../hooks/form-context'
 import { cloneDeep } from '@apollo/client/utilities'
-import { ParsedArg } from '@/components/hooks/use-introspection/query-generators'
+import { ParsedArg } from '../../../../components/hooks/use-introspection/query-generators'
 
 export interface FormProps extends ContainerProps {
   typeName?: string

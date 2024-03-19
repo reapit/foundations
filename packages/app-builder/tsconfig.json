@@ -6,7 +6,6 @@
     "sourceRoot": "/",
     "typeRoots": ["./node_modules/@types", "../../node_modules/@types"],
     "paths": {
-      "@/*": ["src/*"],
       "@reapit/utils-common": ["../utils-common/src"],
       "@reapit/utils-react": ["../utils-react"],
       "@reapit/use-reapit-data": ["../use-reapit-data"],

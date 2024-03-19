@@ -9,7 +9,7 @@ import { Context } from '../../types'
 import { mockContacts } from '../__mocks__/mock-contacts'
 import { mockContact } from '../__mocks__/mock-contact'
 import config from '../../config.json'
-import { MetadataSchemaType } from '@/utils/extract-metadata'
+import { MetadataSchemaType } from '../../utils/extract-metadata'
 
 jest.mock('node-fetch', () => require('fetch-mock-jest').sandbox())
 const fetchMock = require('node-fetch')

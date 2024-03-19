@@ -1,4 +1,4 @@
-import { dataIdFromObject } from '@/graphql/client'
+import { dataIdFromObject } from '../../graphql/client'
 import { StoreObject } from '@apollo/client'
 
 describe('client', () => {

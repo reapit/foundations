@@ -1,4 +1,4 @@
-import { ParsedArg } from '@/components/hooks/use-introspection/query-generators'
+import { ParsedArg } from '../components/hooks/use-introspection/query-generators'
 import { AppWithPages } from '../components/hooks/apps/fragments'
 import { notEmpty } from '../components/hooks/use-introspection/helpers'
 import { IntrospectionResult } from '../components/hooks/use-introspection/parse-introspection'

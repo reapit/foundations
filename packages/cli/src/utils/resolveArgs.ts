@@ -1,4 +1,4 @@
-import { ArgsType } from '@/decorators'
+import { ArgsType } from '../decorators'
 import chalk from 'chalk'
 
 export type ParameterType = {

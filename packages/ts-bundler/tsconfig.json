@@ -7,7 +7,6 @@
     "baseUrl": "./",
     "sourceRoot": "/",
     "paths": {
-      "@/*": ["src/*"],
       "@reapit/*": ["../*"]
     },
     "declaration": true,

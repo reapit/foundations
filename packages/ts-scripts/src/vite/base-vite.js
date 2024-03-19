@@ -1,35 +1,27 @@
 const { defineConfig, splitVendorChunkPlugin } = require('vite')
 const react = require('@vitejs/plugin-react-swc')
-const svgrPlugin = require('vite-plugin-svgr').default
+const svgrPlugin = require('@svgr/rollup')
 const linaria = require('@linaria/vite').default
 const checker = require('vite-plugin-checker').default
 const { VitePWA } = require('vite-plugin-pwa')
 const { nodePolyfills } = require('vite-plugin-node-polyfills')
-const gql = require('vite-plugin-graphql-loader').default
 const path = require('path')
 const topLevelAwait = require('vite-plugin-top-level-await').default
 const { sentryVitePlugin } = require('@sentry/vite-plugin')
 
 module.exports = (config, appName) =>
-  defineConfig(({ mode }) => ({
+  defineConfig(async ({ mode }) => ({
     plugins: [
       topLevelAwait(),
       react(),
-      svgrPlugin(),
-      gql(),
+      svgrPlugin({
+        icon: true,
+      }),
+      await import('vite-plugin-graphql-loader').then((module) => module.default()),
       linaria({
         babelOptions: {
           presets: ['@babel/preset-typescript', ['@babel/preset-react', { runtime: 'automatic' }]],
-          plugins: [
-            [
-              'module-resolver',
-              {
-                alias: {
-                  '@': './src',
-                },
-              },
-            ],
-          ],
+          plugins: [],
         },
       }),
       checker({

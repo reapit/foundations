@@ -1,7 +1,7 @@
 import DataLoader from 'dataloader'
 import { getOffices } from './services'
-import { ServerContext } from '@/utils'
-import handleError from '@/utils/handle-error'
+import { ServerContext } from '../../utils'
+import handleError from '../../utils/handle-error'
 import { OfficeModelPagedResult, OfficeModel } from '@reapit/foundations-ts-definitions'
 
 export const generateOfficeBatchLoaderFn = (context: ServerContext) => async (keys: string[]) => {

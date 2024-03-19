@@ -1,10 +1,10 @@
 import { gql } from 'apollo-server-core'
 import { Resolver, Query, Ctx, Authorized, Arg, Mutation } from 'type-graphql'
 import { Property, PropertyFragment, PropertyInput } from '../entities/property'
-import { Context } from '@/types'
+import { Context } from '../types'
 import { query } from '../utils/graphql-fetch'
 import { AbstractCrudService } from './abstract-crud-resolver'
-import { PropertyImage } from '@/entities/property-image'
+import { PropertyImage } from '../entities/property-image'
 
 const getPropertiesQuery = gql`
   ${PropertyFragment}

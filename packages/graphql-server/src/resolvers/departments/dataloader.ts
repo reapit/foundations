@@ -1,8 +1,8 @@
 import DataLoader from 'dataloader'
 import { getDepartments } from './services'
-import { ServerContext } from '@/utils'
+import { ServerContext } from '../../utils'
 import { DepartmentModel, DepartmentModelPagedResult } from '@reapit/foundations-ts-definitions'
-import handleError from '@/utils/handle-error'
+import handleError from '../../utils/handle-error'
 
 export const generateDepartmentBatchLoaderFn = (context: ServerContext) => async (keys: string[]) => {
   if (keys.length < 1) {

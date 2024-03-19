@@ -1,4 +1,4 @@
-import { useObjectMutate } from '@/components/hooks/objects/use-object-mutate'
+import { useObjectMutate } from '../../../components/hooks/objects/use-object-mutate'
 import { cx } from '@linaria/core'
 import { styled } from '@linaria/react'
 import {

@@ -9,7 +9,7 @@ import Delete from '../../icons/delete'
 import Move from '../../icons/move'
 import { cursorMove, cursorPointer, textWhite } from '../styles'
 import { componentSelected, indicator, littleButton } from './styles'
-import { NAV_NODE } from '@/components/hooks/apps/node-helpers'
+import { NAV_NODE } from '../../../components/hooks/apps/node-helpers'
 import { AddContainer } from './add-container'
 
 export const RenderNode = ({ render, iframeRef }) => {

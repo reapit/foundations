@@ -15,7 +15,7 @@ import {
   DeleteWorksOrderItemArgs,
   MutationDeleteWorksOrderItemReturn,
 } from './works-orders'
-import { resolverHandler, ServerContext } from '@/utils'
+import { resolverHandler, ServerContext } from '../../utils'
 import * as worksOrdersServices from './services'
 
 export const mutationdeleteWorksOrderItem = resolverHandler<

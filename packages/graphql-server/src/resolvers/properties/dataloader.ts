@@ -1,8 +1,8 @@
 import DataLoader from 'dataloader'
 import { getProperties } from './services'
-import { ServerContext } from '@/utils'
+import { ServerContext } from '../../utils'
+import handleError from '../../utils/handle-error'
 import { PropertyModel, PropertyModelPagedResult } from '@reapit/foundations-ts-definitions'
-import handleError from '@/utils/handle-error'
 
 export const generatePropertyBatchLoaderFn = (context: ServerContext) => async (keys: string[]) => {
   if (keys.length < 1) {

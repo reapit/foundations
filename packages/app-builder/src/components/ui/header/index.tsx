@@ -7,16 +7,16 @@ import HomeIcon from '../../icons/home'
 import { header } from './styles'
 
 import { PageSelector } from './PageSelector'
-import { usePageId } from '@/components/hooks/use-page-id'
+import { usePageId } from '../../../components/hooks/use-page-id'
 import { DESKTOP_BREAKPOINT, MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from '../viewport/__styles__/media'
 import { styled } from '@linaria/react'
-import { useApp } from '@/components/hooks/apps/use-app'
+import { useApp } from '../../../components/hooks/apps/use-app'
 import { Link } from 'react-router-dom'
-import Play from '@/components/icons/play'
+import Play from '../../../components/icons/play'
 import { AppBuilderIconButton } from '../components'
 import { Zoomer } from './zoomer'
-import { useUpdateAppName } from '@/components/hooks/apps/use-update-app'
-import { generateAppUrl } from '@/components/pages/app-select'
+import { useUpdateAppName } from '../../../components/hooks/apps/use-update-app'
+import { generateAppUrl } from '../../../components/pages/app-select'
 
 const Breakpoints = styled.div`
   height: 35px;

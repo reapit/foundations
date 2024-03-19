@@ -2,7 +2,7 @@ import * as React from 'react'
 import { ReapitConnectBrowserSession, useReapitConnect } from '@reapit/connect-session'
 import { useLocation, Navigate } from 'react-router'
 import { Loader, PageContainer } from '@reapit/elements'
-import { ConnectSessionProvider } from '@/components/hooks/connect-session'
+import { ConnectSessionProvider } from '../components/hooks/connect-session'
 
 const { Suspense } = React
 

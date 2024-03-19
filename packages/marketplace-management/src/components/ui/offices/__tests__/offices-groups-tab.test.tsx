@@ -5,7 +5,7 @@ import OfficesGroupsTab, {
   onFilterChangeHandler,
   onPageChangeHandler,
 } from '../offices-groups-tab'
-import Routes from '@/constants/routes'
+import Routes from '../../../../constants/routes'
 import { mockOfficeGroups } from '../../../../services/__stubs__/office-groups'
 import useSWR from 'swr'
 import { useOrgId } from '../../../../utils/use-org-id'

@@ -1,4 +1,4 @@
-import { getAppId } from '@/components/hooks/use-page-id'
+import { getAppId } from '../components/hooks/use-page-id'
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context'
 import { ReapitConnectBrowserSession } from '@reapit/connect-session'

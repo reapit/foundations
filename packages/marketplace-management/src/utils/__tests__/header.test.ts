@@ -1,5 +1,5 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { BASE_HEADERS } from '../../constants/api'
 import { genPlatformHeaders } from '../headers'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '../../../../tests/react-testing'
-import { appointment } from '@/graphql/__mocks__/appointment'
+import { appointment } from '../../../../graphql/__mocks__/appointment'
 import { AppointmentList } from '../appointment-list'
 
 jest.mock('../../../../core/app-state')
