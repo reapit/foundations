@@ -27,7 +27,7 @@
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && yarn lint --fix && yarn check"
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.533.0",
+    "@aws-sdk/client-dynamodb": "^3.535.0",
     "@graphql-tools/delegate": "^8.8.1",
     "@graphql-tools/stitch": "^8.7.50",
     "@reapit/cra-template-foundations": "workspace:packages/cra-template-foundations",

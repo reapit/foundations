@@ -37,7 +37,7 @@
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
   },
   "dependencies": {
-    "axios": "^1.6.7",
+    "axios": "^1.6.8",
     "base-64": "^1.0.0",
     "idtoken-verifier": "^2.2.4",
     "isomorphic-fetch": "^3.0.0",
@@ -69,7 +69,7 @@
     "jest-coverage-badges": "^1.1.2",
     "rimraf": "^5.0.5",
     "rollup": "^4.13.0",
-    "snyk": "^1.1284.0",
+    "snyk": "^1.1285.0",
     "ts-jest": "^29.1.2",
     "typescript": "^5.4.2"
   },

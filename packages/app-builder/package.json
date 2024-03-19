@@ -47,7 +47,7 @@
     "react-router-dom": "^6.22.3",
     "react-tooltip": "^4.5.1",
     "slugify": "^1.6.6",
-    "snyk": "^1.1284.0",
+    "snyk": "^1.1285.0",
     "styled-components": "^5.3.11",
     "throttle-debounce": "^3.0.1",
     "uuid": "^8.3.2",
