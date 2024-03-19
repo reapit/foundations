@@ -7,7 +7,14 @@ exports[`Swagger should match a snapshot 1`] = `
     <div>
       <mock-styled.div />
       <mock-styled.div
-        classname="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline"
+        classname="el-is-full-page"
+      >
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname="el-intent-primary el-is-active"
         role="alertdialog"
       >
         <div
@@ -37,15 +44,194 @@ exports[`Swagger should match a snapshot 1`] = `
         <div
           class="el-pn-content"
         >
-          Something went wrong here, try refreshing your page.
+          This is a sandbox environment, with anonymised test data and isolated from production
         </div>
       </mock-styled.div>
+      <div
+        class="mock-css.
+  // Can't reset the global scrollbar to default styles
+  // Need to write custom styles
+  *::-webkit-scrollbar {
+    display: block;
+    width: 12px;
+    background-color: #f2f4f6;
+  }
+
+  *::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #f2f4f6;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #f2f4f6;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #f2f4f6;
+  }
+
+  height: 100vh;
+  width: 100%;
+  background: #fff;
+
+  .swagger-ui {
+    width: 100%;
+
+    p,
+    a,
+    .info,
+    .markdown {
+      font-family: 'Inter', Helvetica, sans-serif;
+      font-size: 1rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .title,
+    .model-title {
+      font-family: 'Inter', Helvetica, sans-serif;
+    }
+
+    .info a {
+      color: #4e56ea;
+    }
+
+    .info table {
+      font-family: 'Inter', Helvetica, sans-serif;
+      font-size: 1rem;
+    }
+
+    a {
+      color: #4e56ea;
+    }
+
+    .loading,
+    .scheme-container {
+      display: none;
+    }
+
+    hgroup.main {
+      pre.base-url {
+        display: none;
+      }
+    }
+
+    h2,
+    .info h2 {
+      font-family: 'Inter', Helvetica, sans-serif;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .info h2 {
+      margin-bottom: 1rem;
+    }
+
+    code,
+    .prop-format {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 1rem;
+      color: unset;
+      background: unset;
+    }
+
+    .auth-wrapper {
+      padding-right: 1.5rem;
+    }
+
+    .wrapper {
+      padding: 0;
+      max-width: 100%;
+    }
+
+    .wrapper .block {
+      background: #fff;
+    }
+
+    .information-container {
+      display: none;
+    }
+
+    section.models {
+      border: none;
+      border-radius: none;
+
+      .model-container {
+        background: #f2f4f6;
+        margin: 1rem 0;
+      }
+    }
+
+    .model {
+      td,
+      .prop-type {
+        font-family: 'Source Code Pro', monospace;
+      }
+
+      .prop-type {
+        color: #607890;
+      }
+    }
+
+    .opblock-tag,
+    .opblock-summary-path {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .opblock-tag {
+      padding: 0.5rem 1rem;
+
+      .markdown p {
+        margin: 0;
+      }
+
+      small {
+        font-size: 1rem;
+        font-family: 'Inter', Helvetica, sans-serif;
+      }
+    }
+
+    p,
+    .markdown,
+    .opblock-summary-description {
+      font-family: 'Inter', Helvetica, sans-serif;
+      color: #607890;
+    }
+  }
+ mock-css.
+  display: none;
+"
+      >
+        <mock-styled.h1
+          classname="el-text-base"
+        >
+          Foundations API
+        </mock-styled.h1>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text"
+        >
+          This tool is interactive and provides instant access to data hosted in our sandbox environment with authentication and versioning headers pre-populated. Example requests and responses are shown by default but you can switch to view a fully documented schema - look for the model link.
+        </mock-styled.p>
+      </div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div />
     <mock-styled.div
-      classname="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline"
+      classname="el-is-full-page"
+    >
+      <mock-styled.div>
+        <mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.div>
+    <mock-styled.div
+      classname="el-intent-primary el-is-active"
       role="alertdialog"
     >
       <div
@@ -75,9 +261,181 @@ exports[`Swagger should match a snapshot 1`] = `
       <div
         class="el-pn-content"
       >
-        Something went wrong here, try refreshing your page.
+        This is a sandbox environment, with anonymised test data and isolated from production
       </div>
     </mock-styled.div>
+    <div
+      class="mock-css.
+  // Can't reset the global scrollbar to default styles
+  // Need to write custom styles
+  *::-webkit-scrollbar {
+    display: block;
+    width: 12px;
+    background-color: #f2f4f6;
+  }
+
+  *::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #f2f4f6;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #f2f4f6;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #f2f4f6;
+  }
+
+  height: 100vh;
+  width: 100%;
+  background: #fff;
+
+  .swagger-ui {
+    width: 100%;
+
+    p,
+    a,
+    .info,
+    .markdown {
+      font-family: 'Inter', Helvetica, sans-serif;
+      font-size: 1rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .title,
+    .model-title {
+      font-family: 'Inter', Helvetica, sans-serif;
+    }
+
+    .info a {
+      color: #4e56ea;
+    }
+
+    .info table {
+      font-family: 'Inter', Helvetica, sans-serif;
+      font-size: 1rem;
+    }
+
+    a {
+      color: #4e56ea;
+    }
+
+    .loading,
+    .scheme-container {
+      display: none;
+    }
+
+    hgroup.main {
+      pre.base-url {
+        display: none;
+      }
+    }
+
+    h2,
+    .info h2 {
+      font-family: 'Inter', Helvetica, sans-serif;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .info h2 {
+      margin-bottom: 1rem;
+    }
+
+    code,
+    .prop-format {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 1rem;
+      color: unset;
+      background: unset;
+    }
+
+    .auth-wrapper {
+      padding-right: 1.5rem;
+    }
+
+    .wrapper {
+      padding: 0;
+      max-width: 100%;
+    }
+
+    .wrapper .block {
+      background: #fff;
+    }
+
+    .information-container {
+      display: none;
+    }
+
+    section.models {
+      border: none;
+      border-radius: none;
+
+      .model-container {
+        background: #f2f4f6;
+        margin: 1rem 0;
+      }
+    }
+
+    .model {
+      td,
+      .prop-type {
+        font-family: 'Source Code Pro', monospace;
+      }
+
+      .prop-type {
+        color: #607890;
+      }
+    }
+
+    .opblock-tag,
+    .opblock-summary-path {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .opblock-tag {
+      padding: 0.5rem 1rem;
+
+      .markdown p {
+        margin: 0;
+      }
+
+      small {
+        font-size: 1rem;
+        font-family: 'Inter', Helvetica, sans-serif;
+      }
+    }
+
+    p,
+    .markdown,
+    .opblock-summary-description {
+      font-family: 'Inter', Helvetica, sans-serif;
+      color: #607890;
+    }
+  }
+ mock-css.
+  display: none;
+"
+    >
+      <mock-styled.h1
+        classname="el-text-base"
+      >
+        Foundations API
+      </mock-styled.h1>
+      <mock-styled.p
+        classname="el-text-base el-has-grey-text"
+      >
+        This tool is interactive and provides instant access to data hosted in our sandbox environment with authentication and versioning headers pre-populated. Example requests and responses are shown by default but you can switch to view a fully documented schema - look for the model link.
+      </mock-styled.p>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
