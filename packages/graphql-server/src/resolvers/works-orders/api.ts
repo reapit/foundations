@@ -18,12 +18,12 @@ import {
   DeleteWorksOrderItemArgs,
 } from './works-orders'
 import qs from 'query-string'
-import { ServerContext } from '@/utils'
-import { createPlatformAxiosInstance } from '@/utils/axios-instances'
-import { URLS } from '@/constants/api'
-import { handleError } from '@/utils/handle-error'
-import { getIdFromCreateHeaders } from '@/utils/get-id-from-create-headers'
-import errors from '@/errors'
+import { ServerContext } from '../../utils'
+import { createPlatformAxiosInstance } from '../../utils/axios-instances'
+import { URLS } from '../../constants/api'
+import { handleError } from '../../utils/handle-error'
+import { getIdFromCreateHeaders } from '../../utils/get-id-from-create-headers'
+import errors from '../../errors'
 
 export const calldeleteWorksOrderItem = async (
   args: DeleteWorksOrderItemArgs,

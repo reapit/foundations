@@ -1,4 +1,4 @@
-import { useDeveloperId } from '@/components/pages/app-select'
+import { useDeveloperId } from '../../../components/pages/app-select'
 import { gql, useMutation } from '@apollo/client'
 import { AppFragment } from './fragments'
 import { GetUserAppsQuery } from './use-user-apps'

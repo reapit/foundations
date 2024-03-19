@@ -29,8 +29,8 @@ describe('createWistonLoggerErrorFn', () => {
     const meta = { error, headers: 'test', traceId: 'test' } as LoggerError
     loggerErrorFn(caller, meta)
 
-    expect(spyWithScope).toHaveBeenCalled();
-    (spyWithScope.mock.calls[0][0] as any)(mockScope as unknown as Sentry.Scope)
+    expect(spyWithScope).toHaveBeenCalled()
+    ;(spyWithScope.mock.calls[0][0] as any)(mockScope as unknown as Sentry.Scope)
     expect(mockScope.setExtra).toHaveBeenCalled()
     expect(spyCaptureException).toHaveBeenCalledWith(error)
   })

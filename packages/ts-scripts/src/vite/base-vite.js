@@ -21,16 +21,7 @@ module.exports = (config, appName) =>
       linaria({
         babelOptions: {
           presets: ['@babel/preset-typescript', ['@babel/preset-react', { runtime: 'automatic' }]],
-          plugins: [
-            [
-              'module-resolver',
-              {
-                alias: {
-                  '@': './src',
-                },
-              },
-            ],
-          ],
+          plugins: [],
         },
       }),
       checker({

@@ -30,7 +30,6 @@
     "@aws-sdk/client-dynamodb": "^3.535.0",
     "@graphql-tools/delegate": "^8.8.1",
     "@graphql-tools/stitch": "^8.7.50",
-    "@reapit/cra-template-foundations": "workspace:packages/cra-template-foundations",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/utils-common": "workspace:packages/utils-common",

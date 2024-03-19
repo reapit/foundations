@@ -1,7 +1,7 @@
-import { useConnectSession } from '@/components/hooks/connect-session'
-import { useAppWithPages } from '@/components/hooks/apps/use-app'
-import { usePageId } from '@/components/hooks/use-page-id'
-import { Page } from '@/components/hooks/apps/fragments'
+import { useConnectSession } from '../../components/hooks/connect-session'
+import { useAppWithPages } from '../../components/hooks/apps/use-app'
+import { usePageId } from '../../components/hooks/use-page-id'
+import { Page } from '../../components/hooks/apps/fragments'
 import { IconNames, NavResponsiveOption } from '@reapit/elements'
 
 type PageGroup = Record<'create' | 'update' | 'list', Page[]>

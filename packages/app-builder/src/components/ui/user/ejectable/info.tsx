@@ -1,5 +1,5 @@
-import { useObjectGet } from '@/components/hooks/objects/use-object-get'
-import { usePageId } from '@/components/hooks/use-page-id'
+import { useObjectGet } from '../../../../components/hooks/objects/use-object-get'
+import { usePageId } from '../../../../components/hooks/use-page-id'
 import React, { forwardRef } from 'react'
 import { FormLayout, InputWrap, Label, Loader } from '@reapit/elements'
 import { ComponentWrapper, ContainerProps } from './container'

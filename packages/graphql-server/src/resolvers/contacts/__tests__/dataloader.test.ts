@@ -1,7 +1,7 @@
 import { generateContactLoader, generateContactBatchLoaderFn } from '../dataloader'
 import { mockContacts } from '../__stubs__/mock-contacts'
 import { mockContext } from '../../../__stubs__/mock-context'
-jest.mock('@/logger')
+jest.mock('../../../logger')
 jest.mock('apollo-server-lambda', () => {
   return {
     AuthenticationError: jest.fn(),

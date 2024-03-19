@@ -3,9 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "sourceRoot": "/",
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    "paths": {}
   },
   "include": ["types"],
   "exclude": ["node_modules"]

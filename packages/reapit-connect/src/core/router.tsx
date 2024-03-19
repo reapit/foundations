@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { BrowserRouter, Route, Navigate, Routes } from 'react-router-dom'
-import ROUTES from '@/constants/routes'
+import ROUTES from '../constants/routes'
 import { Login, catchChunkError } from '@reapit/utils-react'
 import { FC, lazy } from 'react'
 import { reapitConnectBrowserSession } from './connect-session'

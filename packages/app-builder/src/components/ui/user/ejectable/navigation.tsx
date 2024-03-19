@@ -1,4 +1,4 @@
-import { usePageId } from '@/components/hooks/use-page-id'
+import { usePageId } from '../../../../components/hooks/use-page-id'
 import React, { forwardRef } from 'react'
 import {
   Loader,
@@ -9,7 +9,7 @@ import {
   SecondaryNavItem,
   Title,
 } from '@reapit/elements'
-import { useNavConfig } from '@/components/hooks/use-nav-config'
+import { useNavConfig } from '../../../../components/hooks/use-nav-config'
 
 export type NavigationProps = {}
 

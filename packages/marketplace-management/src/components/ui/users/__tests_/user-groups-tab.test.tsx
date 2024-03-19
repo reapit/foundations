@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Routes from '@/constants/routes'
+import Routes from '../../../../constants/routes'
 import UserGroupsTab, { onPageChangeHandler } from '../user-groups-tab'
 import useSWR from 'swr'
 import { useOrgId } from '../../../../utils/use-org-id'

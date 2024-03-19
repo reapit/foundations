@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { useTypeList } from '@/components/hooks/objects/use-type-list'
-import { useCreateCustomEntity } from '@/components/hooks/custom-entities/use-create-custom-entity'
+import { useTypeList } from '../../../components/hooks/objects/use-type-list'
+import { useCreateCustomEntity } from '../../../components/hooks/custom-entities/use-create-custom-entity'
 import { ToolbarItem, ToolbarItemType } from '../toolbar'
 import { styled } from '@linaria/react'
 import { PlusButton } from '../components'

@@ -5,9 +5,9 @@ import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu'
 
 import { useAppPages } from '../../hooks/apps/use-app'
 import { usePageId } from '../..//hooks/use-page-id'
-import Delete from '@/components/icons/delete'
+import Delete from '../../../components/icons/delete'
 import { AppBuilderIconButton } from '../components'
-import { useDeletePage } from '@/components/hooks/apps/use-update-app'
+import { useDeletePage } from '../../../components/hooks/apps/use-update-app'
 
 const Tab = styled.div<{ itemId?: any; isActive?: boolean }>`
   background: white;

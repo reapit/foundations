@@ -14,7 +14,7 @@ import {
 import GET_APPOINTMENTS from '../../../../graphql/queries/get-appointments.graphql'
 import GET_VENDORS from '../../../../graphql/queries/get-vendors.graphql'
 import GET_LANDLORDS from '../../../../graphql/queries/get-landlords.graphql'
-import { appointment } from '@/graphql/__mocks__/appointment'
+import { appointment } from '../../../../graphql/__mocks__/appointment'
 import { mockAppointmentsQuery } from '../__mocks__/appointments-query'
 import { mockVendorsQuery } from '../__mocks__/vendors-query'
 import { ExtendedAppointmentModel } from '../../../../types/global'

@@ -1,8 +1,8 @@
 import DataLoader from 'dataloader'
 import { getPropertyImages } from './services'
-import { ServerContext } from '@/utils'
 import { PropertyImageModel, PropertyImageModelPagedResult } from '@reapit/foundations-ts-definitions'
-import handleError from '@/utils/handle-error'
+import { ServerContext } from '../../utils'
+import handleError from '../../utils/handle-error'
 
 export const generatePropertyImageBatchLoaderFn = (context: ServerContext) => async (keys: string[]) => {
   if (keys.length < 1) {

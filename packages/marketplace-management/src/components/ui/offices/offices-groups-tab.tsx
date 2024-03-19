@@ -14,7 +14,7 @@ import {
   useModal,
 } from '@reapit/elements'
 import { toLocalTime, DATE_TIME_FORMAT } from '@reapit/utils-common'
-import Routes from '@/constants/routes'
+import Routes from '../../../constants/routes'
 import { URLS } from '../../../constants/api'
 import EditOfficeGroupForm from './office-group-edit-form'
 import { elFadeIn, elMb11, Pagination, PersistentNotification, RowProps, Table, Title } from '@reapit/elements'

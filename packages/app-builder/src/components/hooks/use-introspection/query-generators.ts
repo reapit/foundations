@@ -18,7 +18,7 @@ import {
   isListInputType,
   isIntrospectionEnumType,
 } from './types'
-import { DesktopContext } from '@/core/desktop-integration'
+import { DesktopContext } from '../../../core/desktop-integration'
 
 export type GeneratedQuery = {
   query: DocumentNode

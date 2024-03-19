@@ -3,8 +3,8 @@ import { useNavigate, useLocation, NavigateFunction } from 'react-router'
 import { OfficeModelPagedResult, OfficeModel } from '@reapit/foundations-ts-definitions'
 import { cleanObject, DATE_TIME_FORMAT, setQueryParams, toLocalTime } from '@reapit/utils-common'
 import { combineAddress } from '@reapit/utils-common'
-import Routes from '@/constants/routes'
-import OfficesFilterForm, { OfficesFormSchema } from '@/components/ui/offices/offices-tab-filter'
+import Routes from '../../../constants/routes'
+import OfficesFilterForm, { OfficesFormSchema } from '../../../components/ui/offices/offices-tab-filter'
 import {
   elFadeIn,
   Loader,

@@ -22,11 +22,11 @@ import { lowercaseFirstLetter, useSubObjects } from '../../../../components/hook
 import { notEmpty } from '../../../../components/hooks/use-introspection/helpers'
 import { usePageId } from '../../../../components/hooks/use-page-id'
 import { useObjectSpecials } from '../../../../components/hooks/objects/use-object-specials'
-import { ParsedArg } from '@/components/hooks/use-introspection/query-generators'
+import { ParsedArg } from '../../../../components/hooks/use-introspection/query-generators'
 import { getLabel, Input as FormInput } from './form-input'
-import { useObject } from '@/components/hooks/objects/use-object'
-import { IntrospectionResult } from '@/components/hooks/use-introspection/parse-introspection'
-import { QueryableField } from '@/components/hooks/use-introspection/types'
+import { useObject } from '../../../../components/hooks/objects/use-object'
+import { IntrospectionResult } from '../../../../components/hooks/use-introspection/parse-introspection'
+import { QueryableField } from '../../../../components/hooks/use-introspection/types'
 import { FilterContainer, FiltersContainer } from './__styles__'
 
 export interface TableProps extends ContainerProps {

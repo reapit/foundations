@@ -1,6 +1,6 @@
 import React, { FC, MouseEvent } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { reapitConnectBrowserSession } from '../core/connect-session'
 import { Icon, NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import { RoutePaths } from '../constants/routes'
 import { navigateRoute } from '@reapit/payments-ui'
