@@ -14901,6 +14901,10 @@ export interface PropertyModel {
     value?: string
   }[]
   /**
+   * Identifiers of any services connected at the property
+   */
+  availableServicesIds?: string[]
+  /**
    * Details of each room in the property
    */
   rooms?: {
@@ -15880,6 +15884,10 @@ export interface PropertyModelPagedResult {
        */
       value?: string
     }[]
+    /**
+     * Identifiers of any services connected at the property
+     */
+    availableServicesIds?: string[]
     /**
      * Details of each room in the property
      */
@@ -23446,6 +23454,10 @@ export interface UpdatePropertyModel {
    * Comments regarding the service charge of the property
    */
   serviceChargeComment?: string
+  /**
+   * Identifiers of any services connected at the property
+   */
+  availableServicesIds?: string[]
   /**
    * App specific metadata to set against the property
    */
