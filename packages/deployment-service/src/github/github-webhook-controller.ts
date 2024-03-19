@@ -55,7 +55,8 @@ export class GithubWebhookController {
       pipeline.isPipelineDeploymentDisabled ||
       (await this.pipelineRunnerProvider.pipelineRunnerCountRunning(pipeline)) >= 1
     ) {
-      throw new UnprocessableEntityException('Cannot create deployment in current state')
+      console.log(`Cannot create deployment in current state for [${pipeline.id}]`)
+      return
     }
 
     const pipelineRunner = await this.pipelineRunnerProvider.create({
