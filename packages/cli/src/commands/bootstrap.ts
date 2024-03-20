@@ -28,7 +28,7 @@ export class BootstrapCommand extends AbstractCommand {
   async createReactApp(spinner: Ora, name: string): Promise<void> {
     return new Promise((resolve, reject) => {
       spinner.start('Creating app with create-react-app (this might take a while)')
-      const proc = spawn('npx', ['create-react-app', name, '--template', '@reapit/cra-template-foundations'], {
+      const proc = spawn('npx', ['degit', 'reapit/foundations-react-vite-template', name], {
         shell: true,
       })
       proc.stdout.on('data', (data) => console.log(data.toString()))
