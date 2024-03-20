@@ -1,4 +1,4 @@
-const Octokit = require('@octokit/rest')
+const { Octokit } = require('@octokit/rest')
 const getCurrentTimeStamp = require('./get-current-time-stamp-string')
 const { runCommand } = require('@reapit/ts-scripts')
 const { spawnSync } = require('child_process')
