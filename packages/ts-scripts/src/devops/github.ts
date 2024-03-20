@@ -9,7 +9,7 @@ export const getCdkJson = async (auth: string, projectName: string) => {
     auth,
   })
 
-  const cdkJsonFile = await api.repos.getContents({
+  const cdkJsonFile = await api.repos.getContent({
     owner: 'reapit',
     repo: 'devops-infrastructure-core',
     path: `aws_cdk_apps/${projectName}/cdk.json`,
@@ -22,19 +22,20 @@ export const getCdkJson = async (auth: string, projectName: string) => {
     throw new Error('got multiple files back')
   }
 
-  if (!cdkJsonFile.data.content) {
+  // See https://github.com/octokit/types.ts/issues/267#issuecomment-790012807 getContents was deprecated
+  if ('content' in cdkJsonFile.data) {
+    const cdkJsonStr = Buffer.from(cdkJsonFile.data.content, 'base64').toString('utf-8')
+
+    if (!cdkJsonStr) {
+      throw new Error('cdkJsonStr undefined')
+    }
+
+    const cdkJson = JSON.parse(cdkJsonStr)
+
+    return cdkJson
+  } else {
     throw new Error('no file contents found')
   }
-
-  const cdkJsonStr = Buffer.from(cdkJsonFile.data.content, 'base64').toString('utf-8')
-
-  if (!cdkJsonStr) {
-    throw new Error('cdkJsonStr undefined')
-  }
-
-  const cdkJson = JSON.parse(cdkJsonStr)
-
-  return cdkJson
 }
 
 export const updateCdkJson = async (auth: string, projectName: string, newFileContents: string, stage: string) => {
