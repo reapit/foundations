@@ -1912,6 +1912,10 @@ export interface RejectRevisionModel {
    * Flag to determine if the revision has been rejected by a developer (defaulted to false)
    */
   rejectedByDeveloper?: boolean
+  /**
+   * Flag to determine if the rejection reason should be sent in the email (defaulted to false)
+   */
+  includeReasonInEmail?: boolean
 }
 /**
  * The model responsible for resending consent emails
