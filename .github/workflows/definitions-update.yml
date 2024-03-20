@@ -3,7 +3,8 @@ name: TS Definitions Update
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron: '0 0 * * 1-5'
+    # Just run once a week on a Monday
+    - cron: '0 0 * * 1'
 
 jobs:
   check:
