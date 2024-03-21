@@ -7,7 +7,6 @@ import {
   Post,
   Req,
   UnauthorizedException,
-  UnprocessableEntityException,
 } from '@nestjs/common'
 import { App } from '@octokit/app'
 import { PipelineRunnerType } from '@reapit/foundations-ts-definitions/deployment-schema'
