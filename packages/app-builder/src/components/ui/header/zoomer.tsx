@@ -1,4 +1,4 @@
-import { useZoom } from '@/components/hooks/use-zoom'
+import { useZoom } from '../../../components/hooks/use-zoom'
 import { styled } from '@linaria/react'
 import React from 'react'
 import { AppBuilderSelect, SelectOrInput } from '../components'

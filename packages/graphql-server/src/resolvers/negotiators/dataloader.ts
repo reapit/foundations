@@ -1,7 +1,7 @@
 import DataLoader from 'dataloader'
 import { getNegotiators } from './services'
-import { ServerContext } from '@/utils'
-import handleError from '@/utils/handle-error'
+import { ServerContext } from '../../utils'
+import handleError from '../../utils/handle-error'
 import { NegotiatorModelPagedResult, NegotiatorModel } from '@reapit/foundations-ts-definitions'
 
 export const generateNegotiatorBatchLoaderFn = (context: ServerContext) => async (keys: string[]) => {

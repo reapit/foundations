@@ -7,10 +7,9 @@
     "@reapit/connect-session": "workspace:^",
     "adm-zip": "^0.5.12",
     "ansi-regex": "^6.0.1",
-    "axios": "^1.6.7",
+    "axios": "^1.6.8",
     "chalk": "^4.1.2",
     "cli-spinners": "^2.9.2",
-    "create-react-app": "^5.0.1",
     "find-free-port": "^2.0.0",
     "inquirer": "^8.2.6",
     "isomorphic-fetch": "^3.0.0",
@@ -24,7 +23,7 @@
     "reflect-metadata": "^0.1.14",
     "semver": "^7.6.0",
     "shleemy": "^1.2.2",
-    "simple-git": "^3.22.0",
+    "simple-git": "^3.23.0",
     "tsyringe": "^4.8.0"
   },
   "bin": {

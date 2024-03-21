@@ -1,7 +1,7 @@
 import DataLoader from 'dataloader'
 import { getContacts } from './services'
-import { ServerContext } from '@/utils'
-import handleError from '@/utils/handle-error'
+import { ServerContext } from '../../utils'
+import handleError from '../../utils/handle-error'
 import { ContactModel, ContactModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 export const generateContactBatchLoaderFn = (context: ServerContext) => async (keys: string[]) => {

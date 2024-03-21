@@ -20,7 +20,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { object, string } from 'yup'
 import { cx } from '@linaria/core'
 import { CreateAuthenticatorReturnType } from '.'
-import { actionOverride, useRCAPI } from '@/utils/action-override'
+import { actionOverride, useRCAPI } from '../../utils/action-override'
 
 interface QrCodeVerifyProps {
   refreshAuthenticators: () => void

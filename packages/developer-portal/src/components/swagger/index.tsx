@@ -94,13 +94,15 @@ export const SwaggerPage: FC<SwaggerPageProps> = ({ swaggerUri }) => {
           authentication and versioning headers pre-populated. Example requests and responses are shown by default but
           you can switch to view a fully documented schema - look for the model link.
         </BodyText>
-        <SwaggerUI
-          url={swaggerUri}
-          onComplete={handleOnComplete(setLoading)}
-          docExpansion="none"
-          requestInterceptor={requestInterceptor}
-          responseInterceptor={responseInterceptor}
-        />
+        {connectSession?.accessToken && (
+          <SwaggerUI
+            url={swaggerUri}
+            onComplete={handleOnComplete(setLoading)}
+            docExpansion="none"
+            requestInterceptor={requestInterceptor}
+            responseInterceptor={responseInterceptor}
+          />
+        )}
       </div>
     </ErrorBoundary>
   )

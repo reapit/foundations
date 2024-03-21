@@ -1,7 +1,7 @@
 import { Applicant, ApplicantFragment, ApplicantInput } from '../entities/applicant'
 import { Negotiator } from '../entities/negotiator'
 import { Office } from '../entities/office'
-import { MetadataSchemaType } from '@/utils/extract-metadata'
+import { MetadataSchemaType } from '../utils/extract-metadata'
 import { Context } from '@apollo/client'
 import { gql } from 'apollo-server-core'
 import { Arg, Authorized, Ctx, FieldResolver, Mutation, Query, Resolver, Root } from 'type-graphql'

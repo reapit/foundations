@@ -1,6 +1,6 @@
 import React, { MutableRefObject } from 'react'
 import { render } from '../../../../tests/react-testing'
-import { appointment } from '@/graphql/__mocks__/appointment'
+import { appointment } from '../../../../graphql/__mocks__/appointment'
 import { AppointmentTile, handleSetAppointmentId, handleScrollIntoView } from '../appointment-tile'
 
 jest.mock('../../../../core/app-state')

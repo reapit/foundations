@@ -1,6 +1,6 @@
 import React from 'react'
 import OfficesTab, { onPageChangeHandler, onSearchHandler } from '../offices-tab'
-import Routes from '@/constants/routes'
+import Routes from '../../../../constants/routes'
 import { useOrgId } from '../../../../utils/use-org-id'
 import { mockOfficeList } from '../../../../services/__stubs__/offices'
 import { getOfficesService } from '../../../../services/office'

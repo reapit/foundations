@@ -5,7 +5,6 @@
     "baseUrl": "./",
     "sourceRoot": "/",
     "paths": {
-      "@/*": ["src/*"],
       "@reapit/utils-common": ["../utils-common/src"],
       "@reapit/connect-session": ["../connect-session/src"]
     },

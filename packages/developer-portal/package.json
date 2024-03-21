@@ -1,6 +1,6 @@
 {
   "name": "developer-portal",
-  "version": "4.0.4",
+  "version": "4.1.2",
   "description": "Developer Portal for PAAS platform",
   "main": "./src/index.ts",
   "repository": "git@github.com:reapit/app-store.git",
@@ -45,11 +45,11 @@
     "react-chartjs-2": "^4.3.1",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.51.0",
+    "react-hook-form": "^7.51.1",
     "react-router": "^6.22.3",
     "react-router-dom": "^6.22.3",
-    "snyk": "^1.1284.0",
-    "swagger-ui-react": "^4.19.1",
+    "snyk": "^1.1285.0",
+    "swagger-ui-react": "^5.12.0",
     "use-deep-compare-effect": "^1.8.1",
     "uuid": "^9.0.1",
     "yup": "^0.32.11"

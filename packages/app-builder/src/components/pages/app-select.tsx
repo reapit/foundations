@@ -1,4 +1,4 @@
-import { getReapitConnectBrowserSession } from '@/core/connect-session'
+import { getReapitConnectBrowserSession } from '../../core/connect-session'
 import {
   Loader,
   Button,

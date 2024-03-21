@@ -12,7 +12,7 @@ const fetchTSDefinitions = async () => {
   const latestTag = await fetchLatesTag()
   if (latestTag) {
     const commit = latestTag.commit.sha
-    const replaceFileTasks = files.map(file => replaceFile(commit, file.src, file.dest))
+    const replaceFileTasks = files.map((file) => replaceFile(commit, file.src, file.dest))
     await Promise.all(replaceFileTasks)
   } else {
     console.log('No foundations-ts-definitions tag found')
@@ -33,7 +33,7 @@ const fetchLatesTag = async () => {
         page,
       })
       // find first tag start with `foundations-ts-definitions`. If no tag found, fetch next page
-      tsdTag = data.find(item => item.name.indexOf('foundations-ts-definitions') >= 0)
+      tsdTag = data.find((item) => item.name.indexOf('foundations-ts-definitions') >= 0)
       page++
     }
 
@@ -48,25 +48,30 @@ const replaceFile = async (commit, src, dest) => {
   try {
     const token = process.env.GITHUB_TOKEN
     const octokit = new Octokit({ auth: token })
-    const result = await octokit.repos.getContents({
+    const result = await octokit.repos.getContent({
       owner: 'reapit',
       repo: 'foundations',
       path: src,
       ref: commit,
     })
-    const content = Buffer.from(result.data.content, 'base64').toString()
-    fs.writeFileSync(dest, content, { flag: 'w' }, error => {
-      if (error) {
-        console.error(`Failed to write type definitions for: ${dest}`)
-        throw error
-      } else {
-        console.log(`Successfully wrote type definitions for: ${dest}`)
-      }
-    })
+
+    // See https://github.com/octokit/types.ts/issues/267#issuecomment-790012807 getContents was deprecated
+    if ('content' in result.data) {
+      const content = Buffer.from(result.data.content, 'base64').toString()
+      fs.writeFileSync(dest, content, { flag: 'w' }, (error) => {
+        if (error) {
+          console.error(`Failed to write type definitions for: ${dest}`)
+          throw error
+        } else {
+          console.log(`Successfully wrote type definitions for: ${dest}`)
+        }
+      })
+    } else {
+      throw new Error('no file contents found')
+    }
   } catch (error) {
     console.error(error)
   }
 }
 
-fetchTSDefinitions()
-  .catch(error => console.error(error))
+fetchTSDefinitions().catch((error) => console.error(error))

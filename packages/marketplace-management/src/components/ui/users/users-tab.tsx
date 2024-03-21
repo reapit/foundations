@@ -2,7 +2,7 @@ import React, { useState, useCallback, useMemo, FC } from 'react'
 import useSWR from 'swr'
 import { useNavigate, useLocation, NavigateFunction } from 'react-router'
 import { UserModelPagedResult, UserModel } from '@reapit/foundations-ts-definitions'
-import Routes from '@/constants/routes'
+import Routes from '../../../constants/routes'
 import { URLS } from '../../../constants/api'
 import {
   Button,

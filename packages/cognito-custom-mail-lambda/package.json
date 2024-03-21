@@ -33,7 +33,7 @@
   "dependencies": {
     "aws-lambda": "^1.0.7",
     "events": "^3.3.0",
-    "snyk": "^1.1284.0",
+    "snyk": "^1.1285.0",
     "string-template": "^1.0.0"
   },
   "devDependencies": {
@@ -42,7 +42,7 @@
     "@reapit/ts-scripts": "workspace:^",
     "@reapit/utils-node": "workspace:packages/utils-node",
     "@types/mjml": "^4.7.4",
-    "@types/node": "^18.19.24",
+    "@types/node": "^18.19.26",
     "@types/string-template": "^1.0.6",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",

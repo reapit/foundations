@@ -1,5 +1,5 @@
 import React from 'react'
-import { ExtendedAppointmentModel } from '@/types/global'
+import { ExtendedAppointmentModel } from '../../../types/global'
 import { AppointmentTile } from '../appointment-tile'
 import { PersistentNotification } from '@reapit/elements'
 
