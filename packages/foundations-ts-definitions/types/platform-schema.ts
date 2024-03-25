@@ -263,6 +263,10 @@ export interface ApplicantContactModel {
    */
   email?: string
   /**
+   * The marketing consent status of the contact (grant/deny/notAsked)
+   */
+  marketingConsent?: string
+  /**
    * A flag denoting whether or not this relationship is archived
    */
   fromArchive?: boolean
@@ -865,6 +869,10 @@ export interface ApplicantModel {
      */
     email?: string
     /**
+     * The marketing consent status of the contact (grant/deny/notAsked)
+     */
+    marketingConsent?: string
+    /**
      * A flag denoting whether or not this relationship is archived
      */
     fromArchive?: boolean
@@ -1316,6 +1324,10 @@ export interface ApplicantModelPagedResult {
        * The email address of the contact or company
        */
       email?: string
+      /**
+       * The marketing consent status of the contact (grant/deny/notAsked)
+       */
+      marketingConsent?: string
       /**
        * A flag denoting whether or not this relationship is archived
        */
@@ -10804,6 +10816,10 @@ export interface LandlordContactModel {
    */
   email?: string
   /**
+   * The marketing consent status of the contact (grant/deny/notAsked/unknown)
+   */
+  marketingConsent?: string
+  /**
    * Representation of the physical address of a building or premise
    */
   primaryAddress?: {
@@ -11057,6 +11073,10 @@ export interface LandlordModel {
      */
     email?: string
     /**
+     * The marketing consent status of the contact (grant/deny/notAsked/unknown)
+     */
+    marketingConsent?: string
+    /**
      * Representation of the physical address of a building or premise
      */
     primaryAddress?: {
@@ -11225,6 +11245,10 @@ export interface LandlordModelPagedResult {
        * The email address of the contact
        */
       email?: string
+      /**
+       * The marketing consent status of the contact (grant/deny/notAsked/unknown)
+       */
+      marketingConsent?: string
       /**
        * Representation of the physical address of a building or premise
        */
@@ -11833,6 +11857,10 @@ export interface OfferContactModel {
    */
   email?: string
   /**
+   * The marketing consent status of the contact (grant/deny/notAsked/unknown)
+   */
+  marketingConsent?: string
+  /**
    * Representation of the physical address of a building or premise
    */
   primaryAddress?: {
@@ -12011,6 +12039,10 @@ export interface OfferModel {
      * The email address of the contact
      */
     email?: string
+    /**
+     * The marketing consent status of the contact (grant/deny/notAsked/unknown)
+     */
+    marketingConsent?: string
     /**
      * Representation of the physical address of a building or premise
      */
@@ -12199,6 +12231,10 @@ export interface OfferModelPagedResult {
        * The email address of the contact
        */
       email?: string
+      /**
+       * The marketing consent status of the contact (grant/deny/notAsked/unknown)
+       */
+      marketingConsent?: string
       /**
        * Representation of the physical address of a building or premise
        */
@@ -17775,17 +17811,9 @@ export interface TenancyContactModel {
    */
   fromArchive?: boolean
   /**
-   * The date the tenant moved in (or will move in) to the property
-   * example:
-   * 2019-08-14
+   * The marketing consent status of the contact (grant/deny/notAsked/unknown)
    */
-  occupyOn?: string // date
-  /**
-   * The date the tenant vacated (or is due to vacate) the property
-   * example:
-   * 2019-08-14
-   */
-  vacateOn?: string // date
+  marketingConsent?: string
   /**
    * Representation of the physical address of a building or premise
    */
@@ -17823,6 +17851,18 @@ export interface TenancyContactModel {
      */
     countryId?: string
   }
+  /**
+   * The date the tenant moved in (or will move in) to the property
+   * example:
+   * 2019-08-14
+   */
+  occupyOn?: string // date
+  /**
+   * The date the tenant vacated (or is due to vacate) the property
+   * example:
+   * 2019-08-14
+   */
+  vacateOn?: string // date
   /**
    * A collection of additional contact details
    */
@@ -18541,17 +18581,9 @@ export interface TenancyModel {
      */
     fromArchive?: boolean
     /**
-     * The date the tenant moved in (or will move in) to the property
-     * example:
-     * 2019-08-14
+     * The marketing consent status of the contact (grant/deny/notAsked/unknown)
      */
-    occupyOn?: string // date
-    /**
-     * The date the tenant vacated (or is due to vacate) the property
-     * example:
-     * 2019-08-14
-     */
-    vacateOn?: string // date
+    marketingConsent?: string
     /**
      * Representation of the physical address of a building or premise
      */
@@ -18589,6 +18621,18 @@ export interface TenancyModel {
        */
       countryId?: string
     }
+    /**
+     * The date the tenant moved in (or will move in) to the property
+     * example:
+     * 2019-08-14
+     */
+    occupyOn?: string // date
+    /**
+     * The date the tenant vacated (or is due to vacate) the property
+     * example:
+     * 2019-08-14
+     */
+    vacateOn?: string // date
     /**
      * A collection of additional contact details
      */
@@ -18920,17 +18964,9 @@ export interface TenancyModelPagedResult {
        */
       fromArchive?: boolean
       /**
-       * The date the tenant moved in (or will move in) to the property
-       * example:
-       * 2019-08-14
+       * The marketing consent status of the contact (grant/deny/notAsked/unknown)
        */
-      occupyOn?: string // date
-      /**
-       * The date the tenant vacated (or is due to vacate) the property
-       * example:
-       * 2019-08-14
-       */
-      vacateOn?: string // date
+      marketingConsent?: string
       /**
        * Representation of the physical address of a building or premise
        */
@@ -18968,6 +19004,18 @@ export interface TenancyModelPagedResult {
          */
         countryId?: string
       }
+      /**
+       * The date the tenant moved in (or will move in) to the property
+       * example:
+       * 2019-08-14
+       */
+      occupyOn?: string // date
+      /**
+       * The date the tenant vacated (or is due to vacate) the property
+       * example:
+       * 2019-08-14
+       */
+      vacateOn?: string // date
       /**
        * A collection of additional contact details
        */
@@ -24745,6 +24793,10 @@ export interface VendorContactModel {
    */
   email?: string
   /**
+   * The marketing consent status of the contact (grant/deny/notAsked/unknown)
+   */
+  marketingConsent?: string
+  /**
    * Flag to determine if this role on the system is now archived
    */
   fromArchive?: boolean
@@ -25018,6 +25070,10 @@ export interface VendorModel {
      */
     email?: string
     /**
+     * The marketing consent status of the contact (grant/deny/notAsked/unknown)
+     */
+    marketingConsent?: string
+    /**
      * Flag to determine if this role on the system is now archived
      */
     fromArchive?: boolean
@@ -25223,6 +25279,10 @@ export interface VendorModelPagedResult {
        * The email address of the contact or company
        */
       email?: string
+      /**
+       * The marketing consent status of the contact (grant/deny/notAsked/unknown)
+       */
+      marketingConsent?: string
       /**
        * Flag to determine if this role on the system is now archived
        */
