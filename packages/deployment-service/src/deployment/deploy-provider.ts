@@ -4,11 +4,9 @@ import { InvalidPipelineResourcesException } from '../exceptions'
 import { CloudFrontClient, CreateInvalidationCommand } from '@aws-sdk/client-cloudfront'
 import { Injectable } from '@nestjs/common'
 import { S3Provider } from '../s3'
-import fs from 'fs'
 import AdmZip from 'adm-zip'
 import rimraf from 'rimraf'
 import mime from 'mime-types'
-import path from 'path'
 
 export type DeployToS3Params = {
   filePath: string
@@ -105,32 +103,20 @@ export class DeployProvider {
     localLocation: string
     projectLocation: string
   }) {
-    if (!fs.existsSync(localLocation)) {
-      fs.mkdirSync(localLocation, {
-        recursive: true,
-      })
-    }
-
     const zip = new AdmZip(file)
 
-    // Dumb arse package, upgraded minor with new property, without updating types about it...
-    await new Promise<void>((resolve, reject) =>
-      // @ts-ignore
-      zip.extractAllToAsync(localLocation, true, true, (err) => {
-        if (err) {
-          console.error(err)
-          reject(err)
-        }
-        resolve()
-      }),
-    )
     // await the files to all exist. Some reason when extracting, some files don't exist for readdir
     if (process.env.NODE_ENV !== 'local') await new Promise((resolve) => setTimeout(resolve, 6000))
-    await this.recurseDir({
-      dir: localLocation,
-      prefix: `${deploymentType}/${projectLocation}`,
-      buildLocation: localLocation,
-    })
+
+    await Promise.all(
+      zip.getEntries().map((entry) =>
+        this.deployBufferToLiveS3({
+          fileName: entry.entryName,
+          buffer: entry.getData(),
+          prefix: `${deploymentType}/${projectLocation}`,
+        }),
+      ),
+    )
 
     await new Promise<void>((resolve) =>
       rimraf(localLocation, () => {
@@ -139,52 +125,22 @@ export class DeployProvider {
     )
   }
 
-  async deployToLiveS3({ filePath, prefix, buildLocation, fileNameTransformer }: DeployToS3Params): Promise<void> {
-    const key = fileNameTransformer
-      ? fileNameTransformer(filePath.substring(buildLocation.length))
-      : filePath.substring(buildLocation.length)
+  async deployBufferToLiveS3({ buffer, fileName, prefix }: { buffer: Buffer; fileName: string; prefix: string }) {
+    const extension = fileName.split('.').pop()
+
+    if (!extension) throw new Error('extension not found')
+
+    const mimeType = String(mime.lookup(extension))
 
     return this.s3Provider.upload({
       Bucket: process.env.DEPLOYMENT_LIVE_BUCKET_NAME as string,
-      Key: `${prefix}/${key
-        .split('/')
-        .filter((part) => part !== '')
-        .join('/')}`,
-      Body: fs.readFileSync(filePath),
+      Key: `${prefix}/${fileName}`,
+      Body: buffer,
       ACL: 'public-read',
-      ContentType: String(mime.lookup(path.extname(filePath))),
+      ContentType: mimeType,
       Metadata: {
-        ['Content-Type']: String(mime.lookup(path.extname(filePath))),
+        ['Content-Type']: mimeType,
       },
     })
-  }
-
-  async recurseDir({
-    dir,
-    prefix,
-    buildLocation,
-    fileNameTransformer,
-  }: {
-    dir: string
-    prefix: string
-    buildLocation: string
-    fileNameTransformer?: (path: string) => string
-  }): Promise<void> {
-    const entries = await fs.promises.readdir(dir, { withFileTypes: true })
-    await Promise.all(
-      entries.map((dirent) => {
-        const filePath = path.join(dir, dirent.name)
-        if (dirent.isFile()) {
-          return this.deployToLiveS3({ filePath, buildLocation, prefix, fileNameTransformer })
-        } else if (dirent.isDirectory()) {
-          return this.recurseDir({
-            dir: filePath,
-            prefix,
-            buildLocation,
-            fileNameTransformer,
-          })
-        }
-      }),
-    )
   }
 }
