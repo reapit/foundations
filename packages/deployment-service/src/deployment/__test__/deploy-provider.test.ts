@@ -8,18 +8,9 @@ import { PipelineRunnerEntity } from '../../entities/pipeline-runner.entity'
 import { S3 } from 'aws-sdk'
 import { CloudFrontClient } from '@aws-sdk/client-cloudfront'
 import { InvalidPipelineResourcesException } from '../../exceptions'
+import AdmZip from 'adm-zip'
 
 process.env.NODE_ENV = 'local'
-
-jest.mock('adm-zip', () => {
-  class MockAdmZip {
-    extractAllToAsync = jest.fn((file: string, something, another, callback) => {
-      callback()
-    })
-  }
-
-  return MockAdmZip
-})
 
 class MockS3Provider extends S3Provider {
   upload(params): Promise<any> {
@@ -29,11 +20,11 @@ class MockS3Provider extends S3Provider {
   }
 
   getObject(): Promise<S3.GetObjectOutput> {
+    const zip = new AdmZip()
     return Promise.resolve({
-      Body: Buffer.from(''),
+      Body: zip.toBuffer(),
     })
   }
-  cd
 
   deleteObject(): Promise<void> {
     return Promise.resolve()

@@ -1,13 +1,6 @@
 import { PipelineProvider } from '../pipeline'
 import { PipelineRunnerProvider } from '../pipeline-runner'
-import {
-  Body,
-  Controller,
-  NotFoundException,
-  Post,
-  Req,
-  UnauthorizedException,
-} from '@nestjs/common'
+import { Body, Controller, NotFoundException, Post, Req, UnauthorizedException } from '@nestjs/common'
 import { App } from '@octokit/app'
 import { PipelineRunnerType } from '@reapit/foundations-ts-definitions/deployment-schema'
 import { EventDispatcher, PusherProvider } from '../events'
