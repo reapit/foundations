@@ -263,6 +263,10 @@ export interface ApplicantContactModel {
    */
   email?: string
   /**
+   * The marketing consent status of the contact (grant/deny/notAsked)
+   */
+  marketingConsent?: string
+  /**
    * A flag denoting whether or not this relationship is archived
    */
   fromArchive?: boolean
@@ -865,6 +869,10 @@ export interface ApplicantModel {
      */
     email?: string
     /**
+     * The marketing consent status of the contact (grant/deny/notAsked)
+     */
+    marketingConsent?: string
+    /**
      * A flag denoting whether or not this relationship is archived
      */
     fromArchive?: boolean
@@ -1317,6 +1325,10 @@ export interface ApplicantModelPagedResult {
        */
       email?: string
       /**
+       * The marketing consent status of the contact (grant/deny/notAsked)
+       */
+      marketingConsent?: string
+      /**
        * A flag denoting whether or not this relationship is archived
        */
       fromArchive?: boolean
@@ -1634,6 +1646,19 @@ export interface AppointmentContactModel {
   fromArchive?: boolean
 }
 /**
+ * A view of the documents associated to the appointment
+ */
+export interface AppointmentDocumentModel {
+  /**
+   * The unique identifier of the draft property inspection report document
+   */
+  draftPropertyInspectionReportId?: string
+  /**
+   * The unique identifier of the final property inspection report document
+   */
+  finalPropertyInspectionReportId?: string
+}
+/**
  * Follow up information relating to an appointment
  */
 export interface AppointmentFollowUpModel {
@@ -1845,6 +1870,19 @@ export interface AppointmentModel {
    */
   otherAgentId?: string
   /**
+   * A view of the documents associated to the appointment
+   */
+  documents?: {
+    /**
+     * The unique identifier of the draft property inspection report document
+     */
+    draftPropertyInspectionReportId?: string
+    /**
+     * The unique identifier of the final property inspection report document
+     */
+    finalPropertyInspectionReportId?: string
+  }
+  /**
    * App specific metadata that has been set against the appointment
    */
   metadata?: {
@@ -2051,6 +2089,19 @@ export interface AppointmentModelPagedResult {
      * The unique identifier of the external company either carrying out or attending the appointment with the agent
      */
     otherAgentId?: string
+    /**
+     * A view of the documents associated to the appointment
+     */
+    documents?: {
+      /**
+       * The unique identifier of the draft property inspection report document
+       */
+      draftPropertyInspectionReportId?: string
+      /**
+       * The unique identifier of the final property inspection report document
+       */
+      finalPropertyInspectionReportId?: string
+    }
     /**
      * App specific metadata that has been set against the appointment
      */
@@ -2453,6 +2504,137 @@ export interface CertificateTypeModel {
      */
     value?: string
   }[]
+}
+/**
+ * Representation of an invoice charge
+ */
+export interface ChargeModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the charge
+   */
+  id?: string
+  /**
+   * The type of charge (charge/advertising)
+   */
+  type?: string
+  /**
+   * The unique identifier of the invoice with which this charge is associated
+   */
+  invoiceId?: string
+  /**
+   * The unique identifier of the property with which this charge is associated
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the negotiator with which this charge is associated
+   */
+  negotiatorId?: string
+  /**
+   * The code representing the VAT applied to this charge
+   */
+  vatCode?: string
+  /**
+   * Description of the charge
+   */
+  description?: string
+  /**
+   * The net amount
+   */
+  netAmount?: number // double
+  /**
+   * The VAT amount
+   */
+  vatAmount?: number // double
+  /**
+   * The date and time when the invoice was created
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the invoice was last modified
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  modified?: string // date-time
+}
+export interface ChargeModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the charge
+     */
+    id?: string
+    /**
+     * The type of charge (charge/advertising)
+     */
+    type?: string
+    /**
+     * The unique identifier of the invoice with which this charge is associated
+     */
+    invoiceId?: string
+    /**
+     * The unique identifier of the property with which this charge is associated
+     */
+    propertyId?: string
+    /**
+     * The unique identifier of the negotiator with which this charge is associated
+     */
+    negotiatorId?: string
+    /**
+     * The code representing the VAT applied to this charge
+     */
+    vatCode?: string
+    /**
+     * Description of the charge
+     */
+    description?: string
+    /**
+     * The net amount
+     */
+    netAmount?: number // double
+    /**
+     * The VAT amount
+     */
+    vatAmount?: number // double
+    /**
+     * The date and time when the invoice was created
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the invoice was last modified
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    modified?: string // date-time
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
 }
 /**
  * Request body used for checking in a key
@@ -5116,6 +5298,19 @@ export interface CreateAppointmentAttendeeModel {
   type?: string
 }
 /**
+ * A view of the documents associated to the appointment
+ */
+export interface CreateAppointmentDocumentModel {
+  /**
+   * The unique identifier of the draft property inspection report document
+   */
+  draftPropertyInspectionReportId?: string
+  /**
+   * The unique identifier of the final property inspection report document
+   */
+  finalPropertyInspectionReportId?: string
+}
+/**
  * Request body used to create a new calendar appointment
  * example:
  * [object Object]
@@ -5226,6 +5421,19 @@ export interface CreateAppointmentModel {
      * 2019-08-14T12:30:02Z
      */
     until?: string // date-time
+  }
+  /**
+   * A view of the documents associated to the appointment
+   */
+  documents?: {
+    /**
+     * The unique identifier of the draft property inspection report document
+     */
+    draftPropertyInspectionReportId?: string
+    /**
+     * The unique identifier of the final property inspection report document
+     */
+    finalPropertyInspectionReportId?: string
   }
   /**
    * App specific metadata to set against the appointment
@@ -9048,6 +9256,133 @@ export interface CreateWorksOrderModel {
   }
 }
 /**
+ * Representation of an individual credit
+ */
+export interface CreditModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * Unique identifier of the credit
+   */
+  id?: string
+  /**
+   * Unique identifier of the negotiator associated with the credit
+   */
+  negotiatorId?: string
+  /**
+   * Unique identifier of the property associated with the credit
+   */
+  propertyId?: string
+  /**
+   * Unique identifier of the invoice associated with the credit
+   */
+  invoiceId?: string
+  /**
+   * Description of the credit
+   */
+  description?: string
+  /**
+   * The date of the credit
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  date?: string // date-time
+  /**
+   * The net amount due for the credit in the system base currency
+   */
+  netAmount?: number // double
+  /**
+   * The amount of VAT due for the credit in the system base currency
+   */
+  vatAmount?: number // double
+  /**
+   * The date and time when the credit was created
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the credit was last modified
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  modified?: string // date-time
+}
+export interface CreditModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * Unique identifier of the credit
+     */
+    id?: string
+    /**
+     * Unique identifier of the negotiator associated with the credit
+     */
+    negotiatorId?: string
+    /**
+     * Unique identifier of the property associated with the credit
+     */
+    propertyId?: string
+    /**
+     * Unique identifier of the invoice associated with the credit
+     */
+    invoiceId?: string
+    /**
+     * Description of the credit
+     */
+    description?: string
+    /**
+     * The date of the credit
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    date?: string // date-time
+    /**
+     * The net amount due for the credit in the system base currency
+     */
+    netAmount?: number // double
+    /**
+     * The amount of VAT due for the credit in the system base currency
+     */
+    vatAmount?: number // double
+    /**
+     * The date and time when the credit was created
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the credit was last modified
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    modified?: string // date-time
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+/**
  * Representation of a department
  */
 export interface DepartmentModel {
@@ -10282,6 +10617,486 @@ export interface InsertVendorContactRelationshipModel {
   isMain: boolean
 }
 /**
+ * Detailed representation of an individual invoice
+ */
+export interface InvoiceDetailModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * Unique identifier of the invoice
+   */
+  id?: string
+  /**
+   * The invoice reference
+   */
+  reference?: string
+  /**
+   * Unique identifier of the negotiator associated with the invoice
+   */
+  negotiatorId?: string
+  /**
+   * Unique identifier of the property associated with the invoice
+   */
+  propertyId?: string
+  /**
+   * Description of the invoice
+   */
+  description?: string
+  /**
+   * The status of the invoice
+   */
+  status?: string
+  /**
+   * The date of the invoice
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  date?: string // date-time
+  /**
+   * The due date of the invoice
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  dueDate?: string // date-time
+  /**
+   * Flag indicating whether the invoice has been raised
+   */
+  isRaised?: boolean
+  /**
+   * The net amount due for the invoice in the system base currency
+   */
+  netAmount?: number // double
+  /**
+   * The amount of VAT due for the invoice in the system base currency
+   */
+  vatAmount?: number // double
+  /**
+   * The value of the invoice outstanding in the system base currency
+   */
+  outstandingAmount?: number // double
+  /**
+   * The date and time when the invoice was created
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the invoice was last modified
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  modified?: string // date-time
+  /**
+   * Collection of credits associated with the invoice
+   */
+  credits?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * Unique identifier of the credit
+     */
+    id?: string
+    /**
+     * Unique identifier of the negotiator associated with the credit
+     */
+    negotiatorId?: string
+    /**
+     * Unique identifier of the property associated with the credit
+     */
+    propertyId?: string
+    /**
+     * Unique identifier of the invoice associated with the credit
+     */
+    invoiceId?: string
+    /**
+     * Description of the credit
+     */
+    description?: string
+    /**
+     * The date of the credit
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    date?: string // date-time
+    /**
+     * The net amount due for the credit in the system base currency
+     */
+    netAmount?: number // double
+    /**
+     * The amount of VAT due for the credit in the system base currency
+     */
+    vatAmount?: number // double
+    /**
+     * The date and time when the credit was created
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the credit was last modified
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    modified?: string // date-time
+  }[]
+  /**
+   * Collection of payments associated with the invoice
+   */
+  payments?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * Unique identifier of the payment
+     */
+    id?: string
+    /**
+     * Unique identifier of the negotiator associated with the payment
+     */
+    negotiatorId?: string
+    /**
+     * Unique identifier of the property associated with the payment
+     */
+    propertyId?: string
+    /**
+     * Unique identifier of the invoice associated with the payment
+     */
+    invoiceId?: string
+    /**
+     * Description of the payment
+     */
+    description?: string
+    /**
+     * The type of payment
+     */
+    type?: string
+    /**
+     * The date of the payment
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    date?: string // date-time
+    /**
+     * The net amount due for the payment in the system base currency
+     */
+    netAmount?: number // double
+    /**
+     * The amount of VAT due for the payment in the system base currency
+     */
+    vatAmount?: number // double
+    /**
+     * The date and time when the payment was created
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the payment was last modified
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    modified?: string // date-time
+  }[]
+  /**
+   * Collection of charges associated with the invoice
+   */
+  charges?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the charge
+     */
+    id?: string
+    /**
+     * The type of charge (charge/advertising)
+     */
+    type?: string
+    /**
+     * The unique identifier of the invoice with which this charge is associated
+     */
+    invoiceId?: string
+    /**
+     * The unique identifier of the property with which this charge is associated
+     */
+    propertyId?: string
+    /**
+     * The unique identifier of the negotiator with which this charge is associated
+     */
+    negotiatorId?: string
+    /**
+     * The code representing the VAT applied to this charge
+     */
+    vatCode?: string
+    /**
+     * Description of the charge
+     */
+    description?: string
+    /**
+     * The net amount
+     */
+    netAmount?: number // double
+    /**
+     * The VAT amount
+     */
+    vatAmount?: number // double
+    /**
+     * The date and time when the invoice was created
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the invoice was last modified
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    modified?: string // date-time
+  }[]
+}
+/**
+ * Representation of an individual invoice
+ */
+export interface InvoiceModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * Unique identifier of the invoice
+   */
+  id?: string
+  /**
+   * The invoice reference
+   */
+  reference?: string
+  /**
+   * Unique identifier of the negotiator associated with the invoice
+   */
+  negotiatorId?: string
+  /**
+   * Unique identifier of the property associated with the invoice
+   */
+  propertyId?: string
+  /**
+   * Description of the invoice
+   */
+  description?: string
+  /**
+   * The status of the invoice
+   */
+  status?: string
+  /**
+   * The date of the invoice
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  date?: string // date-time
+  /**
+   * The due date of the invoice
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  dueDate?: string // date-time
+  /**
+   * Flag indicating whether the invoice has been raised
+   */
+  isRaised?: boolean
+  /**
+   * The net amount due for the invoice in the system base currency
+   */
+  netAmount?: number // double
+  /**
+   * The amount of VAT due for the invoice in the system base currency
+   */
+  vatAmount?: number // double
+  /**
+   * The value of the invoice outstanding in the system base currency
+   */
+  outstandingAmount?: number // double
+  /**
+   * The date and time when the invoice was created
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the invoice was last modified
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  modified?: string // date-time
+}
+export interface InvoiceModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * Unique identifier of the invoice
+     */
+    id?: string
+    /**
+     * The invoice reference
+     */
+    reference?: string
+    /**
+     * Unique identifier of the negotiator associated with the invoice
+     */
+    negotiatorId?: string
+    /**
+     * Unique identifier of the property associated with the invoice
+     */
+    propertyId?: string
+    /**
+     * Description of the invoice
+     */
+    description?: string
+    /**
+     * The status of the invoice
+     */
+    status?: string
+    /**
+     * The date of the invoice
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    date?: string // date-time
+    /**
+     * The due date of the invoice
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    dueDate?: string // date-time
+    /**
+     * Flag indicating whether the invoice has been raised
+     */
+    isRaised?: boolean
+    /**
+     * The net amount due for the invoice in the system base currency
+     */
+    netAmount?: number // double
+    /**
+     * The amount of VAT due for the invoice in the system base currency
+     */
+    vatAmount?: number // double
+    /**
+     * The value of the invoice outstanding in the system base currency
+     */
+    outstandingAmount?: number // double
+    /**
+     * The date and time when the invoice was created
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the invoice was last modified
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    modified?: string // date-time
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface Invoices {
+  pageNumber?: number
+  pageSize?: number
+  sortBy?: string
+  negotiatorIds?: string[]
+  propertyIds?: string[]
+  status?: ('pending' | 'raised' | 'partPaid' | 'partCredited' | 'credited' | 'paid')[]
+  dateFrom?: string
+  dateTo?: string
+  dueDateFrom?: string
+  dueDateTo?: string
+  createdFrom?: string
+  createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
+}
+export interface InvoicesCharges {
+  pageNumber?: number
+  pageSize?: number
+  sortBy?: string
+  negotiatorIds?: string[]
+  propertyIds?: string[]
+  invoiceIds?: string[]
+  createdFrom?: string
+  createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
+}
+export interface InvoicesCredits {
+  pageNumber?: number
+  pageSize?: number
+  sortBy?: string
+  negotiatorIds?: string[]
+  propertyIds?: string[]
+  invoiceIds?: string[]
+  dateFrom?: string
+  dateTo?: string
+  createdFrom?: string
+  createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
+}
+export interface InvoicesPayments {
+  pageNumber?: number
+  pageSize?: number
+  sortBy?: string
+  negotiatorIds?: string[]
+  propertyIds?: string[]
+  invoiceIds?: string[]
+  type?: ('payment' | 'accountPayment' | 'advertisingPayment' | 'buyerDeposit')[]
+  dateFrom?: string
+  dateTo?: string
+  createdFrom?: string
+  createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
+}
+/**
  * Any specific details relating to energy performance ratings for properties marketed in Ireland
  */
 export interface IrelandPropertyBERModel {
@@ -10804,6 +11619,10 @@ export interface LandlordContactModel {
    */
   email?: string
   /**
+   * The marketing consent status of the contact (grant/deny/notAsked/unknown)
+   */
+  marketingConsent?: string
+  /**
    * Representation of the physical address of a building or premise
    */
   primaryAddress?: {
@@ -11057,6 +11876,10 @@ export interface LandlordModel {
      */
     email?: string
     /**
+     * The marketing consent status of the contact (grant/deny/notAsked/unknown)
+     */
+    marketingConsent?: string
+    /**
      * Representation of the physical address of a building or premise
      */
     primaryAddress?: {
@@ -11225,6 +12048,10 @@ export interface LandlordModelPagedResult {
        * The email address of the contact
        */
       email?: string
+      /**
+       * The marketing consent status of the contact (grant/deny/notAsked/unknown)
+       */
+      marketingConsent?: string
       /**
        * Representation of the physical address of a building or premise
        */
@@ -11833,6 +12660,10 @@ export interface OfferContactModel {
    */
   email?: string
   /**
+   * The marketing consent status of the contact (grant/deny/notAsked/unknown)
+   */
+  marketingConsent?: string
+  /**
    * Representation of the physical address of a building or premise
    */
   primaryAddress?: {
@@ -12011,6 +12842,10 @@ export interface OfferModel {
      * The email address of the contact
      */
     email?: string
+    /**
+     * The marketing consent status of the contact (grant/deny/notAsked/unknown)
+     */
+    marketingConsent?: string
     /**
      * Representation of the physical address of a building or premise
      */
@@ -12199,6 +13034,10 @@ export interface OfferModelPagedResult {
        * The email address of the contact
        */
       email?: string
+      /**
+       * The marketing consent status of the contact (grant/deny/notAsked/unknown)
+       */
+      marketingConsent?: string
       /**
        * Representation of the physical address of a building or premise
        */
@@ -12851,6 +13690,141 @@ export interface Operation {
 export type OperationType = 0 | 1 | 2 | 3 | 4 | 5 | 6 // int32
 export interface PagingLinkModel {
   href?: string
+}
+/**
+ * Representation of an individual payment
+ */
+export interface PaymentModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * Unique identifier of the payment
+   */
+  id?: string
+  /**
+   * Unique identifier of the negotiator associated with the payment
+   */
+  negotiatorId?: string
+  /**
+   * Unique identifier of the property associated with the payment
+   */
+  propertyId?: string
+  /**
+   * Unique identifier of the invoice associated with the payment
+   */
+  invoiceId?: string
+  /**
+   * Description of the payment
+   */
+  description?: string
+  /**
+   * The type of payment
+   */
+  type?: string
+  /**
+   * The date of the payment
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  date?: string // date-time
+  /**
+   * The net amount due for the payment in the system base currency
+   */
+  netAmount?: number // double
+  /**
+   * The amount of VAT due for the payment in the system base currency
+   */
+  vatAmount?: number // double
+  /**
+   * The date and time when the payment was created
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the payment was last modified
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  modified?: string // date-time
+}
+export interface PaymentModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * Unique identifier of the payment
+     */
+    id?: string
+    /**
+     * Unique identifier of the negotiator associated with the payment
+     */
+    negotiatorId?: string
+    /**
+     * Unique identifier of the property associated with the payment
+     */
+    propertyId?: string
+    /**
+     * Unique identifier of the invoice associated with the payment
+     */
+    invoiceId?: string
+    /**
+     * Description of the payment
+     */
+    description?: string
+    /**
+     * The type of payment
+     */
+    type?: string
+    /**
+     * The date of the payment
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    date?: string // date-time
+    /**
+     * The net amount due for the payment in the system base currency
+     */
+    netAmount?: number // double
+    /**
+     * The amount of VAT due for the payment in the system base currency
+     */
+    vatAmount?: number // double
+    /**
+     * The date and time when the payment was created
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the payment was last modified
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    modified?: string // date-time
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
 }
 export interface Properties {
   pageSize?: number
@@ -14532,6 +15506,23 @@ export interface PropertyModel {
        */
       rentFrequency?: string
     }
+    /**
+     * Representation of the sub agent terms
+     */
+    subAgentTerms?: {
+      /**
+       * A flag denoting whether or not fee is available
+       */
+      feeAvailable?: boolean
+      /**
+       * The type of fee (percent/fixed/callForFees)
+       */
+      type?: string
+      /**
+       * The fee amount
+       */
+      amount?: number // double
+    }
   }
   /**
    * Representation of property details specific to lettings marketing
@@ -15516,6 +16507,23 @@ export interface PropertyModelPagedResult {
          */
         rentFrequency?: string
       }
+      /**
+       * Representation of the sub agent terms
+       */
+      subAgentTerms?: {
+        /**
+         * A flag denoting whether or not fee is available
+         */
+        feeAvailable?: boolean
+        /**
+         * The type of fee (percent/fixed/callForFees)
+         */
+        type?: string
+        /**
+         * The fee amount
+         */
+        amount?: number // double
+      }
     }
     /**
      * Representation of property details specific to lettings marketing
@@ -16201,6 +17209,23 @@ export interface PropertySellingModel {
      */
     rentFrequency?: string
   }
+  /**
+   * Representation of the sub agent terms
+   */
+  subAgentTerms?: {
+    /**
+     * A flag denoting whether or not fee is available
+     */
+    feeAvailable?: boolean
+    /**
+     * The type of fee (percent/fixed/callForFees)
+     */
+    type?: string
+    /**
+     * The fee amount
+     */
+    amount?: number // double
+  }
 }
 /**
  * Details relating to the shared ownership of the property
@@ -16218,6 +17243,23 @@ export interface PropertySharedOwnershipModel {
    * The frequency at which the shared ownership rent should be paid
    */
   rentFrequency?: string
+}
+/**
+ * Representation of the sub agent terms
+ */
+export interface PropertySubAgentTermsModel {
+  /**
+   * A flag denoting whether or not fee is available
+   */
+  feeAvailable?: boolean
+  /**
+   * The type of fee (percent/fixed/callForFees)
+   */
+  type?: string
+  /**
+   * The fee amount
+   */
+  amount?: number // double
 }
 /**
  * Representation of the tenure of a property
@@ -16350,6 +17392,10 @@ export interface ReferralModel {
    */
   referralTypeId?: string
   /**
+   * The type of referral (referral/lead). Please [see the documentation](https://foundations-documentation.reapit.cloud/platform-glossary#referral) for further information
+   */
+  type?: string
+  /**
    * The unique identifier of the negotiator the referral is associated with, where applicable
    */
   negotiatorId?: string
@@ -16452,6 +17498,10 @@ export interface ReferralModelPagedResult {
      * The unique identifier of the referralTypeId the referral is associated with, where applicable
      */
     referralTypeId?: string
+    /**
+     * The type of referral (referral/lead). Please [see the documentation](https://foundations-documentation.reapit.cloud/platform-glossary#referral) for further information
+     */
+    type?: string
     /**
      * The unique identifier of the negotiator the referral is associated with, where applicable
      */
@@ -17775,17 +18825,9 @@ export interface TenancyContactModel {
    */
   fromArchive?: boolean
   /**
-   * The date the tenant moved in (or will move in) to the property
-   * example:
-   * 2019-08-14
+   * The marketing consent status of the contact (grant/deny/notAsked/unknown)
    */
-  occupyOn?: string // date
-  /**
-   * The date the tenant vacated (or is due to vacate) the property
-   * example:
-   * 2019-08-14
-   */
-  vacateOn?: string // date
+  marketingConsent?: string
   /**
    * Representation of the physical address of a building or premise
    */
@@ -17823,6 +18865,18 @@ export interface TenancyContactModel {
      */
     countryId?: string
   }
+  /**
+   * The date the tenant moved in (or will move in) to the property
+   * example:
+   * 2019-08-14
+   */
+  occupyOn?: string // date
+  /**
+   * The date the tenant vacated (or is due to vacate) the property
+   * example:
+   * 2019-08-14
+   */
+  vacateOn?: string // date
   /**
    * A collection of additional contact details
    */
@@ -18541,17 +19595,9 @@ export interface TenancyModel {
      */
     fromArchive?: boolean
     /**
-     * The date the tenant moved in (or will move in) to the property
-     * example:
-     * 2019-08-14
+     * The marketing consent status of the contact (grant/deny/notAsked/unknown)
      */
-    occupyOn?: string // date
-    /**
-     * The date the tenant vacated (or is due to vacate) the property
-     * example:
-     * 2019-08-14
-     */
-    vacateOn?: string // date
+    marketingConsent?: string
     /**
      * Representation of the physical address of a building or premise
      */
@@ -18589,6 +19635,18 @@ export interface TenancyModel {
        */
       countryId?: string
     }
+    /**
+     * The date the tenant moved in (or will move in) to the property
+     * example:
+     * 2019-08-14
+     */
+    occupyOn?: string // date
+    /**
+     * The date the tenant vacated (or is due to vacate) the property
+     * example:
+     * 2019-08-14
+     */
+    vacateOn?: string // date
     /**
      * A collection of additional contact details
      */
@@ -18920,17 +19978,9 @@ export interface TenancyModelPagedResult {
        */
       fromArchive?: boolean
       /**
-       * The date the tenant moved in (or will move in) to the property
-       * example:
-       * 2019-08-14
+       * The marketing consent status of the contact (grant/deny/notAsked/unknown)
        */
-      occupyOn?: string // date
-      /**
-       * The date the tenant vacated (or is due to vacate) the property
-       * example:
-       * 2019-08-14
-       */
-      vacateOn?: string // date
+      marketingConsent?: string
       /**
        * Representation of the physical address of a building or premise
        */
@@ -18968,6 +20018,18 @@ export interface TenancyModelPagedResult {
          */
         countryId?: string
       }
+      /**
+       * The date the tenant moved in (or will move in) to the property
+       * example:
+       * 2019-08-14
+       */
+      occupyOn?: string // date
+      /**
+       * The date the tenant vacated (or is due to vacate) the property
+       * example:
+       * 2019-08-14
+       */
+      vacateOn?: string // date
       /**
        * A collection of additional contact details
        */
@@ -20672,6 +21734,19 @@ export interface UpdateAppointmentAttendeeModel {
   confirmed?: boolean
 }
 /**
+ * A view of the documents associated to the appointment
+ */
+export interface UpdateAppointmentDocumentModel {
+  /**
+   * The unique identifier of the draft property inspection report document
+   */
+  draftPropertyInspectionReportId?: string
+  /**
+   * The unique identifier of the final property inspection report document
+   */
+  finalPropertyInspectionReportId?: string
+}
+/**
  * Represents the follow up information on a single appointment
  */
 export interface UpdateAppointmentFollowUpModel {
@@ -20816,6 +21891,19 @@ export interface UpdateAppointmentModel {
      * 2019-08-14T12:30:02Z
      */
     until?: string // date-time
+  }
+  /**
+   * A view of the documents associated to the appointment
+   */
+  documents?: {
+    /**
+     * The unique identifier of the draft property inspection report document
+     */
+    draftPropertyInspectionReportId?: string
+    /**
+     * The unique identifier of the final property inspection report document
+     */
+    finalPropertyInspectionReportId?: string
   }
   /**
    * App specific metadata to set against the appointment
@@ -24745,6 +25833,10 @@ export interface VendorContactModel {
    */
   email?: string
   /**
+   * The marketing consent status of the contact (grant/deny/notAsked/unknown)
+   */
+  marketingConsent?: string
+  /**
    * Flag to determine if this role on the system is now archived
    */
   fromArchive?: boolean
@@ -25018,6 +26110,10 @@ export interface VendorModel {
      */
     email?: string
     /**
+     * The marketing consent status of the contact (grant/deny/notAsked/unknown)
+     */
+    marketingConsent?: string
+    /**
      * Flag to determine if this role on the system is now archived
      */
     fromArchive?: boolean
@@ -25223,6 +26319,10 @@ export interface VendorModelPagedResult {
        * The email address of the contact or company
        */
       email?: string
+      /**
+       * The marketing consent status of the contact (grant/deny/notAsked/unknown)
+       */
+      marketingConsent?: string
       /**
        * Flag to determine if this role on the system is now archived
        */
