@@ -90,7 +90,7 @@ export const HelperContent: FC = () => {
               of the APIs and tooling we provide. However, the starting point for all integrations is to create an
               &lsquo;App&rsquo;,
             </BodyText>
-            <VideoImage width="100%" />
+            <VideoImage width="100%" height="100%" />
           </div>
           <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMl6)}>
             <BodyText hasGreyText>
@@ -121,7 +121,7 @@ export const HelperContent: FC = () => {
               For the greatest integration with our AgencyCloud Desktop CRM, we support the ability to load client-side
               apps using an internal web browser, inside of the CRM.
             </BodyText>
-            <VideoImage />
+            <VideoImage width="100%" height="100%" />
           </div>
           <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMl6)}>
             <BodyText hasGreyText>
@@ -184,7 +184,7 @@ export const HelperContent: FC = () => {
               It is possible to get up and running with a website feed from the Platform API. You will want to optimise
               this flow, implementing webhooks and caching however, the below video is our quick start guide.
             </BodyText>
-            <VideoImage />
+            <VideoImage width="100%" height="100%" />
           </div>
           <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMl6)}>
             <BodyText hasGreyText>
@@ -258,7 +258,7 @@ export const HelperContent: FC = () => {
             className={cx(!isFlexColumn && elW6, !isFlexColumn && elMr6, isFlexColumn && elMb7)}
             onClick={openModalServerSide}
           >
-            <VideoImage />
+            <VideoImage width="100%" height="100%" />
           </div>
           <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMl6)}>
             <BodyText hasGreyText>

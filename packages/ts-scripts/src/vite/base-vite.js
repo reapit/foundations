@@ -92,7 +92,7 @@ module.exports = (config, appName) =>
       alias: [{ find: '@', replacement: `${path.resolve(process.cwd(), 'src')}/` }],
     },
     server: {
-      host: true,
+      host: 'localhost',
       port: 8080,
     },
   }))
