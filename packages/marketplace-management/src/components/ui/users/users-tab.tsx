@@ -108,7 +108,7 @@ const UsersTab: FC = () => {
   const totalPageCount = data?.totalPageCount ?? 0
 
   const onComplete = () => {
-    // Set timeout as a workaround for RDS replication error.
+    // Set timeout as a workaround for RDS replication error
     setTimeout(() => {
       mutate()
     }, 1000)
