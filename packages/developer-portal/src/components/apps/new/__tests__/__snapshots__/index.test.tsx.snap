@@ -590,6 +590,7 @@ exports[`AppsNew should match a snapshot 1`] = `
                     Every developer will have different use cases for our Platform and it is unlikely you will need to use all of the APIs and tooling we provide. However, the starting point for all integrations is to create an ‘App’,
                   </mock-styled.p>
                   <svg
+                    height="100%"
                     width="100%"
                   />
                 </div>
@@ -635,7 +636,10 @@ exports[`AppsNew should match a snapshot 1`] = `
                   >
                     For the greatest integration with our AgencyCloud Desktop CRM, we support the ability to load client-side apps using an internal web browser, inside of the CRM.
                   </mock-styled.p>
-                  <svg />
+                  <svg
+                    height="100%"
+                    width="100%"
+                  />
                 </div>
                 <div
                   class=""
@@ -740,7 +744,10 @@ exports[`AppsNew should match a snapshot 1`] = `
                   >
                     It is possible to get up and running with a website feed from the Platform API. You will want to optimise this flow, implementing webhooks and caching however, the below video is our quick start guide.
                   </mock-styled.p>
-                  <svg />
+                  <svg
+                    height="100%"
+                    width="100%"
+                  />
                 </div>
                 <div
                   class=""
@@ -893,7 +900,10 @@ exports[`AppsNew should match a snapshot 1`] = `
                 <div
                   class="el-mb7"
                 >
-                  <svg />
+                  <svg
+                    height="100%"
+                    width="100%"
+                  />
                 </div>
                 <div
                   class=""
@@ -1601,6 +1611,7 @@ exports[`AppsNew should match a snapshot 1`] = `
                   Every developer will have different use cases for our Platform and it is unlikely you will need to use all of the APIs and tooling we provide. However, the starting point for all integrations is to create an ‘App’,
                 </mock-styled.p>
                 <svg
+                  height="100%"
                   width="100%"
                 />
               </div>
@@ -1646,7 +1657,10 @@ exports[`AppsNew should match a snapshot 1`] = `
                 >
                   For the greatest integration with our AgencyCloud Desktop CRM, we support the ability to load client-side apps using an internal web browser, inside of the CRM.
                 </mock-styled.p>
-                <svg />
+                <svg
+                  height="100%"
+                  width="100%"
+                />
               </div>
               <div
                 class=""
@@ -1751,7 +1765,10 @@ exports[`AppsNew should match a snapshot 1`] = `
                 >
                   It is possible to get up and running with a website feed from the Platform API. You will want to optimise this flow, implementing webhooks and caching however, the below video is our quick start guide.
                 </mock-styled.p>
-                <svg />
+                <svg
+                  height="100%"
+                  width="100%"
+                />
               </div>
               <div
                 class=""
@@ -1904,7 +1921,10 @@ exports[`AppsNew should match a snapshot 1`] = `
               <div
                 class="el-mb7"
               >
-                <svg />
+                <svg
+                  height="100%"
+                  width="100%"
+                />
               </div>
               <div
                 class=""
@@ -2678,6 +2698,7 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                     Every developer will have different use cases for our Platform and it is unlikely you will need to use all of the APIs and tooling we provide. However, the starting point for all integrations is to create an ‘App’,
                   </mock-styled.p>
                   <svg
+                    height="100%"
                     width="100%"
                   />
                 </div>
@@ -2723,7 +2744,10 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                   >
                     For the greatest integration with our AgencyCloud Desktop CRM, we support the ability to load client-side apps using an internal web browser, inside of the CRM.
                   </mock-styled.p>
-                  <svg />
+                  <svg
+                    height="100%"
+                    width="100%"
+                  />
                 </div>
                 <div
                   class=""
@@ -2828,7 +2852,10 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                   >
                     It is possible to get up and running with a website feed from the Platform API. You will want to optimise this flow, implementing webhooks and caching however, the below video is our quick start guide.
                   </mock-styled.p>
-                  <svg />
+                  <svg
+                    height="100%"
+                    width="100%"
+                  />
                 </div>
                 <div
                   class=""
@@ -2981,7 +3008,10 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                 <div
                   class="el-mb7"
                 >
-                  <svg />
+                  <svg
+                    height="100%"
+                    width="100%"
+                  />
                 </div>
                 <div
                   class=""
@@ -3689,6 +3719,7 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                   Every developer will have different use cases for our Platform and it is unlikely you will need to use all of the APIs and tooling we provide. However, the starting point for all integrations is to create an ‘App’,
                 </mock-styled.p>
                 <svg
+                  height="100%"
                   width="100%"
                 />
               </div>
@@ -3734,7 +3765,10 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                 >
                   For the greatest integration with our AgencyCloud Desktop CRM, we support the ability to load client-side apps using an internal web browser, inside of the CRM.
                 </mock-styled.p>
-                <svg />
+                <svg
+                  height="100%"
+                  width="100%"
+                />
               </div>
               <div
                 class=""
@@ -3839,7 +3873,10 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                 >
                   It is possible to get up and running with a website feed from the Platform API. You will want to optimise this flow, implementing webhooks and caching however, the below video is our quick start guide.
                 </mock-styled.p>
-                <svg />
+                <svg
+                  height="100%"
+                  width="100%"
+                />
               </div>
               <div
                 class=""
@@ -3992,7 +4029,10 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
               <div
                 class="el-mb7"
               >
-                <svg />
+                <svg
+                  height="100%"
+                  width="100%"
+                />
               </div>
               <div
                 class=""
