@@ -114,16 +114,6 @@ export class ReapitConnectBrowserSession {
     this.refreshTokenStorage.removeItem(`${ReapitConnectBrowserSession.USER_NAME_KEY}_${this.connectClientId}`)
   }
 
-  // See below, used to refresh session if I have a refresh token in local storage
-  private get tokenRefreshEndpoint() {
-    return `${this.connectOAuthUrl}/token?grant_type=refresh_token&client_id=${this.connectClientId}&refresh_token=${this.refreshToken}&redirect_uri=${this.connectLoginRedirectPath}`
-  }
-
-  // See below, used to refresh session if I have a code in the URL
-  private get tokenCodeEndpoint(): string {
-    return `${this.connectOAuthUrl}/token?grant_type=authorization_code&client_id=${this.connectClientId}&code=${this.authCode}&redirect_uri=${this.connectLoginRedirectPath}`
-  }
-
   // Check on access token to see if has expired - they last 1hr only before I need to refresh
   private get sessionExpired() {
     if (this.session) {
@@ -147,7 +137,7 @@ export class ReapitConnectBrowserSession {
   // Calls the token endpoint in Cognito with either a refresh token or a code, depending on what
   // I have available in local storage or in the URL.
   // See: https://docs.aws.amazon.com/cognito/latest/developerguide/token-endpoint.html
-  private async connectGetSession(url: string): Promise<ReapitConnectSession | void> {
+  private async connectGetSession(url: string, payload: {}): Promise<ReapitConnectSession | void> {
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -264,16 +254,28 @@ export class ReapitConnectBrowserSession {
       // See comment in connectGetSession method. If I have a refresh token, I want to use this in the
       // first instance - get the refresh endpoint. Otherwise check to see if I have a code and get
       // the code endpoint so I can exchange for a token
-      const endpoint = this.refreshToken ? this.tokenRefreshEndpoint : this.authCode ? this.tokenCodeEndpoint : null
+      const endpoint = `${this.connectOAuthUrl}/token`
+      const payload: { [s: string]: any } = {
+        redirect_uri: this.connectLoginRedirectPath,
+        client_id: this.connectClientId,
+      }
 
       // I don't have either a refresh token or a code so redirect to the authorization endpoint to get
       // a code I can exchange for a token
-      if (!endpoint) {
+      if (!this.refreshToken || !this.authCode) {
         return this.connectAuthorizeRedirect()
       }
 
+      if (this.refreshToken) {
+        payload.refresh_token = this.refreshToken
+        payload.grant_type = 'refresh_token'
+      } else {
+        payload.grant_type = 'authorization_code'
+        payload.code = this.authCode
+      }
+
       // Get a new session from the code or refresh token
-      const session = await this.connectGetSession(endpoint)
+      const session = await this.connectGetSession(endpoint, payload)
 
       this.fetching = false
 
