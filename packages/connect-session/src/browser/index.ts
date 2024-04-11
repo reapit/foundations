@@ -19,6 +19,8 @@ type BasePayload = {
 type AuthCodePayload = BasePayload & {
   grant_type: 'authorization_code'
   code: string
+  code_verifier: string
+  code_challenge_method: 'S256'
 }
 
 type RefreshTokenPayload = BasePayload & {
@@ -31,6 +33,7 @@ export class ReapitConnectBrowserSession {
   static GLOBAL_KEY = '__REAPIT_MARKETPLACE_GLOBALS__'
   static REFRESH_TOKEN_KEY = 'REAPIT_REFRESH_TOKEN'
   static USER_NAME_KEY = 'REAPIT_LAST_AUTH_USER'
+  static CODE_VERIFIER = 'REAPIT_CODE_VERIFIER'
   static APP_DEFAULT_TIMEOUT = 10800000 // 3hrs in ms
 
   // Private cached variables, I don't want users to reference these directly or it will get confusing.
@@ -105,6 +108,30 @@ export class ReapitConnectBrowserSession {
       this.session?.loginIdentity.email ??
       this.refreshTokenStorage.getItem(`${ReapitConnectBrowserSession.USER_NAME_KEY}_${this.connectClientId}`)
     )
+  }
+
+  private async generateCodeVerifier(): Promise<string> {
+    const encoder = new TextEncoder()
+    const data = encoder.encode(uuid())
+    const digest = await window.crypto.subtle.digest('SHA-256', data)
+
+    const code = btoa(
+      String.fromCharCode.apply(null, [...new Uint8Array(digest)])
+    ).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
+
+    this.setCodeVerifier(code)
+
+    return code
+  }
+
+  private async getCodeVerifier(): Promise<string> {
+    const codeVerifier = this.refreshTokenStorage.getItem(ReapitConnectBrowserSession.CODE_VERIFIER)
+
+    return (!codeVerifier) ? this.generateCodeVerifier() : codeVerifier
+  }
+
+  private setCodeVerifier(code: string) {
+    this.refreshTokenStorage.setItem(ReapitConnectBrowserSession.CODE_VERIFIER, code)
   }
 
   private setRefreshToken(session: ReapitConnectSession) {
@@ -281,6 +308,8 @@ export class ReapitConnectBrowserSession {
         return this.connectAuthorizeRedirect()
       }
 
+      const codeVerifier = await this.getCodeVerifier() // confirm with Josh
+
       // Get a new session from the code or refresh token
       const session = await this.connectGetSession(
         endpoint,
@@ -296,6 +325,8 @@ export class ReapitConnectBrowserSession {
               client_id: this.connectClientId,
               grant_type: 'authorization_code',
               code: this.authCode as string,
+              code_verifier: codeVerifier,
+              code_challenge_method: 'S256',
             },
       )
 
