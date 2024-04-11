@@ -162,7 +162,7 @@ export class ReapitConnectBrowserSession {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify(payload),
+        body: new URLSearchParams(payload).toString(),
       } as RequestInit)
       const session: CoginitoSession | undefined = await response.json()
 
