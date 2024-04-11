@@ -110,24 +110,20 @@ export class ReapitConnectBrowserSession {
     )
   }
 
-  private async generateCodeVerifier(): Promise<string> {
+  private async encryptCodeVerifier(code_verifier: string): Promise<string> {
     const encoder = new TextEncoder()
-    const data = encoder.encode(uuid())
+    const data = encoder.encode(code_verifier)
     const digest = await window.crypto.subtle.digest('SHA-256', data)
 
-    const code = btoa(
+    return btoa(
       String.fromCharCode.apply(null, [...new Uint8Array(digest)])
     ).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
-
-    this.setCodeVerifier(code)
-
-    return code
   }
 
-  private async getCodeVerifier(): Promise<string> {
+  private get codeVerifier(): string {
     const codeVerifier = this.refreshTokenStorage.getItem(ReapitConnectBrowserSession.CODE_VERIFIER)
 
-    return (!codeVerifier) ? this.generateCodeVerifier() : codeVerifier
+    return (!codeVerifier) ? uuid() : codeVerifier
   }
 
   private setCodeVerifier(code: string) {
@@ -249,7 +245,7 @@ export class ReapitConnectBrowserSession {
 
   // Handles redirect to authorization endpoint - in most cases, I don't need to call in my app
   // but made public if I want to override the redirect URI I specified in the constructor
-  public connectAuthorizeRedirect(redirectUri?: string): void {
+  public async connectAuthorizeRedirect(redirectUri?: string): Promise<void> {
     const authRedirectUri = redirectUri || this.connectLoginRedirectPath
     const params = new URLSearchParams(window.location.search)
     params.delete('code')
@@ -257,8 +253,9 @@ export class ReapitConnectBrowserSession {
     const internalRedirectPath = encodeURIComponent(`${window.location.pathname}${search}`)
     const stateNonce = uuid()
     this.refreshTokenStorage.setItem(stateNonce, internalRedirectPath)
+    const code_challenge = await this.encryptCodeVerifier(this.codeVerifier)
 
-    window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${authRedirectUri}&state=${stateNonce}`
+    window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${authRedirectUri}&state=${stateNonce}&code_challenge_method=S256&code_challenge=${code_challenge}`
   }
 
   // Handles redirect to login - defaults to constructor redirect uri but I can override if I like.
@@ -308,8 +305,6 @@ export class ReapitConnectBrowserSession {
         return this.connectAuthorizeRedirect()
       }
 
-      const codeVerifier = await this.getCodeVerifier() // confirm with Josh
-
       // Get a new session from the code or refresh token
       const session = await this.connectGetSession(
         endpoint,
@@ -325,7 +320,7 @@ export class ReapitConnectBrowserSession {
               client_id: this.connectClientId,
               grant_type: 'authorization_code',
               code: this.authCode as string,
-              code_verifier: codeVerifier,
+              code_verifier: this.codeVerifier,
               code_challenge_method: 'S256',
             },
       )
