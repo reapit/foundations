@@ -2,6 +2,7 @@ import { FetchMock } from 'jest-fetch-mock'
 import { ReapitConnectBrowserSession } from '../index'
 import { mockTokenResponse, mockBrowserSession, createMockToken } from '../../__mocks__/session'
 import { mockBrowserInitializers } from '../../__mocks__/session'
+import { webcrypto } from 'crypto'
 
 jest.mock('idtoken-verifier', () => ({
   decode: (token: string) => {
@@ -10,6 +11,10 @@ jest.mock('idtoken-verifier', () => ({
 }))
 
 jest.mock('../../utils/verify-decode-id-token')
+
+Object.defineProperties(global, {
+  crypto: { value: webcrypto, writable: true }
+})
 
 const mockedFetch = fetch as FetchMock
 

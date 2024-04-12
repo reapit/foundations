@@ -10,6 +10,7 @@ import { connectSessionVerifyDecodeIdToken } from '../utils/verify-decode-id-tok
 import decode from 'jwt-decode'
 import { DecodedToken } from '../utils'
 import { v4 as uuid } from 'uuid'
+import { TextEncoder } from 'util'
 
 type BasePayload = {
   redirect_uri: string
