@@ -123,7 +123,13 @@ export class ReapitConnectBrowserSession {
   private get codeVerifier(): string {
     const codeVerifier = this.refreshTokenStorage.getItem(ReapitConnectBrowserSession.CODE_VERIFIER)
 
-    return (!codeVerifier) ? uuid() : codeVerifier
+    if (codeVerifier) return codeVerifier
+
+    const newCodeVerifier = uuid()
+
+    this.setCodeVerifier(newCodeVerifier)
+
+    return newCodeVerifier
   }
 
   private setCodeVerifier(code: string) {
