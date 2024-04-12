@@ -128,46 +128,42 @@ exports[`FilterForm should render component 1`] = `
               >
                 Status
               </label>
-              <div
-                class="mocked-styled-35 el-input-group"
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="mocked-styled-76 el-select"
+                name="status"
               >
-                <select
-                  aria-label="Select an item from the dropdown list"
-                  class="mocked-styled-76 el-select"
-                  name="status"
+                <option
+                  value=""
                 >
-                  <option
-                    value=""
-                  >
-                    Please Select
-                  </option>
-                  <option
-                    value="incomplete"
-                  >
-                    Incomplete
-                  </option>
-                  <option
-                    value="pending"
-                  >
-                    Pending
-                  </option>
-                  <option
-                    value="confirmed"
-                  >
-                    Confirmed
-                  </option>
-                  <option
-                    value="underReview"
-                  >
-                    Under Review
-                  </option>
-                  <option
-                    value="removed"
-                  >
-                    Removed
-                  </option>
-                </select>
-              </div>
+                  Please Select
+                </option>
+                <option
+                  value="incomplete"
+                >
+                  Incomplete
+                </option>
+                <option
+                  value="pending"
+                >
+                  Pending
+                </option>
+                <option
+                  value="confirmed"
+                >
+                  Confirmed
+                </option>
+                <option
+                  value="underReview"
+                >
+                  Under Review
+                </option>
+                <option
+                  value="removed"
+                >
+                  Removed
+                </option>
+              </select>
             </div>
           </div>
         </div>
@@ -298,46 +294,42 @@ exports[`FilterForm should render component 1`] = `
             >
               Status
             </label>
-            <div
-              class="mocked-styled-35 el-input-group"
+            <select
+              aria-label="Select an item from the dropdown list"
+              class="mocked-styled-76 el-select"
+              name="status"
             >
-              <select
-                aria-label="Select an item from the dropdown list"
-                class="mocked-styled-76 el-select"
-                name="status"
+              <option
+                value=""
               >
-                <option
-                  value=""
-                >
-                  Please Select
-                </option>
-                <option
-                  value="incomplete"
-                >
-                  Incomplete
-                </option>
-                <option
-                  value="pending"
-                >
-                  Pending
-                </option>
-                <option
-                  value="confirmed"
-                >
-                  Confirmed
-                </option>
-                <option
-                  value="underReview"
-                >
-                  Under Review
-                </option>
-                <option
-                  value="removed"
-                >
-                  Removed
-                </option>
-              </select>
-            </div>
+                Please Select
+              </option>
+              <option
+                value="incomplete"
+              >
+                Incomplete
+              </option>
+              <option
+                value="pending"
+              >
+                Pending
+              </option>
+              <option
+                value="confirmed"
+              >
+                Confirmed
+              </option>
+              <option
+                value="underReview"
+              >
+                Under Review
+              </option>
+              <option
+                value="removed"
+              >
+                Removed
+              </option>
+            </select>
           </div>
         </div>
       </div>
