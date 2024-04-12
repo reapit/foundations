@@ -188,7 +188,7 @@ export const AppConsents: FC<ConsentsProps> = ({ approval }) => {
                   label: 'Client',
                   value: installations?.data?.find((installation) => installation.id === consent.installationId)
                     ?.customerName,
-                  icon: 'flatInfographic',
+                  icon: 'property',
                   cellHasDarkText: true,
                   narrowTable: {
                     showLabel: true,
@@ -225,7 +225,7 @@ export const AppConsents: FC<ConsentsProps> = ({ approval }) => {
               ],
               ctaContent: {
                 headerContent: 'Resend Email',
-                icon: hasReadAccess ? undefined : 'emailSystem',
+                icon: hasReadAccess ? undefined : 'email',
                 onClick: hasReadAccess ? undefined : handleSetResendConsents(setSelectedConsent, consent, openModal),
               },
             }))}
@@ -247,11 +247,7 @@ export const AppConsents: FC<ConsentsProps> = ({ approval }) => {
             </PersistentNotification>
           </div>
           <ButtonGroup alignment="center">
-            <Button
-              fixedWidth
-              onClick={handleSendConstents(createConsentEmails, appConsentsRefresh, email)}
-              intent="primary"
-            >
+            <Button onClick={handleSendConstents(createConsentEmails, appConsentsRefresh, email)} intent="primary">
               Send Requests
             </Button>
           </ButtonGroup>

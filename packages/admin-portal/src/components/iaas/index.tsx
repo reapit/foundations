@@ -139,7 +139,7 @@ export const IaaS: FC = () => {
                 {
                   label: 'Name',
                   value: name,
-                  icon: 'apiInfographic',
+                  icon: 'insights',
                   cellHasDarkText: true,
                   narrowTable: {
                     showLabel: true,
@@ -167,7 +167,7 @@ export const IaaS: FC = () => {
               ],
               ctaContent: {
                 headerContent: 'Delete Pipeline',
-                icon: pipelineNotDeletable.includes(buildStatus as string) || hasReadAccess ? undefined : 'trashSystem',
+                icon: pipelineNotDeletable.includes(buildStatus as string) || hasReadAccess ? undefined : 'trash',
                 onClick:
                   pipelineNotDeletable.includes(buildStatus as string) || hasReadAccess
                     ? undefined

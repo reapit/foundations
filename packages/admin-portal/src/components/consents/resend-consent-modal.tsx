@@ -51,7 +51,7 @@ export const ResendConsentModal: FC<ResendConsentModalProps> = ({ email, closeMo
             label="Consent Recipient"
             placeholder="Email of the recipient"
             errorMessage={errors?.recipient?.message}
-            icon={errors?.recipient?.message ? 'asteriskSystem' : null}
+            icon={errors?.recipient?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrapFull>
