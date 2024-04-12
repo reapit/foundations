@@ -79,7 +79,7 @@ export const Customers: FC = () => {
                   {
                     label: 'Customer Name',
                     value: name,
-                    icon: 'flatInfographic',
+                    icon: 'property',
                     cellHasDarkText: true,
                     narrowTable: {
                       showLabel: true,

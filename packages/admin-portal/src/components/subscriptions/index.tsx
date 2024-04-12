@@ -173,7 +173,7 @@ const Subscriptions: FC = () => {
                   ],
                   ctaContent: {
                     headerContent: 'Cancel',
-                    icon: cancelled || hasReadAccess ? undefined : 'trashSystem',
+                    icon: cancelled || hasReadAccess ? undefined : 'trash',
                     onClick: cancelled || hasReadAccess ? undefined : handleSetSubId(setCancelSubId, openModal, id),
                   },
                 }),

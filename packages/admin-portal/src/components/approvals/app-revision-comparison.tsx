@@ -428,7 +428,6 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
         <ButtonGroup alignment="center">
           <Button onClick={closeApproveModal}>Cancel</Button>
           <Button
-            fixedWidth
             intent="primary"
             onClick={handleApproveRevision(approveRevision, closeApproveModal, connectSession?.loginIdentity)}
           >
@@ -449,7 +448,7 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
                 {...register('rejectionReason')}
                 label="Rejection Reason"
                 errorMessage={errors?.rejectionReason?.message}
-                icon={errors?.rejectionReason?.message ? 'asteriskSystem' : null}
+                icon={errors?.rejectionReason?.message ? 'asterisk' : null}
                 intent="danger"
               />
             </InputWrapFull>

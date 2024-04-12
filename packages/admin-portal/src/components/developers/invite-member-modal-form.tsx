@@ -59,7 +59,7 @@ export const InviteMemberModalForm: FC<InviteMemberModalFormProps> = ({ develope
             label="Name"
             placeholder="Your colleague's full name"
             errorMessage={errors?.name?.message}
-            icon={errors?.name?.message ? 'asteriskSystem' : null}
+            icon={errors?.name?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrapFull>
@@ -70,7 +70,7 @@ export const InviteMemberModalForm: FC<InviteMemberModalFormProps> = ({ develope
             label="Email"
             placeholder="An email address we can contact your colleague at"
             errorMessage={errors?.email?.message}
-            icon={errors?.email?.message ? 'asteriskSystem' : null}
+            icon={errors?.email?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrapFull>
@@ -80,7 +80,7 @@ export const InviteMemberModalForm: FC<InviteMemberModalFormProps> = ({ develope
             label="Job Title"
             placeholder="Your colleague's role at your company'"
             errorMessage={errors?.jobTitle?.message}
-            icon={errors?.jobTitle?.message ? 'asteriskSystem' : null}
+            icon={errors?.jobTitle?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrapFull>
@@ -90,7 +90,7 @@ export const InviteMemberModalForm: FC<InviteMemberModalFormProps> = ({ develope
             label="Invite Message"
             placeholder="An optional invite message"
             errorMessage={errors?.message?.message}
-            icon={errors?.message?.message ? 'asteriskSystem' : null}
+            icon={errors?.message?.message ? 'asterisk' : null}
             intent="danger"
           />
         </InputWrapFull>

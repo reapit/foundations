@@ -5,93 +5,135 @@ exports[`FilterForm should render component 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
       <form>
-        <mock-styled.div
-          classname="el-mb11"
+        <div
+          class="el-mb11 el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="name"
                 type="search"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 Developer Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="company"
                 type="search"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 Company Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="gitHubUsername"
                 type="search"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 Github Username
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type date format dd/mm/yyy"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="registeredFrom"
                 type="date"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 Registered From
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type date format dd/mm/yyy"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="registeredTo"
                 type="date"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 Registered To
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <label
+                class="mocked-styled-36 el-label"
+              >
                 Status
-              </mock-styled.label>
-              <mock-styled.div>
-                <mock-styled.select
+              </label>
+              <div
+                class="mocked-styled-35 el-input-group"
+              >
+                <select
+                  aria-label="Select an item from the dropdown list"
+                  class="mocked-styled-76 el-select"
                   name="status"
                 >
                   <option
@@ -124,102 +166,144 @@ exports[`FilterForm should render component 1`] = `
                   >
                     Removed
                   </option>
-                </mock-styled.select>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
     <form>
-      <mock-styled.div
-        classname="el-mb11"
+      <div
+        class="el-mb11 el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type search"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="name"
               type="search"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               Developer Name
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type search"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="company"
               type="search"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               Company Name
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type search"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="gitHubUsername"
               type="search"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               Github Username
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type date format dd/mm/yyy"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="registeredFrom"
               type="date"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               Registered From
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type date format dd/mm/yyy"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="registeredTo"
               type="date"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               Registered To
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <label
+              class="mocked-styled-36 el-label"
+            >
               Status
-            </mock-styled.label>
-            <mock-styled.div>
-              <mock-styled.select
+            </label>
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="mocked-styled-76 el-select"
                 name="status"
               >
                 <option
@@ -252,11 +336,11 @@ exports[`FilterForm should render component 1`] = `
                 >
                   Removed
                 </option>
-              </mock-styled.select>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
   </div>,
   "debug": [Function],

@@ -23,7 +23,7 @@
     "@linaria/core": "^5.0.2",
     "@linaria/react": "^5.0.3",
     "@reapit/connect-session": "workspace:packages/connect-session",
-    "@reapit/elements": "^4.1.2",
+    "@reapit/elements": "^5.0.0-beta.6",
     "@reapit/use-reapit-data": "workspace:packages/use-reapit-data",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@reapit/utils-react": "workspace:packages/utils-react",
