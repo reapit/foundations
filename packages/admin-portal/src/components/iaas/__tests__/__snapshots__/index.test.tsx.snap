@@ -5,24 +5,29 @@ exports[`IaaS should match snapshot when loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
       <section
         class="el-page-container"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           IaaS Pipelines
-        </mock-styled.h1>
+        </h1>
         <form>
-          <mock-styled.div
-            classname="el-mb11"
+          <div
+            class="el-mb11 el-form-layout"
           >
-            <mock-styled.div>
-              <mock-styled.div
-                aria-controls=":r2:"
+            <div
+              class="mocked-styled-126 el-input-wrap"
+            >
+              <div
+                aria-controls="test-static-id"
                 aria-expanded="false"
                 aria-haspopup="listbox"
+                class="mocked-styled-77 el-searchable-dropdown-container"
                 role="combobox"
               >
                 <input
@@ -31,16 +36,19 @@ exports[`IaaS should match snapshot when loading 1`] = `
                   style="display: none;"
                   value=""
                 />
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-default el-icon-new"
-                    role="img"
+                <span
+                  class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                >
+                  <span
+                    class="el-intent-default el-icon"
                     style="font-size: 1rem;"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
                       style="font-size: 1rem;"
+                      title="Icon image with name search"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -50,47 +58,58 @@ exports[`IaaS should match snapshot when loading 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div
+                  </span>
+                </span>
+                <input
+                  aria-label="Input type undefined"
+                  class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
                   data-testid="search-input"
                   name="developerId"
                   placeholder="Search developer organisations"
                   value=""
                 />
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
+              </div>
+            </div>
+          </div>
         </form>
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-38 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-40 el-loader"
+          >
+            <div
+              class="mocked-styled-41 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </section>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
     <section
       class="el-page-container"
     >
-      <mock-styled.h1
-        classname="el-text-base"
+      <h1
+        class="el-text-base el-title"
       >
         IaaS Pipelines
-      </mock-styled.h1>
+      </h1>
       <form>
-        <mock-styled.div
-          classname="el-mb11"
+        <div
+          class="el-mb11 el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              aria-controls=":r2:"
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              aria-controls="test-static-id"
               aria-expanded="false"
               aria-haspopup="listbox"
+              class="mocked-styled-77 el-searchable-dropdown-container"
               role="combobox"
             >
               <input
@@ -99,16 +118,19 @@ exports[`IaaS should match snapshot when loading 1`] = `
                 style="display: none;"
                 value=""
               />
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+              <span
+                class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
+              >
+                <span
+                  class="el-intent-default el-icon"
                   style="font-size: 1rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
                     style="font-size: 1rem;"
+                    title="Icon image with name search"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -118,25 +140,31 @@ exports[`IaaS should match snapshot when loading 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div
+                </span>
+              </span>
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
                 data-testid="search-input"
                 name="developerId"
                 placeholder="Search developer organisations"
                 value=""
               />
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+            </div>
+          </div>
+        </div>
       </form>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-38 el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+        <div
+          class="mocked-styled-40 el-loader"
+        >
+          <div
+            class="mocked-styled-41 el-loader-moving-bar"
+          />
+        </div>
+      </div>
     </section>
   </div>,
   "debug": [Function],
@@ -198,24 +226,29 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
       <section
         class="el-page-container"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           IaaS Pipelines
-        </mock-styled.h1>
+        </h1>
         <form>
-          <mock-styled.div
-            classname="el-mb11"
+          <div
+            class="el-mb11 el-form-layout"
           >
-            <mock-styled.div>
-              <mock-styled.div
-                aria-controls=":r0:"
+            <div
+              class="mocked-styled-126 el-input-wrap"
+            >
+              <div
+                aria-controls="test-static-id"
                 aria-expanded="false"
                 aria-haspopup="listbox"
+                class="mocked-styled-77 el-searchable-dropdown-container"
                 role="combobox"
               >
                 <input
@@ -224,16 +257,19 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                   style="display: none;"
                   value=""
                 />
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-default el-icon-new"
-                    role="img"
+                <span
+                  class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                >
+                  <span
+                    class="el-intent-default el-icon"
                     style="font-size: 1rem;"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
                       style="font-size: 1rem;"
+                      title="Icon image with name search"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -243,185 +279,175 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div
+                  </span>
+                </span>
+                <input
+                  aria-label="Input type undefined"
+                  class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
                   data-testid="search-input"
                   name="developerId"
                   placeholder="Search developer organisations"
                   value=""
                 />
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
+              </div>
+            </div>
+          </div>
         </form>
-        <mock-styled.div
-          classname="el-mb11"
+        <div
+          class="el-mb11 el-table"
           data-has-call-to-action="true"
           data-has-expandable-action="false"
           data-num-columns-excl-action-col="3"
           role="table"
         >
-          <mock-styled.div
+          <div
+            class="mocked-styled-94 el-table-headers-row"
             role="row"
           >
-            <mock-styled.div
+            <div
               aria-label="Name"
+              class="mocked-styled-95 el-table-header"
               role="columnheader"
             >
               Name
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Build Status"
+              class="mocked-styled-95 el-table-header"
               role="columnheader"
             >
               Build Status
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Repository"
+              class="mocked-styled-95 el-table-header"
               role="columnheader"
             >
               Repository
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
+              class="mocked-styled-95 el-table-header"
               role="columnheader"
             >
               Delete Pipeline
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+            </div>
+          </div>
+          <div
+            class="mocked-styled-103 el-table-row-container"
             role="row"
           >
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+            <div
+              class="mocked-styled-96 el-table-row"
+            >
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.span
-                  classname="el-intent-default"
-                  role="img"
+                <span
+                  class="el-intent-default el-icon"
                   style="font-size: 1.25rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
                     style="font-size: 1.25rem;"
-                    viewBox="0 0 80 80"
+                    title="Icon image with name insights"
+                    viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M67 35.429 40 26l-27 9.429L40 45z"
-                      fill="#9faebc"
-                    />
-                    <path
-                      d="M67 35.429 40 26v19z"
-                      fill="#607890"
-                    />
-                    <path
-                      d="M52.564 12.252C51.958 5.945 46.676 1 40.272 1S28.586 5.945 27.979 12.252c-4.1.588-7.263 4.156-7.263 8.455 0 4.709 3.796 8.54 8.461 8.54h22.19c4.665 0 8.46-3.831 8.46-8.54 0-4.3-3.163-7.867-7.263-8.455"
-                      fill="#7e9bfa"
-                    />
-                    <path
-                      d="M32.694 19.776a.36.36 0 0 0 .335.228h3.973v9.243h6.525v-9.243h3.987c.146 0 .278-.09.335-.228a.38.38 0 0 0-.078-.403l-7.232-7.4a.36.36 0 0 0-.513 0l-7.253 7.4a.38.38 0 0 0-.079.403M43.53 29.247h-6.518c.015 1.8 1.471 3.26 3.26 3.26s3.244-1.46 3.259-3.26"
-                      fill="#fff"
-                    />
-                    <path
-                      d="M40.272 34.414c-2.775 0-5.04-2.306-5.111-5.167h-7.927q.07.67.2 1.329c.105.535.558.92 1.085.92h2.002q.088.232.184.46l-1.416 1.47a1.18 1.18 0 0 0-.14 1.446 15 15 0 0 0 1.84 2.335 14.6 14.6 0 0 0 2.25 1.91c.439.3 1.022.24 1.394-.147l1.416-1.47q.22.102.444.192v2.078c0 .546.37 1.017.886 1.126a14 14 0 0 0 5.785 0c.516-.11.887-.58.887-1.126v-2.078q.224-.09.443-.191l1.416 1.47c.372.385.955.446 1.394.145a14.6 14.6 0 0 0 2.251-1.909c.688-.713 1.306-1.5 1.84-2.335.29-.456.231-1.06-.14-1.447l-1.417-1.47q.097-.227.184-.46h2.002c.527 0 .98-.384 1.085-.92q.13-.658.2-1.328h-7.926c-.072 2.861-2.337 5.166-5.111 5.166"
-                      fill="#fff"
-                    />
-                    <path
-                      d="M40 44.566 13 36v33.401L40 78z"
-                      fill="#607890"
-                    />
-                    <path
-                      d="M67 69.401V35l-27 9.566V78z"
-                      fill="#506478"
-                    />
-                    <path
-                      d="M13.258 35 4 46.03 31.246 56 40 44.475z"
-                      fill="#d8dee4"
-                    />
-                    <path
-                      d="M66.74 35 76 46.03 48.757 56 40 44.475z"
-                      fill="#798da1"
+                      d="M6.375 15.375h-2.25C3.504 15.375 3 15.879 3 16.5V21h4.5v-4.5c0-.621-.504-1.125-1.125-1.125m6.75-5.625h-2.25c-.621 0-1.125.504-1.125 1.125V21h4.5V10.875c0-.621-.504-1.125-1.125-1.125M19.875 3h-2.25c-.621 0-1.125.504-1.125 1.125V21H21V4.125C21 3.504 20.496 3 19.875 3"
+                      fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-                <mock-styled.div
+                </span>
+                <div
+                  class="mocked-styled-104 el-table-cell-content"
                   data-narrow-label="Name"
                 >
                   reapit-ltd-internal-thoughtless-cub
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-104 el-table-cell-content"
                   data-narrow-label="Build Status"
                 >
-                  <mock-styled.span
-                    classname="el-intent-pending"
+                  <span
+                    class="el-intent-pending el-status-indicator"
                   />
                   Pre Provisioned
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-104 el-table-cell-content"
                   data-narrow-label="Repository"
                 />
-              </mock-styled.div>
-              <mock-styled.div
+              </div>
+              <div
+                class="mocked-styled-97 el-table-cta-cell"
                 role="cell"
+                tabindex="0"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-default"
-                    role="img"
+                <div
+                  class="mocked-styled-105 el-table-cta-icon-container"
+                >
+                  <span
+                    class="el-intent-default el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
-                      viewBox="0 0 18 20"
+                      role="img"
+                      title="Icon image with name trash"
+                      viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M9.625 16.875a.625.625 0 1 1-1.25 0V8.75a.625.625 0 0 1 1.25 0zM12.125 17.5c.345 0 .625-.28.625-.625V8.75a.625.625 0 1 0-1.25 0v8.125c0 .345.28.625.625.625M6.5 16.875a.625.625 0 1 1-1.25 0V8.75a.625.625 0 0 1 1.25 0z"
+                        d="M9 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0zM13 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0z"
                         fill="currentColor"
                       />
                       <path
                         clip-rule="evenodd"
-                        d="M12.125 2.5h3.438c.861 0 1.562.7 1.562 1.563V6.25c0 .345-.28.625-.625.625h-.342l-.54 11.34A1.873 1.873 0 0 1 13.747 20H4.254a1.873 1.873 0 0 1-1.872-1.786l-.54-11.339H1.5a.625.625 0 0 1-.625-.625V4.063c0-.862.7-1.563 1.563-1.563h3.437v-.625C5.875.841 6.716 0 7.75 0h2.5c1.034 0 1.875.841 1.875 1.875zM7.75 1.25a.626.626 0 0 0-.625.625V2.5h3.75v-.625a.626.626 0 0 0-.625-.625zm-5.312 2.5a.313.313 0 0 0-.313.313v1.562h13.75V4.063a.313.313 0 0 0-.312-.313zm11.308 15a.624.624 0 0 0 .624-.595l.537-11.28H3.093l.537 11.28c.016.333.29.595.624.595z"
+                        d="M18 5h3a1 1 0 1 1 0 2h-.06l-.69 11.31a5 5 0 0 1-5 4.69H8.77a5 5 0 0 1-5-4.69L3.06 7H3a1 1 0 1 1 0-2h3V4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3zM9 3a1 1 0 0 0-1 1v1h8V4a1 1 0 0 0-1-1zm6.24 18a3 3 0 0 0 3-2.81L18.94 7H5.06l.7 11.19a3 3 0 0 0 3 2.81z"
                         fill="currentColor"
                         fill-rule="evenodd"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.button
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-65 el-pagination-wrap"
+        >
+          <button
             aria-label="Previous"
+            class="mocked-styled-68 el-pagination-button"
             data-testid="back-button"
             role="button"
             type="button"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="mocked-styled-4 el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name chevronLeft"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -431,28 +457,35 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.button>
-          <mock-styled.div>
-            <mock-styled.input
+            </span>
+          </button>
+          <div
+            class="mocked-styled-66 el-pagination-text"
+          >
+            <input
+              aria-label="Current page number, edit to select page of 6 available"
+              class="mocked-styled-67 el-pagination-input"
               value="1"
             />
-             of 
+             
+            of 
             6
-          </mock-styled.div>
-          <mock-styled.button
+          </div>
+          <button
             aria-label="Next"
+            class="mocked-styled-68 el-pagination-button"
             data-testid="forward-button"
             role="button"
             type="button"
           >
-            <mock-styled.span
-              classname="el-pagination-primary el-icon-new"
-              role="img"
+            <span
+              class="el-pagination-primary el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name chevronRight"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -462,31 +495,36 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.button>
-        </mock-styled.div>
+            </span>
+          </button>
+        </div>
       </section>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
     <section
       class="el-page-container"
     >
-      <mock-styled.h1
-        classname="el-text-base"
+      <h1
+        class="el-text-base el-title"
       >
         IaaS Pipelines
-      </mock-styled.h1>
+      </h1>
       <form>
-        <mock-styled.div
-          classname="el-mb11"
+        <div
+          class="el-mb11 el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              aria-controls=":r0:"
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              aria-controls="test-static-id"
               aria-expanded="false"
               aria-haspopup="listbox"
+              class="mocked-styled-77 el-searchable-dropdown-container"
               role="combobox"
             >
               <input
@@ -495,16 +533,19 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                 style="display: none;"
                 value=""
               />
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+              <span
+                class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
+              >
+                <span
+                  class="el-intent-default el-icon"
                   style="font-size: 1rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
                     style="font-size: 1rem;"
+                    title="Icon image with name search"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -514,185 +555,175 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div
+                </span>
+              </span>
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
                 data-testid="search-input"
                 name="developerId"
                 placeholder="Search developer organisations"
                 value=""
               />
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+            </div>
+          </div>
+        </div>
       </form>
-      <mock-styled.div
-        classname="el-mb11"
+      <div
+        class="el-mb11 el-table"
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="3"
         role="table"
       >
-        <mock-styled.div
+        <div
+          class="mocked-styled-94 el-table-headers-row"
           role="row"
         >
-          <mock-styled.div
+          <div
             aria-label="Name"
+            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Name
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Build Status"
+            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Build Status
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Repository"
+            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Repository
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
+            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Delete Pipeline
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </div>
+        </div>
+        <div
+          class="mocked-styled-103 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-96 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.span
-                classname="el-intent-default"
-                role="img"
+              <span
+                class="el-intent-default el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
-                  viewBox="0 0 80 80"
+                  title="Icon image with name insights"
+                  viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M67 35.429 40 26l-27 9.429L40 45z"
-                    fill="#9faebc"
-                  />
-                  <path
-                    d="M67 35.429 40 26v19z"
-                    fill="#607890"
-                  />
-                  <path
-                    d="M52.564 12.252C51.958 5.945 46.676 1 40.272 1S28.586 5.945 27.979 12.252c-4.1.588-7.263 4.156-7.263 8.455 0 4.709 3.796 8.54 8.461 8.54h22.19c4.665 0 8.46-3.831 8.46-8.54 0-4.3-3.163-7.867-7.263-8.455"
-                    fill="#7e9bfa"
-                  />
-                  <path
-                    d="M32.694 19.776a.36.36 0 0 0 .335.228h3.973v9.243h6.525v-9.243h3.987c.146 0 .278-.09.335-.228a.38.38 0 0 0-.078-.403l-7.232-7.4a.36.36 0 0 0-.513 0l-7.253 7.4a.38.38 0 0 0-.079.403M43.53 29.247h-6.518c.015 1.8 1.471 3.26 3.26 3.26s3.244-1.46 3.259-3.26"
-                    fill="#fff"
-                  />
-                  <path
-                    d="M40.272 34.414c-2.775 0-5.04-2.306-5.111-5.167h-7.927q.07.67.2 1.329c.105.535.558.92 1.085.92h2.002q.088.232.184.46l-1.416 1.47a1.18 1.18 0 0 0-.14 1.446 15 15 0 0 0 1.84 2.335 14.6 14.6 0 0 0 2.25 1.91c.439.3 1.022.24 1.394-.147l1.416-1.47q.22.102.444.192v2.078c0 .546.37 1.017.886 1.126a14 14 0 0 0 5.785 0c.516-.11.887-.58.887-1.126v-2.078q.224-.09.443-.191l1.416 1.47c.372.385.955.446 1.394.145a14.6 14.6 0 0 0 2.251-1.909c.688-.713 1.306-1.5 1.84-2.335.29-.456.231-1.06-.14-1.447l-1.417-1.47q.097-.227.184-.46h2.002c.527 0 .98-.384 1.085-.92q.13-.658.2-1.328h-7.926c-.072 2.861-2.337 5.166-5.111 5.166"
-                    fill="#fff"
-                  />
-                  <path
-                    d="M40 44.566 13 36v33.401L40 78z"
-                    fill="#607890"
-                  />
-                  <path
-                    d="M67 69.401V35l-27 9.566V78z"
-                    fill="#506478"
-                  />
-                  <path
-                    d="M13.258 35 4 46.03 31.246 56 40 44.475z"
-                    fill="#d8dee4"
-                  />
-                  <path
-                    d="M66.74 35 76 46.03 48.757 56 40 44.475z"
-                    fill="#798da1"
+                    d="M6.375 15.375h-2.25C3.504 15.375 3 15.879 3 16.5V21h4.5v-4.5c0-.621-.504-1.125-1.125-1.125m6.75-5.625h-2.25c-.621 0-1.125.504-1.125 1.125V21h4.5V10.875c0-.621-.504-1.125-1.125-1.125M19.875 3h-2.25c-.621 0-1.125.504-1.125 1.125V21H21V4.125C21 3.504 20.496 3 19.875 3"
+                    fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.div
+              </span>
+              <div
+                class="mocked-styled-104 el-table-cell-content"
                 data-narrow-label="Name"
               >
                 reapit-ltd-internal-thoughtless-cub
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-104 el-table-cell-content"
                 data-narrow-label="Build Status"
               >
-                <mock-styled.span
-                  classname="el-intent-pending"
+                <span
+                  class="el-intent-pending el-status-indicator"
                 />
                 Pre Provisioned
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-104 el-table-cell-content"
                 data-narrow-label="Repository"
               />
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
+              class="mocked-styled-97 el-table-cta-cell"
               role="cell"
+              tabindex="0"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-default"
-                  role="img"
+              <div
+                class="mocked-styled-105 el-table-cta-icon-container"
+              >
+                <span
+                  class="el-intent-default el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
-                    viewBox="0 0 18 20"
+                    role="img"
+                    title="Icon image with name trash"
+                    viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M9.625 16.875a.625.625 0 1 1-1.25 0V8.75a.625.625 0 0 1 1.25 0zM12.125 17.5c.345 0 .625-.28.625-.625V8.75a.625.625 0 1 0-1.25 0v8.125c0 .345.28.625.625.625M6.5 16.875a.625.625 0 1 1-1.25 0V8.75a.625.625 0 0 1 1.25 0z"
+                      d="M9 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0zM13 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0z"
                       fill="currentColor"
                     />
                     <path
                       clip-rule="evenodd"
-                      d="M12.125 2.5h3.438c.861 0 1.562.7 1.562 1.563V6.25c0 .345-.28.625-.625.625h-.342l-.54 11.34A1.873 1.873 0 0 1 13.747 20H4.254a1.873 1.873 0 0 1-1.872-1.786l-.54-11.339H1.5a.625.625 0 0 1-.625-.625V4.063c0-.862.7-1.563 1.563-1.563h3.437v-.625C5.875.841 6.716 0 7.75 0h2.5c1.034 0 1.875.841 1.875 1.875zM7.75 1.25a.626.626 0 0 0-.625.625V2.5h3.75v-.625a.626.626 0 0 0-.625-.625zm-5.312 2.5a.313.313 0 0 0-.313.313v1.562h13.75V4.063a.313.313 0 0 0-.312-.313zm11.308 15a.624.624 0 0 0 .624-.595l.537-11.28H3.093l.537 11.28c.016.333.29.595.624.595z"
+                      d="M18 5h3a1 1 0 1 1 0 2h-.06l-.69 11.31a5 5 0 0 1-5 4.69H8.77a5 5 0 0 1-5-4.69L3.06 7H3a1 1 0 1 1 0-2h3V4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3zM9 3a1 1 0 0 0-1 1v1h8V4a1 1 0 0 0-1-1zm6.24 18a3 3 0 0 0 3-2.81L18.94 7H5.06l.7 11.19a3 3 0 0 0 3 2.81z"
                       fill="currentColor"
                       fill-rule="evenodd"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.button
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-65 el-pagination-wrap"
+      >
+        <button
           aria-label="Previous"
+          class="mocked-styled-68 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="mocked-styled-4 el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name chevronLeft"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -702,28 +733,35 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-        <mock-styled.div>
-          <mock-styled.input
+          </span>
+        </button>
+        <div
+          class="mocked-styled-66 el-pagination-text"
+        >
+          <input
+            aria-label="Current page number, edit to select page of 6 available"
+            class="mocked-styled-67 el-pagination-input"
             value="1"
           />
-           of 
+           
+          of 
           6
-        </mock-styled.div>
-        <mock-styled.button
+        </div>
+        <button
           aria-label="Next"
+          class="mocked-styled-68 el-pagination-button"
           data-testid="forward-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="el-pagination-primary el-icon-new"
-            role="img"
+          <span
+            class="el-pagination-primary el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name chevronRight"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -733,9 +771,9 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+          </span>
+        </button>
+      </div>
     </section>
   </div>,
   "debug": [Function],

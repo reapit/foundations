@@ -39,16 +39,14 @@ export const FilterForm: FC<FilterFormProps> = ({ setDeveloperFilters }) => {
         <InputWrap>
           <InputGroup>
             <Label>Status</Label>
-            <InputGroup>
-              <Select {...register('status')}>
-                <option value="">Please Select</option>
-                <option value="incomplete">Incomplete</option>
-                <option value="pending">Pending</option>
-                <option value="confirmed">Confirmed</option>
-                <option value="underReview">Under Review</option>
-                <option value="removed">Removed</option>
-              </Select>
-            </InputGroup>
+            <Select {...register('status')}>
+              <option value="">Please Select</option>
+              <option value="incomplete">Incomplete</option>
+              <option value="pending">Pending</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="underReview">Under Review</option>
+              <option value="removed">Removed</option>
+            </Select>
           </InputGroup>
         </InputWrap>
       </FormLayout>

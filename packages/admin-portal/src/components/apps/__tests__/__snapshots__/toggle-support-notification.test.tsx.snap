@@ -5,81 +5,111 @@ exports[`ToggleSupportNotification should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.label>
-        Support Notification
-      </mock-styled.label>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
+      <label
+        class="mocked-styled-36 el-label"
       >
-        <mock-styled.input
+        Support Notification
+      </label>
+      <div
+        class="mocked-styled-122 el-toggle-radio-wrap"
+      >
+        <input
+          checked=""
+          class="mocked-styled-120 el-toggle-radio"
           id="enable-support-notificationMOCK_ID"
           name="support-notification-MOCK_ID"
           type="radio"
           value="enable"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="enable-support-notificationMOCK_ID"
+        <label
+          class="mocked-styled-121 el-toggle-radio-label"
+          for="enable-support-notificationMOCK_ID"
+          role="button"
+          tabindex="0"
         >
-          <mock-styled.span>
+          <span
+            class="mocked-styled-117 el-toggle-radio-item"
+          >
             Enabled
-          </mock-styled.span>
-        </mock-styled.label>
-        <mock-styled.input
+          </span>
+        </label>
+        <input
+          class="mocked-styled-120 el-toggle-radio"
           id="disable-support-notificationMOCK_ID"
           name="support-notification-MOCK_ID"
           type="radio"
           value="disable"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="disable-support-notificationMOCK_ID"
+        <label
+          class="mocked-styled-121 el-toggle-radio-label"
+          for="disable-support-notificationMOCK_ID"
+          role="button"
+          tabindex="0"
         >
-          <mock-styled.span>
+          <span
+            class="mocked-styled-117 el-toggle-radio-item"
+          >
             Disabled
-          </mock-styled.span>
-        </mock-styled.label>
-      </mock-styled.div>
+          </span>
+        </label>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.label>
-      Support Notification
-    </mock-styled.label>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
+    <label
+      class="mocked-styled-36 el-label"
     >
-      <mock-styled.input
+      Support Notification
+    </label>
+    <div
+      class="mocked-styled-122 el-toggle-radio-wrap"
+    >
+      <input
+        checked=""
+        class="mocked-styled-120 el-toggle-radio"
         id="enable-support-notificationMOCK_ID"
         name="support-notification-MOCK_ID"
         type="radio"
         value="enable"
       />
-      <mock-styled.label
-        classname=""
-        htmlfor="enable-support-notificationMOCK_ID"
+      <label
+        class="mocked-styled-121 el-toggle-radio-label"
+        for="enable-support-notificationMOCK_ID"
+        role="button"
+        tabindex="0"
       >
-        <mock-styled.span>
+        <span
+          class="mocked-styled-117 el-toggle-radio-item"
+        >
           Enabled
-        </mock-styled.span>
-      </mock-styled.label>
-      <mock-styled.input
+        </span>
+      </label>
+      <input
+        class="mocked-styled-120 el-toggle-radio"
         id="disable-support-notificationMOCK_ID"
         name="support-notification-MOCK_ID"
         type="radio"
         value="disable"
       />
-      <mock-styled.label
-        classname=""
-        htmlfor="disable-support-notificationMOCK_ID"
+      <label
+        class="mocked-styled-121 el-toggle-radio-label"
+        for="disable-support-notificationMOCK_ID"
+        role="button"
+        tabindex="0"
       >
-        <mock-styled.span>
+        <span
+          class="mocked-styled-117 el-toggle-radio-item"
+        >
           Disabled
-        </mock-styled.span>
-      </mock-styled.label>
-    </mock-styled.div>
+        </span>
+      </label>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

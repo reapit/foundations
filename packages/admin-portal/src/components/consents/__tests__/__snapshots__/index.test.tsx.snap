@@ -5,21 +5,25 @@ exports[`AppConsents should match snapshot where nothing is returned 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h2
-        classname="el-text-base el-mt5"
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
+      <h2
+        class="el-text-base el-subtitle el-mt5"
       >
          Consents
-      </mock-styled.h2>
+      </h2>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h2
-      classname="el-text-base el-mt5"
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
+    <h2
+      class="el-text-base el-subtitle el-mt5"
     >
        Consents
-    </mock-styled.h2>
+    </h2>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -80,35 +84,47 @@ exports[`AppConsents should match snapshot where the app is loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h2
-        classname="el-text-base el-mt5"
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
+      <h2
+        class="el-text-base el-subtitle el-mt5"
       >
          Consents
-      </mock-styled.h2>
-      <mock-styled.div
-        classname=""
+      </h2>
+      <div
+        class="mocked-styled-38 el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+        <div
+          class="mocked-styled-40 el-loader"
+        >
+          <div
+            class="mocked-styled-41 el-loader-moving-bar"
+          />
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h2
-      classname="el-text-base el-mt5"
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
+    <h2
+      class="el-text-base el-subtitle el-mt5"
     >
        Consents
-    </mock-styled.h2>
-    <mock-styled.div
-      classname=""
+    </h2>
+    <div
+      class="mocked-styled-38 el-loader-container"
     >
-      <mock-styled.div>
-        <mock-styled.div />
-      </mock-styled.div>
-    </mock-styled.div>
+      <div
+        class="mocked-styled-40 el-loader"
+      >
+        <div
+          class="mocked-styled-41 el-loader-moving-bar"
+        />
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -169,31 +185,34 @@ exports[`AppConsents should match snapshot where there are no consents returned 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h2
-        classname="el-text-base el-mt5"
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
+      <h2
+        class="el-text-base el-subtitle el-mt5"
       >
         Reapit Insights
          Consents
-      </mock-styled.h2>
+      </h2>
       <div>
-        <mock-styled.div
-          classname="el-mb11 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-          role="alertdialog"
+        <div
+          class="el-mb11 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          role="status"
         >
           <div
             class="el-pn-icon"
             data-testid="close-icon"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="mocked-styled-4 el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name info"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -203,55 +222,63 @@ exports[`AppConsents should match snapshot where there are no consents returned 
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
           </div>
           <div
+            aria-live="polite"
             class="el-pn-content"
           >
             No record of any consents for this app - you can send these from the link below.
           </div>
-        </mock-styled.div>
+        </div>
       </div>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-button-group-align-center"
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="el-button-group-align-center el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Send Requests
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h2
-      classname="el-text-base el-mt5"
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
+    <h2
+      class="el-text-base el-subtitle el-mt5"
     >
       Reapit Insights
        Consents
-    </mock-styled.h2>
+    </h2>
     <div>
-      <mock-styled.div
-        classname="el-mb11 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-        role="alertdialog"
+      <div
+        class="el-mb11 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        role="status"
       >
         <div
           class="el-pn-icon"
           data-testid="close-icon"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="mocked-styled-4 el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1.25rem;"
+              title="Icon image with name info"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -261,27 +288,32 @@ exports[`AppConsents should match snapshot where there are no consents returned 
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
         </div>
         <div
+          aria-live="polite"
           class="el-pn-content"
         >
           No record of any consents for this app - you can send these from the link below.
         </div>
-      </mock-styled.div>
+      </div>
     </div>
-    <mock-styled.div>
-      <mock-styled.div
-        classname="el-button-group-align-center"
+    <div
+      class="mocked-styled-2 el-button-group"
+    >
+      <div
+        class="el-button-group-align-center el-button-group-inner"
       >
-        <mock-styled.button
-          classname="el-intent-primary"
+        <button
+          class="el-intent-primary el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Send Requests
-        </mock-styled.button>
-      </mock-styled.div>
-    </mock-styled.div>
+        </button>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -342,361 +374,355 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h2
-        classname="el-text-base el-mt5"
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
+      <h2
+        class="el-text-base el-subtitle el-mt5"
       >
         Reapit Insights
          Consents
-      </mock-styled.h2>
-      <mock-styled.div
+      </h2>
+      <div
+        class="mocked-styled-108 el-table"
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="5"
         role="table"
       >
-        <mock-styled.div
+        <div
+          class="mocked-styled-94 el-table-headers-row"
           role="row"
         >
-          <mock-styled.div
+          <div
             aria-label="Client"
+            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Client
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Email"
+            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Email
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Date Sent"
+            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Date Sent
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Status"
+            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Status
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Date Accepted"
+            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Date Accepted
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
+            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Resend Email
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </div>
+        </div>
+        <div
+          class="mocked-styled-103 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-96 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.span
-                classname="el-intent-default"
-                role="img"
+              <span
+                class="el-intent-default el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
-                  viewBox="0 0 20 20"
+                  title="Icon image with name property"
+                  viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <g
-                    clip-path="url(#flatInfographic_svg__a)"
-                  >
-                    <path
-                      d="M20 20h-9V4h9v16"
-                      fill="#d8dee4"
-                    />
-                    <path
-                      d="M13 2h-1v18h1zM1.28 0v1.787H0V20h12V0z"
-                      fill="#798da1"
-                    />
-                    <path
-                      d="M5.149 4.505H3.617V6.38H5.15zM8.962 4.505H7.43V6.38h1.532zM3.617 8.255H5.15v1.875H3.617zM8.962 8.255H7.43v1.875h1.532zM3.617 12.006H5.15v1.875H3.617zM8.962 12.006H7.43v1.875h1.532zM3.617 15.756H5.15v1.875H3.617zM8.962 15.756H7.43v1.875h1.532z"
-                      fill="#fff"
-                    />
-                    <path
-                      d="M16.281 8.255h-1.532v1.875h1.532zM16.281 12.006h-1.532v1.875h1.532z"
-                      fill="#798da1"
-                    />
-                  </g>
-                  <defs>
-                    <clippath
-                      id="flatInfographic_svg__a"
-                    >
-                      <path
-                        d="M0 0h20v20H0z"
-                        fill="#fff"
-                      />
-                    </clippath>
-                  </defs>
+                  <path
+                    d="m22.923 9.165-10.5-7a1 1 0 0 0-1.1 0l-10.45 7a1 1 0 0 0 1.1 1.66l.9-.63v11.3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-11.3l.95.63a.94.94 0 0 0 .55.17 1 1 0 0 0 .55-1.83m-4.05 11.33h-14V8.865l7-4.67 7 4.67z"
+                    fill="currentColor"
+                  />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.div
+              </span>
+              <div
+                class="mocked-styled-104 el-table-cell-content"
                 data-narrow-label="Client"
               />
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-104 el-table-cell-content"
                 data-narrow-label="Email"
               >
                 test@example.com
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-104 el-table-cell-content"
                 data-narrow-label="Date Sent"
               >
                 22/09/2022 13:38
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-104 el-table-cell-content"
                 data-narrow-label="Status"
               >
                 Pending
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-104 el-table-cell-content"
                 data-narrow-label="Date Accepted"
               >
                 -
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
+              </div>
+            </div>
+            <div
+              class="mocked-styled-97 el-table-cta-cell"
               role="cell"
+              tabindex="0"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-default"
-                  role="img"
+              <div
+                class="mocked-styled-105 el-table-cta-icon-container"
+              >
+                <span
+                  class="el-intent-default el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
-                    viewBox="0 0 20 16"
+                    role="img"
+                    title="Icon image with name email"
+                    viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M18.125.5H1.875A1.877 1.877 0 0 0 0 2.375v11.25C0 14.659.841 15.5 1.875 15.5h16.25A1.877 1.877 0 0 0 20 13.625V2.375A1.877 1.877 0 0 0 18.125.5m0 1.25a.6.6 0 0 1 .24.048L10 9.048l-8.365-7.25a.6.6 0 0 1 .24-.048zm0 12.5H1.875a.625.625 0 0 1-.625-.625V3.119l8.34 7.228a.624.624 0 0 0 .82 0l8.34-7.228v10.506c0 .345-.28.625-.625.625"
+                      d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m-1.41 2L12 12.59 5.41 6zM4 18V7.41L10.59 14a2 2 0 0 0 2.82 0L20 7.41V18z"
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h2
-      classname="el-text-base el-mt5"
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
+    <h2
+      class="el-text-base el-subtitle el-mt5"
     >
       Reapit Insights
        Consents
-    </mock-styled.h2>
-    <mock-styled.div
+    </h2>
+    <div
+      class="mocked-styled-108 el-table"
       data-has-call-to-action="true"
       data-has-expandable-action="false"
       data-num-columns-excl-action-col="5"
       role="table"
     >
-      <mock-styled.div
+      <div
+        class="mocked-styled-94 el-table-headers-row"
         role="row"
       >
-        <mock-styled.div
+        <div
           aria-label="Client"
+          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           Client
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Email"
+          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           Email
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Date Sent"
+          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           Date Sent
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Status"
+          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           Status
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Date Accepted"
+          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           Date Accepted
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
+          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           Resend Email
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+        </div>
+      </div>
+      <div
+        class="mocked-styled-103 el-table-row-container"
         role="row"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+        <div
+          class="mocked-styled-96 el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.span
-              classname="el-intent-default"
-              role="img"
+            <span
+              class="el-intent-default el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
-                viewBox="0 0 20 20"
+                title="Icon image with name property"
+                viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <g
-                  clip-path="url(#flatInfographic_svg__a)"
-                >
-                  <path
-                    d="M20 20h-9V4h9v16"
-                    fill="#d8dee4"
-                  />
-                  <path
-                    d="M13 2h-1v18h1zM1.28 0v1.787H0V20h12V0z"
-                    fill="#798da1"
-                  />
-                  <path
-                    d="M5.149 4.505H3.617V6.38H5.15zM8.962 4.505H7.43V6.38h1.532zM3.617 8.255H5.15v1.875H3.617zM8.962 8.255H7.43v1.875h1.532zM3.617 12.006H5.15v1.875H3.617zM8.962 12.006H7.43v1.875h1.532zM3.617 15.756H5.15v1.875H3.617zM8.962 15.756H7.43v1.875h1.532z"
-                    fill="#fff"
-                  />
-                  <path
-                    d="M16.281 8.255h-1.532v1.875h1.532zM16.281 12.006h-1.532v1.875h1.532z"
-                    fill="#798da1"
-                  />
-                </g>
-                <defs>
-                  <clippath
-                    id="flatInfographic_svg__a"
-                  >
-                    <path
-                      d="M0 0h20v20H0z"
-                      fill="#fff"
-                    />
-                  </clippath>
-                </defs>
+                <path
+                  d="m22.923 9.165-10.5-7a1 1 0 0 0-1.1 0l-10.45 7a1 1 0 0 0 1.1 1.66l.9-.63v11.3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-11.3l.95.63a.94.94 0 0 0 .55.17 1 1 0 0 0 .55-1.83m-4.05 11.33h-14V8.865l7-4.67 7 4.67z"
+                  fill="currentColor"
+                />
               </svg>
-            </mock-styled.span>
-            <mock-styled.div
+            </span>
+            <div
+              class="mocked-styled-104 el-table-cell-content"
               data-narrow-label="Client"
             />
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-104 el-table-cell-content"
               data-narrow-label="Email"
             >
               test@example.com
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-104 el-table-cell-content"
               data-narrow-label="Date Sent"
             >
               22/09/2022 13:38
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-104 el-table-cell-content"
               data-narrow-label="Status"
             >
               Pending
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-104 el-table-cell-content"
               data-narrow-label="Date Accepted"
             >
               -
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
+            </div>
+          </div>
+          <div
+            class="mocked-styled-97 el-table-cta-cell"
             role="cell"
+            tabindex="0"
           >
-            <mock-styled.div>
-              <mock-styled.span
-                classname="el-intent-default"
-                role="img"
+            <div
+              class="mocked-styled-105 el-table-cta-icon-container"
+            >
+              <span
+                class="el-intent-default el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  viewBox="0 0 20 16"
+                  role="img"
+                  title="Icon image with name email"
+                  viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M18.125.5H1.875A1.877 1.877 0 0 0 0 2.375v11.25C0 14.659.841 15.5 1.875 15.5h16.25A1.877 1.877 0 0 0 20 13.625V2.375A1.877 1.877 0 0 0 18.125.5m0 1.25a.6.6 0 0 1 .24.048L10 9.048l-8.365-7.25a.6.6 0 0 1 .24-.048zm0 12.5H1.875a.625.625 0 0 1-.625-.625V3.119l8.34 7.228a.624.624 0 0 0 .82 0l8.34-7.228v10.506c0 .345-.28.625-.625.625"
+                    d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m-1.41 2L12 12.59 5.41 6zM4 18V7.41L10.59 14a2 2 0 0 0 2.82 0L20 7.41V18z"
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
