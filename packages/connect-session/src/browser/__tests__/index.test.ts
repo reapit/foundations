@@ -293,7 +293,7 @@ describe('ReapitConnectBrowserSession', () => {
         headers: expect.objectContaining({
           'Content-Type': 'application/x-www-form-urlencoded',
         }),
-        body: expect.stringMatching(/(redirect_url|client_id|grant_type)/i),
+        body: expect.stringMatching(/(redirect_url|client_id|grant_type|code_challenge)/i),
       }),
     )
   })
