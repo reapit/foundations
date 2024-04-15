@@ -145,6 +145,21 @@ export const SomeComponent: React.FC = () => {
 }
 ```
 
+## PKCE 
+
+[Proof Key for Code Exchange](https://oauth.net/2/pkce/)
+
+By default PKCE is enabled. To disable PKCE, use `usePKCE` varaible on `ReapitConnectBrowserSession` and set it to false.
+
+```ts
+import { ReapitConnectBrowserSession } from '@reapit/connect-session'
+
+export const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
+  ...
+  usePKCE: false,
+})
+```
+
 ## Sign In With Reapit Button
 
 Perhaps the simplest way to authenticate on the client side is to embed the "Sign In With Reapit Button" on your page. This is a single script served from our CDN, you instantiate with a target div, your client credentials as per the browser API and pass in a callback to receive your session object. As per the NPM module, all caching, redirection and refreshing is taken care of by the package. When you have a session, the button will change function to be a logout which will clear your cache and end your session in Reapit Connect.
