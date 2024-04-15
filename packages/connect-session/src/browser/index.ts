@@ -56,7 +56,7 @@ export class ReapitConnectBrowserSession {
     connectLoginRedirectPath,
     connectLogoutRedirectPath,
     connectApplicationTimeout,
-    usePKCE = false,
+    usePKCE = true,
   }: ReapitConnectBrowserSessionInitializers) {
     // Instantiate my private variables from the constructor params
     this.connectOAuthUrl = connectOAuthUrl
