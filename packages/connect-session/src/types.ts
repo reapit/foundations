@@ -1,6 +1,7 @@
 export interface ReapitConnectBrowserSessionInitializers {
   connectOAuthUrl: string
   connectClientId: string
+  usePKCE?: boolean
   /**
    * @deprecated connectUserPoolId is no longer used so can safely be removed.
    */

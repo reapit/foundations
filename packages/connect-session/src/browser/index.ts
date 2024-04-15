@@ -20,23 +20,8 @@ type BasePayload = {
 type AuthCodePayload = BasePayload & {
   grant_type: 'authorization_code'
   code: string
-  code_verifier: string
-  code_challenge_method: 'S256'
-}
-
-type RefreshTokenPayload = BasePayload & {
-  grant_type: 'refresh_token'
-  refresh_token: string
-}
-
-type BasePayload = {
-  redirect_uri: string
-  client_id: string
-}
-
-type AuthCodePayload = BasePayload & {
-  grant_type: 'authorization_code'
-  code: string
+  code_verifier?: string
+  code_challenge_method?: 'S256'
 }
 
 type RefreshTokenPayload = BasePayload & {
@@ -63,6 +48,7 @@ export class ReapitConnectBrowserSession {
   private idleTimeoutCountdown: number
   private refreshTokenStorage: Storage
   private fetching: boolean
+  private readonly usePKCE: boolean
 
   constructor({
     connectClientId,
@@ -70,6 +56,7 @@ export class ReapitConnectBrowserSession {
     connectLoginRedirectPath,
     connectLogoutRedirectPath,
     connectApplicationTimeout,
+    usePKCE = false,
   }: ReapitConnectBrowserSessionInitializers) {
     // Instantiate my private variables from the constructor params
     this.connectOAuthUrl = connectOAuthUrl
@@ -83,6 +70,7 @@ export class ReapitConnectBrowserSession {
     this.fetching = false
     this.session = null
     this.idleTimeoutCountdown = this.connectApplicationTimeout
+    this.usePKCE = usePKCE
     this.connectBindPublicMethods()
     this.setIdleTimeoutListeners()
   }
@@ -277,7 +265,7 @@ export class ReapitConnectBrowserSession {
     this.refreshTokenStorage.setItem(stateNonce, internalRedirectPath)
     const code_challenge = await this.encryptCodeVerifier(this.codeVerifier)
 
-    window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${authRedirectUri}&state=${stateNonce}&code_challenge_method=S256&code_challenge=${code_challenge}`
+    window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${authRedirectUri}&state=${stateNonce}${this.usePKCE ? `&code_challenge_method=S256&code_challenge=${code_challenge}` : ''}`
   }
 
   // Handles redirect to login - defaults to constructor redirect uri but I can override if I like.
@@ -342,8 +330,8 @@ export class ReapitConnectBrowserSession {
               client_id: this.connectClientId,
               grant_type: 'authorization_code',
               code: this.authCode as string,
-              code_verifier: this.codeVerifier,
-              code_challenge_method: 'S256',
+              code_verifier: this.usePKCE ? this.codeVerifier : undefined,
+              code_challenge_method: this.usePKCE ? 'S256' : undefined,
             },
       )
 

@@ -293,7 +293,38 @@ describe('ReapitConnectBrowserSession', () => {
         headers: expect.objectContaining({
           'Content-Type': 'application/x-www-form-urlencoded',
         }),
-        body: expect.stringMatching(/(redirect_url|client_id|grant_type|code_challenge)/i),
+        body: expect.stringMatching(/(redirect_url|client_id|grant_type)/i),
+      }),
+    )
+  })
+
+  it('Should call fetch with code challenge when PKCE = true', async () => {
+    const code = 'SOME_CODE'
+    window.location.search = `?code=${code}`
+    mockedFetch.mockResponseOnce(JSON.stringify(mockTokenResponse))
+
+    const expiredSession = {
+      ...mockBrowserSession,
+      accessToken: createMockToken({ exp: Math.round(new Date().getTime() / 1000) }),
+      refreshToken: '',
+    }
+
+    const session = new ReapitConnectBrowserSession({
+      ...mockBrowserInitializers,
+      usePKCE: true,
+    })
+    const invalidSession = Object.assign(session, { session: expiredSession }) as ReapitConnectBrowserSession
+
+    await invalidSession.connectSession()
+
+    expect(window.fetch).toHaveBeenLastCalledWith(
+      'SOME_URL/token',
+      expect.objectContaining({
+        method: 'POST',
+        headers: expect.objectContaining({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        }),
+        body: expect.stringMatching(/(code_challenge|code_challenge_method)/i),
       }),
     )
   })
