@@ -265,6 +265,34 @@ describe('ReapitConnectBrowserSession', () => {
     }, 1)
   })
 
+  it('Should call fetch with post method', async () => {
+    const code = 'SOME_CODE'
+    window.location.search = `?code=${code}`
+    mockedFetch.mockResponseOnce(JSON.stringify(mockTokenResponse))
+
+    const expiredSession = {
+      ...mockBrowserSession,
+      accessToken: createMockToken({ exp: Math.round(new Date().getTime() / 1000) }),
+      refreshToken: '',
+    }
+
+    const session = getSession()
+    const invalidSession = Object.assign(session, { session: expiredSession }) as ReapitConnectBrowserSession
+
+    await invalidSession.connectSession()
+
+    expect(window.fetch).toHaveBeenLastCalledWith(
+      'SOME_URL/token',
+      expect.objectContaining({
+        method: 'POST',
+        headers: expect.objectContaining({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        }),
+        body: expect.stringMatching(/(redirect_url|client_id|grant_type)/i),
+      }),
+    )
+  })
+
   afterEach(() => {
     jest.resetAllMocks()
     window.localStorage.clear()
