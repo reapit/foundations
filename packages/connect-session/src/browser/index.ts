@@ -29,6 +29,21 @@ type RefreshTokenPayload = BasePayload & {
   refresh_token: string
 }
 
+type BasePayload = {
+  redirect_uri: string
+  client_id: string
+}
+
+type AuthCodePayload = BasePayload & {
+  grant_type: 'authorization_code'
+  code: string
+}
+
+type RefreshTokenPayload = BasePayload & {
+  grant_type: 'refresh_token'
+  refresh_token: string
+}
+
 export class ReapitConnectBrowserSession {
   // Static constants
   static GLOBAL_KEY = '__REAPIT_MARKETPLACE_GLOBALS__'
