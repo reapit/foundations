@@ -226,7 +226,7 @@ export const Installations: FC = () => {
                   {
                     label: 'Customer Name',
                     value: customerName,
-                    icon: 'flatInfographic',
+                    icon: 'property',
                     cellHasDarkText: true,
                     narrowTable: {
                       showLabel: true,
@@ -235,7 +235,7 @@ export const Installations: FC = () => {
                   {
                     label: 'App Name',
                     value: appName,
-                    icon: 'appInfographic',
+                    icon: 'insights',
                     cellHasDarkText: true,
                     narrowTable: {
                       showLabel: true,

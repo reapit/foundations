@@ -154,7 +154,7 @@ export const DeveloperStatusModal: FC<DeveloperStatusModalProps> = ({
             label="Reapit Reference"
             placeholder="Reapit Reference if account confirmed"
             errorMessage={errors?.reapitReference?.message}
-            icon={errors?.reapitReference?.message ? 'asteriskSystem' : null}
+            icon={errors?.reapitReference?.message ? 'asterisk' : null}
             intent="danger"
             disabled={status !== 'confirmed'}
           />

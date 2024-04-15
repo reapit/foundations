@@ -5,352 +5,492 @@ exports[`FilterForm should render component with apps and categories 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
       <form>
-        <mock-styled.div
-          classname="el-mb11"
+        <div
+          class="el-mb11 el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="searchTerm"
                 type="search"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 App or Developer Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="companyName"
                 type="search"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 Company Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="id"
                 type="search"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 App Id
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type date format dd/mm/yyy"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="registeredFrom"
                 type="date"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 Registered From
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type date format dd/mm/yyy"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="registeredTo"
                 type="date"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 Registered To
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type date format dd/mm/yyy"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="publicListedDateFrom"
                 type="date"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 Publicly Listed From
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type date format dd/mm/yyy"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="publicListedDateTo"
                 type="date"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 Publicly Listed To
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
-                In Public AppMarket
-              </mock-styled.label>
-              <mock-styled.div
-                classname="el-has-grey-bg"
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <label
+                class="mocked-styled-36 el-label"
               >
-                <mock-styled.input
+                In Public AppMarket
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-public-all"
                   name="isPublic"
                   type="radio"
                   value=""
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-public-all"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-public-all"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     All
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-public-true"
                   name="isPublic"
                   type="radio"
                   value="true"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-public-true"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-public-true"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     Public
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-public-false"
                   name="isPublic"
                   type="radio"
                   value="false"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-public-false"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-public-false"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     Private
-                  </mock-styled.span>
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
-                Integration or AC Enabled
-              </mock-styled.label>
-              <mock-styled.div
-                classname="el-has-grey-bg"
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <label
+                class="mocked-styled-36 el-label"
               >
-                <mock-styled.input
+                Integration or AC Enabled
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-integration-all"
                   name="isDirectApi"
                   type="radio"
                   value=""
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-integration-all"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-integration-all"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     All
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-integration-true"
                   name="isDirectApi"
                   type="radio"
                   value="true"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-integration-true"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-integration-true"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     Integration
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-integration-false"
                   name="isDirectApi"
                   type="radio"
                   value="false"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-integration-false"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-integration-false"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     AC App
-                  </mock-styled.span>
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
-                Publicly Listed
-              </mock-styled.label>
-              <mock-styled.div
-                classname="el-has-grey-bg"
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <label
+                class="mocked-styled-36 el-label"
               >
-                <mock-styled.input
+                Publicly Listed
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-listed-all"
                   name="isListed"
                   type="radio"
                   value=""
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-listed-all"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-listed-all"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     All
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-listed-true"
                   name="isListed"
                   type="radio"
                   value="true"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-listed-true"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-listed-true"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     Listed
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-listed-false"
                   name="isListed"
                   type="radio"
                   value="false"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-listed-false"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-listed-false"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     Development
-                  </mock-styled.span>
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
-                Is Charged Consumption
-              </mock-styled.label>
-              <mock-styled.div
-                classname="el-has-grey-bg"
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <label
+                class="mocked-styled-36 el-label"
               >
-                <mock-styled.input
+                Is Charged Consumption
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-consumption-all"
                   name="isChargedConsumption"
                   type="radio"
                   value=""
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-consumption-all"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-consumption-all"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     All
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-consumption-true"
                   name="isChargedConsumption"
                   type="radio"
                   value="true"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-consumption-true"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-consumption-true"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     Charged
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-consumption-false"
                   name="isChargedConsumption"
                   type="radio"
                   value="false"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-consumption-false"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-consumption-false"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     Free
-                  </mock-styled.span>
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
-                Categories
-              </mock-styled.label>
-              <mock-styled.div
-                aria-controls=":r0:"
-                aria-haspopup="listbox"
-                role="combobox"
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-128 el-input-wrap-full"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <label
+                class="mocked-styled-36 el-label"
               >
-                <mock-styled.input
+                Categories
+              </label>
+              <div
+                class="mocked-styled-52 el-multi-select-input-wrapper"
+              >
+                <input
+                  class="mocked-styled-51 el-multi-select-input"
                   id="category"
                   name="category"
                 />
-                <mock-styled.div
-                  classname=""
+                <div
+                  aria-label="Multi selected options"
+                  class="mocked-styled-49 el-multi-select-selected"
+                  role="listbox"
                 >
-                  <mock-styled.span
-                    classname="el-ml2 el-intent-default el-icon-new"
-                    role="img"
+                  <span
+                    class="el-ml2 el-intent-default el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name task"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -360,469 +500,671 @@ exports[`FilterForm should render component with apps and categories 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
+                  </span>
                   <p>
                     Please select from the options below
                   </p>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname=""
+                </div>
+                <div
+                  aria-label="Multi unselected options"
+                  class="mocked-styled-50 el-multi-select-un-selected"
+                  role="listbox"
                 >
-                  <mock-styled.input
+                  <input
+                    aria-checked="false"
+                    aria-hidden="true"
+                    class="mocked-styled-46 el-multi-select-checkbox"
                     id="test-static-id"
+                    role="option"
                     type="checkbox"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-chips"
-                    htmlfor="test-static-id"
+                  <label
+                    class="el-has-grey-chips el-multi-select-label"
+                    for="test-static-id"
+                    role="option"
+                    tabindex="0"
                   >
                     string
-                  </mock-styled.label>
-                  <mock-styled.input
+                  </label>
+                  <input
+                    aria-checked="false"
+                    aria-hidden="true"
+                    class="mocked-styled-46 el-multi-select-checkbox"
                     id="test-static-id"
+                    role="option"
                     type="checkbox"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-chips"
-                    htmlfor="test-static-id"
+                  <label
+                    class="el-has-grey-chips el-multi-select-label"
+                    for="test-static-id"
+                    role="option"
+                    tabindex="0"
                   >
                     Tools
-                  </mock-styled.label>
-                  <mock-styled.input
+                  </label>
+                  <input
+                    aria-checked="false"
+                    aria-hidden="true"
+                    class="mocked-styled-46 el-multi-select-checkbox"
                     id="test-static-id"
+                    role="option"
                     type="checkbox"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-chips"
-                    htmlfor="test-static-id"
+                  <label
+                    class="el-has-grey-chips el-multi-select-label"
+                    for="test-static-id"
+                    role="option"
+                    tabindex="0"
                   >
                     Social
-                  </mock-styled.label>
-                  <mock-styled.input
+                  </label>
+                  <input
+                    aria-checked="false"
+                    aria-hidden="true"
+                    class="mocked-styled-46 el-multi-select-checkbox"
                     id="test-static-id"
+                    role="option"
                     type="checkbox"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-chips"
-                    htmlfor="test-static-id"
+                  <label
+                    class="el-has-grey-chips el-multi-select-label"
+                    for="test-static-id"
+                    role="option"
+                    tabindex="0"
                   >
                     Marketing
-                  </mock-styled.label>
-                  <mock-styled.input
+                  </label>
+                  <input
+                    aria-checked="false"
+                    aria-hidden="true"
+                    class="mocked-styled-46 el-multi-select-checkbox"
                     id="test-static-id"
+                    role="option"
                     type="checkbox"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-chips"
-                    htmlfor="test-static-id"
+                  <label
+                    class="el-has-grey-chips el-multi-select-label"
+                    for="test-static-id"
+                    role="option"
+                    tabindex="0"
                   >
                     Communication
-                  </mock-styled.label>
-                  <mock-styled.input
+                  </label>
+                  <input
+                    aria-checked="false"
+                    aria-hidden="true"
+                    class="mocked-styled-46 el-multi-select-checkbox"
                     id="test-static-id"
+                    role="option"
                     type="checkbox"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-chips"
-                    htmlfor="test-static-id"
+                  <label
+                    class="el-has-grey-chips el-multi-select-label"
+                    for="test-static-id"
+                    role="option"
+                    tabindex="0"
                   >
                     Media
-                  </mock-styled.label>
-                  <mock-styled.input
+                  </label>
+                  <input
+                    aria-checked="false"
+                    aria-hidden="true"
+                    class="mocked-styled-46 el-multi-select-checkbox"
                     id="test-static-id"
+                    role="option"
                     type="checkbox"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-chips"
-                    htmlfor="test-static-id"
+                  <label
+                    class="el-has-grey-chips el-multi-select-label"
+                    for="test-static-id"
+                    role="option"
+                    tabindex="0"
                   >
                     Events
-                  </mock-styled.label>
-                  <mock-styled.input
+                  </label>
+                  <input
+                    aria-checked="false"
+                    aria-hidden="true"
+                    class="mocked-styled-46 el-multi-select-checkbox"
                     id="test-static-id"
+                    role="option"
                     type="checkbox"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-chips"
-                    htmlfor="test-static-id"
+                  <label
+                    class="el-has-grey-chips el-multi-select-label"
+                    for="test-static-id"
+                    role="option"
+                    tabindex="0"
                   >
                     Finance
-                  </mock-styled.label>
-                  <mock-styled.input
+                  </label>
+                  <input
+                    aria-checked="false"
+                    aria-hidden="true"
+                    class="mocked-styled-46 el-multi-select-checkbox"
                     id="test-static-id"
+                    role="option"
                     type="checkbox"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-chips"
-                    htmlfor="test-static-id"
+                  <label
+                    class="el-has-grey-chips el-multi-select-label"
+                    for="test-static-id"
+                    role="option"
+                    tabindex="0"
                   >
                     Productivity
-                  </mock-styled.label>
-                  <mock-styled.input
+                  </label>
+                  <input
+                    aria-checked="false"
+                    aria-hidden="true"
+                    class="mocked-styled-46 el-multi-select-checkbox"
                     id="test-static-id"
+                    role="option"
                     type="checkbox"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-chips"
-                    htmlfor="test-static-id"
+                  <label
+                    class="el-has-grey-chips el-multi-select-label"
+                    for="test-static-id"
+                    role="option"
+                    tabindex="0"
                   >
                     Other
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
     <form>
-      <mock-styled.div
-        classname="el-mb11"
+      <div
+        class="el-mb11 el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type search"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="searchTerm"
               type="search"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               App or Developer Name
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type search"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="companyName"
               type="search"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               Company Name
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type search"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="id"
               type="search"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               App Id
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type date format dd/mm/yyy"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="registeredFrom"
               type="date"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               Registered From
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type date format dd/mm/yyy"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="registeredTo"
               type="date"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               Registered To
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type date format dd/mm/yyy"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="publicListedDateFrom"
               type="date"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               Publicly Listed From
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type date format dd/mm/yyy"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="publicListedDateTo"
               type="date"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               Publicly Listed To
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
-              In Public AppMarket
-            </mock-styled.label>
-            <mock-styled.div
-              classname="el-has-grey-bg"
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <label
+              class="mocked-styled-36 el-label"
             >
-              <mock-styled.input
+              In Public AppMarket
+            </label>
+            <div
+              class="el-has-grey-bg el-toggle-radio-wrap"
+            >
+              <input
+                checked=""
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-public-all"
                 name="isPublic"
                 type="radio"
                 value=""
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-public-all"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-public-all"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   All
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-public-true"
                 name="isPublic"
                 type="radio"
                 value="true"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-public-true"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-public-true"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   Public
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-public-false"
                 name="isPublic"
                 type="radio"
                 value="false"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-public-false"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-public-false"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   Private
-                </mock-styled.span>
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
-              Integration or AC Enabled
-            </mock-styled.label>
-            <mock-styled.div
-              classname="el-has-grey-bg"
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <label
+              class="mocked-styled-36 el-label"
             >
-              <mock-styled.input
+              Integration or AC Enabled
+            </label>
+            <div
+              class="el-has-grey-bg el-toggle-radio-wrap"
+            >
+              <input
+                checked=""
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-integration-all"
                 name="isDirectApi"
                 type="radio"
                 value=""
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-integration-all"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-integration-all"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   All
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-integration-true"
                 name="isDirectApi"
                 type="radio"
                 value="true"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-integration-true"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-integration-true"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   Integration
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-integration-false"
                 name="isDirectApi"
                 type="radio"
                 value="false"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-integration-false"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-integration-false"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   AC App
-                </mock-styled.span>
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
-              Publicly Listed
-            </mock-styled.label>
-            <mock-styled.div
-              classname="el-has-grey-bg"
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <label
+              class="mocked-styled-36 el-label"
             >
-              <mock-styled.input
+              Publicly Listed
+            </label>
+            <div
+              class="el-has-grey-bg el-toggle-radio-wrap"
+            >
+              <input
+                checked=""
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-listed-all"
                 name="isListed"
                 type="radio"
                 value=""
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-listed-all"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-listed-all"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   All
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-listed-true"
                 name="isListed"
                 type="radio"
                 value="true"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-listed-true"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-listed-true"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   Listed
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-listed-false"
                 name="isListed"
                 type="radio"
                 value="false"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-listed-false"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-listed-false"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   Development
-                </mock-styled.span>
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
-              Is Charged Consumption
-            </mock-styled.label>
-            <mock-styled.div
-              classname="el-has-grey-bg"
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <label
+              class="mocked-styled-36 el-label"
             >
-              <mock-styled.input
+              Is Charged Consumption
+            </label>
+            <div
+              class="el-has-grey-bg el-toggle-radio-wrap"
+            >
+              <input
+                checked=""
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-consumption-all"
                 name="isChargedConsumption"
                 type="radio"
                 value=""
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-consumption-all"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-consumption-all"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   All
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-consumption-true"
                 name="isChargedConsumption"
                 type="radio"
                 value="true"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-consumption-true"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-consumption-true"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   Charged
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-consumption-false"
                 name="isChargedConsumption"
                 type="radio"
                 value="false"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-consumption-false"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-consumption-false"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   Free
-                </mock-styled.span>
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
-              Categories
-            </mock-styled.label>
-            <mock-styled.div
-              aria-controls=":r0:"
-              aria-haspopup="listbox"
-              role="combobox"
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-128 el-input-wrap-full"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <label
+              class="mocked-styled-36 el-label"
             >
-              <mock-styled.input
+              Categories
+            </label>
+            <div
+              class="mocked-styled-52 el-multi-select-input-wrapper"
+            >
+              <input
+                class="mocked-styled-51 el-multi-select-input"
                 id="category"
                 name="category"
               />
-              <mock-styled.div
-                classname=""
+              <div
+                aria-label="Multi selected options"
+                class="mocked-styled-49 el-multi-select-selected"
+                role="listbox"
               >
-                <mock-styled.span
-                  classname="el-ml2 el-intent-default el-icon-new"
-                  role="img"
+                <span
+                  class="el-ml2 el-intent-default el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name task"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -832,119 +1174,181 @@ exports[`FilterForm should render component with apps and categories 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
+                </span>
                 <p>
                   Please select from the options below
                 </p>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+              </div>
+              <div
+                aria-label="Multi unselected options"
+                class="mocked-styled-50 el-multi-select-un-selected"
+                role="listbox"
               >
-                <mock-styled.input
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-46 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   string
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-46 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   Tools
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-46 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   Social
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-46 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   Marketing
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-46 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   Communication
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-46 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   Media
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-46 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   Events
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-46 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   Finance
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-46 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   Productivity
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-46 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   Other
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
   </div>,
   "debug": [Function],
@@ -1006,656 +1410,920 @@ exports[`FilterForm should render component with no apps or categories 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
       <form>
-        <mock-styled.div
-          classname="el-mb11"
+        <div
+          class="el-mb11 el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="searchTerm"
                 type="search"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 App or Developer Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="companyName"
                 type="search"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 Company Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="id"
                 type="search"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 App Id
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type date format dd/mm/yyy"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="registeredFrom"
                 type="date"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 Registered From
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type date format dd/mm/yyy"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="registeredTo"
                 type="date"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 Registered To
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type date format dd/mm/yyy"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="publicListedDateFrom"
                 type="date"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 Publicly Listed From
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type date format dd/mm/yyy"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="publicListedDateTo"
                 type="date"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 Publicly Listed To
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
-                In Public AppMarket
-              </mock-styled.label>
-              <mock-styled.div
-                classname="el-has-grey-bg"
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <label
+                class="mocked-styled-36 el-label"
               >
-                <mock-styled.input
+                In Public AppMarket
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-public-all"
                   name="isPublic"
                   type="radio"
                   value=""
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-public-all"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-public-all"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     All
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-public-true"
                   name="isPublic"
                   type="radio"
                   value="true"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-public-true"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-public-true"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     Public
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-public-false"
                   name="isPublic"
                   type="radio"
                   value="false"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-public-false"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-public-false"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     Private
-                  </mock-styled.span>
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
-                Integration or AC Enabled
-              </mock-styled.label>
-              <mock-styled.div
-                classname="el-has-grey-bg"
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <label
+                class="mocked-styled-36 el-label"
               >
-                <mock-styled.input
+                Integration or AC Enabled
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-integration-all"
                   name="isDirectApi"
                   type="radio"
                   value=""
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-integration-all"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-integration-all"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     All
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-integration-true"
                   name="isDirectApi"
                   type="radio"
                   value="true"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-integration-true"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-integration-true"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     Integration
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-integration-false"
                   name="isDirectApi"
                   type="radio"
                   value="false"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-integration-false"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-integration-false"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     AC App
-                  </mock-styled.span>
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
-                Publicly Listed
-              </mock-styled.label>
-              <mock-styled.div
-                classname="el-has-grey-bg"
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <label
+                class="mocked-styled-36 el-label"
               >
-                <mock-styled.input
+                Publicly Listed
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-listed-all"
                   name="isListed"
                   type="radio"
                   value=""
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-listed-all"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-listed-all"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     All
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-listed-true"
                   name="isListed"
                   type="radio"
                   value="true"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-listed-true"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-listed-true"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     Listed
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-listed-false"
                   name="isListed"
                   type="radio"
                   value="false"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-listed-false"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-listed-false"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     Development
-                  </mock-styled.span>
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
-                Is Charged Consumption
-              </mock-styled.label>
-              <mock-styled.div
-                classname="el-has-grey-bg"
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <label
+                class="mocked-styled-36 el-label"
               >
-                <mock-styled.input
+                Is Charged Consumption
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-consumption-all"
                   name="isChargedConsumption"
                   type="radio"
                   value=""
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-consumption-all"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-consumption-all"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     All
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-consumption-true"
                   name="isChargedConsumption"
                   type="radio"
                   value="true"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-consumption-true"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-consumption-true"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     Charged
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-120 el-toggle-radio"
                   id="option-consumption-false"
                   name="isChargedConsumption"
                   type="radio"
                   value="false"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-consumption-false"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-consumption-false"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-117 el-toggle-radio-item"
+                  >
                     Free
-                  </mock-styled.span>
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
     <form>
-      <mock-styled.div
-        classname="el-mb11"
+      <div
+        class="el-mb11 el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type search"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="searchTerm"
               type="search"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               App or Developer Name
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type search"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="companyName"
               type="search"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               Company Name
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type search"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="id"
               type="search"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               App Id
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type date format dd/mm/yyy"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="registeredFrom"
               type="date"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               Registered From
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type date format dd/mm/yyy"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="registeredTo"
               type="date"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               Registered To
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type date format dd/mm/yyy"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="publicListedDateFrom"
               type="date"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               Publicly Listed From
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type date format dd/mm/yyy"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="publicListedDateTo"
               type="date"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               Publicly Listed To
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
-              In Public AppMarket
-            </mock-styled.label>
-            <mock-styled.div
-              classname="el-has-grey-bg"
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <label
+              class="mocked-styled-36 el-label"
             >
-              <mock-styled.input
+              In Public AppMarket
+            </label>
+            <div
+              class="el-has-grey-bg el-toggle-radio-wrap"
+            >
+              <input
+                checked=""
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-public-all"
                 name="isPublic"
                 type="radio"
                 value=""
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-public-all"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-public-all"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   All
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-public-true"
                 name="isPublic"
                 type="radio"
                 value="true"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-public-true"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-public-true"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   Public
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-public-false"
                 name="isPublic"
                 type="radio"
                 value="false"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-public-false"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-public-false"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   Private
-                </mock-styled.span>
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
-              Integration or AC Enabled
-            </mock-styled.label>
-            <mock-styled.div
-              classname="el-has-grey-bg"
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <label
+              class="mocked-styled-36 el-label"
             >
-              <mock-styled.input
+              Integration or AC Enabled
+            </label>
+            <div
+              class="el-has-grey-bg el-toggle-radio-wrap"
+            >
+              <input
+                checked=""
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-integration-all"
                 name="isDirectApi"
                 type="radio"
                 value=""
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-integration-all"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-integration-all"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   All
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-integration-true"
                 name="isDirectApi"
                 type="radio"
                 value="true"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-integration-true"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-integration-true"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   Integration
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-integration-false"
                 name="isDirectApi"
                 type="radio"
                 value="false"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-integration-false"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-integration-false"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   AC App
-                </mock-styled.span>
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
-              Publicly Listed
-            </mock-styled.label>
-            <mock-styled.div
-              classname="el-has-grey-bg"
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <label
+              class="mocked-styled-36 el-label"
             >
-              <mock-styled.input
+              Publicly Listed
+            </label>
+            <div
+              class="el-has-grey-bg el-toggle-radio-wrap"
+            >
+              <input
+                checked=""
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-listed-all"
                 name="isListed"
                 type="radio"
                 value=""
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-listed-all"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-listed-all"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   All
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-listed-true"
                 name="isListed"
                 type="radio"
                 value="true"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-listed-true"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-listed-true"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   Listed
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-listed-false"
                 name="isListed"
                 type="radio"
                 value="false"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-listed-false"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-listed-false"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   Development
-                </mock-styled.span>
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
-              Is Charged Consumption
-            </mock-styled.label>
-            <mock-styled.div
-              classname="el-has-grey-bg"
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <label
+              class="mocked-styled-36 el-label"
             >
-              <mock-styled.input
+              Is Charged Consumption
+            </label>
+            <div
+              class="el-has-grey-bg el-toggle-radio-wrap"
+            >
+              <input
+                checked=""
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-consumption-all"
                 name="isChargedConsumption"
                 type="radio"
                 value=""
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-consumption-all"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-consumption-all"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   All
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-consumption-true"
                 name="isChargedConsumption"
                 type="radio"
                 value="true"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-consumption-true"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-consumption-true"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   Charged
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-120 el-toggle-radio"
                 id="option-consumption-false"
                 name="isChargedConsumption"
                 type="radio"
                 value="false"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-consumption-false"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-consumption-false"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-117 el-toggle-radio-item"
+                >
                   Free
-                </mock-styled.span>
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
   </div>,
   "debug": [Function],
