@@ -143,7 +143,9 @@ describe('ReapitConnectBrowserSession', () => {
 
   it('should refresh a session from a code if session has expired and code is in url', async () => {
     const code = 'SOME_CODE'
-    window.location.search = `?code=${code}`
+    const nonce = 'MOCK_NONCE'
+
+    window.location.search = `?code=${code}&state=${nonce}`
     // Not sure why but fetch mocking is sporadically failing because of a weird async issue in the jest setup
     // hence this manual mock
     window.fetch = jest.fn(() => {
@@ -171,7 +173,9 @@ describe('ReapitConnectBrowserSession', () => {
 
   it('should only call once to api and return undefined if already fetching', async () => {
     const code = 'SOME_CODE'
-    window.location.search = `?code=${code}`
+    const nonce = 'MOCK_NONCE'
+
+    window.location.search = `?code=${code}&state=${nonce}`
 
     mockedFetch.mockResponseOnce(JSON.stringify(mockTokenResponse))
 
@@ -198,7 +202,9 @@ describe('ReapitConnectBrowserSession', () => {
   it('should redirect to login page if token endpoint fails', async () => {
     const mockedAuthEndpoint = jest.spyOn(ReapitConnectBrowserSession.prototype, 'connectAuthorizeRedirect')
     const code = 'SOME_CODE'
-    window.location.search = `?code=${code}`
+    const nonce = 'MOCK_NONCE'
+
+    window.location.search = `?code=${code}&state=${nonce}`
 
     mockedFetch.mockResponseOnce(JSON.stringify({ error: 'Error from API' }))
 
@@ -272,7 +278,9 @@ describe('ReapitConnectBrowserSession', () => {
 
   it('Should call fetch with post method', async () => {
     const code = 'SOME_CODE'
-    window.location.search = `?code=${code}`
+    const nonce = 'MOCK_NONCE'
+
+    window.location.search = `?code=${code}&state=${nonce}`
     mockedFetch.mockResponseOnce(JSON.stringify(mockTokenResponse))
 
     const expiredSession = {
@@ -300,7 +308,9 @@ describe('ReapitConnectBrowserSession', () => {
 
   it('Should call fetch with code challenge when PKCE = true', async () => {
     const code = 'SOME_CODE'
-    window.location.search = `?code=${code}`
+    const nonce = 'MOCK_NONCE'
+
+    window.location.search = `?code=${code}&state=${nonce}`
     mockedFetch.mockResponseOnce(JSON.stringify(mockTokenResponse))
 
     const expiredSession = {
