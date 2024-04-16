@@ -5,16 +5,24 @@ exports[`App should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div />
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
       <div>
         I am a router
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div />
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
     <div>
       I am a router
     </div>

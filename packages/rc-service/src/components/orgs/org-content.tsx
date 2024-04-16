@@ -10,7 +10,7 @@ import {
   InputGroup,
   InputWrapFull,
   Loader,
-  PersistantNotification,
+  PersistentNotification,
   Subtitle,
   elMb7,
 } from '@reapit/elements'
@@ -138,9 +138,9 @@ export const OrgContent: FC<OrgContentProps> = ({ org, refreshOrgs }) => {
           </form>
         </>
       ) : shouldFetch.orgConfig ? (
-        <PersistantNotification isFullWidth isExpanded isInline intent="primary">
+        <PersistentNotification isFullWidth isExpanded isInline intent="primary">
           No config for this organisation.
-        </PersistantNotification>
+        </PersistentNotification>
       ) : null}
     </ErrorBoundary>
   )

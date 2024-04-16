@@ -5,99 +5,121 @@ exports[`OrgsPage should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
       <form>
-        <mock-styled.div
-          classname="el-form-layout-has-margin"
+        <div
+          class="el-form-layout-has-margin el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="name"
                 placeholder="Search by org name"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 Org Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-126 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-35 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-33 el-input"
                 id="test-static-id"
                 name="agencyCloudId"
                 placeholder="Search Client Code"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-36 el-label"
+                for="test-static-id"
               >
                 Client Code
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+              </label>
+            </div>
+          </div>
+        </div>
       </form>
-      <mock-styled.p
-        classname="el-text-base"
+      <p
+        class="el-text-base el-body-text"
       >
         Total Organisations: 
         284
-      </mock-styled.p>
-      <mock-styled.div
-        classname="el-fade-in el-mb11"
+      </p>
+      <div
+        class="el-fade-in el-mb11 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="5"
         role="table"
       >
-        <mock-styled.div
+        <div
+          class="mocked-styled-94 el-table-headers-row"
           role="row"
         >
-          <mock-styled.div
+          <div
             aria-label="Org Name"
+            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Org Name
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Client Code"
+            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Client Code
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Date Created"
+            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Date Created
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Address"
+            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Address
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Active"
+            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Active
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
+            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name settings"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -107,27 +129,30 @@ exports[`OrgsPage should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+            </span>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-103 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-96 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name contact"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -137,26 +162,28 @@ exports[`OrgsPage should match a snapshot 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.div
+              </span>
+              <div
+                class="mocked-styled-104 el-table-cell-content"
                 data-narrow-label="Org Name"
               >
                 test again 2
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name email"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -166,24 +193,26 @@ exports[`OrgsPage should match a snapshot 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.div
+              </span>
+              <div
+                class="mocked-styled-104 el-table-cell-content"
                 data-narrow-label="Client Code"
               />
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name calendar"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -193,35 +222,39 @@ exports[`OrgsPage should match a snapshot 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.div
+              </span>
+              <div
+                class="mocked-styled-104 el-table-cell-content"
                 data-narrow-label="Date Created"
               >
                 23-02-2023
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-104 el-table-cell-content"
                 data-narrow-label="Address"
               />
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-104 el-table-cell-content"
                 data-narrow-label="Active"
               >
-                <mock-styled.span
-                  classname="el-intent-success el-icon-new"
-                  role="img"
+                <span
+                  class="el-intent-success el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name check"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -233,20 +266,22 @@ exports[`OrgsPage should match a snapshot 1`] = `
                       fill-rule="evenodd"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+                </span>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-102 el-table-expandable-row-trigger-cell"
               role="cell"
+              tabindex="0"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name more"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -256,58 +291,67 @@ exports[`OrgsPage should match a snapshot 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            aria-hidden="false"
-            classname=""
+              </span>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-106 el-table-expandable-row"
           >
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-mb7"
+            <div
+              class="mocked-styled-107 el-table-expandable-container"
+            >
+              <div
+                class="el-mb7 el-grid"
               >
-                <mock-styled.div
-                  classname=""
+                <div
+                  class="mocked-styled-26 el-col"
                 >
-                  <mock-styled.h2
-                    classname="el-text-base"
+                  <h2
+                    class="el-text-base el-subtitle"
                   >
                     Manage Platform Config
-                  </mock-styled.h2>
-                  <mock-styled.div>
-                    <mock-styled.div
-                      classname="el-button-group-align-left"
+                  </h2>
+                  <div
+                    class="mocked-styled-2 el-button-group"
+                  >
+                    <div
+                      class="el-button-group-align-left el-button-group-inner"
                     >
-                      <mock-styled.button
-                        classname="el-intent-primary"
-                        disabled="true"
+                      <button
+                        class="el-intent-primary el-button"
+                        disabled=""
                       >
-                        <mock-styled.div />
+                        <div
+                          class="mocked-styled-0 el-button-loader"
+                        />
                         Load Management Form
-                      </mock-styled.button>
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.button
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-65 el-pagination-wrap"
+      >
+        <button
           aria-label="Previous"
+          class="mocked-styled-68 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="mocked-styled-4 el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name chevronLeft"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -317,28 +361,35 @@ exports[`OrgsPage should match a snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-        <mock-styled.div>
-          <mock-styled.input
+          </span>
+        </button>
+        <div
+          class="mocked-styled-66 el-pagination-text"
+        >
+          <input
+            aria-label="Current page number, edit to select page of 24 available"
+            class="mocked-styled-67 el-pagination-input"
             value="1"
           />
-           of 
+           
+          of 
           24
-        </mock-styled.div>
-        <mock-styled.button
+        </div>
+        <button
           aria-label="Next"
+          class="mocked-styled-68 el-pagination-button"
           data-testid="forward-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="el-pagination-primary el-icon-new"
-            role="img"
+          <span
+            class="el-pagination-primary el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name chevronRight"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -348,105 +399,127 @@ exports[`OrgsPage should match a snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+          </span>
+        </button>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
     <form>
-      <mock-styled.div
-        classname="el-form-layout-has-margin"
+      <div
+        class="el-form-layout-has-margin el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="name"
               placeholder="Search by org name"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               Org Name
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-126 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-35 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-33 el-input"
               id="test-static-id"
               name="agencyCloudId"
               placeholder="Search Client Code"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-36 el-label"
+              for="test-static-id"
             >
               Client Code
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </label>
+          </div>
+        </div>
+      </div>
     </form>
-    <mock-styled.p
-      classname="el-text-base"
+    <p
+      class="el-text-base el-body-text"
     >
       Total Organisations: 
       284
-    </mock-styled.p>
-    <mock-styled.div
-      classname="el-fade-in el-mb11"
+    </p>
+    <div
+      class="el-fade-in el-mb11 el-table"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="5"
       role="table"
     >
-      <mock-styled.div
+      <div
+        class="mocked-styled-94 el-table-headers-row"
         role="row"
       >
-        <mock-styled.div
+        <div
           aria-label="Org Name"
+          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           Org Name
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Client Code"
+          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           Client Code
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Date Created"
+          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           Date Created
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Address"
+          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           Address
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Active"
+          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           Active
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
+          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
-          <mock-styled.span
-            classname="el-intent-default el-icon-new"
-            role="img"
+          <span
+            class="el-intent-default el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name settings"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -456,27 +529,30 @@ exports[`OrgsPage should match a snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+          </span>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-103 el-table-row-container"
         role="row"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+        <div
+          class="mocked-styled-96 el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name contact"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -486,26 +562,28 @@ exports[`OrgsPage should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.div
+            </span>
+            <div
+              class="mocked-styled-104 el-table-cell-content"
               data-narrow-label="Org Name"
             >
               test again 2
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name email"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -515,24 +593,26 @@ exports[`OrgsPage should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.div
+            </span>
+            <div
+              class="mocked-styled-104 el-table-cell-content"
               data-narrow-label="Client Code"
             />
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name calendar"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -542,35 +622,39 @@ exports[`OrgsPage should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.div
+            </span>
+            <div
+              class="mocked-styled-104 el-table-cell-content"
               data-narrow-label="Date Created"
             >
               23-02-2023
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-104 el-table-cell-content"
               data-narrow-label="Address"
             />
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-104 el-table-cell-content"
               data-narrow-label="Active"
             >
-              <mock-styled.span
-                classname="el-intent-success el-icon-new"
-                role="img"
+              <span
+                class="el-intent-success el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name check"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -582,20 +666,22 @@ exports[`OrgsPage should match a snapshot 1`] = `
                     fill-rule="evenodd"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+              </span>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-102 el-table-expandable-row-trigger-cell"
             role="cell"
+            tabindex="0"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name more"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -605,58 +691,67 @@ exports[`OrgsPage should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          aria-hidden="false"
-          classname=""
+            </span>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-106 el-table-expandable-row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-mb7"
+          <div
+            class="mocked-styled-107 el-table-expandable-container"
+          >
+            <div
+              class="el-mb7 el-grid"
             >
-              <mock-styled.div
-                classname=""
+              <div
+                class="mocked-styled-26 el-col"
               >
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   Manage Platform Config
-                </mock-styled.h2>
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-button-group-align-left"
+                </h2>
+                <div
+                  class="mocked-styled-2 el-button-group"
+                >
+                  <div
+                    class="el-button-group-align-left el-button-group-inner"
                   >
-                    <mock-styled.button
-                      classname="el-intent-primary"
-                      disabled="true"
+                    <button
+                      class="el-intent-primary el-button"
+                      disabled=""
                     >
-                      <mock-styled.div />
+                      <div
+                        class="mocked-styled-0 el-button-loader"
+                      />
                       Load Management Form
-                    </mock-styled.button>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div>
-      <mock-styled.button
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="mocked-styled-65 el-pagination-wrap"
+    >
+      <button
         aria-label="Previous"
+        class="mocked-styled-68 el-pagination-button"
         data-testid="back-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <span
+          class="mocked-styled-4 el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name chevronLeft"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -666,28 +761,35 @@ exports[`OrgsPage should match a snapshot 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.button>
-      <mock-styled.div>
-        <mock-styled.input
+        </span>
+      </button>
+      <div
+        class="mocked-styled-66 el-pagination-text"
+      >
+        <input
+          aria-label="Current page number, edit to select page of 24 available"
+          class="mocked-styled-67 el-pagination-input"
           value="1"
         />
-         of 
+         
+        of 
         24
-      </mock-styled.div>
-      <mock-styled.button
+      </div>
+      <button
         aria-label="Next"
+        class="mocked-styled-68 el-pagination-button"
         data-testid="forward-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="el-pagination-primary el-icon-new"
-          role="img"
+        <span
+          class="el-pagination-primary el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name chevronRight"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -697,9 +799,9 @@ exports[`OrgsPage should match a snapshot 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
+        </span>
+      </button>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
