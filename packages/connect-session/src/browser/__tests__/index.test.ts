@@ -13,7 +13,7 @@ jest.mock('idtoken-verifier', () => ({
 jest.mock('../../utils/verify-decode-id-token')
 
 Object.defineProperties(global, {
-  crypto: { value: webcrypto, writable: true }
+  crypto: { value: webcrypto, writable: true },
 })
 
 const mockedFetch = fetch as FetchMock

@@ -35,6 +35,7 @@ export class ReapitConnectBrowserSession {
   static REFRESH_TOKEN_KEY = 'REAPIT_REFRESH_TOKEN'
   static USER_NAME_KEY = 'REAPIT_LAST_AUTH_USER'
   static CODE_VERIFIER = 'REAPIT_CODE_VERIFIER'
+  static STATE_NONCE = 'REAPIT_STATE_NONCE'
   static APP_DEFAULT_TIMEOUT = 10800000 // 3hrs in ms
 
   // Private cached variables, I don't want users to reference these directly or it will get confusing.
@@ -119,25 +120,46 @@ export class ReapitConnectBrowserSession {
     const data = encoder.encode(code_verifier)
     const digest = await window.crypto.subtle.digest('SHA-256', data)
 
-    return btoa(
-      String.fromCharCode.apply(null, [...new Uint8Array(digest)])
-    ).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
+    return btoa(String.fromCharCode.apply(null, [...new Uint8Array(digest)]))
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '')
   }
 
-  private get codeVerifier(): string {
-    const codeVerifier = this.refreshTokenStorage.getItem(ReapitConnectBrowserSession.CODE_VERIFIER)
+  private codeVerifierStorageKey(state: string): string {
+    return `${state}-${ReapitConnectBrowserSession.CODE_VERIFIER}`
+  }
+
+  private codeVerifier(state: string): string {
+    const codeVerifier = this.refreshTokenStorage.getItem(this.codeVerifierStorageKey(state))
 
     if (codeVerifier) return codeVerifier
 
-    const newCodeVerifier = uuid()
+    const code = uuid()
 
-    this.setCodeVerifier(newCodeVerifier)
+    this.setCodeVerifier({ state, code })
 
-    return newCodeVerifier
+    return code
   }
 
-  private setCodeVerifier(code: string) {
-    this.refreshTokenStorage.setItem(ReapitConnectBrowserSession.CODE_VERIFIER, code)
+  private get stateNonce(): string {
+    const nonce = this.refreshTokenStorage.getItem(ReapitConnectBrowserSession.STATE_NONCE)
+
+    if (nonce) return nonce
+
+    const code = uuid()
+
+    this.storeStateNonce(code)
+
+    return code
+  }
+
+  private storeStateNonce(state: string) {
+    this.refreshTokenStorage.setItem(ReapitConnectBrowserSession.STATE_NONCE, state)
+  }
+
+  private setCodeVerifier({ code, state }: { code: string; state: string }) {
+    this.refreshTokenStorage.setItem(this.codeVerifierStorageKey(state), code)
   }
 
   private setRefreshToken(session: ReapitConnectSession) {
@@ -263,7 +285,7 @@ export class ReapitConnectBrowserSession {
     const internalRedirectPath = encodeURIComponent(`${window.location.pathname}${search}`)
     const stateNonce = uuid()
     this.refreshTokenStorage.setItem(stateNonce, internalRedirectPath)
-    const code_challenge = await this.encryptCodeVerifier(this.codeVerifier)
+    const code_challenge = await this.encryptCodeVerifier(this.codeVerifier(stateNonce))
 
     window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${authRedirectUri}&state=${stateNonce}${this.usePKCE ? `&code_challenge_method=S256&code_challenge=${code_challenge}` : ''}`
   }
@@ -315,25 +337,31 @@ export class ReapitConnectBrowserSession {
         return this.connectAuthorizeRedirect()
       }
 
+      const state = this.stateNonce
+
+      if (!state) throw new Error('No state found')
+
+      const payload: AuthCodePayload | RefreshTokenPayload = this.refreshToken
+        ? {
+            redirect_uri: this.connectLoginRedirectPath,
+            client_id: this.connectClientId,
+            grant_type: 'refresh_token',
+            refresh_token: this.refreshToken,
+          }
+        : {
+            redirect_uri: this.connectLoginRedirectPath,
+            client_id: this.connectClientId,
+            grant_type: 'authorization_code',
+            code: this.authCode as string,
+          }
+
+      if (!this.refreshToken && this.usePKCE) {
+        payload['code_verifier'] = this.codeVerifier(state)
+        payload['code_challenge_method'] = 'S256'
+      }
+
       // Get a new session from the code or refresh token
-      const session = await this.connectGetSession(
-        endpoint,
-        this.refreshToken
-          ? {
-              redirect_uri: this.connectLoginRedirectPath,
-              client_id: this.connectClientId,
-              grant_type: 'refresh_token',
-              refresh_token: this.refreshToken,
-            }
-          : {
-              redirect_uri: this.connectLoginRedirectPath,
-              client_id: this.connectClientId,
-              grant_type: 'authorization_code',
-              code: this.authCode as string,
-              code_verifier: this.usePKCE ? this.codeVerifier : undefined,
-              code_challenge_method: this.usePKCE ? 'S256' : undefined,
-            },
-      )
+      const session = await this.connectGetSession(endpoint, payload)
 
       this.fetching = false
 
