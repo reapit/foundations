@@ -142,22 +142,6 @@ export class ReapitConnectBrowserSession {
     return code
   }
 
-  private get stateNonce(): string {
-    const nonce = this.refreshTokenStorage.getItem(ReapitConnectBrowserSession.STATE_NONCE)
-
-    if (nonce) return nonce
-
-    const code = uuid()
-
-    this.storeStateNonce(code)
-
-    return code
-  }
-
-  private storeStateNonce(state: string) {
-    this.refreshTokenStorage.setItem(ReapitConnectBrowserSession.STATE_NONCE, state)
-  }
-
   private setCodeVerifier({ code, state }: { code: string; state: string }) {
     this.refreshTokenStorage.setItem(this.codeVerifierStorageKey(state), code)
   }
@@ -333,13 +317,14 @@ export class ReapitConnectBrowserSession {
 
       // I don't have either a refresh token or a code so redirect to the authorization endpoint to get
       // a code I can exchange for a token
-      if (this.refreshToken === null && this.authCode === null) {
+      if (!this.refreshToken && !this.authCode) {
         return this.connectAuthorizeRedirect()
       }
 
-      const state = this.stateNonce
+      const qs = new URLSearchParams(window.location.search)
+      const state = qs.get('state')
 
-      if (!state) throw new Error('No state found')
+      if (!state && !this.refreshToken) throw new Error('No state found')
 
       const payload: AuthCodePayload | RefreshTokenPayload = this.refreshToken
         ? {
@@ -356,7 +341,7 @@ export class ReapitConnectBrowserSession {
           }
 
       if (!this.refreshToken && this.usePKCE) {
-        payload['code_verifier'] = this.codeVerifier(state)
+        payload['code_verifier'] = this.codeVerifier(state as string)
         payload['code_challenge_method'] = 'S256'
       }
 
