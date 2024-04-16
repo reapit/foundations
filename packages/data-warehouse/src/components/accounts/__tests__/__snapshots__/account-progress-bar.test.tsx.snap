@@ -5,22 +5,29 @@ exports[`AccountProgressBar should match a snapshot for 0 complete 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
       <div
         class="el-mb11"
       >
-        <mock-styled.div
-          classname="el-mb7"
+        <div
+          class="el-mb7 el-progress-bar-container"
         >
-          <mock-styled.div
+          <div
+            aria-label="Progress bar indicator for this task"
             aria-valuemax="100"
             aria-valuemin="0"
             aria-valuenow="0"
+            class="mocked-styled-72 el-progress-bar-inner"
+            role="meter"
             style="width: 0%;"
           >
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+            <div
+              class="mocked-styled-73 el-progress-bar-item"
+            />
+          </div>
+        </div>
         <mock-styled.div>
           Initializing...
         </mock-styled.div>
@@ -28,22 +35,29 @@ exports[`AccountProgressBar should match a snapshot for 0 complete 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
     <div
       class="el-mb11"
     >
-      <mock-styled.div
-        classname="el-mb7"
+      <div
+        class="el-mb7 el-progress-bar-container"
       >
-        <mock-styled.div
+        <div
+          aria-label="Progress bar indicator for this task"
           aria-valuemax="100"
           aria-valuemin="0"
           aria-valuenow="0"
+          class="mocked-styled-72 el-progress-bar-inner"
+          role="meter"
           style="width: 0%;"
         >
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+          <div
+            class="mocked-styled-73 el-progress-bar-item"
+          />
+        </div>
+      </div>
       <mock-styled.div>
         Initializing...
       </mock-styled.div>
@@ -108,22 +122,29 @@ exports[`AccountProgressBar should match a snapshot for 19 complete 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
       <div
         class="el-mb11"
       >
-        <mock-styled.div
-          classname="el-mb7"
+        <div
+          class="el-mb7 el-progress-bar-container"
         >
-          <mock-styled.div
+          <div
+            aria-label="Progress bar indicator for this task"
             aria-valuemax="100"
             aria-valuemin="0"
             aria-valuenow="19"
+            class="mocked-styled-72 el-progress-bar-inner"
+            role="meter"
             style="width: 19%;"
           >
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+            <div
+              class="mocked-styled-73 el-progress-bar-item"
+            />
+          </div>
+        </div>
         <mock-styled.div>
           Initializing...
         </mock-styled.div>
@@ -131,22 +152,29 @@ exports[`AccountProgressBar should match a snapshot for 19 complete 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
     <div
       class="el-mb11"
     >
-      <mock-styled.div
-        classname="el-mb7"
+      <div
+        class="el-mb7 el-progress-bar-container"
       >
-        <mock-styled.div
+        <div
+          aria-label="Progress bar indicator for this task"
           aria-valuemax="100"
           aria-valuemin="0"
           aria-valuenow="19"
+          class="mocked-styled-72 el-progress-bar-inner"
+          role="meter"
           style="width: 19%;"
         >
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+          <div
+            class="mocked-styled-73 el-progress-bar-item"
+          />
+        </div>
+      </div>
       <mock-styled.div>
         Initializing...
       </mock-styled.div>
@@ -211,22 +239,29 @@ exports[`AccountProgressBar should match a snapshot for 39 complete 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
       <div
         class="el-mb11"
       >
-        <mock-styled.div
-          classname="el-mb7"
+        <div
+          class="el-mb7 el-progress-bar-container"
         >
-          <mock-styled.div
+          <div
+            aria-label="Progress bar indicator for this task"
             aria-valuemax="100"
             aria-valuemin="0"
             aria-valuenow="39"
+            class="mocked-styled-72 el-progress-bar-inner"
+            role="meter"
             style="width: 39%;"
           >
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+            <div
+              class="mocked-styled-73 el-progress-bar-item"
+            />
+          </div>
+        </div>
         <mock-styled.div>
           Creating account...
         </mock-styled.div>
@@ -234,22 +269,29 @@ exports[`AccountProgressBar should match a snapshot for 39 complete 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
     <div
       class="el-mb11"
     >
-      <mock-styled.div
-        classname="el-mb7"
+      <div
+        class="el-mb7 el-progress-bar-container"
       >
-        <mock-styled.div
+        <div
+          aria-label="Progress bar indicator for this task"
           aria-valuemax="100"
           aria-valuemin="0"
           aria-valuenow="39"
+          class="mocked-styled-72 el-progress-bar-inner"
+          role="meter"
           style="width: 39%;"
         >
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+          <div
+            class="mocked-styled-73 el-progress-bar-item"
+          />
+        </div>
+      </div>
       <mock-styled.div>
         Creating account...
       </mock-styled.div>
@@ -314,22 +356,29 @@ exports[`AccountProgressBar should match a snapshot for 59 complete 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
       <div
         class="el-mb11"
       >
-        <mock-styled.div
-          classname="el-mb7"
+        <div
+          class="el-mb7 el-progress-bar-container"
         >
-          <mock-styled.div
+          <div
+            aria-label="Progress bar indicator for this task"
             aria-valuemax="100"
             aria-valuemin="0"
             aria-valuenow="59"
+            class="mocked-styled-72 el-progress-bar-inner"
+            role="meter"
             style="width: 59%;"
           >
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+            <div
+              class="mocked-styled-73 el-progress-bar-item"
+            />
+          </div>
+        </div>
         <mock-styled.div>
           Provisioning compute...
         </mock-styled.div>
@@ -337,22 +386,29 @@ exports[`AccountProgressBar should match a snapshot for 59 complete 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
     <div
       class="el-mb11"
     >
-      <mock-styled.div
-        classname="el-mb7"
+      <div
+        class="el-mb7 el-progress-bar-container"
       >
-        <mock-styled.div
+        <div
+          aria-label="Progress bar indicator for this task"
           aria-valuemax="100"
           aria-valuemin="0"
           aria-valuenow="59"
+          class="mocked-styled-72 el-progress-bar-inner"
+          role="meter"
           style="width: 59%;"
         >
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+          <div
+            class="mocked-styled-73 el-progress-bar-item"
+          />
+        </div>
+      </div>
       <mock-styled.div>
         Provisioning compute...
       </mock-styled.div>
@@ -417,22 +473,29 @@ exports[`AccountProgressBar should match a snapshot for 79 complete 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
       <div
         class="el-mb11"
       >
-        <mock-styled.div
-          classname="el-mb7"
+        <div
+          class="el-mb7 el-progress-bar-container"
         >
-          <mock-styled.div
+          <div
+            aria-label="Progress bar indicator for this task"
             aria-valuemax="100"
             aria-valuemin="0"
             aria-valuenow="79"
+            class="mocked-styled-72 el-progress-bar-inner"
+            role="meter"
             style="width: 79%;"
           >
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+            <div
+              class="mocked-styled-73 el-progress-bar-item"
+            />
+          </div>
+        </div>
         <mock-styled.div>
           Preparing permissions...
         </mock-styled.div>
@@ -440,22 +503,29 @@ exports[`AccountProgressBar should match a snapshot for 79 complete 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
     <div
       class="el-mb11"
     >
-      <mock-styled.div
-        classname="el-mb7"
+      <div
+        class="el-mb7 el-progress-bar-container"
       >
-        <mock-styled.div
+        <div
+          aria-label="Progress bar indicator for this task"
           aria-valuemax="100"
           aria-valuemin="0"
           aria-valuenow="79"
+          class="mocked-styled-72 el-progress-bar-inner"
+          role="meter"
           style="width: 79%;"
         >
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+          <div
+            class="mocked-styled-73 el-progress-bar-item"
+          />
+        </div>
+      </div>
       <mock-styled.div>
         Preparing permissions...
       </mock-styled.div>
@@ -520,22 +590,29 @@ exports[`AccountProgressBar should match a snapshot for 94 complete 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
       <div
         class="el-mb11"
       >
-        <mock-styled.div
-          classname="el-mb7"
+        <div
+          class="el-mb7 el-progress-bar-container"
         >
-          <mock-styled.div
+          <div
+            aria-label="Progress bar indicator for this task"
             aria-valuemax="100"
             aria-valuemin="0"
             aria-valuenow="94"
+            class="mocked-styled-72 el-progress-bar-inner"
+            role="meter"
             style="width: 94%;"
           >
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+            <div
+              class="mocked-styled-73 el-progress-bar-item"
+            />
+          </div>
+        </div>
         <mock-styled.div>
           Setting up defaults...
         </mock-styled.div>
@@ -543,22 +620,29 @@ exports[`AccountProgressBar should match a snapshot for 94 complete 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
     <div
       class="el-mb11"
     >
-      <mock-styled.div
-        classname="el-mb7"
+      <div
+        class="el-mb7 el-progress-bar-container"
       >
-        <mock-styled.div
+        <div
+          aria-label="Progress bar indicator for this task"
           aria-valuemax="100"
           aria-valuemin="0"
           aria-valuenow="94"
+          class="mocked-styled-72 el-progress-bar-inner"
+          role="meter"
           style="width: 94%;"
         >
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+          <div
+            class="mocked-styled-73 el-progress-bar-item"
+          />
+        </div>
+      </div>
       <mock-styled.div>
         Setting up defaults...
       </mock-styled.div>
@@ -623,22 +707,29 @@ exports[`AccountProgressBar should match a snapshot for 99 complete 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
       <div
         class="el-mb11"
       >
-        <mock-styled.div
-          classname="el-mb7"
+        <div
+          class="el-mb7 el-progress-bar-container"
         >
-          <mock-styled.div
+          <div
+            aria-label="Progress bar indicator for this task"
             aria-valuemax="100"
             aria-valuemin="0"
             aria-valuenow="99"
+            class="mocked-styled-72 el-progress-bar-inner"
+            role="meter"
             style="width: 99%;"
           >
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+            <div
+              class="mocked-styled-73 el-progress-bar-item"
+            />
+          </div>
+        </div>
         <mock-styled.div>
           Nearly there, final checks... please note, on the first user account provision, this can take a few minutes...
         </mock-styled.div>
@@ -646,22 +737,29 @@ exports[`AccountProgressBar should match a snapshot for 99 complete 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
     <div
       class="el-mb11"
     >
-      <mock-styled.div
-        classname="el-mb7"
+      <div
+        class="el-mb7 el-progress-bar-container"
       >
-        <mock-styled.div
+        <div
+          aria-label="Progress bar indicator for this task"
           aria-valuemax="100"
           aria-valuemin="0"
           aria-valuenow="99"
+          class="mocked-styled-72 el-progress-bar-inner"
+          role="meter"
           style="width: 99%;"
         >
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+          <div
+            class="mocked-styled-73 el-progress-bar-item"
+          />
+        </div>
+      </div>
       <mock-styled.div>
         Nearly there, final checks... please note, on the first user account provision, this can take a few minutes...
       </mock-styled.div>
@@ -726,22 +824,29 @@ exports[`AccountProgressBar should match a snapshot for 100 complete 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
       <div
         class="el-mb11"
       >
-        <mock-styled.div
-          classname="el-mb7"
+        <div
+          class="el-mb7 el-progress-bar-container"
         >
-          <mock-styled.div
+          <div
+            aria-label="Progress bar indicator for this task"
             aria-valuemax="100"
             aria-valuemin="0"
             aria-valuenow="100"
+            class="mocked-styled-72 el-progress-bar-inner"
+            role="meter"
             style="width: 100%;"
           >
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+            <div
+              class="mocked-styled-73 el-progress-bar-item"
+            />
+          </div>
+        </div>
         <mock-styled.div>
           Your account is ready! 
           <span
@@ -754,22 +859,29 @@ exports[`AccountProgressBar should match a snapshot for 100 complete 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
     <div
       class="el-mb11"
     >
-      <mock-styled.div
-        classname="el-mb7"
+      <div
+        class="el-mb7 el-progress-bar-container"
       >
-        <mock-styled.div
+        <div
+          aria-label="Progress bar indicator for this task"
           aria-valuemax="100"
           aria-valuemin="0"
           aria-valuenow="100"
+          class="mocked-styled-72 el-progress-bar-inner"
+          role="meter"
           style="width: 100%;"
         >
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+          <div
+            class="mocked-styled-73 el-progress-bar-item"
+          />
+        </div>
+      </div>
       <mock-styled.div>
         Your account is ready! 
         <span

@@ -6,14 +6,12 @@ import { useLocation, Navigate } from 'react-router'
 import {
   Button,
   FlexContainer,
-  Icon,
   Loader,
   MainContainer,
   PageContainer,
   SecondaryNavContainer,
   SmallText,
   Title,
-  elMb5,
   elMt5,
 } from '@reapit/elements'
 import { getIsAdmin } from '../utils/is-admin'
@@ -57,12 +55,11 @@ export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
       <Nav />
       <FlexContainer isFlexAuto>
         <SecondaryNavContainer>
-          <Icon className={elMb5} icon="leadGenerationInfographic" iconSize="large" />
-          <SmallText hasGreyText>
+          <SmallText tag="p" hasGreyText>
             This app will allow Reapit Employees to manage Reapit Connect user accounts. Specifically, you can see
             information about users (Org and User Claims), change the active status and can also reset passwords.
           </SmallText>
-          <SmallText hasGreyText className={elMt5}>
+          <SmallText tag="p" hasSectionMargin hasGreyText className={elMt5}>
             Should you encounter an issue or need support, please use the &apos;Help&apos; button below.
           </SmallText>
           <Button intent="neutral" onClick={openNewPage('https://rcservice-documentation.reapit.cloud/')}>

@@ -8,7 +8,7 @@ import {
   ElToggleItem,
   Grid,
   Loader,
-  PersistantNotification,
+  PersistentNotification,
   Subtitle,
   Table,
   TableCell,
@@ -300,9 +300,9 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, userGrou
       {activeAuthenticator && isSupport && shouldFetch.authenticators ? (
         <ActiveAuthenticator activeAuthenticator={activeAuthenticator} refreshAuthenticators={refreshAuthenticators} />
       ) : shouldFetch.authenticators ? (
-        <PersistantNotification isFullWidth isExpanded isInline intent="primary">
+        <PersistentNotification isFullWidth isExpanded isInline intent="primary">
           No authenticators configured for this user.
-        </PersistantNotification>
+        </PersistentNotification>
       ) : null}
       {userInfo && shouldFetch.officeGroups && userInfo.officeGroupIds ? (
         <>
@@ -320,16 +320,16 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, userGrou
           </Table>
         </>
       ) : shouldFetch.officeGroups ? (
-        <PersistantNotification isFullWidth isExpanded isInline intent="primary">
+        <PersistentNotification isFullWidth isExpanded isInline intent="primary">
           User not part of an office group.
-        </PersistantNotification>
+        </PersistentNotification>
       ) : null}
       {userInfo && shouldFetch.loginLogs && userInfo.idpData?.authEvents?.length ? (
         userInfo.idpData?.authEvents.slice(0, 5).map((event) => <DisplayChip key={event}>{event}</DisplayChip>)
       ) : shouldFetch.loginLogs ? (
-        <PersistantNotification isFullWidth isExpanded isInline intent="primary">
+        <PersistentNotification isFullWidth isExpanded isInline intent="primary">
           No info available for this user.
-        </PersistantNotification>
+        </PersistentNotification>
       ) : null}
       {shouldFetch.userGroups && <EditUserGroups refreshUsers={refreshUsers} user={user} userGroups={userGroups} />}
       {shouldFetch.password && (
