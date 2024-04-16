@@ -8,7 +8,6 @@ import {
   Button,
   elMb5,
   FlexContainer,
-  Icon,
   PageContainer,
   PersistentNotification,
   SecondaryNavContainer,
@@ -28,12 +27,13 @@ export const Accounts: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Icon className={elMb5} icon="webhooksInfographic" iconSize="large" />
         <BodyText>Support</BodyText>
-        <SmallText hasGreyText>
+        <SmallText tag="p" hasGreyText>
           Your first step is to provision a user account for the solution using the button below.
         </SmallText>
-        <SmallText hasGreyText>Please see also below for more resources amd assistance.</SmallText>
+        <SmallText tag="p" hasSectionMargin hasGreyText>
+          Please see also below for more resources and assistance.
+        </SmallText>
         <Button
           className={elMb5}
           intent="primary"

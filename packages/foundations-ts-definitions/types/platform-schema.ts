@@ -11156,6 +11156,17 @@ export interface JournalEntries {
   createdFrom?: string
   createdTo?: string
 }
+export interface JournalEntriesLandlords {
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  landlordId?: string[]
+  negotiatorId?: string[]
+  propertyId?: string[]
+  type?: string
+  createdFrom?: string
+  createdTo?: string
+}
 /**
  * Representation of a journal entry
  */
@@ -11760,6 +11771,93 @@ export interface LandlordContactRelationshipModelPagedResult {
      * A flag denoting whether or not the relationship should be regarded as the main relationship for the parent landlord entity
      */
     isMain?: boolean
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+/**
+ * Representation of a landlord related journal entry
+ */
+export interface LandlordJournalEntryModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The date and time when the journal entry was created
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  created?: string // date-time
+  /**
+   * The unique identifier of the property the journal entry is related to. Can additionally be associated to another type
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the landlord the journal entry is related to.
+   */
+  landlordId?: string
+  /**
+   * The type of journal entry
+   */
+  type?: string
+  /**
+   * The unique identifier of the negotiator that created the entry
+   */
+  negotiatorId?: string
+  /**
+   * The textual description of the journal entry event
+   */
+  description?: string
+}
+export interface LandlordJournalEntryModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The date and time when the journal entry was created
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    created?: string // date-time
+    /**
+     * The unique identifier of the property the journal entry is related to. Can additionally be associated to another type
+     */
+    propertyId?: string
+    /**
+     * The unique identifier of the landlord the journal entry is related to.
+     */
+    landlordId?: string
+    /**
+     * The type of journal entry
+     */
+    type?: string
+    /**
+     * The unique identifier of the negotiator that created the entry
+     */
+    negotiatorId?: string
+    /**
+     * The textual description of the journal entry event
+     */
+    description?: string
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
