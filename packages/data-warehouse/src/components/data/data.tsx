@@ -10,7 +10,6 @@ import {
   elMb11,
   elMb5,
   FlexContainer,
-  Icon,
   Loader,
   PageContainer,
   PersistentNotification,
@@ -45,9 +44,8 @@ export const Data: FC = () => {
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
-        <Icon className={elMb5} icon="elementsInfographic" iconSize="large" />
         <BodyText>Support</BodyText>
-        <SmallText hasGreyText>
+        <SmallText tag="p" hasGreyText>
           Please see our{' '}
           <a
             href="https://www.youtube.com/watch?v=N-4TeWsM7EU&feature=youtu.be"
@@ -58,7 +56,9 @@ export const Data: FC = () => {
           </a>{' '}
           for further information on how to use these details to connect a number of popular BI applications.
         </SmallText>
-        <SmallText hasGreyText>Please see below for more resources.</SmallText>
+        <SmallText tag="p" hasSectionMargin hasGreyText>
+          Please see below for more resources.
+        </SmallText>
         <Button
           className={elMb5}
           intent="neutral"

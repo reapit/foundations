@@ -5,16 +5,20 @@ exports[`AccountsTable should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname="el-mb11"
+      <div
+        class="mocked-styled-86 el-snack-holder"
+      />
+      <div
+        class="el-mb11 el-table"
       />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="el-mb11"
+    <div
+      class="mocked-styled-86 el-snack-holder"
+    />
+    <div
+      class="el-mb11 el-table"
     />
   </div>,
   "debug": [Function],
