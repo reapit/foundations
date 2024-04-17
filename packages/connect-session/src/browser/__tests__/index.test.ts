@@ -2,6 +2,7 @@ import { FetchMock } from 'jest-fetch-mock'
 import { ReapitConnectBrowserSession } from '../index'
 import { mockTokenResponse, mockBrowserSession, createMockToken } from '../../__mocks__/session'
 import { mockBrowserInitializers } from '../../__mocks__/session'
+import { webcrypto } from 'crypto'
 
 jest.mock('idtoken-verifier', () => ({
   decode: (token: string) => {
@@ -10,6 +11,10 @@ jest.mock('idtoken-verifier', () => ({
 }))
 
 jest.mock('../../utils/verify-decode-id-token')
+
+Object.defineProperties(global, {
+  crypto: { value: webcrypto, writable: true },
+})
 
 const mockedFetch = fetch as FetchMock
 
@@ -138,7 +143,9 @@ describe('ReapitConnectBrowserSession', () => {
 
   it('should refresh a session from a code if session has expired and code is in url', async () => {
     const code = 'SOME_CODE'
-    window.location.search = `?code=${code}`
+    const nonce = 'MOCK_NONCE'
+
+    window.location.search = `?code=${code}&state=${nonce}`
     // Not sure why but fetch mocking is sporadically failing because of a weird async issue in the jest setup
     // hence this manual mock
     window.fetch = jest.fn(() => {
@@ -166,7 +173,9 @@ describe('ReapitConnectBrowserSession', () => {
 
   it('should only call once to api and return undefined if already fetching', async () => {
     const code = 'SOME_CODE'
-    window.location.search = `?code=${code}`
+    const nonce = 'MOCK_NONCE'
+
+    window.location.search = `?code=${code}&state=${nonce}`
 
     mockedFetch.mockResponseOnce(JSON.stringify(mockTokenResponse))
 
@@ -193,7 +202,9 @@ describe('ReapitConnectBrowserSession', () => {
   it('should redirect to login page if token endpoint fails', async () => {
     const mockedAuthEndpoint = jest.spyOn(ReapitConnectBrowserSession.prototype, 'connectAuthorizeRedirect')
     const code = 'SOME_CODE'
-    window.location.search = `?code=${code}`
+    const nonce = 'MOCK_NONCE'
+
+    window.location.search = `?code=${code}&state=${nonce}`
 
     mockedFetch.mockResponseOnce(JSON.stringify({ error: 'Error from API' }))
 
@@ -267,7 +278,9 @@ describe('ReapitConnectBrowserSession', () => {
 
   it('Should call fetch with post method', async () => {
     const code = 'SOME_CODE'
-    window.location.search = `?code=${code}`
+    const nonce = 'MOCK_NONCE'
+
+    window.location.search = `?code=${code}&state=${nonce}`
     mockedFetch.mockResponseOnce(JSON.stringify(mockTokenResponse))
 
     const expiredSession = {
@@ -289,6 +302,39 @@ describe('ReapitConnectBrowserSession', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         }),
         body: expect.stringMatching(/(redirect_url|client_id|grant_type)/i),
+      }),
+    )
+  })
+
+  it('Should call fetch with code challenge when PKCE = true', async () => {
+    const code = 'SOME_CODE'
+    const nonce = 'MOCK_NONCE'
+
+    window.location.search = `?code=${code}&state=${nonce}`
+    mockedFetch.mockResponseOnce(JSON.stringify(mockTokenResponse))
+
+    const expiredSession = {
+      ...mockBrowserSession,
+      accessToken: createMockToken({ exp: Math.round(new Date().getTime() / 1000) }),
+      refreshToken: '',
+    }
+
+    const session = new ReapitConnectBrowserSession({
+      ...mockBrowserInitializers,
+      usePKCE: true,
+    })
+    const invalidSession = Object.assign(session, { session: expiredSession }) as ReapitConnectBrowserSession
+
+    await invalidSession.connectSession()
+
+    expect(window.fetch).toHaveBeenLastCalledWith(
+      'SOME_URL/token',
+      expect.objectContaining({
+        method: 'POST',
+        headers: expect.objectContaining({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        }),
+        body: expect.stringMatching(/(code_challenge|code_challenge_method)/i),
       }),
     )
   })

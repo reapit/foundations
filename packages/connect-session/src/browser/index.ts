@@ -10,6 +10,7 @@ import { connectSessionVerifyDecodeIdToken } from '../utils/verify-decode-id-tok
 import decode from 'jwt-decode'
 import { DecodedToken } from '../utils'
 import { v4 as uuid } from 'uuid'
+import { TextEncoder } from 'util'
 
 type BasePayload = {
   redirect_uri: string
@@ -19,6 +20,8 @@ type BasePayload = {
 type AuthCodePayload = BasePayload & {
   grant_type: 'authorization_code'
   code: string
+  code_verifier?: string
+  code_challenge_method?: 'S256'
 }
 
 type RefreshTokenPayload = BasePayload & {
@@ -28,10 +31,12 @@ type RefreshTokenPayload = BasePayload & {
 
 export class ReapitConnectBrowserSession {
   // Static constants
-  static GLOBAL_KEY = '__REAPIT_MARKETPLACE_GLOBALS__'
-  static REFRESH_TOKEN_KEY = 'REAPIT_REFRESH_TOKEN'
-  static USER_NAME_KEY = 'REAPIT_LAST_AUTH_USER'
-  static APP_DEFAULT_TIMEOUT = 10800000 // 3hrs in ms
+  public static readonly GLOBAL_KEY = '__REAPIT_MARKETPLACE_GLOBALS__'
+  public static readonly REFRESH_TOKEN_KEY = 'REAPIT_REFRESH_TOKEN'
+  public static readonly USER_NAME_KEY = 'REAPIT_LAST_AUTH_USER'
+  public static readonly CODE_VERIFIER = 'REAPIT_CODE_VERIFIER'
+  public static readonly STATE_NONCE = 'REAPIT_STATE_NONCE'
+  public static readonly APP_DEFAULT_TIMEOUT = 10800000 // 3hrs in ms
 
   // Private cached variables, I don't want users to reference these directly or it will get confusing.
   // and cause bugs
@@ -44,6 +49,7 @@ export class ReapitConnectBrowserSession {
   private idleTimeoutCountdown: number
   private refreshTokenStorage: Storage
   private fetching: boolean
+  private readonly usePKCE: boolean
 
   constructor({
     connectClientId,
@@ -51,6 +57,7 @@ export class ReapitConnectBrowserSession {
     connectLoginRedirectPath,
     connectLogoutRedirectPath,
     connectApplicationTimeout,
+    usePKCE = true,
   }: ReapitConnectBrowserSessionInitializers) {
     // Instantiate my private variables from the constructor params
     this.connectOAuthUrl = connectOAuthUrl
@@ -64,6 +71,7 @@ export class ReapitConnectBrowserSession {
     this.fetching = false
     this.session = null
     this.idleTimeoutCountdown = this.connectApplicationTimeout
+    this.usePKCE = usePKCE
     this.connectBindPublicMethods()
     this.setIdleTimeoutListeners()
   }
@@ -105,6 +113,37 @@ export class ReapitConnectBrowserSession {
       this.session?.loginIdentity.email ??
       this.refreshTokenStorage.getItem(`${ReapitConnectBrowserSession.USER_NAME_KEY}_${this.connectClientId}`)
     )
+  }
+
+  private async encryptCodeVerifier(code_verifier: string): Promise<string> {
+    const encoder = new TextEncoder()
+    const data = encoder.encode(code_verifier)
+    const digest = await window.crypto.subtle.digest('SHA-256', data)
+
+    return btoa(String.fromCharCode.apply(null, [...new Uint8Array(digest)]))
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '')
+  }
+
+  private codeVerifierStorageKey(state: string): string {
+    return `${state}-${ReapitConnectBrowserSession.CODE_VERIFIER}`
+  }
+
+  private codeVerifier(state: string): string {
+    const codeVerifier = this.refreshTokenStorage.getItem(this.codeVerifierStorageKey(state))
+
+    if (codeVerifier) return codeVerifier
+
+    const code = uuid()
+
+    this.setCodeVerifier({ state, code })
+
+    return code
+  }
+
+  private setCodeVerifier({ code, state }: { code: string; state: string }) {
+    this.refreshTokenStorage.setItem(this.codeVerifierStorageKey(state), code)
   }
 
   private setRefreshToken(session: ReapitConnectSession) {
@@ -222,7 +261,7 @@ export class ReapitConnectBrowserSession {
 
   // Handles redirect to authorization endpoint - in most cases, I don't need to call in my app
   // but made public if I want to override the redirect URI I specified in the constructor
-  public connectAuthorizeRedirect(redirectUri?: string): void {
+  public async connectAuthorizeRedirect(redirectUri?: string): Promise<void> {
     const authRedirectUri = redirectUri || this.connectLoginRedirectPath
     const params = new URLSearchParams(window.location.search)
     params.delete('code')
@@ -230,8 +269,12 @@ export class ReapitConnectBrowserSession {
     const internalRedirectPath = encodeURIComponent(`${window.location.pathname}${search}`)
     const stateNonce = uuid()
     this.refreshTokenStorage.setItem(stateNonce, internalRedirectPath)
+    const code_challenge = await this.encryptCodeVerifier(this.codeVerifier(stateNonce))
 
-    window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${authRedirectUri}&state=${stateNonce}`
+    let location = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${authRedirectUri}&state=${stateNonce}`
+    if (this.usePKCE) location += `&code_challenge_method=S256&code_challenge=${code_challenge}`
+
+    window.location.href = location
   }
 
   // Handles redirect to login - defaults to constructor redirect uri but I can override if I like.
@@ -277,27 +320,36 @@ export class ReapitConnectBrowserSession {
 
       // I don't have either a refresh token or a code so redirect to the authorization endpoint to get
       // a code I can exchange for a token
-      if (this.refreshToken === null && this.authCode === null) {
+      if (!this.refreshToken && !this.authCode) {
         return this.connectAuthorizeRedirect()
       }
 
+      const qs = new URLSearchParams(window.location.search)
+      const state = qs.get('state')
+
+      if (!state && !this.refreshToken) throw new Error('No state found')
+
+      const payload: AuthCodePayload | RefreshTokenPayload = this.refreshToken
+        ? {
+            redirect_uri: this.connectLoginRedirectPath,
+            client_id: this.connectClientId,
+            grant_type: 'refresh_token',
+            refresh_token: this.refreshToken,
+          }
+        : {
+            redirect_uri: this.connectLoginRedirectPath,
+            client_id: this.connectClientId,
+            grant_type: 'authorization_code',
+            code: this.authCode as string,
+          }
+
+      if (!this.refreshToken && this.usePKCE) {
+        payload['code_verifier'] = this.codeVerifier(state as string)
+        payload['code_challenge_method'] = 'S256'
+      }
+
       // Get a new session from the code or refresh token
-      const session = await this.connectGetSession(
-        endpoint,
-        this.refreshToken
-          ? {
-              redirect_uri: this.connectLoginRedirectPath,
-              client_id: this.connectClientId,
-              grant_type: 'refresh_token',
-              refresh_token: this.refreshToken,
-            }
-          : {
-              redirect_uri: this.connectLoginRedirectPath,
-              client_id: this.connectClientId,
-              grant_type: 'authorization_code',
-              code: this.authCode as string,
-            },
-      )
+      const session = await this.connectGetSession(endpoint, payload)
 
       this.fetching = false
 
