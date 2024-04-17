@@ -47,6 +47,9 @@ config-manager:
 connect-session:
   - packages/connect-session/**
 
+connect-session-server:
+  - packages/connect-session-server/**
+
 cra-template-foundations:
   - packages/cra-template-foundations/**
 
