@@ -36,5 +36,9 @@
     "build": "tsup",
     "lint": "eslint --cache --ext=ts,js src",
     "test": "cross-env jest --watch --colors"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "jwt-decode": "^4.0.0"
   }
 }

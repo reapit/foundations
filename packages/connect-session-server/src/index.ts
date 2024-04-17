@@ -1,5 +1,5 @@
 import axios from 'axios'
-import decode from 'jwt-decode'
+import { jwtDecode } from 'jwt-decode'
 
 export interface CoginitoSession {
   access_token: string
@@ -29,20 +29,14 @@ export interface CoginitoAccess {
   username: string
 }
 
-export type DecodedToken<T extends any> = {
+export type DecodedToken<T> = {
   aud: string
 } & T
 
 export class ReapitConnectServerSession {
-  // Static constants
-  static TOKEN_EXPIRY = Math.round(new Date().getTime() / 1000) + 3300 // 55 minutes from now - expiry is 1hr, 5mins
-  // to allow for clock drift - unused, not removing as don't want to make any breaking changes
-
-  // Private cached variables, I don't want users to reference these directly or it will get confusing.
-  // and cause bugs
-  private connectOAuthUrl: string
-  private connectClientId: string
-  private connectClientSecret: string
+  private readonly connectOAuthUrl: string
+  private readonly connectClientId: string
+  private readonly connectClientSecret: string
   private accessToken: string | null
 
   constructor({ connectClientId, connectClientSecret, connectOAuthUrl }: ReapitConnectServerSessionInitializers) {
@@ -57,7 +51,7 @@ export class ReapitConnectServerSession {
   // Check on access token to see if has expired - they last 1hr only before I need to refresh
   private get accessTokenExpired() {
     if (this.accessToken) {
-      const decoded = decode<DecodedToken<CoginitoAccess>>(this.accessToken)
+      const decoded = jwtDecode<DecodedToken<CoginitoAccess>>(this.accessToken)
       const expiry = decoded['exp']
       // 5mins to allow for clock drift
       const fiveMinsFromNow = Math.round(new Date().getTime() / 1000) + 300
@@ -72,8 +66,11 @@ export class ReapitConnectServerSession {
     try {
       const base64Encoded = Buffer.from(`${this.connectClientId}:${this.connectClientSecret}`).toString('base64')
       const session = await axios.post(
-        `${this.connectOAuthUrl}/token?grant_type=client_credentials&client_id=${this.connectClientId}`,
-        {},
+        `${this.connectOAuthUrl}/token`,
+        new URLSearchParams({
+          grant_type: 'client_credentials',
+          client_id: this.connectClientId,
+        }),
         {
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -97,7 +94,6 @@ export class ReapitConnectServerSession {
 
   // The main method for fetching an accessToken in an app.
   public async connectAccessToken(): Promise<string | void> {
-    // Ideally, if I have a valid accessToken, just return it
     if (!this.accessTokenExpired) {
       return this.accessToken as string
     }

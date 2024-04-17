@@ -1,5 +1,4 @@
-import { ReapitConnectServerSessionInitializers,
-  CoginitoSession, } from '../'
+import { ReapitConnectServerSessionInitializers, CoginitoSession } from '../'
 import base64 from 'base-64'
 
 export const createMockToken = (token: { [s: string]: any } | string): string =>
@@ -35,7 +34,7 @@ export const mockTokenResponse: CoginitoSession = {
   access_token: createMockToken({
     exp: Math.round(new Date().getTime() / 1000) + 360, // time now + 6mins - we refresh session if expiry within 5mins
   }),
-  refresh_token: "SOME_REFRESH_TOKEN",
+  refresh_token: 'SOME_REFRESH_TOKEN',
   id_token: createMockToken({
     name: mockLoginIdentity.name,
     email: mockLoginIdentity.email,
