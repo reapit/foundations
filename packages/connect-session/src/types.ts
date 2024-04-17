@@ -11,12 +11,6 @@ export interface ReapitConnectBrowserSessionInitializers {
   connectApplicationTimeout?: number
 }
 
-export interface ReapitConnectServerSessionInitializers {
-  connectOAuthUrl: string
-  connectClientId: string
-  connectClientSecret: string
-}
-
 export interface ReapitConnectSession {
   accessToken: string
   refreshToken: string

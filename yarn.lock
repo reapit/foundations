@@ -5918,7 +5918,6 @@ __metadata:
     rollup: "npm:^4.13.0"
     snyk: "npm:^1.1285.0"
     ts-jest: "npm:^29.1.2"
-    tsup: "npm:^8.0.2"
     typescript: "npm:^5.4.2"
     uuid: "npm:^9.0.1"
   languageName: unknown
