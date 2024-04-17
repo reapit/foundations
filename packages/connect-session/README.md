@@ -149,7 +149,7 @@ export const SomeComponent: React.FC = () => {
 
 [Proof Key for Code Exchange](https://oauth.net/2/pkce/)
 
-By default PKCE is enabled. To disable PKCE, use `usePKCE` varaible on `ReapitConnectBrowserSession` and set it to false.
+By default PKCE is enabled. To disable PKCE, use `usePKCE` variable on `ReapitConnectBrowserSession` and set it to false.
 
 ```ts
 import { ReapitConnectBrowserSession } from '@reapit/connect-session'
