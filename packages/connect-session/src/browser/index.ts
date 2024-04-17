@@ -271,7 +271,10 @@ export class ReapitConnectBrowserSession {
     this.refreshTokenStorage.setItem(stateNonce, internalRedirectPath)
     const code_challenge = await this.encryptCodeVerifier(this.codeVerifier(stateNonce))
 
-    window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${authRedirectUri}&state=${stateNonce}${this.usePKCE ? `&code_challenge_method=S256&code_challenge=${code_challenge}` : ''}`
+    let location = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${authRedirectUri}&state=${stateNonce}`
+    if (this.usePKCE) location += `&code_challenge_method=S256&code_challenge=${code_challenge}`
+
+    window.location.href = location
   }
 
   // Handles redirect to login - defaults to constructor redirect uri but I can override if I like.
