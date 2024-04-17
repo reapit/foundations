@@ -1,4 +1,4 @@
-import { ReapitConnectServerSession } from '@reapit/connect-session'
+import { ReapitConnectServerSession } from '@reapit/connect-session-server'
 import reapitConnectSession from '../connect-session'
 
 describe('reapitConnectSession', () => {
