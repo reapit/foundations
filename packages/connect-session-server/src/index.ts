@@ -83,7 +83,7 @@ export class ReapitConnectServerSession {
         throw new Error(session.data.error)
       }
 
-      if (session.data && session.data.access_token) {
+      if (session?.data?.access_token) {
         return session.data.access_token
       }
       throw new Error('No access token returned by Reapit Connect')
