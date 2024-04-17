@@ -31,7 +31,7 @@
     "@nestjs/config": "^2.3.4",
     "@nestjs/core": "^9.4.3",
     "@nestjs/platform-express": "^9.4.3",
-    "@reapit/connect-session": "workspace:packages/connect-session",
+    "@reapit/connect-session-server": "workspace:^",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "@reapit/utils-node": "workspace:packages/utils-node",
     "@sentry/node": "^7.107.0",
