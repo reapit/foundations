@@ -31,12 +31,12 @@ type RefreshTokenPayload = BasePayload & {
 
 export class ReapitConnectBrowserSession {
   // Static constants
-  static GLOBAL_KEY = '__REAPIT_MARKETPLACE_GLOBALS__'
-  static REFRESH_TOKEN_KEY = 'REAPIT_REFRESH_TOKEN'
-  static USER_NAME_KEY = 'REAPIT_LAST_AUTH_USER'
-  static CODE_VERIFIER = 'REAPIT_CODE_VERIFIER'
-  static STATE_NONCE = 'REAPIT_STATE_NONCE'
-  static APP_DEFAULT_TIMEOUT = 10800000 // 3hrs in ms
+  public static GLOBAL_KEY = '__REAPIT_MARKETPLACE_GLOBALS__'
+  public static REFRESH_TOKEN_KEY = 'REAPIT_REFRESH_TOKEN'
+  public static USER_NAME_KEY = 'REAPIT_LAST_AUTH_USER'
+  public static CODE_VERIFIER = 'REAPIT_CODE_VERIFIER'
+  public static STATE_NONCE = 'REAPIT_STATE_NONCE'
+  public static APP_DEFAULT_TIMEOUT = 10800000 // 3hrs in ms
 
   // Private cached variables, I don't want users to reference these directly or it will get confusing.
   // and cause bugs
