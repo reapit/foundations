@@ -18,7 +18,7 @@
     "paths": {
       "@reapit/utils-node": ["../utils-node"],
       "@reapit/utils-nest": ["../utils-nest/src"],
-      "@reapit/connect-session": ["../connect-session/src"]
+      "@reapit/connect-session-server": ["../connect-session-server/src"]
     }
   },
   "include": ["./src/**/*"],

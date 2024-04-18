@@ -205,7 +205,7 @@ export class ReapitConnectBrowserSession {
       } as RequestInit)
       const session: CoginitoSession | undefined = await response.json()
 
-      if (!session || (session && session.error)) return this.handleError('Error fetching session from Reapit Connect ')
+      if (!session || (session && session.error)) return this.handleError('Error fetching session from Reapit Connect')
 
       // I need to verify the identity claims I have just received from the server dwdqd
       const loginIdentity: LoginIdentity | undefined = await connectSessionVerifyDecodeIdToken(session.id_token)

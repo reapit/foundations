@@ -1,4 +1,4 @@
-import { ReapitConnectServerSession } from '@reapit/connect-session'
+import { ReapitConnectServerSession } from '@reapit/connect-session-server'
 
 const reapitConnectSession = new ReapitConnectServerSession({
   connectClientId: process.env.CONNECT_CLIENT_ID,

@@ -1,5 +1,4 @@
 export * from './browser'
 export * from './react'
 export * from './types'
-export * from './server'
 export * from './utils'

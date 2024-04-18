@@ -1,7 +1,6 @@
 import { ReapitConnectSession } from '../index'
 import {
   ReapitConnectBrowserSessionInitializers,
-  ReapitConnectServerSessionInitializers,
   CoginitoSession,
 } from '../types'
 import base64 from 'base-64'
@@ -52,12 +51,6 @@ export const mockBrowserInitializers: ReapitConnectBrowserSessionInitializers = 
   connectUserPoolId: 'SOME_USER_POOL_ID',
   connectLoginRedirectPath: '/some-route',
   connectLogoutRedirectPath: '/some-other-route',
-}
-
-export const mockServerInitializers: ReapitConnectServerSessionInitializers = {
-  connectClientId: 'SOME_CLIENT_ID',
-  connectOAuthUrl: 'SOME_URL',
-  connectClientSecret: 'SOME_SECRET',
 }
 
 export const mockTokenResponse: CoginitoSession = {
