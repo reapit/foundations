@@ -5900,6 +5900,7 @@ __metadata:
     "@rollup/plugin-typescript": "npm:^11.1.6"
     "@testing-library/react-hooks": "npm:^8.0.1"
     "@types/base-64": "npm:^1.0.2"
+    "@types/text-encoding": "npm:^0"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
     "@typescript-eslint/parser": "npm:^6.21.0"
     axios: "npm:^1.6.8"
@@ -5920,6 +5921,7 @@ __metadata:
     rimraf: "npm:^5.0.5"
     rollup: "npm:^4.13.0"
     snyk: "npm:^1.1285.0"
+    text-encoding: "npm:^0.7.0"
     ts-jest: "npm:^29.1.2"
     typescript: "npm:^5.4.2"
     uuid: "npm:^9.0.1"
@@ -9709,6 +9711,13 @@ __metadata:
   dependencies:
     "@types/jest": "npm:*"
   checksum: e257de95a4a9385cc09ae4ca3396d23ad4b5cfb8e021a1ca3454c424c34636075f6fe151b2f881f79bf9d497aa04fbfae62449b135f293e8d2d614fa899898a8
+  languageName: node
+  linkType: hard
+
+"@types/text-encoding@npm:^0":
+  version: 0.0.39
+  resolution: "@types/text-encoding@npm:0.0.39"
+  checksum: a310f06c27f7848661114534e6e48927f47f5b32d2aa30a6ee668aba3a0c747c3b24069a1e0286415767956760cacf5173902728396223a2128be4b9ec415790
   languageName: node
   linkType: hard
 
@@ -26366,6 +26375,13 @@ __metadata:
     glob: "npm:^7.1.4"
     minimatch: "npm:^3.0.4"
   checksum: 8fccb2cb6c8fcb6bb4115394feb833f8b6cf4b9503ec2485c2c90febf435cac62abe882a0c5c51a37b9bbe70640cdd05acf5f45e486ac4583389f4b0855f69e5
+  languageName: node
+  linkType: hard
+
+"text-encoding@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "text-encoding@npm:0.7.0"
+  checksum: c61b7a59a54c58f0714da0ef4c1f65732821bb1f761e6f21c3e681e51c6dd56fdefa4fcfccd3254bf47132d87420fbc9898da21a804c89e87861f4e1478d5f18
   languageName: node
   linkType: hard
 
