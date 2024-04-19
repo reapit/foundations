@@ -10,7 +10,7 @@ import { connectSessionVerifyDecodeIdToken } from '../utils/verify-decode-id-tok
 import decode from 'jwt-decode'
 import { DecodedToken } from '../utils'
 import { v4 as uuid } from 'uuid'
-import { TextEncoder } from 'util'
+import { TextEncoder } from 'text-encoding'
 
 type BasePayload = {
   redirect_uri: string
@@ -326,8 +326,6 @@ export class ReapitConnectBrowserSession {
 
       const qs = new URLSearchParams(window.location.search)
       const state = qs.get('state')
-
-      if (!state && !this.refreshToken) throw new Error('No state found')
 
       const payload: AuthCodePayload | RefreshTokenPayload = this.refreshToken
         ? {
