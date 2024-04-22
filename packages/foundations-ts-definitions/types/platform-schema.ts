@@ -1646,19 +1646,6 @@ export interface AppointmentContactModel {
   fromArchive?: boolean
 }
 /**
- * A view of the documents associated to the appointment
- */
-export interface AppointmentDocumentModel {
-  /**
-   * The unique identifier of the draft property inspection report document
-   */
-  draftPropertyInspectionReportId?: string
-  /**
-   * The unique identifier of the final property inspection report document
-   */
-  finalPropertyInspectionReportId?: string
-}
-/**
  * Follow up information relating to an appointment
  */
 export interface AppointmentFollowUpModel {
@@ -1742,7 +1729,7 @@ export interface AppointmentModel {
      */
     type?: string
     /**
-     * The date and time of the last occurrence of the appointment
+     * The date the appointment recurs until
      * example:
      * 2019-08-14T12:30:02Z
      */
@@ -1870,19 +1857,6 @@ export interface AppointmentModel {
    */
   otherAgentId?: string
   /**
-   * A view of the documents associated to the appointment
-   */
-  documents?: {
-    /**
-     * The unique identifier of the draft property inspection report document
-     */
-    draftPropertyInspectionReportId?: string
-    /**
-     * The unique identifier of the final property inspection report document
-     */
-    finalPropertyInspectionReportId?: string
-  }
-  /**
    * App specific metadata that has been set against the appointment
    */
   metadata?: {
@@ -1962,7 +1936,7 @@ export interface AppointmentModelPagedResult {
        */
       type?: string
       /**
-       * The date and time of the last occurrence of the appointment
+       * The date the appointment recurs until
        * example:
        * 2019-08-14T12:30:02Z
        */
@@ -2089,19 +2063,6 @@ export interface AppointmentModelPagedResult {
      * The unique identifier of the external company either carrying out or attending the appointment with the agent
      */
     otherAgentId?: string
-    /**
-     * A view of the documents associated to the appointment
-     */
-    documents?: {
-      /**
-       * The unique identifier of the draft property inspection report document
-       */
-      draftPropertyInspectionReportId?: string
-      /**
-       * The unique identifier of the final property inspection report document
-       */
-      finalPropertyInspectionReportId?: string
-    }
     /**
      * App specific metadata that has been set against the appointment
      */
@@ -5298,19 +5259,6 @@ export interface CreateAppointmentAttendeeModel {
   type?: string
 }
 /**
- * A view of the documents associated to the appointment
- */
-export interface CreateAppointmentDocumentModel {
-  /**
-   * The unique identifier of the draft property inspection report document
-   */
-  draftPropertyInspectionReportId?: string
-  /**
-   * The unique identifier of the final property inspection report document
-   */
-  finalPropertyInspectionReportId?: string
-}
-/**
  * Request body used to create a new calendar appointment
  * example:
  * [object Object]
@@ -5416,24 +5364,11 @@ export interface CreateAppointmentModel {
      */
     type?: string
     /**
-     * The date and time of the last occurrence of the appointment. (Required if 'type' is provided)
+     * The date and time when the recurrence will stop. (Required if 'type' is provided)
      * example:
      * 2019-08-14T12:30:02Z
      */
     until?: string // date-time
-  }
-  /**
-   * A view of the documents associated to the appointment
-   */
-  documents?: {
-    /**
-     * The unique identifier of the draft property inspection report document
-     */
-    draftPropertyInspectionReportId?: string
-    /**
-     * The unique identifier of the final property inspection report document
-     */
-    finalPropertyInspectionReportId?: string
   }
   /**
    * App specific metadata to set against the appointment
@@ -5455,7 +5390,7 @@ export interface CreateAppointmentRecurrenceModel {
    */
   type?: string
   /**
-   * The date and time of the last occurrence of the appointment. (Required if 'type' is provided)
+   * The date and time when the recurrence will stop. (Required if 'type' is provided)
    * example:
    * 2019-08-14T12:30:02Z
    */
@@ -17401,7 +17336,7 @@ export interface RecurrenceModel {
    */
   type?: string
   /**
-   * The date and time of the last occurrence of the appointment
+   * The date the appointment recurs until
    * example:
    * 2019-08-14T12:30:02Z
    */
@@ -21833,19 +21768,6 @@ export interface UpdateAppointmentAttendeeModel {
   confirmed?: boolean
 }
 /**
- * A view of the documents associated to the appointment
- */
-export interface UpdateAppointmentDocumentModel {
-  /**
-   * The unique identifier of the draft property inspection report document
-   */
-  draftPropertyInspectionReportId?: string
-  /**
-   * The unique identifier of the final property inspection report document
-   */
-  finalPropertyInspectionReportId?: string
-}
-/**
  * Represents the follow up information on a single appointment
  */
 export interface UpdateAppointmentFollowUpModel {
@@ -21985,24 +21907,11 @@ export interface UpdateAppointmentModel {
      */
     interval?: number // int32
     /**
-     * The date and time of the last occurrence of the appointment
+     * The date and time when the recurrence will stop
      * example:
      * 2019-08-14T12:30:02Z
      */
     until?: string // date-time
-  }
-  /**
-   * A view of the documents associated to the appointment
-   */
-  documents?: {
-    /**
-     * The unique identifier of the draft property inspection report document
-     */
-    draftPropertyInspectionReportId?: string
-    /**
-     * The unique identifier of the final property inspection report document
-     */
-    finalPropertyInspectionReportId?: string
   }
   /**
    * App specific metadata to set against the appointment
@@ -22024,7 +21933,7 @@ export interface UpdateAppointmentRecurrenceModel {
    */
   interval?: number // int32
   /**
-   * The date and time of the last occurrence of the appointment
+   * The date and time when the recurrence will stop
    * example:
    * 2019-08-14T12:30:02Z
    */
