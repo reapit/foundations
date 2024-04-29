@@ -11,9 +11,11 @@ export const createDatabase = (
 ): rds.DatabaseCluster => {
   const db = new rds.DatabaseCluster(stack, name, {
     engine: rds.DatabaseClusterEngine.auroraMysql({ version: rds.AuroraMysqlEngineVersion.VER_2_08_1 }),
+    // engine: rds.DatabaseClusterEngine.auroraMysql({ version: rds.AuroraMysqlEngineVersion.VER_3_03_1 }),
     defaultDatabaseName: databaseName,
     instanceProps: {
       vpc,
+      instanceType: cdk.aws_ec2.InstanceType.of(cdk.aws_ec2.InstanceClass.T3, cdk.aws_ec2.InstanceSize.MEDIUM),
     },
     cloudwatchLogsRetention: logs.RetentionDays.ONE_MONTH,
   })
