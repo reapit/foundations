@@ -10,8 +10,7 @@ export const createDatabase = (
   vpc: ec2.Vpc,
 ): rds.DatabaseCluster => {
   const db = new rds.DatabaseCluster(stack, name, {
-    engine: rds.DatabaseClusterEngine.auroraMysql({ version: rds.AuroraMysqlEngineVersion.VER_2_08_1 }),
-    // engine: rds.DatabaseClusterEngine.auroraMysql({ version: rds.AuroraMysqlEngineVersion.VER_3_03_1 }),
+    engine: rds.DatabaseClusterEngine.auroraMysql({ version: rds.AuroraMysqlEngineVersion.VER_3_03_1 }),
     defaultDatabaseName: databaseName,
     instanceProps: {
       vpc,
