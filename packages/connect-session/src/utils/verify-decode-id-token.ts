@@ -57,7 +57,8 @@ const getPublicKeys = async (token: string): Promise<MapOfKidToPublicKey | undef
     if (!issuer) {
       throw new Error('Unable to get issuer from id token')
     }
-    const res = await fetch(issuer, {
+    const iss = issuer.endsWith('/') ? issuer.slice(0, -1) : issuer
+    const res = await fetch(`${iss}/.well-known/jwks.json`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     })
