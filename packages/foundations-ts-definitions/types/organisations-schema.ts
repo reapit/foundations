@@ -1289,6 +1289,12 @@ export interface UpdateUserModel {
    * 2019-08-14T12:30:02.0000000Z
    */
   firstLoginDate?: string // date-time
+  /**
+   * The date and time at which the user last logged in
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  lastLoginDate?: string // date-time
 }
 /**
  * Request body used to update a user's password to a specific value
@@ -1518,6 +1524,12 @@ export interface UserModel {
    * 2019-08-14T12:30:02.0000000Z
    */
   firstLoginDate?: string // date-time
+  /**
+   * The date at which the user last logged in
+   * example:
+   * 2019-08-14
+   */
+  lastLoginDate?: string // date
   /**
    * A collection of groups that the user belongs to
    */

@@ -1646,6 +1646,19 @@ export interface AppointmentContactModel {
   fromArchive?: boolean
 }
 /**
+ * A view of the documents associated to the appointment
+ */
+export interface AppointmentDocumentModel {
+  /**
+   * The unique identifier of the draft property inspection report document
+   */
+  draftPropertyInspectionReportId?: string
+  /**
+   * The unique identifier of the final property inspection report document
+   */
+  finalPropertyInspectionReportId?: string
+}
+/**
  * Follow up information relating to an appointment
  */
 export interface AppointmentFollowUpModel {
@@ -1857,6 +1870,19 @@ export interface AppointmentModel {
    */
   otherAgentId?: string
   /**
+   * A view of the documents associated to the appointment
+   */
+  documents?: {
+    /**
+     * The unique identifier of the draft property inspection report document
+     */
+    draftPropertyInspectionReportId?: string
+    /**
+     * The unique identifier of the final property inspection report document
+     */
+    finalPropertyInspectionReportId?: string
+  }
+  /**
    * App specific metadata that has been set against the appointment
    */
   metadata?: {
@@ -2063,6 +2089,19 @@ export interface AppointmentModelPagedResult {
      * The unique identifier of the external company either carrying out or attending the appointment with the agent
      */
     otherAgentId?: string
+    /**
+     * A view of the documents associated to the appointment
+     */
+    documents?: {
+      /**
+       * The unique identifier of the draft property inspection report document
+       */
+      draftPropertyInspectionReportId?: string
+      /**
+       * The unique identifier of the final property inspection report document
+       */
+      finalPropertyInspectionReportId?: string
+    }
     /**
      * App specific metadata that has been set against the appointment
      */
@@ -5259,6 +5298,19 @@ export interface CreateAppointmentAttendeeModel {
   type?: string
 }
 /**
+ * A view of the documents associated to the appointment
+ */
+export interface CreateAppointmentDocumentModel {
+  /**
+   * The unique identifier of the draft property inspection report document
+   */
+  draftPropertyInspectionReportId?: string
+  /**
+   * The unique identifier of the final property inspection report document
+   */
+  finalPropertyInspectionReportId?: string
+}
+/**
  * Request body used to create a new calendar appointment
  * example:
  * [object Object]
@@ -5369,6 +5421,19 @@ export interface CreateAppointmentModel {
      * 2019-08-14T12:30:02Z
      */
     until?: string // date-time
+  }
+  /**
+   * A view of the documents associated to the appointment
+   */
+  documents?: {
+    /**
+     * The unique identifier of the draft property inspection report document
+     */
+    draftPropertyInspectionReportId?: string
+    /**
+     * The unique identifier of the final property inspection report document
+     */
+    finalPropertyInspectionReportId?: string
   }
   /**
    * App specific metadata to set against the appointment
@@ -5960,11 +6025,12 @@ export interface CreateDocumentModel {
   isPrivate?: boolean
   /**
    * The base64 encoded document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl)
-   * This supports upto 6MB
+   * See [documentation](https://foundations-documentation.reapit.cloud/api/api-documentation#uploading-files) about file size limits
    */
   fileData?: string
   /**
-   * The presigned s3 url which a document has been uploaded to (This supports files up to 30MB)
+   * The presigned s3 url which a document has been uploaded to
+   * See [documentation](https://foundations-documentation.reapit.cloud/api/api-documentation#uploading-files) about file size limits
    */
   fileUrl?: string
   /**
@@ -6247,11 +6313,12 @@ export interface CreateIdentityCheckModel {
     details?: string
     /**
      * The base64 encoded identity document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl) (Required when 'details' are not given)
-     * The total request payload cannot exceed 6Mb, regardless of the number of documents being sent
+     * See [documentation](https://foundations-documentation.reapit.cloud/api/api-documentation#uploading-files) about file size limits
      */
     fileData?: string
     /**
-     * The presigned s3 url which a document has been uploaded to (This supports files up to 30MB)
+     * The presigned s3 url which a document has been uploaded to
+     * See [documentation](https://foundations-documentation.reapit.cloud/api/api-documentation#uploading-files) about file size limits
      */
     fileUrl?: string
     /**
@@ -6280,11 +6347,12 @@ export interface CreateIdentityCheckModel {
     details?: string
     /**
      * The base64 encoded identity document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl) (Required when 'details' are not given)
-     * The total request payload cannot exceed 6Mb, regardless of the number of documents being sent
+     * See [documentation](https://foundations-documentation.reapit.cloud/api/api-documentation#uploading-files) about file size limits
      */
     fileData?: string
     /**
-     * The presigned s3 url which a document has been uploaded to (This supports files up to 30MB)
+     * The presigned s3 url which a document has been uploaded to
+     * See [documentation](https://foundations-documentation.reapit.cloud/api/api-documentation#uploading-files) about file size limits
      */
     fileUrl?: string
     /**
@@ -6320,11 +6388,12 @@ export interface CreateIdentityDocumentModel {
   details?: string
   /**
    * The base64 encoded identity document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl) (Required when 'details' are not given)
-   * The total request payload cannot exceed 6Mb, regardless of the number of documents being sent
+   * See [documentation](https://foundations-documentation.reapit.cloud/api/api-documentation#uploading-files) about file size limits
    */
   fileData?: string
   /**
-   * The presigned s3 url which a document has been uploaded to (This supports files up to 30MB)
+   * The presigned s3 url which a document has been uploaded to
+   * See [documentation](https://foundations-documentation.reapit.cloud/api/api-documentation#uploading-files) about file size limits
    */
   fileUrl?: string
   /**
@@ -7093,7 +7162,7 @@ export interface CreatePropertyEpcModel {
  */
 export interface CreatePropertyExternalAreaModel {
   /**
-   * The unit of area (acres/hectares)
+   * The unit of area (acres/hectares). (This will be converted and returned as acres)
    */
   type?: string
   /**
@@ -7129,7 +7198,8 @@ export interface CreatePropertyImageModel {
    */
   data?: string
   /**
-   * The presigned s3 url which a property image has been uploaded to (This supports files up to 30MB)
+   * The presigned s3 url which a property image has been uploaded to
+   * See [documentation](https://foundations-documentation.reapit.cloud/api/api-documentation#uploading-files) about file size limits
    */
   fileUrl?: string
   /**
@@ -7566,7 +7636,7 @@ export interface CreatePropertyModel {
    */
   externalArea?: {
     /**
-     * The unit of area (acres/hectares)
+     * The unit of area (acres/hectares). (This will be converted and returned as acres)
      */
     type?: string
     /**
@@ -9595,6 +9665,10 @@ export interface DocumentModel {
    */
   name?: string
   /**
+   * The identifier of the negotiator who added the document
+   */
+  addedBy?: string
+  /**
    * App specific metadata that has been set against the document
    */
   metadata?: {
@@ -9651,6 +9725,10 @@ export interface DocumentModelPagedResult {
      * The filename of the document
      */
     name?: string
+    /**
+     * The identifier of the negotiator who added the document
+     */
+    addedBy?: string
     /**
      * App specific metadata that has been set against the document
      */
@@ -14417,7 +14495,7 @@ export interface PropertyEpcModel {
  */
 export interface PropertyExternalAreaModel {
   /**
-   * The unit of area (acres/hectares)
+   * The unit of area (acres)
    */
   type?: string
   /**
@@ -14479,6 +14557,10 @@ export interface PropertyImageModel {
    */
   url?: string
   /**
+   * The url where the image thumbnail can be downloaded from.  Please not that physical assets for archived images may no longer be available
+   */
+  thumbnailUrl?: string
+  /**
    * The image caption
    */
   caption?: string
@@ -14533,6 +14615,10 @@ export interface PropertyImageModelPagedResult {
      * The url where the image can be downloaded from. Please note that physical assets for archived images may no longer be available
      */
     url?: string
+    /**
+     * The url where the image thumbnail can be downloaded from.  Please not that physical assets for archived images may no longer be available
+     */
+    thumbnailUrl?: string
     /**
      * The image caption
      */
@@ -15188,6 +15274,10 @@ export interface PropertyModel {
    */
   isExternal?: boolean
   /**
+   * A flag denoting whether or not the property accepts deposit schemes
+   */
+  depositSchemeAccepted?: boolean
+  /**
    * The arrangements regarding viewing the property
    */
   viewingArrangements?: string
@@ -15313,7 +15403,7 @@ export interface PropertyModel {
    */
   externalArea?: {
     /**
-     * The unit of area (acres/hectares)
+     * The unit of area (acres)
      */
     type?: string
     /**
@@ -16189,6 +16279,10 @@ export interface PropertyModelPagedResult {
      */
     isExternal?: boolean
     /**
+     * A flag denoting whether or not the property accepts deposit schemes
+     */
+    depositSchemeAccepted?: boolean
+    /**
      * The arrangements regarding viewing the property
      */
     viewingArrangements?: string
@@ -16314,7 +16408,7 @@ export interface PropertyModelPagedResult {
      */
     externalArea?: {
       /**
-       * The unit of area (acres/hectares)
+       * The unit of area (acres)
        */
       type?: string
       /**
@@ -17322,6 +17416,199 @@ export interface PropertyTerminologyModel {
    * A flag denoting whether the agent's CRM is configured to use "Market Appraisal" terminology instead of "Valuation"
    */
   useMarketAppraisal?: boolean
+}
+/**
+ * Representation of a properties electricity details
+ */
+export interface PropertyUtilitiesElectricityModel {
+  /**
+   * The type of electricity supplied (windTurbine/mainsSupply/privateSupply/solar)
+   */
+  type?: string
+  /**
+   * The unique identifier of the company providing the electricity
+   */
+  electricityCompanyId?: string
+  /**
+   * The electricity meter point number
+   */
+  electricityMeterPoint?: string
+}
+/**
+ * Representation of a properties gas details
+ */
+export interface PropertyUtilitiesGasModel {
+  /**
+   * A flag to determine if the property has gas
+   */
+  hasGas?: boolean
+  /**
+   * The unique identifier of the company providing the gas
+   */
+  gasCompanyId?: string
+  /**
+   * The gas meter point number
+   */
+  gasMeterPoint?: string
+}
+/**
+ * Representation of a properties internet details
+ */
+export interface PropertyUtilitiesInternetModel {
+  /**
+   * The types of internet supplied (none/adsl/fttc/fttp)
+   */
+  type?: string[]
+  /**
+   * The unique identifier of the company providing the internet
+   */
+  internetCompanyId?: string
+}
+/**
+ * Representation of a properties utilities
+ */
+export interface PropertyUtilitiesModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the utilities
+   */
+  id?: string
+  /**
+   * The unique identifier of property associated to the utilities
+   */
+  propertyId?: string
+  /**
+   * The date and time when the utilities were created
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the utilities were last modified
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  modified?: string // date-time
+  /**
+   * Representation of a properties electricity details
+   */
+  electricity?: {
+    /**
+     * The type of electricity supplied (windTurbine/mainsSupply/privateSupply/solar)
+     */
+    type?: string
+    /**
+     * The unique identifier of the company providing the electricity
+     */
+    electricityCompanyId?: string
+    /**
+     * The electricity meter point number
+     */
+    electricityMeterPoint?: string
+  }
+  /**
+   * Representation of a properties gas details
+   */
+  gas?: {
+    /**
+     * A flag to determine if the property has gas
+     */
+    hasGas?: boolean
+    /**
+     * The unique identifier of the company providing the gas
+     */
+    gasCompanyId?: string
+    /**
+     * The gas meter point number
+     */
+    gasMeterPoint?: string
+  }
+  /**
+   * Representation of a properties water details
+   */
+  water?: {
+    /**
+     * The type of water supplied (mainsSupply/privateSupply)
+     */
+    type?: string
+    /**
+     * The unique identifier of company providing the water
+     */
+    waterCompanyId?: string
+    /**
+     * The water meter point
+     */
+    waterMeterPoint?: string
+    /**
+     * The type of sewerage supplied (mainsSupply/privateSupply)
+     */
+    sewerage?: string
+  }
+  /**
+   * Representation of a properties internet details
+   */
+  internet?: {
+    /**
+     * The types of internet supplied (none/adsl/fttc/fttp)
+     */
+    type?: string[]
+    /**
+     * The unique identifier of the company providing the internet
+     */
+    internetCompanyId?: string
+  }
+  /**
+   * The unique identifier of company providing the telephone lines
+   */
+  telephoneCompanyId?: string
+  /**
+   * The unique identifier of company providing cable tv
+   */
+  cableTvCompanyId?: string
+  /**
+   * The type of heating supplied to the property (airConditioning/centralHeating/doubleGlazing/ecoFriendly/electric/gas/gasCentral/nightStorage/oil/solar/solarWater/underFloor/woodBurner/openFire/biomassBoiler/groundSourceHeatPump/airSourceHeatPump/solarPvThermal/underFloorHeating/solarThermal)
+   */
+  heating?: string[]
+  /**
+   * The main type of heating supplied (independent/communal/independentChilled/communalChilled)
+   */
+  mainHeating?: string[]
+  /**
+   * Information relating the mobile signal
+   */
+  mobileSignal?: string
+  /**
+   * The ETag for the current version of the keys. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+}
+/**
+ * Representation of a properties water details
+ */
+export interface PropertyUtilitiesWaterModel {
+  /**
+   * The type of water supplied (mainsSupply/privateSupply)
+   */
+  type?: string
+  /**
+   * The unique identifier of company providing the water
+   */
+  waterCompanyId?: string
+  /**
+   * The water meter point
+   */
+  waterMeterPoint?: string
+  /**
+   * The type of sewerage supplied (mainsSupply/privateSupply)
+   */
+  sewerage?: string
 }
 /**
  * Representation of an appointments recurrence details
@@ -21768,6 +22055,19 @@ export interface UpdateAppointmentAttendeeModel {
   confirmed?: boolean
 }
 /**
+ * A view of the documents associated to the appointment
+ */
+export interface UpdateAppointmentDocumentModel {
+  /**
+   * The unique identifier of the draft property inspection report document
+   */
+  draftPropertyInspectionReportId?: string
+  /**
+   * The unique identifier of the final property inspection report document
+   */
+  finalPropertyInspectionReportId?: string
+}
+/**
  * Represents the follow up information on a single appointment
  */
 export interface UpdateAppointmentFollowUpModel {
@@ -21912,6 +22212,19 @@ export interface UpdateAppointmentModel {
      * 2019-08-14T12:30:02Z
      */
     until?: string // date-time
+  }
+  /**
+   * A view of the documents associated to the appointment
+   */
+  documents?: {
+    /**
+     * The unique identifier of the draft property inspection report document
+     */
+    draftPropertyInspectionReportId?: string
+    /**
+     * The unique identifier of the final property inspection report document
+     */
+    finalPropertyInspectionReportId?: string
   }
   /**
    * App specific metadata to set against the appointment
@@ -23382,7 +23695,7 @@ export interface UpdatePropertyEpcModel {
  */
 export interface UpdatePropertyExternalAreaModel {
   /**
-   * The unit of area (acres/hectares)
+   * The unit of area (acres/hectares). (This will be converted and returned as acres)
    */
   type?: string
   /**
@@ -24029,7 +24342,7 @@ export interface UpdatePropertyModel {
    */
   externalArea?: {
     /**
-     * The unit of area (acres/hectares)
+     * The unit of area (acres/hectares). (This will be converted and returned as acres)
      */
     type?: string
     /**
@@ -24760,6 +25073,169 @@ export interface UpdatePropertyTenureModel {
    * 2019-08-14
    */
   expiry?: string // date
+}
+/**
+ * Representation of a properties electricity details
+ */
+export interface UpdatePropertyUtilitiesElectricityModel {
+  /**
+   * The type of electricity supplied (windTurbine/mainsSupply/privateSupply/solar)
+   */
+  type?: string
+  /**
+   * The unique identifier of company providing the electricity
+   */
+  electricityCompanyId?: string
+  /**
+   * The electricity meter point
+   */
+  electricityMeterPoint?: string
+}
+/**
+ * Representation of a properties gas details
+ */
+export interface UpdatePropertyUtilitiesGasModel {
+  /**
+   * A flag to determine if the property has gas
+   */
+  hasGas?: boolean
+  /**
+   * The unique identifier of company providing the gas
+   */
+  gasCompanyId?: string
+  /**
+   * The gas meter point
+   */
+  gasMeterPoint?: string
+}
+/**
+ * Representation of a properties internet details
+ */
+export interface UpdatePropertyUtilitiesInternetModel {
+  /**
+   * The type of internet supplied (none/adsl/fttc/fttp)
+   */
+  type?: string[]
+  /**
+   * The unique identifier of company providing the internet
+   */
+  internetCompanyId?: string
+}
+/**
+ * Representation of a properties utilities
+ * example:
+ * [object Object]
+ */
+export interface UpdatePropertyUtilitiesModel {
+  /**
+   * Representation of a properties electricity details
+   */
+  electricity?: {
+    /**
+     * The type of electricity supplied (windTurbine/mainsSupply/privateSupply/solar)
+     */
+    type?: string
+    /**
+     * The unique identifier of company providing the electricity
+     */
+    electricityCompanyId?: string
+    /**
+     * The electricity meter point
+     */
+    electricityMeterPoint?: string
+  }
+  /**
+   * Representation of a properties gas details
+   */
+  gas?: {
+    /**
+     * A flag to determine if the property has gas
+     */
+    hasGas?: boolean
+    /**
+     * The unique identifier of company providing the gas
+     */
+    gasCompanyId?: string
+    /**
+     * The gas meter point
+     */
+    gasMeterPoint?: string
+  }
+  /**
+   * Representation of a properties water details
+   */
+  water?: {
+    /**
+     * The type of water supplied (mainsSupply/privateSupply)
+     */
+    type?: string
+    /**
+     * The unique identifier of company providing the water
+     */
+    waterCompanyId?: string
+    /**
+     * The water meter point
+     */
+    waterMeterPoint?: string
+    /**
+     * The type of sewerage supplied (mainsSupply/privateSupply)
+     */
+    sewerage?: string
+  }
+  /**
+   * Representation of a properties internet details
+   */
+  internet?: {
+    /**
+     * The type of internet supplied (none/adsl/fttc/fttp)
+     */
+    type?: string[]
+    /**
+     * The unique identifier of company providing the internet
+     */
+    internetCompanyId?: string
+  }
+  /**
+   * The unique identifier of company providing the telephone lines
+   */
+  telephoneCompanyId?: string
+  /**
+   * The unique identifier of company providing cable tv
+   */
+  cableTvCompanyId?: string
+  /**
+   * The type of heating supplied to the property (airConditioning/centralHeating/doubleGlazing/ecoFriendly/electric/gas/gasCentral/nightStorage/oil/solar/solarWater/underFloor/woodBurner/openFire/biomassBoiler/groundSourceHeatPump/airSourceHeatPump/solarPvThermal/underFloorHeating/solarThermal)
+   */
+  heating?: string[]
+  /**
+   * The main type of heating supplied (independent/communal/independentChilled/communalChilled)
+   */
+  mainHeating?: string[]
+  /**
+   * Information relating the mobile signal
+   */
+  mobileSignal?: string
+}
+/**
+ * Representation of a properties water details
+ */
+export interface UpdatePropertyUtilitiesWaterModel {
+  /**
+   * The type of water supplied (mainsSupply/privateSupply)
+   */
+  type?: string
+  /**
+   * The unique identifier of company providing the water
+   */
+  waterCompanyId?: string
+  /**
+   * The water meter point
+   */
+  waterMeterPoint?: string
+  /**
+   * The type of sewerage supplied (mainsSupply/privateSupply)
+   */
+  sewerage?: string
 }
 /**
  * Update Referral Model
