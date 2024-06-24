@@ -12318,6 +12318,8 @@ export interface Metadata {
   id?: string[]
   entityId?: string[]
   filter?: string[]
+  useTokenBasedPaging?: boolean
+  nextPageToken?: string
 }
 export interface MetadataMetadataSchema {
   pageSize?: number
