@@ -8710,11 +8710,13 @@ export interface CreateTenancyManagementFeeModel {
  */
 export interface CreateTenancyModel {
   /**
+   * The start date of the tenancy
    * example:
    * 2019-08-14
    */
   startDate?: string // date
   /**
+   * The end date of the tenancy
    * example:
    * 2019-08-14
    */
@@ -8803,6 +8805,10 @@ export interface CreateTenancyModel {
    * Financial notes set against the tenancy
    */
   feeNotes?: string
+  /**
+   * The identifier of the pre-tenancy checklist status for the tenancy
+   */
+  preTenancyCheckStatusId?: string
   /**
    * Request body used to set letting fees on a new tenancy
    */
@@ -20003,6 +20009,10 @@ export interface TenancyModel {
    */
   legalStatusId?: string
   /**
+   * The identifier of the pre-tenancy checklist status for the tenancy
+   */
+  preTenancyCheckStatusId?: string
+  /**
    * Representation of renewal options in a tenancy
    */
   renewalOptions?: {
@@ -20385,6 +20395,10 @@ export interface TenancyModelPagedResult {
      * The identifier of the legal status to set against the tenancy
      */
     legalStatusId?: string
+    /**
+     * The identifier of the pre-tenancy checklist status for the tenancy
+     */
+    preTenancyCheckStatusId?: string
     /**
      * Representation of renewal options in a tenancy
      */
@@ -25658,6 +25672,10 @@ export interface UpdateTenancyModel {
    * The identifier of the legal status to set against the tenancy
    */
   legalStatusId?: string
+  /**
+   * The identifier of the pre-tenancy checklist status for the tenancy
+   */
+  preTenancyCheckStatusId?: string
   /**
    * Request body used to set the deposit of a tenancy
    */
