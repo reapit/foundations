@@ -6,10 +6,10 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-25 el-grid"
+        class="mocked-styled-30 el-grid"
       >
         <div
-          class="mocked-styled-26 el-col"
+          class="mocked-styled-31 el-col"
         >
           <h2
             class="el-text-base el-subtitle"
@@ -24,7 +24,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
           </p>
         </div>
         <div
-          class="mocked-styled-26 el-col"
+          class="mocked-styled-31 el-col"
         >
           <h2
             class="el-text-base el-subtitle"
@@ -44,50 +44,50 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
         Breakdown
       </h2>
       <div
-        class="mocked-styled-108 el-table"
+        class="mocked-styled-115 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="4"
         role="table"
       >
         <div
-          class="mocked-styled-94 el-table-headers-row"
+          class="mocked-styled-101 el-table-headers-row"
           role="row"
         >
           <div
             aria-label="Entity Name"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Entity Name
           </div>
           <div
             aria-label="Total Number Calls"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Total Number Calls
           </div>
           <div
             aria-label="Total Cost"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Total Cost
           </div>
           <div
             aria-label="Total Number Endpoints"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Total Number Endpoints
           </div>
           <div
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             <span
-              class="el-intent-default el-icon"
+              class="el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
@@ -107,18 +107,18 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-103 el-table-row-container"
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
           <div
-            class="mocked-styled-96 el-table-row"
+            class="mocked-styled-103 el-table-row"
           >
             <div
               class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
               <span
-                class="el-intent-default el-icon"
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -138,7 +138,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                 </svg>
               </span>
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Entity Name"
               >
                 contacts
@@ -149,7 +149,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
               role="cell"
             >
               <span
-                class="el-intent-default el-icon"
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -169,7 +169,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                 </svg>
               </span>
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Total Number Calls"
               >
                 157
@@ -180,7 +180,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
               role="cell"
             >
               <span
-                class="el-intent-default el-icon"
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -200,7 +200,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                 </svg>
               </span>
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Total Cost"
               >
                 £1.96
@@ -211,7 +211,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
               role="cell"
             >
               <span
-                class="el-intent-default el-icon"
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -231,19 +231,19 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                 </svg>
               </span>
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Total Number Endpoints"
               >
                 2
               </div>
             </div>
             <div
-              class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+              class="mocked-styled-109 el-table-expandable-row-trigger-cell"
               role="cell"
               tabindex="0"
             >
               <span
-                class="el-intent-default el-icon"
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
@@ -263,13 +263,13 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-106 el-table-expandable-row"
+            class="mocked-styled-113 el-table-expandable-row"
           >
             <div
-              class="mocked-styled-107 el-table-expandable-container"
+              class="mocked-styled-114 el-table-expandable-container"
             >
               <div
-                class="mocked-styled-108 el-table"
+                class="mocked-styled-115 el-table"
               >
                 <div
                   class="mock-css.
@@ -277,17 +277,17 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
  el-table-headers-row"
                 >
                   <div
-                    class="mocked-styled-95 el-table-header"
+                    class="mocked-styled-102 el-table-header"
                   >
                     Endpoint Name
                   </div>
                   <div
-                    class="mocked-styled-95 el-table-header"
+                    class="mocked-styled-102 el-table-header"
                   >
                     Endpoint Number Calls
                   </div>
                   <div
-                    class="mocked-styled-95 el-table-header"
+                    class="mocked-styled-102 el-table-header"
                   >
                     Endpoint Cost
                   </div>
@@ -301,10 +301,10 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-25 el-grid"
+      class="mocked-styled-30 el-grid"
     >
       <div
-        class="mocked-styled-26 el-col"
+        class="mocked-styled-31 el-col"
       >
         <h2
           class="el-text-base el-subtitle"
@@ -319,7 +319,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
         </p>
       </div>
       <div
-        class="mocked-styled-26 el-col"
+        class="mocked-styled-31 el-col"
       >
         <h2
           class="el-text-base el-subtitle"
@@ -339,50 +339,50 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
       Breakdown
     </h2>
     <div
-      class="mocked-styled-108 el-table"
+      class="mocked-styled-115 el-table"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="4"
       role="table"
     >
       <div
-        class="mocked-styled-94 el-table-headers-row"
+        class="mocked-styled-101 el-table-headers-row"
         role="row"
       >
         <div
           aria-label="Entity Name"
-          class="mocked-styled-95 el-table-header"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Entity Name
         </div>
         <div
           aria-label="Total Number Calls"
-          class="mocked-styled-95 el-table-header"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Total Number Calls
         </div>
         <div
           aria-label="Total Cost"
-          class="mocked-styled-95 el-table-header"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Total Cost
         </div>
         <div
           aria-label="Total Number Endpoints"
-          class="mocked-styled-95 el-table-header"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Total Number Endpoints
         </div>
         <div
-          class="mocked-styled-95 el-table-header"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           <span
-            class="el-intent-default el-icon"
+            class="el-intent-default el-icon-new el-icon"
           >
             <svg
               fill="none"
@@ -402,18 +402,18 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
         </div>
       </div>
       <div
-        class="mocked-styled-103 el-table-row-container"
+        class="mocked-styled-110 el-table-row-container"
         role="row"
       >
         <div
-          class="mocked-styled-96 el-table-row"
+          class="mocked-styled-103 el-table-row"
         >
           <div
             class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
             <span
-              class="el-intent-default el-icon"
+              class="el-intent-default el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -433,7 +433,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
               </svg>
             </span>
             <div
-              class="mocked-styled-104 el-table-cell-content"
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Entity Name"
             >
               contacts
@@ -444,7 +444,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
             role="cell"
           >
             <span
-              class="el-intent-default el-icon"
+              class="el-intent-default el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -464,7 +464,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
               </svg>
             </span>
             <div
-              class="mocked-styled-104 el-table-cell-content"
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Total Number Calls"
             >
               157
@@ -475,7 +475,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
             role="cell"
           >
             <span
-              class="el-intent-default el-icon"
+              class="el-intent-default el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -495,7 +495,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
               </svg>
             </span>
             <div
-              class="mocked-styled-104 el-table-cell-content"
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Total Cost"
             >
               £1.96
@@ -506,7 +506,7 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
             role="cell"
           >
             <span
-              class="el-intent-default el-icon"
+              class="el-intent-default el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -526,19 +526,19 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
               </svg>
             </span>
             <div
-              class="mocked-styled-104 el-table-cell-content"
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Total Number Endpoints"
             >
               2
             </div>
           </div>
           <div
-            class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+            class="mocked-styled-109 el-table-expandable-row-trigger-cell"
             role="cell"
             tabindex="0"
           >
             <span
-              class="el-intent-default el-icon"
+              class="el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
@@ -558,13 +558,13 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-106 el-table-expandable-row"
+          class="mocked-styled-113 el-table-expandable-row"
         >
           <div
-            class="mocked-styled-107 el-table-expandable-container"
+            class="mocked-styled-114 el-table-expandable-container"
           >
             <div
-              class="mocked-styled-108 el-table"
+              class="mocked-styled-115 el-table"
             >
               <div
                 class="mock-css.
@@ -572,17 +572,17 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
  el-table-headers-row"
               >
                 <div
-                  class="mocked-styled-95 el-table-header"
+                  class="mocked-styled-102 el-table-header"
                 >
                   Endpoint Name
                 </div>
                 <div
-                  class="mocked-styled-95 el-table-header"
+                  class="mocked-styled-102 el-table-header"
                 >
                   Endpoint Number Calls
                 </div>
                 <div
-                  class="mocked-styled-95 el-table-header"
+                  class="mocked-styled-102 el-table-header"
                 >
                   Endpoint Cost
                 </div>
@@ -662,7 +662,7 @@ exports[`UsageTable should match a snapshot with no billing 1`] = `
             data-testid="close-icon"
           >
             <span
-              class="mocked-styled-4 el-icon"
+              class="el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -703,7 +703,7 @@ exports[`UsageTable should match a snapshot with no billing 1`] = `
           data-testid="close-icon"
         >
           <span
-            class="mocked-styled-4 el-icon"
+            class="el-icon-new el-icon"
             style="font-size: 1.25rem;"
           >
             <svg

@@ -6,7 +6,7 @@ exports[`IaaS should match snapshot when loading 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <section
         class="el-page-container"
@@ -21,13 +21,13 @@ exports[`IaaS should match snapshot when loading 1`] = `
             class="el-mb11 el-form-layout"
           >
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                aria-controls="test-static-id"
+                aria-controls=":r2:"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                class="mocked-styled-77 el-searchable-dropdown-container"
+                class="mocked-styled-84 el-searchable-dropdown-container"
                 role="combobox"
               >
                 <input
@@ -37,10 +37,10 @@ exports[`IaaS should match snapshot when loading 1`] = `
                   value=""
                 />
                 <span
-                  class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                  class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
                 >
                   <span
-                    class="el-intent-default el-icon"
+                    class="el-intent-default el-icon-new el-icon"
                     style="font-size: 1rem;"
                   >
                     <svg
@@ -62,7 +62,7 @@ exports[`IaaS should match snapshot when loading 1`] = `
                 </span>
                 <input
                   aria-label="Input type undefined"
-                  class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
+                  class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                   data-testid="search-input"
                   name="developerId"
                   placeholder="Search developer organisations"
@@ -73,13 +73,13 @@ exports[`IaaS should match snapshot when loading 1`] = `
           </div>
         </form>
         <div
-          class="mocked-styled-38 el-loader-container"
+          class="mocked-styled-44 el-loader-container"
         >
           <div
-            class="mocked-styled-40 el-loader"
+            class="mocked-styled-46 el-loader"
           >
             <div
-              class="mocked-styled-41 el-loader-moving-bar"
+              class="mocked-styled-47 el-loader-moving-bar"
             />
           </div>
         </div>
@@ -88,7 +88,7 @@ exports[`IaaS should match snapshot when loading 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <section
       class="el-page-container"
@@ -103,13 +103,13 @@ exports[`IaaS should match snapshot when loading 1`] = `
           class="el-mb11 el-form-layout"
         >
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              aria-controls="test-static-id"
+              aria-controls=":r2:"
               aria-expanded="false"
               aria-haspopup="listbox"
-              class="mocked-styled-77 el-searchable-dropdown-container"
+              class="mocked-styled-84 el-searchable-dropdown-container"
               role="combobox"
             >
               <input
@@ -119,10 +119,10 @@ exports[`IaaS should match snapshot when loading 1`] = `
                 value=""
               />
               <span
-                class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
               >
                 <span
-                  class="el-intent-default el-icon"
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1rem;"
                 >
                   <svg
@@ -144,7 +144,7 @@ exports[`IaaS should match snapshot when loading 1`] = `
               </span>
               <input
                 aria-label="Input type undefined"
-                class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
+                class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                 data-testid="search-input"
                 name="developerId"
                 placeholder="Search developer organisations"
@@ -155,13 +155,13 @@ exports[`IaaS should match snapshot when loading 1`] = `
         </div>
       </form>
       <div
-        class="mocked-styled-38 el-loader-container"
+        class="mocked-styled-44 el-loader-container"
       >
         <div
-          class="mocked-styled-40 el-loader"
+          class="mocked-styled-46 el-loader"
         >
           <div
-            class="mocked-styled-41 el-loader-moving-bar"
+            class="mocked-styled-47 el-loader-moving-bar"
           />
         </div>
       </div>
@@ -227,7 +227,7 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <section
         class="el-page-container"
@@ -242,13 +242,13 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
             class="el-mb11 el-form-layout"
           >
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                aria-controls="test-static-id"
+                aria-controls=":r0:"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                class="mocked-styled-77 el-searchable-dropdown-container"
+                class="mocked-styled-84 el-searchable-dropdown-container"
                 role="combobox"
               >
                 <input
@@ -258,10 +258,10 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                   value=""
                 />
                 <span
-                  class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                  class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
                 >
                   <span
-                    class="el-intent-default el-icon"
+                    class="el-intent-default el-icon-new el-icon"
                     style="font-size: 1rem;"
                   >
                     <svg
@@ -283,7 +283,7 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                 </span>
                 <input
                   aria-label="Input type undefined"
-                  class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
+                  class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                   data-testid="search-input"
                   name="developerId"
                   placeholder="Search developer organisations"
@@ -301,50 +301,50 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
           role="table"
         >
           <div
-            class="mocked-styled-94 el-table-headers-row"
+            class="mocked-styled-101 el-table-headers-row"
             role="row"
           >
             <div
               aria-label="Name"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Name
             </div>
             <div
               aria-label="Build Status"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Build Status
             </div>
             <div
               aria-label="Repository"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Repository
             </div>
             <div
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Delete Pipeline
             </div>
           </div>
           <div
-            class="mocked-styled-103 el-table-row-container"
+            class="mocked-styled-110 el-table-row-container"
             role="row"
           >
             <div
-              class="mocked-styled-96 el-table-row"
+              class="mocked-styled-103 el-table-row"
             >
               <div
                 class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
                 <span
-                  class="el-intent-default el-icon"
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1.25rem;"
                 >
                   <svg
@@ -364,7 +364,7 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                   </svg>
                 </span>
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Name"
                 >
                   reapit-ltd-internal-thoughtless-cub
@@ -375,7 +375,7 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Build Status"
                 >
                   <span
@@ -389,20 +389,20 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Repository"
                 />
               </div>
               <div
-                class="mocked-styled-97 el-table-cta-cell"
+                class="mocked-styled-104 el-table-cta-cell"
                 role="cell"
                 tabindex="0"
               >
                 <div
-                  class="mocked-styled-105 el-table-cta-icon-container"
+                  class="mocked-styled-112 el-table-cta-icon-container"
                 >
                   <span
-                    class="el-intent-default el-icon"
+                    class="el-intent-default el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
@@ -431,17 +431,17 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-65 el-pagination-wrap"
+          class="mocked-styled-71 el-pagination-wrap"
         >
           <button
             aria-label="Previous"
-            class="mocked-styled-68 el-pagination-button"
+            class="mocked-styled-74 el-pagination-button"
             data-testid="back-button"
             role="button"
             type="button"
           >
             <span
-              class="mocked-styled-4 el-icon"
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
@@ -460,11 +460,11 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
             </span>
           </button>
           <div
-            class="mocked-styled-66 el-pagination-text"
+            class="mocked-styled-72 el-pagination-text"
           >
             <input
               aria-label="Current page number, edit to select page of 6 available"
-              class="mocked-styled-67 el-pagination-input"
+              class="mocked-styled-73 el-pagination-input"
               value="1"
             />
              
@@ -473,13 +473,13 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
           </div>
           <button
             aria-label="Next"
-            class="mocked-styled-68 el-pagination-button"
+            class="mocked-styled-74 el-pagination-button"
             data-testid="forward-button"
             role="button"
             type="button"
           >
             <span
-              class="el-pagination-primary el-icon"
+              class="el-pagination-primary el-icon-new el-icon"
             >
               <svg
                 fill="none"
@@ -503,7 +503,7 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <section
       class="el-page-container"
@@ -518,13 +518,13 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
           class="el-mb11 el-form-layout"
         >
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              aria-controls="test-static-id"
+              aria-controls=":r0:"
               aria-expanded="false"
               aria-haspopup="listbox"
-              class="mocked-styled-77 el-searchable-dropdown-container"
+              class="mocked-styled-84 el-searchable-dropdown-container"
               role="combobox"
             >
               <input
@@ -534,10 +534,10 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                 value=""
               />
               <span
-                class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
               >
                 <span
-                  class="el-intent-default el-icon"
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1rem;"
                 >
                   <svg
@@ -559,7 +559,7 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
               </span>
               <input
                 aria-label="Input type undefined"
-                class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
+                class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                 data-testid="search-input"
                 name="developerId"
                 placeholder="Search developer organisations"
@@ -577,50 +577,50 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
         role="table"
       >
         <div
-          class="mocked-styled-94 el-table-headers-row"
+          class="mocked-styled-101 el-table-headers-row"
           role="row"
         >
           <div
             aria-label="Name"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Name
           </div>
           <div
             aria-label="Build Status"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Build Status
           </div>
           <div
             aria-label="Repository"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Repository
           </div>
           <div
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Delete Pipeline
           </div>
         </div>
         <div
-          class="mocked-styled-103 el-table-row-container"
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
           <div
-            class="mocked-styled-96 el-table-row"
+            class="mocked-styled-103 el-table-row"
           >
             <div
               class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
               <span
-                class="el-intent-default el-icon"
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -640,7 +640,7 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                 </svg>
               </span>
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Name"
               >
                 reapit-ltd-internal-thoughtless-cub
@@ -651,7 +651,7 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Build Status"
               >
                 <span
@@ -665,20 +665,20 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Repository"
               />
             </div>
             <div
-              class="mocked-styled-97 el-table-cta-cell"
+              class="mocked-styled-104 el-table-cta-cell"
               role="cell"
               tabindex="0"
             >
               <div
-                class="mocked-styled-105 el-table-cta-icon-container"
+                class="mocked-styled-112 el-table-cta-icon-container"
               >
                 <span
-                  class="el-intent-default el-icon"
+                  class="el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
@@ -707,17 +707,17 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
         </div>
       </div>
       <div
-        class="mocked-styled-65 el-pagination-wrap"
+        class="mocked-styled-71 el-pagination-wrap"
       >
         <button
           aria-label="Previous"
-          class="mocked-styled-68 el-pagination-button"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
           <span
-            class="mocked-styled-4 el-icon"
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
@@ -736,11 +736,11 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
           </span>
         </button>
         <div
-          class="mocked-styled-66 el-pagination-text"
+          class="mocked-styled-72 el-pagination-text"
         >
           <input
             aria-label="Current page number, edit to select page of 6 available"
-            class="mocked-styled-67 el-pagination-input"
+            class="mocked-styled-73 el-pagination-input"
             value="1"
           />
            
@@ -749,13 +749,13 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
         </div>
         <button
           aria-label="Next"
-          class="mocked-styled-68 el-pagination-button"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="forward-button"
           role="button"
           type="button"
         >
           <span
-            class="el-pagination-primary el-icon"
+            class="el-pagination-primary el-icon-new el-icon"
           >
             <svg
               fill="none"

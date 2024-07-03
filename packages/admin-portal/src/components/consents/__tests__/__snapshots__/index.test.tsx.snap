@@ -6,7 +6,7 @@ exports[`AppConsents should match snapshot where nothing is returned 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <h2
         class="el-text-base el-subtitle el-mt5"
@@ -17,7 +17,7 @@ exports[`AppConsents should match snapshot where nothing is returned 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <h2
       class="el-text-base el-subtitle el-mt5"
@@ -85,7 +85,7 @@ exports[`AppConsents should match snapshot where the app is loading 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <h2
         class="el-text-base el-subtitle el-mt5"
@@ -93,13 +93,13 @@ exports[`AppConsents should match snapshot where the app is loading 1`] = `
          Consents
       </h2>
       <div
-        class="mocked-styled-38 el-loader-container"
+        class="mocked-styled-44 el-loader-container"
       >
         <div
-          class="mocked-styled-40 el-loader"
+          class="mocked-styled-46 el-loader"
         >
           <div
-            class="mocked-styled-41 el-loader-moving-bar"
+            class="mocked-styled-47 el-loader-moving-bar"
           />
         </div>
       </div>
@@ -107,7 +107,7 @@ exports[`AppConsents should match snapshot where the app is loading 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <h2
       class="el-text-base el-subtitle el-mt5"
@@ -115,13 +115,13 @@ exports[`AppConsents should match snapshot where the app is loading 1`] = `
        Consents
     </h2>
     <div
-      class="mocked-styled-38 el-loader-container"
+      class="mocked-styled-44 el-loader-container"
     >
       <div
-        class="mocked-styled-40 el-loader"
+        class="mocked-styled-46 el-loader"
       >
         <div
-          class="mocked-styled-41 el-loader-moving-bar"
+          class="mocked-styled-47 el-loader-moving-bar"
         />
       </div>
     </div>
@@ -186,7 +186,7 @@ exports[`AppConsents should match snapshot where there are no consents returned 
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <h2
         class="el-text-base el-subtitle el-mt5"
@@ -204,7 +204,7 @@ exports[`AppConsents should match snapshot where there are no consents returned 
             data-testid="close-icon"
           >
             <span
-              class="mocked-styled-4 el-icon"
+              class="el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -252,7 +252,7 @@ exports[`AppConsents should match snapshot where there are no consents returned 
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <h2
       class="el-text-base el-subtitle el-mt5"
@@ -270,7 +270,7 @@ exports[`AppConsents should match snapshot where there are no consents returned 
           data-testid="close-icon"
         >
           <span
-            class="mocked-styled-4 el-icon"
+            class="el-icon-new el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -375,7 +375,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <h2
         class="el-text-base el-subtitle el-mt5"
@@ -384,71 +384,71 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
          Consents
       </h2>
       <div
-        class="mocked-styled-108 el-table"
+        class="mocked-styled-115 el-table"
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="5"
         role="table"
       >
         <div
-          class="mocked-styled-94 el-table-headers-row"
+          class="mocked-styled-101 el-table-headers-row"
           role="row"
         >
           <div
             aria-label="Client"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Client
           </div>
           <div
             aria-label="Email"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Email
           </div>
           <div
             aria-label="Date Sent"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Date Sent
           </div>
           <div
             aria-label="Status"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Status
           </div>
           <div
             aria-label="Date Accepted"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Date Accepted
           </div>
           <div
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Resend Email
           </div>
         </div>
         <div
-          class="mocked-styled-103 el-table-row-container"
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
           <div
-            class="mocked-styled-96 el-table-row"
+            class="mocked-styled-103 el-table-row"
           >
             <div
               class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
               <span
-                class="el-intent-default el-icon"
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -468,7 +468,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
                 </svg>
               </span>
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Client"
               />
             </div>
@@ -477,7 +477,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Email"
               >
                 test@example.com
@@ -488,7 +488,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Date Sent"
               >
                 22/09/2022 13:38
@@ -499,7 +499,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Status"
               >
                 Pending
@@ -510,22 +510,22 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Date Accepted"
               >
                 -
               </div>
             </div>
             <div
-              class="mocked-styled-97 el-table-cta-cell"
+              class="mocked-styled-104 el-table-cta-cell"
               role="cell"
               tabindex="0"
             >
               <div
-                class="mocked-styled-105 el-table-cta-icon-container"
+                class="mocked-styled-112 el-table-cta-icon-container"
               >
                 <span
-                  class="el-intent-default el-icon"
+                  class="el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
@@ -551,7 +551,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <h2
       class="el-text-base el-subtitle el-mt5"
@@ -560,71 +560,71 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
        Consents
     </h2>
     <div
-      class="mocked-styled-108 el-table"
+      class="mocked-styled-115 el-table"
       data-has-call-to-action="true"
       data-has-expandable-action="false"
       data-num-columns-excl-action-col="5"
       role="table"
     >
       <div
-        class="mocked-styled-94 el-table-headers-row"
+        class="mocked-styled-101 el-table-headers-row"
         role="row"
       >
         <div
           aria-label="Client"
-          class="mocked-styled-95 el-table-header"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Client
         </div>
         <div
           aria-label="Email"
-          class="mocked-styled-95 el-table-header"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Email
         </div>
         <div
           aria-label="Date Sent"
-          class="mocked-styled-95 el-table-header"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Date Sent
         </div>
         <div
           aria-label="Status"
-          class="mocked-styled-95 el-table-header"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Status
         </div>
         <div
           aria-label="Date Accepted"
-          class="mocked-styled-95 el-table-header"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Date Accepted
         </div>
         <div
-          class="mocked-styled-95 el-table-header"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Resend Email
         </div>
       </div>
       <div
-        class="mocked-styled-103 el-table-row-container"
+        class="mocked-styled-110 el-table-row-container"
         role="row"
       >
         <div
-          class="mocked-styled-96 el-table-row"
+          class="mocked-styled-103 el-table-row"
         >
           <div
             class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
             <span
-              class="el-intent-default el-icon"
+              class="el-intent-default el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -644,7 +644,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
               </svg>
             </span>
             <div
-              class="mocked-styled-104 el-table-cell-content"
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Client"
             />
           </div>
@@ -653,7 +653,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
             role="cell"
           >
             <div
-              class="mocked-styled-104 el-table-cell-content"
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Email"
             >
               test@example.com
@@ -664,7 +664,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
             role="cell"
           >
             <div
-              class="mocked-styled-104 el-table-cell-content"
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Date Sent"
             >
               22/09/2022 13:38
@@ -675,7 +675,7 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
             role="cell"
           >
             <div
-              class="mocked-styled-104 el-table-cell-content"
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Status"
             >
               Pending
@@ -686,22 +686,22 @@ exports[`AppConsents should match snapshot with consents and an approval 1`] = `
             role="cell"
           >
             <div
-              class="mocked-styled-104 el-table-cell-content"
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Date Accepted"
             >
               -
             </div>
           </div>
           <div
-            class="mocked-styled-97 el-table-cta-cell"
+            class="mocked-styled-104 el-table-cta-cell"
             role="cell"
             tabindex="0"
           >
             <div
-              class="mocked-styled-105 el-table-cta-icon-container"
+              class="mocked-styled-112 el-table-cta-icon-container"
             >
               <span
-                class="el-intent-default el-icon"
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"

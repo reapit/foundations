@@ -6,17 +6,17 @@ exports[`CreateSubscriptions should match a snapshot with subscriptions and appl
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <form>
         <div
           class="el-mt5 el-form-layout"
         >
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
             >
               Is Subscribed 
               Application Listing
@@ -25,7 +25,7 @@ exports[`CreateSubscriptions should match a snapshot with subscriptions and appl
               class="el-has-grey-bg el-toggle-radio-wrap"
             >
               <input
-                class="mocked-styled-120 el-toggle-radio"
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-subscribed-true-MOCK_UUID"
                 name="isSubscribed"
                 type="radio"
@@ -38,14 +38,14 @@ exports[`CreateSubscriptions should match a snapshot with subscriptions and appl
                 tabindex="0"
               >
                 <span
-                  class="mocked-styled-117 el-toggle-radio-item"
+                  class="mocked-styled-124 el-toggle-radio-item"
                 >
                   Subscribed
                 </span>
               </label>
               <input
                 checked=""
-                class="mocked-styled-120 el-toggle-radio"
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-subscribed-false-MOCK_UUID"
                 name="isSubscribed"
                 type="radio"
@@ -58,7 +58,7 @@ exports[`CreateSubscriptions should match a snapshot with subscriptions and appl
                 tabindex="0"
               >
                 <span
-                  class="mocked-styled-117 el-toggle-radio-item"
+                  class="mocked-styled-124 el-toggle-radio-item"
                 >
                   Not Subscribed
                 </span>
@@ -71,17 +71,17 @@ exports[`CreateSubscriptions should match a snapshot with subscriptions and appl
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <form>
       <div
         class="el-mt5 el-form-layout"
       >
         <div
-          class="mocked-styled-126 el-input-wrap"
+          class="mocked-styled-133 el-input-wrap"
         >
           <label
-            class="mocked-styled-36 el-label"
+            class="mocked-styled-41 el-label"
           >
             Is Subscribed 
             Application Listing
@@ -90,7 +90,7 @@ exports[`CreateSubscriptions should match a snapshot with subscriptions and appl
             class="el-has-grey-bg el-toggle-radio-wrap"
           >
             <input
-              class="mocked-styled-120 el-toggle-radio"
+              class="mocked-styled-127 el-toggle-radio"
               id="option-subscribed-true-MOCK_UUID"
               name="isSubscribed"
               type="radio"
@@ -103,14 +103,14 @@ exports[`CreateSubscriptions should match a snapshot with subscriptions and appl
               tabindex="0"
             >
               <span
-                class="mocked-styled-117 el-toggle-radio-item"
+                class="mocked-styled-124 el-toggle-radio-item"
               >
                 Subscribed
               </span>
             </label>
             <input
               checked=""
-              class="mocked-styled-120 el-toggle-radio"
+              class="mocked-styled-127 el-toggle-radio"
               id="option-subscribed-false-MOCK_UUID"
               name="isSubscribed"
               type="radio"
@@ -123,7 +123,7 @@ exports[`CreateSubscriptions should match a snapshot with subscriptions and appl
               tabindex="0"
             >
               <span
-                class="mocked-styled-117 el-toggle-radio-item"
+                class="mocked-styled-124 el-toggle-radio-item"
               >
                 Not Subscribed
               </span>
@@ -193,17 +193,17 @@ exports[`CreateSubscriptions should match a snapshot with subscriptions and deve
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <form>
         <div
           class="el-mt5 el-form-layout"
         >
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
             >
               Is Subscribed 
               Developer Registration
@@ -213,7 +213,7 @@ exports[`CreateSubscriptions should match a snapshot with subscriptions and deve
             >
               <input
                 checked=""
-                class="mocked-styled-120 el-toggle-radio"
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-subscribed-true-MOCK_UUID"
                 name="isSubscribed"
                 type="radio"
@@ -226,13 +226,13 @@ exports[`CreateSubscriptions should match a snapshot with subscriptions and deve
                 tabindex="0"
               >
                 <span
-                  class="mocked-styled-117 el-toggle-radio-item"
+                  class="mocked-styled-124 el-toggle-radio-item"
                 >
                   Subscribed
                 </span>
               </label>
               <input
-                class="mocked-styled-120 el-toggle-radio"
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-subscribed-false-MOCK_UUID"
                 name="isSubscribed"
                 type="radio"
@@ -245,7 +245,7 @@ exports[`CreateSubscriptions should match a snapshot with subscriptions and deve
                 tabindex="0"
               >
                 <span
-                  class="mocked-styled-117 el-toggle-radio-item"
+                  class="mocked-styled-124 el-toggle-radio-item"
                 >
                   Not Subscribed
                 </span>
@@ -258,17 +258,17 @@ exports[`CreateSubscriptions should match a snapshot with subscriptions and deve
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <form>
       <div
         class="el-mt5 el-form-layout"
       >
         <div
-          class="mocked-styled-126 el-input-wrap"
+          class="mocked-styled-133 el-input-wrap"
         >
           <label
-            class="mocked-styled-36 el-label"
+            class="mocked-styled-41 el-label"
           >
             Is Subscribed 
             Developer Registration
@@ -278,7 +278,7 @@ exports[`CreateSubscriptions should match a snapshot with subscriptions and deve
           >
             <input
               checked=""
-              class="mocked-styled-120 el-toggle-radio"
+              class="mocked-styled-127 el-toggle-radio"
               id="option-subscribed-true-MOCK_UUID"
               name="isSubscribed"
               type="radio"
@@ -291,13 +291,13 @@ exports[`CreateSubscriptions should match a snapshot with subscriptions and deve
               tabindex="0"
             >
               <span
-                class="mocked-styled-117 el-toggle-radio-item"
+                class="mocked-styled-124 el-toggle-radio-item"
               >
                 Subscribed
               </span>
             </label>
             <input
-              class="mocked-styled-120 el-toggle-radio"
+              class="mocked-styled-127 el-toggle-radio"
               id="option-subscribed-false-MOCK_UUID"
               name="isSubscribed"
               type="radio"
@@ -310,7 +310,7 @@ exports[`CreateSubscriptions should match a snapshot with subscriptions and deve
               tabindex="0"
             >
               <span
-                class="mocked-styled-117 el-toggle-radio-item"
+                class="mocked-styled-124 el-toggle-radio-item"
               >
                 Not Subscribed
               </span>

@@ -6,27 +6,27 @@ exports[`InviteMemberModalForm should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <form>
         <div
           class="el-form-layout-has-margin el-form-layout"
         >
           <div
-            class="mocked-styled-128 el-input-wrap-full"
+            class="mocked-styled-135 el-input-wrap-full"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type undefined"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="name"
                 placeholder="Your colleague's full name"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Name
@@ -34,21 +34,21 @@ exports[`InviteMemberModalForm should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-128 el-input-wrap-full"
+            class="mocked-styled-135 el-input-wrap-full"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type email"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="email"
                 placeholder="An email address we can contact your colleague at"
                 type="email"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Email
@@ -56,20 +56,20 @@ exports[`InviteMemberModalForm should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-128 el-input-wrap-full"
+            class="mocked-styled-135 el-input-wrap-full"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type undefined"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="jobTitle"
                 placeholder="Your colleague's role at your company'"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Job Title
@@ -77,20 +77,20 @@ exports[`InviteMemberModalForm should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-128 el-input-wrap-full"
+            class="mocked-styled-135 el-input-wrap-full"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type undefined"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="message"
                 placeholder="An optional invite message"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Invite Message
@@ -128,27 +128,27 @@ exports[`InviteMemberModalForm should match snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <form>
       <div
         class="el-form-layout-has-margin el-form-layout"
       >
         <div
-          class="mocked-styled-128 el-input-wrap-full"
+          class="mocked-styled-135 el-input-wrap-full"
         >
           <div
-            class="mocked-styled-35 el-input-group"
+            class="mocked-styled-40 el-input-group"
           >
             <input
               aria-label="Input type undefined"
-              class="mocked-styled-33 el-input"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="name"
               placeholder="Your colleague's full name"
             />
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
               for="test-static-id"
             >
               Name
@@ -156,21 +156,21 @@ exports[`InviteMemberModalForm should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-128 el-input-wrap-full"
+          class="mocked-styled-135 el-input-wrap-full"
         >
           <div
-            class="mocked-styled-35 el-input-group"
+            class="mocked-styled-40 el-input-group"
           >
             <input
               aria-label="Input type email"
-              class="mocked-styled-33 el-input"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="email"
               placeholder="An email address we can contact your colleague at"
               type="email"
             />
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
               for="test-static-id"
             >
               Email
@@ -178,20 +178,20 @@ exports[`InviteMemberModalForm should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-128 el-input-wrap-full"
+          class="mocked-styled-135 el-input-wrap-full"
         >
           <div
-            class="mocked-styled-35 el-input-group"
+            class="mocked-styled-40 el-input-group"
           >
             <input
               aria-label="Input type undefined"
-              class="mocked-styled-33 el-input"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="jobTitle"
               placeholder="Your colleague's role at your company'"
             />
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
               for="test-static-id"
             >
               Job Title
@@ -199,20 +199,20 @@ exports[`InviteMemberModalForm should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-128 el-input-wrap-full"
+          class="mocked-styled-135 el-input-wrap-full"
         >
           <div
-            class="mocked-styled-35 el-input-group"
+            class="mocked-styled-40 el-input-group"
           >
             <input
               aria-label="Input type undefined"
-              class="mocked-styled-33 el-input"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="message"
               placeholder="An optional invite message"
             />
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
               for="test-static-id"
             >
               Invite Message

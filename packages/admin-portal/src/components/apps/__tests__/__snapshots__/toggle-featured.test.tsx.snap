@@ -6,17 +6,17 @@ exports[`ToggleFeatured should match a snapshot with apps 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <form>
         <div
           class="el-mt5 el-form-layout"
         >
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
             >
               Is Featured In AppMarket
             </label>
@@ -24,7 +24,7 @@ exports[`ToggleFeatured should match a snapshot with apps 1`] = `
               class="el-has-grey-bg el-toggle-radio-wrap"
             >
               <input
-                class="mocked-styled-120 el-toggle-radio"
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-featured-true"
                 name="isFeatured"
                 type="radio"
@@ -37,14 +37,14 @@ exports[`ToggleFeatured should match a snapshot with apps 1`] = `
                 tabindex="0"
               >
                 <span
-                  class="mocked-styled-117 el-toggle-radio-item"
+                  class="mocked-styled-124 el-toggle-radio-item"
                 >
                   Featured
                 </span>
               </label>
               <input
                 checked=""
-                class="mocked-styled-120 el-toggle-radio"
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-featured-false"
                 name="isFeatured"
                 type="radio"
@@ -57,7 +57,7 @@ exports[`ToggleFeatured should match a snapshot with apps 1`] = `
                 tabindex="0"
               >
                 <span
-                  class="mocked-styled-117 el-toggle-radio-item"
+                  class="mocked-styled-124 el-toggle-radio-item"
                 >
                   Not Featured
                 </span>
@@ -70,17 +70,17 @@ exports[`ToggleFeatured should match a snapshot with apps 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <form>
       <div
         class="el-mt5 el-form-layout"
       >
         <div
-          class="mocked-styled-126 el-input-wrap"
+          class="mocked-styled-133 el-input-wrap"
         >
           <label
-            class="mocked-styled-36 el-label"
+            class="mocked-styled-41 el-label"
           >
             Is Featured In AppMarket
           </label>
@@ -88,7 +88,7 @@ exports[`ToggleFeatured should match a snapshot with apps 1`] = `
             class="el-has-grey-bg el-toggle-radio-wrap"
           >
             <input
-              class="mocked-styled-120 el-toggle-radio"
+              class="mocked-styled-127 el-toggle-radio"
               id="option-featured-true"
               name="isFeatured"
               type="radio"
@@ -101,14 +101,14 @@ exports[`ToggleFeatured should match a snapshot with apps 1`] = `
               tabindex="0"
             >
               <span
-                class="mocked-styled-117 el-toggle-radio-item"
+                class="mocked-styled-124 el-toggle-radio-item"
               >
                 Featured
               </span>
             </label>
             <input
               checked=""
-              class="mocked-styled-120 el-toggle-radio"
+              class="mocked-styled-127 el-toggle-radio"
               id="option-featured-false"
               name="isFeatured"
               type="radio"
@@ -121,7 +121,7 @@ exports[`ToggleFeatured should match a snapshot with apps 1`] = `
               tabindex="0"
             >
               <span
-                class="mocked-styled-117 el-toggle-radio-item"
+                class="mocked-styled-124 el-toggle-radio-item"
               >
                 Not Featured
               </span>
@@ -191,17 +191,17 @@ exports[`ToggleFeatured should match a snapshot with no apps 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <form>
         <div
           class="el-mt5 el-form-layout"
         >
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
             >
               Is Featured In AppMarket
             </label>
@@ -209,7 +209,7 @@ exports[`ToggleFeatured should match a snapshot with no apps 1`] = `
               class="el-has-grey-bg el-toggle-radio-wrap"
             >
               <input
-                class="mocked-styled-120 el-toggle-radio"
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-featured-true"
                 name="isFeatured"
                 type="radio"
@@ -222,14 +222,14 @@ exports[`ToggleFeatured should match a snapshot with no apps 1`] = `
                 tabindex="0"
               >
                 <span
-                  class="mocked-styled-117 el-toggle-radio-item"
+                  class="mocked-styled-124 el-toggle-radio-item"
                 >
                   Featured
                 </span>
               </label>
               <input
                 checked=""
-                class="mocked-styled-120 el-toggle-radio"
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-featured-false"
                 name="isFeatured"
                 type="radio"
@@ -242,7 +242,7 @@ exports[`ToggleFeatured should match a snapshot with no apps 1`] = `
                 tabindex="0"
               >
                 <span
-                  class="mocked-styled-117 el-toggle-radio-item"
+                  class="mocked-styled-124 el-toggle-radio-item"
                 >
                   Not Featured
                 </span>
@@ -255,17 +255,17 @@ exports[`ToggleFeatured should match a snapshot with no apps 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <form>
       <div
         class="el-mt5 el-form-layout"
       >
         <div
-          class="mocked-styled-126 el-input-wrap"
+          class="mocked-styled-133 el-input-wrap"
         >
           <label
-            class="mocked-styled-36 el-label"
+            class="mocked-styled-41 el-label"
           >
             Is Featured In AppMarket
           </label>
@@ -273,7 +273,7 @@ exports[`ToggleFeatured should match a snapshot with no apps 1`] = `
             class="el-has-grey-bg el-toggle-radio-wrap"
           >
             <input
-              class="mocked-styled-120 el-toggle-radio"
+              class="mocked-styled-127 el-toggle-radio"
               id="option-featured-true"
               name="isFeatured"
               type="radio"
@@ -286,14 +286,14 @@ exports[`ToggleFeatured should match a snapshot with no apps 1`] = `
               tabindex="0"
             >
               <span
-                class="mocked-styled-117 el-toggle-radio-item"
+                class="mocked-styled-124 el-toggle-radio-item"
               >
                 Featured
               </span>
             </label>
             <input
               checked=""
-              class="mocked-styled-120 el-toggle-radio"
+              class="mocked-styled-127 el-toggle-radio"
               id="option-featured-false"
               name="isFeatured"
               type="radio"
@@ -306,7 +306,7 @@ exports[`ToggleFeatured should match a snapshot with no apps 1`] = `
               tabindex="0"
             >
               <span
-                class="mocked-styled-117 el-toggle-radio-item"
+                class="mocked-styled-124 el-toggle-radio-item"
               >
                 Not Featured
               </span>

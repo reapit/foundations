@@ -6,7 +6,7 @@ exports[`AdminBilling should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <section
         class="el-page-container"
@@ -21,20 +21,20 @@ exports[`AdminBilling should match a snapshot 1`] = `
             class="el-mb11 el-form-layout"
           >
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type month"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="month"
                   type="month"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Month
@@ -52,7 +52,7 @@ exports[`AdminBilling should match a snapshot 1`] = `
             data-testid="close-icon"
           >
             <span
-              class="mocked-styled-4 el-icon"
+              class="el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -84,7 +84,7 @@ exports[`AdminBilling should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <section
       class="el-page-container"
@@ -99,20 +99,20 @@ exports[`AdminBilling should match a snapshot 1`] = `
           class="el-mb11 el-form-layout"
         >
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type month"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="month"
                 type="month"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Month
@@ -130,7 +130,7 @@ exports[`AdminBilling should match a snapshot 1`] = `
           data-testid="close-icon"
         >
           <span
-            class="mocked-styled-4 el-icon"
+            class="el-icon-new el-icon"
             style="font-size: 1.25rem;"
           >
             <svg

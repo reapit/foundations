@@ -6,7 +6,7 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <div
         class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
@@ -17,7 +17,7 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
           data-testid="close-icon"
         >
           <span
-            class="mocked-styled-4 el-icon"
+            class="el-icon-new el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -48,7 +48,7 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <div
       class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
@@ -59,7 +59,7 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
         data-testid="close-icon"
       >
         <span
-          class="mocked-styled-4 el-icon"
+          class="el-icon-new el-icon"
           style="font-size: 1.25rem;"
         >
           <svg
@@ -147,7 +147,7 @@ exports[`ErrorBoundary should match a snapshot when no error 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <div>
         I am a component!
@@ -156,7 +156,7 @@ exports[`ErrorBoundary should match a snapshot when no error 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <div>
       I am a component!

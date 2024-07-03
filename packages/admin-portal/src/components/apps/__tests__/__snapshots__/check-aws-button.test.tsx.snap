@@ -6,7 +6,7 @@ exports[`CheckAWSButton should match a snapshot where the AWS status is AWSOnly 
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <button
         class="el-intent-primary el-button"
@@ -20,7 +20,7 @@ exports[`CheckAWSButton should match a snapshot where the AWS status is AWSOnly 
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <button
       class="el-intent-primary el-button"
@@ -91,7 +91,7 @@ exports[`CheckAWSButton should match a snapshot where the AWS status is AllUsers
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <button
         class="el-intent-primary el-button"
@@ -105,7 +105,7 @@ exports[`CheckAWSButton should match a snapshot where the AWS status is AllUsers
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <button
       class="el-intent-primary el-button"
@@ -176,7 +176,7 @@ exports[`CheckAWSButton should match a snapshot where the AWS status is unfetche
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <button
         class="el-intent-primary el-button"
@@ -190,7 +190,7 @@ exports[`CheckAWSButton should match a snapshot where the AWS status is unfetche
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <button
       class="el-intent-primary el-button"

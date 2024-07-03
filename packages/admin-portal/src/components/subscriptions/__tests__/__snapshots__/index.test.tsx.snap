@@ -6,7 +6,7 @@ exports[`Subscriptions should render component when has data 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <section
         class="el-page-container"
@@ -21,19 +21,19 @@ exports[`Subscriptions should render component when has data 1`] = `
             class="el-form-layout-has-margin el-form-layout"
           >
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type undefined"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="organisationName"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Company Name
@@ -41,20 +41,20 @@ exports[`Subscriptions should render component when has data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type email"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="userEmail"
                   type="email"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   User Email
@@ -62,19 +62,19 @@ exports[`Subscriptions should render component when has data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                 >
                   Subscription Type
                 </label>
                 <select
                   aria-label="Select an item from the dropdown list"
-                  class="mocked-styled-76 el-select"
+                  class="mocked-styled-83 el-select"
                   name="subscriptionType"
                 >
                   <option
@@ -101,19 +101,19 @@ exports[`Subscriptions should render component when has data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                 >
                   Status
                 </label>
                 <select
                   aria-label="Select an item from the dropdown list"
-                  class="mocked-styled-76 el-select"
+                  class="mocked-styled-83 el-select"
                   name="status"
                 >
                   <option
@@ -165,92 +165,92 @@ exports[`Subscriptions should render component when has data 1`] = `
           role="table"
         >
           <div
-            class="mocked-styled-94 el-table-headers-row"
+            class="mocked-styled-101 el-table-headers-row"
             role="row"
           >
             <div
               aria-label="Subcription Type"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Subcription Type
             </div>
             <div
               aria-label="Summary"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Summary
             </div>
             <div
               aria-label="Company Name"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Company Name
             </div>
             <div
               aria-label="User Email"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               User Email
             </div>
             <div
               aria-label="Start Date"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Start Date
             </div>
             <div
               aria-label="Renews"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Renews
             </div>
             <div
               aria-label="Frequency"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Frequency
             </div>
             <div
               aria-label="Cost"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Cost
             </div>
             <div
               aria-label="Cancelled"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Cancelled
             </div>
             <div
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Cancel
             </div>
           </div>
           <div
-            class="mocked-styled-103 el-table-row-container"
+            class="mocked-styled-110 el-table-row-container"
             role="row"
           >
             <div
-              class="mocked-styled-96 el-table-row"
+              class="mocked-styled-103 el-table-row"
             >
               <div
                 class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Subcription Type"
                 />
               </div>
@@ -259,7 +259,7 @@ exports[`Subscriptions should render component when has data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Summary"
                 />
               </div>
@@ -268,7 +268,7 @@ exports[`Subscriptions should render component when has data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Company Name"
                 />
               </div>
@@ -277,7 +277,7 @@ exports[`Subscriptions should render component when has data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="User Email"
                 />
               </div>
@@ -286,7 +286,7 @@ exports[`Subscriptions should render component when has data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Start Date"
                 >
                   03 Mar 2022 10:18
@@ -297,7 +297,7 @@ exports[`Subscriptions should render component when has data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Renews"
                 >
                   -
@@ -308,7 +308,7 @@ exports[`Subscriptions should render component when has data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Frequency"
                 />
               </div>
@@ -317,7 +317,7 @@ exports[`Subscriptions should render component when has data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Cost"
                 >
                   £undefined
@@ -328,14 +328,14 @@ exports[`Subscriptions should render component when has data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Cancelled"
                 >
                   -
                 </div>
               </div>
               <div
-                class="mocked-styled-97 el-table-cta-cell"
+                class="mocked-styled-104 el-table-cta-cell"
                 role="cell"
                 tabindex="0"
               />
@@ -343,17 +343,17 @@ exports[`Subscriptions should render component when has data 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-65 el-pagination-wrap"
+          class="mocked-styled-71 el-pagination-wrap"
         >
           <button
             aria-label="Previous"
-            class="mocked-styled-68 el-pagination-button"
+            class="mocked-styled-74 el-pagination-button"
             data-testid="back-button"
             role="button"
             type="button"
           >
             <span
-              class="mocked-styled-4 el-icon"
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
@@ -372,11 +372,11 @@ exports[`Subscriptions should render component when has data 1`] = `
             </span>
           </button>
           <div
-            class="mocked-styled-66 el-pagination-text"
+            class="mocked-styled-72 el-pagination-text"
           >
             <input
               aria-label="Current page number, edit to select page of 1 available"
-              class="mocked-styled-67 el-pagination-input"
+              class="mocked-styled-73 el-pagination-input"
               value="1"
             />
              
@@ -385,13 +385,13 @@ exports[`Subscriptions should render component when has data 1`] = `
           </div>
           <button
             aria-label="Next"
-            class="mocked-styled-68 el-pagination-button"
+            class="mocked-styled-74 el-pagination-button"
             data-testid="forward-button"
             role="button"
             type="button"
           >
             <span
-              class="mocked-styled-4 el-icon"
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
@@ -415,7 +415,7 @@ exports[`Subscriptions should render component when has data 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <section
       class="el-page-container"
@@ -430,19 +430,19 @@ exports[`Subscriptions should render component when has data 1`] = `
           class="el-form-layout-has-margin el-form-layout"
         >
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type undefined"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="organisationName"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Company Name
@@ -450,20 +450,20 @@ exports[`Subscriptions should render component when has data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type email"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="userEmail"
                 type="email"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 User Email
@@ -471,19 +471,19 @@ exports[`Subscriptions should render component when has data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 Subscription Type
               </label>
               <select
                 aria-label="Select an item from the dropdown list"
-                class="mocked-styled-76 el-select"
+                class="mocked-styled-83 el-select"
                 name="subscriptionType"
               >
                 <option
@@ -510,19 +510,19 @@ exports[`Subscriptions should render component when has data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 Status
               </label>
               <select
                 aria-label="Select an item from the dropdown list"
-                class="mocked-styled-76 el-select"
+                class="mocked-styled-83 el-select"
                 name="status"
               >
                 <option
@@ -574,92 +574,92 @@ exports[`Subscriptions should render component when has data 1`] = `
         role="table"
       >
         <div
-          class="mocked-styled-94 el-table-headers-row"
+          class="mocked-styled-101 el-table-headers-row"
           role="row"
         >
           <div
             aria-label="Subcription Type"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Subcription Type
           </div>
           <div
             aria-label="Summary"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Summary
           </div>
           <div
             aria-label="Company Name"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Company Name
           </div>
           <div
             aria-label="User Email"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             User Email
           </div>
           <div
             aria-label="Start Date"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Start Date
           </div>
           <div
             aria-label="Renews"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Renews
           </div>
           <div
             aria-label="Frequency"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Frequency
           </div>
           <div
             aria-label="Cost"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Cost
           </div>
           <div
             aria-label="Cancelled"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Cancelled
           </div>
           <div
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Cancel
           </div>
         </div>
         <div
-          class="mocked-styled-103 el-table-row-container"
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
           <div
-            class="mocked-styled-96 el-table-row"
+            class="mocked-styled-103 el-table-row"
           >
             <div
               class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Subcription Type"
               />
             </div>
@@ -668,7 +668,7 @@ exports[`Subscriptions should render component when has data 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Summary"
               />
             </div>
@@ -677,7 +677,7 @@ exports[`Subscriptions should render component when has data 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Company Name"
               />
             </div>
@@ -686,7 +686,7 @@ exports[`Subscriptions should render component when has data 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="User Email"
               />
             </div>
@@ -695,7 +695,7 @@ exports[`Subscriptions should render component when has data 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Start Date"
               >
                 03 Mar 2022 10:18
@@ -706,7 +706,7 @@ exports[`Subscriptions should render component when has data 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Renews"
               >
                 -
@@ -717,7 +717,7 @@ exports[`Subscriptions should render component when has data 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Frequency"
               />
             </div>
@@ -726,7 +726,7 @@ exports[`Subscriptions should render component when has data 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Cost"
               >
                 £undefined
@@ -737,14 +737,14 @@ exports[`Subscriptions should render component when has data 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Cancelled"
               >
                 -
               </div>
             </div>
             <div
-              class="mocked-styled-97 el-table-cta-cell"
+              class="mocked-styled-104 el-table-cta-cell"
               role="cell"
               tabindex="0"
             />
@@ -752,17 +752,17 @@ exports[`Subscriptions should render component when has data 1`] = `
         </div>
       </div>
       <div
-        class="mocked-styled-65 el-pagination-wrap"
+        class="mocked-styled-71 el-pagination-wrap"
       >
         <button
           aria-label="Previous"
-          class="mocked-styled-68 el-pagination-button"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
           <span
-            class="mocked-styled-4 el-icon"
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
@@ -781,11 +781,11 @@ exports[`Subscriptions should render component when has data 1`] = `
           </span>
         </button>
         <div
-          class="mocked-styled-66 el-pagination-text"
+          class="mocked-styled-72 el-pagination-text"
         >
           <input
             aria-label="Current page number, edit to select page of 1 available"
-            class="mocked-styled-67 el-pagination-input"
+            class="mocked-styled-73 el-pagination-input"
             value="1"
           />
            
@@ -794,13 +794,13 @@ exports[`Subscriptions should render component when has data 1`] = `
         </div>
         <button
           aria-label="Next"
-          class="mocked-styled-68 el-pagination-button"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="forward-button"
           role="button"
           type="button"
         >
           <span
-            class="mocked-styled-4 el-icon"
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
@@ -881,7 +881,7 @@ exports[`Subscriptions should render component when loading 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <section
         class="el-page-container"
@@ -896,19 +896,19 @@ exports[`Subscriptions should render component when loading 1`] = `
             class="el-form-layout-has-margin el-form-layout"
           >
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type undefined"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="organisationName"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Company Name
@@ -916,20 +916,20 @@ exports[`Subscriptions should render component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type email"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="userEmail"
                   type="email"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   User Email
@@ -937,19 +937,19 @@ exports[`Subscriptions should render component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                 >
                   Subscription Type
                 </label>
                 <select
                   aria-label="Select an item from the dropdown list"
-                  class="mocked-styled-76 el-select"
+                  class="mocked-styled-83 el-select"
                   name="subscriptionType"
                 >
                   <option
@@ -976,19 +976,19 @@ exports[`Subscriptions should render component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                 >
                   Status
                 </label>
                 <select
                   aria-label="Select an item from the dropdown list"
-                  class="mocked-styled-76 el-select"
+                  class="mocked-styled-83 el-select"
                   name="status"
                 >
                   <option
@@ -1033,13 +1033,13 @@ exports[`Subscriptions should render component when loading 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-38 el-loader-container"
+          class="mocked-styled-44 el-loader-container"
         >
           <div
-            class="mocked-styled-40 el-loader"
+            class="mocked-styled-46 el-loader"
           >
             <div
-              class="mocked-styled-41 el-loader-moving-bar"
+              class="mocked-styled-47 el-loader-moving-bar"
             />
           </div>
         </div>
@@ -1048,7 +1048,7 @@ exports[`Subscriptions should render component when loading 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <section
       class="el-page-container"
@@ -1063,19 +1063,19 @@ exports[`Subscriptions should render component when loading 1`] = `
           class="el-form-layout-has-margin el-form-layout"
         >
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type undefined"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="organisationName"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Company Name
@@ -1083,20 +1083,20 @@ exports[`Subscriptions should render component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type email"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="userEmail"
                 type="email"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 User Email
@@ -1104,19 +1104,19 @@ exports[`Subscriptions should render component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 Subscription Type
               </label>
               <select
                 aria-label="Select an item from the dropdown list"
-                class="mocked-styled-76 el-select"
+                class="mocked-styled-83 el-select"
                 name="subscriptionType"
               >
                 <option
@@ -1143,19 +1143,19 @@ exports[`Subscriptions should render component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 Status
               </label>
               <select
                 aria-label="Select an item from the dropdown list"
-                class="mocked-styled-76 el-select"
+                class="mocked-styled-83 el-select"
                 name="status"
               >
                 <option
@@ -1200,13 +1200,13 @@ exports[`Subscriptions should render component when loading 1`] = `
         </div>
       </div>
       <div
-        class="mocked-styled-38 el-loader-container"
+        class="mocked-styled-44 el-loader-container"
       >
         <div
-          class="mocked-styled-40 el-loader"
+          class="mocked-styled-46 el-loader"
         >
           <div
-            class="mocked-styled-41 el-loader-moving-bar"
+            class="mocked-styled-47 el-loader-moving-bar"
           />
         </div>
       </div>

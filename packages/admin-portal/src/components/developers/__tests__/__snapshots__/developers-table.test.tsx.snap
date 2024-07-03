@@ -6,7 +6,7 @@ exports[`DevelopersTable should render component with developers 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <div
         class="el-mb11"
@@ -22,71 +22,71 @@ exports[`DevelopersTable should render component with developers 1`] = `
           1
         </p>
         <div
-          class="mocked-styled-108 el-table"
+          class="mocked-styled-115 el-table"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="7"
           role="table"
         >
           <div
-            class="mocked-styled-94 el-table-headers-row"
+            class="mocked-styled-101 el-table-headers-row"
             role="row"
           >
             <div
               aria-label="Company Name"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Company Name
             </div>
             <div
               aria-label="Developer Name"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Developer Name
             </div>
             <div
               aria-label="Developer Email"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Developer Email
             </div>
             <div
               aria-label="Job Title"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Job Title
             </div>
             <div
               aria-label="Account Status"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Account Status
             </div>
             <div
               aria-label="Created Date"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Created Date
             </div>
             <div
               aria-label="Agreed Terms Date"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Agreed Terms Date
             </div>
             <div
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               <span
-                class="el-intent-default el-icon"
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
@@ -106,18 +106,18 @@ exports[`DevelopersTable should render component with developers 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-103 el-table-row-container"
+            class="mocked-styled-110 el-table-row-container"
             role="row"
           >
             <div
-              class="mocked-styled-96 el-table-row"
+              class="mocked-styled-103 el-table-row"
             >
               <div
                 class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Company Name"
                 >
                   Reapit Sales
@@ -128,7 +128,7 @@ exports[`DevelopersTable should render component with developers 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Developer Name"
                 >
                   Sales Team
@@ -139,7 +139,7 @@ exports[`DevelopersTable should render component with developers 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Developer Email"
                 >
                   test@example.com
@@ -150,7 +150,7 @@ exports[`DevelopersTable should render component with developers 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Job Title"
                 />
               </div>
@@ -159,7 +159,7 @@ exports[`DevelopersTable should render component with developers 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Account Status"
                 >
                   confirmed
@@ -170,7 +170,7 @@ exports[`DevelopersTable should render component with developers 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Created Date"
                 >
                   03 Mar 2022 10:18
@@ -181,19 +181,19 @@ exports[`DevelopersTable should render component with developers 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Agreed Terms Date"
                 >
                   -
                 </div>
               </div>
               <div
-                class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+                class="mocked-styled-109 el-table-expandable-row-trigger-cell"
                 role="cell"
                 tabindex="0"
               >
                 <span
-                  class="el-intent-default el-icon"
+                  class="el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
@@ -213,10 +213,10 @@ exports[`DevelopersTable should render component with developers 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-106 el-table-expandable-row"
+              class="mocked-styled-113 el-table-expandable-row"
             >
               <div
-                class="mocked-styled-107 el-table-expandable-container"
+                class="mocked-styled-114 el-table-expandable-container"
               >
                 <div
                   class="mocked-styled-2 el-button-group"
@@ -299,7 +299,7 @@ exports[`DevelopersTable should render component with developers 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <div
       class="el-mb11"
@@ -315,71 +315,71 @@ exports[`DevelopersTable should render component with developers 1`] = `
         1
       </p>
       <div
-        class="mocked-styled-108 el-table"
+        class="mocked-styled-115 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="7"
         role="table"
       >
         <div
-          class="mocked-styled-94 el-table-headers-row"
+          class="mocked-styled-101 el-table-headers-row"
           role="row"
         >
           <div
             aria-label="Company Name"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Company Name
           </div>
           <div
             aria-label="Developer Name"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Developer Name
           </div>
           <div
             aria-label="Developer Email"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Developer Email
           </div>
           <div
             aria-label="Job Title"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Job Title
           </div>
           <div
             aria-label="Account Status"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Account Status
           </div>
           <div
             aria-label="Created Date"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Created Date
           </div>
           <div
             aria-label="Agreed Terms Date"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Agreed Terms Date
           </div>
           <div
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             <span
-              class="el-intent-default el-icon"
+              class="el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
@@ -399,18 +399,18 @@ exports[`DevelopersTable should render component with developers 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-103 el-table-row-container"
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
           <div
-            class="mocked-styled-96 el-table-row"
+            class="mocked-styled-103 el-table-row"
           >
             <div
               class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Company Name"
               >
                 Reapit Sales
@@ -421,7 +421,7 @@ exports[`DevelopersTable should render component with developers 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Developer Name"
               >
                 Sales Team
@@ -432,7 +432,7 @@ exports[`DevelopersTable should render component with developers 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Developer Email"
               >
                 test@example.com
@@ -443,7 +443,7 @@ exports[`DevelopersTable should render component with developers 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Job Title"
               />
             </div>
@@ -452,7 +452,7 @@ exports[`DevelopersTable should render component with developers 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Account Status"
               >
                 confirmed
@@ -463,7 +463,7 @@ exports[`DevelopersTable should render component with developers 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Created Date"
               >
                 03 Mar 2022 10:18
@@ -474,19 +474,19 @@ exports[`DevelopersTable should render component with developers 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Agreed Terms Date"
               >
                 -
               </div>
             </div>
             <div
-              class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+              class="mocked-styled-109 el-table-expandable-row-trigger-cell"
               role="cell"
               tabindex="0"
             >
               <span
-                class="el-intent-default el-icon"
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
@@ -506,10 +506,10 @@ exports[`DevelopersTable should render component with developers 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-106 el-table-expandable-row"
+            class="mocked-styled-113 el-table-expandable-row"
           >
             <div
-              class="mocked-styled-107 el-table-expandable-container"
+              class="mocked-styled-114 el-table-expandable-container"
             >
               <div
                 class="mocked-styled-2 el-button-group"
@@ -649,7 +649,7 @@ exports[`DevelopersTable should render component with no developers 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <div
         class="el-mb11"
@@ -663,7 +663,7 @@ exports[`DevelopersTable should render component with no developers 1`] = `
             data-testid="close-icon"
           >
             <span
-              class="mocked-styled-4 el-icon"
+              class="el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -695,7 +695,7 @@ exports[`DevelopersTable should render component with no developers 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <div
       class="el-mb11"
@@ -709,7 +709,7 @@ exports[`DevelopersTable should render component with no developers 1`] = `
           data-testid="close-icon"
         >
           <span
-            class="mocked-styled-4 el-icon"
+            class="el-icon-new el-icon"
             style="font-size: 1.25rem;"
           >
             <svg

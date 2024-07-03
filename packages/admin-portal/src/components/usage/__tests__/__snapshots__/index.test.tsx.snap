@@ -6,7 +6,7 @@ exports[`UsagePage should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <section
         class="el-page-container"
@@ -21,7 +21,7 @@ exports[`UsagePage should match a snapshot 1`] = `
             class="el-form-layout-has-margin el-form-layout"
           >
             <div
-              class="mocked-styled-128 el-input-wrap-full"
+              class="mocked-styled-135 el-input-wrap-full"
             >
               <h2
                 class="el-text-base el-subtitle"
@@ -35,7 +35,7 @@ exports[`UsagePage should match a snapshot 1`] = `
               </p>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <label
                 class="el-flex el-mb3 el-label"
@@ -44,10 +44,10 @@ exports[`UsagePage should match a snapshot 1`] = `
                 Company
               </label>
               <div
-                aria-controls="test-static-id"
+                aria-controls=":r0:"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                class="mocked-styled-77 el-searchable-dropdown-container"
+                class="mocked-styled-84 el-searchable-dropdown-container"
                 role="combobox"
               >
                 <input
@@ -57,10 +57,10 @@ exports[`UsagePage should match a snapshot 1`] = `
                   value=""
                 />
                 <span
-                  class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                  class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
                 >
                   <span
-                    class="el-intent-default el-icon"
+                    class="el-intent-default el-icon-new el-icon"
                     style="font-size: 1rem;"
                   >
                     <svg
@@ -82,7 +82,7 @@ exports[`UsagePage should match a snapshot 1`] = `
                 </span>
                 <input
                   aria-label="Input type undefined"
-                  class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
+                  class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                   data-testid="search-input"
                   name="developerId"
                   placeholder="Search developer organisations"
@@ -91,21 +91,21 @@ exports[`UsagePage should match a snapshot 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type month"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="month"
                   type="month"
                   value="2019-09"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Month
@@ -113,19 +113,19 @@ exports[`UsagePage should match a snapshot 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                 >
                   App
                 </label>
                 <select
                   aria-label="Select an item from the dropdown list"
-                  class="mocked-styled-76 el-select"
+                  class="mocked-styled-83 el-select"
                   disabled=""
                   name="appId"
                 >
@@ -138,19 +138,19 @@ exports[`UsagePage should match a snapshot 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                 >
                   Customer
                 </label>
                 <select
                   aria-label="Select an item from the dropdown list"
-                  class="mocked-styled-76 el-select"
+                  class="mocked-styled-83 el-select"
                   disabled=""
                   name="customerId"
                 >
@@ -195,7 +195,7 @@ exports[`UsagePage should match a snapshot 1`] = `
               data-testid="close-icon"
             >
               <span
-                class="mocked-styled-4 el-icon"
+                class="el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -228,7 +228,7 @@ exports[`UsagePage should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <section
       class="el-page-container"
@@ -243,7 +243,7 @@ exports[`UsagePage should match a snapshot 1`] = `
           class="el-form-layout-has-margin el-form-layout"
         >
           <div
-            class="mocked-styled-128 el-input-wrap-full"
+            class="mocked-styled-135 el-input-wrap-full"
           >
             <h2
               class="el-text-base el-subtitle"
@@ -257,7 +257,7 @@ exports[`UsagePage should match a snapshot 1`] = `
             </p>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <label
               class="el-flex el-mb3 el-label"
@@ -266,10 +266,10 @@ exports[`UsagePage should match a snapshot 1`] = `
               Company
             </label>
             <div
-              aria-controls="test-static-id"
+              aria-controls=":r0:"
               aria-expanded="false"
               aria-haspopup="listbox"
-              class="mocked-styled-77 el-searchable-dropdown-container"
+              class="mocked-styled-84 el-searchable-dropdown-container"
               role="combobox"
             >
               <input
@@ -279,10 +279,10 @@ exports[`UsagePage should match a snapshot 1`] = `
                 value=""
               />
               <span
-                class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
               >
                 <span
-                  class="el-intent-default el-icon"
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1rem;"
                 >
                   <svg
@@ -304,7 +304,7 @@ exports[`UsagePage should match a snapshot 1`] = `
               </span>
               <input
                 aria-label="Input type undefined"
-                class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
+                class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                 data-testid="search-input"
                 name="developerId"
                 placeholder="Search developer organisations"
@@ -313,21 +313,21 @@ exports[`UsagePage should match a snapshot 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type month"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="month"
                 type="month"
                 value="2019-09"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Month
@@ -335,19 +335,19 @@ exports[`UsagePage should match a snapshot 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 App
               </label>
               <select
                 aria-label="Select an item from the dropdown list"
-                class="mocked-styled-76 el-select"
+                class="mocked-styled-83 el-select"
                 disabled=""
                 name="appId"
               >
@@ -360,19 +360,19 @@ exports[`UsagePage should match a snapshot 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 Customer
               </label>
               <select
                 aria-label="Select an item from the dropdown list"
-                class="mocked-styled-76 el-select"
+                class="mocked-styled-83 el-select"
                 disabled=""
                 name="customerId"
               >
@@ -417,7 +417,7 @@ exports[`UsagePage should match a snapshot 1`] = `
             data-testid="close-icon"
           >
             <span
-              class="mocked-styled-4 el-icon"
+              class="el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
