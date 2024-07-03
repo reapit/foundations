@@ -6,7 +6,7 @@ exports[`Installations should render component when loading 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <section
         class="el-page-container"
@@ -21,7 +21,7 @@ exports[`Installations should render component when loading 1`] = `
             class="el-mb11 el-form-layout"
           >
             <div
-              class="mocked-styled-128 el-input-wrap-full"
+              class="mocked-styled-135 el-input-wrap-full"
             >
               <mock-styled.div>
                 <mock-styled.div
@@ -94,7 +94,7 @@ exports[`Installations should render component when loading 1`] = `
               </mock-styled.div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <label
                 class="el-flex el-mb3 el-label"
@@ -103,10 +103,10 @@ exports[`Installations should render component when loading 1`] = `
                 Company
               </label>
               <div
-                aria-controls="test-static-id"
+                aria-controls=":r1:"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                class="mocked-styled-77 el-searchable-dropdown-container"
+                class="mocked-styled-84 el-searchable-dropdown-container"
                 role="combobox"
               >
                 <input
@@ -116,10 +116,10 @@ exports[`Installations should render component when loading 1`] = `
                   value=""
                 />
                 <span
-                  class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                  class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
                 >
                   <span
-                    class="el-intent-default el-icon"
+                    class="el-intent-default el-icon-new el-icon"
                     style="font-size: 1rem;"
                   >
                     <svg
@@ -141,7 +141,7 @@ exports[`Installations should render component when loading 1`] = `
                 </span>
                 <input
                   aria-label="Input type undefined"
-                  class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
+                  class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                   data-testid="search-input"
                   name="companyName"
                   placeholder="Search developer organisations"
@@ -150,7 +150,7 @@ exports[`Installations should render component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <label
                 class="el-flex el-mb3 el-label"
@@ -159,10 +159,10 @@ exports[`Installations should render component when loading 1`] = `
                 Client
               </label>
               <div
-                aria-controls="test-static-id"
+                aria-controls=":r2:"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                class="mocked-styled-77 el-searchable-dropdown-container"
+                class="mocked-styled-84 el-searchable-dropdown-container"
                 role="combobox"
               >
                 <input
@@ -172,10 +172,10 @@ exports[`Installations should render component when loading 1`] = `
                   value=""
                 />
                 <span
-                  class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                  class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
                 >
                   <span
-                    class="el-intent-default el-icon"
+                    class="el-intent-default el-icon-new el-icon"
                     style="font-size: 1rem;"
                   >
                     <svg
@@ -197,7 +197,7 @@ exports[`Installations should render component when loading 1`] = `
                 </span>
                 <input
                   aria-label="Input type undefined"
-                  class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
+                  class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                   data-testid="search-input"
                   name="clientId"
                   placeholder="Search customers"
@@ -206,20 +206,20 @@ exports[`Installations should render component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type date format dd/mm/yyy"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="installedDateFrom"
                   type="date"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Installed Date From
@@ -227,20 +227,20 @@ exports[`Installations should render component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type date format dd/mm/yyy"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="installedDateTo"
                   type="date"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Installed Date To
@@ -248,13 +248,13 @@ exports[`Installations should render component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                 >
                   Is Charged Consumption
                 </label>
@@ -263,7 +263,7 @@ exports[`Installations should render component when loading 1`] = `
                 >
                   <input
                     checked=""
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-consumption-all"
                     name="isChargedConsumption"
                     type="radio"
@@ -276,13 +276,13 @@ exports[`Installations should render component when loading 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       All
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-consumption-true"
                     name="isChargedConsumption"
                     type="radio"
@@ -295,13 +295,13 @@ exports[`Installations should render component when loading 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Charged
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-consumption-false"
                     name="isChargedConsumption"
                     type="radio"
@@ -314,7 +314,7 @@ exports[`Installations should render component when loading 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Free
                     </span>
@@ -346,13 +346,13 @@ exports[`Installations should render component when loading 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-38 el-loader-container"
+          class="mocked-styled-44 el-loader-container"
         >
           <div
-            class="mocked-styled-40 el-loader"
+            class="mocked-styled-46 el-loader"
           >
             <div
-              class="mocked-styled-41 el-loader-moving-bar"
+              class="mocked-styled-47 el-loader-moving-bar"
             />
           </div>
         </div>
@@ -361,7 +361,7 @@ exports[`Installations should render component when loading 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <section
       class="el-page-container"
@@ -376,7 +376,7 @@ exports[`Installations should render component when loading 1`] = `
           class="el-mb11 el-form-layout"
         >
           <div
-            class="mocked-styled-128 el-input-wrap-full"
+            class="mocked-styled-135 el-input-wrap-full"
           >
             <mock-styled.div>
               <mock-styled.div
@@ -449,7 +449,7 @@ exports[`Installations should render component when loading 1`] = `
             </mock-styled.div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <label
               class="el-flex el-mb3 el-label"
@@ -458,10 +458,10 @@ exports[`Installations should render component when loading 1`] = `
               Company
             </label>
             <div
-              aria-controls="test-static-id"
+              aria-controls=":r1:"
               aria-expanded="false"
               aria-haspopup="listbox"
-              class="mocked-styled-77 el-searchable-dropdown-container"
+              class="mocked-styled-84 el-searchable-dropdown-container"
               role="combobox"
             >
               <input
@@ -471,10 +471,10 @@ exports[`Installations should render component when loading 1`] = `
                 value=""
               />
               <span
-                class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
               >
                 <span
-                  class="el-intent-default el-icon"
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1rem;"
                 >
                   <svg
@@ -496,7 +496,7 @@ exports[`Installations should render component when loading 1`] = `
               </span>
               <input
                 aria-label="Input type undefined"
-                class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
+                class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                 data-testid="search-input"
                 name="companyName"
                 placeholder="Search developer organisations"
@@ -505,7 +505,7 @@ exports[`Installations should render component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <label
               class="el-flex el-mb3 el-label"
@@ -514,10 +514,10 @@ exports[`Installations should render component when loading 1`] = `
               Client
             </label>
             <div
-              aria-controls="test-static-id"
+              aria-controls=":r2:"
               aria-expanded="false"
               aria-haspopup="listbox"
-              class="mocked-styled-77 el-searchable-dropdown-container"
+              class="mocked-styled-84 el-searchable-dropdown-container"
               role="combobox"
             >
               <input
@@ -527,10 +527,10 @@ exports[`Installations should render component when loading 1`] = `
                 value=""
               />
               <span
-                class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
               >
                 <span
-                  class="el-intent-default el-icon"
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1rem;"
                 >
                   <svg
@@ -552,7 +552,7 @@ exports[`Installations should render component when loading 1`] = `
               </span>
               <input
                 aria-label="Input type undefined"
-                class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
+                class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                 data-testid="search-input"
                 name="clientId"
                 placeholder="Search customers"
@@ -561,20 +561,20 @@ exports[`Installations should render component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type date format dd/mm/yyy"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="installedDateFrom"
                 type="date"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Installed Date From
@@ -582,20 +582,20 @@ exports[`Installations should render component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type date format dd/mm/yyy"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="installedDateTo"
                 type="date"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Installed Date To
@@ -603,13 +603,13 @@ exports[`Installations should render component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 Is Charged Consumption
               </label>
@@ -618,7 +618,7 @@ exports[`Installations should render component when loading 1`] = `
               >
                 <input
                   checked=""
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-consumption-all"
                   name="isChargedConsumption"
                   type="radio"
@@ -631,13 +631,13 @@ exports[`Installations should render component when loading 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     All
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-consumption-true"
                   name="isChargedConsumption"
                   type="radio"
@@ -650,13 +650,13 @@ exports[`Installations should render component when loading 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Charged
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-consumption-false"
                   name="isChargedConsumption"
                   type="radio"
@@ -669,7 +669,7 @@ exports[`Installations should render component when loading 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Free
                   </span>
@@ -701,13 +701,13 @@ exports[`Installations should render component when loading 1`] = `
         </div>
       </div>
       <div
-        class="mocked-styled-38 el-loader-container"
+        class="mocked-styled-44 el-loader-container"
       >
         <div
-          class="mocked-styled-40 el-loader"
+          class="mocked-styled-46 el-loader"
         >
           <div
-            class="mocked-styled-41 el-loader-moving-bar"
+            class="mocked-styled-47 el-loader-moving-bar"
           />
         </div>
       </div>
@@ -773,7 +773,7 @@ exports[`Installations should render component with data 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <section
         class="el-page-container"
@@ -788,7 +788,7 @@ exports[`Installations should render component with data 1`] = `
             class="el-mb11 el-form-layout"
           >
             <div
-              class="mocked-styled-128 el-input-wrap-full"
+              class="mocked-styled-135 el-input-wrap-full"
             >
               <mock-styled.div>
                 <mock-styled.div
@@ -825,7 +825,7 @@ exports[`Installations should render component with data 1`] = `
                   </mock-styled.label>
                 </mock-styled.div>
                 <mock-styled.div
-                  aria-controls=":r1:"
+                  aria-controls=":r4:"
                   aria-haspopup="listbox"
                   role="combobox"
                 >
@@ -861,7 +861,7 @@ exports[`Installations should render component with data 1`] = `
               </mock-styled.div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <label
                 class="el-flex el-mb3 el-label"
@@ -870,10 +870,10 @@ exports[`Installations should render component with data 1`] = `
                 Company
               </label>
               <div
-                aria-controls="test-static-id"
+                aria-controls=":r5:"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                class="mocked-styled-77 el-searchable-dropdown-container"
+                class="mocked-styled-84 el-searchable-dropdown-container"
                 role="combobox"
               >
                 <input
@@ -883,10 +883,10 @@ exports[`Installations should render component with data 1`] = `
                   value=""
                 />
                 <span
-                  class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                  class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
                 >
                   <span
-                    class="el-intent-default el-icon"
+                    class="el-intent-default el-icon-new el-icon"
                     style="font-size: 1rem;"
                   >
                     <svg
@@ -908,7 +908,7 @@ exports[`Installations should render component with data 1`] = `
                 </span>
                 <input
                   aria-label="Input type undefined"
-                  class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
+                  class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                   data-testid="search-input"
                   name="companyName"
                   placeholder="Search developer organisations"
@@ -917,7 +917,7 @@ exports[`Installations should render component with data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <label
                 class="el-flex el-mb3 el-label"
@@ -926,10 +926,10 @@ exports[`Installations should render component with data 1`] = `
                 Client
               </label>
               <div
-                aria-controls="test-static-id"
+                aria-controls=":r6:"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                class="mocked-styled-77 el-searchable-dropdown-container"
+                class="mocked-styled-84 el-searchable-dropdown-container"
                 role="combobox"
               >
                 <input
@@ -939,10 +939,10 @@ exports[`Installations should render component with data 1`] = `
                   value=""
                 />
                 <span
-                  class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                  class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
                 >
                   <span
-                    class="el-intent-default el-icon"
+                    class="el-intent-default el-icon-new el-icon"
                     style="font-size: 1rem;"
                   >
                     <svg
@@ -964,7 +964,7 @@ exports[`Installations should render component with data 1`] = `
                 </span>
                 <input
                   aria-label="Input type undefined"
-                  class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
+                  class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                   data-testid="search-input"
                   name="clientId"
                   placeholder="Search customers"
@@ -973,20 +973,20 @@ exports[`Installations should render component with data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type date format dd/mm/yyy"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="installedDateFrom"
                   type="date"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Installed Date From
@@ -994,20 +994,20 @@ exports[`Installations should render component with data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type date format dd/mm/yyy"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="installedDateTo"
                   type="date"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Installed Date To
@@ -1015,13 +1015,13 @@ exports[`Installations should render component with data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                 >
                   Is Charged Consumption
                 </label>
@@ -1030,7 +1030,7 @@ exports[`Installations should render component with data 1`] = `
                 >
                   <input
                     checked=""
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-consumption-all"
                     name="isChargedConsumption"
                     type="radio"
@@ -1043,13 +1043,13 @@ exports[`Installations should render component with data 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       All
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-consumption-true"
                     name="isChargedConsumption"
                     type="radio"
@@ -1062,13 +1062,13 @@ exports[`Installations should render component with data 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Charged
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-consumption-false"
                     name="isChargedConsumption"
                     type="radio"
@@ -1081,7 +1081,7 @@ exports[`Installations should render component with data 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Free
                     </span>
@@ -1120,71 +1120,71 @@ exports[`Installations should render component with data 1`] = `
           role="table"
         >
           <div
-            class="mocked-styled-94 el-table-headers-row"
+            class="mocked-styled-101 el-table-headers-row"
             role="row"
           >
             <div
               aria-label="Customer Name"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Customer Name
             </div>
             <div
               aria-label="App Name"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               App Name
             </div>
             <div
               aria-label="Reapit Customer Code"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Reapit Customer Code
             </div>
             <div
               aria-label="Customer Address"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Customer Address
             </div>
             <div
               aria-label="Date Installed"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Date Installed
             </div>
             <div
               aria-label="Installed By"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Installed By
             </div>
             <div
               aria-label="Date Uninstalled"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Date Uninstalled
             </div>
             <div
               aria-label="Uninstalled By"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Uninstalled By
             </div>
             <div
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               <span
-                class="el-intent-default el-icon"
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
@@ -1204,18 +1204,18 @@ exports[`Installations should render component with data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-103 el-table-row-container"
+            class="mocked-styled-110 el-table-row-container"
             role="row"
           >
             <div
-              class="mocked-styled-96 el-table-row"
+              class="mocked-styled-103 el-table-row"
             >
               <div
                 class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
                 <span
-                  class="el-intent-default el-icon"
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1.25rem;"
                 >
                   <svg
@@ -1235,7 +1235,7 @@ exports[`Installations should render component with data 1`] = `
                   </svg>
                 </span>
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Customer Name"
                 >
                   Sandbox Estates
@@ -1246,7 +1246,7 @@ exports[`Installations should render component with data 1`] = `
                 role="cell"
               >
                 <span
-                  class="el-intent-default el-icon"
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1.25rem;"
                 >
                   <svg
@@ -1266,7 +1266,7 @@ exports[`Installations should render component with data 1`] = `
                   </svg>
                 </span>
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="App Name"
                 >
                   App Test Name
@@ -1277,7 +1277,7 @@ exports[`Installations should render component with data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Reapit Customer Code"
                 >
                   SBOX
@@ -1288,7 +1288,7 @@ exports[`Installations should render component with data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Customer Address"
                 >
                   67-74 Third Floor Saffron Hill London EC1N 8QX
@@ -1299,7 +1299,7 @@ exports[`Installations should render component with data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Date Installed"
                 >
                   23-03-2022
@@ -1310,7 +1310,7 @@ exports[`Installations should render component with data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Installed By"
                 >
                   test@example.com
@@ -1321,7 +1321,7 @@ exports[`Installations should render component with data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Date Uninstalled"
                 >
                   -
@@ -1332,17 +1332,17 @@ exports[`Installations should render component with data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Uninstalled By"
                 />
               </div>
               <div
-                class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+                class="mocked-styled-109 el-table-expandable-row-trigger-cell"
                 role="cell"
                 tabindex="0"
               >
                 <span
-                  class="el-intent-default el-icon"
+                  class="el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
@@ -1362,10 +1362,10 @@ exports[`Installations should render component with data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-106 el-table-expandable-row"
+              class="mocked-styled-113 el-table-expandable-row"
             >
               <div
-                class="mocked-styled-107 el-table-expandable-container"
+                class="mocked-styled-114 el-table-expandable-container"
               >
                 <div
                   class="mocked-styled-2 el-button-group"
@@ -1396,17 +1396,17 @@ exports[`Installations should render component with data 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-65 el-pagination-wrap"
+          class="mocked-styled-71 el-pagination-wrap"
         >
           <button
             aria-label="Previous"
-            class="mocked-styled-68 el-pagination-button"
+            class="mocked-styled-74 el-pagination-button"
             data-testid="back-button"
             role="button"
             type="button"
           >
             <span
-              class="mocked-styled-4 el-icon"
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
@@ -1425,11 +1425,11 @@ exports[`Installations should render component with data 1`] = `
             </span>
           </button>
           <div
-            class="mocked-styled-66 el-pagination-text"
+            class="mocked-styled-72 el-pagination-text"
           >
             <input
               aria-label="Current page number, edit to select page of 1 available"
-              class="mocked-styled-67 el-pagination-input"
+              class="mocked-styled-73 el-pagination-input"
               value="1"
             />
              
@@ -1438,13 +1438,13 @@ exports[`Installations should render component with data 1`] = `
           </div>
           <button
             aria-label="Next"
-            class="mocked-styled-68 el-pagination-button"
+            class="mocked-styled-74 el-pagination-button"
             data-testid="forward-button"
             role="button"
             type="button"
           >
             <span
-              class="mocked-styled-4 el-icon"
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
@@ -1468,7 +1468,7 @@ exports[`Installations should render component with data 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <section
       class="el-page-container"
@@ -1483,7 +1483,7 @@ exports[`Installations should render component with data 1`] = `
           class="el-mb11 el-form-layout"
         >
           <div
-            class="mocked-styled-128 el-input-wrap-full"
+            class="mocked-styled-135 el-input-wrap-full"
           >
             <mock-styled.div>
               <mock-styled.div
@@ -1520,7 +1520,7 @@ exports[`Installations should render component with data 1`] = `
                 </mock-styled.label>
               </mock-styled.div>
               <mock-styled.div
-                aria-controls=":r1:"
+                aria-controls=":r4:"
                 aria-haspopup="listbox"
                 role="combobox"
               >
@@ -1556,7 +1556,7 @@ exports[`Installations should render component with data 1`] = `
             </mock-styled.div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <label
               class="el-flex el-mb3 el-label"
@@ -1565,10 +1565,10 @@ exports[`Installations should render component with data 1`] = `
               Company
             </label>
             <div
-              aria-controls="test-static-id"
+              aria-controls=":r5:"
               aria-expanded="false"
               aria-haspopup="listbox"
-              class="mocked-styled-77 el-searchable-dropdown-container"
+              class="mocked-styled-84 el-searchable-dropdown-container"
               role="combobox"
             >
               <input
@@ -1578,10 +1578,10 @@ exports[`Installations should render component with data 1`] = `
                 value=""
               />
               <span
-                class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
               >
                 <span
-                  class="el-intent-default el-icon"
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1rem;"
                 >
                   <svg
@@ -1603,7 +1603,7 @@ exports[`Installations should render component with data 1`] = `
               </span>
               <input
                 aria-label="Input type undefined"
-                class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
+                class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                 data-testid="search-input"
                 name="companyName"
                 placeholder="Search developer organisations"
@@ -1612,7 +1612,7 @@ exports[`Installations should render component with data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <label
               class="el-flex el-mb3 el-label"
@@ -1621,10 +1621,10 @@ exports[`Installations should render component with data 1`] = `
               Client
             </label>
             <div
-              aria-controls="test-static-id"
+              aria-controls=":r6:"
               aria-expanded="false"
               aria-haspopup="listbox"
-              class="mocked-styled-77 el-searchable-dropdown-container"
+              class="mocked-styled-84 el-searchable-dropdown-container"
               role="combobox"
             >
               <input
@@ -1634,10 +1634,10 @@ exports[`Installations should render component with data 1`] = `
                 value=""
               />
               <span
-                class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
               >
                 <span
-                  class="el-intent-default el-icon"
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1rem;"
                 >
                   <svg
@@ -1659,7 +1659,7 @@ exports[`Installations should render component with data 1`] = `
               </span>
               <input
                 aria-label="Input type undefined"
-                class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
+                class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                 data-testid="search-input"
                 name="clientId"
                 placeholder="Search customers"
@@ -1668,20 +1668,20 @@ exports[`Installations should render component with data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type date format dd/mm/yyy"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="installedDateFrom"
                 type="date"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Installed Date From
@@ -1689,20 +1689,20 @@ exports[`Installations should render component with data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type date format dd/mm/yyy"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="installedDateTo"
                 type="date"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Installed Date To
@@ -1710,13 +1710,13 @@ exports[`Installations should render component with data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 Is Charged Consumption
               </label>
@@ -1725,7 +1725,7 @@ exports[`Installations should render component with data 1`] = `
               >
                 <input
                   checked=""
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-consumption-all"
                   name="isChargedConsumption"
                   type="radio"
@@ -1738,13 +1738,13 @@ exports[`Installations should render component with data 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     All
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-consumption-true"
                   name="isChargedConsumption"
                   type="radio"
@@ -1757,13 +1757,13 @@ exports[`Installations should render component with data 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Charged
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-consumption-false"
                   name="isChargedConsumption"
                   type="radio"
@@ -1776,7 +1776,7 @@ exports[`Installations should render component with data 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Free
                   </span>
@@ -1815,71 +1815,71 @@ exports[`Installations should render component with data 1`] = `
         role="table"
       >
         <div
-          class="mocked-styled-94 el-table-headers-row"
+          class="mocked-styled-101 el-table-headers-row"
           role="row"
         >
           <div
             aria-label="Customer Name"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Customer Name
           </div>
           <div
             aria-label="App Name"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             App Name
           </div>
           <div
             aria-label="Reapit Customer Code"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Reapit Customer Code
           </div>
           <div
             aria-label="Customer Address"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Customer Address
           </div>
           <div
             aria-label="Date Installed"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Date Installed
           </div>
           <div
             aria-label="Installed By"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Installed By
           </div>
           <div
             aria-label="Date Uninstalled"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Date Uninstalled
           </div>
           <div
             aria-label="Uninstalled By"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Uninstalled By
           </div>
           <div
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             <span
-              class="el-intent-default el-icon"
+              class="el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
@@ -1899,18 +1899,18 @@ exports[`Installations should render component with data 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-103 el-table-row-container"
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
           <div
-            class="mocked-styled-96 el-table-row"
+            class="mocked-styled-103 el-table-row"
           >
             <div
               class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
               <span
-                class="el-intent-default el-icon"
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -1930,7 +1930,7 @@ exports[`Installations should render component with data 1`] = `
                 </svg>
               </span>
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Customer Name"
               >
                 Sandbox Estates
@@ -1941,7 +1941,7 @@ exports[`Installations should render component with data 1`] = `
               role="cell"
             >
               <span
-                class="el-intent-default el-icon"
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -1961,7 +1961,7 @@ exports[`Installations should render component with data 1`] = `
                 </svg>
               </span>
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="App Name"
               >
                 App Test Name
@@ -1972,7 +1972,7 @@ exports[`Installations should render component with data 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Reapit Customer Code"
               >
                 SBOX
@@ -1983,7 +1983,7 @@ exports[`Installations should render component with data 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Customer Address"
               >
                 67-74 Third Floor Saffron Hill London EC1N 8QX
@@ -1994,7 +1994,7 @@ exports[`Installations should render component with data 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Date Installed"
               >
                 23-03-2022
@@ -2005,7 +2005,7 @@ exports[`Installations should render component with data 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Installed By"
               >
                 test@example.com
@@ -2016,7 +2016,7 @@ exports[`Installations should render component with data 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Date Uninstalled"
               >
                 -
@@ -2027,17 +2027,17 @@ exports[`Installations should render component with data 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Uninstalled By"
               />
             </div>
             <div
-              class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+              class="mocked-styled-109 el-table-expandable-row-trigger-cell"
               role="cell"
               tabindex="0"
             >
               <span
-                class="el-intent-default el-icon"
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
@@ -2057,10 +2057,10 @@ exports[`Installations should render component with data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-106 el-table-expandable-row"
+            class="mocked-styled-113 el-table-expandable-row"
           >
             <div
-              class="mocked-styled-107 el-table-expandable-container"
+              class="mocked-styled-114 el-table-expandable-container"
             >
               <div
                 class="mocked-styled-2 el-button-group"
@@ -2091,17 +2091,17 @@ exports[`Installations should render component with data 1`] = `
         </div>
       </div>
       <div
-        class="mocked-styled-65 el-pagination-wrap"
+        class="mocked-styled-71 el-pagination-wrap"
       >
         <button
           aria-label="Previous"
-          class="mocked-styled-68 el-pagination-button"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
           <span
-            class="mocked-styled-4 el-icon"
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
@@ -2120,11 +2120,11 @@ exports[`Installations should render component with data 1`] = `
           </span>
         </button>
         <div
-          class="mocked-styled-66 el-pagination-text"
+          class="mocked-styled-72 el-pagination-text"
         >
           <input
             aria-label="Current page number, edit to select page of 1 available"
-            class="mocked-styled-67 el-pagination-input"
+            class="mocked-styled-73 el-pagination-input"
             value="1"
           />
            
@@ -2133,13 +2133,13 @@ exports[`Installations should render component with data 1`] = `
         </div>
         <button
           aria-label="Next"
-          class="mocked-styled-68 el-pagination-button"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="forward-button"
           role="button"
           type="button"
         >
           <span
-            class="mocked-styled-4 el-icon"
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"

@@ -6,17 +6,17 @@ exports[`ToggleConsumption should match a snapshot with apps 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <form>
         <div
           class="el-mt5 el-form-layout"
         >
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
             >
               API Consumption Charges
             </label>
@@ -25,7 +25,7 @@ exports[`ToggleConsumption should match a snapshot with apps 1`] = `
             >
               <input
                 checked=""
-                class="mocked-styled-120 el-toggle-radio"
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-free-false"
                 name="fixedApiConsumptionCost"
                 type="radio"
@@ -38,13 +38,13 @@ exports[`ToggleConsumption should match a snapshot with apps 1`] = `
                 tabindex="0"
               >
                 <span
-                  class="mocked-styled-117 el-toggle-radio-item"
+                  class="mocked-styled-124 el-toggle-radio-item"
                 >
                   Pays for API consumption
                 </span>
               </label>
               <input
-                class="mocked-styled-120 el-toggle-radio"
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-free-true"
                 name="fixedApiConsumptionCost"
                 type="radio"
@@ -57,7 +57,7 @@ exports[`ToggleConsumption should match a snapshot with apps 1`] = `
                 tabindex="0"
               >
                 <span
-                  class="mocked-styled-117 el-toggle-radio-item"
+                  class="mocked-styled-124 el-toggle-radio-item"
                 >
                   API consumption free
                 </span>
@@ -70,17 +70,17 @@ exports[`ToggleConsumption should match a snapshot with apps 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <form>
       <div
         class="el-mt5 el-form-layout"
       >
         <div
-          class="mocked-styled-126 el-input-wrap"
+          class="mocked-styled-133 el-input-wrap"
         >
           <label
-            class="mocked-styled-36 el-label"
+            class="mocked-styled-41 el-label"
           >
             API Consumption Charges
           </label>
@@ -89,7 +89,7 @@ exports[`ToggleConsumption should match a snapshot with apps 1`] = `
           >
             <input
               checked=""
-              class="mocked-styled-120 el-toggle-radio"
+              class="mocked-styled-127 el-toggle-radio"
               id="option-free-false"
               name="fixedApiConsumptionCost"
               type="radio"
@@ -102,13 +102,13 @@ exports[`ToggleConsumption should match a snapshot with apps 1`] = `
               tabindex="0"
             >
               <span
-                class="mocked-styled-117 el-toggle-radio-item"
+                class="mocked-styled-124 el-toggle-radio-item"
               >
                 Pays for API consumption
               </span>
             </label>
             <input
-              class="mocked-styled-120 el-toggle-radio"
+              class="mocked-styled-127 el-toggle-radio"
               id="option-free-true"
               name="fixedApiConsumptionCost"
               type="radio"
@@ -121,7 +121,7 @@ exports[`ToggleConsumption should match a snapshot with apps 1`] = `
               tabindex="0"
             >
               <span
-                class="mocked-styled-117 el-toggle-radio-item"
+                class="mocked-styled-124 el-toggle-radio-item"
               >
                 API consumption free
               </span>
@@ -191,17 +191,17 @@ exports[`ToggleConsumption should match a snapshot with no apps 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <form>
         <div
           class="el-mt5 el-form-layout"
         >
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
             >
               API Consumption Charges
             </label>
@@ -210,7 +210,7 @@ exports[`ToggleConsumption should match a snapshot with no apps 1`] = `
             >
               <input
                 checked=""
-                class="mocked-styled-120 el-toggle-radio"
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-free-false"
                 name="fixedApiConsumptionCost"
                 type="radio"
@@ -223,13 +223,13 @@ exports[`ToggleConsumption should match a snapshot with no apps 1`] = `
                 tabindex="0"
               >
                 <span
-                  class="mocked-styled-117 el-toggle-radio-item"
+                  class="mocked-styled-124 el-toggle-radio-item"
                 >
                   Pays for API consumption
                 </span>
               </label>
               <input
-                class="mocked-styled-120 el-toggle-radio"
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-free-true"
                 name="fixedApiConsumptionCost"
                 type="radio"
@@ -242,7 +242,7 @@ exports[`ToggleConsumption should match a snapshot with no apps 1`] = `
                 tabindex="0"
               >
                 <span
-                  class="mocked-styled-117 el-toggle-radio-item"
+                  class="mocked-styled-124 el-toggle-radio-item"
                 >
                   API consumption free
                 </span>
@@ -255,17 +255,17 @@ exports[`ToggleConsumption should match a snapshot with no apps 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <form>
       <div
         class="el-mt5 el-form-layout"
       >
         <div
-          class="mocked-styled-126 el-input-wrap"
+          class="mocked-styled-133 el-input-wrap"
         >
           <label
-            class="mocked-styled-36 el-label"
+            class="mocked-styled-41 el-label"
           >
             API Consumption Charges
           </label>
@@ -274,7 +274,7 @@ exports[`ToggleConsumption should match a snapshot with no apps 1`] = `
           >
             <input
               checked=""
-              class="mocked-styled-120 el-toggle-radio"
+              class="mocked-styled-127 el-toggle-radio"
               id="option-free-false"
               name="fixedApiConsumptionCost"
               type="radio"
@@ -287,13 +287,13 @@ exports[`ToggleConsumption should match a snapshot with no apps 1`] = `
               tabindex="0"
             >
               <span
-                class="mocked-styled-117 el-toggle-radio-item"
+                class="mocked-styled-124 el-toggle-radio-item"
               >
                 Pays for API consumption
               </span>
             </label>
             <input
-              class="mocked-styled-120 el-toggle-radio"
+              class="mocked-styled-127 el-toggle-radio"
               id="option-free-true"
               name="fixedApiConsumptionCost"
               type="radio"
@@ -306,7 +306,7 @@ exports[`ToggleConsumption should match a snapshot with no apps 1`] = `
               tabindex="0"
             >
               <span
-                class="mocked-styled-117 el-toggle-radio-item"
+                class="mocked-styled-124 el-toggle-radio-item"
               >
                 API consumption free
               </span>

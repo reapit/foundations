@@ -6,7 +6,7 @@ exports[`AppRevisionComparison should render a component with approval props and
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <div
         class="el-mt5"
@@ -3095,7 +3095,7 @@ exports[`AppRevisionComparison should render a component with approval props and
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <div
       class="el-mt5"
@@ -6241,7 +6241,7 @@ exports[`AppRevisionComparison should render a component with approval props and
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <div
         class="el-mt5"
@@ -9026,7 +9026,7 @@ exports[`AppRevisionComparison should render a component with approval props and
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <div
       class="el-mt5"
@@ -11868,7 +11868,7 @@ exports[`AppRevisionComparison should render a component with approval props and
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <div
         class="el-mt5"
@@ -14957,7 +14957,7 @@ exports[`AppRevisionComparison should render a component with approval props and
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <div
       class="el-mt5"
@@ -18103,7 +18103,7 @@ exports[`AppRevisionComparison should render a component with no approvals or da
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <div
         class="el-mb11 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
@@ -18114,7 +18114,7 @@ exports[`AppRevisionComparison should render a component with no approvals or da
           data-testid="close-icon"
         >
           <span
-            class="mocked-styled-4 el-icon"
+            class="el-icon-new el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -18145,7 +18145,7 @@ exports[`AppRevisionComparison should render a component with no approvals or da
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <div
       class="el-mb11 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
@@ -18156,7 +18156,7 @@ exports[`AppRevisionComparison should render a component with no approvals or da
         data-testid="close-icon"
       >
         <span
-          class="mocked-styled-4 el-icon"
+          class="el-icon-new el-icon"
           style="font-size: 1.25rem;"
         >
           <svg

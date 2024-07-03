@@ -6,26 +6,26 @@ exports[`FilterForm should render component 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <form>
         <div
           class="el-form-layout-has-margin el-form-layout"
         >
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type undefined"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="organisationName"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Company Name
@@ -33,20 +33,20 @@ exports[`FilterForm should render component 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type email"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="userEmail"
                 type="email"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 User Email
@@ -54,19 +54,19 @@ exports[`FilterForm should render component 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 Subscription Type
               </label>
               <select
                 aria-label="Select an item from the dropdown list"
-                class="mocked-styled-76 el-select"
+                class="mocked-styled-83 el-select"
                 name="subscriptionType"
               >
                 <option
@@ -93,19 +93,19 @@ exports[`FilterForm should render component 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 Status
               </label>
               <select
                 aria-label="Select an item from the dropdown list"
-                class="mocked-styled-76 el-select"
+                class="mocked-styled-83 el-select"
                 name="status"
               >
                 <option
@@ -132,26 +132,26 @@ exports[`FilterForm should render component 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <form>
       <div
         class="el-form-layout-has-margin el-form-layout"
       >
         <div
-          class="mocked-styled-126 el-input-wrap"
+          class="mocked-styled-133 el-input-wrap"
         >
           <div
-            class="mocked-styled-35 el-input-group"
+            class="mocked-styled-40 el-input-group"
           >
             <input
               aria-label="Input type undefined"
-              class="mocked-styled-33 el-input"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="organisationName"
             />
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
               for="test-static-id"
             >
               Company Name
@@ -159,20 +159,20 @@ exports[`FilterForm should render component 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-126 el-input-wrap"
+          class="mocked-styled-133 el-input-wrap"
         >
           <div
-            class="mocked-styled-35 el-input-group"
+            class="mocked-styled-40 el-input-group"
           >
             <input
               aria-label="Input type email"
-              class="mocked-styled-33 el-input"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="userEmail"
               type="email"
             />
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
               for="test-static-id"
             >
               User Email
@@ -180,19 +180,19 @@ exports[`FilterForm should render component 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-126 el-input-wrap"
+          class="mocked-styled-133 el-input-wrap"
         >
           <div
-            class="mocked-styled-35 el-input-group"
+            class="mocked-styled-40 el-input-group"
           >
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
             >
               Subscription Type
             </label>
             <select
               aria-label="Select an item from the dropdown list"
-              class="mocked-styled-76 el-select"
+              class="mocked-styled-83 el-select"
               name="subscriptionType"
             >
               <option
@@ -219,19 +219,19 @@ exports[`FilterForm should render component 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-126 el-input-wrap"
+          class="mocked-styled-133 el-input-wrap"
         >
           <div
-            class="mocked-styled-35 el-input-group"
+            class="mocked-styled-40 el-input-group"
           >
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
             >
               Status
             </label>
             <select
               aria-label="Select an item from the dropdown list"
-              class="mocked-styled-76 el-select"
+              class="mocked-styled-83 el-select"
               name="status"
             >
               <option

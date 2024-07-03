@@ -6,7 +6,7 @@ exports[`Statistics should render component with apps 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <div
         class="el-mb11"
@@ -33,7 +33,7 @@ exports[`Statistics should render component with apps 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <div
       class="el-mb11"
@@ -117,7 +117,7 @@ exports[`Statistics should render component with billing 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <div
         class="el-mb11"
@@ -144,7 +144,7 @@ exports[`Statistics should render component with billing 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <div
       class="el-mb11"

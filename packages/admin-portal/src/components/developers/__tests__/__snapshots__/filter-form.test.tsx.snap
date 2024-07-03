@@ -6,27 +6,27 @@ exports[`FilterForm should render component 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <form>
         <div
           class="el-mb11 el-form-layout"
         >
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type search"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="name"
                 type="search"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Developer Name
@@ -34,20 +34,20 @@ exports[`FilterForm should render component 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type search"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="company"
                 type="search"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Company Name
@@ -55,20 +55,20 @@ exports[`FilterForm should render component 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type search"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="gitHubUsername"
                 type="search"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Github Username
@@ -76,20 +76,20 @@ exports[`FilterForm should render component 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type date format dd/mm/yyy"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="registeredFrom"
                 type="date"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Registered From
@@ -97,20 +97,20 @@ exports[`FilterForm should render component 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type date format dd/mm/yyy"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="registeredTo"
                 type="date"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Registered To
@@ -118,19 +118,19 @@ exports[`FilterForm should render component 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 Status
               </label>
               <select
                 aria-label="Select an item from the dropdown list"
-                class="mocked-styled-76 el-select"
+                class="mocked-styled-83 el-select"
                 name="status"
               >
                 <option
@@ -172,27 +172,27 @@ exports[`FilterForm should render component 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <form>
       <div
         class="el-mb11 el-form-layout"
       >
         <div
-          class="mocked-styled-126 el-input-wrap"
+          class="mocked-styled-133 el-input-wrap"
         >
           <div
-            class="mocked-styled-35 el-input-group"
+            class="mocked-styled-40 el-input-group"
           >
             <input
               aria-label="Input type search"
-              class="mocked-styled-33 el-input"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="name"
               type="search"
             />
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
               for="test-static-id"
             >
               Developer Name
@@ -200,20 +200,20 @@ exports[`FilterForm should render component 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-126 el-input-wrap"
+          class="mocked-styled-133 el-input-wrap"
         >
           <div
-            class="mocked-styled-35 el-input-group"
+            class="mocked-styled-40 el-input-group"
           >
             <input
               aria-label="Input type search"
-              class="mocked-styled-33 el-input"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="company"
               type="search"
             />
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
               for="test-static-id"
             >
               Company Name
@@ -221,20 +221,20 @@ exports[`FilterForm should render component 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-126 el-input-wrap"
+          class="mocked-styled-133 el-input-wrap"
         >
           <div
-            class="mocked-styled-35 el-input-group"
+            class="mocked-styled-40 el-input-group"
           >
             <input
               aria-label="Input type search"
-              class="mocked-styled-33 el-input"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="gitHubUsername"
               type="search"
             />
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
               for="test-static-id"
             >
               Github Username
@@ -242,20 +242,20 @@ exports[`FilterForm should render component 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-126 el-input-wrap"
+          class="mocked-styled-133 el-input-wrap"
         >
           <div
-            class="mocked-styled-35 el-input-group"
+            class="mocked-styled-40 el-input-group"
           >
             <input
               aria-label="Input type date format dd/mm/yyy"
-              class="mocked-styled-33 el-input"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="registeredFrom"
               type="date"
             />
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
               for="test-static-id"
             >
               Registered From
@@ -263,20 +263,20 @@ exports[`FilterForm should render component 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-126 el-input-wrap"
+          class="mocked-styled-133 el-input-wrap"
         >
           <div
-            class="mocked-styled-35 el-input-group"
+            class="mocked-styled-40 el-input-group"
           >
             <input
               aria-label="Input type date format dd/mm/yyy"
-              class="mocked-styled-33 el-input"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="registeredTo"
               type="date"
             />
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
               for="test-static-id"
             >
               Registered To
@@ -284,19 +284,19 @@ exports[`FilterForm should render component 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-126 el-input-wrap"
+          class="mocked-styled-133 el-input-wrap"
         >
           <div
-            class="mocked-styled-35 el-input-group"
+            class="mocked-styled-40 el-input-group"
           >
             <label
-              class="mocked-styled-36 el-label"
+              class="mocked-styled-41 el-label"
             >
               Status
             </label>
             <select
               aria-label="Select an item from the dropdown list"
-              class="mocked-styled-76 el-select"
+              class="mocked-styled-83 el-select"
               name="status"
             >
               <option
