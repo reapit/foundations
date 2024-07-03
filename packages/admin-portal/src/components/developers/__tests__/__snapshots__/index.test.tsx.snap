@@ -6,7 +6,7 @@ exports[`DevsManagement should render component when loading 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <section
         class="el-page-container"
@@ -21,20 +21,20 @@ exports[`DevsManagement should render component when loading 1`] = `
             class="el-mb11 el-form-layout"
           >
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type search"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="name"
                   type="search"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Developer Name
@@ -42,20 +42,20 @@ exports[`DevsManagement should render component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type search"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="company"
                   type="search"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Company Name
@@ -63,20 +63,20 @@ exports[`DevsManagement should render component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type search"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="gitHubUsername"
                   type="search"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Github Username
@@ -84,20 +84,20 @@ exports[`DevsManagement should render component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type date format dd/mm/yyy"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="registeredFrom"
                   type="date"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Registered From
@@ -105,20 +105,20 @@ exports[`DevsManagement should render component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type date format dd/mm/yyy"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="registeredTo"
                   type="date"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Registered To
@@ -126,19 +126,19 @@ exports[`DevsManagement should render component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                 >
                   Status
                 </label>
                 <select
                   aria-label="Select an item from the dropdown list"
-                  class="mocked-styled-76 el-select"
+                  class="mocked-styled-83 el-select"
                   name="status"
                 >
                   <option
@@ -177,13 +177,13 @@ exports[`DevsManagement should render component when loading 1`] = `
           </div>
         </form>
         <div
-          class="mocked-styled-38 el-loader-container"
+          class="mocked-styled-44 el-loader-container"
         >
           <div
-            class="mocked-styled-40 el-loader"
+            class="mocked-styled-46 el-loader"
           >
             <div
-              class="mocked-styled-41 el-loader-moving-bar"
+              class="mocked-styled-47 el-loader-moving-bar"
             />
           </div>
         </div>
@@ -192,7 +192,7 @@ exports[`DevsManagement should render component when loading 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <section
       class="el-page-container"
@@ -207,20 +207,20 @@ exports[`DevsManagement should render component when loading 1`] = `
           class="el-mb11 el-form-layout"
         >
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type search"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="name"
                 type="search"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Developer Name
@@ -228,20 +228,20 @@ exports[`DevsManagement should render component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type search"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="company"
                 type="search"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Company Name
@@ -249,20 +249,20 @@ exports[`DevsManagement should render component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type search"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="gitHubUsername"
                 type="search"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Github Username
@@ -270,20 +270,20 @@ exports[`DevsManagement should render component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type date format dd/mm/yyy"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="registeredFrom"
                 type="date"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Registered From
@@ -291,20 +291,20 @@ exports[`DevsManagement should render component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type date format dd/mm/yyy"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="registeredTo"
                 type="date"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Registered To
@@ -312,19 +312,19 @@ exports[`DevsManagement should render component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 Status
               </label>
               <select
                 aria-label="Select an item from the dropdown list"
-                class="mocked-styled-76 el-select"
+                class="mocked-styled-83 el-select"
                 name="status"
               >
                 <option
@@ -363,13 +363,13 @@ exports[`DevsManagement should render component when loading 1`] = `
         </div>
       </form>
       <div
-        class="mocked-styled-38 el-loader-container"
+        class="mocked-styled-44 el-loader-container"
       >
         <div
-          class="mocked-styled-40 el-loader"
+          class="mocked-styled-46 el-loader"
         >
           <div
-            class="mocked-styled-41 el-loader-moving-bar"
+            class="mocked-styled-47 el-loader-moving-bar"
           />
         </div>
       </div>
@@ -435,7 +435,7 @@ exports[`DevsManagement should render component with data 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <section
         class="el-page-container"
@@ -450,20 +450,20 @@ exports[`DevsManagement should render component with data 1`] = `
             class="el-mb11 el-form-layout"
           >
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type search"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="name"
                   type="search"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Developer Name
@@ -471,20 +471,20 @@ exports[`DevsManagement should render component with data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type search"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="company"
                   type="search"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Company Name
@@ -492,20 +492,20 @@ exports[`DevsManagement should render component with data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type search"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="gitHubUsername"
                   type="search"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Github Username
@@ -513,20 +513,20 @@ exports[`DevsManagement should render component with data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type date format dd/mm/yyy"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="registeredFrom"
                   type="date"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Registered From
@@ -534,20 +534,20 @@ exports[`DevsManagement should render component with data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type date format dd/mm/yyy"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="registeredTo"
                   type="date"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Registered To
@@ -555,19 +555,19 @@ exports[`DevsManagement should render component with data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                 >
                   Status
                 </label>
                 <select
                   aria-label="Select an item from the dropdown list"
-                  class="mocked-styled-76 el-select"
+                  class="mocked-styled-83 el-select"
                   name="status"
                 >
                   <option
@@ -640,71 +640,71 @@ exports[`DevsManagement should render component with data 1`] = `
             1
           </p>
           <div
-            class="mocked-styled-108 el-table"
+            class="mocked-styled-115 el-table"
             data-has-call-to-action="false"
             data-has-expandable-action="true"
             data-num-columns-excl-action-col="7"
             role="table"
           >
             <div
-              class="mocked-styled-94 el-table-headers-row"
+              class="mocked-styled-101 el-table-headers-row"
               role="row"
             >
               <div
                 aria-label="Company Name"
-                class="mocked-styled-95 el-table-header"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Company Name
               </div>
               <div
                 aria-label="Developer Name"
-                class="mocked-styled-95 el-table-header"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Developer Name
               </div>
               <div
                 aria-label="Developer Email"
-                class="mocked-styled-95 el-table-header"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Developer Email
               </div>
               <div
                 aria-label="Job Title"
-                class="mocked-styled-95 el-table-header"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Job Title
               </div>
               <div
                 aria-label="Account Status"
-                class="mocked-styled-95 el-table-header"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Account Status
               </div>
               <div
                 aria-label="Created Date"
-                class="mocked-styled-95 el-table-header"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Created Date
               </div>
               <div
                 aria-label="Agreed Terms Date"
-                class="mocked-styled-95 el-table-header"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Agreed Terms Date
               </div>
               <div
-                class="mocked-styled-95 el-table-header"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 <span
-                  class="el-intent-default el-icon"
+                  class="el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
@@ -724,18 +724,18 @@ exports[`DevsManagement should render component with data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-103 el-table-row-container"
+              class="mocked-styled-110 el-table-row-container"
               role="row"
             >
               <div
-                class="mocked-styled-96 el-table-row"
+                class="mocked-styled-103 el-table-row"
               >
                 <div
                   class="el-table-cell-has-dark-text el-table-cell"
                   role="cell"
                 >
                   <div
-                    class="mocked-styled-104 el-table-cell-content"
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Company Name"
                   >
                     Reapit Sales
@@ -746,7 +746,7 @@ exports[`DevsManagement should render component with data 1`] = `
                   role="cell"
                 >
                   <div
-                    class="mocked-styled-104 el-table-cell-content"
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Developer Name"
                   >
                     Sales Team
@@ -757,7 +757,7 @@ exports[`DevsManagement should render component with data 1`] = `
                   role="cell"
                 >
                   <div
-                    class="mocked-styled-104 el-table-cell-content"
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Developer Email"
                   >
                     test@example.com
@@ -768,7 +768,7 @@ exports[`DevsManagement should render component with data 1`] = `
                   role="cell"
                 >
                   <div
-                    class="mocked-styled-104 el-table-cell-content"
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Job Title"
                   />
                 </div>
@@ -777,7 +777,7 @@ exports[`DevsManagement should render component with data 1`] = `
                   role="cell"
                 >
                   <div
-                    class="mocked-styled-104 el-table-cell-content"
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Account Status"
                   >
                     confirmed
@@ -788,7 +788,7 @@ exports[`DevsManagement should render component with data 1`] = `
                   role="cell"
                 >
                   <div
-                    class="mocked-styled-104 el-table-cell-content"
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Created Date"
                   >
                     03 Mar 2022 10:18
@@ -799,19 +799,19 @@ exports[`DevsManagement should render component with data 1`] = `
                   role="cell"
                 >
                   <div
-                    class="mocked-styled-104 el-table-cell-content"
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Agreed Terms Date"
                   >
                     -
                   </div>
                 </div>
                 <div
-                  class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+                  class="mocked-styled-109 el-table-expandable-row-trigger-cell"
                   role="cell"
                   tabindex="0"
                 >
                   <span
-                    class="el-intent-default el-icon"
+                    class="el-intent-default el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
@@ -831,10 +831,10 @@ exports[`DevsManagement should render component with data 1`] = `
                 </div>
               </div>
               <div
-                class="mocked-styled-106 el-table-expandable-row"
+                class="mocked-styled-113 el-table-expandable-row"
               >
                 <div
-                  class="mocked-styled-107 el-table-expandable-container"
+                  class="mocked-styled-114 el-table-expandable-container"
                 >
                   <div
                     class="mocked-styled-2 el-button-group"
@@ -909,17 +909,17 @@ exports[`DevsManagement should render component with data 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-65 el-pagination-wrap"
+          class="mocked-styled-71 el-pagination-wrap"
         >
           <button
             aria-label="Previous"
-            class="mocked-styled-68 el-pagination-button"
+            class="mocked-styled-74 el-pagination-button"
             data-testid="back-button"
             role="button"
             type="button"
           >
             <span
-              class="mocked-styled-4 el-icon"
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
@@ -938,11 +938,11 @@ exports[`DevsManagement should render component with data 1`] = `
             </span>
           </button>
           <div
-            class="mocked-styled-66 el-pagination-text"
+            class="mocked-styled-72 el-pagination-text"
           >
             <input
               aria-label="Current page number, edit to select page of 1 available"
-              class="mocked-styled-67 el-pagination-input"
+              class="mocked-styled-73 el-pagination-input"
               value="1"
             />
              
@@ -951,13 +951,13 @@ exports[`DevsManagement should render component with data 1`] = `
           </div>
           <button
             aria-label="Next"
-            class="mocked-styled-68 el-pagination-button"
+            class="mocked-styled-74 el-pagination-button"
             data-testid="forward-button"
             role="button"
             type="button"
           >
             <span
-              class="mocked-styled-4 el-icon"
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
@@ -981,7 +981,7 @@ exports[`DevsManagement should render component with data 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <section
       class="el-page-container"
@@ -996,20 +996,20 @@ exports[`DevsManagement should render component with data 1`] = `
           class="el-mb11 el-form-layout"
         >
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type search"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="name"
                 type="search"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Developer Name
@@ -1017,20 +1017,20 @@ exports[`DevsManagement should render component with data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type search"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="company"
                 type="search"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Company Name
@@ -1038,20 +1038,20 @@ exports[`DevsManagement should render component with data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type search"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="gitHubUsername"
                 type="search"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Github Username
@@ -1059,20 +1059,20 @@ exports[`DevsManagement should render component with data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type date format dd/mm/yyy"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="registeredFrom"
                 type="date"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Registered From
@@ -1080,20 +1080,20 @@ exports[`DevsManagement should render component with data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type date format dd/mm/yyy"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="registeredTo"
                 type="date"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Registered To
@@ -1101,19 +1101,19 @@ exports[`DevsManagement should render component with data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 Status
               </label>
               <select
                 aria-label="Select an item from the dropdown list"
-                class="mocked-styled-76 el-select"
+                class="mocked-styled-83 el-select"
                 name="status"
               >
                 <option
@@ -1186,71 +1186,71 @@ exports[`DevsManagement should render component with data 1`] = `
           1
         </p>
         <div
-          class="mocked-styled-108 el-table"
+          class="mocked-styled-115 el-table"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="7"
           role="table"
         >
           <div
-            class="mocked-styled-94 el-table-headers-row"
+            class="mocked-styled-101 el-table-headers-row"
             role="row"
           >
             <div
               aria-label="Company Name"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Company Name
             </div>
             <div
               aria-label="Developer Name"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Developer Name
             </div>
             <div
               aria-label="Developer Email"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Developer Email
             </div>
             <div
               aria-label="Job Title"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Job Title
             </div>
             <div
               aria-label="Account Status"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Account Status
             </div>
             <div
               aria-label="Created Date"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Created Date
             </div>
             <div
               aria-label="Agreed Terms Date"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Agreed Terms Date
             </div>
             <div
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               <span
-                class="el-intent-default el-icon"
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
@@ -1270,18 +1270,18 @@ exports[`DevsManagement should render component with data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-103 el-table-row-container"
+            class="mocked-styled-110 el-table-row-container"
             role="row"
           >
             <div
-              class="mocked-styled-96 el-table-row"
+              class="mocked-styled-103 el-table-row"
             >
               <div
                 class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Company Name"
                 >
                   Reapit Sales
@@ -1292,7 +1292,7 @@ exports[`DevsManagement should render component with data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Developer Name"
                 >
                   Sales Team
@@ -1303,7 +1303,7 @@ exports[`DevsManagement should render component with data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Developer Email"
                 >
                   test@example.com
@@ -1314,7 +1314,7 @@ exports[`DevsManagement should render component with data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Job Title"
                 />
               </div>
@@ -1323,7 +1323,7 @@ exports[`DevsManagement should render component with data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Account Status"
                 >
                   confirmed
@@ -1334,7 +1334,7 @@ exports[`DevsManagement should render component with data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Created Date"
                 >
                   03 Mar 2022 10:18
@@ -1345,19 +1345,19 @@ exports[`DevsManagement should render component with data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Agreed Terms Date"
                 >
                   -
                 </div>
               </div>
               <div
-                class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+                class="mocked-styled-109 el-table-expandable-row-trigger-cell"
                 role="cell"
                 tabindex="0"
               >
                 <span
-                  class="el-intent-default el-icon"
+                  class="el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
@@ -1377,10 +1377,10 @@ exports[`DevsManagement should render component with data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-106 el-table-expandable-row"
+              class="mocked-styled-113 el-table-expandable-row"
             >
               <div
-                class="mocked-styled-107 el-table-expandable-container"
+                class="mocked-styled-114 el-table-expandable-container"
               >
                 <div
                   class="mocked-styled-2 el-button-group"
@@ -1455,17 +1455,17 @@ exports[`DevsManagement should render component with data 1`] = `
         </div>
       </div>
       <div
-        class="mocked-styled-65 el-pagination-wrap"
+        class="mocked-styled-71 el-pagination-wrap"
       >
         <button
           aria-label="Previous"
-          class="mocked-styled-68 el-pagination-button"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
           <span
-            class="mocked-styled-4 el-icon"
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
@@ -1484,11 +1484,11 @@ exports[`DevsManagement should render component with data 1`] = `
           </span>
         </button>
         <div
-          class="mocked-styled-66 el-pagination-text"
+          class="mocked-styled-72 el-pagination-text"
         >
           <input
             aria-label="Current page number, edit to select page of 1 available"
-            class="mocked-styled-67 el-pagination-input"
+            class="mocked-styled-73 el-pagination-input"
             value="1"
           />
            
@@ -1497,13 +1497,13 @@ exports[`DevsManagement should render component with data 1`] = `
         </div>
         <button
           aria-label="Next"
-          class="mocked-styled-68 el-pagination-button"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="forward-button"
           role="button"
           type="button"
         >
           <span
-            class="mocked-styled-4 el-icon"
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"

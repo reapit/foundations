@@ -6,51 +6,51 @@ exports[`ToggleSupportNotification should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <label
-        class="mocked-styled-36 el-label"
+        class="mocked-styled-41 el-label"
       >
         Support Notification
       </label>
       <div
-        class="mocked-styled-122 el-toggle-radio-wrap"
+        class="mocked-styled-129 el-toggle-radio-wrap"
       >
         <input
           checked=""
-          class="mocked-styled-120 el-toggle-radio"
+          class="mocked-styled-127 el-toggle-radio"
           id="enable-support-notificationMOCK_ID"
           name="support-notification-MOCK_ID"
           type="radio"
           value="enable"
         />
         <label
-          class="mocked-styled-121 el-toggle-radio-label"
+          class="mocked-styled-128 el-toggle-radio-label"
           for="enable-support-notificationMOCK_ID"
           role="button"
           tabindex="0"
         >
           <span
-            class="mocked-styled-117 el-toggle-radio-item"
+            class="mocked-styled-124 el-toggle-radio-item"
           >
             Enabled
           </span>
         </label>
         <input
-          class="mocked-styled-120 el-toggle-radio"
+          class="mocked-styled-127 el-toggle-radio"
           id="disable-support-notificationMOCK_ID"
           name="support-notification-MOCK_ID"
           type="radio"
           value="disable"
         />
         <label
-          class="mocked-styled-121 el-toggle-radio-label"
+          class="mocked-styled-128 el-toggle-radio-label"
           for="disable-support-notificationMOCK_ID"
           role="button"
           tabindex="0"
         >
           <span
-            class="mocked-styled-117 el-toggle-radio-item"
+            class="mocked-styled-124 el-toggle-radio-item"
           >
             Disabled
           </span>
@@ -60,51 +60,51 @@ exports[`ToggleSupportNotification should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <label
-      class="mocked-styled-36 el-label"
+      class="mocked-styled-41 el-label"
     >
       Support Notification
     </label>
     <div
-      class="mocked-styled-122 el-toggle-radio-wrap"
+      class="mocked-styled-129 el-toggle-radio-wrap"
     >
       <input
         checked=""
-        class="mocked-styled-120 el-toggle-radio"
+        class="mocked-styled-127 el-toggle-radio"
         id="enable-support-notificationMOCK_ID"
         name="support-notification-MOCK_ID"
         type="radio"
         value="enable"
       />
       <label
-        class="mocked-styled-121 el-toggle-radio-label"
+        class="mocked-styled-128 el-toggle-radio-label"
         for="enable-support-notificationMOCK_ID"
         role="button"
         tabindex="0"
       >
         <span
-          class="mocked-styled-117 el-toggle-radio-item"
+          class="mocked-styled-124 el-toggle-radio-item"
         >
           Enabled
         </span>
       </label>
       <input
-        class="mocked-styled-120 el-toggle-radio"
+        class="mocked-styled-127 el-toggle-radio"
         id="disable-support-notificationMOCK_ID"
         name="support-notification-MOCK_ID"
         type="radio"
         value="disable"
       />
       <label
-        class="mocked-styled-121 el-toggle-radio-label"
+        class="mocked-styled-128 el-toggle-radio-label"
         for="disable-support-notificationMOCK_ID"
         role="button"
         tabindex="0"
       >
         <span
-          class="mocked-styled-117 el-toggle-radio-item"
+          class="mocked-styled-124 el-toggle-radio-item"
         >
           Disabled
         </span>

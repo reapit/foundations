@@ -6,7 +6,7 @@ exports[`DiffRenderHTML should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <div
         class="mock-css.
@@ -82,7 +82,7 @@ exports[`DiffRenderHTML should match snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <div
       class="mock-css.

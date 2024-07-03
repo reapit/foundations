@@ -6,7 +6,7 @@ exports[`AppsTable should render component with apps 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <div
         class="el-mb11"
@@ -22,92 +22,92 @@ exports[`AppsTable should render component with apps 1`] = `
           1
         </p>
         <div
-          class="mocked-styled-108 el-table"
+          class="mocked-styled-115 el-table"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="10"
           role="table"
         >
           <div
-            class="mocked-styled-94 el-table-headers-row"
+            class="mocked-styled-101 el-table-headers-row"
             role="row"
           >
             <div
               aria-label="App Name"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               App Name
             </div>
             <div
               aria-label="AppId"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               AppId
             </div>
             <div
               aria-label="Summary"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Summary
             </div>
             <div
               aria-label="Developer Name"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Developer Name
             </div>
             <div
               aria-label="Listed"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Listed
             </div>
             <div
               aria-label="Integration"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Integration
             </div>
             <div
               aria-label="Featured"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Featured
             </div>
             <div
               aria-label="Created"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Created
             </div>
             <div
               aria-label="Publicly Listed"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Publicly Listed
             </div>
             <div
               aria-label="Public"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Public
             </div>
             <div
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               <span
-                class="el-intent-default el-icon"
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
@@ -127,18 +127,18 @@ exports[`AppsTable should render component with apps 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-103 el-table-row-container"
+            class="mocked-styled-110 el-table-row-container"
             role="row"
           >
             <div
-              class="mocked-styled-96 el-table-row"
+              class="mocked-styled-103 el-table-row"
             >
               <div
                 class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="App Name"
                 >
                   Reapit Insights
@@ -149,7 +149,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="AppId"
                 >
                   f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09
@@ -160,7 +160,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Summary"
                 >
                   Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah.
@@ -171,7 +171,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Developer Name"
                 >
                   Reapit Ltd Internal
@@ -182,11 +182,11 @@ exports[`AppsTable should render component with apps 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Listed"
                 >
                   <span
-                    class="el-intent-success el-icon"
+                    class="el-intent-success el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
@@ -212,11 +212,11 @@ exports[`AppsTable should render component with apps 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Integration"
                 >
                   <span
-                    class="el-intent-danger el-icon"
+                    class="el-intent-danger el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
@@ -240,11 +240,11 @@ exports[`AppsTable should render component with apps 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Featured"
                 >
                   <span
-                    class="el-intent-danger el-icon"
+                    class="el-intent-danger el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
@@ -268,7 +268,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Created"
                 >
                   04 Mar 2021 09:37
@@ -279,7 +279,7 @@ exports[`AppsTable should render component with apps 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Publicly Listed"
                 >
                   -
@@ -290,11 +290,11 @@ exports[`AppsTable should render component with apps 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Public"
                 >
                   <span
-                    class="el-intent-danger el-icon"
+                    class="el-intent-danger el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
@@ -314,12 +314,12 @@ exports[`AppsTable should render component with apps 1`] = `
                 </div>
               </div>
               <div
-                class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+                class="mocked-styled-109 el-table-expandable-row-trigger-cell"
                 role="cell"
                 tabindex="0"
               >
                 <span
-                  class="el-intent-default el-icon"
+                  class="el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
@@ -339,10 +339,10 @@ exports[`AppsTable should render component with apps 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-106 el-table-expandable-row"
+              class="mocked-styled-113 el-table-expandable-row"
             >
               <div
-                class="mocked-styled-107 el-table-expandable-container"
+                class="mocked-styled-114 el-table-expandable-container"
               >
                 <div
                   class="mocked-styled-2 el-button-group"
@@ -423,7 +423,7 @@ exports[`AppsTable should render component with apps 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <div
       class="el-mb11"
@@ -439,92 +439,92 @@ exports[`AppsTable should render component with apps 1`] = `
         1
       </p>
       <div
-        class="mocked-styled-108 el-table"
+        class="mocked-styled-115 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="10"
         role="table"
       >
         <div
-          class="mocked-styled-94 el-table-headers-row"
+          class="mocked-styled-101 el-table-headers-row"
           role="row"
         >
           <div
             aria-label="App Name"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             App Name
           </div>
           <div
             aria-label="AppId"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             AppId
           </div>
           <div
             aria-label="Summary"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Summary
           </div>
           <div
             aria-label="Developer Name"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Developer Name
           </div>
           <div
             aria-label="Listed"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Listed
           </div>
           <div
             aria-label="Integration"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Integration
           </div>
           <div
             aria-label="Featured"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Featured
           </div>
           <div
             aria-label="Created"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Created
           </div>
           <div
             aria-label="Publicly Listed"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Publicly Listed
           </div>
           <div
             aria-label="Public"
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Public
           </div>
           <div
-            class="mocked-styled-95 el-table-header"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             <span
-              class="el-intent-default el-icon"
+              class="el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
@@ -544,18 +544,18 @@ exports[`AppsTable should render component with apps 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-103 el-table-row-container"
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
           <div
-            class="mocked-styled-96 el-table-row"
+            class="mocked-styled-103 el-table-row"
           >
             <div
               class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="App Name"
               >
                 Reapit Insights
@@ -566,7 +566,7 @@ exports[`AppsTable should render component with apps 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="AppId"
               >
                 f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09
@@ -577,7 +577,7 @@ exports[`AppsTable should render component with apps 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Summary"
               >
                 Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah.
@@ -588,7 +588,7 @@ exports[`AppsTable should render component with apps 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Developer Name"
               >
                 Reapit Ltd Internal
@@ -599,11 +599,11 @@ exports[`AppsTable should render component with apps 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Listed"
               >
                 <span
-                  class="el-intent-success el-icon"
+                  class="el-intent-success el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
@@ -629,11 +629,11 @@ exports[`AppsTable should render component with apps 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Integration"
               >
                 <span
-                  class="el-intent-danger el-icon"
+                  class="el-intent-danger el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
@@ -657,11 +657,11 @@ exports[`AppsTable should render component with apps 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Featured"
               >
                 <span
-                  class="el-intent-danger el-icon"
+                  class="el-intent-danger el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
@@ -685,7 +685,7 @@ exports[`AppsTable should render component with apps 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Created"
               >
                 04 Mar 2021 09:37
@@ -696,7 +696,7 @@ exports[`AppsTable should render component with apps 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Publicly Listed"
               >
                 -
@@ -707,11 +707,11 @@ exports[`AppsTable should render component with apps 1`] = `
               role="cell"
             >
               <div
-                class="mocked-styled-104 el-table-cell-content"
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Public"
               >
                 <span
-                  class="el-intent-danger el-icon"
+                  class="el-intent-danger el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
@@ -731,12 +731,12 @@ exports[`AppsTable should render component with apps 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+              class="mocked-styled-109 el-table-expandable-row-trigger-cell"
               role="cell"
               tabindex="0"
             >
               <span
-                class="el-intent-default el-icon"
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
@@ -756,10 +756,10 @@ exports[`AppsTable should render component with apps 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-106 el-table-expandable-row"
+            class="mocked-styled-113 el-table-expandable-row"
           >
             <div
-              class="mocked-styled-107 el-table-expandable-container"
+              class="mocked-styled-114 el-table-expandable-container"
             >
               <div
                 class="mocked-styled-2 el-button-group"
@@ -897,7 +897,7 @@ exports[`AppsTable should render component with no apps 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <div
         class="el-mb11"
@@ -911,7 +911,7 @@ exports[`AppsTable should render component with no apps 1`] = `
             data-testid="close-icon"
           >
             <span
-              class="mocked-styled-4 el-icon"
+              class="el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
@@ -943,7 +943,7 @@ exports[`AppsTable should render component with no apps 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <div
       class="el-mb11"
@@ -957,7 +957,7 @@ exports[`AppsTable should render component with no apps 1`] = `
           data-testid="close-icon"
         >
           <span
-            class="mocked-styled-4 el-icon"
+            class="el-icon-new el-icon"
             style="font-size: 1.25rem;"
           >
             <svg

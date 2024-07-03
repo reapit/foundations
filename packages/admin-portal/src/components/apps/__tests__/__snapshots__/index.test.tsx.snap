@@ -6,7 +6,7 @@ exports[`AppsPage should render a component when has data 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <section
         class="el-page-container"
@@ -21,20 +21,20 @@ exports[`AppsPage should render a component when has data 1`] = `
             class="el-mb11 el-form-layout"
           >
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type search"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="searchTerm"
                   type="search"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   App or Developer Name
@@ -42,20 +42,20 @@ exports[`AppsPage should render a component when has data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type search"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="companyName"
                   type="search"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Company Name
@@ -63,20 +63,20 @@ exports[`AppsPage should render a component when has data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type search"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="id"
                   type="search"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   App Id
@@ -84,20 +84,20 @@ exports[`AppsPage should render a component when has data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type date format dd/mm/yyy"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="registeredFrom"
                   type="date"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Registered From
@@ -105,20 +105,20 @@ exports[`AppsPage should render a component when has data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type date format dd/mm/yyy"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="registeredTo"
                   type="date"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Registered To
@@ -126,20 +126,20 @@ exports[`AppsPage should render a component when has data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type date format dd/mm/yyy"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="publicListedDateFrom"
                   type="date"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Publicly Listed From
@@ -147,20 +147,20 @@ exports[`AppsPage should render a component when has data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type date format dd/mm/yyy"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="publicListedDateTo"
                   type="date"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Publicly Listed To
@@ -168,13 +168,13 @@ exports[`AppsPage should render a component when has data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                 >
                   In Public AppMarket
                 </label>
@@ -183,7 +183,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                 >
                   <input
                     checked=""
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-public-all"
                     name="isPublic"
                     type="radio"
@@ -196,13 +196,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       All
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-public-true"
                     name="isPublic"
                     type="radio"
@@ -215,13 +215,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Public
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-public-false"
                     name="isPublic"
                     type="radio"
@@ -234,7 +234,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Private
                     </span>
@@ -243,13 +243,13 @@ exports[`AppsPage should render a component when has data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                 >
                   Integration or AC Enabled
                 </label>
@@ -258,7 +258,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                 >
                   <input
                     checked=""
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-integration-all"
                     name="isDirectApi"
                     type="radio"
@@ -271,13 +271,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       All
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-integration-true"
                     name="isDirectApi"
                     type="radio"
@@ -290,13 +290,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Integration
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-integration-false"
                     name="isDirectApi"
                     type="radio"
@@ -309,7 +309,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       AC App
                     </span>
@@ -318,13 +318,13 @@ exports[`AppsPage should render a component when has data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                 >
                   Publicly Listed
                 </label>
@@ -333,7 +333,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                 >
                   <input
                     checked=""
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-listed-all"
                     name="isListed"
                     type="radio"
@@ -346,13 +346,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       All
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-listed-true"
                     name="isListed"
                     type="radio"
@@ -365,13 +365,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Listed
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-listed-false"
                     name="isListed"
                     type="radio"
@@ -384,7 +384,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Development
                     </span>
@@ -393,13 +393,13 @@ exports[`AppsPage should render a component when has data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                 >
                   Is Charged Consumption
                 </label>
@@ -408,7 +408,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                 >
                   <input
                     checked=""
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-consumption-all"
                     name="isChargedConsumption"
                     type="radio"
@@ -421,13 +421,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       All
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-consumption-true"
                     name="isChargedConsumption"
                     type="radio"
@@ -440,13 +440,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Charged
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-consumption-false"
                     name="isChargedConsumption"
                     type="radio"
@@ -459,7 +459,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Free
                     </span>
@@ -504,92 +504,92 @@ exports[`AppsPage should render a component when has data 1`] = `
             1
           </p>
           <div
-            class="mocked-styled-108 el-table"
+            class="mocked-styled-115 el-table"
             data-has-call-to-action="false"
             data-has-expandable-action="true"
             data-num-columns-excl-action-col="10"
             role="table"
           >
             <div
-              class="mocked-styled-94 el-table-headers-row"
+              class="mocked-styled-101 el-table-headers-row"
               role="row"
             >
               <div
                 aria-label="App Name"
-                class="mocked-styled-95 el-table-header"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 App Name
               </div>
               <div
                 aria-label="AppId"
-                class="mocked-styled-95 el-table-header"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 AppId
               </div>
               <div
                 aria-label="Summary"
-                class="mocked-styled-95 el-table-header"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Summary
               </div>
               <div
                 aria-label="Developer Name"
-                class="mocked-styled-95 el-table-header"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Developer Name
               </div>
               <div
                 aria-label="Listed"
-                class="mocked-styled-95 el-table-header"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Listed
               </div>
               <div
                 aria-label="Integration"
-                class="mocked-styled-95 el-table-header"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Integration
               </div>
               <div
                 aria-label="Featured"
-                class="mocked-styled-95 el-table-header"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Featured
               </div>
               <div
                 aria-label="Created"
-                class="mocked-styled-95 el-table-header"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Created
               </div>
               <div
                 aria-label="Publicly Listed"
-                class="mocked-styled-95 el-table-header"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Publicly Listed
               </div>
               <div
                 aria-label="Public"
-                class="mocked-styled-95 el-table-header"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Public
               </div>
               <div
-                class="mocked-styled-95 el-table-header"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 <span
-                  class="el-intent-default el-icon"
+                  class="el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
@@ -609,18 +609,18 @@ exports[`AppsPage should render a component when has data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-103 el-table-row-container"
+              class="mocked-styled-110 el-table-row-container"
               role="row"
             >
               <div
-                class="mocked-styled-96 el-table-row"
+                class="mocked-styled-103 el-table-row"
               >
                 <div
                   class="el-table-cell-has-dark-text el-table-cell"
                   role="cell"
                 >
                   <div
-                    class="mocked-styled-104 el-table-cell-content"
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="App Name"
                   >
                     Reapit Insights
@@ -631,7 +631,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                   role="cell"
                 >
                   <div
-                    class="mocked-styled-104 el-table-cell-content"
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="AppId"
                   >
                     f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09
@@ -642,7 +642,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                   role="cell"
                 >
                   <div
-                    class="mocked-styled-104 el-table-cell-content"
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Summary"
                   >
                     Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah.
@@ -653,7 +653,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                   role="cell"
                 >
                   <div
-                    class="mocked-styled-104 el-table-cell-content"
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Developer Name"
                   >
                     Reapit Ltd Internal
@@ -664,11 +664,11 @@ exports[`AppsPage should render a component when has data 1`] = `
                   role="cell"
                 >
                   <div
-                    class="mocked-styled-104 el-table-cell-content"
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Listed"
                   >
                     <span
-                      class="el-intent-success el-icon"
+                      class="el-intent-success el-icon-new el-icon"
                     >
                       <svg
                         fill="none"
@@ -694,11 +694,11 @@ exports[`AppsPage should render a component when has data 1`] = `
                   role="cell"
                 >
                   <div
-                    class="mocked-styled-104 el-table-cell-content"
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Integration"
                   >
                     <span
-                      class="el-intent-danger el-icon"
+                      class="el-intent-danger el-icon-new el-icon"
                     >
                       <svg
                         fill="none"
@@ -722,11 +722,11 @@ exports[`AppsPage should render a component when has data 1`] = `
                   role="cell"
                 >
                   <div
-                    class="mocked-styled-104 el-table-cell-content"
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Featured"
                   >
                     <span
-                      class="el-intent-danger el-icon"
+                      class="el-intent-danger el-icon-new el-icon"
                     >
                       <svg
                         fill="none"
@@ -750,7 +750,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                   role="cell"
                 >
                   <div
-                    class="mocked-styled-104 el-table-cell-content"
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Created"
                   >
                     04 Mar 2021 09:37
@@ -761,7 +761,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                   role="cell"
                 >
                   <div
-                    class="mocked-styled-104 el-table-cell-content"
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Publicly Listed"
                   >
                     -
@@ -772,11 +772,11 @@ exports[`AppsPage should render a component when has data 1`] = `
                   role="cell"
                 >
                   <div
-                    class="mocked-styled-104 el-table-cell-content"
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Public"
                   >
                     <span
-                      class="el-intent-danger el-icon"
+                      class="el-intent-danger el-icon-new el-icon"
                     >
                       <svg
                         fill="none"
@@ -796,12 +796,12 @@ exports[`AppsPage should render a component when has data 1`] = `
                   </div>
                 </div>
                 <div
-                  class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+                  class="mocked-styled-109 el-table-expandable-row-trigger-cell"
                   role="cell"
                   tabindex="0"
                 >
                   <span
-                    class="el-intent-default el-icon"
+                    class="el-intent-default el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
@@ -821,10 +821,10 @@ exports[`AppsPage should render a component when has data 1`] = `
                 </div>
               </div>
               <div
-                class="mocked-styled-106 el-table-expandable-row"
+                class="mocked-styled-113 el-table-expandable-row"
               >
                 <div
-                  class="mocked-styled-107 el-table-expandable-container"
+                  class="mocked-styled-114 el-table-expandable-container"
                 >
                   <div
                     class="mocked-styled-2 el-button-group"
@@ -892,48 +892,48 @@ exports[`AppsPage should render a component when has data 1`] = `
                     </div>
                   </div>
                   <label
-                    class="mocked-styled-36 el-label"
+                    class="mocked-styled-41 el-label"
                   >
                     Support Notification
                   </label>
                   <div
-                    class="mocked-styled-122 el-toggle-radio-wrap"
+                    class="mocked-styled-129 el-toggle-radio-wrap"
                   >
                     <input
-                      class="mocked-styled-120 el-toggle-radio"
+                      class="mocked-styled-127 el-toggle-radio"
                       id="enable-support-notificationf83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
                       name="support-notification-f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
                       type="radio"
                       value="enable"
                     />
                     <label
-                      class="mocked-styled-121 el-toggle-radio-label"
+                      class="mocked-styled-128 el-toggle-radio-label"
                       for="enable-support-notificationf83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
                       role="button"
                       tabindex="0"
                     >
                       <span
-                        class="mocked-styled-117 el-toggle-radio-item"
+                        class="mocked-styled-124 el-toggle-radio-item"
                       >
                         Enabled
                       </span>
                     </label>
                     <input
                       checked=""
-                      class="mocked-styled-120 el-toggle-radio"
+                      class="mocked-styled-127 el-toggle-radio"
                       id="disable-support-notificationf83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
                       name="support-notification-f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
                       type="radio"
                       value="disable"
                     />
                     <label
-                      class="mocked-styled-121 el-toggle-radio-label"
+                      class="mocked-styled-128 el-toggle-radio-label"
                       for="disable-support-notificationf83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
                       role="button"
                       tabindex="0"
                     >
                       <span
-                        class="mocked-styled-117 el-toggle-radio-item"
+                        class="mocked-styled-124 el-toggle-radio-item"
                       >
                         Disabled
                       </span>
@@ -945,17 +945,17 @@ exports[`AppsPage should render a component when has data 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-65 el-pagination-wrap"
+          class="mocked-styled-71 el-pagination-wrap"
         >
           <button
             aria-label="Previous"
-            class="mocked-styled-68 el-pagination-button"
+            class="mocked-styled-74 el-pagination-button"
             data-testid="back-button"
             role="button"
             type="button"
           >
             <span
-              class="mocked-styled-4 el-icon"
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
@@ -974,11 +974,11 @@ exports[`AppsPage should render a component when has data 1`] = `
             </span>
           </button>
           <div
-            class="mocked-styled-66 el-pagination-text"
+            class="mocked-styled-72 el-pagination-text"
           >
             <input
               aria-label="Current page number, edit to select page of 1 available"
-              class="mocked-styled-67 el-pagination-input"
+              class="mocked-styled-73 el-pagination-input"
               value="1"
             />
              
@@ -987,13 +987,13 @@ exports[`AppsPage should render a component when has data 1`] = `
           </div>
           <button
             aria-label="Next"
-            class="mocked-styled-68 el-pagination-button"
+            class="mocked-styled-74 el-pagination-button"
             data-testid="forward-button"
             role="button"
             type="button"
           >
             <span
-              class="mocked-styled-4 el-icon"
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
@@ -1017,7 +1017,7 @@ exports[`AppsPage should render a component when has data 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <section
       class="el-page-container"
@@ -1032,20 +1032,20 @@ exports[`AppsPage should render a component when has data 1`] = `
           class="el-mb11 el-form-layout"
         >
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type search"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="searchTerm"
                 type="search"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 App or Developer Name
@@ -1053,20 +1053,20 @@ exports[`AppsPage should render a component when has data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type search"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="companyName"
                 type="search"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Company Name
@@ -1074,20 +1074,20 @@ exports[`AppsPage should render a component when has data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type search"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="id"
                 type="search"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 App Id
@@ -1095,20 +1095,20 @@ exports[`AppsPage should render a component when has data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type date format dd/mm/yyy"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="registeredFrom"
                 type="date"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Registered From
@@ -1116,20 +1116,20 @@ exports[`AppsPage should render a component when has data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type date format dd/mm/yyy"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="registeredTo"
                 type="date"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Registered To
@@ -1137,20 +1137,20 @@ exports[`AppsPage should render a component when has data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type date format dd/mm/yyy"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="publicListedDateFrom"
                 type="date"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Publicly Listed From
@@ -1158,20 +1158,20 @@ exports[`AppsPage should render a component when has data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type date format dd/mm/yyy"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="publicListedDateTo"
                 type="date"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Publicly Listed To
@@ -1179,13 +1179,13 @@ exports[`AppsPage should render a component when has data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 In Public AppMarket
               </label>
@@ -1194,7 +1194,7 @@ exports[`AppsPage should render a component when has data 1`] = `
               >
                 <input
                   checked=""
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-public-all"
                   name="isPublic"
                   type="radio"
@@ -1207,13 +1207,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     All
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-public-true"
                   name="isPublic"
                   type="radio"
@@ -1226,13 +1226,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Public
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-public-false"
                   name="isPublic"
                   type="radio"
@@ -1245,7 +1245,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Private
                   </span>
@@ -1254,13 +1254,13 @@ exports[`AppsPage should render a component when has data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 Integration or AC Enabled
               </label>
@@ -1269,7 +1269,7 @@ exports[`AppsPage should render a component when has data 1`] = `
               >
                 <input
                   checked=""
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-integration-all"
                   name="isDirectApi"
                   type="radio"
@@ -1282,13 +1282,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     All
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-integration-true"
                   name="isDirectApi"
                   type="radio"
@@ -1301,13 +1301,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Integration
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-integration-false"
                   name="isDirectApi"
                   type="radio"
@@ -1320,7 +1320,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     AC App
                   </span>
@@ -1329,13 +1329,13 @@ exports[`AppsPage should render a component when has data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 Publicly Listed
               </label>
@@ -1344,7 +1344,7 @@ exports[`AppsPage should render a component when has data 1`] = `
               >
                 <input
                   checked=""
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-listed-all"
                   name="isListed"
                   type="radio"
@@ -1357,13 +1357,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     All
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-listed-true"
                   name="isListed"
                   type="radio"
@@ -1376,13 +1376,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Listed
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-listed-false"
                   name="isListed"
                   type="radio"
@@ -1395,7 +1395,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Development
                   </span>
@@ -1404,13 +1404,13 @@ exports[`AppsPage should render a component when has data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 Is Charged Consumption
               </label>
@@ -1419,7 +1419,7 @@ exports[`AppsPage should render a component when has data 1`] = `
               >
                 <input
                   checked=""
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-consumption-all"
                   name="isChargedConsumption"
                   type="radio"
@@ -1432,13 +1432,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     All
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-consumption-true"
                   name="isChargedConsumption"
                   type="radio"
@@ -1451,13 +1451,13 @@ exports[`AppsPage should render a component when has data 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Charged
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-consumption-false"
                   name="isChargedConsumption"
                   type="radio"
@@ -1470,7 +1470,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Free
                   </span>
@@ -1515,92 +1515,92 @@ exports[`AppsPage should render a component when has data 1`] = `
           1
         </p>
         <div
-          class="mocked-styled-108 el-table"
+          class="mocked-styled-115 el-table"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="10"
           role="table"
         >
           <div
-            class="mocked-styled-94 el-table-headers-row"
+            class="mocked-styled-101 el-table-headers-row"
             role="row"
           >
             <div
               aria-label="App Name"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               App Name
             </div>
             <div
               aria-label="AppId"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               AppId
             </div>
             <div
               aria-label="Summary"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Summary
             </div>
             <div
               aria-label="Developer Name"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Developer Name
             </div>
             <div
               aria-label="Listed"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Listed
             </div>
             <div
               aria-label="Integration"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Integration
             </div>
             <div
               aria-label="Featured"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Featured
             </div>
             <div
               aria-label="Created"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Created
             </div>
             <div
               aria-label="Publicly Listed"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Publicly Listed
             </div>
             <div
               aria-label="Public"
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Public
             </div>
             <div
-              class="mocked-styled-95 el-table-header"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               <span
-                class="el-intent-default el-icon"
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
@@ -1620,18 +1620,18 @@ exports[`AppsPage should render a component when has data 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-103 el-table-row-container"
+            class="mocked-styled-110 el-table-row-container"
             role="row"
           >
             <div
-              class="mocked-styled-96 el-table-row"
+              class="mocked-styled-103 el-table-row"
             >
               <div
                 class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="App Name"
                 >
                   Reapit Insights
@@ -1642,7 +1642,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="AppId"
                 >
                   f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09
@@ -1653,7 +1653,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Summary"
                 >
                   Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah.
@@ -1664,7 +1664,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Developer Name"
                 >
                   Reapit Ltd Internal
@@ -1675,11 +1675,11 @@ exports[`AppsPage should render a component when has data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Listed"
                 >
                   <span
-                    class="el-intent-success el-icon"
+                    class="el-intent-success el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
@@ -1705,11 +1705,11 @@ exports[`AppsPage should render a component when has data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Integration"
                 >
                   <span
-                    class="el-intent-danger el-icon"
+                    class="el-intent-danger el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
@@ -1733,11 +1733,11 @@ exports[`AppsPage should render a component when has data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Featured"
                 >
                   <span
-                    class="el-intent-danger el-icon"
+                    class="el-intent-danger el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
@@ -1761,7 +1761,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Created"
                 >
                   04 Mar 2021 09:37
@@ -1772,7 +1772,7 @@ exports[`AppsPage should render a component when has data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Publicly Listed"
                 >
                   -
@@ -1783,11 +1783,11 @@ exports[`AppsPage should render a component when has data 1`] = `
                 role="cell"
               >
                 <div
-                  class="mocked-styled-104 el-table-cell-content"
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Public"
                 >
                   <span
-                    class="el-intent-danger el-icon"
+                    class="el-intent-danger el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
@@ -1807,12 +1807,12 @@ exports[`AppsPage should render a component when has data 1`] = `
                 </div>
               </div>
               <div
-                class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+                class="mocked-styled-109 el-table-expandable-row-trigger-cell"
                 role="cell"
                 tabindex="0"
               >
                 <span
-                  class="el-intent-default el-icon"
+                  class="el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
@@ -1832,10 +1832,10 @@ exports[`AppsPage should render a component when has data 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-106 el-table-expandable-row"
+              class="mocked-styled-113 el-table-expandable-row"
             >
               <div
-                class="mocked-styled-107 el-table-expandable-container"
+                class="mocked-styled-114 el-table-expandable-container"
               >
                 <div
                   class="mocked-styled-2 el-button-group"
@@ -1903,48 +1903,48 @@ exports[`AppsPage should render a component when has data 1`] = `
                   </div>
                 </div>
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                 >
                   Support Notification
                 </label>
                 <div
-                  class="mocked-styled-122 el-toggle-radio-wrap"
+                  class="mocked-styled-129 el-toggle-radio-wrap"
                 >
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="enable-support-notificationf83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
                     name="support-notification-f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
                     type="radio"
                     value="enable"
                   />
                   <label
-                    class="mocked-styled-121 el-toggle-radio-label"
+                    class="mocked-styled-128 el-toggle-radio-label"
                     for="enable-support-notificationf83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Enabled
                     </span>
                   </label>
                   <input
                     checked=""
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="disable-support-notificationf83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
                     name="support-notification-f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
                     type="radio"
                     value="disable"
                   />
                   <label
-                    class="mocked-styled-121 el-toggle-radio-label"
+                    class="mocked-styled-128 el-toggle-radio-label"
                     for="disable-support-notificationf83e679e-a7cd-4889-a7f9-f4a8a8ed5a09"
                     role="button"
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Disabled
                     </span>
@@ -1956,17 +1956,17 @@ exports[`AppsPage should render a component when has data 1`] = `
         </div>
       </div>
       <div
-        class="mocked-styled-65 el-pagination-wrap"
+        class="mocked-styled-71 el-pagination-wrap"
       >
         <button
           aria-label="Previous"
-          class="mocked-styled-68 el-pagination-button"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
           <span
-            class="mocked-styled-4 el-icon"
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
@@ -1985,11 +1985,11 @@ exports[`AppsPage should render a component when has data 1`] = `
           </span>
         </button>
         <div
-          class="mocked-styled-66 el-pagination-text"
+          class="mocked-styled-72 el-pagination-text"
         >
           <input
             aria-label="Current page number, edit to select page of 1 available"
-            class="mocked-styled-67 el-pagination-input"
+            class="mocked-styled-73 el-pagination-input"
             value="1"
           />
            
@@ -1998,13 +1998,13 @@ exports[`AppsPage should render a component when has data 1`] = `
         </div>
         <button
           aria-label="Next"
-          class="mocked-styled-68 el-pagination-button"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="forward-button"
           role="button"
           type="button"
         >
           <span
-            class="mocked-styled-4 el-icon"
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
@@ -2085,7 +2085,7 @@ exports[`AppsPage should render a component when loading 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <section
         class="el-page-container"
@@ -2100,20 +2100,20 @@ exports[`AppsPage should render a component when loading 1`] = `
             class="el-mb11 el-form-layout"
           >
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type search"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="searchTerm"
                   type="search"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   App or Developer Name
@@ -2121,20 +2121,20 @@ exports[`AppsPage should render a component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type search"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="companyName"
                   type="search"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Company Name
@@ -2142,20 +2142,20 @@ exports[`AppsPage should render a component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type search"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="id"
                   type="search"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   App Id
@@ -2163,20 +2163,20 @@ exports[`AppsPage should render a component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type date format dd/mm/yyy"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="registeredFrom"
                   type="date"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Registered From
@@ -2184,20 +2184,20 @@ exports[`AppsPage should render a component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type date format dd/mm/yyy"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="registeredTo"
                   type="date"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Registered To
@@ -2205,20 +2205,20 @@ exports[`AppsPage should render a component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type date format dd/mm/yyy"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="publicListedDateFrom"
                   type="date"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Publicly Listed From
@@ -2226,20 +2226,20 @@ exports[`AppsPage should render a component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <input
                   aria-label="Input type date format dd/mm/yyy"
-                  class="mocked-styled-33 el-input"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="publicListedDateTo"
                   type="date"
                 />
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
                   Publicly Listed To
@@ -2247,13 +2247,13 @@ exports[`AppsPage should render a component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                 >
                   In Public AppMarket
                 </label>
@@ -2262,7 +2262,7 @@ exports[`AppsPage should render a component when loading 1`] = `
                 >
                   <input
                     checked=""
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-public-all"
                     name="isPublic"
                     type="radio"
@@ -2275,13 +2275,13 @@ exports[`AppsPage should render a component when loading 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       All
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-public-true"
                     name="isPublic"
                     type="radio"
@@ -2294,13 +2294,13 @@ exports[`AppsPage should render a component when loading 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Public
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-public-false"
                     name="isPublic"
                     type="radio"
@@ -2313,7 +2313,7 @@ exports[`AppsPage should render a component when loading 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Private
                     </span>
@@ -2322,13 +2322,13 @@ exports[`AppsPage should render a component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                 >
                   Integration or AC Enabled
                 </label>
@@ -2337,7 +2337,7 @@ exports[`AppsPage should render a component when loading 1`] = `
                 >
                   <input
                     checked=""
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-integration-all"
                     name="isDirectApi"
                     type="radio"
@@ -2350,13 +2350,13 @@ exports[`AppsPage should render a component when loading 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       All
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-integration-true"
                     name="isDirectApi"
                     type="radio"
@@ -2369,13 +2369,13 @@ exports[`AppsPage should render a component when loading 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Integration
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-integration-false"
                     name="isDirectApi"
                     type="radio"
@@ -2388,7 +2388,7 @@ exports[`AppsPage should render a component when loading 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       AC App
                     </span>
@@ -2397,13 +2397,13 @@ exports[`AppsPage should render a component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                 >
                   Publicly Listed
                 </label>
@@ -2412,7 +2412,7 @@ exports[`AppsPage should render a component when loading 1`] = `
                 >
                   <input
                     checked=""
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-listed-all"
                     name="isListed"
                     type="radio"
@@ -2425,13 +2425,13 @@ exports[`AppsPage should render a component when loading 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       All
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-listed-true"
                     name="isListed"
                     type="radio"
@@ -2444,13 +2444,13 @@ exports[`AppsPage should render a component when loading 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Listed
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-listed-false"
                     name="isListed"
                     type="radio"
@@ -2463,7 +2463,7 @@ exports[`AppsPage should render a component when loading 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Development
                     </span>
@@ -2472,13 +2472,13 @@ exports[`AppsPage should render a component when loading 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-126 el-input-wrap"
+              class="mocked-styled-133 el-input-wrap"
             >
               <div
-                class="mocked-styled-35 el-input-group"
+                class="mocked-styled-40 el-input-group"
               >
                 <label
-                  class="mocked-styled-36 el-label"
+                  class="mocked-styled-41 el-label"
                 >
                   Is Charged Consumption
                 </label>
@@ -2487,7 +2487,7 @@ exports[`AppsPage should render a component when loading 1`] = `
                 >
                   <input
                     checked=""
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-consumption-all"
                     name="isChargedConsumption"
                     type="radio"
@@ -2500,13 +2500,13 @@ exports[`AppsPage should render a component when loading 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       All
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-consumption-true"
                     name="isChargedConsumption"
                     type="radio"
@@ -2519,13 +2519,13 @@ exports[`AppsPage should render a component when loading 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Charged
                     </span>
                   </label>
                   <input
-                    class="mocked-styled-120 el-toggle-radio"
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-consumption-false"
                     name="isChargedConsumption"
                     type="radio"
@@ -2538,7 +2538,7 @@ exports[`AppsPage should render a component when loading 1`] = `
                     tabindex="0"
                   >
                     <span
-                      class="mocked-styled-117 el-toggle-radio-item"
+                      class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Free
                     </span>
@@ -2549,13 +2549,13 @@ exports[`AppsPage should render a component when loading 1`] = `
           </div>
         </form>
         <div
-          class="mocked-styled-38 el-loader-container"
+          class="mocked-styled-44 el-loader-container"
         >
           <div
-            class="mocked-styled-40 el-loader"
+            class="mocked-styled-46 el-loader"
           >
             <div
-              class="mocked-styled-41 el-loader-moving-bar"
+              class="mocked-styled-47 el-loader-moving-bar"
             />
           </div>
         </div>
@@ -2564,7 +2564,7 @@ exports[`AppsPage should render a component when loading 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <section
       class="el-page-container"
@@ -2579,20 +2579,20 @@ exports[`AppsPage should render a component when loading 1`] = `
           class="el-mb11 el-form-layout"
         >
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type search"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="searchTerm"
                 type="search"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 App or Developer Name
@@ -2600,20 +2600,20 @@ exports[`AppsPage should render a component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type search"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="companyName"
                 type="search"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Company Name
@@ -2621,20 +2621,20 @@ exports[`AppsPage should render a component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type search"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="id"
                 type="search"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 App Id
@@ -2642,20 +2642,20 @@ exports[`AppsPage should render a component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type date format dd/mm/yyy"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="registeredFrom"
                 type="date"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Registered From
@@ -2663,20 +2663,20 @@ exports[`AppsPage should render a component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type date format dd/mm/yyy"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="registeredTo"
                 type="date"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Registered To
@@ -2684,20 +2684,20 @@ exports[`AppsPage should render a component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type date format dd/mm/yyy"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="publicListedDateFrom"
                 type="date"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Publicly Listed From
@@ -2705,20 +2705,20 @@ exports[`AppsPage should render a component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <input
                 aria-label="Input type date format dd/mm/yyy"
-                class="mocked-styled-33 el-input"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="publicListedDateTo"
                 type="date"
               />
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
                 Publicly Listed To
@@ -2726,13 +2726,13 @@ exports[`AppsPage should render a component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 In Public AppMarket
               </label>
@@ -2741,7 +2741,7 @@ exports[`AppsPage should render a component when loading 1`] = `
               >
                 <input
                   checked=""
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-public-all"
                   name="isPublic"
                   type="radio"
@@ -2754,13 +2754,13 @@ exports[`AppsPage should render a component when loading 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     All
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-public-true"
                   name="isPublic"
                   type="radio"
@@ -2773,13 +2773,13 @@ exports[`AppsPage should render a component when loading 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Public
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-public-false"
                   name="isPublic"
                   type="radio"
@@ -2792,7 +2792,7 @@ exports[`AppsPage should render a component when loading 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Private
                   </span>
@@ -2801,13 +2801,13 @@ exports[`AppsPage should render a component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 Integration or AC Enabled
               </label>
@@ -2816,7 +2816,7 @@ exports[`AppsPage should render a component when loading 1`] = `
               >
                 <input
                   checked=""
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-integration-all"
                   name="isDirectApi"
                   type="radio"
@@ -2829,13 +2829,13 @@ exports[`AppsPage should render a component when loading 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     All
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-integration-true"
                   name="isDirectApi"
                   type="radio"
@@ -2848,13 +2848,13 @@ exports[`AppsPage should render a component when loading 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Integration
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-integration-false"
                   name="isDirectApi"
                   type="radio"
@@ -2867,7 +2867,7 @@ exports[`AppsPage should render a component when loading 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     AC App
                   </span>
@@ -2876,13 +2876,13 @@ exports[`AppsPage should render a component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 Publicly Listed
               </label>
@@ -2891,7 +2891,7 @@ exports[`AppsPage should render a component when loading 1`] = `
               >
                 <input
                   checked=""
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-listed-all"
                   name="isListed"
                   type="radio"
@@ -2904,13 +2904,13 @@ exports[`AppsPage should render a component when loading 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     All
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-listed-true"
                   name="isListed"
                   type="radio"
@@ -2923,13 +2923,13 @@ exports[`AppsPage should render a component when loading 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Listed
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-listed-false"
                   name="isListed"
                   type="radio"
@@ -2942,7 +2942,7 @@ exports[`AppsPage should render a component when loading 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Development
                   </span>
@@ -2951,13 +2951,13 @@ exports[`AppsPage should render a component when loading 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-126 el-input-wrap"
+            class="mocked-styled-133 el-input-wrap"
           >
             <div
-              class="mocked-styled-35 el-input-group"
+              class="mocked-styled-40 el-input-group"
             >
               <label
-                class="mocked-styled-36 el-label"
+                class="mocked-styled-41 el-label"
               >
                 Is Charged Consumption
               </label>
@@ -2966,7 +2966,7 @@ exports[`AppsPage should render a component when loading 1`] = `
               >
                 <input
                   checked=""
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-consumption-all"
                   name="isChargedConsumption"
                   type="radio"
@@ -2979,13 +2979,13 @@ exports[`AppsPage should render a component when loading 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     All
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-consumption-true"
                   name="isChargedConsumption"
                   type="radio"
@@ -2998,13 +2998,13 @@ exports[`AppsPage should render a component when loading 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Charged
                   </span>
                 </label>
                 <input
-                  class="mocked-styled-120 el-toggle-radio"
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-consumption-false"
                   name="isChargedConsumption"
                   type="radio"
@@ -3017,7 +3017,7 @@ exports[`AppsPage should render a component when loading 1`] = `
                   tabindex="0"
                 >
                   <span
-                    class="mocked-styled-117 el-toggle-radio-item"
+                    class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Free
                   </span>
@@ -3028,13 +3028,13 @@ exports[`AppsPage should render a component when loading 1`] = `
         </div>
       </form>
       <div
-        class="mocked-styled-38 el-loader-container"
+        class="mocked-styled-44 el-loader-container"
       >
         <div
-          class="mocked-styled-40 el-loader"
+          class="mocked-styled-46 el-loader"
         >
           <div
-            class="mocked-styled-41 el-loader-moving-bar"
+            class="mocked-styled-47 el-loader-moving-bar"
           />
         </div>
       </div>
