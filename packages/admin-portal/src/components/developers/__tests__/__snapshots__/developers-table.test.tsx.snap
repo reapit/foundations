@@ -5,94 +5,81 @@ exports[`DevelopersTable should render component with developers 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-93 el-snack-holder"
-      />
+      <mock-styled.div />
       <div
         class="el-mb11"
       >
-        <h2
-          class="el-text-base el-subtitle"
+        <mock-styled.h2
+          classname="el-text-base"
         >
           Total Developers
-        </h2>
-        <p
-          class="el-text-base el-body-text el-has-grey-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text"
         >
           1
-        </p>
-        <div
-          class="mocked-styled-115 el-table"
+        </mock-styled.p>
+        <mock-styled.div
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="7"
           role="table"
         >
-          <div
-            class="mocked-styled-101 el-table-headers-row"
+          <mock-styled.div
             role="row"
           >
-            <div
+            <mock-styled.div
               aria-label="Company Name"
-              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Company Name
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Developer Name"
-              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Developer Name
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Developer Email"
-              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Developer Email
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Job Title"
-              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Job Title
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Account Status"
-              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Account Status
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Created Date"
-              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Created Date
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Agreed Terms Date"
-              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Agreed Terms Date
-            </div>
-            <div
-              class="mocked-styled-102 el-table-header"
+            </mock-styled.div>
+            <mock-styled.div
               role="columnheader"
             >
-              <span
-                class="el-intent-default el-icon-new el-icon"
+              <mock-styled.span
+                classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
-                  title="Icon image with name settings"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -102,104 +89,93 @@ exports[`DevelopersTable should render component with developers 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </span>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-110 el-table-row-container"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
             role="row"
           >
-            <div
-              class="mocked-styled-103 el-table-row"
-            >
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-111 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Company Name"
                 >
                   Reapit Sales
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-111 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Developer Name"
                 >
                   Sales Team
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-111 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Developer Email"
                 >
                   test@example.com
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-111 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Job Title"
                 />
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-111 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Account Status"
                 >
                   confirmed
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-111 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Created Date"
                 >
                   03 Mar 2022 10:18
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-111 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Agreed Terms Date"
                 >
                   -
-                </div>
-              </div>
-              <div
-                class="mocked-styled-109 el-table-expandable-row-trigger-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
                 role="cell"
-                tabindex="0"
               >
-                <span
-                  class="el-intent-default el-icon-new el-icon"
+                <mock-styled.span
+                  classname="el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
                     height="1em"
-                    role="img"
-                    title="Icon image with name more"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -209,183 +185,153 @@ exports[`DevelopersTable should render component with developers 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </span>
-              </div>
-            </div>
-            <div
-              class="mocked-styled-113 el-table-expandable-row"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              aria-hidden="false"
+              classname=""
             >
-              <div
-                class="mocked-styled-114 el-table-expandable-container"
-              >
-                <div
-                  class="mocked-styled-2 el-button-group"
-                >
-                  <div
-                    class="el-button-group-align-center el-button-group-inner"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="el-button-group-align-center"
                   >
-                    <button
-                      class="el-intent-primary el-button"
-                      disabled=""
+                    <mock-styled.button
+                      classname="el-intent-primary"
+                      disabled="true"
                       type="button"
                     >
-                      <div
-                        class="mocked-styled-0 el-button-loader"
-                      />
+                      <mock-styled.div />
                       Update Status
-                    </button>
-                    <button
-                      class="el-intent-primary el-button"
-                      disabled=""
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="el-intent-primary"
+                      disabled="true"
                       type="button"
                     >
-                      <div
-                        class="mocked-styled-0 el-button-loader"
-                      />
+                      <mock-styled.div />
                       DevEdition is Free
-                    </button>
-                    <button
-                      class="el-intent-primary el-button"
-                      disabled=""
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="el-intent-primary"
+                      disabled="true"
                     >
-                      <div
-                        class="mocked-styled-0 el-button-loader"
-                      />
+                      <mock-styled.div />
                       Toggle Subscription 
-                    </button>
-                    <button
-                      class="el-intent-primary el-button"
-                      disabled=""
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="el-intent-primary"
+                      disabled="true"
                     >
-                      <div
-                        class="mocked-styled-0 el-button-loader"
-                      />
+                      <mock-styled.div />
                       Invite Member
-                    </button>
-                    <button
-                      class="el-intent-primary el-button"
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="el-intent-primary"
                     >
-                      <div
-                        class="mocked-styled-0 el-button-loader"
-                      />
+                      <mock-styled.div />
                       Fetch Members
-                    </button>
-                    <button
-                      class="el-intent-primary el-button"
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="el-intent-primary"
                     >
-                      <div
-                        class="mocked-styled-0 el-button-loader"
-                      />
+                      <mock-styled.div />
                       Fetch Apps
-                    </button>
-                    <button
-                      class="el-intent-danger el-button"
-                      disabled=""
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="el-intent-danger"
+                      disabled="true"
                       type="button"
                     >
-                      <div
-                        class="mocked-styled-0 el-button-loader"
-                      />
+                      <mock-styled.div />
                       Delete Developer
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                    </mock-styled.button>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-93 el-snack-holder"
-    />
+    <mock-styled.div />
     <div
       class="el-mb11"
     >
-      <h2
-        class="el-text-base el-subtitle"
+      <mock-styled.h2
+        classname="el-text-base"
       >
         Total Developers
-      </h2>
-      <p
-        class="el-text-base el-body-text el-has-grey-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="el-text-base el-has-grey-text"
       >
         1
-      </p>
-      <div
-        class="mocked-styled-115 el-table"
+      </mock-styled.p>
+      <mock-styled.div
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="7"
         role="table"
       >
-        <div
-          class="mocked-styled-101 el-table-headers-row"
+        <mock-styled.div
           role="row"
         >
-          <div
+          <mock-styled.div
             aria-label="Company Name"
-            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Company Name
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Developer Name"
-            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Developer Name
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Developer Email"
-            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Developer Email
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Job Title"
-            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Job Title
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Account Status"
-            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Account Status
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Created Date"
-            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Created Date
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Agreed Terms Date"
-            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Agreed Terms Date
-          </div>
-          <div
-            class="mocked-styled-102 el-table-header"
+          </mock-styled.div>
+          <mock-styled.div
             role="columnheader"
           >
-            <span
-              class="el-intent-default el-icon-new el-icon"
+            <mock-styled.span
+              classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
-                title="Icon image with name settings"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -395,104 +341,93 @@ exports[`DevelopersTable should render component with developers 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-110 el-table-row-container"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
           role="row"
         >
-          <div
-            class="mocked-styled-103 el-table-row"
-          >
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Company Name"
               >
                 Reapit Sales
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Developer Name"
               >
                 Sales Team
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Developer Email"
               >
                 test@example.com
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Job Title"
               />
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Account Status"
               >
                 confirmed
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Created Date"
               >
                 03 Mar 2022 10:18
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Agreed Terms Date"
               >
                 -
-              </div>
-            </div>
-            <div
-              class="mocked-styled-109 el-table-expandable-row-trigger-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
               role="cell"
-              tabindex="0"
             >
-              <span
-                class="el-intent-default el-icon-new el-icon"
+              <mock-styled.span
+                classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
-                  title="Icon image with name more"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -502,91 +437,74 @@ exports[`DevelopersTable should render component with developers 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </span>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-113 el-table-expandable-row"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            aria-hidden="false"
+            classname=""
           >
-            <div
-              class="mocked-styled-114 el-table-expandable-container"
-            >
-              <div
-                class="mocked-styled-2 el-button-group"
-              >
-                <div
-                  class="el-button-group-align-center el-button-group-inner"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="el-button-group-align-center"
                 >
-                  <button
-                    class="el-intent-primary el-button"
-                    disabled=""
+                  <mock-styled.button
+                    classname="el-intent-primary"
+                    disabled="true"
                     type="button"
                   >
-                    <div
-                      class="mocked-styled-0 el-button-loader"
-                    />
+                    <mock-styled.div />
                     Update Status
-                  </button>
-                  <button
-                    class="el-intent-primary el-button"
-                    disabled=""
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="el-intent-primary"
+                    disabled="true"
                     type="button"
                   >
-                    <div
-                      class="mocked-styled-0 el-button-loader"
-                    />
+                    <mock-styled.div />
                     DevEdition is Free
-                  </button>
-                  <button
-                    class="el-intent-primary el-button"
-                    disabled=""
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="el-intent-primary"
+                    disabled="true"
                   >
-                    <div
-                      class="mocked-styled-0 el-button-loader"
-                    />
+                    <mock-styled.div />
                     Toggle Subscription 
-                  </button>
-                  <button
-                    class="el-intent-primary el-button"
-                    disabled=""
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="el-intent-primary"
+                    disabled="true"
                   >
-                    <div
-                      class="mocked-styled-0 el-button-loader"
-                    />
+                    <mock-styled.div />
                     Invite Member
-                  </button>
-                  <button
-                    class="el-intent-primary el-button"
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="el-intent-primary"
                   >
-                    <div
-                      class="mocked-styled-0 el-button-loader"
-                    />
+                    <mock-styled.div />
                     Fetch Members
-                  </button>
-                  <button
-                    class="el-intent-primary el-button"
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="el-intent-primary"
                   >
-                    <div
-                      class="mocked-styled-0 el-button-loader"
-                    />
+                    <mock-styled.div />
                     Fetch Apps
-                  </button>
-                  <button
-                    class="el-intent-danger el-button"
-                    disabled=""
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="el-intent-danger"
+                    disabled="true"
                     type="button"
                   >
-                    <div
-                      class="mocked-styled-0 el-button-loader"
-                    />
+                    <mock-styled.div />
                     Delete Developer
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                  </mock-styled.button>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </div>,
   "debug": [Function],
@@ -648,30 +566,27 @@ exports[`DevelopersTable should render component with no developers 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-93 el-snack-holder"
-      />
+      <mock-styled.div />
       <div
         class="el-mb11"
       >
-        <div
-          class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-          role="status"
+        <mock-styled.div
+          classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+          role="alertdialog"
         >
           <div
             class="el-pn-icon"
             data-testid="close-icon"
           >
-            <span
-              class="el-icon-new el-icon"
+            <mock-styled.span
+              classname="el-icon-new"
+              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
                 style="font-size: 1.25rem;"
-                title="Icon image with name info"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -681,43 +596,39 @@ exports[`DevelopersTable should render component with no developers 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
+            </mock-styled.span>
           </div>
           <div
-            aria-live="polite"
             class="el-pn-content"
           >
             No results found for your selected filters
           </div>
-        </div>
+        </mock-styled.div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-93 el-snack-holder"
-    />
+    <mock-styled.div />
     <div
       class="el-mb11"
     >
-      <div
-        class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-        role="status"
+      <mock-styled.div
+        classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+        role="alertdialog"
       >
         <div
           class="el-pn-icon"
           data-testid="close-icon"
         >
-          <span
-            class="el-icon-new el-icon"
+          <mock-styled.span
+            classname="el-icon-new"
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
               fill="none"
               height="1em"
-              role="img"
               style="font-size: 1.25rem;"
-              title="Icon image with name info"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -727,15 +638,14 @@ exports[`DevelopersTable should render component with no developers 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          aria-live="polite"
           class="el-pn-content"
         >
           No results found for your selected filters
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </div>,
   "debug": [Function],

@@ -5,62 +5,53 @@ exports[`AdminBilling should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-93 el-snack-holder"
-      />
+      <mock-styled.div />
       <section
         class="el-page-container"
       >
-        <h1
-          class="el-text-base el-title"
+        <mock-styled.h1
+          classname="el-text-base"
         >
           Billing
-        </h1>
+        </mock-styled.h1>
         <form>
-          <div
-            class="el-mb11 el-form-layout"
+          <mock-styled.div
+            classname="el-mb11"
           >
-            <div
-              class="mocked-styled-133 el-input-wrap"
-            >
-              <div
-                class="mocked-styled-40 el-input-group"
-              >
-                <input
-                  aria-label="Input type month"
-                  class="mocked-styled-38 el-input"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="month"
                   type="month"
                 />
-                <label
-                  class="mocked-styled-41 el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Month
-                </label>
-              </div>
-            </div>
-          </div>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
-        <div
-          class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-          role="status"
+        <mock-styled.div
+          classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+          role="alertdialog"
         >
           <div
             class="el-pn-icon"
             data-testid="close-icon"
           >
-            <span
-              class="el-icon-new el-icon"
+            <mock-styled.span
+              classname="el-icon-new"
+              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
                 style="font-size: 1.25rem;"
-                title="Icon image with name info"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -70,75 +61,65 @@ exports[`AdminBilling should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
+            </mock-styled.span>
           </div>
           <div
-            aria-live="polite"
             class="el-pn-content"
           >
             No billing file available for download.
           </div>
-        </div>
+        </mock-styled.div>
       </section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-93 el-snack-holder"
-    />
+    <mock-styled.div />
     <section
       class="el-page-container"
     >
-      <h1
-        class="el-text-base el-title"
+      <mock-styled.h1
+        classname="el-text-base"
       >
         Billing
-      </h1>
+      </mock-styled.h1>
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="el-mb11"
         >
-          <div
-            class="mocked-styled-133 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-40 el-input-group"
-            >
-              <input
-                aria-label="Input type month"
-                class="mocked-styled-38 el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="month"
                 type="month"
               />
-              <label
-                class="mocked-styled-41 el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Month
-              </label>
-            </div>
-          </div>
-        </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
-      <div
-        class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-        role="status"
+      <mock-styled.div
+        classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+        role="alertdialog"
       >
         <div
           class="el-pn-icon"
           data-testid="close-icon"
         >
-          <span
-            class="el-icon-new el-icon"
+          <mock-styled.span
+            classname="el-icon-new"
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
               fill="none"
               height="1em"
-              role="img"
               style="font-size: 1.25rem;"
-              title="Icon image with name info"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -148,15 +129,14 @@ exports[`AdminBilling should match a snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          aria-live="polite"
           class="el-pn-content"
         >
           No billing file available for download.
         </div>
-      </div>
+      </mock-styled.div>
     </section>
   </div>,
   "debug": [Function],

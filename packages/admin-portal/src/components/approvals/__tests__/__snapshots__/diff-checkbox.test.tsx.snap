@@ -5,9 +5,7 @@ exports[`DiffCheckbox should match snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-93 el-snack-holder"
-      />
+      <mock-styled.div />
       <div
         class="mock-css.
   background-color: var(--color-grey-lightest);
@@ -70,9 +68,7 @@ exports[`DiffCheckbox should match snapshot 1`] = `
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-93 el-snack-holder"
-    />
+    <mock-styled.div />
     <div
       class="mock-css.
   background-color: var(--color-grey-lightest);
