@@ -5,37 +5,25 @@ exports[`MembersTable should render component with a dev id and loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-93 el-snack-holder"
-      />
-      <div
-        class="mocked-styled-44 el-loader-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="mocked-styled-46 el-loader"
-        >
-          <div
-            class="mocked-styled-47 el-loader-moving-bar"
-          />
-        </div>
-      </div>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-93 el-snack-holder"
-    />
-    <div
-      class="mocked-styled-44 el-loader-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="mocked-styled-46 el-loader"
-      >
-        <div
-          class="mocked-styled-47 el-loader-moving-bar"
-        />
-      </div>
-    </div>
+      <mock-styled.div>
+        <mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -96,101 +84,88 @@ exports[`MembersTable should render component with data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-93 el-snack-holder"
-      />
+      <mock-styled.div />
       <div
         class="el-mt5"
       >
-        <h2
-          class="el-text-base el-subtitle"
+        <mock-styled.h2
+          classname="el-text-base"
         >
           Total Members
-        </h2>
-        <p
-          class="el-text-base el-body-text el-has-grey-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text"
         >
           15
-        </p>
-        <div
-          class="el-mb11 el-table"
+        </mock-styled.p>
+        <mock-styled.div
+          classname="el-mb11"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="8"
           role="table"
         >
-          <div
-            class="mocked-styled-101 el-table-headers-row"
+          <mock-styled.div
             role="row"
           >
-            <div
+            <mock-styled.div
               aria-label="Developer Name"
-              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Developer Name
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Member Email"
-              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Member Email
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Job Title"
-              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Job Title
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Role"
-              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Role
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Github Username"
-              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Github Username
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Member Status"
-              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Member Status
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Agreed Terms Date"
-              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Agreed Terms Date
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Created Date"
-              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Created Date
-            </div>
-            <div
-              class="mocked-styled-102 el-table-header"
+            </mock-styled.div>
+            <mock-styled.div
               role="columnheader"
             >
-              <span
-                class="el-intent-default el-icon-new el-icon"
+              <mock-styled.span
+                classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
-                  title="Icon image with name settings"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -200,115 +175,103 @@ exports[`MembersTable should render component with data 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </span>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-110 el-table-row-container"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
             role="row"
           >
-            <div
-              class="mocked-styled-103 el-table-row"
-            >
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-111 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Developer Name"
                 >
                   Olly Test
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-111 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Member Email"
                 >
                   test@example.com
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-111 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Job Title"
                 >
                   test
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-111 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Role"
                 >
                   user
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-111 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Github Username"
                 />
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-111 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Member Status"
                 >
                   inactive
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-111 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Agreed Terms Date"
                 >
                   -
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-111 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Created Date"
                 >
                   29 Apr 2022 10:48
-                </div>
-              </div>
-              <div
-                class="mocked-styled-109 el-table-expandable-row-trigger-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
                 role="cell"
-                tabindex="0"
               >
-                <span
-                  class="el-intent-default el-icon-new el-icon"
+                <mock-styled.span
+                  classname="el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
                     height="1em"
-                    role="img"
-                    title="Icon image with name more"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -318,82 +281,68 @@ exports[`MembersTable should render component with data 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </span>
-              </div>
-            </div>
-            <div
-              class="mocked-styled-113 el-table-expandable-row"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              aria-hidden="false"
+              classname=""
             >
-              <div
-                class="mocked-styled-114 el-table-expandable-container"
-              >
-                <div
-                  class="mocked-styled-2 el-button-group"
-                >
-                  <div
-                    class="el-button-group-align-center el-button-group-inner"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="el-button-group-align-center"
                   >
-                    <button
-                      class="el-intent-primary el-button"
-                      disabled=""
+                    <mock-styled.button
+                      classname="el-intent-primary"
+                      disabled="true"
                     >
-                      <div
-                        class="mocked-styled-0 el-button-loader"
-                      />
+                      <mock-styled.div />
                       Set As 
                       Admin
-                    </button>
-                    <button
-                      class="el-intent-primary el-button"
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="el-intent-primary"
+                      disabled="false"
                     >
-                      <div
-                        class="mocked-styled-0 el-button-loader"
-                      />
+                      <mock-styled.div />
                       Get Login Info
-                    </button>
-                    <button
-                      class="el-intent-danger el-button"
-                      disabled=""
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="el-intent-danger"
+                      disabled="true"
                       type="button"
                     >
-                      <div
-                        class="mocked-styled-0 el-button-loader"
-                      />
+                      <mock-styled.div />
                       Delete Member
-                    </button>
-                    <button
-                      class="el-intent-danger el-button"
-                      disabled=""
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="el-intent-danger"
+                      disabled="true"
                     >
-                      <div
-                        class="mocked-styled-0 el-button-loader"
-                      />
+                      <mock-styled.div />
                       Enable
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-71 el-pagination-wrap"
-        >
-          <button
+                    </mock-styled.button>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.button
             aria-label="Previous"
-            class="mocked-styled-74 el-pagination-button"
             data-testid="back-button"
             role="button"
             type="button"
           >
-            <span
-              class="el-icon-new el-icon"
+            <mock-styled.span
+              classname="el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
-                title="Icon image with name chevronLeft"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -403,35 +352,28 @@ exports[`MembersTable should render component with data 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
-          </button>
-          <div
-            class="mocked-styled-72 el-pagination-text"
-          >
-            <input
-              aria-label="Current page number, edit to select page of 2 available"
-              class="mocked-styled-73 el-pagination-input"
+            </mock-styled.span>
+          </mock-styled.button>
+          <mock-styled.div>
+            <mock-styled.input
               value="1"
             />
-             
-            of 
+             of 
             2
-          </div>
-          <button
+          </mock-styled.div>
+          <mock-styled.button
             aria-label="Next"
-            class="mocked-styled-74 el-pagination-button"
             data-testid="forward-button"
             role="button"
             type="button"
           >
-            <span
-              class="el-pagination-primary el-icon-new el-icon"
+            <mock-styled.span
+              classname="el-pagination-primary el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
-                title="Icon image with name chevronRight"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -441,108 +383,95 @@ exports[`MembersTable should render component with data 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
-          </button>
-        </div>
+            </mock-styled.span>
+          </mock-styled.button>
+        </mock-styled.div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-93 el-snack-holder"
-    />
+    <mock-styled.div />
     <div
       class="el-mt5"
     >
-      <h2
-        class="el-text-base el-subtitle"
+      <mock-styled.h2
+        classname="el-text-base"
       >
         Total Members
-      </h2>
-      <p
-        class="el-text-base el-body-text el-has-grey-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="el-text-base el-has-grey-text"
       >
         15
-      </p>
-      <div
-        class="el-mb11 el-table"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="el-mb11"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="8"
         role="table"
       >
-        <div
-          class="mocked-styled-101 el-table-headers-row"
+        <mock-styled.div
           role="row"
         >
-          <div
+          <mock-styled.div
             aria-label="Developer Name"
-            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Developer Name
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Member Email"
-            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Member Email
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Job Title"
-            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Job Title
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Role"
-            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Role
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Github Username"
-            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Github Username
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Member Status"
-            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Member Status
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Agreed Terms Date"
-            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Agreed Terms Date
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Created Date"
-            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Created Date
-          </div>
-          <div
-            class="mocked-styled-102 el-table-header"
+          </mock-styled.div>
+          <mock-styled.div
             role="columnheader"
           >
-            <span
-              class="el-intent-default el-icon-new el-icon"
+            <mock-styled.span
+              classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
-                title="Icon image with name settings"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -552,115 +481,103 @@ exports[`MembersTable should render component with data 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-110 el-table-row-container"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
           role="row"
         >
-          <div
-            class="mocked-styled-103 el-table-row"
-          >
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Developer Name"
               >
                 Olly Test
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Member Email"
               >
                 test@example.com
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Job Title"
               >
                 test
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Role"
               >
                 user
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Github Username"
               />
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Member Status"
               >
                 inactive
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Agreed Terms Date"
               >
                 -
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Created Date"
               >
                 29 Apr 2022 10:48
-              </div>
-            </div>
-            <div
-              class="mocked-styled-109 el-table-expandable-row-trigger-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
               role="cell"
-              tabindex="0"
             >
-              <span
-                class="el-intent-default el-icon-new el-icon"
+              <mock-styled.span
+                classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
-                  title="Icon image with name more"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -670,82 +587,68 @@ exports[`MembersTable should render component with data 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </span>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-113 el-table-expandable-row"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            aria-hidden="false"
+            classname=""
           >
-            <div
-              class="mocked-styled-114 el-table-expandable-container"
-            >
-              <div
-                class="mocked-styled-2 el-button-group"
-              >
-                <div
-                  class="el-button-group-align-center el-button-group-inner"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="el-button-group-align-center"
                 >
-                  <button
-                    class="el-intent-primary el-button"
-                    disabled=""
+                  <mock-styled.button
+                    classname="el-intent-primary"
+                    disabled="true"
                   >
-                    <div
-                      class="mocked-styled-0 el-button-loader"
-                    />
+                    <mock-styled.div />
                     Set As 
                     Admin
-                  </button>
-                  <button
-                    class="el-intent-primary el-button"
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="el-intent-primary"
+                    disabled="false"
                   >
-                    <div
-                      class="mocked-styled-0 el-button-loader"
-                    />
+                    <mock-styled.div />
                     Get Login Info
-                  </button>
-                  <button
-                    class="el-intent-danger el-button"
-                    disabled=""
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="el-intent-danger"
+                    disabled="true"
                     type="button"
                   >
-                    <div
-                      class="mocked-styled-0 el-button-loader"
-                    />
+                    <mock-styled.div />
                     Delete Member
-                  </button>
-                  <button
-                    class="el-intent-danger el-button"
-                    disabled=""
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="el-intent-danger"
+                    disabled="true"
                   >
-                    <div
-                      class="mocked-styled-0 el-button-loader"
-                    />
+                    <mock-styled.div />
                     Enable
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="mocked-styled-71 el-pagination-wrap"
-      >
-        <button
+                  </mock-styled.button>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.button
           aria-label="Previous"
-          class="mocked-styled-74 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
-          <span
-            class="el-icon-new el-icon"
+          <mock-styled.span
+            classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
               height="1em"
-              role="img"
-              title="Icon image with name chevronLeft"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -755,35 +658,28 @@ exports[`MembersTable should render component with data 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </span>
-        </button>
-        <div
-          class="mocked-styled-72 el-pagination-text"
-        >
-          <input
-            aria-label="Current page number, edit to select page of 2 available"
-            class="mocked-styled-73 el-pagination-input"
+          </mock-styled.span>
+        </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.input
             value="1"
           />
-           
-          of 
+           of 
           2
-        </div>
-        <button
+        </mock-styled.div>
+        <mock-styled.button
           aria-label="Next"
-          class="mocked-styled-74 el-pagination-button"
           data-testid="forward-button"
           role="button"
           type="button"
         >
-          <span
-            class="el-pagination-primary el-icon-new el-icon"
+          <mock-styled.span
+            classname="el-pagination-primary el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
               height="1em"
-              role="img"
-              title="Icon image with name chevronRight"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -793,9 +689,9 @@ exports[`MembersTable should render component with data 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </span>
-        </button>
-      </div>
+          </mock-styled.span>
+        </mock-styled.button>
+      </mock-styled.div>
     </div>
   </div>,
   "debug": [Function],

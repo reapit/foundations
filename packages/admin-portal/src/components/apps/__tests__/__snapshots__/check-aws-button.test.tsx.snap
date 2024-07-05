@@ -5,31 +5,25 @@ exports[`CheckAWSButton should match a snapshot where the AWS status is AWSOnly 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-93 el-snack-holder"
-      />
-      <button
-        class="el-intent-primary el-button"
+      <mock-styled.div />
+      <mock-styled.button
+        classname="el-intent-primary"
+        disabled="false"
       >
-        <div
-          class="mocked-styled-0 el-button-loader"
-        />
+        <mock-styled.div />
         Check AWS Only
-      </button>
+      </mock-styled.button>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-93 el-snack-holder"
-    />
-    <button
-      class="el-intent-primary el-button"
+    <mock-styled.div />
+    <mock-styled.button
+      classname="el-intent-primary"
+      disabled="false"
     >
-      <div
-        class="mocked-styled-0 el-button-loader"
-      />
+      <mock-styled.div />
       Check AWS Only
-    </button>
+    </mock-styled.button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -90,31 +84,25 @@ exports[`CheckAWSButton should match a snapshot where the AWS status is AllUsers
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-93 el-snack-holder"
-      />
-      <button
-        class="el-intent-primary el-button"
+      <mock-styled.div />
+      <mock-styled.button
+        classname="el-intent-primary"
+        disabled="false"
       >
-        <div
-          class="mocked-styled-0 el-button-loader"
-        />
+        <mock-styled.div />
         Check AWS Only
-      </button>
+      </mock-styled.button>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-93 el-snack-holder"
-    />
-    <button
-      class="el-intent-primary el-button"
+    <mock-styled.div />
+    <mock-styled.button
+      classname="el-intent-primary"
+      disabled="false"
     >
-      <div
-        class="mocked-styled-0 el-button-loader"
-      />
+      <mock-styled.div />
       Check AWS Only
-    </button>
+    </mock-styled.button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -175,31 +163,25 @@ exports[`CheckAWSButton should match a snapshot where the AWS status is unfetche
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-93 el-snack-holder"
-      />
-      <button
-        class="el-intent-primary el-button"
+      <mock-styled.div />
+      <mock-styled.button
+        classname="el-intent-primary"
+        disabled="false"
       >
-        <div
-          class="mocked-styled-0 el-button-loader"
-        />
+        <mock-styled.div />
         Check AWS Only
-      </button>
+      </mock-styled.button>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-93 el-snack-holder"
-    />
-    <button
-      class="el-intent-primary el-button"
+    <mock-styled.div />
+    <mock-styled.button
+      classname="el-intent-primary"
+      disabled="false"
     >
-      <div
-        class="mocked-styled-0 el-button-loader"
-      />
+      <mock-styled.div />
       Check AWS Only
-    </button>
+    </mock-styled.button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
