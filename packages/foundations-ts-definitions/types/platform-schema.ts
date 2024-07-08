@@ -1591,6 +1591,18 @@ export interface AppointmentAttendeeModel {
      */
     name?: string
     /**
+     * The title of the contact (e.g. Ms, Mr, Mrs, Dr)
+     */
+    title?: string
+    /**
+     * The forename of the contact
+     */
+    forename?: string
+    /**
+     * The surname of the contact
+     */
+    surname?: string
+    /**
      * The home phone number of the contact
      */
     homePhone?: string
@@ -1624,6 +1636,18 @@ export interface AppointmentContactModel {
    * The name of the contact
    */
   name?: string
+  /**
+   * The title of the contact (e.g. Ms, Mr, Mrs, Dr)
+   */
+  title?: string
+  /**
+   * The forename of the contact
+   */
+  forename?: string
+  /**
+   * The surname of the contact
+   */
+  surname?: string
   /**
    * The home phone number of the contact
    */
@@ -1811,6 +1835,18 @@ export interface AppointmentModel {
        * The name of the contact
        */
       name?: string
+      /**
+       * The title of the contact (e.g. Ms, Mr, Mrs, Dr)
+       */
+      title?: string
+      /**
+       * The forename of the contact
+       */
+      forename?: string
+      /**
+       * The surname of the contact
+       */
+      surname?: string
       /**
        * The home phone number of the contact
        */
@@ -2031,6 +2067,18 @@ export interface AppointmentModelPagedResult {
          * The name of the contact
          */
         name?: string
+        /**
+         * The title of the contact (e.g. Ms, Mr, Mrs, Dr)
+         */
+        title?: string
+        /**
+         * The forename of the contact
+         */
+        forename?: string
+        /**
+         * The surname of the contact
+         */
+        surname?: string
         /**
          * The home phone number of the contact
          */
@@ -8710,11 +8758,13 @@ export interface CreateTenancyManagementFeeModel {
  */
 export interface CreateTenancyModel {
   /**
+   * The start date of the tenancy
    * example:
    * 2019-08-14
    */
   startDate?: string // date
   /**
+   * The end date of the tenancy
    * example:
    * 2019-08-14
    */
@@ -8803,6 +8853,10 @@ export interface CreateTenancyModel {
    * Financial notes set against the tenancy
    */
   feeNotes?: string
+  /**
+   * The identifier of the pre-tenancy checklist status for the tenancy
+   */
+  preTenancyCheckStatusId?: string
   /**
    * Request body used to set letting fees on a new tenancy
    */
@@ -13663,6 +13717,18 @@ export interface OpenHouseAttendeeModel {
        */
       name?: string
       /**
+       * The title of the contact (e.g. Ms, Mr, Mrs, Dr)
+       */
+      title?: string
+      /**
+       * The forename of the contact
+       */
+      forename?: string
+      /**
+       * The surname of the contact
+       */
+      surname?: string
+      /**
        * The home phone number of the contact
        */
       homePhone?: string
@@ -13751,6 +13817,18 @@ export interface OpenHouseAttendeeModelPagedResult {
          * The name of the contact
          */
         name?: string
+        /**
+         * The title of the contact (e.g. Ms, Mr, Mrs, Dr)
+         */
+        title?: string
+        /**
+         * The forename of the contact
+         */
+        forename?: string
+        /**
+         * The surname of the contact
+         */
+        surname?: string
         /**
          * The home phone number of the contact
          */
@@ -20003,6 +20081,10 @@ export interface TenancyModel {
    */
   legalStatusId?: string
   /**
+   * The identifier of the pre-tenancy checklist status for the tenancy
+   */
+  preTenancyCheckStatusId?: string
+  /**
    * Representation of renewal options in a tenancy
    */
   renewalOptions?: {
@@ -20385,6 +20467,10 @@ export interface TenancyModelPagedResult {
      * The identifier of the legal status to set against the tenancy
      */
     legalStatusId?: string
+    /**
+     * The identifier of the pre-tenancy checklist status for the tenancy
+     */
+    preTenancyCheckStatusId?: string
     /**
      * Representation of renewal options in a tenancy
      */
@@ -25658,6 +25744,10 @@ export interface UpdateTenancyModel {
    * The identifier of the legal status to set against the tenancy
    */
   legalStatusId?: string
+  /**
+   * The identifier of the pre-tenancy checklist status for the tenancy
+   */
+  preTenancyCheckStatusId?: string
   /**
    * Request body used to set the deposit of a tenancy
    */
