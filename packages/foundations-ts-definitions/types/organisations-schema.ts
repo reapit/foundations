@@ -952,6 +952,12 @@ export interface PlatformConfigModel {
    * A list of semi structured fields that can be requested via the Platform APIs
    */
   extrasWhitelist?: string
+  /**
+   * A dictionary detailing the customers products with version information
+   */
+  productVersions?: {
+    [name: string]: string
+  }
 }
 export interface PlatformConfigModelPagedResult {
   _embedded?: PlatformConfigModel[]
