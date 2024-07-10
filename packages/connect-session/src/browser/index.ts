@@ -29,6 +29,14 @@ type RefreshTokenPayload = BasePayload & {
   refresh_token: string
 }
 
+const dec2hex = (d: number) => Number(d).toString(16).padStart(2, '0')
+
+const genCodeVerifier = (): string => {
+  const array = new Uint32Array(56)
+  window.crypto.getRandomValues(array)
+  return Array.from(array, dec2hex).join('')
+}
+
 export class ReapitConnectBrowserSession {
   // Static constants
   public static readonly GLOBAL_KEY = '__REAPIT_MARKETPLACE_GLOBALS__'
@@ -135,7 +143,7 @@ export class ReapitConnectBrowserSession {
 
     if (codeVerifier) return codeVerifier
 
-    const code = uuid()
+    const code = genCodeVerifier()
 
     this.setCodeVerifier({ state, code })
 
