@@ -1,8 +1,5 @@
 import { ReapitConnectSession } from '../index'
-import {
-  ReapitConnectBrowserSessionInitializers,
-  CoginitoSession,
-} from '../types'
+import { ReapitConnectBrowserSessionInitializers, CoginitoSession } from '../types'
 import base64 from 'base-64'
 
 export const createMockToken = (token: { [s: string]: any } | string): string =>
