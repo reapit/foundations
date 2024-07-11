@@ -1,6 +1,6 @@
 {
   "name": "@reapit/connect-session",
-  "version": "2.3.3",
+  "version": "6.0.1",
   "description": "OAuth Flow for Reapit Connect",
   "keywords": [],
   "homepage": "https://github.com/reapit/foundations#readme",
