@@ -29,7 +29,7 @@ type RefreshTokenPayload = BasePayload & {
   refresh_token: string
 }
 
-const dec2hex = (d: number) => Number(d).toString(16).padStart(2, '0')
+const dec2hex = (dec: number): string => ('0' + dec.toString(16)).substr(-2)
 
 const genCodeVerifier = (): string => {
   const array = new Uint32Array(56)
