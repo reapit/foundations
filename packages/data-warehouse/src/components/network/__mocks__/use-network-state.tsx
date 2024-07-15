@@ -19,3 +19,5 @@ export const mockNetworkState = {
 }
 
 export const useNetworkState = jest.fn(() => mockNetworkState)
+
+export const handleModalAction = jest.fn()

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NetworkPage renders without crashing 1`] = `
+exports[`NetworkPage renders and matches a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>

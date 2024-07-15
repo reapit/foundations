@@ -4,7 +4,8 @@ import { handleModalAction, NetworkProvider } from '../use-network-state'
 import { useReapitGet } from '@reapit/use-reapit-data'
 import { mockPagedCustomersModel, mockPagedIpsModel, mockPagedRulesModel } from '../../../tests/__stubs__/network'
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [null, false, undefined, jest.fn()]),
 }))
 
@@ -49,6 +50,6 @@ describe('handleModalAction', () => {
     curried()
 
     expect(modalAction).toHaveBeenCalledTimes(1)
-    expect(setNetworkSelected.mock.calls[0][0]())[key].toEqual(selectedItem)
+    expect(setNetworkSelected.mock.calls[0][0]()[key]).toEqual(selectedItem)
   })
 })
