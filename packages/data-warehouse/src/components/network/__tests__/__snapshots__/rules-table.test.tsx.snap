@@ -279,6 +279,14 @@ exports[`RulesTable should match a snapshot with rules 1`] = `
                     <div
                       class="mocked-styled-0 el-button-loader"
                     />
+                    I Use PowerBI
+                  </button>
+                  <button
+                    class="el-intent-primary el-button"
+                  >
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
                     Create Whitelisted IP
                   </button>
                   <button
@@ -620,6 +628,14 @@ exports[`RulesTable should match a snapshot with rules 1`] = `
               <div
                 class="el-button-group-align-right el-button-group-inner"
               >
+                <button
+                  class="el-intent-primary el-button"
+                >
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
+                  I Use PowerBI
+                </button>
                 <button
                   class="el-intent-primary el-button"
                 >
