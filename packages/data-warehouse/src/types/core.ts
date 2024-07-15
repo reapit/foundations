@@ -26,7 +26,7 @@ export interface PagedApiResponse<T> {
   pageCount: number
   totalPageCount: number
   totalCount: number
-  _links: Links
+  _links?: Links
 }
 
 interface Links {
