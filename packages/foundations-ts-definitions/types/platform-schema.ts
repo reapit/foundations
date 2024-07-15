@@ -15306,6 +15306,10 @@ export interface PropertyModel {
    */
   negotiatorId?: string
   /**
+   * The unique identifier of the client accounts assistant of the property
+   */
+  clientAccountsAssistantId?: string
+  /**
    * The total number of bedrooms in the property. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
    */
   bedrooms?: number // int32
@@ -15401,6 +15405,10 @@ export interface PropertyModel {
    * The caption to accompany the url to the property on an external website
    */
   urlCaption?: string
+  /**
+   * The What3Words identifier for the property.
+   */
+  what3Words?: string
   /**
    * Any ground rent payment that applies to the property
    */
@@ -16311,6 +16319,10 @@ export interface PropertyModelPagedResult {
      */
     negotiatorId?: string
     /**
+     * The unique identifier of the client accounts assistant of the property
+     */
+    clientAccountsAssistantId?: string
+    /**
      * The total number of bedrooms in the property. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
      */
     bedrooms?: number // int32
@@ -16406,6 +16418,10 @@ export interface PropertyModelPagedResult {
      * The caption to accompany the url to the property on an external website
      */
     urlCaption?: string
+    /**
+     * The What3Words identifier for the property.
+     */
+    what3Words?: string
     /**
      * Any ground rent payment that applies to the property
      */
