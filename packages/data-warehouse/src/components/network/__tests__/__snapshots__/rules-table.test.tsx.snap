@@ -5,20 +5,16 @@ exports[`RulesTable should match a snapshot with no rules 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
-      <div
-        class="el-mb11 el-table"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="el-mb11"
       />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
-    <div
-      class="el-mb11 el-table"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="el-mb11"
     />
   </div>,
   "debug": [Function],
@@ -80,60 +76,51 @@ exports[`RulesTable should match a snapshot with rules 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
-      <div
-        class="el-mb11 el-table"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="el-mb11"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="4"
         role="table"
       >
-        <div
-          class="mocked-styled-94 el-table-headers-row"
+        <mock-styled.div
           role="row"
         >
-          <div
+          <mock-styled.div
             aria-label="Network Rule Name"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Network Rule Name
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Enabled"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Enabled
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Created"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Created
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Modified"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Modified
-          </div>
-          <div
-            class="mocked-styled-95 el-table-header"
+          </mock-styled.div>
+          <mock-styled.div
             role="columnheader"
           >
-            <span
-              class="el-intent-default el-icon"
+            <mock-styled.span
+              classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
-                title="Icon image with name settings"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -143,30 +130,27 @@ exports[`RulesTable should match a snapshot with rules 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-103 el-table-row-container"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
           role="row"
         >
-          <div
-            class="mocked-styled-96 el-table-row"
-          >
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <span
-                class="el-intent-default el-icon"
+              <mock-styled.span
+                classname="el-intent-default el-icon-new"
+                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
                   style="font-size: 1.25rem;"
-                  title="Icon image with name contact"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -176,30 +160,27 @@ exports[`RulesTable should match a snapshot with rules 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </span>
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Network Rule Name"
               >
                 MOCK_NAME
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Enabled"
               >
-                <span
-                  class="el-intent-success el-icon"
+                <mock-styled.span
+                  classname="el-intent-success el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
                     height="1em"
-                    role="img"
-                    title="Icon image with name check"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -211,44 +192,40 @@ exports[`RulesTable should match a snapshot with rules 1`] = `
                       fill-rule="evenodd"
                     />
                   </svg>
-                </span>
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Created"
               >
                 Invalid Date
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Modified"
               >
                 Invalid Date
-              </div>
-            </div>
-            <div
-              class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
               role="cell"
-              tabindex="0"
             >
-              <span
-                class="el-intent-default el-icon"
+              <mock-styled.span
+                classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
-                  title="Icon image with name more"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -258,108 +235,95 @@ exports[`RulesTable should match a snapshot with rules 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </span>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-106 el-table-expandable-row"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            aria-hidden="false"
+            classname=""
           >
-            <div
-              class="mocked-styled-107 el-table-expandable-container"
-            >
-              <div
-                class="el-mb5 el-button-group"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="el-mb5"
               >
-                <div
-                  class="el-button-group-align-right el-button-group-inner"
+                <mock-styled.div
+                  classname="el-button-group-align-right"
                 >
-                  <button
-                    class="el-intent-danger el-button"
+                  <mock-styled.button
+                    classname="el-intent-danger"
+                    disabled="false"
                   >
-                    <div
-                      class="mocked-styled-0 el-button-loader"
-                    />
+                    <mock-styled.div />
                     Disable Rule
-                  </button>
-                  <button
-                    class="el-intent-primary el-button"
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="el-intent-primary"
+                    disabled="false"
                   >
-                    <div
-                      class="mocked-styled-0 el-button-loader"
-                    />
+                    <mock-styled.div />
                     I Use PowerBI
-                  </button>
-                  <button
-                    class="el-intent-primary el-button"
+                  </mock-styled.button>
+                  <mock-styled.button
+                    classname="el-intent-primary"
+                    disabled="false"
                   >
-                    <div
-                      class="mocked-styled-0 el-button-loader"
-                    />
+                    <mock-styled.div />
                     Create Whitelisted IP
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                  </mock-styled.button>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
-    <div
-      class="el-mb11 el-table"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="el-mb11"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="4"
       role="table"
     >
-      <div
-        class="mocked-styled-94 el-table-headers-row"
+      <mock-styled.div
         role="row"
       >
-        <div
+        <mock-styled.div
           aria-label="Network Rule Name"
-          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           Network Rule Name
-        </div>
-        <div
+        </mock-styled.div>
+        <mock-styled.div
           aria-label="Enabled"
-          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           Enabled
-        </div>
-        <div
+        </mock-styled.div>
+        <mock-styled.div
           aria-label="Created"
-          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           Created
-        </div>
-        <div
+        </mock-styled.div>
+        <mock-styled.div
           aria-label="Modified"
-          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           Modified
-        </div>
-        <div
-          class="mocked-styled-95 el-table-header"
+        </mock-styled.div>
+        <mock-styled.div
           role="columnheader"
         >
-          <span
-            class="el-intent-default el-icon"
+          <mock-styled.span
+            classname="el-intent-default el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
               height="1em"
-              role="img"
-              title="Icon image with name settings"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -369,30 +333,27 @@ exports[`RulesTable should match a snapshot with rules 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </span>
-        </div>
-      </div>
-      <div
-        class="mocked-styled-103 el-table-row-container"
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
         role="row"
       >
-        <div
-          class="mocked-styled-96 el-table-row"
-        >
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="el-table-cell-has-dark-text"
             role="cell"
           >
-            <span
-              class="el-intent-default el-icon"
+            <mock-styled.span
+              classname="el-intent-default el-icon-new"
+              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
                 style="font-size: 1.25rem;"
-                title="Icon image with name contact"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -402,30 +363,27 @@ exports[`RulesTable should match a snapshot with rules 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
-            <div
-              class="mocked-styled-104 el-table-cell-content"
+            </mock-styled.span>
+            <mock-styled.div
               data-narrow-label="Network Rule Name"
             >
               MOCK_NAME
-            </div>
-          </div>
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="el-table-cell-has-dark-text"
             role="cell"
           >
-            <div
-              class="mocked-styled-104 el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Enabled"
             >
-              <span
-                class="el-intent-success el-icon"
+              <mock-styled.span
+                classname="el-intent-success el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
-                  title="Icon image with name check"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -437,44 +395,40 @@ exports[`RulesTable should match a snapshot with rules 1`] = `
                     fill-rule="evenodd"
                   />
                 </svg>
-              </span>
-            </div>
-          </div>
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="el-table-cell-has-dark-text"
             role="cell"
           >
-            <div
-              class="mocked-styled-104 el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Created"
             >
               Invalid Date
-            </div>
-          </div>
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="el-table-cell-has-dark-text"
             role="cell"
           >
-            <div
-              class="mocked-styled-104 el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Modified"
             >
               Invalid Date
-            </div>
-          </div>
-          <div
-            class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
             role="cell"
-            tabindex="0"
           >
-            <span
-              class="el-intent-default el-icon"
+            <mock-styled.span
+              classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
-                title="Icon image with name more"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -484,51 +438,47 @@ exports[`RulesTable should match a snapshot with rules 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-106 el-table-expandable-row"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          aria-hidden="false"
+          classname=""
         >
-          <div
-            class="mocked-styled-107 el-table-expandable-container"
-          >
-            <div
-              class="el-mb5 el-button-group"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="el-mb5"
             >
-              <div
-                class="el-button-group-align-right el-button-group-inner"
+              <mock-styled.div
+                classname="el-button-group-align-right"
               >
-                <button
-                  class="el-intent-danger el-button"
+                <mock-styled.button
+                  classname="el-intent-danger"
+                  disabled="false"
                 >
-                  <div
-                    class="mocked-styled-0 el-button-loader"
-                  />
+                  <mock-styled.div />
                   Disable Rule
-                </button>
-                <button
-                  class="el-intent-primary el-button"
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="el-intent-primary"
+                  disabled="false"
                 >
-                  <div
-                    class="mocked-styled-0 el-button-loader"
-                  />
+                  <mock-styled.div />
                   I Use PowerBI
-                </button>
-                <button
-                  class="el-intent-primary el-button"
+                </mock-styled.button>
+                <mock-styled.button
+                  classname="el-intent-primary"
+                  disabled="false"
                 >
-                  <div
-                    class="mocked-styled-0 el-button-loader"
-                  />
+                  <mock-styled.div />
                   Create Whitelisted IP
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -589,20 +539,16 @@ exports[`RulesTable should match a snapshot with rules loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
-      <div
-        class="el-mb11 el-table"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="el-mb11"
       />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
-    <div
-      class="el-mb11 el-table"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="el-mb11"
     />
   </div>,
   "debug": [Function],

@@ -5,86 +5,70 @@ exports[`IpTable should match a snapshot with ips 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
-      <div
-        class="mocked-styled-108 el-table"
+      <mock-styled.div />
+      <mock-styled.div
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="2"
         role="table"
       >
-        <div
-          class="mocked-styled-94 el-table-headers-row"
+        <mock-styled.div
           role="row"
         >
-          <div
+          <mock-styled.div
             aria-label="IP Address"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             IP Address
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="CIDR"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             CIDR
-          </div>
-          <div
-            class="mocked-styled-95 el-table-header"
+          </mock-styled.div>
+          <mock-styled.div
             role="columnheader"
           >
             Delete IP
-          </div>
-        </div>
-        <div
-          class="mocked-styled-103 el-table-row-container"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
           role="row"
         >
-          <div
-            class="mocked-styled-96 el-table-row"
-          >
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="IP Address"
               >
                 MOCK_ADDRESS
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="CIDR"
               >
                 32
-              </div>
-            </div>
-            <div
-              class="mocked-styled-97 el-table-cta-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
               role="cell"
-              tabindex="0"
             >
-              <div
-                class="mocked-styled-105 el-table-cta-icon-container"
-              >
-                <span
-                  class="el-intent-default el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname="el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
                     height="1em"
-                    role="img"
-                    title="Icon image with name trash"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -100,95 +84,79 @@ exports[`IpTable should match a snapshot with ips 1`] = `
                       fill-rule="evenodd"
                     />
                   </svg>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
-    <div
-      class="mocked-styled-108 el-table"
+    <mock-styled.div />
+    <mock-styled.div
       data-has-call-to-action="true"
       data-has-expandable-action="false"
       data-num-columns-excl-action-col="2"
       role="table"
     >
-      <div
-        class="mocked-styled-94 el-table-headers-row"
+      <mock-styled.div
         role="row"
       >
-        <div
+        <mock-styled.div
           aria-label="IP Address"
-          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           IP Address
-        </div>
-        <div
+        </mock-styled.div>
+        <mock-styled.div
           aria-label="CIDR"
-          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           CIDR
-        </div>
-        <div
-          class="mocked-styled-95 el-table-header"
+        </mock-styled.div>
+        <mock-styled.div
           role="columnheader"
         >
           Delete IP
-        </div>
-      </div>
-      <div
-        class="mocked-styled-103 el-table-row-container"
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
         role="row"
       >
-        <div
-          class="mocked-styled-96 el-table-row"
-        >
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="el-table-cell-has-dark-text"
             role="cell"
           >
-            <div
-              class="mocked-styled-104 el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="IP Address"
             >
               MOCK_ADDRESS
-            </div>
-          </div>
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="el-table-cell-has-dark-text"
             role="cell"
           >
-            <div
-              class="mocked-styled-104 el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="CIDR"
             >
               32
-            </div>
-          </div>
-          <div
-            class="mocked-styled-97 el-table-cta-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
             role="cell"
-            tabindex="0"
           >
-            <div
-              class="mocked-styled-105 el-table-cta-icon-container"
-            >
-              <span
-                class="el-intent-default el-icon"
+            <mock-styled.div>
+              <mock-styled.span
+                classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
-                  title="Icon image with name trash"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -204,12 +172,12 @@ exports[`IpTable should match a snapshot with ips 1`] = `
                     fill-rule="evenodd"
                   />
                 </svg>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -270,37 +238,25 @@ exports[`IpTable should match a snapshot with ips loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
-      <div
-        class="mocked-styled-38 el-loader-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="mocked-styled-40 el-loader"
-        >
-          <div
-            class="mocked-styled-41 el-loader-moving-bar"
-          />
-        </div>
-      </div>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
-    <div
-      class="mocked-styled-38 el-loader-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="mocked-styled-40 el-loader"
-      >
-        <div
-          class="mocked-styled-41 el-loader-moving-bar"
-        />
-      </div>
-    </div>
+      <mock-styled.div>
+        <mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -361,27 +317,24 @@ exports[`IpTable should match a snapshot with no ips 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
-      <div
-        class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-        role="status"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+        role="alertdialog"
       >
         <div
           class="el-pn-icon"
           data-testid="close-icon"
         >
-          <span
-            class="mocked-styled-4 el-icon"
+          <mock-styled.span
+            classname="el-icon-new"
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
               fill="none"
               height="1em"
-              role="img"
               style="font-size: 1.25rem;"
-              title="Icon image with name info"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -391,39 +344,35 @@ exports[`IpTable should match a snapshot with no ips 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          aria-live="polite"
           class="el-pn-content"
         >
           No IPs whitelisted for this network rule
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
-    <div
-      class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-      role="status"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+      role="alertdialog"
     >
       <div
         class="el-pn-icon"
         data-testid="close-icon"
       >
-        <span
-          class="mocked-styled-4 el-icon"
+        <mock-styled.span
+          classname="el-icon-new"
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
             fill="none"
             height="1em"
-            role="img"
             style="font-size: 1.25rem;"
-            title="Icon image with name info"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -433,15 +382,14 @@ exports[`IpTable should match a snapshot with no ips 1`] = `
               fill="currentColor"
             />
           </svg>
-        </span>
+        </mock-styled.span>
       </div>
       <div
-        aria-live="polite"
         class="el-pn-content"
       >
         No IPs whitelisted for this network rule
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
