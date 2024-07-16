@@ -5,33 +5,30 @@ exports[`PrivateRouteWrapper should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
       <main
         class="el-main-container"
       >
         <section
           class="el-page-container"
         >
-          <div
-            class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-            role="status"
+          <mock-styled.div
+            classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+            role="alertdialog"
           >
             <div
               class="el-pn-icon"
               data-testid="close-icon"
             >
-              <span
-                class="mocked-styled-4 el-icon"
+              <mock-styled.span
+                classname="el-icon-new"
+                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
                   style="font-size: 1.25rem;"
-                  title="Icon image with name info"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -41,47 +38,43 @@ exports[`PrivateRouteWrapper should match a snapshot 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </span>
+              </mock-styled.span>
             </div>
             <div
-              aria-live="polite"
               class="el-pn-content"
             >
               Unfortunately, we have no record of a current Data Warehouse subscription for your account. If you are interested in this Reapit product, please contact your CSM and they will take you through the onboarding process.
             </div>
-          </div>
+          </mock-styled.div>
         </section>
       </main>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
     <main
       class="el-main-container"
     >
       <section
         class="el-page-container"
       >
-        <div
-          class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-          role="status"
+        <mock-styled.div
+          classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+          role="alertdialog"
         >
           <div
             class="el-pn-icon"
             data-testid="close-icon"
           >
-            <span
-              class="mocked-styled-4 el-icon"
+            <mock-styled.span
+              classname="el-icon-new"
+              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
                 style="font-size: 1.25rem;"
-                title="Icon image with name info"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -91,15 +84,14 @@ exports[`PrivateRouteWrapper should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
+            </mock-styled.span>
           </div>
           <div
-            aria-live="polite"
             class="el-pn-content"
           >
             Unfortunately, we have no record of a current Data Warehouse subscription for your account. If you are interested in this Reapit product, please contact your CSM and they will take you through the onboarding process.
           </div>
-        </div>
+        </mock-styled.div>
       </section>
     </main>
   </div>,
@@ -162,15 +154,11 @@ exports[`PrivateRouteWrapper should match a snapshot for root path 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

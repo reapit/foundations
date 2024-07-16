@@ -5,125 +5,113 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <p
-            class="el-text-base el-body-text"
+          <mock-styled.p
+            classname="el-text-base"
           >
             Support
-          </p>
-          <p
-            class="el-text-base el-small-text el-has-grey-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text"
+            tag="p"
           >
             Your first step is to provision a user account for the solution using the button below.
-          </p>
-          <p
-            class="el-text-base el-small-text el-has-grey-text el-has-section-margin"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text el-has-section-margin"
+            tag="p"
           >
             Please see also below for more resources and assistance.
-          </p>
-          <button
-            class="el-mb5 el-intent-primary el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="el-mb5 el-intent-primary"
+            disabled="false"
           >
-            <div
-              class="mocked-styled-0 el-button-loader"
-            />
+            <mock-styled.div />
             Provision User
-          </button>
-          <button
-            class="el-mb5 el-intent-neutral el-button"
+          </mock-styled.button>
+          <mock-styled.button
+            classname="el-mb5 el-intent-neutral"
           >
-            <div
-              class="mocked-styled-0 el-button-loader"
-            />
+            <mock-styled.div />
             View Docs
-          </button>
+          </mock-styled.button>
           <div>
-            <button
-              class="el-mb5 el-intent-neutral el-button"
+            <mock-styled.button
+              classname="el-mb5 el-intent-neutral"
             >
-              <div
-                class="mocked-styled-0 el-button-loader"
-              />
+              <mock-styled.div />
               Video
-            </button>
+            </mock-styled.button>
           </div>
-          <button
-            class="el-mb5 el-intent-neutral el-button"
+          <mock-styled.button
+            classname="el-mb5 el-intent-neutral"
           >
-            <div
-              class="mocked-styled-0 el-button-loader"
-            />
+            <mock-styled.div />
             Help
-          </button>
+          </mock-styled.button>
         </aside>
         <section
           class="el-page-container"
         >
-          <h1
-            class="el-text-base el-title"
+          <mock-styled.h1
+            classname="el-text-base"
           >
             User Accounts
-          </h1>
-          <p
-            class="el-text-base el-body-text el-has-grey-text"
+          </mock-styled.h1>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text"
           >
             In order to access your organisations data warehouse, you must first create the user accounts to access it. You are to manage and create as many user accounts as you wish without any additional costs. We recommend that each individual user or application is provided with a unique set of credentials.
-          </p>
-          <p
-            class="el-text-base el-body-text el-has-grey-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text"
           >
             Please note that creating the first user account is a long running process and can take several minutes to complete.
-          </p>
-          <h2
-            class="el-text-base el-subtitle"
+          </mock-styled.p>
+          <mock-styled.h2
+            classname="el-text-base"
           >
             User Account Details
-          </h2>
-          <div
-            class="el-mb11 el-table"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname="el-mb11"
             data-has-call-to-action="false"
             data-has-expandable-action="true"
             data-num-columns-excl-action-col="2"
             role="table"
           >
-            <div
-              class="mocked-styled-94 el-table-headers-row"
+            <mock-styled.div
               role="row"
             >
-              <div
+              <mock-styled.div
                 aria-label="User Name"
-                class="mocked-styled-95 el-table-header"
                 role="columnheader"
               >
                 User Name
-              </div>
-              <div
+              </mock-styled.div>
+              <mock-styled.div
                 aria-label="Status"
-                class="mocked-styled-95 el-table-header"
                 role="columnheader"
               >
                 Status
-              </div>
-              <div
-                class="mocked-styled-95 el-table-header"
+              </mock-styled.div>
+              <mock-styled.div
                 role="columnheader"
               >
-                <span
-                  class="el-intent-default el-icon"
+                <mock-styled.span
+                  classname="el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
                     height="1em"
-                    role="img"
-                    title="Icon image with name settings"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -133,30 +121,27 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </span>
-              </div>
-            </div>
-            <div
-              class="mocked-styled-103 el-table-row-container"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
               role="row"
             >
-              <div
-                class="mocked-styled-96 el-table-row"
-              >
-                <div
-                  class="el-table-cell-has-dark-text el-table-cell"
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="el-table-cell-has-dark-text"
                   role="cell"
                 >
-                  <span
-                    class="el-intent-default el-icon"
+                  <mock-styled.span
+                    classname="el-intent-default el-icon-new"
+                    role="img"
                     style="font-size: 1.25rem;"
                   >
                     <svg
                       fill="none"
                       height="1em"
-                      role="img"
                       style="font-size: 1.25rem;"
-                      title="Icon image with name contact"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -166,38 +151,34 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </span>
-                  <div
-                    class="mocked-styled-104 el-table-cell-content"
+                  </mock-styled.span>
+                  <mock-styled.div
                     data-narrow-label="User Name"
                   >
                     hiyaall
-                  </div>
-                </div>
-                <div
-                  class="el-table-cell-has-dark-text el-table-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="el-table-cell-has-dark-text"
                   role="cell"
                 >
-                  <div
-                    class="mocked-styled-104 el-table-cell-content"
+                  <mock-styled.div
                     data-narrow-label="Status"
                   >
                     User is active
-                  </div>
-                </div>
-                <div
-                  class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
                   role="cell"
-                  tabindex="0"
                 >
-                  <span
-                    class="el-intent-default el-icon"
+                  <mock-styled.span
+                    classname="el-intent-default el-icon-new"
+                    role="img"
                   >
                     <svg
                       fill="none"
                       height="1em"
-                      role="img"
-                      title="Icon image with name more"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -207,167 +188,150 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </span>
-                </div>
-              </div>
-              <div
-                class="mocked-styled-106 el-table-expandable-row"
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                aria-hidden="false"
+                classname=""
               >
-                <div
-                  class="mocked-styled-107 el-table-expandable-container"
-                >
-                  <div
-                    class="mocked-styled-2 el-button-group"
-                  >
-                    <div
-                      class="el-button-group-align-center el-button-group-inner"
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.div
+                      classname="el-button-group-align-center"
                     >
-                      <button
-                        class="el-intent-primary el-button"
+                      <mock-styled.button
+                        classname="el-intent-primary"
+                        disabled="false"
                       >
-                        <div
-                          class="mocked-styled-0 el-button-loader"
-                        />
+                        <mock-styled.div />
                         Update
-                      </button>
-                      <button
-                        class="el-intent-danger el-button"
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="el-intent-danger"
+                        disabled="false"
                       >
-                        <div
-                          class="mocked-styled-0 el-button-loader"
-                        />
+                        <mock-styled.div />
                         Deactivate
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                      </mock-styled.button>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <p
-          class="el-text-base el-body-text"
+        <mock-styled.p
+          classname="el-text-base"
         >
           Support
-        </p>
-        <p
-          class="el-text-base el-small-text el-has-grey-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text"
+          tag="p"
         >
           Your first step is to provision a user account for the solution using the button below.
-        </p>
-        <p
-          class="el-text-base el-small-text el-has-grey-text el-has-section-margin"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text el-has-section-margin"
+          tag="p"
         >
           Please see also below for more resources and assistance.
-        </p>
-        <button
-          class="el-mb5 el-intent-primary el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="el-mb5 el-intent-primary"
+          disabled="false"
         >
-          <div
-            class="mocked-styled-0 el-button-loader"
-          />
+          <mock-styled.div />
           Provision User
-        </button>
-        <button
-          class="el-mb5 el-intent-neutral el-button"
+        </mock-styled.button>
+        <mock-styled.button
+          classname="el-mb5 el-intent-neutral"
         >
-          <div
-            class="mocked-styled-0 el-button-loader"
-          />
+          <mock-styled.div />
           View Docs
-        </button>
+        </mock-styled.button>
         <div>
-          <button
-            class="el-mb5 el-intent-neutral el-button"
+          <mock-styled.button
+            classname="el-mb5 el-intent-neutral"
           >
-            <div
-              class="mocked-styled-0 el-button-loader"
-            />
+            <mock-styled.div />
             Video
-          </button>
+          </mock-styled.button>
         </div>
-        <button
-          class="el-mb5 el-intent-neutral el-button"
+        <mock-styled.button
+          classname="el-mb5 el-intent-neutral"
         >
-          <div
-            class="mocked-styled-0 el-button-loader"
-          />
+          <mock-styled.div />
           Help
-        </button>
+        </mock-styled.button>
       </aside>
       <section
         class="el-page-container"
       >
-        <h1
-          class="el-text-base el-title"
+        <mock-styled.h1
+          classname="el-text-base"
         >
           User Accounts
-        </h1>
-        <p
-          class="el-text-base el-body-text el-has-grey-text"
+        </mock-styled.h1>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text"
         >
           In order to access your organisations data warehouse, you must first create the user accounts to access it. You are to manage and create as many user accounts as you wish without any additional costs. We recommend that each individual user or application is provided with a unique set of credentials.
-        </p>
-        <p
-          class="el-text-base el-body-text el-has-grey-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text"
         >
           Please note that creating the first user account is a long running process and can take several minutes to complete.
-        </p>
-        <h2
-          class="el-text-base el-subtitle"
+        </mock-styled.p>
+        <mock-styled.h2
+          classname="el-text-base"
         >
           User Account Details
-        </h2>
-        <div
-          class="el-mb11 el-table"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname="el-mb11"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="2"
           role="table"
         >
-          <div
-            class="mocked-styled-94 el-table-headers-row"
+          <mock-styled.div
             role="row"
           >
-            <div
+            <mock-styled.div
               aria-label="User Name"
-              class="mocked-styled-95 el-table-header"
               role="columnheader"
             >
               User Name
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Status"
-              class="mocked-styled-95 el-table-header"
               role="columnheader"
             >
               Status
-            </div>
-            <div
-              class="mocked-styled-95 el-table-header"
+            </mock-styled.div>
+            <mock-styled.div
               role="columnheader"
             >
-              <span
-                class="el-intent-default el-icon"
+              <mock-styled.span
+                classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
-                  title="Icon image with name settings"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -377,30 +341,27 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </span>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-103 el-table-row-container"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
             role="row"
           >
-            <div
-              class="mocked-styled-96 el-table-row"
-            >
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <span
-                  class="el-intent-default el-icon"
+                <mock-styled.span
+                  classname="el-intent-default el-icon-new"
+                  role="img"
                   style="font-size: 1.25rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
-                    role="img"
                     style="font-size: 1.25rem;"
-                    title="Icon image with name contact"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -410,38 +371,34 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </span>
-                <div
-                  class="mocked-styled-104 el-table-cell-content"
+                </mock-styled.span>
+                <mock-styled.div
                   data-narrow-label="User Name"
                 >
                   hiyaall
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-104 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Status"
                 >
                   User is active
-                </div>
-              </div>
-              <div
-                class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
                 role="cell"
-                tabindex="0"
               >
-                <span
-                  class="el-intent-default el-icon"
+                <mock-styled.span
+                  classname="el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
                     height="1em"
-                    role="img"
-                    title="Icon image with name more"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -451,43 +408,38 @@ exports[`Accounts should match a snapshot with accounts 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </span>
-              </div>
-            </div>
-            <div
-              class="mocked-styled-106 el-table-expandable-row"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              aria-hidden="false"
+              classname=""
             >
-              <div
-                class="mocked-styled-107 el-table-expandable-container"
-              >
-                <div
-                  class="mocked-styled-2 el-button-group"
-                >
-                  <div
-                    class="el-button-group-align-center el-button-group-inner"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="el-button-group-align-center"
                   >
-                    <button
-                      class="el-intent-primary el-button"
+                    <mock-styled.button
+                      classname="el-intent-primary"
+                      disabled="false"
                     >
-                      <div
-                        class="mocked-styled-0 el-button-loader"
-                      />
+                      <mock-styled.div />
                       Update
-                    </button>
-                    <button
-                      class="el-intent-danger el-button"
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="el-intent-danger"
+                      disabled="false"
                     >
-                      <div
-                        class="mocked-styled-0 el-button-loader"
-                      />
+                      <mock-styled.div />
                       Deactivate
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                    </mock-styled.button>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </section>
     </div>
   </div>,
@@ -550,106 +502,98 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <p
-            class="el-text-base el-body-text"
+          <mock-styled.p
+            classname="el-text-base"
           >
             Support
-          </p>
-          <p
-            class="el-text-base el-small-text el-has-grey-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text"
+            tag="p"
           >
             Your first step is to provision a user account for the solution using the button below.
-          </p>
-          <p
-            class="el-text-base el-small-text el-has-grey-text el-has-section-margin"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text el-has-section-margin"
+            tag="p"
           >
             Please see also below for more resources and assistance.
-          </p>
-          <button
-            class="el-mb5 el-intent-primary el-button"
+          </mock-styled.p>
+          <mock-styled.button
+            classname="el-mb5 el-intent-primary"
+            disabled="false"
           >
-            <div
-              class="mocked-styled-0 el-button-loader"
-            />
+            <mock-styled.div />
             Provision User
-          </button>
-          <button
-            class="el-mb5 el-intent-neutral el-button"
+          </mock-styled.button>
+          <mock-styled.button
+            classname="el-mb5 el-intent-neutral"
           >
-            <div
-              class="mocked-styled-0 el-button-loader"
-            />
+            <mock-styled.div />
             View Docs
-          </button>
+          </mock-styled.button>
           <div>
-            <button
-              class="el-mb5 el-intent-neutral el-button"
+            <mock-styled.button
+              classname="el-mb5 el-intent-neutral"
             >
-              <div
-                class="mocked-styled-0 el-button-loader"
-              />
+              <mock-styled.div />
               Video
-            </button>
+            </mock-styled.button>
           </div>
-          <button
-            class="el-mb5 el-intent-neutral el-button"
+          <mock-styled.button
+            classname="el-mb5 el-intent-neutral"
           >
-            <div
-              class="mocked-styled-0 el-button-loader"
-            />
+            <mock-styled.div />
             Help
-          </button>
+          </mock-styled.button>
         </aside>
         <section
           class="el-page-container"
         >
-          <h1
-            class="el-text-base el-title"
+          <mock-styled.h1
+            classname="el-text-base"
           >
             User Accounts
-          </h1>
-          <p
-            class="el-text-base el-body-text el-has-grey-text"
+          </mock-styled.h1>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text"
           >
             In order to access your organisations data warehouse, you must first create the user accounts to access it. You are to manage and create as many user accounts as you wish without any additional costs. We recommend that each individual user or application is provided with a unique set of credentials.
-          </p>
-          <p
-            class="el-text-base el-body-text el-has-grey-text"
+          </mock-styled.p>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text"
           >
             Please note that creating the first user account is a long running process and can take several minutes to complete.
-          </p>
-          <h2
-            class="el-text-base el-subtitle"
+          </mock-styled.p>
+          <mock-styled.h2
+            classname="el-text-base"
           >
             User Account Details
-          </h2>
-          <div
-            class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-            role="status"
+          </mock-styled.h2>
+          <mock-styled.div
+            classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+            role="alertdialog"
           >
             <div
               class="el-pn-icon"
               data-testid="close-icon"
             >
-              <span
-                class="mocked-styled-4 el-icon"
+              <mock-styled.span
+                classname="el-icon-new"
+                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
                   style="font-size: 1.25rem;"
-                  title="Icon image with name info"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -659,120 +603,111 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </span>
+              </mock-styled.span>
             </div>
             <div
-              aria-live="polite"
               class="el-pn-content"
             >
               No accounts yet provisioned for your organisation
             </div>
-          </div>
+          </mock-styled.div>
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <p
-          class="el-text-base el-body-text"
+        <mock-styled.p
+          classname="el-text-base"
         >
           Support
-        </p>
-        <p
-          class="el-text-base el-small-text el-has-grey-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text"
+          tag="p"
         >
           Your first step is to provision a user account for the solution using the button below.
-        </p>
-        <p
-          class="el-text-base el-small-text el-has-grey-text el-has-section-margin"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text el-has-section-margin"
+          tag="p"
         >
           Please see also below for more resources and assistance.
-        </p>
-        <button
-          class="el-mb5 el-intent-primary el-button"
+        </mock-styled.p>
+        <mock-styled.button
+          classname="el-mb5 el-intent-primary"
+          disabled="false"
         >
-          <div
-            class="mocked-styled-0 el-button-loader"
-          />
+          <mock-styled.div />
           Provision User
-        </button>
-        <button
-          class="el-mb5 el-intent-neutral el-button"
+        </mock-styled.button>
+        <mock-styled.button
+          classname="el-mb5 el-intent-neutral"
         >
-          <div
-            class="mocked-styled-0 el-button-loader"
-          />
+          <mock-styled.div />
           View Docs
-        </button>
+        </mock-styled.button>
         <div>
-          <button
-            class="el-mb5 el-intent-neutral el-button"
+          <mock-styled.button
+            classname="el-mb5 el-intent-neutral"
           >
-            <div
-              class="mocked-styled-0 el-button-loader"
-            />
+            <mock-styled.div />
             Video
-          </button>
+          </mock-styled.button>
         </div>
-        <button
-          class="el-mb5 el-intent-neutral el-button"
+        <mock-styled.button
+          classname="el-mb5 el-intent-neutral"
         >
-          <div
-            class="mocked-styled-0 el-button-loader"
-          />
+          <mock-styled.div />
           Help
-        </button>
+        </mock-styled.button>
       </aside>
       <section
         class="el-page-container"
       >
-        <h1
-          class="el-text-base el-title"
+        <mock-styled.h1
+          classname="el-text-base"
         >
           User Accounts
-        </h1>
-        <p
-          class="el-text-base el-body-text el-has-grey-text"
+        </mock-styled.h1>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text"
         >
           In order to access your organisations data warehouse, you must first create the user accounts to access it. You are to manage and create as many user accounts as you wish without any additional costs. We recommend that each individual user or application is provided with a unique set of credentials.
-        </p>
-        <p
-          class="el-text-base el-body-text el-has-grey-text"
+        </mock-styled.p>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text"
         >
           Please note that creating the first user account is a long running process and can take several minutes to complete.
-        </p>
-        <h2
-          class="el-text-base el-subtitle"
+        </mock-styled.p>
+        <mock-styled.h2
+          classname="el-text-base"
         >
           User Account Details
-        </h2>
-        <div
-          class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-          role="status"
+        </mock-styled.h2>
+        <mock-styled.div
+          classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+          role="alertdialog"
         >
           <div
             class="el-pn-icon"
             data-testid="close-icon"
           >
-            <span
-              class="mocked-styled-4 el-icon"
+            <mock-styled.span
+              classname="el-icon-new"
+              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
                 style="font-size: 1.25rem;"
-                title="Icon image with name info"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -782,15 +717,14 @@ exports[`Accounts should match a snapshot with no accounts 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
+            </mock-styled.span>
           </div>
           <div
-            aria-live="polite"
             class="el-pn-content"
           >
             No accounts yet provisioned for your organisation
           </div>
-        </div>
+        </mock-styled.div>
       </section>
     </div>
   </div>,

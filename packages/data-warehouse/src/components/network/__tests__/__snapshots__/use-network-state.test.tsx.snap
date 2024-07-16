@@ -5,16 +5,12 @@ exports[`NetworkProvider should match a snapshot with data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
       <div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
     <div />
   </div>,
   "debug": [Function],
@@ -76,16 +72,12 @@ exports[`NetworkProvider should match a snapshot with no data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
       <div />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
     <div />
   </div>,
   "debug": [Function],

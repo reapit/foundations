@@ -5,162 +5,122 @@ exports[`IpCreateModal should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="el-mb11"
         >
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <input
-                aria-label="Input type undefined"
-                class="mocked-styled-33 el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="ipAddress"
                 placeholder="Enter IP address in IPv4 notation"
               />
-              <label
-                class="mocked-styled-36 el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Whitelisted IP Address
-              </label>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <input
-                aria-label="Input type undefined"
-                class="mocked-styled-33 el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="cidr"
                 placeholder="Enter optional CIDR suffix e.g. 32"
               />
-              <label
-                class="mocked-styled-36 el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 CIDR Suffix
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-2 el-button-group"
-        >
-          <div
-            class="el-button-group-align-right el-button-group-inner"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="el-button-group-align-right"
           >
-            <button
-              class="el-intent-neutral el-button"
+            <mock-styled.button
+              classname="el-intent-neutral"
               type="button"
             >
-              <div
-                class="mocked-styled-0 el-button-loader"
-              />
+              <mock-styled.div />
               Cancel
-            </button>
-            <button
-              class="el-intent-primary el-button"
+            </mock-styled.button>
+            <mock-styled.button
+              classname="el-intent-primary"
               type="submit"
             >
-              <div
-                class="mocked-styled-0 el-button-loader"
-              />
+              <mock-styled.div />
               Create
-            </button>
-          </div>
-        </div>
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <div
-        class="el-mb11 el-form-layout"
+      <mock-styled.div
+        classname="el-mb11"
       >
-        <div
-          class="mocked-styled-126 el-input-wrap"
-        >
-          <div
-            class="mocked-styled-35 el-input-group"
-          >
-            <input
-              aria-label="Input type undefined"
-              class="mocked-styled-33 el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              classname=""
               id="test-static-id"
               name="ipAddress"
               placeholder="Enter IP address in IPv4 notation"
             />
-            <label
-              class="mocked-styled-36 el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Whitelisted IP Address
-            </label>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-126 el-input-wrap"
-        >
-          <div
-            class="mocked-styled-35 el-input-group"
-          >
-            <input
-              aria-label="Input type undefined"
-              class="mocked-styled-33 el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              classname=""
               id="test-static-id"
               name="cidr"
               placeholder="Enter optional CIDR suffix e.g. 32"
             />
-            <label
-              class="mocked-styled-36 el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               CIDR Suffix
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="mocked-styled-2 el-button-group"
-      >
-        <div
-          class="el-button-group-align-right el-button-group-inner"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="el-button-group-align-right"
         >
-          <button
-            class="el-intent-neutral el-button"
+          <mock-styled.button
+            classname="el-intent-neutral"
             type="button"
           >
-            <div
-              class="mocked-styled-0 el-button-loader"
-            />
+            <mock-styled.div />
             Cancel
-          </button>
-          <button
-            class="el-intent-primary el-button"
+          </mock-styled.button>
+          <mock-styled.button
+            classname="el-intent-primary"
             type="submit"
           >
-            <div
-              class="mocked-styled-0 el-button-loader"
-            />
+            <mock-styled.div />
             Create
-          </button>
-        </div>
-      </div>
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],
