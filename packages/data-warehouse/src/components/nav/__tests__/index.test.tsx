@@ -34,6 +34,10 @@ describe('getDefaultNavIndex', () => {
       index: 2,
     },
     {
+      route: Routes.NETWORK,
+      index: 3,
+    },
+    {
       route: '/random',
       index: 0,
     },

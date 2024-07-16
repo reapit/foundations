@@ -205,6 +205,13 @@ exports[`Nav should match a snapshot 1`] = `
         >
           Data
         </a>
+        <a
+          class="mocked-styled-57 el-nav-item"
+          role="button"
+          tabindex="0"
+        >
+          Network
+        </a>
         <div
           class="mocked-styled-54 el-nav-controls-bg"
         />
@@ -440,6 +447,13 @@ exports[`Nav should match a snapshot 1`] = `
         tabindex="0"
       >
         Data
+      </a>
+      <a
+        class="mocked-styled-57 el-nav-item"
+        role="button"
+        tabindex="0"
+      >
+        Network
       </a>
       <div
         class="mocked-styled-54 el-nav-controls-bg"

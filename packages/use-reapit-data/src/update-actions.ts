@@ -74,6 +74,11 @@ export enum UpdateActionNames {
   updatePlatformConfig = 'updatePlatformConfig',
   updateApp = 'updateApp',
   updateInstallation = 'updateInstallation',
+  createIp = 'createIp',
+  updateIp = 'updateIp',
+  deleteIp = 'deleteIp',
+  createRule = 'createRule',
+  updateRule = 'updateRule',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -464,5 +469,35 @@ export const updateActions = {
     path: PathNames.installationsId,
     successMessage: 'Successfully updated installation',
     errorMessage: 'Failed to update installation',
+  },
+  [UpdateActionNames.createIp]: {
+    api: ApiNames.platform,
+    path: PathNames.dwIps,
+    successMessage: 'Successfully created IP',
+    errorMessage: 'Failed to create IP',
+  },
+  [UpdateActionNames.updateIp]: {
+    api: ApiNames.platform,
+    path: PathNames.dwIpsId,
+    successMessage: 'Successfully updated ip',
+    errorMessage: 'Failed to update ip',
+  },
+  [UpdateActionNames.deleteIp]: {
+    api: ApiNames.platform,
+    path: PathNames.dwIpsId,
+    successMessage: 'Successfully deleted ip',
+    errorMessage: 'Failed to delete ip',
+  },
+  [UpdateActionNames.createRule]: {
+    api: ApiNames.platform,
+    path: PathNames.dwRules,
+    successMessage: 'Successfully created network rule',
+    errorMessage: 'Failed to update network rule',
+  },
+  [UpdateActionNames.updateRule]: {
+    api: ApiNames.platform,
+    path: PathNames.dwRulesId,
+    successMessage: 'Successfully updated network rule',
+    errorMessage: 'Failed to update network rule',
   },
 }
