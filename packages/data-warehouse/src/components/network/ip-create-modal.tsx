@@ -17,6 +17,7 @@ const validationSchema = object({
     .trim()
     .required('IP address is required')
     .matches(
+      // IP whitelist Regex
       // eslint-disable-next-line max-len
       /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/,
       'The IP address must be in IPv4 notation (e.g. 192.168.0.1)',
@@ -38,7 +39,7 @@ export const handleCreateIp =
 export const IpCreateModal: FC<IpCreateModalProps> = ({ closeModal }) => {
   const { networkSelected, refreshIps, customerId } = useNetworkState()
 
-  const ruleId = networkSelected?.ruleId
+  const ruleId = networkSelected?.ipRuleId
 
   const {
     register,

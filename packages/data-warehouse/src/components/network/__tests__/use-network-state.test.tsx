@@ -39,7 +39,7 @@ describe('NetworkProvider', () => {
 })
 
 describe('handleModalAction', () => {
-  it('should return the current subscription', () => {
+  it('should handle a generic modal action and set the selected state', () => {
     const setNetworkSelected = jest.fn()
     const modalAction = jest.fn()
     const key = 'ruleId'

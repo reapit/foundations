@@ -16,13 +16,15 @@ describe('handleCreateRule', () => {
     const createRule = jest.fn(() => Promise.resolve(true))
     const refreshIps = jest.fn()
     const closeModal = jest.fn()
+    const setNetworkSelected = jest.fn()
 
-    const curried = handleCreateRule(createRule, refreshIps, closeModal)
+    const curried = handleCreateRule(createRule, refreshIps, closeModal, setNetworkSelected)
 
     await curried(mockRulesModel)
 
     expect(createRule).toHaveBeenCalledWith(mockRulesModel)
     expect(refreshIps).toHaveBeenCalledTimes(1)
     expect(closeModal).toHaveBeenCalledTimes(1)
+    expect(setNetworkSelected).toHaveBeenCalledWith({ ruleId: null, ipRuleId: null, ipId: null })
   })
 })

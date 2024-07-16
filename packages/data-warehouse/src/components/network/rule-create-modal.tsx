@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { Dispatch, FC, SetStateAction } from 'react'
 import { boolean, object, string } from 'yup'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -17,7 +17,7 @@ import {
   Toggle,
 } from '@reapit/elements'
 import { RulesModel } from '../../types/network'
-import { useNetworkState } from './use-network-state'
+import { NetworkSelected, useNetworkState } from './use-network-state'
 
 export interface RuleCreateModalProps {
   closeModal: () => void
@@ -36,18 +36,24 @@ const validationSchema = object({
 })
 
 export const handleCreateRule =
-  (createRule: SendFunction<Partial<RulesModel>, boolean>, refreshRules: () => void, closeModal: () => void) =>
+  (
+    createRule: SendFunction<Partial<RulesModel>, boolean>,
+    refreshRules: () => void,
+    closeModal: () => void,
+    setNetworkSelected: Dispatch<SetStateAction<NetworkSelected>>,
+  ) =>
   async (formValues: Partial<RulesModel>) => {
     const ruleCreated = await createRule(formValues)
 
     if (ruleCreated) {
       refreshRules()
       closeModal()
+      setNetworkSelected({ ruleId: null, ipRuleId: null, ipId: null })
     }
   }
 
 export const RuleCreateModal: FC<RuleCreateModalProps> = ({ closeModal }) => {
-  const { customerId, refreshRules } = useNetworkState()
+  const { customerId, refreshRules, setNetworkSelected } = useNetworkState()
 
   const {
     register,
@@ -71,7 +77,7 @@ export const RuleCreateModal: FC<RuleCreateModalProps> = ({ closeModal }) => {
   })
 
   return (
-    <form onSubmit={handleSubmit(handleCreateRule(createRule, refreshRules, closeModal))}>
+    <form onSubmit={handleSubmit(handleCreateRule(createRule, refreshRules, closeModal, setNetworkSelected))}>
       <FormLayout className={elMb11}>
         <InputWrap>
           <InputGroup {...register('name')} placeholder="Enter rule name" label="Network Rule Name" />

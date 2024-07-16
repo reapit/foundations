@@ -1,28 +1,63 @@
-import React, { FC } from 'react'
+import React, { Dispatch, FC, SetStateAction } from 'react'
 import { BodyText, Button, ButtonGroup, elMb11, elMb5, Icon, Loader, Table, useModal } from '@reapit/elements'
 import { RulesModel } from '../../types/network'
 import dayjs from 'dayjs'
-import { RuleUpdateModal } from './rule-update-modal'
 import { IpTable } from './ip-table'
 import { IpCreateModal } from './ip-create-modal'
-import { handleModalAction, useNetworkState } from './use-network-state'
+import { handleModalAction, NetworkSelected, useNetworkState } from './use-network-state'
+import { SendFunction, UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
+
+export const handleSetRuleId =
+  (setNetworkSelected: Dispatch<SetStateAction<NetworkSelected>>, ruleId: string | null = null) =>
+  () => {
+    setNetworkSelected((networkSelected) => ({
+      ...networkSelected,
+      ruleId: ruleId === networkSelected?.ruleId ? null : ruleId,
+    }))
+  }
+
+export const handleUpdateRule =
+  (
+    updateRule: SendFunction<Partial<RulesModel>, boolean>,
+    refreshRules: () => void,
+    enabled: boolean,
+    ruleId?: string,
+  ) =>
+  async () => {
+    if (!ruleId) return
+
+    const ruleUpdated = await updateRule({ enabled }, { uriParams: { ruleId } })
+
+    if (ruleUpdated) {
+      refreshRules()
+    }
+  }
 
 export const RulesTable: FC = () => {
-  const {
-    Modal: ModalRule,
-    openModal: openModalRule,
-    closeModal: closeModalRule,
-    modalIsOpen: modalIsOpenRule,
-  } = useModal()
   const { Modal: ModalIp, openModal: openModalIp, closeModal: closeModalIp, modalIsOpen: modalIsOpenIp } = useModal()
   const { Modal: ModalBi, openModal: openModalBi, closeModal: closeModalBi, modalIsOpen: modalIsOpenBi } = useModal()
 
-  const { rules, ips, ipsLoading, setNetworkSelected, customerId } = useNetworkState()
+  const { rules, ips, networkSelected, ipsLoading, setNetworkSelected, customerId, refreshRules } = useNetworkState()
+
+  const ruleId = networkSelected?.ruleId
+
+  const [ruleUpdating, , updateRule] = useReapitUpdate<Partial<RulesModel>, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions[UpdateActionNames.updateRule],
+    method: 'PUT',
+    uriParams: {
+      customerId,
+    },
+  })
+
+  const indexExpandedRow = ruleId ? rules?._embedded?.findIndex((rule) => rule.id === ruleId) : null
 
   return (
     <>
       <Table
         className={elMb11}
+        indexExpandedRow={indexExpandedRow}
         rows={rules?._embedded?.map((rule: RulesModel) => {
           const { name, enabled, created, modified, id } = rule
           return {
@@ -59,9 +94,18 @@ export const RulesTable: FC = () => {
               },
             ],
             expandableContent: {
+              onClick: handleSetRuleId(setNetworkSelected, id),
               content: (
                 <>
                   <ButtonGroup className={elMb5} alignment="right">
+                    <Button
+                      intent={enabled ? 'danger' : 'primary'}
+                      onClick={handleUpdateRule(updateRule, refreshRules, !enabled, id)}
+                      disabled={ruleUpdating}
+                      loading={ruleUpdating}
+                    >
+                      {enabled ? 'Disable Rule' : 'Enable Rule'}
+                    </Button>
                     <Button intent="primary" onClick={openModalBi} disabled={modalIsOpenBi}>
                       I Use PowerBI
                     </Button>
@@ -72,39 +116,32 @@ export const RulesTable: FC = () => {
                     >
                       Create Whitelisted IP
                     </Button>
-                    <Button
-                      intent="primary"
-                      onClick={handleModalAction(setNetworkSelected, openModalRule, 'ruleId', id)}
-                      disabled={modalIsOpenRule}
-                    >
-                      Update Rule
-                    </Button>
                   </ButtonGroup>
-                  {ipsLoading ? <Loader /> : ips && id && <IpTable />}
+                  {ipsLoading ? <Loader /> : ips && id === ruleId && <IpTable />}
                 </>
               ),
             },
           }
         })}
       />
-      <ModalRule title="Network Rule Edit">
-        <RuleUpdateModal closeModal={closeModalRule} />
-      </ModalRule>
       <ModalIp title="Create Whitelisted IP">
         <IpCreateModal closeModal={closeModalIp} />
       </ModalIp>
       <ModalBi title="Power BI Users">
-        <BodyText hasSectionMargin>
+        <BodyText>
           If you use PowerBI to access the Data Warehouse, there are around 200 IPs that could potentially be
-          whitelisted. To avoid having to do this manually, just send us an email with the pre-filled subject line by
-          clicking the button below. One of our team will action the request as soon as possible and get back to you.
+          whitelisted.
+        </BodyText>
+        <BodyText hasSectionMargin>
+          To avoid having to do this manually, just send us an email with the pre-filled subject line by clicking the
+          button below. One of our team will action the request as soon as possible and get back to you.
         </BodyText>
         <ButtonGroup alignment="right">
           <Button intent="default" type="button" onClick={closeModalBi}>
             Close
           </Button>
           <a
-            href={`mailto:dwh@reapitfoundations.zendesk.com?subject='Data%20Warehouse%20PowerBI%20Setup%20Request%20For%20CustomerId%20${customerId}`}
+            href={`mailto:dwh@reapitfoundations.zendesk.com?subject=Data%20Warehouse%20PowerBI%20Setup%20Request%20For%20CustomerId%20${customerId}`}
             target="_blank"
             rel="noreferrer"
           >

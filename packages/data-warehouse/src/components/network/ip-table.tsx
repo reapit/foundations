@@ -1,14 +1,5 @@
 import React, { FC } from 'react'
-import {
-  BodyText,
-  Button,
-  ButtonGroup,
-  elMb11,
-  Loader,
-  PersistentNotification,
-  Table,
-  useModal,
-} from '@reapit/elements'
+import { BodyText, Button, ButtonGroup, Loader, PersistentNotification, Table, useModal } from '@reapit/elements'
 import { SendFunction, useReapitUpdate, updateActions, UpdateActionNames } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { handleModalAction, useNetworkState } from './use-network-state'
@@ -47,7 +38,7 @@ export const IpTable: FC = () => {
         <Loader />
       ) : ips?._embedded.length ? (
         <Table
-          className={elMb11}
+          numberColumns={3}
           rows={ips?._embedded?.map(({ cidr, ipAddress, id }) => {
             return {
               cells: [
@@ -68,19 +59,10 @@ export const IpTable: FC = () => {
                   },
                 },
               ],
-              expandableContent: {
-                content: (
-                  <ButtonGroup alignment="right">
-                    <Button
-                      intent="danger"
-                      onClick={handleModalAction(setNetworkSelected, openModal, 'ipId', id)}
-                      disabled={ipDeleting}
-                      loading={ipDeleting}
-                    >
-                      Delete IP
-                    </Button>
-                  </ButtonGroup>
-                ),
+              ctaContent: {
+                icon: 'trash',
+                headerContent: 'Delete IP',
+                onClick: handleModalAction(setNetworkSelected, openModal, 'ipId', id),
               },
             }
           })}

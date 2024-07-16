@@ -9,9 +9,9 @@ exports[`IpTable should match a snapshot with ips 1`] = `
         class="mocked-styled-86 el-snack-holder"
       />
       <div
-        class="el-mb11 el-table"
-        data-has-call-to-action="false"
-        data-has-expandable-action="true"
+        class="mocked-styled-108 el-table"
+        data-has-call-to-action="true"
+        data-has-expandable-action="false"
         data-num-columns-excl-action-col="2"
         role="table"
       >
@@ -37,24 +37,7 @@ exports[`IpTable should match a snapshot with ips 1`] = `
             class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
-            <span
-              class="el-intent-default el-icon"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                role="img"
-                title="Icon image with name settings"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
+            Delete IP
           </div>
         </div>
         <div
@@ -87,51 +70,37 @@ exports[`IpTable should match a snapshot with ips 1`] = `
               </div>
             </div>
             <div
-              class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+              class="mocked-styled-97 el-table-cta-cell"
               role="cell"
               tabindex="0"
             >
-              <span
-                class="el-intent-default el-icon"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  role="img"
-                  title="Icon image with name more"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-106 el-table-expandable-row"
-          >
-            <div
-              class="mocked-styled-107 el-table-expandable-container"
-            >
               <div
-                class="mocked-styled-2 el-button-group"
+                class="mocked-styled-105 el-table-cta-icon-container"
               >
-                <div
-                  class="el-button-group-align-right el-button-group-inner"
+                <span
+                  class="el-intent-default el-icon"
                 >
-                  <button
-                    class="el-intent-danger el-button"
+                  <svg
+                    fill="none"
+                    height="1em"
+                    role="img"
+                    title="Icon image with name trash"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <div
-                      class="mocked-styled-0 el-button-loader"
+                    <path
+                      d="M9 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0zM13 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0z"
+                      fill="currentColor"
                     />
-                    Delete IP
-                  </button>
-                </div>
+                    <path
+                      clip-rule="evenodd"
+                      d="M18 5h3a1 1 0 1 1 0 2h-.06l-.69 11.31a5 5 0 0 1-5 4.69H8.77a5 5 0 0 1-5-4.69L3.06 7H3a1 1 0 1 1 0-2h3V4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3zM9 3a1 1 0 0 0-1 1v1h8V4a1 1 0 0 0-1-1zm6.24 18a3 3 0 0 0 3-2.81L18.94 7H5.06l.7 11.19a3 3 0 0 0 3 2.81z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
               </div>
             </div>
           </div>
@@ -144,9 +113,9 @@ exports[`IpTable should match a snapshot with ips 1`] = `
       class="mocked-styled-86 el-snack-holder"
     />
     <div
-      class="el-mb11 el-table"
-      data-has-call-to-action="false"
-      data-has-expandable-action="true"
+      class="mocked-styled-108 el-table"
+      data-has-call-to-action="true"
+      data-has-expandable-action="false"
       data-num-columns-excl-action-col="2"
       role="table"
     >
@@ -172,24 +141,7 @@ exports[`IpTable should match a snapshot with ips 1`] = `
           class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
-          <span
-            class="el-intent-default el-icon"
-          >
-            <svg
-              fill="none"
-              height="1em"
-              role="img"
-              title="Icon image with name settings"
-              viewBox="0 0 24 24"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
+          Delete IP
         </div>
       </div>
       <div
@@ -222,51 +174,37 @@ exports[`IpTable should match a snapshot with ips 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+            class="mocked-styled-97 el-table-cta-cell"
             role="cell"
             tabindex="0"
           >
-            <span
-              class="el-intent-default el-icon"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                role="img"
-                title="Icon image with name more"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-106 el-table-expandable-row"
-        >
-          <div
-            class="mocked-styled-107 el-table-expandable-container"
-          >
             <div
-              class="mocked-styled-2 el-button-group"
+              class="mocked-styled-105 el-table-cta-icon-container"
             >
-              <div
-                class="el-button-group-align-right el-button-group-inner"
+              <span
+                class="el-intent-default el-icon"
               >
-                <button
-                  class="el-intent-danger el-button"
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  title="Icon image with name trash"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <div
-                    class="mocked-styled-0 el-button-loader"
+                  <path
+                    d="M9 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0zM13 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0z"
+                    fill="currentColor"
                   />
-                  Delete IP
-                </button>
-              </div>
+                  <path
+                    clip-rule="evenodd"
+                    d="M18 5h3a1 1 0 1 1 0 2h-.06l-.69 11.31a5 5 0 0 1-5 4.69H8.77a5 5 0 0 1-5-4.69L3.06 7H3a1 1 0 1 1 0-2h3V4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3zM9 3a1 1 0 0 0-1 1v1h8V4a1 1 0 0 0-1-1zm6.24 18a3 3 0 0 0 3-2.81L18.94 7H5.06l.7 11.19a3 3 0 0 0 3 2.81z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </span>
             </div>
           </div>
         </div>
