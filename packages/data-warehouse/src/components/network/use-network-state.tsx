@@ -22,6 +22,8 @@ export interface NetworkState {
   customerId: string | null
   networkSelected: NetworkSelected
   setNetworkSelected: Dispatch<SetStateAction<NetworkSelected>>
+  ipsPageNumber: number
+  setIpsPageNumber: Dispatch<SetStateAction<number>>
 }
 
 export const handleModalAction =
@@ -45,6 +47,7 @@ const { Provider } = NetworkStateContext
 
 export const NetworkProvider: FC<PropsWithChildren> = ({ children }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const [ipsPageNumber, setIpsPageNumber] = useState<number>(1)
 
   const [networkSelected, setNetworkSelected] = useState<NetworkSelected>({
     ruleId: null,
@@ -76,7 +79,7 @@ export const NetworkProvider: FC<PropsWithChildren> = ({ children }) => {
   const [ips, ipsLoading, , refreshIps] = useReapitGet<PagedIpsModel>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getIps],
-    queryParams: { pageSize: 12 },
+    queryParams: { pageSize: 1, pageNumber: ipsPageNumber },
     fetchWhenTrue: [customerId, ruleId],
     uriParams: { customerId, ruleId },
   })
@@ -95,6 +98,8 @@ export const NetworkProvider: FC<PropsWithChildren> = ({ children }) => {
         customerId,
         networkSelected,
         setNetworkSelected,
+        ipsPageNumber,
+        setIpsPageNumber,
       }}
     >
       {children}
