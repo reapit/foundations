@@ -16,6 +16,8 @@ export const mockNetworkState = {
     ipId: 'MOCK_IP_ID',
   },
   setNetworkSelected: jest.fn(),
+  setIpsPageNumber: jest.fn(),
+  ipsPageNumber: 1,
 }
 
 export const useNetworkState = jest.fn(() => mockNetworkState)
