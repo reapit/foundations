@@ -27,7 +27,7 @@ export const Network: FC = () => {
       <SecondaryNavContainer>
         <BodyText>Network</BodyText>
         <SmallText tag="p" hasGreyText>
-          To create a whitlisted IP address for your organisation, first click the button below.
+          To create a whitelisted IP address for your organisation, first click the button below.
         </SmallText>
         <SmallText tag="p" hasSectionMargin hasGreyText>
           Please see also below for more resources and assistance.

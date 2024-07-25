@@ -21,7 +21,7 @@ exports[`NetworkPage renders and matches a snapshot 1`] = `
             classname="el-text-base el-has-grey-text"
             tag="p"
           >
-            To create a whitlisted IP address for your organisation, first click the button below.
+            To create a whitelisted IP address for your organisation, first click the button below.
           </mock-styled.p>
           <mock-styled.p
             classname="el-text-base el-has-grey-text el-has-section-margin"
@@ -134,7 +134,7 @@ exports[`NetworkPage renders and matches a snapshot 1`] = `
           classname="el-text-base el-has-grey-text"
           tag="p"
         >
-          To create a whitlisted IP address for your organisation, first click the button below.
+          To create a whitelisted IP address for your organisation, first click the button below.
         </mock-styled.p>
         <mock-styled.p
           classname="el-text-base el-has-grey-text el-has-section-margin"

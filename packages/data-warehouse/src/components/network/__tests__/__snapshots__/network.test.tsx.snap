@@ -21,7 +21,7 @@ exports[`Network should match a snapshot with no rules 1`] = `
             classname="el-text-base el-has-grey-text"
             tag="p"
           >
-            To create a whitlisted IP address for your organisation, first click the button below.
+            To create a whitelisted IP address for your organisation, first click the button below.
           </mock-styled.p>
           <mock-styled.p
             classname="el-text-base el-has-grey-text el-has-section-margin"
@@ -134,7 +134,7 @@ exports[`Network should match a snapshot with no rules 1`] = `
           classname="el-text-base el-has-grey-text"
           tag="p"
         >
-          To create a whitlisted IP address for your organisation, first click the button below.
+          To create a whitelisted IP address for your organisation, first click the button below.
         </mock-styled.p>
         <mock-styled.p
           classname="el-text-base el-has-grey-text el-has-section-margin"
@@ -304,7 +304,7 @@ exports[`Network should match a snapshot with rules 1`] = `
             classname="el-text-base el-has-grey-text"
             tag="p"
           >
-            To create a whitlisted IP address for your organisation, first click the button below.
+            To create a whitelisted IP address for your organisation, first click the button below.
           </mock-styled.p>
           <mock-styled.p
             classname="el-text-base el-has-grey-text el-has-section-margin"
@@ -582,7 +582,7 @@ exports[`Network should match a snapshot with rules 1`] = `
           classname="el-text-base el-has-grey-text"
           tag="p"
         >
-          To create a whitlisted IP address for your organisation, first click the button below.
+          To create a whitelisted IP address for your organisation, first click the button below.
         </mock-styled.p>
         <mock-styled.p
           classname="el-text-base el-has-grey-text el-has-section-margin"
@@ -917,7 +917,7 @@ exports[`Network should match a snapshot with rules loading 1`] = `
             classname="el-text-base el-has-grey-text"
             tag="p"
           >
-            To create a whitlisted IP address for your organisation, first click the button below.
+            To create a whitelisted IP address for your organisation, first click the button below.
           </mock-styled.p>
           <mock-styled.p
             classname="el-text-base el-has-grey-text el-has-section-margin"
@@ -1003,7 +1003,7 @@ exports[`Network should match a snapshot with rules loading 1`] = `
           classname="el-text-base el-has-grey-text"
           tag="p"
         >
-          To create a whitlisted IP address for your organisation, first click the button below.
+          To create a whitelisted IP address for your organisation, first click the button below.
         </mock-styled.p>
         <mock-styled.p
           classname="el-text-base el-has-grey-text el-has-section-margin"
