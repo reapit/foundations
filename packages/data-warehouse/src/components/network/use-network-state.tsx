@@ -79,7 +79,7 @@ export const NetworkProvider: FC<PropsWithChildren> = ({ children }) => {
   const [ips, ipsLoading, , refreshIps] = useReapitGet<PagedIpsModel>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getIps],
-    queryParams: { pageSize: 1, pageNumber: ipsPageNumber },
+    queryParams: { pageSize: 12, pageNumber: ipsPageNumber },
     fetchWhenTrue: [customerId, ruleId],
     uriParams: { customerId, ruleId },
   })
