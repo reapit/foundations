@@ -17518,7 +17518,7 @@ export interface PropertyTerminologyModel {
  */
 export interface PropertyUtilitiesElectricityModel {
   /**
-   * The type of electricity supplied (windTurbine/mainsSupply/privateSupply/solar)
+   * The type of electricity supplied (windTurbine/mainsSupply/privateSupply/solar/other)
    */
   type?: string
   /**
@@ -17552,7 +17552,7 @@ export interface PropertyUtilitiesGasModel {
  */
 export interface PropertyUtilitiesInternetModel {
   /**
-   * The types of internet supplied (none/adsl/fttc/fttp)
+   * The types of internet supplied (none/adsl/fttc/fttp/cable/other)
    */
   type?: string[]
   /**
@@ -17597,7 +17597,7 @@ export interface PropertyUtilitiesModel {
    */
   electricity?: {
     /**
-     * The type of electricity supplied (windTurbine/mainsSupply/privateSupply/solar)
+     * The type of electricity supplied (windTurbine/mainsSupply/privateSupply/solar/other)
      */
     type?: string
     /**
@@ -17631,7 +17631,7 @@ export interface PropertyUtilitiesModel {
    */
   water?: {
     /**
-     * The type of water supplied (mainsSupply/privateSupply)
+     * The type of water supplied (mainsSupply/privateSupply/other)
      */
     type?: string
     /**
@@ -17643,7 +17643,7 @@ export interface PropertyUtilitiesModel {
      */
     waterMeterPoint?: string
     /**
-     * The type of sewerage supplied (mainsSupply/privateSupply)
+     * The type of sewerage supplied (mainsSupply/privateSupply/other)
      */
     sewerage?: string
   }
@@ -17652,7 +17652,7 @@ export interface PropertyUtilitiesModel {
    */
   internet?: {
     /**
-     * The types of internet supplied (none/adsl/fttc/fttp)
+     * The types of internet supplied (none/adsl/fttc/fttp/cable/other)
      */
     type?: string[]
     /**
@@ -17669,7 +17669,7 @@ export interface PropertyUtilitiesModel {
    */
   cableTvCompanyId?: string
   /**
-   * The type of heating supplied to the property (airConditioning/centralHeating/doubleGlazing/ecoFriendly/electric/gas/gasCentral/nightStorage/oil/solar/solarWater/underFloor/woodBurner/openFire/biomassBoiler/groundSourceHeatPump/airSourceHeatPump/solarPvThermal/underFloorHeating/solarThermal)
+   * The type of heating supplied to the property (airConditioning/centralHeating/doubleGlazing/ecoFriendly/electric/gas/gasCentral/nightStorage/oil/solar/solarWater/underFloor/woodBurner/openFire/biomassBoiler/groundSourceHeatPump/airSourceHeatPump/solarPvThermal/underFloorHeating/solarThermal/other)
    */
   heating?: string[]
   /**
@@ -17690,7 +17690,7 @@ export interface PropertyUtilitiesModel {
  */
 export interface PropertyUtilitiesWaterModel {
   /**
-   * The type of water supplied (mainsSupply/privateSupply)
+   * The type of water supplied (mainsSupply/privateSupply/other)
    */
   type?: string
   /**
@@ -17702,7 +17702,7 @@ export interface PropertyUtilitiesWaterModel {
    */
   waterMeterPoint?: string
   /**
-   * The type of sewerage supplied (mainsSupply/privateSupply)
+   * The type of sewerage supplied (mainsSupply/privateSupply/other)
    */
   sewerage?: string
 }
@@ -25183,7 +25183,7 @@ export interface UpdatePropertyTenureModel {
  */
 export interface UpdatePropertyUtilitiesElectricityModel {
   /**
-   * The type of electricity supplied (windTurbine/mainsSupply/privateSupply/solar)
+   * The type of electricity supplied (windTurbine/mainsSupply/privateSupply/solar/other)
    */
   type?: string
   /**
@@ -25217,7 +25217,7 @@ export interface UpdatePropertyUtilitiesGasModel {
  */
 export interface UpdatePropertyUtilitiesInternetModel {
   /**
-   * The type of internet supplied (none/adsl/fttc/fttp)
+   * The type of internet supplied (none/adsl/fttc/fttp/cable/other)
    */
   type?: string[]
   /**
@@ -25236,7 +25236,7 @@ export interface UpdatePropertyUtilitiesModel {
    */
   electricity?: {
     /**
-     * The type of electricity supplied (windTurbine/mainsSupply/privateSupply/solar)
+     * The type of electricity supplied (windTurbine/mainsSupply/privateSupply/solar/other)
      */
     type?: string
     /**
@@ -25270,7 +25270,7 @@ export interface UpdatePropertyUtilitiesModel {
    */
   water?: {
     /**
-     * The type of water supplied (mainsSupply/privateSupply)
+     * The type of water supplied (mainsSupply/privateSupply/other)
      */
     type?: string
     /**
@@ -25282,7 +25282,7 @@ export interface UpdatePropertyUtilitiesModel {
      */
     waterMeterPoint?: string
     /**
-     * The type of sewerage supplied (mainsSupply/privateSupply)
+     * The type of sewerage supplied (mainsSupply/privateSupply/other)
      */
     sewerage?: string
   }
@@ -25291,7 +25291,7 @@ export interface UpdatePropertyUtilitiesModel {
    */
   internet?: {
     /**
-     * The type of internet supplied (none/adsl/fttc/fttp)
+     * The type of internet supplied (none/adsl/fttc/fttp/cable/other)
      */
     type?: string[]
     /**
@@ -25308,7 +25308,7 @@ export interface UpdatePropertyUtilitiesModel {
    */
   cableTvCompanyId?: string
   /**
-   * The type of heating supplied to the property (airConditioning/centralHeating/doubleGlazing/ecoFriendly/electric/gas/gasCentral/nightStorage/oil/solar/solarWater/underFloor/woodBurner/openFire/biomassBoiler/groundSourceHeatPump/airSourceHeatPump/solarPvThermal/underFloorHeating/solarThermal)
+   * The type of heating supplied to the property (airConditioning/centralHeating/doubleGlazing/ecoFriendly/electric/gas/gasCentral/nightStorage/oil/solar/solarWater/underFloor/woodBurner/openFire/biomassBoiler/groundSourceHeatPump/airSourceHeatPump/solarPvThermal/underFloorHeating/solarThermal/other)
    */
   heating?: string[]
   /**
@@ -25325,7 +25325,7 @@ export interface UpdatePropertyUtilitiesModel {
  */
 export interface UpdatePropertyUtilitiesWaterModel {
   /**
-   * The type of water supplied (mainsSupply/privateSupply)
+   * The type of water supplied (mainsSupply/privateSupply/other)
    */
   type?: string
   /**
@@ -25337,7 +25337,7 @@ export interface UpdatePropertyUtilitiesWaterModel {
    */
   waterMeterPoint?: string
   /**
-   * The type of sewerage supplied (mainsSupply/privateSupply)
+   * The type of sewerage supplied (mainsSupply/privateSupply/other)
    */
   sewerage?: string
 }
