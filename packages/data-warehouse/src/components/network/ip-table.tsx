@@ -86,7 +86,7 @@ export const IpTable: FC = () => {
               }
             })}
           />
-          <Pagination callback={setIpsPageNumber} currentPage={ipsPageNumber} numberPages={ips.pageCount || 0} />
+          <Pagination callback={setIpsPageNumber} currentPage={ipsPageNumber} numberPages={ips.totalPageCount || 0} />
         </>
       ) : (
         <PersistentNotification isInline isExpanded isFullWidth intent="primary">
