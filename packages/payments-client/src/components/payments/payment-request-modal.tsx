@@ -134,7 +134,8 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
   selectedPayment,
 }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const clientCode = connectSession?.loginIdentity.clientId
+  const clientCode = connectSession?.loginIdentity.clientId ?? ''
+  const idToken = connectSession?.idToken ?? ''
 
   const {
     register,
@@ -154,8 +155,8 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
     method: 'POST',
     returnType: UpdateReturnTypeEnum.RESPONSE,
     headers: {
-      Authorization: connectSession?.idToken as string,
-      'reapit-customer': clientCode as string,
+      'reapit-customer': clientCode,
+      'reapit-id-token': idToken,
       'reapit-app-id': process.env.appId,
     },
   })
@@ -165,8 +166,8 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
     action: updateActions[UpdateActionNames.paymentRequestCreate],
     method: 'POST',
     headers: {
-      Authorization: connectSession?.idToken as string,
-      'reapit-customer': clientCode as string,
+      'reapit-customer': clientCode,
+      'reapit-id-token': idToken,
       'reapit-app-id': process.env.appId,
     },
     uriParams: {
@@ -179,7 +180,7 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
     action: updateActions[UpdateActionNames.privatePaymentUpdate],
     method: 'PATCH',
     headers: {
-      'if-match': selectedPayment?._eTag as string,
+      'if-match': selectedPayment?._eTag ?? '',
     },
     uriParams: {
       paymentId: selectedPayment?.id,

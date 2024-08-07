@@ -28,12 +28,14 @@ export const createApi = (
   if (!lambdaFunction) {
     return new apigateway.RestApi(scope, `${scope.stackName}-${name}`, {
       defaultCorsPreflightOptions,
+      endpointTypes: [apigateway.EndpointType.REGIONAL],
     })
   }
 
   return new apigateway.LambdaRestApi(scope, `${scope.stackName}-${name}`, {
     handler: lambdaFunction,
     defaultCorsPreflightOptions,
+    endpointTypes: [apigateway.EndpointType.REGIONAL],
   })
 }
 

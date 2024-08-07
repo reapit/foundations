@@ -27,6 +27,9 @@ export class PaymentReceiptHeaders {
   'reapit-session'?: string
 
   @IsString()
+  'reapit-id-token'?: string
+
+  @IsString()
   @IsNotEmpty()
   'reapit-customer': string
 }

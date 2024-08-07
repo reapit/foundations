@@ -29,6 +29,15 @@ export class BillingAddress {
   country: string
 }
 
+export class ShippingDetails {
+  recipientFirstName: string
+  recipientLastName: string
+  shippingAddress1: string
+  shippingCity: string
+  shippingPostalCode: string
+  shippingCountry: string
+}
+
 export class PaymentMethod {
   card: Card
 }
@@ -48,7 +57,10 @@ export interface CreateTransactionModel {
   apply3DSecure: ThreeDSecureType
   customerFirstName: string
   customerLastName: string
+  customerEmail: string
+  customerPhone: string
   billingAddress: BillingAddress
+  shippingDetails: ShippingDetails
   entryMethod: EntryMethodType
 }
 

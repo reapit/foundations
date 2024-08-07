@@ -22,6 +22,7 @@ export const specialCharsTest = {
 export const paymentValidationSchema = object().shape({
   customerFirstName: string().trim().required('Required').test(specialCharsTest),
   customerLastName: string().trim().required('Required').test(specialCharsTest),
+  customerPhone: string().trim().required('Required').test(specialCharsTest),
   address1: string().trim().required('Required').test(specialCharsTest),
   city: string().trim().required('Required').test(specialCharsTest),
   postalCode: string().trim().required('Required').test(specialCharsTest),

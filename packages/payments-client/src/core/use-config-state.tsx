@@ -21,15 +21,15 @@ const { Provider } = ConfigStateContext
 export const ConfigProvider: FC<PropsWithChildren> = ({ children }) => {
   const [configLoading, setConfigLoading] = useState<boolean>(true)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const clientCode = connectSession?.loginIdentity?.clientId
+  const clientCode = connectSession?.loginIdentity?.clientId ?? ''
   const idToken = connectSession?.idToken ?? ''
 
   const [config, , , refreshConfig, , clearConfigCache] = useReapitGet<ClientConfigModel>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getPaymentsClientConfig],
     headers: {
-      Authorization: idToken,
-      'reapit-customer': clientCode as string,
+      'reapit-customer': clientCode,
+      'reapit-id-token': idToken,
       'reapit-app-id': process.env.appId,
     },
     uriParams: {
