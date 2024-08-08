@@ -32,6 +32,6 @@ export default defineConfig([
     esbuildOptions: (opts) => {
       opts.resolveExtensions = ['.ts', '.mjs', '.js']
     },
-    noExternal: ['aws-lambda', 'jsonwebtoken', 'jwks-rsa'],
+    noExternal: ['aws-lambda', 'jsonwebtoken', 'jwks-rsa', 'idtoken-verifier', 'uuid', 'jwt-decode'],
   },
 ])
