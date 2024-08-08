@@ -9,7 +9,10 @@ export interface CreateTransactionModel {
   applyAvsCvcCheck: 'UseMSPSetting' | 'Force' | 'Disable' | 'ForceIgnoringRules'
   customerFirstName: string
   customerLastName: string
+  customerEmail: string
+  customerPhone: string
   billingAddress: BillingAddress
+  shippingDetails: ShippingDetails
   entryMethod: 'Ecommerce' | 'MailOrder' | 'TelephoneOrder'
   strongCustomerAuthentication: {
     notificationURL: string
@@ -29,6 +32,15 @@ export interface CreateTransactionModel {
     transType: string
     threeDSRequestorDecReqInd: string
   }
+}
+
+export interface ShippingDetails {
+  recipientFirstName: string
+  recipientLastName: string
+  shippingAddress1: string
+  shippingCity: string
+  shippingPostalCode: string
+  shippingCountry: string
 }
 
 export interface BillingAddress {

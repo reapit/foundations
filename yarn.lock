@@ -6084,6 +6084,7 @@ __metadata:
     autoprefixer: "npm:^10.4.18"
     aws-cdk: "npm:^2.133.0"
     aws-cdk-lib: "npm:^2.133.0"
+    aws-jwt-verify: "npm:^4.0.1"
     aws-sdk: "npm:^2.1580.0"
     babel-jest: "npm:^29.7.0"
     concurrently: "npm:^6.5.1"
@@ -11274,6 +11275,13 @@ __metadata:
   bin:
     cdk: bin/cdk
   checksum: 4b5d9354957d86db3baf59b8d33b419a40db30b08025e481f33e35139b8d263fa377665190c9a16c33d420873747cc20592fead3572530314320ae446f797fcf
+  languageName: node
+  linkType: hard
+
+"aws-jwt-verify@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "aws-jwt-verify@npm:4.0.1"
+  checksum: 14fc7e5e055eb917821385d49e688b63f1559253dfd0454afe40aaa6d04767a3c41b37ba78b160395fde5a6a04ff73868be4556702ecb0750c78eaaba235ae72
   languageName: node
   linkType: hard
 
@@ -22249,6 +22257,7 @@ __metadata:
     eslint-plugin-prettier: "npm:^5.1.3"
     express: "npm:^4.18.3"
     express-session: "npm:^1.18.0"
+    idtoken-verifier: "npm:^2.2.4"
     jest: "npm:^29.7.0"
     jest-coverage-badges: "npm:^1.1.2"
     memorystore: "npm:^1.6.7"

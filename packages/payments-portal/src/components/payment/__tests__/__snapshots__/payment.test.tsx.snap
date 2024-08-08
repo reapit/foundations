@@ -451,6 +451,23 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
                       classname=""
                       disabled="false"
                       id="test-static-id"
+                      name="customerPhone"
+                      placeholder="Phone Number here"
+                      type="tel"
+                    />
+                    <mock-styled.label
+                      htmlfor="test-static-id"
+                    >
+                      Customer Phone Number
+                    </mock-styled.label>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div>
+                    <mock-styled.input
+                      classname=""
+                      disabled="false"
+                      id="test-static-id"
                       name="address1"
                       placeholder="Address First Line"
                       type="text"
@@ -2393,6 +2410,23 @@ exports[`PaymentPage should match a snapshot when has a session and data 1`] = `
                     htmlfor="test-static-id"
                   >
                     Customer Email
+                  </mock-styled.label>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.input
+                    classname=""
+                    disabled="false"
+                    id="test-static-id"
+                    name="customerPhone"
+                    placeholder="Phone Number here"
+                    type="tel"
+                  />
+                  <mock-styled.label
+                    htmlfor="test-static-id"
+                  >
+                    Customer Phone Number
                   </mock-styled.label>
                 </mock-styled.div>
               </mock-styled.div>

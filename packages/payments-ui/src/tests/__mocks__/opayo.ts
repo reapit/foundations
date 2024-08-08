@@ -9,6 +9,7 @@ export const mockMerchantKey: MerchantKey = {
 export const mockCardDetails: CardDetails = {
   customerFirstName: 'first name',
   customerLastName: 'last name',
+  customerPhone: 'MOCK_PHONE',
   address1: 'MOCK_ADDESS',
   city: 'MOCK_CITY',
   postalCode: 'MOCK_PC',

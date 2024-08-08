@@ -74,6 +74,23 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
                 classname=""
                 disabled="false"
                 id="test-static-id"
+                name="customerPhone"
+                placeholder="Phone Number here"
+                type="tel"
+              />
+              <mock-styled.label
+                htmlfor="test-static-id"
+              >
+                Customer Phone Number
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                classname=""
+                disabled="false"
+                id="test-static-id"
                 name="address1"
                 placeholder="Address First Line"
                 type="text"
@@ -1636,6 +1653,23 @@ exports[`PaymentForm should match a snapshot when payment is awaitingPosting 1`]
               htmlfor="test-static-id"
             >
               Customer Email
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              classname=""
+              disabled="false"
+              id="test-static-id"
+              name="customerPhone"
+              placeholder="Phone Number here"
+              type="tel"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Customer Phone Number
             </mock-styled.label>
           </mock-styled.div>
         </mock-styled.div>
@@ -3273,6 +3307,23 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
                 classname=""
                 disabled="false"
                 id="test-static-id"
+                name="customerPhone"
+                placeholder="Phone Number here"
+                type="tel"
+              />
+              <mock-styled.label
+                htmlfor="test-static-id"
+              >
+                Customer Phone Number
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                classname=""
+                disabled="false"
+                id="test-static-id"
                 name="address1"
                 placeholder="Address First Line"
                 type="text"
@@ -4835,6 +4886,23 @@ exports[`PaymentForm should match a snapshot when payment is pending 1`] = `
               htmlfor="test-static-id"
             >
               Customer Email
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              classname=""
+              disabled="false"
+              id="test-static-id"
+              name="customerPhone"
+              placeholder="Phone Number here"
+              type="tel"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Customer Phone Number
             </mock-styled.label>
           </mock-styled.div>
         </mock-styled.div>
@@ -6537,6 +6605,23 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
                 classname=""
                 disabled="false"
                 id="test-static-id"
+                name="customerPhone"
+                placeholder="Phone Number here"
+                type="tel"
+              />
+              <mock-styled.label
+                htmlfor="test-static-id"
+              >
+                Customer Phone Number
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                classname=""
+                disabled="false"
+                id="test-static-id"
                 name="address1"
                 placeholder="Address First Line"
                 type="text"
@@ -8133,6 +8218,23 @@ exports[`PaymentForm should match a snapshot when payment is rejected 1`] = `
               htmlfor="test-static-id"
             >
               Customer Email
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              classname=""
+              disabled="false"
+              id="test-static-id"
+              name="customerPhone"
+              placeholder="Phone Number here"
+              type="tel"
+            />
+            <mock-styled.label
+              htmlfor="test-static-id"
+            >
+              Customer Phone Number
             </mock-styled.label>
           </mock-styled.div>
         </mock-styled.div>

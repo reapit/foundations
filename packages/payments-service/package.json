@@ -46,6 +46,7 @@
     "dayjs": "^1.11.10",
     "express": "^4.18.3",
     "express-session": "^1.18.0",
+    "idtoken-verifier": "^2.2.4",
     "memorystore": "^1.6.7",
     "morgan": "^1.10.0",
     "rxjs": "^7.8.1",

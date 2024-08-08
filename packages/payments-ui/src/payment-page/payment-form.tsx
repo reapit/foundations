@@ -43,6 +43,7 @@ export interface CachedTransaction {
 export interface CardDetails {
   customerFirstName: string
   customerLastName: string
+  customerPhone: string
   address1: string
   city: string
   postalCode: string
@@ -156,6 +157,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
     defaultValues: {
       customerFirstName: forename,
       customerLastName: surname,
+      customerPhone: '',
       address1,
       city: primaryAddress?.line3 ?? primaryAddress?.line4 ?? '',
       postalCode: primaryAddress?.postcode ?? '',
@@ -246,6 +248,16 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
                 placeholder="Email here"
               />
               {errors.email?.message && <InputError message={errors.email.message} />}
+            </InputWrap>
+            <InputWrap>
+              <InputGroup
+                {...register('customerPhone')}
+                disabled={Boolean(cachedTransaction)}
+                type="tel"
+                label="Customer Phone Number"
+                placeholder="Phone Number here"
+              />
+              {errors.customerPhone?.message && <InputError message={errors.customerPhone.message} />}
             </InputWrap>
             <InputWrap>
               <InputGroup

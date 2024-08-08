@@ -1,5 +1,4 @@
 import React, { useState, useEffect, FC, Dispatch, SetStateAction } from 'react'
-import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
 import { elFadeIn, Loader, PersistentNotification } from '@reapit/elements'
@@ -27,6 +26,7 @@ import {
 } from '@reapit/use-reapit-data'
 import { useConfigState } from '../../core/use-config-state'
 import dayjs from 'dayjs'
+import { useReapitConnect } from '@reapit/connect-session'
 
 export interface PaymentProps {
   paymentRequest: ReapitGetState<PaymentModel>
@@ -112,8 +112,7 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { config, configLoading } = useConfigState()
   const configNotConfigured = !config?.isConfigured
-
-  const clientCode = connectSession?.loginIdentity?.clientId
+  const clientCode = config?.clientCode ?? ''
   const idToken = connectSession?.idToken ?? ''
 
   const [payment, paymentLoading, , refreshPayment] = paymentRequest
@@ -135,8 +134,8 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
     action: updateActions[UpdateActionNames.submitPrivatePaymentReceipt],
     method: 'POST',
     headers: {
-      Authorization: idToken,
-      'reapit-customer': clientCode as string,
+      'reapit-customer': clientCode,
+      'reapit-id-token': idToken,
       'reapit-app-id': process.env.appId,
     },
     uriParams: {
@@ -162,8 +161,8 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
     method: 'POST',
     returnType: UpdateReturnTypeEnum.RESPONSE,
     headers: {
-      Authorization: idToken,
-      'reapit-customer': clientCode as string,
+      'reapit-customer': clientCode,
+      'reapit-id-token': idToken,
       'reapit-app-id': process.env.appId,
     },
   })
@@ -174,13 +173,13 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
     method: 'POST',
     returnType: UpdateReturnTypeEnum.RESPONSE,
     headers: {
-      Authorization: idToken,
-      'reapit-customer': clientCode as string,
+      'reapit-customer': clientCode,
+      'reapit-id-token': idToken,
       'reapit-app-id': process.env.appId,
     },
   })
 
-  useEffect(handleGetMerchantKey(getMerchantKey, idToken, config), [config, idToken])
+  useEffect(handleGetMerchantKey(getMerchantKey, idToken, config), [idToken, config])
 
   useEffect(handleMerchantKeyRefresh(merchantKey, getMerchantKey, payment, config), [merchantKey, payment, config])
 

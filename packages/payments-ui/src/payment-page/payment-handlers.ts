@@ -77,7 +77,8 @@ export const handleCreateTransaction =
   ) =>
   async (result: any) => {
     const { payment, merchantKey, transactionSubmit } = paymentProvider
-    const { customerFirstName, customerLastName, address1, city, postalCode, country } = cardDetails
+    const { customerFirstName, customerLastName, customerPhone, email, address1, city, postalCode, country } =
+      cardDetails
     const { amount, description, id } = payment
     const localhost = 'http://localhost:8080'
     const dev = 'https://payments.dev.paas.reapit.cloud'
@@ -104,11 +105,21 @@ export const handleCreateTransaction =
           applyAvsCvcCheck: 'UseMSPSetting',
           customerFirstName,
           customerLastName,
+          customerEmail: email,
+          customerPhone,
           billingAddress: {
             address1,
             city,
             postalCode,
             country,
+          },
+          shippingDetails: {
+            recipientFirstName: customerFirstName,
+            recipientLastName: customerLastName,
+            shippingAddress1: address1,
+            shippingCity: city,
+            shippingPostalCode: postalCode,
+            shippingCountry: country,
           },
           entryMethod: 'Ecommerce',
           strongCustomerAuthentication: {

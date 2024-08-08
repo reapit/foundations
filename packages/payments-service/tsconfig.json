@@ -21,7 +21,7 @@
       "@reapit/connect-session-server": ["../connect-session-server/src"]
     }
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "../ts-scripts/src/authorizer"],
   "exclude": [
     "./public",
     "./dist",
