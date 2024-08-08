@@ -6,9 +6,13 @@ export const authorizerHandler =
   (customChallenge?: (event: APIGatewayTokenAuthorizerEvent, decodedToken: jwt.Jwt) => Promise<void | Error>) =>
   async (event: APIGatewayTokenAuthorizerEvent): Promise<APIGatewayAuthorizerResult> => {
     try {
-      if (!event['headers'].authorization) throw new Error('No authorization header provided')
+      const headers = event['headers']
 
-      const token = event['headers'].authorization.split('Bearer ')[1]
+      const authorization = headers.authorization || headers.Authorization
+
+      if (!authorization) throw new Error('No authorization header provided')
+
+      const token = authorization.split('Bearer ')[1]
 
       if (!token) throw new Error('Token is not a bearer token')
 
