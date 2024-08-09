@@ -11,6 +11,7 @@ import decode from 'jwt-decode'
 import { DecodedToken } from '../utils'
 import { v4 as uuid } from 'uuid'
 import { TextEncoder } from 'text-encoding'
+import { Sha256 } from '@aws-crypto/sha256-browser'
 
 type BasePayload = {
   redirect_uri: string
@@ -126,7 +127,9 @@ export class ReapitConnectBrowserSession {
   private async encryptCodeVerifier(code_verifier: string): Promise<string> {
     const encoder = new TextEncoder()
     const data = encoder.encode(code_verifier)
-    const digest = await window.crypto.subtle.digest('SHA-256', data)
+    const hash = new Sha256()
+    hash.update(data)
+    const digest = await hash.digest()
 
     return btoa(String.fromCharCode.apply(null, [...new Uint8Array(digest)]))
       .replace(/\+/g, '-')
