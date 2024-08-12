@@ -1020,6 +1020,9 @@ export interface ProductModelPagedResult {
     [name: string]: PagingLinkModel
   }
 }
+export interface Products {
+  externalId?: string[]
+}
 /**
  * Outward representation of JWK item
  */
