@@ -4,6 +4,7 @@ import {
   CreateTransactionModel,
   EntryMethodType,
   PaymentMethod,
+  ShippingDetails,
   StrongCustomerAuthentication,
   ThreeDSecureType,
   TransactionType,
@@ -42,9 +43,21 @@ export class TransactionDto implements CreateTransactionModel {
   @IsNotEmpty()
   customerLastName: string
 
+  @IsString()
+  @IsNotEmpty()
+  customerEmail: string
+
+  @IsString()
+  @IsNotEmpty()
+  customerPhone: string
+
   @IsObject()
   @IsNotEmpty()
   billingAddress: BillingAddress
+
+  @IsObject()
+  @IsNotEmpty()
+  shippingDetails: ShippingDetails
 
   @IsEnum(EntryMethodType)
   @IsNotEmpty()

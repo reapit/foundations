@@ -4,6 +4,7 @@ import { ClientConfigPublicHeaders } from './dto'
 import { ClientConfigModel } from './model'
 import { ClientConfigProvider } from './provider'
 
+// Client code obtained from header validated at API gateway level against validated id token so safe to use
 @Controller('config/public')
 @UseGuards(SessionGuard)
 export class ClientConfigPublicController {

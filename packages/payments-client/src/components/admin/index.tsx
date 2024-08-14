@@ -122,7 +122,6 @@ export const AdminPage: FC = () => {
   const { Modal: FilePreviewModal, openModal: openFilePreviewModal, closeModal: closeFilePreviewModal } = useModal()
   const { config, refreshConfig, clearConfigCache, configLoading } = useConfigState()
   const configNotConfigured = !config?.isConfigured
-
   const clientCode = connectSession?.loginIdentity?.clientId ?? ''
   const idToken = connectSession?.idToken ?? ''
 
@@ -141,8 +140,8 @@ export const AdminPage: FC = () => {
     action: updateActions[UpdateActionNames.paymentsClientConfigDelete],
     method: 'DELETE',
     headers: {
-      Authorization: idToken,
       'reapit-customer': clientCode,
+      'reapit-id-token': idToken,
       'reapit-app-id': process.env.appId,
     },
     uriParams: {
@@ -155,8 +154,8 @@ export const AdminPage: FC = () => {
     action: updateActions[UpdateActionNames.paymentsClientConfigCreate],
     method: 'POST',
     headers: {
-      Authorization: idToken,
       'reapit-customer': clientCode,
+      'reapit-id-token': idToken,
       'reapit-app-id': process.env.appId,
     },
     uriParams: {
@@ -169,8 +168,8 @@ export const AdminPage: FC = () => {
     action: updateActions[UpdateActionNames.paymentsClientConfigUpdate],
     method: 'PATCH',
     headers: {
-      Authorization: idToken,
       'reapit-customer': clientCode,
+      'reapit-id-token': idToken,
       'reapit-app-id': process.env.appId,
     },
     uriParams: {
