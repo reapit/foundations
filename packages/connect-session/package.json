@@ -37,6 +37,7 @@
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
   },
   "dependencies": {
+    "@aws-crypto/sha256-browser": "^5.2.0",
     "axios": "^1.6.8",
     "base-64": "^1.0.0",
     "idtoken-verifier": "^2.2.4",
