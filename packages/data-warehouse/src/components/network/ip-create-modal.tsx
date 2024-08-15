@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { Button, ButtonGroup, elMb11, FormLayout, InputError, InputGroup, InputWrap } from '@reapit/elements'
+import { Button, ButtonGroup, elMb11, FormLayout, InputError, InputGroup, InputWrapFull } from '@reapit/elements'
 import { IpsModel } from '../../types/network'
 import { useNetworkState } from './use-network-state'
 
@@ -66,18 +66,18 @@ export const IpCreateModal: FC<IpCreateModalProps> = ({ closeModal }) => {
   return (
     <form onSubmit={handleSubmit(handleCreateIp(createIp, refreshIps, closeModal))}>
       <FormLayout className={elMb11}>
-        <InputWrap>
+        <InputWrapFull>
           <InputGroup
             {...register('ipAddress')}
             placeholder="Enter IP address in IPv4 notation"
             label="Whitelisted IP Address"
           />
           {errors.ipAddress?.message && <InputError message={errors.ipAddress.message} />}
-        </InputWrap>
-        <InputWrap>
+        </InputWrapFull>
+        <InputWrapFull>
           <InputGroup {...register('cidr')} placeholder="Enter optional CIDR suffix e.g. 32" label="CIDR Suffix" />
           {errors.cidr?.message && <InputError message={errors.cidr.message} />}
-        </InputWrap>
+        </InputWrapFull>
       </FormLayout>
       <ButtonGroup alignment="right">
         <Button intent="default" type="button" onClick={closeModal}>
