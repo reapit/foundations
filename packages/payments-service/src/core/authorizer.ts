@@ -1,6 +1,6 @@
 import { connectSessionVerifyDecodeIdTokenWithPublicKeys } from '@reapit/connect-session'
 import { APIGatewayTokenAuthorizerEvent } from 'aws-lambda'
-import { authorizerHandler } from './../../../ts-scripts/src/authorizer/index'
+import { authorizerHandler } from '../../../ts-scripts/src/authorizer/authorizer-handler'
 import { Jwt } from 'jsonwebtoken'
 
 const mandatoryScopes = ['agencyCloud/payments.write', 'agencyCloud/payments.read', 'agencyCloud/properties.read']

@@ -1,6 +1,6 @@
 export * from './components/api-gateway-api'
 export * from './components/codebuild-project'
-export * from './components/cognito-authorizer'
+export * from './components/auth0-authorizer'
 export * from './components/ddb-table'
 export * from './components/iam-policy'
 export * from './components/lambda-function'

@@ -17,7 +17,7 @@ export const createStack = async () => {
     accountId: config.AWS_ACCOUNT_ID,
   })
 
-  const api = createApi(stack, 'apigateway', undefined)
+  const api = createApi({ scope: stack, name: 'apigateway', })
 
   const dynamodb = createTable(stack, config.DYNAMO_DB_API_KEY_TABLE_NAME, 'id', [
     {
@@ -55,16 +55,15 @@ export const createStack = async () => {
   dynamodb.grantReadWriteData(httpLambda)
   dynamodb.grantReadWriteData(invokeLambda)
 
-  addLambdaToApi(
-    stack,
+  addLambdaToApi({
+    scope: stack,
     api,
-    httpLambda,
-    {
+    lambdaFunction: httpLambda,
+    routes: {
       path: '{proxy+}',
       method: 'ANY',
     },
-    // @ts-ignore
-    config.AUTHORIZER_ID as string,
-  )
+    authorizer: true,
+  })
   output(stack, 'invoke-arn', invokeLambda.functionArn)
 }

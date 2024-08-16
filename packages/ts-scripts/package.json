@@ -22,6 +22,7 @@
     "start": "echo '...skipping...'",
     "test": "echo '...skipping...'",
     "build": "echo '...skipping...'",
+    "build-authorizer": "tsup",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
     "release": "echo '...skipping...'",
@@ -103,5 +104,8 @@
     "vite-plugin-node-polyfills": "^0.21.0",
     "vite-plugin-pwa": "^0.19.5",
     "vite-plugin-top-level-await": "^1.4.1"
+  },
+  "devDependencies": {
+    "tsup": "^8.2.4"
   }
 }

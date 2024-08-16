@@ -12,7 +12,7 @@ export const createStack = async () => {
     accountId: config.AWS_ACCOUNT_ID,
   })
 
-  const allowedOrigins = [
+  const allowOrigins = [
     'https://payments.dev.paas.reapit.cloud',
     'https://payments.prod.paas.reapit.cloud',
     'https://payments-portal.dev.paas.reapit.cloud',
@@ -20,20 +20,26 @@ export const createStack = async () => {
   ]
 
   if (config.APP_ENV !== 'production') {
-    allowedOrigins.push('http://localhost:8080')
+    allowOrigins.push('http://localhost:8080')
   }
 
-  const api = createApi(stack, 'api', undefined, true, allowedOrigins, [
-    'Content-Type',
-    'Authorization',
-    'X-Api-Key',
-    'api-version',
-    'if-match',
-    'reapit-customer',
-    'reapit-app-id',
-    'reapit-session',
-    'reapit-id-token',
-  ])
+  const api = createApi({
+    scope: stack,
+    name: 'api',
+    allowCors: true,
+    allowOrigins,
+    allowHeaders: [
+      'Content-Type',
+      'Authorization',
+      'X-Api-Key',
+      'api-version',
+      'if-match',
+      'reapit-customer',
+      'reapit-app-id',
+      'reapit-session',
+      'reapit-id-token',
+    ],
+  })
 
   const paymentsSessionTable = createTable(stack, config.DYNAMO_DB_PAYMENTS_SESSION_TABLE_NAME, 'id')
   const paymentsConfigTable = createTable(stack, config.DYNAMO_DB_PAYMENTS_CONFIG_TABLE_NAME, 'clientCode')

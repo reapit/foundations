@@ -68,7 +68,7 @@ export const createStack = async () => {
     accountId: config.USERCODE_ACCOUNT_ID,
   })
 
-  const api = createApi(stack, 'apigateway', undefined)
+  const api = createApi({ scope: stack, name: 'apigateway' })
   const vpc = createVpc(stack, 'vpc')
   const buckets = createS3Buckets(stack, usercodeStack, envStage)
   const queues = createSqsQueues(stack)
@@ -205,14 +205,13 @@ export const createStack = async () => {
     if (options.queues) {
       options.queues.forEach((queue) => addLambdaSQSTrigger(lambda, queue as Queue))
     } else if (options.api) {
-      addLambdaToApi(
-        stack,
+      addLambdaToApi({
+        scope: stack,
         api,
-        lambda,
-        options.api.routes,
-        // @ts-ignore
-        options.api.authorizer ? (config.AUTHORIZER_ID as string) : undefined,
-      )
+        lambdaFunction: lambda,
+        routes: options.api.routes,
+        authorizer: options.api.authorizer,
+      })
     } else if (options.topic) {
       addLambdaSNSTrigger(lambda, options.topic)
     }

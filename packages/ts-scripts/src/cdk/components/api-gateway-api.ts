@@ -1,15 +1,28 @@
-import cdk from 'aws-cdk-lib'
-import { aws_lambda as lambda, aws_apigateway as apigateway } from 'aws-cdk-lib'
+import { Stack, Lazy, aws_lambda as lambda, aws_apigateway as apigateway } from 'aws-cdk-lib'
 
-import { getAuthorizer } from './cognito-authorizer'
+import { getAuthorizer } from './auth0-authorizer'
 
-export const createApi = (
-  scope: cdk.Stack,
-  name: string,
-  lambdaFunction?: lambda.Function,
-  allowCors: boolean = true,
-  allowOrigins: string[] = ['*'],
-  allowHeaders: string[] = [
+type CreateApiProps = {
+  scope: Stack
+  name: string
+  lambdaFunction?: lambda.Function
+  allowCors?: boolean
+  allowOrigins?: string[]
+  allowHeaders?: string[]
+}
+
+/**
+ * Create API gateway
+ *
+ * @returns RestApi or LambdaApi
+ */
+export const createApi = ({
+  scope,
+  name,
+  lambdaFunction,
+  allowCors = true,
+  allowOrigins = ['*'],
+  allowHeaders = [
     'Content-Type',
     'Authorization',
     'X-Api-Key',
@@ -17,7 +30,7 @@ export const createApi = (
     'reapit-connect-token',
     'reapit-customer',
   ],
-): apigateway.RestApi | apigateway.LambdaRestApi => {
+}: CreateApiProps): apigateway.RestApi | apigateway.LambdaRestApi => {
   const defaultCorsPreflightOptions = allowCors
     ? {
         allowOrigins,
@@ -44,19 +57,38 @@ export type LambdaRoute = {
   method: string
 }
 
-export const addLambdaToApi = (
-  scope: cdk.Stack,
-  api: apigateway.RestApi,
-  lambdaFunction: lambda.Function,
-  routes: LambdaRoute | LambdaRoute[],
-  cognitoUserPoolId?: string,
-) => {
+export type AddLambdaToApiProps = {
+  scope: Stack
+  api: apigateway.RestApi
+  lambdaFunction: lambda.Function
+  routes: LambdaRoute | LambdaRoute[]
+  /**
+   * Add a authorizer to the route.
+   *
+   * You can provide a route to your custom lambda or use the default which has no scope checking
+   */
+  authorizer?: boolean | string
+}
+
+/**
+ * Add a Lambda route method to an API gateway
+ *
+ */
+export const addLambdaToApi = ({
+  scope,
+  api,
+  lambdaFunction,
+  routes,
+  authorizer: authorizerOption = false,
+}: AddLambdaToApiProps) => {
   const routesToAdd = Array.isArray(routes) ? routes : [routes]
+
+  const authorizer = authorizerOption ? getAuthorizer({ scope, name: 'test' }) : undefined
 
   routesToAdd.forEach((route) => {
     api.root.resourceForPath(route.path).addMethod(route.method, new apigateway.LambdaIntegration(lambdaFunction), {
-      authorizer: cognitoUserPoolId ? getAuthorizer(scope, cognitoUserPoolId) : undefined,
-      authorizationType: cognitoUserPoolId ? apigateway.AuthorizationType.COGNITO : undefined,
+      authorizer: authorizer,
+      authorizationType: authorizer ? apigateway.AuthorizationType.CUSTOM : undefined,
     })
   })
 }

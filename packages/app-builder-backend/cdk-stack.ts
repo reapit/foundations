@@ -35,14 +35,14 @@ export const createStack = () => {
     SUBDOMAIN_IDX_NAME,
   })
   appsTable.grantReadWriteData(lambdaFunction)
-  const api = createApi(
-    stack,
-    'api',
+  const api = createApi({
+    scope: stack,
+    name: 'api',
     lambdaFunction,
-    true,
-    ['*'],
-    ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version', 'reapit-connect-token', 'reapit-customer', 'app-id'],
-  )
+    allowCors: true,
+    allowOrigins: ['*'],
+    allowHeaders: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version', 'reapit-connect-token', 'reapit-customer', 'app-id'],
+  })
   output(stack, 'api-url', api.url)
 }
 

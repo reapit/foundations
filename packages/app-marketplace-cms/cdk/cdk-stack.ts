@@ -11,14 +11,13 @@ export const createStack = async () => {
     accountId: config.AWS_ACCOUNT_ID,
   })
 
-  const api = createApi(
-    stack,
-    'apigateway',
-    undefined,
-    true,
-    ['*'],
-    ['Content-Type', 'Authorization', 'api-version', 'reapit-connect-token', 'reapit-customer', 'app-id'],
-  )
+  const api = createApi({
+    scope: stack,
+    name: 'apigateway',
+    allowCors: true,
+    allowOrigins: ['*'],
+    allowHeaders: ['Content-Type', 'Authorization', 'api-version', 'reapit-connect-token', 'reapit-customer', 'app-id'],
+  })
 
   const dynamodb = createTable(stack, config.DYNAMO_MARKETPLACE_CMS_TABLE_NAME, 'id')
   const env = {
@@ -39,19 +38,23 @@ export const createStack = async () => {
   )
   dynamodb.grantReadWriteData(httpLambda)
 
-  addLambdaToApi(
-    stack,
+  addLambdaToApi({
+    scope: stack,
     api,
-    httpLambda,
-    {
+    lambdaFunction: httpLambda,
+    routes: {
       path: '/cms/{proxy+}',
       method: 'ANY',
     },
-    // @ts-ignore
-    config.AUTHORIZER_ID as string,
-  )
-  addLambdaToApi(stack, api, httpLambda, {
-    path: '/',
-    method: 'ANY',
+    authorizer: true,
+  })
+  addLambdaToApi({
+    scope: stack,
+    api,
+    lambdaFunction: httpLambda,
+    routes: {
+      path: '/',
+      method: 'ANY',
+    },
   })
 }
