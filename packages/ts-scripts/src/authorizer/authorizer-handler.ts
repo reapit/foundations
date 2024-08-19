@@ -12,9 +12,7 @@ export const authorizerHandler =
 
       if (!authorization) throw new Error('No authorization header provided')
 
-      const token = authorization.split('Bearer ')[1]
-
-      if (!token) throw new Error('Token is not a bearer token')
+      const token = authorization.replace('Bearer ', '')
 
       const decodedToken = jwt.decode(token, { complete: true })
 
