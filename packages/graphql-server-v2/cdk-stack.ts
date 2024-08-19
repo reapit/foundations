@@ -2,7 +2,7 @@
 import 'source-map-support/register'
 import path from 'path'
 import { execSync } from 'child_process'
-import { createBaseStack } from '@reapit/ts-scripts/src/cdk'
+import { addLambdaToApi, createBaseStack } from '@reapit/ts-scripts/src/cdk'
 import config from './config.json'
 import { aws_apigateway, aws_ec2, aws_lambda, aws_logs, Duration } from 'aws-cdk-lib'
 
@@ -60,17 +60,23 @@ const createStack = () => {
     rootResourceId: config.ROOT_RESOURCE_ID,
   })
 
-  const lambdaInt = new aws_apigateway.LambdaIntegration(lambdaFunction)
-  const resource = api.root.resourceForPath('graphql')
-
-  resource.addMethod('ANY', lambdaInt, {
-    authorizer: {
-      authorizationType: aws_apigateway.AuthorizationType.CUSTOM,
-      authorizerId: config.AUTHORIZER_ID,
-    },
+  addLambdaToApi({
+    // @ts-ignore
+    api: api,
+    scope: stack,
+    lambdaFunction,
+    routes: [
+      {
+        path: 'graphql',
+        method: 'ANY',
+      },
+      {
+        path: 'graphql',
+        method: 'OPTIONS',
+      },
+    ],
+    authorizer: true,
   })
-
-  resource.addMethod('OPTIONS', lambdaInt)
 }
 
 createStack()
