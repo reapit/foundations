@@ -941,6 +941,17 @@ export interface PagingLinkModel {
   href?: string
 }
 /**
+ * Model to update an existing user via patch
+ * example:
+ * [object Object]
+ */
+export interface PatchUserModel {
+  /**
+   * The new name of the user
+   */
+  name?: string
+}
+/**
  * Platform configuration information for a organisation
  */
 export interface PlatformConfigModel {
@@ -1019,6 +1030,9 @@ export interface ProductModelPagedResult {
   _links?: {
     [name: string]: PagingLinkModel
   }
+}
+export interface Products {
+  externalId?: string[]
 }
 /**
  * Outward representation of JWK item
