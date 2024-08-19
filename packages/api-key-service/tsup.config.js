@@ -5,7 +5,7 @@ import config from './config.json'
 const pkgJson = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
 
 export default defineConfig({
-  entry: ['src/http.ts'],
+  entry: ['src/http.ts', 'src/invoke.ts'],
   target: 'node18',
   clean: true,
   minify: config.NODE_ENV === 'production',

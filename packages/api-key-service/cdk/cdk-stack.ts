@@ -42,14 +42,14 @@ export const createStack = async () => {
     stack,
     'api-key-http',
     path.resolve('bundle.zip'),
-    'packages/api-key-service/src/http.handler',
+    'packages/api-key-service/dist/http.handler',
     env,
   )
   const invokeLambda = createFunction(
     stack,
     'api-key-invoke',
     path.resolve('bundle.zip'),
-    'packages/api-key-service/src/invoke.invokeAPiKeyVerify',
+    'packages/api-key-service/dist/invoke.invokeAPiKeyVerify',
     env,
   )
   dynamodb.grantReadWriteData(httpLambda)
