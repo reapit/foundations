@@ -1,6 +1,6 @@
 import { Stack, Lazy, aws_lambda as lambda, aws_apigateway as apigateway } from 'aws-cdk-lib'
 
-import { getAuthorizer } from './auth0-authorizer'
+import { getAuthorizer, AuthorizerEnv } from './auth0-authorizer'
 
 type CreateApiProps = {
   scope: Stack
@@ -67,7 +67,7 @@ export type AddLambdaToApiProps = {
    *
    * You can provide a route to your custom lambda or use the default which has no scope checking
    */
-  authorizer?: boolean | string
+  authorizer?: false | AuthorizerEnv
 }
 
 /**
@@ -83,7 +83,7 @@ export const addLambdaToApi = ({
 }: AddLambdaToApiProps) => {
   const routesToAdd = Array.isArray(routes) ? routes : [routes]
 
-  const authorizer = authorizerOption ? getAuthorizer({ scope, name: 'test' }) : undefined
+  const authorizer = authorizerOption ? getAuthorizer({ scope, name: 'test', env: authorizerOption }) : undefined
 
   routesToAdd.forEach((route) => {
     api.root.resourceForPath(route.path).addMethod(route.method, new apigateway.LambdaIntegration(lambdaFunction), {

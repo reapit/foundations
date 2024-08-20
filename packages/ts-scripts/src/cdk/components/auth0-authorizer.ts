@@ -6,13 +6,26 @@ import { execSync } from 'child_process'
 
 const authorizerSingleton: Record<string, aws_apigateway.RequestAuthorizer> = {}
 
+export type AuthorizerEnv =
+  | {
+      ISSUERS: string[]
+      [s: string]: any
+    }
+  | {
+      ISSUERS: string[]
+      COGNITO_CLIENT_ID: string
+      COGNITO_USER_POOL: string
+      [s: string]: any
+      /**
+       * If using a custom authorizer, add the path to your file here. Make sure to curry the authorizer handler from ts-scripts
+       */
+      filePath?: string
+    }
+
 export type GetAuthorizerProps = {
   scope: cdk.Stack
   name: string
-  path?: string
-  env?: {
-    [s: string]: any,
-  }
+  env: AuthorizerEnv
 }
 
 /**
@@ -21,12 +34,8 @@ export type GetAuthorizerProps = {
  *
  * @returns
  */
-export const getAuthorizer = ({
-  scope,
-  name,
-  path: customPath,
-  env,
-}: GetAuthorizerProps): aws_apigateway.RequestAuthorizer => {
+export const getAuthorizer = ({ scope, name, env }: GetAuthorizerProps): aws_apigateway.RequestAuthorizer => {
+  const customPath = env.path
   const path = customPath ?? 'packages/ts-scripts/src/authorizer/default-handler.handler'
 
   // build the default authorizer script if default is to be used
@@ -43,7 +52,7 @@ export const getAuthorizer = ({
     path,
     {
       ...env,
-      CONNECT_OAUTH_URL: "https://connect.dev.paas.reapit.cloud",
+      ISSUERS: env?.ISSUERS.join(','),
     },
     undefined,
     undefined,
