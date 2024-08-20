@@ -43,9 +43,11 @@ const createStack = () => {
   const handler = 'packages/graphql-server-v2/src/index.handler'
   const entrypoint = path.resolve(__dirname, 'bundle.zip')
 
+  const { ISSUERS, ...rest } = config
+
   const lambdaFunction = new aws_lambda.Function(stack, 'graphql', {
     timeout: Duration.seconds(30),
-    environment: config,
+    environment: rest,
     memorySize: 1024,
     handler,
     vpc,
@@ -75,7 +77,11 @@ const createStack = () => {
         method: 'OPTIONS',
       },
     ],
-    authorizer: true,
+    authorizer: {
+      ISSUERS,
+      COGNITO_CLIENT_ID: config.COGNITO_CLIENT_ID,
+      COGNITO_USER_POOL: config.CONNECT_USER_POOL,
+    },
   })
 }
 
