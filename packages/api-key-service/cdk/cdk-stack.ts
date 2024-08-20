@@ -33,8 +33,11 @@ export const createStack = async () => {
       partitionKeyName: 'email',
     },
   ])
+
+  const { ISSUERS, ...rest } = config
+
   const env = {
-    ...config,
+    ...rest,
     DYNAMO_DB_API_KEY_TABLE_NAME: dynamodb.tableName,
   }
 
@@ -63,7 +66,11 @@ export const createStack = async () => {
       path: '{proxy+}',
       method: 'ANY',
     },
-    authorizer: true,
+    authorizer: {
+      COGNITO_CLIENT_ID: config.COGNITO_CLIENT_ID,
+      COGNITO_USER_POOL: config.CONNECT_USER_POOL,
+      ISSUERS,
+    },
   })
   output(stack, 'invoke-arn', invokeLambda.functionArn)
 }
