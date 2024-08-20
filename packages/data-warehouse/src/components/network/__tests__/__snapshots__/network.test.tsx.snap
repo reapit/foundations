@@ -36,7 +36,7 @@ exports[`Network should match a snapshot with no rules 1`] = `
             New Network Rule
           </mock-styled.button>
           <mock-styled.button
-            classname="el-intent-primary"
+            classname="el-mb5 el-intent-primary"
             disabled="false"
           >
             <mock-styled.div />
@@ -156,7 +156,7 @@ exports[`Network should match a snapshot with no rules 1`] = `
           New Network Rule
         </mock-styled.button>
         <mock-styled.button
-          classname="el-intent-primary"
+          classname="el-mb5 el-intent-primary"
           disabled="false"
         >
           <mock-styled.div />
@@ -333,7 +333,7 @@ exports[`Network should match a snapshot with rules 1`] = `
             New Network Rule
           </mock-styled.button>
           <mock-styled.button
-            classname="el-intent-primary"
+            classname="el-mb5 el-intent-primary"
             disabled="false"
           >
             <mock-styled.div />
@@ -611,7 +611,7 @@ exports[`Network should match a snapshot with rules 1`] = `
           New Network Rule
         </mock-styled.button>
         <mock-styled.button
-          classname="el-intent-primary"
+          classname="el-mb5 el-intent-primary"
           disabled="false"
         >
           <mock-styled.div />
@@ -946,7 +946,7 @@ exports[`Network should match a snapshot with rules loading 1`] = `
             New Network Rule
           </mock-styled.button>
           <mock-styled.button
-            classname="el-intent-primary"
+            classname="el-mb5 el-intent-primary"
             disabled="false"
           >
             <mock-styled.div />
@@ -1039,7 +1039,7 @@ exports[`Network should match a snapshot with rules loading 1`] = `
           New Network Rule
         </mock-styled.button>
         <mock-styled.button
-          classname="el-intent-primary"
+          classname="el-mb5 el-intent-primary"
           disabled="false"
         >
           <mock-styled.div />

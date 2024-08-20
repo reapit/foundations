@@ -36,7 +36,7 @@ exports[`NetworkPage renders and matches a snapshot 1`] = `
             New Network Rule
           </mock-styled.button>
           <mock-styled.button
-            classname="el-intent-primary"
+            classname="el-mb5 el-intent-primary"
             disabled="false"
           >
             <mock-styled.div />
@@ -156,7 +156,7 @@ exports[`NetworkPage renders and matches a snapshot 1`] = `
           New Network Rule
         </mock-styled.button>
         <mock-styled.button
-          classname="el-intent-primary"
+          classname="el-mb5 el-intent-primary"
           disabled="false"
         >
           <mock-styled.div />
