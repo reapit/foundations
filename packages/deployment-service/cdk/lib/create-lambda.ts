@@ -15,7 +15,7 @@ const filteredEnvironment = (obj: Record<string, string>) =>
     return acc
   }, {})
 
-  const { ISSUERS, ...rest } = config
+const { ISSUERS, ...rest } = config
 
 const fe = filteredEnvironment({
   ...rest,
