@@ -34,7 +34,7 @@ export const authorizerHandler =
         const cognitoVerified = await cognitoVerifier.verify(token)
 
         if (!cognitoVerified) throw new Error('Token failed to verify')
-      } else if (iss?.includes('auth0') && issuers.includes(iss)) {
+      } else if (iss && issuers.includes(iss)) {
         if (!decodedToken.payload.aud) throw new Error('Token does not contain an aud')
 
         const auth0Verifier = JwtRsaVerifier.create([
