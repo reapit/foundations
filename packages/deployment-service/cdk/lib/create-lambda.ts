@@ -1,7 +1,7 @@
 import { createFunction, Function, Vpc, Stack } from '@reapit/ts-scripts/src/cdk'
 import { aws_lambda as lambda } from 'aws-cdk-lib'
 
-import environment from '../../config.json'
+import config from '../../config.json'
 
 // lambda environment is limited to 4KB total, added this to make sure we don't go near that limit
 // if you have long things they should probably live in secrets
@@ -15,7 +15,11 @@ const filteredEnvironment = (obj: Record<string, string>) =>
     return acc
   }, {})
 
-const fe = filteredEnvironment(environment)
+  const { ISSUERS, ...rest } = config
+
+const fe = filteredEnvironment({
+  ...rest,
+})
 
 export const createLambda = ({
   stack,

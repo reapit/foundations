@@ -210,7 +210,11 @@ export const createStack = async () => {
         api,
         lambdaFunction: lambda,
         routes: options.api.routes,
-        authorizer: options.api.authorizer,
+        authorizer: {
+          ISSUERS: config.ISSUERS,
+          COGNITO_CLIENT_ID: config.COGNITO_CLIENT_ID,
+          COGNITO_USER_POOL: config.CONNECT_USER_POOL,
+        },
       })
     } else if (options.topic) {
       addLambdaSNSTrigger(lambda, options.topic)
