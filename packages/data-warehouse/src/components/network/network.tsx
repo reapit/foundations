@@ -37,7 +37,7 @@ export const Network: FC = () => {
         <Button className={elMb5} intent="primary" onClick={openModal}>
           New Network Rule
         </Button>
-        <Button intent="primary" onClick={openModalBi} disabled={modalIsOpenBi}>
+        <Button className={elMb5} intent="primary" onClick={openModalBi} disabled={modalIsOpenBi}>
           I Use PowerBI
         </Button>
         <Button
