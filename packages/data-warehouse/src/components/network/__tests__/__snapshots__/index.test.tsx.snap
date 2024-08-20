@@ -36,6 +36,13 @@ exports[`NetworkPage renders and matches a snapshot 1`] = `
             New Network Rule
           </mock-styled.button>
           <mock-styled.button
+            classname="el-intent-primary"
+            disabled="false"
+          >
+            <mock-styled.div />
+            I Use PowerBI
+          </mock-styled.button>
+          <mock-styled.button
             classname="el-mb5 el-intent-neutral"
           >
             <mock-styled.div />
@@ -147,6 +154,13 @@ exports[`NetworkPage renders and matches a snapshot 1`] = `
         >
           <mock-styled.div />
           New Network Rule
+        </mock-styled.button>
+        <mock-styled.button
+          classname="el-intent-primary"
+          disabled="false"
+        >
+          <mock-styled.div />
+          I Use PowerBI
         </mock-styled.button>
         <mock-styled.button
           classname="el-mb5 el-intent-neutral"

@@ -261,13 +261,6 @@ exports[`RulesTable should match a snapshot with rules 1`] = `
                     disabled="false"
                   >
                     <mock-styled.div />
-                    I Use PowerBI
-                  </mock-styled.button>
-                  <mock-styled.button
-                    classname="el-intent-primary"
-                    disabled="false"
-                  >
-                    <mock-styled.div />
                     Create Whitelisted IP
                   </mock-styled.button>
                 </mock-styled.div>
@@ -458,13 +451,6 @@ exports[`RulesTable should match a snapshot with rules 1`] = `
                 >
                   <mock-styled.div />
                   Disable Rule
-                </mock-styled.button>
-                <mock-styled.button
-                  classname="el-intent-primary"
-                  disabled="false"
-                >
-                  <mock-styled.div />
-                  I Use PowerBI
                 </mock-styled.button>
                 <mock-styled.button
                   classname="el-intent-primary"

@@ -4,6 +4,7 @@ import { RuleCreateModal } from './rule-create-modal'
 import {
   BodyText,
   Button,
+  ButtonGroup,
   elMb5,
   FlexContainer,
   Loader,
@@ -20,6 +21,7 @@ import { useNetworkState } from './use-network-state'
 
 export const Network: FC = () => {
   const { Modal, openModal, closeModal } = useModal()
+  const { Modal: ModalBi, openModal: openModalBi, closeModal: closeModalBi, modalIsOpen: modalIsOpenBi } = useModal()
   const { customerId, rulesLoading, rules, customersLoading } = useNetworkState()
 
   return (
@@ -34,6 +36,9 @@ export const Network: FC = () => {
         </SmallText>
         <Button className={elMb5} intent="primary" onClick={openModal}>
           New Network Rule
+        </Button>
+        <Button intent="primary" onClick={openModalBi} disabled={modalIsOpenBi}>
+          I Use PowerBI
         </Button>
         <Button
           className={elMb5}
@@ -58,6 +63,28 @@ export const Network: FC = () => {
       <PageContainer>
         <Title>IP Whitelisting</Title>
         <Modal title="Create Network Rule">{customerId && <RuleCreateModal closeModal={closeModal} />}</Modal>
+        <ModalBi title="Power BI Users">
+          <BodyText>
+            If you use PowerBI to access the Data Warehouse, there are around 200 IPs that could potentially be
+            whitelisted.
+          </BodyText>
+          <BodyText hasSectionMargin>
+            To avoid having to do this manually, just send us an email with the pre-filled subject line by clicking the
+            button below. One of our team will action the request as soon as possible and get back to you.
+          </BodyText>
+          <ButtonGroup alignment="right">
+            <Button intent="default" type="button" onClick={closeModalBi}>
+              Close
+            </Button>
+            <a
+              href={`mailto:dwh@reapitfoundations.zendesk.com?subject=Data%20Warehouse%20PowerBI%20Setup%20Request%20For%20CustomerId%20${customerId}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Button intent="primary">Open Mail Client</Button>
+            </a>
+          </ButtonGroup>
+        </ModalBi>
         <BodyText hasGreyText>
           By default, any external access to your Snowflake account is prohibited. You are required to setup IP policies
           to ensure access is only granted to addresses you trust. First, setup a network rule specific to a trusted
@@ -72,6 +99,7 @@ export const Network: FC = () => {
           your account configuration.
         </BodyText>
         <Subtitle>Network Rules</Subtitle>
+
         {rulesLoading || customersLoading ? (
           <Loader />
         ) : rules?._embedded?.length && customerId ? (
