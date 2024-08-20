@@ -19,9 +19,11 @@ export const createStack = async () => {
     allowHeaders: ['Content-Type', 'Authorization', 'api-version', 'reapit-connect-token', 'reapit-customer', 'app-id'],
   })
 
+  const { ISSUERS, ...rest } = config
+
   const dynamodb = createTable(stack, config.DYNAMO_MARKETPLACE_CMS_TABLE_NAME, 'id')
   const env = {
-    ...config,
+    ...rest,
     DYNAMO_MARKETPLACE_CMS_TABLE_NAME: dynamodb.tableName,
   }
 
@@ -46,7 +48,11 @@ export const createStack = async () => {
       path: '/cms/{proxy+}',
       method: 'ANY',
     },
-    authorizer: true,
+    authorizer: {
+      COGNITO_CLIENT_ID: config.COGNITO_CLIENT_ID,
+      COGNITO_USER_POOL: config.COGNITO_CLIENT_ID,
+      ISSUERS,
+    },
   })
   addLambdaToApi({
     scope: stack,
