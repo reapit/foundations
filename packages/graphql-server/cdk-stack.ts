@@ -38,13 +38,20 @@ const createStack = () => {
   const handler = 'packages/graphql-server/src/index.graphqlHandler'
   const entrypoint = path.resolve(__dirname, 'bundle.zip')
 
-  const lambdaFunction = createFunction(stack, 'graphql', entrypoint, handler, config)
+  const { ISSUERS, ...rest } = config
+
+  const lambdaFunction = createFunction(stack, 'graphql', entrypoint, handler, rest)
   const api = createApi({scope: stack, name: 'api', })
   addLambdaToApi({
     scope: stack,
     api,
     lambdaFunction,
     routes: { path: '/{proxy+}', method: 'ANY' },
+    authorizer: {
+      ISSUERS,
+      COGNITO_CLIENT_ID: config.COGNITO_CLIENT_ID,
+      COGNITO_USER_POOL: config.COGNITO_CLIENT_ID,
+    },
   })
   output(stack, 'api-url', api.url)
 }
