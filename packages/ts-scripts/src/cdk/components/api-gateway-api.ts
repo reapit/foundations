@@ -20,7 +20,7 @@ const resolveAuthorizer = (scope: cdk.Stack, {
   else if (authorizer) {
     return {
       authorizer,
-      authorizerType: apigateway.AuthorizationType.CUSTOM,
+      authorizationType: apigateway.AuthorizationType.CUSTOM,
     }
   }
 
