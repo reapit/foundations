@@ -1,6 +1,7 @@
 {
   "name": "@reapit/utils-authorizer",
   "packageManager": "yarn@4.0.1",
+  "main": "src/index.ts",
   "dependencies": {
     "aws-jwt-verify": "^4.0.1",
     "aws-lambda": "^1.0.7",

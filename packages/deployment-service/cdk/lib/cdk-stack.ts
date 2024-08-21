@@ -15,9 +15,10 @@ import {
   LambdaRoute,
   Queue,
   createSecret,
+  createFunction,
 } from '@reapit/ts-scripts/src/cdk'
 import fs from 'fs/promises'
-import { aws_sqs as sqs, aws_lambda } from 'aws-cdk-lib'
+import { aws_sqs as sqs, aws_lambda, aws_apigateway } from 'aws-cdk-lib'
 
 import { createLambda } from './create-lambda'
 import { createS3Buckets } from './create-S3-bucket'
@@ -188,6 +189,28 @@ export const createStack = async () => {
 
   env['CODEBUILD_PIPELINE_UPDATE_TOPIC_ARN'] = codebuildSnsTopic.topicArn
 
+  const authorizerLambda = createFunction(
+    stack,
+    'deployment-service-authorizer-lambda',
+    path.resolve(__dirname, '..', 'dist', 'authorizer.js'),
+    'authorizer.authorizerHandler',
+    {
+      ISSUERS: config.ISSUERS.join(','),
+      CLIENT_ID: config.COGNITO_CLIENT_ID,
+      CONNECT_USER_POOL: config.CONNECT_USER_POOL,
+    },
+    undefined,
+    undefined,
+    undefined,
+    aws_lambda.Runtime.NODEJS_18_X,
+  )
+
+  const authorizer = new aws_apigateway.RequestAuthorizer(stack, 'deployment-service-authorizer', {
+    handler: authorizerLambda,
+    identitySources: [aws_apigateway.IdentitySource.header('authorization')],
+    resultsCacheTtl: cdk.Duration.seconds(0),
+  })
+
   for (const [name, options] of Object.entries(functionSetups)) {
     const lambda = createLambda({
       entrypoint: options.entrypoint,
@@ -205,14 +228,7 @@ export const createStack = async () => {
     if (options.queues) {
       options.queues.forEach((queue) => addLambdaSQSTrigger(lambda, queue as Queue))
     } else if (options.api) {
-      addLambdaToApi(
-        stack,
-        api,
-        lambda,
-        options.api.routes,
-        // @ts-ignore
-        options.api.authorizer ? (config.AUTHORIZER_ID as string) : undefined,
-      )
+      addLambdaToApi(stack, api, lambda, options.api.routes, undefined, options.api.authorizer ? authorizer : undefined)
     } else if (options.topic) {
       addLambdaSNSTrigger(lambda, options.topic)
     }

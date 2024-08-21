@@ -6256,7 +6256,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/utils-authorizer@workspace:packages/utils-authorizer":
+"@reapit/utils-authorizer@workspace:^, @reapit/utils-authorizer@workspace:packages/utils-authorizer":
   version: 0.0.0-use.local
   resolution: "@reapit/utils-authorizer@workspace:packages/utils-authorizer"
   dependencies:
@@ -14000,6 +14000,7 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/utils-authorizer": "workspace:^"
     "@reapit/utils-nest": "workspace:packages/utils-nest"
     "@reapit/utils-node": "workspace:packages/utils-node"
     "@types/adm-zip": "npm:^0.5.5"

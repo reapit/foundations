@@ -50,13 +50,21 @@ export const addLambdaToApi = (
   lambdaFunction: lambda.Function,
   routes: LambdaRoute | LambdaRoute[],
   cognitoUserPoolId?: string,
+  authorizer?: apigateway.RequestAuthorizer,
 ) => {
   const routesToAdd = Array.isArray(routes) ? routes : [routes]
 
+  const authorizerConfig = cognitoUserPoolId ? {
+    authorizer: getAuthorizer(scope, cognitoUserPoolId),
+    authorizationType: apigateway.AuthorizationType.COGNITO,
+  } : authorizer ? {
+    authorizer,
+    authorizationType: apigateway.AuthorizationType.CUSTOM
+  } : {}
+
   routesToAdd.forEach((route) => {
     api.root.resourceForPath(route.path).addMethod(route.method, new apigateway.LambdaIntegration(lambdaFunction), {
-      authorizer: cognitoUserPoolId ? getAuthorizer(scope, cognitoUserPoolId) : undefined,
-      authorizationType: cognitoUserPoolId ? apigateway.AuthorizationType.COGNITO : undefined,
+      ...authorizerConfig,
     })
   })
 }
