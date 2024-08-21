@@ -192,7 +192,7 @@ export const createStack = async () => {
   const authorizerLambda = createFunction(
     stack,
     'deployment-service-authorizer-lambda',
-    path.resolve(__dirname, '..', '..', 'dist', 'authorizer.js'),
+    path.resolve(__dirname, '..', '..', 'dist', 'authorizer'),
     'authorizer.authorizerHandler',
     {
       ISSUERS: config.ISSUERS.join(','),

@@ -44,7 +44,7 @@ export default defineConfig([
     ],
   },
   {
-    entry: {authorizer: '../utils-authorizer/src/index.ts'},
+    entry: {'authorizer/index': '../utils-authorizer/src/index.ts'},
     target: 'node18',
     clean: true,
     minify: config.NODE_ENV === 'production',
