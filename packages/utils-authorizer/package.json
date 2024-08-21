@@ -9,5 +9,16 @@
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^9"
+  },
+  "scripts": {
+    "start": "echo '...skipping...'",
+    "test": "echo '...skipping...'",
+    "build": "echo '...skipping...'",
+    "lint": "echo '...skipping...'",
+    "check": "tsc --noEmit --skipLibCheck",
+    "release": "echo '...skipping...'",
+    "deploy": "echo '...skipping...'",
+    "publish": "echo '...skipping...'",
+    "conf": "echo '...skipping...'"
   }
 }

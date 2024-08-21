@@ -23,7 +23,7 @@ export const authorizerHandler =
       if (typeof decodedToken.payload === 'string') throw new Error('Decoded token payload is a string')
       if (!decodedToken.payload.sub) throw new Error('Token does not contain a sub')
 
-        const issuer = decodedToken.payload.iss
+      const issuer = decodedToken.payload.iss
 
       // TODO We can remove this check when we go live with Auth0
       if (issuer?.includes('cognito') && issuers.includes(issuer)) {
@@ -39,13 +39,13 @@ export const authorizerHandler =
       } else if (issuer && issuers.includes(issuer)) {
         if (!decodedToken.payload.aud) throw new Error('Token does not contain an aud')
 
-          const auth0Verifier = JwtRsaVerifier.create([
-            {
-              issuer: issuer,
-              audience: decodedToken?.payload.aud,
-              jwksUri: `${issuer}/.well-known/jwks.json`,
-            },
-          ])
+        const auth0Verifier = JwtRsaVerifier.create([
+          {
+            issuer: issuer,
+            audience: decodedToken?.payload.aud,
+            jwksUri: `${issuer}/.well-known/jwks.json`,
+          },
+        ])
 
         const verified = await auth0Verifier.verify(token)
 
