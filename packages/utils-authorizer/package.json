@@ -1,0 +1,12 @@
+{
+  "name": "@reapit/utils-authorizer",
+  "packageManager": "yarn@4.0.1",
+  "dependencies": {
+    "aws-jwt-verify": "^4.0.1",
+    "aws-lambda": "^1.0.7",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9"
+  }
+}
