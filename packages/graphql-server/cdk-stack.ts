@@ -50,7 +50,7 @@ const createStack = () => {
     path.resolve(__dirname, 'dist', 'authorizer'),
     'authorizer.authorizerHandler',
     {
-      ISSUERS: ISSUERS.join(','),
+      ISSUERS: ISSUERS,
       CLIENT_ID: config.COGNITO_CLIENT_ID,
       CONNECT_USER_POOL: config.COGNITO_USERPOOL_ID,
     },
