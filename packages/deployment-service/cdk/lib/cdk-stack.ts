@@ -195,7 +195,7 @@ export const createStack = async () => {
     path.resolve(__dirname, '..', '..', 'dist', 'authorizer'),
     'authorizer.authorizerHandler',
     {
-      ISSUERS: config.ISSUERS.join(','),
+      ISSUERS: config.ISSUERS,
       CLIENT_ID: config.COGNITO_CLIENT_ID,
       CONNECT_USER_POOL: config.CONNECT_USER_POOL,
     },
