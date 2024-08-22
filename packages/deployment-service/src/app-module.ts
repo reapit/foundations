@@ -18,7 +18,7 @@ import { APP_INTERCEPTOR } from '@nestjs/core'
 import { CorsHeaderInterceptor, AuthModule } from '@reapit/utils-nest'
 import { ApiKeyModule, ApiKeyVerifyModuleOptionsInterface } from '@reapit/api-key-verify'
 
-const { ISSUERS, ...env } = config
+delete config.ISSUERS
 
 process.env = {
   ...process.env,
