@@ -48,7 +48,7 @@ const createStack = () => {
     stack,
     'graphql-server-authorizer-lambda',
     path.resolve(__dirname, 'dist', 'authorizer'),
-    'authorizer.authorizerHandler',
+    'authorizer/index.handler',
     {
       ISSUERS: ISSUERS,
       CLIENT_ID: config.COGNITO_CLIENT_ID,
@@ -66,7 +66,7 @@ const createStack = () => {
     resultsCacheTtl: Duration.seconds(0),
   })
 
-  addLambdaToApi(stack, api, lambdaFunction, { path: '/{proxy+}', method: 'ANY' }, config.COGNITO_USERPOOL_ID)
+  addLambdaToApi(stack, api, lambdaFunction, { path: '/{proxy+}', method: 'ANY' }, undefined, authorizer)
   output(stack, 'api-url', api.url)
 }
 
