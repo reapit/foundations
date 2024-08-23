@@ -11,7 +11,7 @@
     "start": "PLATFORM_API_BASE_URL=https://platform.dev.paas.reapit.cloud ts-node-dev -r tsconfig-paths/register src/offline",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
     "build:schema": "node ./scripts/build-schema.js && prettier src/schema.graphql --write",
-    "build": "yarn build:schema && tsc && tsup && cp src/schema.graphql dist/graphql-server/src/schema.graphql",
+    "build": "yarn build:schema && tsup && tsc && cp src/schema.graphql dist/graphql-server/src/schema.graphql",
     "bundle": "ts-bundler",
     "lint": "concurrently \"prettier src/**/*.graphql --write \"  \"eslint --cache --ext=ts,tsx src\"",
     "check": "echo '...skipping...'",

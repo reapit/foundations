@@ -2,7 +2,7 @@ import { defineConfig } from 'tsup'
 
 export default defineConfig([
   {
-    entry: {'authorizer/index': '../utils-authorizer/src/index.ts'},
+    entry: {'authorizer/index': '../utils-authorizer/src/handler.ts'},
     target: 'node18',
     clean: true,
     minify: true,
