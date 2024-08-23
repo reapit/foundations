@@ -43,7 +43,7 @@ export const authorizerHandler =
           {
             issuer: issuer,
             audience: decodedToken?.payload.aud,
-            jwksUri: `${issuer}/.well-known/jwks.json`,
+            jwksUri: `${issuer.replace(/\/$/, '')}/.well-known/jwks.json`,
           },
         ])
 
