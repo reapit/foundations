@@ -193,7 +193,7 @@ export const createStack = async () => {
     stack,
     'deployment-service-authorizer-lambda',
     path.resolve(__dirname, '..', '..', 'dist', 'authorizer'),
-    'authorizer.authorizerHandler',
+    'authorizer/index.handler',
     {
       ISSUERS: config.ISSUERS,
       CLIENT_ID: config.COGNITO_CLIENT_ID,
