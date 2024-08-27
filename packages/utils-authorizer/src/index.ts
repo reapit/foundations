@@ -23,7 +23,7 @@ export const authorizerHandler =
     try {
       const headers = event['headers']
       const issuers = process.env.ISSUERS?.split(',') || []
-
+      
       // case insensitive
       const authorization = headers.authorization || headers.Authorization
 

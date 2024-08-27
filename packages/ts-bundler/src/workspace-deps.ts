@@ -13,6 +13,12 @@ export const processWorkspaceDeps = ({ subdirs, tmpDir, packagesRoot, mainModule
     const moduleSourceDir = path.resolve(packagesRoot, moduleName)
 
     const pkgJson = path.resolve(moduleSourceDir, 'package.json')
+
+    if (!fs.existsSync(pkgJson)) {
+      console.warn('Skipping package', pkgJson)
+      return
+    }
+
     const pkg = fs.readFileSync(pkgJson, 'utf8')
 
     const modulePkg = JSON.parse(pkg)
