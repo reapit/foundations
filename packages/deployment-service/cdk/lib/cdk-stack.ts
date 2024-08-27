@@ -201,7 +201,7 @@ export const createStack = async () => {
     },
     undefined,
     undefined,
-    undefined,
+    512,
     aws_lambda.Runtime.NODEJS_18_X,
   )
 
