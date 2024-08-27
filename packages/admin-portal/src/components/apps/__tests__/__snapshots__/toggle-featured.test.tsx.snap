@@ -5,130 +5,96 @@ exports[`ToggleFeatured should match a snapshot with apps 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <div
-          class="el-mt5 el-form-layout"
+        <mock-styled.div
+          classname="el-mt5"
         >
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <label
-              class="mocked-styled-36 el-label"
-            >
+          <mock-styled.div>
+            <mock-styled.label>
               Is Featured In AppMarket
-            </label>
-            <div
-              class="el-has-grey-bg el-toggle-radio-wrap"
+            </mock-styled.label>
+            <mock-styled.div
+              classname="el-has-grey-bg"
             >
-              <input
-                class="mocked-styled-120 el-toggle-radio"
+              <mock-styled.input
                 id="option-featured-true"
                 name="isFeatured"
                 type="radio"
                 value="FEATURED"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-featured-true"
-                role="button"
-                tabindex="0"
+              <mock-styled.label
+                classname="el-has-grey-bg"
+                htmlfor="option-featured-true"
               >
-                <span
-                  class="mocked-styled-117 el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   Featured
-                </span>
-              </label>
-              <input
-                checked=""
-                class="mocked-styled-120 el-toggle-radio"
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
                 id="option-featured-false"
                 name="isFeatured"
                 type="radio"
                 value="NOT_FEATURED"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-featured-false"
-                role="button"
-                tabindex="0"
+              <mock-styled.label
+                classname="el-has-grey-bg"
+                htmlfor="option-featured-false"
               >
-                <span
-                  class="mocked-styled-117 el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   Not Featured
-                </span>
-              </label>
-            </div>
-          </div>
-        </div>
+                </mock-styled.span>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <div
-        class="el-mt5 el-form-layout"
+      <mock-styled.div
+        classname="el-mt5"
       >
-        <div
-          class="mocked-styled-126 el-input-wrap"
-        >
-          <label
-            class="mocked-styled-36 el-label"
-          >
+        <mock-styled.div>
+          <mock-styled.label>
             Is Featured In AppMarket
-          </label>
-          <div
-            class="el-has-grey-bg el-toggle-radio-wrap"
+          </mock-styled.label>
+          <mock-styled.div
+            classname="el-has-grey-bg"
           >
-            <input
-              class="mocked-styled-120 el-toggle-radio"
+            <mock-styled.input
               id="option-featured-true"
               name="isFeatured"
               type="radio"
               value="FEATURED"
             />
-            <label
-              class="el-has-grey-bg el-toggle-radio-label"
-              for="option-featured-true"
-              role="button"
-              tabindex="0"
+            <mock-styled.label
+              classname="el-has-grey-bg"
+              htmlfor="option-featured-true"
             >
-              <span
-                class="mocked-styled-117 el-toggle-radio-item"
-              >
+              <mock-styled.span>
                 Featured
-              </span>
-            </label>
-            <input
-              checked=""
-              class="mocked-styled-120 el-toggle-radio"
+              </mock-styled.span>
+            </mock-styled.label>
+            <mock-styled.input
               id="option-featured-false"
               name="isFeatured"
               type="radio"
               value="NOT_FEATURED"
             />
-            <label
-              class="el-has-grey-bg el-toggle-radio-label"
-              for="option-featured-false"
-              role="button"
-              tabindex="0"
+            <mock-styled.label
+              classname="el-has-grey-bg"
+              htmlfor="option-featured-false"
             >
-              <span
-                class="mocked-styled-117 el-toggle-radio-item"
-              >
+              <mock-styled.span>
                 Not Featured
-              </span>
-            </label>
-          </div>
-        </div>
-      </div>
+              </mock-styled.span>
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],
@@ -190,130 +156,96 @@ exports[`ToggleFeatured should match a snapshot with no apps 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <div
-          class="el-mt5 el-form-layout"
+        <mock-styled.div
+          classname="el-mt5"
         >
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <label
-              class="mocked-styled-36 el-label"
-            >
+          <mock-styled.div>
+            <mock-styled.label>
               Is Featured In AppMarket
-            </label>
-            <div
-              class="el-has-grey-bg el-toggle-radio-wrap"
+            </mock-styled.label>
+            <mock-styled.div
+              classname="el-has-grey-bg"
             >
-              <input
-                class="mocked-styled-120 el-toggle-radio"
+              <mock-styled.input
                 id="option-featured-true"
                 name="isFeatured"
                 type="radio"
                 value="FEATURED"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-featured-true"
-                role="button"
-                tabindex="0"
+              <mock-styled.label
+                classname="el-has-grey-bg"
+                htmlfor="option-featured-true"
               >
-                <span
-                  class="mocked-styled-117 el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   Featured
-                </span>
-              </label>
-              <input
-                checked=""
-                class="mocked-styled-120 el-toggle-radio"
+                </mock-styled.span>
+              </mock-styled.label>
+              <mock-styled.input
                 id="option-featured-false"
                 name="isFeatured"
                 type="radio"
                 value="NOT_FEATURED"
               />
-              <label
-                class="el-has-grey-bg el-toggle-radio-label"
-                for="option-featured-false"
-                role="button"
-                tabindex="0"
+              <mock-styled.label
+                classname="el-has-grey-bg"
+                htmlfor="option-featured-false"
               >
-                <span
-                  class="mocked-styled-117 el-toggle-radio-item"
-                >
+                <mock-styled.span>
                   Not Featured
-                </span>
-              </label>
-            </div>
-          </div>
-        </div>
+                </mock-styled.span>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <div
-        class="el-mt5 el-form-layout"
+      <mock-styled.div
+        classname="el-mt5"
       >
-        <div
-          class="mocked-styled-126 el-input-wrap"
-        >
-          <label
-            class="mocked-styled-36 el-label"
-          >
+        <mock-styled.div>
+          <mock-styled.label>
             Is Featured In AppMarket
-          </label>
-          <div
-            class="el-has-grey-bg el-toggle-radio-wrap"
+          </mock-styled.label>
+          <mock-styled.div
+            classname="el-has-grey-bg"
           >
-            <input
-              class="mocked-styled-120 el-toggle-radio"
+            <mock-styled.input
               id="option-featured-true"
               name="isFeatured"
               type="radio"
               value="FEATURED"
             />
-            <label
-              class="el-has-grey-bg el-toggle-radio-label"
-              for="option-featured-true"
-              role="button"
-              tabindex="0"
+            <mock-styled.label
+              classname="el-has-grey-bg"
+              htmlfor="option-featured-true"
             >
-              <span
-                class="mocked-styled-117 el-toggle-radio-item"
-              >
+              <mock-styled.span>
                 Featured
-              </span>
-            </label>
-            <input
-              checked=""
-              class="mocked-styled-120 el-toggle-radio"
+              </mock-styled.span>
+            </mock-styled.label>
+            <mock-styled.input
               id="option-featured-false"
               name="isFeatured"
               type="radio"
               value="NOT_FEATURED"
             />
-            <label
-              class="el-has-grey-bg el-toggle-radio-label"
-              for="option-featured-false"
-              role="button"
-              tabindex="0"
+            <mock-styled.label
+              classname="el-has-grey-bg"
+              htmlfor="option-featured-false"
             >
-              <span
-                class="mocked-styled-117 el-toggle-radio-item"
-              >
+              <mock-styled.span>
                 Not Featured
-              </span>
-            </label>
-          </div>
-        </div>
-      </div>
+              </mock-styled.span>
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

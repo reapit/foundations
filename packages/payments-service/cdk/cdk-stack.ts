@@ -1,13 +1,6 @@
 import * as path from 'path'
-import {
-  createApi,
-  createBaseStack,
-  createTable,
-  createFunction,
-  output,
-  getAuthorizer,
-} from '@reapit/ts-scripts/src/cdk'
-import { aws_apigateway as apigateway, aws_iam as iam, aws_lambda } from 'aws-cdk-lib'
+import { createApi, createBaseStack, createTable, createFunction, output } from '@reapit/ts-scripts/src/cdk'
+import { aws_apigateway as apigateway, aws_iam as iam, aws_lambda, Duration } from 'aws-cdk-lib'
 import config from '../config.json'
 import { PolicyStatement } from 'aws-cdk-lib/aws-iam'
 
@@ -39,6 +32,7 @@ export const createStack = async () => {
     'reapit-customer',
     'reapit-app-id',
     'reapit-session',
+    'reapit-id-token',
   ])
 
   const paymentsSessionTable = createTable(stack, config.DYNAMO_DB_PAYMENTS_SESSION_TABLE_NAME, 'id')
@@ -61,6 +55,24 @@ export const createStack = async () => {
     undefined,
     aws_lambda.Runtime.NODEJS_18_X,
   )
+
+  const lambdaAuthorizer = createFunction(
+    stack,
+    'payments-service-authorizer-lambda',
+    path.resolve(__dirname, '..', 'dist'),
+    'packages/payments-service/src/core/authorizer.handler',
+    env,
+    undefined,
+    undefined,
+    undefined,
+    aws_lambda.Runtime.NODEJS_18_X,
+  )
+
+  const authorizer = new apigateway.RequestAuthorizer(stack, 'payments-service-authorizer', {
+    handler: lambdaAuthorizer,
+    identitySources: [apigateway.IdentitySource.header('authorization')],
+    resultsCacheTtl: Duration.seconds(0),
+  })
 
   paymentsSessionTable.grantReadWriteData(lambda)
   paymentsConfigTable.grantReadWriteData(lambda)
@@ -172,13 +184,14 @@ export const createStack = async () => {
 
   routes.forEach((route) => {
     api.root.resourceForPath(route.path).addMethod(route.method, new apigateway.LambdaIntegration(lambda), {
-      authorizer: route.protected ? getAuthorizer(stack, config.CONNECT_USER_POOL) : undefined,
-      authorizationType: route.protected ? apigateway.AuthorizationType.COGNITO : undefined,
+      authorizer: route.protected ? authorizer : undefined,
+      authorizationType: route.protected ? apigateway.AuthorizationType.CUSTOM : undefined,
       apiKeyRequired: !route.protected ? true : undefined,
       requestParameters: {
         'method.request.header.Content-Type': false,
         'method.request.header.Authorization': route.protected ? true : false,
         'method.request.header.X-Api-Key': !route.protected ? true : false,
+        'method.request.header.reapit-id-token': route.protected ? true : false,
         'method.request.header.api-version': false,
         'method.request.header.if-match': false,
         'method.request.header.reapit-customer': true,

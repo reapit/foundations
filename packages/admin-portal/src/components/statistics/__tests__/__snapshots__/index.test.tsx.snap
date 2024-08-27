@@ -5,56 +5,44 @@ exports[`Statistics should render component with apps 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
       <div
         class="el-mb11"
       >
-        <div
-          class="mocked-styled-2 el-button-group"
-        >
-          <div
-            class="mocked-styled-3 el-button-group-inner"
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <button
-              class="el-intent-primary el-button"
+            <mock-styled.button
+              classname="el-intent-primary"
               type="button"
             >
-              <div
-                class="mocked-styled-0 el-button-loader"
-              />
+              <mock-styled.div />
               Download CSV
-            </button>
-          </div>
-        </div>
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
     <div
       class="el-mb11"
     >
-      <div
-        class="mocked-styled-2 el-button-group"
-      >
-        <div
-          class="mocked-styled-3 el-button-group-inner"
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <button
-            class="el-intent-primary el-button"
+          <mock-styled.button
+            classname="el-intent-primary"
             type="button"
           >
-            <div
-              class="mocked-styled-0 el-button-loader"
-            />
+            <mock-styled.div />
             Download CSV
-          </button>
-        </div>
-      </div>
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </div>,
   "debug": [Function],
@@ -116,56 +104,44 @@ exports[`Statistics should render component with billing 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
       <div
         class="el-mb11"
       >
-        <div
-          class="mocked-styled-2 el-button-group"
-        >
-          <div
-            class="mocked-styled-3 el-button-group-inner"
+        <mock-styled.div>
+          <mock-styled.div
+            classname=""
           >
-            <button
-              class="el-intent-primary el-button"
+            <mock-styled.button
+              classname="el-intent-primary"
               type="button"
             >
-              <div
-                class="mocked-styled-0 el-button-loader"
-              />
+              <mock-styled.div />
               Download CSV
-            </button>
-          </div>
-        </div>
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
     <div
       class="el-mb11"
     >
-      <div
-        class="mocked-styled-2 el-button-group"
-      >
-        <div
-          class="mocked-styled-3 el-button-group-inner"
+      <mock-styled.div>
+        <mock-styled.div
+          classname=""
         >
-          <button
-            class="el-intent-primary el-button"
+          <mock-styled.button
+            classname="el-intent-primary"
             type="button"
           >
-            <div
-              class="mocked-styled-0 el-button-loader"
-            />
+            <mock-styled.div />
             Download CSV
-          </button>
-        </div>
-      </div>
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </div>,
   "debug": [Function],

@@ -43,6 +43,7 @@ export interface CachedTransaction {
 export interface CardDetails {
   customerFirstName: string
   customerLastName: string
+  customerPhone: string
   address1: string
   city: string
   postalCode: string
@@ -156,10 +157,11 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
     defaultValues: {
       customerFirstName: forename,
       customerLastName: surname,
+      customerPhone: '',
       address1,
       city: primaryAddress?.line3 ?? primaryAddress?.line4 ?? '',
       postalCode: primaryAddress?.postcode ?? '',
-      country: primaryAddress?.countryId ?? '',
+      country: primaryAddress?.countryId || 'GB',
       cardholderName: '',
       cardNumber: '',
       cardType: undefined,
@@ -202,6 +204,23 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
       >
         <iframe ref={iframeRef} width="100%" height="300px" />
       </Modal>
+      {(threeDSecureMessage === 'failure' || paymentStatus === 'rejected') && (
+        <PersistentNotification className={cx(elMb7, elFadeIn)} intent="danger" isInline isExpanded isFullWidth>
+          Transaction Failed. If you have sufficient funds, and you have checked your card details are correct, this
+          could be because you have used an incorrect card type (we accept Visa and Mastercard debit only) or your
+          session has expired. Please check your card details again and if the problem persists, refresh the page and
+          try again.
+        </PersistentNotification>
+      )}
+      {paymentStatus === 'posted' && (
+        <>
+          <PersistentNotification className={cx(elMb7, elFadeIn)} intent="success" isInline isExpanded isFullWidth>
+            This payment has been successfully submitted and confirmation of payment has been emailed to the address
+            supplied. If no email was received, you can send again by clicking the button below.
+          </PersistentNotification>
+          {payment && <ResendConfirmButton paymentFormValues={getValues()} paymentProvider={paymentProvider} />}
+        </>
+      )}
       {paymentStatus !== 'posted' && (
         <form
           className={elFadeIn}
@@ -246,6 +265,16 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
                 placeholder="Email here"
               />
               {errors.email?.message && <InputError message={errors.email.message} />}
+            </InputWrap>
+            <InputWrap>
+              <InputGroup
+                {...register('customerPhone')}
+                disabled={Boolean(cachedTransaction)}
+                type="tel"
+                label="Customer Phone Number"
+                placeholder="Phone Number here"
+              />
+              {errors.customerPhone?.message && <InputError message={errors.customerPhone.message} />}
             </InputWrap>
             <InputWrap>
               <InputGroup
@@ -298,23 +327,6 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
             Please note, we only accept Visa and Mastercard debit cards. We do not accept credit cards or American
             Express.
           </PersistentNotification>
-          {(threeDSecureMessage === 'failure' || paymentStatus === 'rejected') && (
-            <PersistentNotification className={cx(elMb7, elFadeIn)} intent="danger" isInline isExpanded isFullWidth>
-              Transaction Failed. If you have sufficient funds, and you have checked your card details are correct, this
-              could be because you have used an incorrect card type (we accept Visa and Mastercard debit only) or your
-              session has expired. Please check your card details again and if the problem persists, refresh the page
-              and try again.
-            </PersistentNotification>
-          )}
-          {paymentStatus === 'posted' && (
-            <>
-              <PersistentNotification className={cx(elMb7, elFadeIn)} intent="success" isInline isExpanded isFullWidth>
-                This payment has been successfully submitted and confirmation of payment has been emailed to the address
-                supplied. If no email was received, you can send again by clicking the button below.
-              </PersistentNotification>
-              {payment && <ResendConfirmButton paymentFormValues={getValues()} paymentProvider={paymentProvider} />}
-            </>
-          )}
           <FormLayout hasMargin>
             <InputWrap>
               <div className={elMb2}>

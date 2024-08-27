@@ -10,7 +10,8 @@ import { connectSessionVerifyDecodeIdToken } from '../utils/verify-decode-id-tok
 import decode from 'jwt-decode'
 import { DecodedToken } from '../utils'
 import { v4 as uuid } from 'uuid'
-import { TextEncoder } from 'util'
+import { TextEncoder } from 'text-encoding'
+import { Sha256 } from '@aws-crypto/sha256-browser'
 
 type BasePayload = {
   redirect_uri: string
@@ -27,6 +28,14 @@ type AuthCodePayload = BasePayload & {
 type RefreshTokenPayload = BasePayload & {
   grant_type: 'refresh_token'
   refresh_token: string
+}
+
+const dec2hex = (dec: number): string => ('0' + dec.toString(16)).substr(-2)
+
+const genCodeVerifier = (): string => {
+  const array = new Uint32Array(56)
+  window.crypto.getRandomValues(array)
+  return Array.from(array, dec2hex).join('')
 }
 
 export class ReapitConnectBrowserSession {
@@ -118,7 +127,9 @@ export class ReapitConnectBrowserSession {
   private async encryptCodeVerifier(code_verifier: string): Promise<string> {
     const encoder = new TextEncoder()
     const data = encoder.encode(code_verifier)
-    const digest = await window.crypto.subtle.digest('SHA-256', data)
+    const hash = new Sha256()
+    hash.update(data)
+    const digest = await hash.digest()
 
     return btoa(String.fromCharCode.apply(null, [...new Uint8Array(digest)]))
       .replace(/\+/g, '-')
@@ -135,7 +146,7 @@ export class ReapitConnectBrowserSession {
 
     if (codeVerifier) return codeVerifier
 
-    const code = uuid()
+    const code = genCodeVerifier()
 
     this.setCodeVerifier({ state, code })
 
@@ -205,7 +216,7 @@ export class ReapitConnectBrowserSession {
       } as RequestInit)
       const session: CoginitoSession | undefined = await response.json()
 
-      if (!session || (session && session.error)) return this.handleError('Error fetching session from Reapit Connect ')
+      if (!session || (session && session.error)) return this.handleError('Error fetching session from Reapit Connect')
 
       // I need to verify the identity claims I have just received from the server dwdqd
       const loginIdentity: LoginIdentity | undefined = await connectSessionVerifyDecodeIdToken(session.id_token)
@@ -326,8 +337,6 @@ export class ReapitConnectBrowserSession {
 
       const qs = new URLSearchParams(window.location.search)
       const state = qs.get('state')
-
-      if (!state && !this.refreshToken) throw new Error('No state found')
 
       const payload: AuthCodePayload | RefreshTokenPayload = this.refreshToken
         ? {

@@ -5,68 +5,46 @@ exports[`FilterForm should render component 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <div
-          class="el-form-layout-has-margin el-form-layout"
+        <mock-styled.div
+          classname="el-form-layout-has-margin"
         >
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <input
-                aria-label="Input type undefined"
-                class="mocked-styled-33 el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="organisationName"
               />
-              <label
-                class="mocked-styled-36 el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Company Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <input
-                aria-label="Input type email"
-                class="mocked-styled-33 el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="userEmail"
                 type="email"
               />
-              <label
-                class="mocked-styled-36 el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 User Email
-              </label>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <label
-                class="mocked-styled-36 el-label"
-              >
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
                 Subscription Type
-              </label>
-              <select
-                aria-label="Select an item from the dropdown list"
-                class="mocked-styled-76 el-select"
+              </mock-styled.label>
+              <mock-styled.select
                 name="subscriptionType"
               >
                 <option
@@ -89,23 +67,15 @@ exports[`FilterForm should render component 1`] = `
                 >
                   Developer Edition
                 </option>
-              </select>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <label
-                class="mocked-styled-36 el-label"
-              >
+              </mock-styled.select>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
                 Status
-              </label>
-              <select
-                aria-label="Select an item from the dropdown list"
-                class="mocked-styled-76 el-select"
+              </mock-styled.label>
+              <mock-styled.select
                 name="status"
               >
                 <option
@@ -123,76 +93,54 @@ exports[`FilterForm should render component 1`] = `
                 >
                   Cancelled
                 </option>
-              </select>
-            </div>
-          </div>
-        </div>
+              </mock-styled.select>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <div
-        class="el-form-layout-has-margin el-form-layout"
+      <mock-styled.div
+        classname="el-form-layout-has-margin"
       >
-        <div
-          class="mocked-styled-126 el-input-wrap"
-        >
-          <div
-            class="mocked-styled-35 el-input-group"
-          >
-            <input
-              aria-label="Input type undefined"
-              class="mocked-styled-33 el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              classname=""
               id="test-static-id"
               name="organisationName"
             />
-            <label
-              class="mocked-styled-36 el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Company Name
-            </label>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-126 el-input-wrap"
-        >
-          <div
-            class="mocked-styled-35 el-input-group"
-          >
-            <input
-              aria-label="Input type email"
-              class="mocked-styled-33 el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              classname=""
               id="test-static-id"
               name="userEmail"
               type="email"
             />
-            <label
-              class="mocked-styled-36 el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               User Email
-            </label>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-126 el-input-wrap"
-        >
-          <div
-            class="mocked-styled-35 el-input-group"
-          >
-            <label
-              class="mocked-styled-36 el-label"
-            >
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Subscription Type
-            </label>
-            <select
-              aria-label="Select an item from the dropdown list"
-              class="mocked-styled-76 el-select"
+            </mock-styled.label>
+            <mock-styled.select
               name="subscriptionType"
             >
               <option
@@ -215,23 +163,15 @@ exports[`FilterForm should render component 1`] = `
               >
                 Developer Edition
               </option>
-            </select>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-126 el-input-wrap"
-        >
-          <div
-            class="mocked-styled-35 el-input-group"
-          >
-            <label
-              class="mocked-styled-36 el-label"
-            >
+            </mock-styled.select>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Status
-            </label>
-            <select
-              aria-label="Select an item from the dropdown list"
-              class="mocked-styled-76 el-select"
+            </mock-styled.label>
+            <mock-styled.select
               name="status"
             >
               <option
@@ -249,10 +189,10 @@ exports[`FilterForm should render component 1`] = `
               >
                 Cancelled
               </option>
-            </select>
-          </div>
-        </div>
-      </div>
+            </mock-styled.select>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

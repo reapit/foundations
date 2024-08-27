@@ -64,6 +64,9 @@ export enum GetActionNames {
   getUserSuppressionList = 'getUserSuppressionList',
   getOrgs = 'getOrgs',
   getOrgConfig = 'getOrgConfig',
+  getIps = 'getIps',
+  getRules = 'getRules',
+  getDwCustomers = 'getDwCustomers',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -341,5 +344,20 @@ export const getActions = {
     api: ApiNames.platform,
     path: PathNames.getOrgConfig,
     errorMessage: 'Failed to fetch org config, this has been logged.',
+  },
+  [GetActionNames.getIps]: {
+    api: ApiNames.platform,
+    path: PathNames.dwIps,
+    errorMessage: 'Failed to fetch ips for this rule, this has been logged.',
+  },
+  [GetActionNames.getRules]: {
+    api: ApiNames.platform,
+    path: PathNames.dwRules,
+    errorMessage: 'Failed to fetch network rules, this has been logged.',
+  },
+  [GetActionNames.getDwCustomers]: {
+    api: ApiNames.platform,
+    path: PathNames.dwCustomers,
+    errorMessage: 'Failed to fetch customers, this has been logged.',
   },
 }

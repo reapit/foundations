@@ -5,150 +5,114 @@ exports[`Customers should render component when loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
       <section
         class="el-page-container"
       >
-        <h1
-          class="el-text-base el-title"
+        <mock-styled.h1
+          classname="el-text-base"
         >
           Customers
-        </h1>
+        </mock-styled.h1>
         <form>
-          <div
-            class="el-mb11 el-form-layout"
+          <mock-styled.div
+            classname="el-mb11"
           >
-            <div
-              class="mocked-styled-126 el-input-wrap"
-            >
-              <div
-                class="mocked-styled-35 el-input-group"
-              >
-                <input
-                  aria-label="Input type search"
-                  class="mocked-styled-33 el-input"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="name"
                   type="search"
                 />
-                <label
-                  class="mocked-styled-36 el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Customer Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="mocked-styled-126 el-input-wrap"
-            >
-              <div
-                class="mocked-styled-35 el-input-group"
-              >
-                <input
-                  aria-label="Input type search"
-                  class="mocked-styled-33 el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="agencyCloudId"
                   type="search"
                 />
-                <label
-                  class="mocked-styled-36 el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Customer Code
-                </label>
-              </div>
-            </div>
-          </div>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
-        <div
-          class="mocked-styled-38 el-loader-container"
+        <mock-styled.div
+          classname=""
         >
-          <div
-            class="mocked-styled-40 el-loader"
-          >
-            <div
-              class="mocked-styled-41 el-loader-moving-bar"
-            />
-          </div>
-        </div>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
       </section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
     <section
       class="el-page-container"
     >
-      <h1
-        class="el-text-base el-title"
+      <mock-styled.h1
+        classname="el-text-base"
       >
         Customers
-      </h1>
+      </mock-styled.h1>
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="el-mb11"
         >
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <input
-                aria-label="Input type search"
-                class="mocked-styled-33 el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="name"
                 type="search"
               />
-              <label
-                class="mocked-styled-36 el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Customer Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <input
-                aria-label="Input type search"
-                class="mocked-styled-33 el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="agencyCloudId"
                 type="search"
               />
-              <label
-                class="mocked-styled-36 el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Customer Code
-              </label>
-            </div>
-          </div>
-        </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
-      <div
-        class="mocked-styled-38 el-loader-container"
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="mocked-styled-40 el-loader"
-        >
-          <div
-            class="mocked-styled-41 el-loader-moving-bar"
-          />
-        </div>
-      </div>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
     </section>
   </div>,
   "debug": [Function],
@@ -210,123 +174,101 @@ exports[`Customers should render component with data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
       <section
         class="el-page-container"
       >
-        <h1
-          class="el-text-base el-title"
+        <mock-styled.h1
+          classname="el-text-base"
         >
           Customers
-        </h1>
+        </mock-styled.h1>
         <form>
-          <div
-            class="el-mb11 el-form-layout"
+          <mock-styled.div
+            classname="el-mb11"
           >
-            <div
-              class="mocked-styled-126 el-input-wrap"
-            >
-              <div
-                class="mocked-styled-35 el-input-group"
-              >
-                <input
-                  aria-label="Input type search"
-                  class="mocked-styled-33 el-input"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="name"
                   type="search"
                 />
-                <label
-                  class="mocked-styled-36 el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Customer Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="mocked-styled-126 el-input-wrap"
-            >
-              <div
-                class="mocked-styled-35 el-input-group"
-              >
-                <input
-                  aria-label="Input type search"
-                  class="mocked-styled-33 el-input"
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.input
+                  classname=""
                   id="test-static-id"
                   name="agencyCloudId"
                   type="search"
                 />
-                <label
-                  class="mocked-styled-36 el-label"
-                  for="test-static-id"
+                <mock-styled.label
+                  htmlfor="test-static-id"
                 >
                   Customer Code
-                </label>
-              </div>
-            </div>
-          </div>
+                </mock-styled.label>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
         </form>
-        <div
-          class="el-mb11 el-table"
+        <mock-styled.div
+          classname="el-mb11"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="5"
           role="table"
         >
-          <div
-            class="mocked-styled-94 el-table-headers-row"
+          <mock-styled.div
             role="row"
           >
-            <div
+            <mock-styled.div
               aria-label="Customer Name"
-              class="mocked-styled-95 el-table-header"
               role="columnheader"
             >
               Customer Name
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Agency Cloud Id"
-              class="mocked-styled-95 el-table-header"
               role="columnheader"
             >
               Agency Cloud Id
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Customer Id"
-              class="mocked-styled-95 el-table-header"
               role="columnheader"
             >
               Customer Id
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Customer Billing Reference"
-              class="mocked-styled-95 el-table-header"
               role="columnheader"
             >
               Customer Billing Reference
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Customer Address"
-              class="mocked-styled-95 el-table-header"
               role="columnheader"
             >
               Customer Address
-            </div>
-            <div
-              class="mocked-styled-95 el-table-header"
+            </mock-styled.div>
+            <mock-styled.div
               role="columnheader"
             >
-              <span
-                class="el-intent-default el-icon"
+              <mock-styled.span
+                classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
-                  title="Icon image with name settings"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -336,30 +278,27 @@ exports[`Customers should render component with data 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </span>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-103 el-table-row-container"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
             role="row"
           >
-            <div
-              class="mocked-styled-96 el-table-row"
-            >
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <span
-                  class="el-intent-default el-icon"
+                <mock-styled.span
+                  classname="el-intent-default el-icon-new"
+                  role="img"
                   style="font-size: 1.25rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
-                    role="img"
                     style="font-size: 1.25rem;"
-                    title="Icon image with name property"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -369,71 +308,64 @@ exports[`Customers should render component with data 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </span>
-                <div
-                  class="mocked-styled-104 el-table-cell-content"
+                </mock-styled.span>
+                <mock-styled.div
                   data-narrow-label="Customer Name"
                 >
                   Reapit Sales
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-104 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Agency Cloud Id"
                 >
                   RES
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-104 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Customer Id"
                 >
                   201a8d35-f682-41a8-95ed-079133e4b517
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-104 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Customer Billing Reference"
                 >
                   HJP000
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-104 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Customer Address"
                 >
                   5 Radcliffe House Blenheim Court Solihull solihull B91 2AA
-                </div>
-              </div>
-              <div
-                class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
                 role="cell"
-                tabindex="0"
               >
-                <span
-                  class="el-intent-default el-icon"
+                <mock-styled.span
+                  classname="el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
                     height="1em"
-                    role="img"
-                    title="Icon image with name more"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -443,53 +375,44 @@ exports[`Customers should render component with data 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </span>
-              </div>
-            </div>
-            <div
-              class="mocked-styled-106 el-table-expandable-row"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              aria-hidden="false"
+              classname=""
             >
-              <div
-                class="mocked-styled-107 el-table-expandable-container"
-              >
-                <div
-                  class="mocked-styled-2 el-button-group"
-                >
-                  <div
-                    class="el-button-group-align-center el-button-group-inner"
+              <mock-styled.div>
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="el-button-group-align-center"
                   >
-                    <button
-                      class="el-intent-primary el-button"
+                    <mock-styled.button
+                      classname="el-intent-primary"
                     >
-                      <div
-                        class="mocked-styled-0 el-button-loader"
-                      />
+                      <mock-styled.div />
                       Fetch Office Groups
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-65 el-pagination-wrap"
-        >
-          <button
+                    </mock-styled.button>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.button
             aria-label="Previous"
-            class="mocked-styled-68 el-pagination-button"
             data-testid="back-button"
             role="button"
             type="button"
           >
-            <span
-              class="mocked-styled-4 el-icon"
+            <mock-styled.span
+              classname="el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
-                title="Icon image with name chevronLeft"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -499,35 +422,28 @@ exports[`Customers should render component with data 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
-          </button>
-          <div
-            class="mocked-styled-66 el-pagination-text"
-          >
-            <input
-              aria-label="Current page number, edit to select page of 1 available"
-              class="mocked-styled-67 el-pagination-input"
+            </mock-styled.span>
+          </mock-styled.button>
+          <mock-styled.div>
+            <mock-styled.input
               value="1"
             />
-             
-            of 
+             of 
             1
-          </div>
-          <button
+          </mock-styled.div>
+          <mock-styled.button
             aria-label="Next"
-            class="mocked-styled-68 el-pagination-button"
             data-testid="forward-button"
             role="button"
             type="button"
           >
-            <span
-              class="mocked-styled-4 el-icon"
+            <mock-styled.span
+              classname="el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
-                title="Icon image with name chevronRight"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -537,130 +453,108 @@ exports[`Customers should render component with data 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
-          </button>
-        </div>
+            </mock-styled.span>
+          </mock-styled.button>
+        </mock-styled.div>
       </section>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
     <section
       class="el-page-container"
     >
-      <h1
-        class="el-text-base el-title"
+      <mock-styled.h1
+        classname="el-text-base"
       >
         Customers
-      </h1>
+      </mock-styled.h1>
       <form>
-        <div
-          class="el-mb11 el-form-layout"
+        <mock-styled.div
+          classname="el-mb11"
         >
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <input
-                aria-label="Input type search"
-                class="mocked-styled-33 el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="name"
                 type="search"
               />
-              <label
-                class="mocked-styled-36 el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Customer Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <input
-                aria-label="Input type search"
-                class="mocked-styled-33 el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="agencyCloudId"
                 type="search"
               />
-              <label
-                class="mocked-styled-36 el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Customer Code
-              </label>
-            </div>
-          </div>
-        </div>
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
-      <div
-        class="el-mb11 el-table"
+      <mock-styled.div
+        classname="el-mb11"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="5"
         role="table"
       >
-        <div
-          class="mocked-styled-94 el-table-headers-row"
+        <mock-styled.div
           role="row"
         >
-          <div
+          <mock-styled.div
             aria-label="Customer Name"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Customer Name
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Agency Cloud Id"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Agency Cloud Id
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Customer Id"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Customer Id
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Customer Billing Reference"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Customer Billing Reference
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Customer Address"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Customer Address
-          </div>
-          <div
-            class="mocked-styled-95 el-table-header"
+          </mock-styled.div>
+          <mock-styled.div
             role="columnheader"
           >
-            <span
-              class="el-intent-default el-icon"
+            <mock-styled.span
+              classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
-                title="Icon image with name settings"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -670,30 +564,27 @@ exports[`Customers should render component with data 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-103 el-table-row-container"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
           role="row"
         >
-          <div
-            class="mocked-styled-96 el-table-row"
-          >
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <span
-                class="el-intent-default el-icon"
+              <mock-styled.span
+                classname="el-intent-default el-icon-new"
+                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
                   style="font-size: 1.25rem;"
-                  title="Icon image with name property"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -703,71 +594,64 @@ exports[`Customers should render component with data 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </span>
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              </mock-styled.span>
+              <mock-styled.div
                 data-narrow-label="Customer Name"
               >
                 Reapit Sales
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Agency Cloud Id"
               >
                 RES
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Customer Id"
               >
                 201a8d35-f682-41a8-95ed-079133e4b517
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Customer Billing Reference"
               >
                 HJP000
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Customer Address"
               >
                 5 Radcliffe House Blenheim Court Solihull solihull B91 2AA
-              </div>
-            </div>
-            <div
-              class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
               role="cell"
-              tabindex="0"
             >
-              <span
-                class="el-intent-default el-icon"
+              <mock-styled.span
+                classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
-                  title="Icon image with name more"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -777,53 +661,44 @@ exports[`Customers should render component with data 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </span>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-106 el-table-expandable-row"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            aria-hidden="false"
+            classname=""
           >
-            <div
-              class="mocked-styled-107 el-table-expandable-container"
-            >
-              <div
-                class="mocked-styled-2 el-button-group"
-              >
-                <div
-                  class="el-button-group-align-center el-button-group-inner"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="el-button-group-align-center"
                 >
-                  <button
-                    class="el-intent-primary el-button"
+                  <mock-styled.button
+                    classname="el-intent-primary"
                   >
-                    <div
-                      class="mocked-styled-0 el-button-loader"
-                    />
+                    <mock-styled.div />
                     Fetch Office Groups
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="mocked-styled-65 el-pagination-wrap"
-      >
-        <button
+                  </mock-styled.button>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.button
           aria-label="Previous"
-          class="mocked-styled-68 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
-          <span
-            class="mocked-styled-4 el-icon"
+          <mock-styled.span
+            classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
               height="1em"
-              role="img"
-              title="Icon image with name chevronLeft"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -833,35 +708,28 @@ exports[`Customers should render component with data 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </span>
-        </button>
-        <div
-          class="mocked-styled-66 el-pagination-text"
-        >
-          <input
-            aria-label="Current page number, edit to select page of 1 available"
-            class="mocked-styled-67 el-pagination-input"
+          </mock-styled.span>
+        </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.input
             value="1"
           />
-           
-          of 
+           of 
           1
-        </div>
-        <button
+        </mock-styled.div>
+        <mock-styled.button
           aria-label="Next"
-          class="mocked-styled-68 el-pagination-button"
           data-testid="forward-button"
           role="button"
           type="button"
         >
-          <span
-            class="mocked-styled-4 el-icon"
+          <mock-styled.span
+            classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
               height="1em"
-              role="img"
-              title="Icon image with name chevronRight"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -871,9 +739,9 @@ exports[`Customers should render component with data 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </span>
-        </button>
-      </div>
+          </mock-styled.span>
+        </mock-styled.button>
+      </mock-styled.div>
     </section>
   </div>,
   "debug": [Function],

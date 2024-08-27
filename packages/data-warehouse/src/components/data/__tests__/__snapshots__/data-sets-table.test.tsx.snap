@@ -5,53 +5,45 @@ exports[`DataSetsTable should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
-      <div
-        class="el-mb11 el-table"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="el-mb11"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="3"
         role="table"
       >
-        <div
-          class="mocked-styled-94 el-table-headers-row"
+        <mock-styled.div
           role="row"
         >
-          <div
+          <mock-styled.div
             aria-label="Name"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Name
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Provider"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Provider
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Description"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Description
-          </div>
-          <div
-            class="mocked-styled-95 el-table-header"
+          </mock-styled.div>
+          <mock-styled.div
             role="columnheader"
           >
-            <span
-              class="el-intent-default el-icon"
+            <mock-styled.span
+              classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
-                title="Icon image with name settings"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -61,62 +53,55 @@ exports[`DataSetsTable should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-103 el-table-row-container"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
           role="row"
         >
-          <div
-            class="mocked-styled-96 el-table-row"
-          >
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Name"
               >
                 RPS Database
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Provider"
               >
                 Reapit Ltd
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Description"
               >
                 Access to legacy data
-              </div>
-            </div>
-            <div
-              class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
               role="cell"
-              tabindex="0"
             >
-              <span
-                class="el-intent-default el-icon"
+              <mock-styled.span
+                classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
-                  title="Icon image with name more"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -126,87 +111,76 @@ exports[`DataSetsTable should match a snapshot 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </span>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-106 el-table-expandable-row"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            aria-hidden="false"
+            classname=""
           >
-            <div
-              class="mocked-styled-107 el-table-expandable-container"
-            >
-              <div
-                class="mocked-styled-2 el-button-group"
-              >
-                <div
-                  class="el-button-group-align-center el-button-group-inner"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="el-button-group-align-center"
                 >
-                  <button
-                    class="el-intent-primary el-button"
+                  <mock-styled.button
+                    classname="el-intent-primary"
+                    disabled="false"
                   >
-                    <div
-                      class="mocked-styled-0 el-button-loader"
-                    />
+                    <mock-styled.div />
                     Create Share
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-103 el-table-row-container"
+                  </mock-styled.button>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
           role="row"
         >
-          <div
-            class="mocked-styled-96 el-table-row"
-          >
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Name"
               >
                 RPS Views
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Provider"
               >
                 Reapit Ltd
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Description"
               >
                 Access to legacy views
-              </div>
-            </div>
-            <div
-              class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
               role="cell"
-              tabindex="0"
             >
-              <span
-                class="el-intent-default el-icon"
+              <mock-styled.span
+                classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
-                  title="Icon image with name more"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -216,85 +190,73 @@ exports[`DataSetsTable should match a snapshot 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </span>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-106 el-table-expandable-row"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            aria-hidden="false"
+            classname=""
           >
-            <div
-              class="mocked-styled-107 el-table-expandable-container"
-            >
-              <div
-                class="mocked-styled-2 el-button-group"
-              >
-                <div
-                  class="el-button-group-align-center el-button-group-inner"
+            <mock-styled.div>
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="el-button-group-align-center"
                 >
-                  <button
-                    class="el-intent-primary el-button"
+                  <mock-styled.button
+                    classname="el-intent-primary"
+                    disabled="false"
                   >
-                    <div
-                      class="mocked-styled-0 el-button-loader"
-                    />
+                    <mock-styled.div />
                     Create Share
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                  </mock-styled.button>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
-    <div
-      class="el-mb11 el-table"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="el-mb11"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="3"
       role="table"
     >
-      <div
-        class="mocked-styled-94 el-table-headers-row"
+      <mock-styled.div
         role="row"
       >
-        <div
+        <mock-styled.div
           aria-label="Name"
-          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           Name
-        </div>
-        <div
+        </mock-styled.div>
+        <mock-styled.div
           aria-label="Provider"
-          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           Provider
-        </div>
-        <div
+        </mock-styled.div>
+        <mock-styled.div
           aria-label="Description"
-          class="mocked-styled-95 el-table-header"
           role="columnheader"
         >
           Description
-        </div>
-        <div
-          class="mocked-styled-95 el-table-header"
+        </mock-styled.div>
+        <mock-styled.div
           role="columnheader"
         >
-          <span
-            class="el-intent-default el-icon"
+          <mock-styled.span
+            classname="el-intent-default el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
               height="1em"
-              role="img"
-              title="Icon image with name settings"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -304,62 +266,55 @@ exports[`DataSetsTable should match a snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </span>
-        </div>
-      </div>
-      <div
-        class="mocked-styled-103 el-table-row-container"
+          </mock-styled.span>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
         role="row"
       >
-        <div
-          class="mocked-styled-96 el-table-row"
-        >
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="el-table-cell-has-dark-text"
             role="cell"
           >
-            <div
-              class="mocked-styled-104 el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Name"
             >
               RPS Database
-            </div>
-          </div>
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="el-table-cell-has-dark-text"
             role="cell"
           >
-            <div
-              class="mocked-styled-104 el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Provider"
             >
               Reapit Ltd
-            </div>
-          </div>
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="el-table-cell-has-dark-text"
             role="cell"
           >
-            <div
-              class="mocked-styled-104 el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Description"
             >
               Access to legacy data
-            </div>
-          </div>
-          <div
-            class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
             role="cell"
-            tabindex="0"
           >
-            <span
-              class="el-intent-default el-icon"
+            <mock-styled.span
+              classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
-                title="Icon image with name more"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -369,87 +324,76 @@ exports[`DataSetsTable should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-106 el-table-expandable-row"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          aria-hidden="false"
+          classname=""
         >
-          <div
-            class="mocked-styled-107 el-table-expandable-container"
-          >
-            <div
-              class="mocked-styled-2 el-button-group"
-            >
-              <div
-                class="el-button-group-align-center el-button-group-inner"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="el-button-group-align-center"
               >
-                <button
-                  class="el-intent-primary el-button"
+                <mock-styled.button
+                  classname="el-intent-primary"
+                  disabled="false"
                 >
-                  <div
-                    class="mocked-styled-0 el-button-loader"
-                  />
+                  <mock-styled.div />
                   Create Share
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="mocked-styled-103 el-table-row-container"
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div
+        classname=""
         role="row"
       >
-        <div
-          class="mocked-styled-96 el-table-row"
-        >
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
+        <mock-styled.div>
+          <mock-styled.div
+            classname="el-table-cell-has-dark-text"
             role="cell"
           >
-            <div
-              class="mocked-styled-104 el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Name"
             >
               RPS Views
-            </div>
-          </div>
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="el-table-cell-has-dark-text"
             role="cell"
           >
-            <div
-              class="mocked-styled-104 el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Provider"
             >
               Reapit Ltd
-            </div>
-          </div>
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="el-table-cell-has-dark-text"
             role="cell"
           >
-            <div
-              class="mocked-styled-104 el-table-cell-content"
+            <mock-styled.div
               data-narrow-label="Description"
             >
               Access to legacy views
-            </div>
-          </div>
-          <div
-            class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
             role="cell"
-            tabindex="0"
           >
-            <span
-              class="el-intent-default el-icon"
+            <mock-styled.span
+              classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
-                title="Icon image with name more"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -459,35 +403,31 @@ exports[`DataSetsTable should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-106 el-table-expandable-row"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          aria-hidden="false"
+          classname=""
         >
-          <div
-            class="mocked-styled-107 el-table-expandable-container"
-          >
-            <div
-              class="mocked-styled-2 el-button-group"
-            >
-              <div
-                class="el-button-group-align-center el-button-group-inner"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.div
+                classname="el-button-group-align-center"
               >
-                <button
-                  class="el-intent-primary el-button"
+                <mock-styled.button
+                  classname="el-intent-primary"
+                  disabled="false"
                 >
-                  <div
-                    class="mocked-styled-0 el-button-loader"
-                  />
+                  <mock-styled.div />
                   Create Share
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+                </mock-styled.button>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

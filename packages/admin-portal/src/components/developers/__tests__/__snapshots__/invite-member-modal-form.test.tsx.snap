@@ -5,246 +5,182 @@ exports[`InviteMemberModalForm should match snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <div
-          class="el-form-layout-has-margin el-form-layout"
+        <mock-styled.div
+          classname="el-form-layout-has-margin"
         >
-          <div
-            class="mocked-styled-128 el-input-wrap-full"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <input
-                aria-label="Input type undefined"
-                class="mocked-styled-33 el-input"
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="name"
                 placeholder="Your colleague's full name"
               />
-              <label
-                class="mocked-styled-36 el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-128 el-input-wrap-full"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <input
-                aria-label="Input type email"
-                class="mocked-styled-33 el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="email"
                 placeholder="An email address we can contact your colleague at"
                 type="email"
               />
-              <label
-                class="mocked-styled-36 el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Email
-              </label>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-128 el-input-wrap-full"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <input
-                aria-label="Input type undefined"
-                class="mocked-styled-33 el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="jobTitle"
                 placeholder="Your colleague's role at your company'"
               />
-              <label
-                class="mocked-styled-36 el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Job Title
-              </label>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-128 el-input-wrap-full"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <input
-                aria-label="Input type undefined"
-                class="mocked-styled-33 el-input"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="message"
                 placeholder="An optional invite message"
               />
-              <label
-                class="mocked-styled-36 el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Invite Message
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-2 el-button-group"
-        >
-          <div
-            class="el-button-group-align-right el-button-group-inner"
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div
+            classname="el-button-group-align-right"
           >
-            <button
-              class="el-intent-neutral el-button"
+            <mock-styled.button
+              classname="el-intent-neutral"
             >
-              <div
-                class="mocked-styled-0 el-button-loader"
-              />
+              <mock-styled.div />
               Close
-            </button>
-            <button
-              class="el-intent-primary el-button"
+            </mock-styled.button>
+            <mock-styled.button
+              classname="el-intent-primary"
               type="submit"
             >
-              <div
-                class="mocked-styled-0 el-button-loader"
-              />
+              <mock-styled.div />
               Send Invite
-            </button>
-          </div>
-        </div>
+            </mock-styled.button>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <div
-        class="el-form-layout-has-margin el-form-layout"
+      <mock-styled.div
+        classname="el-form-layout-has-margin"
       >
-        <div
-          class="mocked-styled-128 el-input-wrap-full"
-        >
-          <div
-            class="mocked-styled-35 el-input-group"
-          >
-            <input
-              aria-label="Input type undefined"
-              class="mocked-styled-33 el-input"
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              classname=""
               id="test-static-id"
               name="name"
               placeholder="Your colleague's full name"
             />
-            <label
-              class="mocked-styled-36 el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Name
-            </label>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-128 el-input-wrap-full"
-        >
-          <div
-            class="mocked-styled-35 el-input-group"
-          >
-            <input
-              aria-label="Input type email"
-              class="mocked-styled-33 el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              classname=""
               id="test-static-id"
               name="email"
               placeholder="An email address we can contact your colleague at"
               type="email"
             />
-            <label
-              class="mocked-styled-36 el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Email
-            </label>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-128 el-input-wrap-full"
-        >
-          <div
-            class="mocked-styled-35 el-input-group"
-          >
-            <input
-              aria-label="Input type undefined"
-              class="mocked-styled-33 el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              classname=""
               id="test-static-id"
               name="jobTitle"
               placeholder="Your colleague's role at your company'"
             />
-            <label
-              class="mocked-styled-36 el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Job Title
-            </label>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-128 el-input-wrap-full"
-        >
-          <div
-            class="mocked-styled-35 el-input-group"
-          >
-            <input
-              aria-label="Input type undefined"
-              class="mocked-styled-33 el-input"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              classname=""
               id="test-static-id"
               name="message"
               placeholder="An optional invite message"
             />
-            <label
-              class="mocked-styled-36 el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Invite Message
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="mocked-styled-2 el-button-group"
-      >
-        <div
-          class="el-button-group-align-right el-button-group-inner"
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div
+          classname="el-button-group-align-right"
         >
-          <button
-            class="el-intent-neutral el-button"
+          <mock-styled.button
+            classname="el-intent-neutral"
           >
-            <div
-              class="mocked-styled-0 el-button-loader"
-            />
+            <mock-styled.div />
             Close
-          </button>
-          <button
-            class="el-intent-primary el-button"
+          </mock-styled.button>
+          <mock-styled.button
+            classname="el-intent-primary"
             type="submit"
           >
-            <div
-              class="mocked-styled-0 el-button-loader"
-            />
+            <mock-styled.div />
             Send Invite
-          </button>
-        </div>
-      </div>
+          </mock-styled.button>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

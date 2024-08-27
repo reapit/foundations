@@ -5,101 +5,88 @@ exports[`AppsTable should render component with apps 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
       <div
         class="el-mt5"
       >
-        <h2
-          class="el-text-base el-subtitle"
+        <mock-styled.h2
+          classname="el-text-base"
         >
           Total Apps
-        </h2>
-        <p
-          class="el-text-base el-body-text el-has-grey-text"
+        </mock-styled.h2>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text"
         >
           1
-        </p>
-        <div
-          class="el-mb11 el-table"
+        </mock-styled.p>
+        <mock-styled.div
+          classname="el-mb11"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="8"
           role="table"
         >
-          <div
-            class="mocked-styled-94 el-table-headers-row"
+          <mock-styled.div
             role="row"
           >
-            <div
+            <mock-styled.div
               aria-label="App Name"
-              class="mocked-styled-95 el-table-header"
               role="columnheader"
             >
               App Name
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="AppId"
-              class="mocked-styled-95 el-table-header"
               role="columnheader"
             >
               AppId
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Summary"
-              class="mocked-styled-95 el-table-header"
               role="columnheader"
             >
               Summary
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Listed"
-              class="mocked-styled-95 el-table-header"
               role="columnheader"
             >
               Listed
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Integration"
-              class="mocked-styled-95 el-table-header"
               role="columnheader"
             >
               Integration
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Featured"
-              class="mocked-styled-95 el-table-header"
               role="columnheader"
             >
               Featured
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Created"
-              class="mocked-styled-95 el-table-header"
               role="columnheader"
             >
               Created
-            </div>
-            <div
+            </mock-styled.div>
+            <mock-styled.div
               aria-label="Publicly Listed"
-              class="mocked-styled-95 el-table-header"
               role="columnheader"
             >
               Publicly Listed
-            </div>
-            <div
-              class="mocked-styled-95 el-table-header"
+            </mock-styled.div>
+            <mock-styled.div
               role="columnheader"
             >
-              <span
-                class="el-intent-default el-icon"
+              <mock-styled.span
+                classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
-                  title="Icon image with name settings"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -109,65 +96,58 @@ exports[`AppsTable should render component with apps 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </span>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-103 el-table-row-container"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
             role="row"
           >
-            <div
-              class="mocked-styled-96 el-table-row"
-            >
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-104 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="App Name"
                 >
                   Reapit Insights
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-104 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="AppId"
                 >
                   f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-104 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Summary"
                 >
                   Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah.
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-104 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Listed"
                 >
-                  <span
-                    class="mocked-styled-4 el-icon"
+                  <mock-styled.span
+                    classname="el-icon-new"
+                    role="img"
                   >
                     <svg
                       fill="none"
                       height="1em"
-                      role="img"
-                      title="Icon image with name check"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -179,25 +159,23 @@ exports[`AppsTable should render component with apps 1`] = `
                         fill-rule="evenodd"
                       />
                     </svg>
-                  </span>
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-104 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Integration"
                 >
-                  <span
-                    class="mocked-styled-4 el-icon"
+                  <mock-styled.span
+                    classname="el-icon-new"
+                    role="img"
                   >
                     <svg
                       fill="none"
                       height="1em"
-                      role="img"
-                      title="Icon image with name close"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -207,25 +185,23 @@ exports[`AppsTable should render component with apps 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </span>
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-104 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Featured"
                 >
-                  <span
-                    class="mocked-styled-4 el-icon"
+                  <mock-styled.span
+                    classname="el-icon-new"
+                    role="img"
                   >
                     <svg
                       fill="none"
                       height="1em"
-                      role="img"
-                      title="Icon image with name close"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -235,44 +211,40 @@ exports[`AppsTable should render component with apps 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </span>
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-104 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Created"
                 >
                   04 Mar 2021 09:37
-                </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
                 role="cell"
               >
-                <div
-                  class="mocked-styled-104 el-table-cell-content"
+                <mock-styled.div
                   data-narrow-label="Publicly Listed"
                 >
                   -
-                </div>
-              </div>
-              <div
-                class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
                 role="cell"
-                tabindex="0"
               >
-                <span
-                  class="el-intent-default el-icon"
+                <mock-styled.span
+                  classname="el-intent-default el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
                     height="1em"
-                    role="img"
-                    title="Icon image with name more"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -282,33 +254,31 @@ exports[`AppsTable should render component with apps 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </span>
-              </div>
-            </div>
-            <div
-              class="mocked-styled-106 el-table-expandable-row"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              aria-hidden="false"
+              classname=""
             >
-              <div
-                class="mocked-styled-107 el-table-expandable-container"
-              >
-                <div
-                  class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-                  role="status"
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+                  role="alertdialog"
                 >
                   <div
                     class="el-pn-icon"
                     data-testid="close-icon"
                   >
-                    <span
-                      class="mocked-styled-4 el-icon"
+                    <mock-styled.span
+                      classname="el-icon-new"
+                      role="img"
                       style="font-size: 1.25rem;"
                     >
                       <svg
                         fill="none"
                         height="1em"
-                        role="img"
                         style="font-size: 1.25rem;"
-                        title="Icon image with name info"
                         viewBox="0 0 24 24"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -318,37 +288,32 @@ exports[`AppsTable should render component with apps 1`] = `
                           fill="currentColor"
                         />
                       </svg>
-                    </span>
+                    </mock-styled.span>
                   </div>
                   <div
-                    aria-live="polite"
                     class="el-pn-content"
                   >
                     Visit the dedicated apps page to perform actions on this app
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-65 el-pagination-wrap"
-        >
-          <button
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.button
             aria-label="Previous"
-            class="mocked-styled-68 el-pagination-button"
             data-testid="back-button"
             role="button"
             type="button"
           >
-            <span
-              class="mocked-styled-4 el-icon"
+            <mock-styled.span
+              classname="el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
-                title="Icon image with name chevronLeft"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -358,35 +323,28 @@ exports[`AppsTable should render component with apps 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
-          </button>
-          <div
-            class="mocked-styled-66 el-pagination-text"
-          >
-            <input
-              aria-label="Current page number, edit to select page of 1 available"
-              class="mocked-styled-67 el-pagination-input"
+            </mock-styled.span>
+          </mock-styled.button>
+          <mock-styled.div>
+            <mock-styled.input
               value="1"
             />
-             
-            of 
+             of 
             1
-          </div>
-          <button
+          </mock-styled.div>
+          <mock-styled.button
             aria-label="Next"
-            class="mocked-styled-68 el-pagination-button"
             data-testid="forward-button"
             role="button"
             type="button"
           >
-            <span
-              class="mocked-styled-4 el-icon"
+            <mock-styled.span
+              classname="el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
-                title="Icon image with name chevronRight"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -396,108 +354,95 @@ exports[`AppsTable should render component with apps 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
-          </button>
-        </div>
+            </mock-styled.span>
+          </mock-styled.button>
+        </mock-styled.div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
     <div
       class="el-mt5"
     >
-      <h2
-        class="el-text-base el-subtitle"
+      <mock-styled.h2
+        classname="el-text-base"
       >
         Total Apps
-      </h2>
-      <p
-        class="el-text-base el-body-text el-has-grey-text"
+      </mock-styled.h2>
+      <mock-styled.p
+        classname="el-text-base el-has-grey-text"
       >
         1
-      </p>
-      <div
-        class="el-mb11 el-table"
+      </mock-styled.p>
+      <mock-styled.div
+        classname="el-mb11"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="8"
         role="table"
       >
-        <div
-          class="mocked-styled-94 el-table-headers-row"
+        <mock-styled.div
           role="row"
         >
-          <div
+          <mock-styled.div
             aria-label="App Name"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             App Name
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="AppId"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             AppId
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Summary"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Summary
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Listed"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Listed
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Integration"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Integration
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Featured"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Featured
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Created"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Created
-          </div>
-          <div
+          </mock-styled.div>
+          <mock-styled.div
             aria-label="Publicly Listed"
-            class="mocked-styled-95 el-table-header"
             role="columnheader"
           >
             Publicly Listed
-          </div>
-          <div
-            class="mocked-styled-95 el-table-header"
+          </mock-styled.div>
+          <mock-styled.div
             role="columnheader"
           >
-            <span
-              class="el-intent-default el-icon"
+            <mock-styled.span
+              classname="el-intent-default el-icon-new"
+              role="img"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
-                title="Icon image with name settings"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -507,65 +452,58 @@ exports[`AppsTable should render component with apps 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-103 el-table-row-container"
+            </mock-styled.span>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
           role="row"
         >
-          <div
-            class="mocked-styled-96 el-table-row"
-          >
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+          <mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="App Name"
               >
                 Reapit Insights
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="AppId"
               >
                 f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Summary"
               >
                 Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah.
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Listed"
               >
-                <span
-                  class="mocked-styled-4 el-icon"
+                <mock-styled.span
+                  classname="el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
                     height="1em"
-                    role="img"
-                    title="Icon image with name check"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -577,25 +515,23 @@ exports[`AppsTable should render component with apps 1`] = `
                       fill-rule="evenodd"
                     />
                   </svg>
-                </span>
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Integration"
               >
-                <span
-                  class="mocked-styled-4 el-icon"
+                <mock-styled.span
+                  classname="el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
                     height="1em"
-                    role="img"
-                    title="Icon image with name close"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -605,25 +541,23 @@ exports[`AppsTable should render component with apps 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </span>
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Featured"
               >
-                <span
-                  class="mocked-styled-4 el-icon"
+                <mock-styled.span
+                  classname="el-icon-new"
+                  role="img"
                 >
                   <svg
                     fill="none"
                     height="1em"
-                    role="img"
-                    title="Icon image with name close"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -633,44 +567,40 @@ exports[`AppsTable should render component with apps 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </span>
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Created"
               >
                 04 Mar 2021 09:37
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname="el-table-cell-has-dark-text"
               role="cell"
             >
-              <div
-                class="mocked-styled-104 el-table-cell-content"
+              <mock-styled.div
                 data-narrow-label="Publicly Listed"
               >
                 -
-              </div>
-            </div>
-            <div
-              class="mocked-styled-102 el-table-expandable-row-trigger-cell"
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
               role="cell"
-              tabindex="0"
             >
-              <span
-                class="el-intent-default el-icon"
+              <mock-styled.span
+                classname="el-intent-default el-icon-new"
+                role="img"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
-                  title="Icon image with name more"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -680,33 +610,31 @@ exports[`AppsTable should render component with apps 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </span>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-106 el-table-expandable-row"
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            aria-hidden="false"
+            classname=""
           >
-            <div
-              class="mocked-styled-107 el-table-expandable-container"
-            >
-              <div
-                class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-                role="status"
+            <mock-styled.div>
+              <mock-styled.div
+                classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+                role="alertdialog"
               >
                 <div
                   class="el-pn-icon"
                   data-testid="close-icon"
                 >
-                  <span
-                    class="mocked-styled-4 el-icon"
+                  <mock-styled.span
+                    classname="el-icon-new"
+                    role="img"
                     style="font-size: 1.25rem;"
                   >
                     <svg
                       fill="none"
                       height="1em"
-                      role="img"
                       style="font-size: 1.25rem;"
-                      title="Icon image with name info"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -716,37 +644,32 @@ exports[`AppsTable should render component with apps 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </span>
+                  </mock-styled.span>
                 </div>
                 <div
-                  aria-live="polite"
                   class="el-pn-content"
                 >
                   Visit the dedicated apps page to perform actions on this app
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="mocked-styled-65 el-pagination-wrap"
-      >
-        <button
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.button
           aria-label="Previous"
-          class="mocked-styled-68 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
-          <span
-            class="mocked-styled-4 el-icon"
+          <mock-styled.span
+            classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
               height="1em"
-              role="img"
-              title="Icon image with name chevronLeft"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -756,35 +679,28 @@ exports[`AppsTable should render component with apps 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </span>
-        </button>
-        <div
-          class="mocked-styled-66 el-pagination-text"
-        >
-          <input
-            aria-label="Current page number, edit to select page of 1 available"
-            class="mocked-styled-67 el-pagination-input"
+          </mock-styled.span>
+        </mock-styled.button>
+        <mock-styled.div>
+          <mock-styled.input
             value="1"
           />
-           
-          of 
+           of 
           1
-        </div>
-        <button
+        </mock-styled.div>
+        <mock-styled.button
           aria-label="Next"
-          class="mocked-styled-68 el-pagination-button"
           data-testid="forward-button"
           role="button"
           type="button"
         >
-          <span
-            class="mocked-styled-4 el-icon"
+          <mock-styled.span
+            classname="el-icon-new"
+            role="img"
           >
             <svg
               fill="none"
               height="1em"
-              role="img"
-              title="Icon image with name chevronRight"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -794,9 +710,9 @@ exports[`AppsTable should render component with apps 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </span>
-        </button>
-      </div>
+          </mock-styled.span>
+        </mock-styled.button>
+      </mock-styled.div>
     </div>
   </div>,
   "debug": [Function],
@@ -858,37 +774,25 @@ exports[`AppsTable should render component with no apps and loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
-      <div
-        class="mocked-styled-38 el-loader-container"
+      <mock-styled.div />
+      <mock-styled.div
+        classname=""
       >
-        <div
-          class="mocked-styled-40 el-loader"
-        >
-          <div
-            class="mocked-styled-41 el-loader-moving-bar"
-          />
-        </div>
-      </div>
+        <mock-styled.div>
+          <mock-styled.div />
+        </mock-styled.div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
-    <div
-      class="mocked-styled-38 el-loader-container"
+    <mock-styled.div />
+    <mock-styled.div
+      classname=""
     >
-      <div
-        class="mocked-styled-40 el-loader"
-      >
-        <div
-          class="mocked-styled-41 el-loader-moving-bar"
-        />
-      </div>
-    </div>
+      <mock-styled.div>
+        <mock-styled.div />
+      </mock-styled.div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -949,30 +853,27 @@ exports[`AppsTable should render component with no apps and not loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
       <div
         class="el-mt5"
       >
-        <div
-          class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-          role="status"
+        <mock-styled.div
+          classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+          role="alertdialog"
         >
           <div
             class="el-pn-icon"
             data-testid="close-icon"
           >
-            <span
-              class="mocked-styled-4 el-icon"
+            <mock-styled.span
+              classname="el-icon-new"
+              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
-                role="img"
                 style="font-size: 1.25rem;"
-                title="Icon image with name info"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -982,43 +883,39 @@ exports[`AppsTable should render component with no apps and not loading 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </span>
+            </mock-styled.span>
           </div>
           <div
-            aria-live="polite"
             class="el-pn-content"
           >
             No results found for your selected filters
           </div>
-        </div>
+        </mock-styled.div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
     <div
       class="el-mt5"
     >
-      <div
-        class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-        role="status"
+      <mock-styled.div
+        classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+        role="alertdialog"
       >
         <div
           class="el-pn-icon"
           data-testid="close-icon"
         >
-          <span
-            class="mocked-styled-4 el-icon"
+          <mock-styled.span
+            classname="el-icon-new"
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
               fill="none"
               height="1em"
-              role="img"
               style="font-size: 1.25rem;"
-              title="Icon image with name info"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1028,15 +925,14 @@ exports[`AppsTable should render component with no apps and not loading 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          aria-live="polite"
           class="el-pn-content"
         >
           No results found for your selected filters
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </div>,
   "debug": [Function],

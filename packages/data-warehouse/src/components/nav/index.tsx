@@ -16,6 +16,8 @@ export const getDefaultNavIndex = (pathname: string) => {
       return 1
     case Routes.DATA:
       return 2
+    case Routes.NETWORK:
+      return 3
     default:
       return 0
   }
@@ -49,6 +51,11 @@ export const Nav: FC = () => {
       itemIndex: 2,
       callback: navigateRoute(navigate, Routes.DATA),
       text: 'Data',
+    },
+    {
+      itemIndex: 3,
+      callback: navigateRoute(navigate, Routes.NETWORK),
+      text: 'Network',
     },
   ]
 

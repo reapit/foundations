@@ -1,0 +1,1154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Network should match a snapshot with no rules 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <div
+        class="el-flex-container el-flex-auto"
+      >
+        <aside
+          class="el-secondary-nav-container"
+        >
+          <mock-styled.p
+            classname="el-text-base"
+          >
+            Network
+          </mock-styled.p>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text"
+            tag="p"
+          >
+            To create a whitelisted IP address for your organisation, first click the button below.
+          </mock-styled.p>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text el-has-section-margin"
+            tag="p"
+          >
+            Please see also below for more resources and assistance.
+          </mock-styled.p>
+          <mock-styled.button
+            classname="el-mb5 el-intent-primary"
+          >
+            <mock-styled.div />
+            New Network Rule
+          </mock-styled.button>
+          <mock-styled.button
+            classname="el-mb5 el-intent-primary"
+            disabled="false"
+          >
+            <mock-styled.div />
+            I Use PowerBI
+          </mock-styled.button>
+          <mock-styled.button
+            classname="el-mb5 el-intent-neutral"
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+          <div>
+            <mock-styled.button
+              classname="el-mb5 el-intent-neutral"
+            >
+              <mock-styled.div />
+              Video
+            </mock-styled.button>
+          </div>
+          <mock-styled.button
+            classname="el-mb5 el-intent-neutral"
+          >
+            <mock-styled.div />
+            Help
+          </mock-styled.button>
+        </aside>
+        <section
+          class="el-page-container"
+        >
+          <mock-styled.h1
+            classname="el-text-base"
+          >
+            IP Whitelisting
+          </mock-styled.h1>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text"
+          >
+            By default, any external access to your Snowflake account is prohibited. You are required to setup IP policies to ensure access is only granted to addresses you trust. First, setup a network rule specific to a trusted location, and then assign that location's IP addresses to it, before finally enabling the rule on your account. Whilst you can add all IP addresses to one rule, it is recommended to use multiple rules to separate concerns. For example, you may choose to have one rule for your corporate network, and another rule for home office users. This can make management of your rules easier.
+          </mock-styled.p>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text el-has-section-margin"
+          >
+            For advanced users, it is possible to configure IP address ranges by providing the appropriate CIDR range when configuring the IP addresses against each rule. Depending on your network this may make it easier to maintain your account configuration.
+          </mock-styled.p>
+          <mock-styled.h2
+            classname="el-text-base"
+          >
+            Network Rules
+          </mock-styled.h2>
+          <mock-styled.div
+            classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+            role="alertdialog"
+          >
+            <div
+              class="el-pn-icon"
+              data-testid="close-icon"
+            >
+              <mock-styled.span
+                classname="el-icon-new"
+                role="img"
+                style="font-size: 1.25rem;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  style="font-size: 1.25rem;"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
+                    fill="currentColor"
+                  />
+                </svg>
+              </mock-styled.span>
+            </div>
+            <div
+              class="el-pn-content"
+            >
+              No network rules yet configured for your organisation
+            </div>
+          </mock-styled.div>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <div
+      class="el-flex-container el-flex-auto"
+    >
+      <aside
+        class="el-secondary-nav-container"
+      >
+        <mock-styled.p
+          classname="el-text-base"
+        >
+          Network
+        </mock-styled.p>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text"
+          tag="p"
+        >
+          To create a whitelisted IP address for your organisation, first click the button below.
+        </mock-styled.p>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text el-has-section-margin"
+          tag="p"
+        >
+          Please see also below for more resources and assistance.
+        </mock-styled.p>
+        <mock-styled.button
+          classname="el-mb5 el-intent-primary"
+        >
+          <mock-styled.div />
+          New Network Rule
+        </mock-styled.button>
+        <mock-styled.button
+          classname="el-mb5 el-intent-primary"
+          disabled="false"
+        >
+          <mock-styled.div />
+          I Use PowerBI
+        </mock-styled.button>
+        <mock-styled.button
+          classname="el-mb5 el-intent-neutral"
+        >
+          <mock-styled.div />
+          View Docs
+        </mock-styled.button>
+        <div>
+          <mock-styled.button
+            classname="el-mb5 el-intent-neutral"
+          >
+            <mock-styled.div />
+            Video
+          </mock-styled.button>
+        </div>
+        <mock-styled.button
+          classname="el-mb5 el-intent-neutral"
+        >
+          <mock-styled.div />
+          Help
+        </mock-styled.button>
+      </aside>
+      <section
+        class="el-page-container"
+      >
+        <mock-styled.h1
+          classname="el-text-base"
+        >
+          IP Whitelisting
+        </mock-styled.h1>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text"
+        >
+          By default, any external access to your Snowflake account is prohibited. You are required to setup IP policies to ensure access is only granted to addresses you trust. First, setup a network rule specific to a trusted location, and then assign that location's IP addresses to it, before finally enabling the rule on your account. Whilst you can add all IP addresses to one rule, it is recommended to use multiple rules to separate concerns. For example, you may choose to have one rule for your corporate network, and another rule for home office users. This can make management of your rules easier.
+        </mock-styled.p>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text el-has-section-margin"
+        >
+          For advanced users, it is possible to configure IP address ranges by providing the appropriate CIDR range when configuring the IP addresses against each rule. Depending on your network this may make it easier to maintain your account configuration.
+        </mock-styled.p>
+        <mock-styled.h2
+          classname="el-text-base"
+        >
+          Network Rules
+        </mock-styled.h2>
+        <mock-styled.div
+          classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
+          role="alertdialog"
+        >
+          <div
+            class="el-pn-icon"
+            data-testid="close-icon"
+          >
+            <mock-styled.span
+              classname="el-icon-new"
+              role="img"
+              style="font-size: 1.25rem;"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                style="font-size: 1.25rem;"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
+                  fill="currentColor"
+                />
+              </svg>
+            </mock-styled.span>
+          </div>
+          <div
+            class="el-pn-content"
+          >
+            No network rules yet configured for your organisation
+          </div>
+        </mock-styled.div>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Network should match a snapshot with rules 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <div
+        class="el-flex-container el-flex-auto"
+      >
+        <aside
+          class="el-secondary-nav-container"
+        >
+          <mock-styled.p
+            classname="el-text-base"
+          >
+            Network
+          </mock-styled.p>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text"
+            tag="p"
+          >
+            To create a whitelisted IP address for your organisation, first click the button below.
+          </mock-styled.p>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text el-has-section-margin"
+            tag="p"
+          >
+            Please see also below for more resources and assistance.
+          </mock-styled.p>
+          <mock-styled.button
+            classname="el-mb5 el-intent-primary"
+          >
+            <mock-styled.div />
+            New Network Rule
+          </mock-styled.button>
+          <mock-styled.button
+            classname="el-mb5 el-intent-primary"
+            disabled="false"
+          >
+            <mock-styled.div />
+            I Use PowerBI
+          </mock-styled.button>
+          <mock-styled.button
+            classname="el-mb5 el-intent-neutral"
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+          <div>
+            <mock-styled.button
+              classname="el-mb5 el-intent-neutral"
+            >
+              <mock-styled.div />
+              Video
+            </mock-styled.button>
+          </div>
+          <mock-styled.button
+            classname="el-mb5 el-intent-neutral"
+          >
+            <mock-styled.div />
+            Help
+          </mock-styled.button>
+        </aside>
+        <section
+          class="el-page-container"
+        >
+          <mock-styled.h1
+            classname="el-text-base"
+          >
+            IP Whitelisting
+          </mock-styled.h1>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text"
+          >
+            By default, any external access to your Snowflake account is prohibited. You are required to setup IP policies to ensure access is only granted to addresses you trust. First, setup a network rule specific to a trusted location, and then assign that location's IP addresses to it, before finally enabling the rule on your account. Whilst you can add all IP addresses to one rule, it is recommended to use multiple rules to separate concerns. For example, you may choose to have one rule for your corporate network, and another rule for home office users. This can make management of your rules easier.
+          </mock-styled.p>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text el-has-section-margin"
+          >
+            For advanced users, it is possible to configure IP address ranges by providing the appropriate CIDR range when configuring the IP addresses against each rule. Depending on your network this may make it easier to maintain your account configuration.
+          </mock-styled.p>
+          <mock-styled.h2
+            classname="el-text-base"
+          >
+            Network Rules
+          </mock-styled.h2>
+          <mock-styled.div
+            classname="el-mb11"
+            data-has-call-to-action="false"
+            data-has-expandable-action="true"
+            data-num-columns-excl-action-col="4"
+            role="table"
+          >
+            <mock-styled.div
+              role="row"
+            >
+              <mock-styled.div
+                aria-label="Network Rule Name"
+                role="columnheader"
+              >
+                Network Rule Name
+              </mock-styled.div>
+              <mock-styled.div
+                aria-label="Enabled"
+                role="columnheader"
+              >
+                Enabled
+              </mock-styled.div>
+              <mock-styled.div
+                aria-label="Created"
+                role="columnheader"
+              >
+                Created
+              </mock-styled.div>
+              <mock-styled.div
+                aria-label="Modified"
+                role="columnheader"
+              >
+                Modified
+              </mock-styled.div>
+              <mock-styled.div
+                role="columnheader"
+              >
+                <mock-styled.span
+                  classname="el-intent-default el-icon-new"
+                  role="img"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              classname=""
+              role="row"
+            >
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="el-table-cell-has-dark-text"
+                  role="cell"
+                >
+                  <mock-styled.span
+                    classname="el-intent-default el-icon-new"
+                    role="img"
+                    style="font-size: 1.25rem;"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      style="font-size: 1.25rem;"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5m0-11a3.49 3.49 0 0 0-3.5 3.5c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 12 13a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25A3.49 3.49 0 0 0 12 4"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </mock-styled.span>
+                  <mock-styled.div
+                    data-narrow-label="Network Rule Name"
+                  >
+                    MOCK_NAME
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="el-table-cell-has-dark-text"
+                  role="cell"
+                >
+                  <mock-styled.div
+                    data-narrow-label="Enabled"
+                  >
+                    <mock-styled.span
+                      classname="el-intent-success el-icon-new"
+                      role="img"
+                    >
+                      <svg
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.32 1.32 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </mock-styled.span>
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="el-table-cell-has-dark-text"
+                  role="cell"
+                >
+                  <mock-styled.div
+                    data-narrow-label="Created"
+                  >
+                    Invalid Date
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname="el-table-cell-has-dark-text"
+                  role="cell"
+                >
+                  <mock-styled.div
+                    data-narrow-label="Modified"
+                  >
+                    Invalid Date
+                  </mock-styled.div>
+                </mock-styled.div>
+                <mock-styled.div
+                  classname=""
+                  role="cell"
+                >
+                  <mock-styled.span
+                    classname="el-intent-default el-icon-new"
+                    role="img"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                aria-hidden="false"
+                classname=""
+              >
+                <mock-styled.div>
+                  <mock-styled.div
+                    classname="el-mb5"
+                  >
+                    <mock-styled.div
+                      classname="el-button-group-align-right"
+                    >
+                      <mock-styled.button
+                        classname="el-intent-danger"
+                        disabled="false"
+                      >
+                        <mock-styled.div />
+                        Disable Rule
+                      </mock-styled.button>
+                      <mock-styled.button
+                        classname="el-intent-primary"
+                        disabled="false"
+                      >
+                        <mock-styled.div />
+                        Create Whitelisted IP
+                      </mock-styled.button>
+                    </mock-styled.div>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <div
+      class="el-flex-container el-flex-auto"
+    >
+      <aside
+        class="el-secondary-nav-container"
+      >
+        <mock-styled.p
+          classname="el-text-base"
+        >
+          Network
+        </mock-styled.p>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text"
+          tag="p"
+        >
+          To create a whitelisted IP address for your organisation, first click the button below.
+        </mock-styled.p>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text el-has-section-margin"
+          tag="p"
+        >
+          Please see also below for more resources and assistance.
+        </mock-styled.p>
+        <mock-styled.button
+          classname="el-mb5 el-intent-primary"
+        >
+          <mock-styled.div />
+          New Network Rule
+        </mock-styled.button>
+        <mock-styled.button
+          classname="el-mb5 el-intent-primary"
+          disabled="false"
+        >
+          <mock-styled.div />
+          I Use PowerBI
+        </mock-styled.button>
+        <mock-styled.button
+          classname="el-mb5 el-intent-neutral"
+        >
+          <mock-styled.div />
+          View Docs
+        </mock-styled.button>
+        <div>
+          <mock-styled.button
+            classname="el-mb5 el-intent-neutral"
+          >
+            <mock-styled.div />
+            Video
+          </mock-styled.button>
+        </div>
+        <mock-styled.button
+          classname="el-mb5 el-intent-neutral"
+        >
+          <mock-styled.div />
+          Help
+        </mock-styled.button>
+      </aside>
+      <section
+        class="el-page-container"
+      >
+        <mock-styled.h1
+          classname="el-text-base"
+        >
+          IP Whitelisting
+        </mock-styled.h1>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text"
+        >
+          By default, any external access to your Snowflake account is prohibited. You are required to setup IP policies to ensure access is only granted to addresses you trust. First, setup a network rule specific to a trusted location, and then assign that location's IP addresses to it, before finally enabling the rule on your account. Whilst you can add all IP addresses to one rule, it is recommended to use multiple rules to separate concerns. For example, you may choose to have one rule for your corporate network, and another rule for home office users. This can make management of your rules easier.
+        </mock-styled.p>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text el-has-section-margin"
+        >
+          For advanced users, it is possible to configure IP address ranges by providing the appropriate CIDR range when configuring the IP addresses against each rule. Depending on your network this may make it easier to maintain your account configuration.
+        </mock-styled.p>
+        <mock-styled.h2
+          classname="el-text-base"
+        >
+          Network Rules
+        </mock-styled.h2>
+        <mock-styled.div
+          classname="el-mb11"
+          data-has-call-to-action="false"
+          data-has-expandable-action="true"
+          data-num-columns-excl-action-col="4"
+          role="table"
+        >
+          <mock-styled.div
+            role="row"
+          >
+            <mock-styled.div
+              aria-label="Network Rule Name"
+              role="columnheader"
+            >
+              Network Rule Name
+            </mock-styled.div>
+            <mock-styled.div
+              aria-label="Enabled"
+              role="columnheader"
+            >
+              Enabled
+            </mock-styled.div>
+            <mock-styled.div
+              aria-label="Created"
+              role="columnheader"
+            >
+              Created
+            </mock-styled.div>
+            <mock-styled.div
+              aria-label="Modified"
+              role="columnheader"
+            >
+              Modified
+            </mock-styled.div>
+            <mock-styled.div
+              role="columnheader"
+            >
+              <mock-styled.span
+                classname="el-intent-default el-icon-new"
+                role="img"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
+                    fill="currentColor"
+                  />
+                </svg>
+              </mock-styled.span>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div
+            classname=""
+            role="row"
+          >
+            <mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
+                role="cell"
+              >
+                <mock-styled.span
+                  classname="el-intent-default el-icon-new"
+                  role="img"
+                  style="font-size: 1.25rem;"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    style="font-size: 1.25rem;"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5m0-11a3.49 3.49 0 0 0-3.5 3.5c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 12 13a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25A3.49 3.49 0 0 0 12 4"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </mock-styled.span>
+                <mock-styled.div
+                  data-narrow-label="Network Rule Name"
+                >
+                  MOCK_NAME
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
+                role="cell"
+              >
+                <mock-styled.div
+                  data-narrow-label="Enabled"
+                >
+                  <mock-styled.span
+                    classname="el-intent-success el-icon-new"
+                    role="img"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.32 1.32 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </mock-styled.span>
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
+                role="cell"
+              >
+                <mock-styled.div
+                  data-narrow-label="Created"
+                >
+                  Invalid Date
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname="el-table-cell-has-dark-text"
+                role="cell"
+              >
+                <mock-styled.div
+                  data-narrow-label="Modified"
+                >
+                  Invalid Date
+                </mock-styled.div>
+              </mock-styled.div>
+              <mock-styled.div
+                classname=""
+                role="cell"
+              >
+                <mock-styled.span
+                  classname="el-intent-default el-icon-new"
+                  role="img"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </mock-styled.span>
+              </mock-styled.div>
+            </mock-styled.div>
+            <mock-styled.div
+              aria-hidden="false"
+              classname=""
+            >
+              <mock-styled.div>
+                <mock-styled.div
+                  classname="el-mb5"
+                >
+                  <mock-styled.div
+                    classname="el-button-group-align-right"
+                  >
+                    <mock-styled.button
+                      classname="el-intent-danger"
+                      disabled="false"
+                    >
+                      <mock-styled.div />
+                      Disable Rule
+                    </mock-styled.button>
+                    <mock-styled.button
+                      classname="el-intent-primary"
+                      disabled="false"
+                    >
+                      <mock-styled.div />
+                      Create Whitelisted IP
+                    </mock-styled.button>
+                  </mock-styled.div>
+                </mock-styled.div>
+              </mock-styled.div>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Network should match a snapshot with rules loading 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <mock-styled.div />
+      <div
+        class="el-flex-container el-flex-auto"
+      >
+        <aside
+          class="el-secondary-nav-container"
+        >
+          <mock-styled.p
+            classname="el-text-base"
+          >
+            Network
+          </mock-styled.p>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text"
+            tag="p"
+          >
+            To create a whitelisted IP address for your organisation, first click the button below.
+          </mock-styled.p>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text el-has-section-margin"
+            tag="p"
+          >
+            Please see also below for more resources and assistance.
+          </mock-styled.p>
+          <mock-styled.button
+            classname="el-mb5 el-intent-primary"
+          >
+            <mock-styled.div />
+            New Network Rule
+          </mock-styled.button>
+          <mock-styled.button
+            classname="el-mb5 el-intent-primary"
+            disabled="false"
+          >
+            <mock-styled.div />
+            I Use PowerBI
+          </mock-styled.button>
+          <mock-styled.button
+            classname="el-mb5 el-intent-neutral"
+          >
+            <mock-styled.div />
+            View Docs
+          </mock-styled.button>
+          <div>
+            <mock-styled.button
+              classname="el-mb5 el-intent-neutral"
+            >
+              <mock-styled.div />
+              Video
+            </mock-styled.button>
+          </div>
+          <mock-styled.button
+            classname="el-mb5 el-intent-neutral"
+          >
+            <mock-styled.div />
+            Help
+          </mock-styled.button>
+        </aside>
+        <section
+          class="el-page-container"
+        >
+          <mock-styled.h1
+            classname="el-text-base"
+          >
+            IP Whitelisting
+          </mock-styled.h1>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text"
+          >
+            By default, any external access to your Snowflake account is prohibited. You are required to setup IP policies to ensure access is only granted to addresses you trust. First, setup a network rule specific to a trusted location, and then assign that location's IP addresses to it, before finally enabling the rule on your account. Whilst you can add all IP addresses to one rule, it is recommended to use multiple rules to separate concerns. For example, you may choose to have one rule for your corporate network, and another rule for home office users. This can make management of your rules easier.
+          </mock-styled.p>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text el-has-section-margin"
+          >
+            For advanced users, it is possible to configure IP address ranges by providing the appropriate CIDR range when configuring the IP addresses against each rule. Depending on your network this may make it easier to maintain your account configuration.
+          </mock-styled.p>
+          <mock-styled.h2
+            classname="el-text-base"
+          >
+            Network Rules
+          </mock-styled.h2>
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <mock-styled.div />
+    <div
+      class="el-flex-container el-flex-auto"
+    >
+      <aside
+        class="el-secondary-nav-container"
+      >
+        <mock-styled.p
+          classname="el-text-base"
+        >
+          Network
+        </mock-styled.p>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text"
+          tag="p"
+        >
+          To create a whitelisted IP address for your organisation, first click the button below.
+        </mock-styled.p>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text el-has-section-margin"
+          tag="p"
+        >
+          Please see also below for more resources and assistance.
+        </mock-styled.p>
+        <mock-styled.button
+          classname="el-mb5 el-intent-primary"
+        >
+          <mock-styled.div />
+          New Network Rule
+        </mock-styled.button>
+        <mock-styled.button
+          classname="el-mb5 el-intent-primary"
+          disabled="false"
+        >
+          <mock-styled.div />
+          I Use PowerBI
+        </mock-styled.button>
+        <mock-styled.button
+          classname="el-mb5 el-intent-neutral"
+        >
+          <mock-styled.div />
+          View Docs
+        </mock-styled.button>
+        <div>
+          <mock-styled.button
+            classname="el-mb5 el-intent-neutral"
+          >
+            <mock-styled.div />
+            Video
+          </mock-styled.button>
+        </div>
+        <mock-styled.button
+          classname="el-mb5 el-intent-neutral"
+        >
+          <mock-styled.div />
+          Help
+        </mock-styled.button>
+      </aside>
+      <section
+        class="el-page-container"
+      >
+        <mock-styled.h1
+          classname="el-text-base"
+        >
+          IP Whitelisting
+        </mock-styled.h1>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text"
+        >
+          By default, any external access to your Snowflake account is prohibited. You are required to setup IP policies to ensure access is only granted to addresses you trust. First, setup a network rule specific to a trusted location, and then assign that location's IP addresses to it, before finally enabling the rule on your account. Whilst you can add all IP addresses to one rule, it is recommended to use multiple rules to separate concerns. For example, you may choose to have one rule for your corporate network, and another rule for home office users. This can make management of your rules easier.
+        </mock-styled.p>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text el-has-section-margin"
+        >
+          For advanced users, it is possible to configure IP address ranges by providing the appropriate CIDR range when configuring the IP addresses against each rule. Depending on your network this may make it easier to maintain your account configuration.
+        </mock-styled.p>
+        <mock-styled.h2
+          classname="el-text-base"
+        >
+          Network Rules
+        </mock-styled.h2>
+        <mock-styled.div
+          classname=""
+        >
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

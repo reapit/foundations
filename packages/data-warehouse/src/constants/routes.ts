@@ -6,7 +6,7 @@ export const Routes = {
   SETTINGS: '/settings',
   LOGIN: '/login',
   ANALYTICS: '/analytics',
-  OK: '/ok',
+  NETWORK: '/network',
 }
 
 export default Routes

@@ -33,7 +33,8 @@ describe('ClientConfigPrivateController', () => {
     })
 
     const result = await controller.getConfig({
-      clientCode: 'SBOX',
+      'reapit-customer': 'SBOX',
+      'reapit-id-token': 'MOCK_TOKEN',
     })
 
     expect(result).toEqual(mockConfigCreateModel)
@@ -48,7 +49,8 @@ describe('ClientConfigPrivateController', () => {
 
     const result = await controller.createConfig(
       {
-        clientCode: 'SBOX',
+        'reapit-customer': 'SBOX',
+        'reapit-id-token': 'MOCK_TOKEN',
       },
       mockConfigCreateModel,
     )
@@ -65,7 +67,8 @@ describe('ClientConfigPrivateController', () => {
 
     const result = await controller.updateConfig(
       {
-        clientCode: 'SBOX',
+        'reapit-customer': 'SBOX',
+        'reapit-id-token': 'MOCK_TOKEN',
       },
       mockConfigCreateModel,
     )
@@ -82,7 +85,8 @@ describe('ClientConfigPrivateController', () => {
 
     const result = await controller.deleteConfig(
       {
-        clientCode: 'SBOX',
+        'reapit-customer': 'SBOX',
+        'reapit-id-token': 'MOCK_TOKEN',
       },
       { configId: 'MOCK_ID' },
     )

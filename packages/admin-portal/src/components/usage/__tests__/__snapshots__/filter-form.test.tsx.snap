@@ -5,41 +5,34 @@ exports[`FilterForm should render component with data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <div
-          class="el-form-layout-has-margin el-form-layout"
+        <mock-styled.div
+          classname="el-form-layout-has-margin"
         >
-          <div
-            class="mocked-styled-128 el-input-wrap-full"
-          >
-            <h2
-              class="el-text-base el-subtitle"
+          <mock-styled.div>
+            <mock-styled.h2
+              classname="el-text-base"
             >
               Filters
-            </h2>
-            <p
-              class="el-text-base el-body-text el-has-grey-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="el-text-base el-has-grey-text"
             >
               Apply a filter to get started. Developer and month are required by default.
-            </p>
-          </div>
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <label
-              class="el-flex el-mb3 el-label"
-              for="developer-search-box"
+            </mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label
+              classname="el-flex el-mb3"
+              htmlfor="developer-search-box"
             >
               Company
-            </label>
-            <div
-              aria-controls="test-static-id"
+            </mock-styled.label>
+            <mock-styled.div
+              aria-controls=":r1:"
               aria-expanded="false"
               aria-haspopup="listbox"
-              class="mocked-styled-77 el-searchable-dropdown-container"
               role="combobox"
             >
               <input
@@ -48,19 +41,16 @@ exports[`FilterForm should render component with data 1`] = `
                 style="display: none;"
                 value=""
               />
-              <span
-                class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
-              >
-                <span
-                  class="el-intent-default el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname="el-intent-default el-icon-new"
+                  role="img"
                   style="font-size: 1rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
-                    role="img"
                     style="font-size: 1rem;"
-                    title="Icon image with name search"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -70,55 +60,38 @@ exports[`FilterForm should render component with data 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </span>
-              </span>
-              <input
-                aria-label="Input type undefined"
-                class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div
                 data-testid="search-input"
                 name="developerId"
                 placeholder="Search developer organisations"
                 value=""
               />
-            </div>
-          </div>
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <input
-                aria-label="Input type month"
-                class="mocked-styled-33 el-input"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="month"
                 type="month"
-                value="2019-09"
               />
-              <label
-                class="mocked-styled-36 el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Month
-              </label>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <label
-                class="mocked-styled-36 el-label"
-              >
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
                 App
-              </label>
-              <select
-                aria-label="Select an item from the dropdown list"
-                class="mocked-styled-76 el-select"
-                disabled=""
+              </mock-styled.label>
+              <mock-styled.select
+                disabled="true"
                 name="appId"
               >
                 <option
@@ -131,24 +104,16 @@ exports[`FilterForm should render component with data 1`] = `
                 >
                   Reapit Insights
                 </option>
-              </select>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <label
-                class="mocked-styled-36 el-label"
-              >
+              </mock-styled.select>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
                 Customer
-              </label>
-              <select
-                aria-label="Select an item from the dropdown list"
-                class="mocked-styled-76 el-select"
-                disabled=""
+              </mock-styled.label>
+              <mock-styled.select
+                disabled="true"
                 name="customerId"
               >
                 <option
@@ -164,49 +129,42 @@ exports[`FilterForm should render component with data 1`] = `
                   SBOX
                   )
                 </option>
-              </select>
-            </div>
-          </div>
-        </div>
+              </mock-styled.select>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <div
-        class="el-form-layout-has-margin el-form-layout"
+      <mock-styled.div
+        classname="el-form-layout-has-margin"
       >
-        <div
-          class="mocked-styled-128 el-input-wrap-full"
-        >
-          <h2
-            class="el-text-base el-subtitle"
+        <mock-styled.div>
+          <mock-styled.h2
+            classname="el-text-base"
           >
             Filters
-          </h2>
-          <p
-            class="el-text-base el-body-text el-has-grey-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text"
           >
             Apply a filter to get started. Developer and month are required by default.
-          </p>
-        </div>
-        <div
-          class="mocked-styled-126 el-input-wrap"
-        >
-          <label
-            class="el-flex el-mb3 el-label"
-            for="developer-search-box"
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label
+            classname="el-flex el-mb3"
+            htmlfor="developer-search-box"
           >
             Company
-          </label>
-          <div
-            aria-controls="test-static-id"
+          </mock-styled.label>
+          <mock-styled.div
+            aria-controls=":r1:"
             aria-expanded="false"
             aria-haspopup="listbox"
-            class="mocked-styled-77 el-searchable-dropdown-container"
             role="combobox"
           >
             <input
@@ -215,19 +173,16 @@ exports[`FilterForm should render component with data 1`] = `
               style="display: none;"
               value=""
             />
-            <span
-              class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
-            >
-              <span
-                class="el-intent-default el-icon"
+            <mock-styled.div>
+              <mock-styled.span
+                classname="el-intent-default el-icon-new"
+                role="img"
                 style="font-size: 1rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
                   style="font-size: 1rem;"
-                  title="Icon image with name search"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -237,55 +192,38 @@ exports[`FilterForm should render component with data 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </span>
-            </span>
-            <input
-              aria-label="Input type undefined"
-              class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div
               data-testid="search-input"
               name="developerId"
               placeholder="Search developer organisations"
               value=""
             />
-          </div>
-        </div>
-        <div
-          class="mocked-styled-126 el-input-wrap"
-        >
-          <div
-            class="mocked-styled-35 el-input-group"
-          >
-            <input
-              aria-label="Input type month"
-              class="mocked-styled-33 el-input"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              classname=""
               id="test-static-id"
               name="month"
               type="month"
-              value="2019-09"
             />
-            <label
-              class="mocked-styled-36 el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Month
-            </label>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-126 el-input-wrap"
-        >
-          <div
-            class="mocked-styled-35 el-input-group"
-          >
-            <label
-              class="mocked-styled-36 el-label"
-            >
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               App
-            </label>
-            <select
-              aria-label="Select an item from the dropdown list"
-              class="mocked-styled-76 el-select"
-              disabled=""
+            </mock-styled.label>
+            <mock-styled.select
+              disabled="true"
               name="appId"
             >
               <option
@@ -298,24 +236,16 @@ exports[`FilterForm should render component with data 1`] = `
               >
                 Reapit Insights
               </option>
-            </select>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-126 el-input-wrap"
-        >
-          <div
-            class="mocked-styled-35 el-input-group"
-          >
-            <label
-              class="mocked-styled-36 el-label"
-            >
+            </mock-styled.select>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Customer
-            </label>
-            <select
-              aria-label="Select an item from the dropdown list"
-              class="mocked-styled-76 el-select"
-              disabled=""
+            </mock-styled.label>
+            <mock-styled.select
+              disabled="true"
               name="customerId"
             >
               <option
@@ -331,10 +261,10 @@ exports[`FilterForm should render component with data 1`] = `
                 SBOX
                 )
               </option>
-            </select>
-          </div>
-        </div>
-      </div>
+            </mock-styled.select>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],
@@ -396,41 +326,34 @@ exports[`FilterForm should render component with no data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
       <form>
-        <div
-          class="el-form-layout-has-margin el-form-layout"
+        <mock-styled.div
+          classname="el-form-layout-has-margin"
         >
-          <div
-            class="mocked-styled-128 el-input-wrap-full"
-          >
-            <h2
-              class="el-text-base el-subtitle"
+          <mock-styled.div>
+            <mock-styled.h2
+              classname="el-text-base"
             >
               Filters
-            </h2>
-            <p
-              class="el-text-base el-body-text el-has-grey-text"
+            </mock-styled.h2>
+            <mock-styled.p
+              classname="el-text-base el-has-grey-text"
             >
               Apply a filter to get started. Developer and month are required by default.
-            </p>
-          </div>
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <label
-              class="el-flex el-mb3 el-label"
-              for="developer-search-box"
+            </mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label
+              classname="el-flex el-mb3"
+              htmlfor="developer-search-box"
             >
               Company
-            </label>
-            <div
-              aria-controls="test-static-id"
+            </mock-styled.label>
+            <mock-styled.div
+              aria-controls=":r0:"
               aria-expanded="false"
               aria-haspopup="listbox"
-              class="mocked-styled-77 el-searchable-dropdown-container"
               role="combobox"
             >
               <input
@@ -439,19 +362,16 @@ exports[`FilterForm should render component with no data 1`] = `
                 style="display: none;"
                 value=""
               />
-              <span
-                class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
-              >
-                <span
-                  class="el-intent-default el-icon"
+              <mock-styled.div>
+                <mock-styled.span
+                  classname="el-intent-default el-icon-new"
+                  role="img"
                   style="font-size: 1rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
-                    role="img"
                     style="font-size: 1rem;"
-                    title="Icon image with name search"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -461,55 +381,38 @@ exports[`FilterForm should render component with no data 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </span>
-              </span>
-              <input
-                aria-label="Input type undefined"
-                class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
+                </mock-styled.span>
+              </mock-styled.div>
+              <mock-styled.div
                 data-testid="search-input"
                 name="developerId"
                 placeholder="Search developer organisations"
                 value=""
               />
-            </div>
-          </div>
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <input
-                aria-label="Input type month"
-                class="mocked-styled-33 el-input"
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.input
+                classname=""
                 id="test-static-id"
                 name="month"
                 type="month"
-                value="2019-09"
               />
-              <label
-                class="mocked-styled-36 el-label"
-                for="test-static-id"
+              <mock-styled.label
+                htmlfor="test-static-id"
               >
                 Month
-              </label>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <label
-                class="mocked-styled-36 el-label"
-              >
+              </mock-styled.label>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
                 App
-              </label>
-              <select
-                aria-label="Select an item from the dropdown list"
-                class="mocked-styled-76 el-select"
-                disabled=""
+              </mock-styled.label>
+              <mock-styled.select
+                disabled="true"
                 name="appId"
               >
                 <option
@@ -517,24 +420,16 @@ exports[`FilterForm should render component with no data 1`] = `
                 >
                   Please Select
                 </option>
-              </select>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-126 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-35 el-input-group"
-            >
-              <label
-                class="mocked-styled-36 el-label"
-              >
+              </mock-styled.select>
+            </mock-styled.div>
+          </mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.div>
+              <mock-styled.label>
                 Customer
-              </label>
-              <select
-                aria-label="Select an item from the dropdown list"
-                class="mocked-styled-76 el-select"
-                disabled=""
+              </mock-styled.label>
+              <mock-styled.select
+                disabled="true"
                 name="customerId"
               >
                 <option
@@ -542,49 +437,42 @@ exports[`FilterForm should render component with no data 1`] = `
                 >
                   Please Select
                 </option>
-              </select>
-            </div>
-          </div>
-        </div>
+              </mock-styled.select>
+            </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
     <form>
-      <div
-        class="el-form-layout-has-margin el-form-layout"
+      <mock-styled.div
+        classname="el-form-layout-has-margin"
       >
-        <div
-          class="mocked-styled-128 el-input-wrap-full"
-        >
-          <h2
-            class="el-text-base el-subtitle"
+        <mock-styled.div>
+          <mock-styled.h2
+            classname="el-text-base"
           >
             Filters
-          </h2>
-          <p
-            class="el-text-base el-body-text el-has-grey-text"
+          </mock-styled.h2>
+          <mock-styled.p
+            classname="el-text-base el-has-grey-text"
           >
             Apply a filter to get started. Developer and month are required by default.
-          </p>
-        </div>
-        <div
-          class="mocked-styled-126 el-input-wrap"
-        >
-          <label
-            class="el-flex el-mb3 el-label"
-            for="developer-search-box"
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.label
+            classname="el-flex el-mb3"
+            htmlfor="developer-search-box"
           >
             Company
-          </label>
-          <div
-            aria-controls="test-static-id"
+          </mock-styled.label>
+          <mock-styled.div
+            aria-controls=":r0:"
             aria-expanded="false"
             aria-haspopup="listbox"
-            class="mocked-styled-77 el-searchable-dropdown-container"
             role="combobox"
           >
             <input
@@ -593,19 +481,16 @@ exports[`FilterForm should render component with no data 1`] = `
               style="display: none;"
               value=""
             />
-            <span
-              class="mocked-styled-80 el-searchable-dropdown-search-input-add-on el-input-add-on"
-            >
-              <span
-                class="el-intent-default el-icon"
+            <mock-styled.div>
+              <mock-styled.span
+                classname="el-intent-default el-icon-new"
+                role="img"
                 style="font-size: 1rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
-                  role="img"
                   style="font-size: 1rem;"
-                  title="Icon image with name search"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -615,55 +500,38 @@ exports[`FilterForm should render component with no data 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </span>
-            </span>
-            <input
-              aria-label="Input type undefined"
-              class="mocked-styled-82 el-searchable-dropdown-search-input el-input"
+              </mock-styled.span>
+            </mock-styled.div>
+            <mock-styled.div
               data-testid="search-input"
               name="developerId"
               placeholder="Search developer organisations"
               value=""
             />
-          </div>
-        </div>
-        <div
-          class="mocked-styled-126 el-input-wrap"
-        >
-          <div
-            class="mocked-styled-35 el-input-group"
-          >
-            <input
-              aria-label="Input type month"
-              class="mocked-styled-33 el-input"
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.input
+              classname=""
               id="test-static-id"
               name="month"
               type="month"
-              value="2019-09"
             />
-            <label
-              class="mocked-styled-36 el-label"
-              for="test-static-id"
+            <mock-styled.label
+              htmlfor="test-static-id"
             >
               Month
-            </label>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-126 el-input-wrap"
-        >
-          <div
-            class="mocked-styled-35 el-input-group"
-          >
-            <label
-              class="mocked-styled-36 el-label"
-            >
+            </mock-styled.label>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               App
-            </label>
-            <select
-              aria-label="Select an item from the dropdown list"
-              class="mocked-styled-76 el-select"
-              disabled=""
+            </mock-styled.label>
+            <mock-styled.select
+              disabled="true"
               name="appId"
             >
               <option
@@ -671,24 +539,16 @@ exports[`FilterForm should render component with no data 1`] = `
               >
                 Please Select
               </option>
-            </select>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-126 el-input-wrap"
-        >
-          <div
-            class="mocked-styled-35 el-input-group"
-          >
-            <label
-              class="mocked-styled-36 el-label"
-            >
+            </mock-styled.select>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <mock-styled.label>
               Customer
-            </label>
-            <select
-              aria-label="Select an item from the dropdown list"
-              class="mocked-styled-76 el-select"
-              disabled=""
+            </mock-styled.label>
+            <mock-styled.select
+              disabled="true"
               name="customerId"
             >
               <option
@@ -696,10 +556,10 @@ exports[`FilterForm should render component with no data 1`] = `
               >
                 Please Select
               </option>
-            </select>
-          </div>
-        </div>
-      </div>
+            </mock-styled.select>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
     </form>
   </div>,
   "debug": [Function],

@@ -3,6 +3,30 @@ import { aws_lambda as lambda, aws_apigateway as apigateway } from 'aws-cdk-lib'
 
 import { getAuthorizer } from './cognito-authorizer'
 
+const resolveAuthorizer = (scope: cdk.Stack, {
+  cognitoUserPoolId,
+  authorizer,
+}: {
+  cognitoUserPoolId?: string,
+  authorizer?: apigateway.RequestAuthorizer,
+}) => {
+  if (cognitoUserPoolId) {
+    return {
+      authorizer: getAuthorizer(scope, cognitoUserPoolId),
+      authorizationType: apigateway.AuthorizationType.COGNITO,
+    }
+  }
+
+  else if (authorizer) {
+    return {
+      authorizer,
+      authorizationType: apigateway.AuthorizationType.CUSTOM,
+    }
+  }
+
+  return {}
+}
+
 export const createApi = (
   scope: cdk.Stack,
   name: string,
@@ -28,12 +52,14 @@ export const createApi = (
   if (!lambdaFunction) {
     return new apigateway.RestApi(scope, `${scope.stackName}-${name}`, {
       defaultCorsPreflightOptions,
+      endpointTypes: [apigateway.EndpointType.REGIONAL],
     })
   }
 
   return new apigateway.LambdaRestApi(scope, `${scope.stackName}-${name}`, {
     handler: lambdaFunction,
     defaultCorsPreflightOptions,
+    endpointTypes: [apigateway.EndpointType.REGIONAL],
   })
 }
 
@@ -48,13 +74,18 @@ export const addLambdaToApi = (
   lambdaFunction: lambda.Function,
   routes: LambdaRoute | LambdaRoute[],
   cognitoUserPoolId?: string,
+  authorizer?: apigateway.RequestAuthorizer,
 ) => {
   const routesToAdd = Array.isArray(routes) ? routes : [routes]
 
+  const authorizerConfig = resolveAuthorizer(scope, {
+    authorizer,
+    cognitoUserPoolId,
+  })
+
   routesToAdd.forEach((route) => {
     api.root.resourceForPath(route.path).addMethod(route.method, new apigateway.LambdaIntegration(lambdaFunction), {
-      authorizer: cognitoUserPoolId ? getAuthorizer(scope, cognitoUserPoolId) : undefined,
-      authorizationType: cognitoUserPoolId ? apigateway.AuthorizationType.COGNITO : undefined,
+      ...authorizerConfig,
     })
   })
 }

@@ -53,6 +53,16 @@ export class ClientConfigPublicHeaders {
   'reapit-session': string
 }
 
+export class ClientConfigPrivateHeaders {
+  @IsString()
+  @IsNotEmpty()
+  'reapit-customer': string
+
+  @IsString()
+  @IsNotEmpty()
+  'reapit-id-token': string
+}
+
 export class ClientConfigPublicParams {
   @IsString()
   @IsNotEmpty()
