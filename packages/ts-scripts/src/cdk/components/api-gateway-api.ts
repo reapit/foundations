@@ -3,21 +3,22 @@ import { aws_lambda as lambda, aws_apigateway as apigateway } from 'aws-cdk-lib'
 
 import { getAuthorizer } from './cognito-authorizer'
 
-const resolveAuthorizer = (scope: cdk.Stack, {
-  cognitoUserPoolId,
-  authorizer,
-}: {
-  cognitoUserPoolId?: string,
-  authorizer?: apigateway.RequestAuthorizer,
-}) => {
+const resolveAuthorizer = (
+  scope: cdk.Stack,
+  {
+    cognitoUserPoolId,
+    authorizer,
+  }: {
+    cognitoUserPoolId?: string
+    authorizer?: apigateway.RequestAuthorizer
+  },
+) => {
   if (cognitoUserPoolId) {
     return {
       authorizer: getAuthorizer(scope, cognitoUserPoolId),
       authorizationType: apigateway.AuthorizationType.COGNITO,
     }
-  }
-
-  else if (authorizer) {
+  } else if (authorizer) {
     return {
       authorizer,
       authorizationType: apigateway.AuthorizationType.CUSTOM,
