@@ -4,12 +4,12 @@
     "@probot/adapter-github-actions": "3.1.3"
   },
   "devDependencies": {
-    "@types/node": "^16.18.91",
+    "@types/node": "^16.18.106",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "@vercel/ncc": "^0.38.1",
     "eslint": "8.57.0",
-    "eslint-plugin-prettier": "^5.1.3"
+    "eslint-plugin-prettier": "^5.2.1"
   },
   "scripts": {
     "start": "echo 'no local script'",
