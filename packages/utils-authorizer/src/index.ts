@@ -45,11 +45,18 @@ export const authorizerHandler =
       // Check against cognito if token provided is valid
       // else check auth0
       if (issuer?.includes('cognito') && issuers.includes(issuer)) {
-        const cognitoVerifier = CognitoJwtVerifier.create({
-          userPoolId: process.env.CONNECT_USER_POOL ?? '',
-          tokenUse: 'access',
-          clientId: process.env.CLIENT_ID ?? '',
-        })
+        const cognitoVerifier = CognitoJwtVerifier.create([
+          {
+            userPoolId: process.env.CONNECT_USER_POOL ?? '',
+            tokenUse: 'access',
+            clientId: process.env.CLIENT_ID ?? '',
+          },
+          {
+            userPoolId: process.env.CONNECT_USER_POOL ?? '',
+            tokenUse: 'id',
+            clientId: process.env.CLIENT_ID ?? '',
+          }
+        ])
 
         const verified = await cognitoVerifier.verify(token)
 
