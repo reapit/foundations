@@ -189,27 +189,27 @@ export const createStack = async () => {
 
   env['CODEBUILD_PIPELINE_UPDATE_TOPIC_ARN'] = codebuildSnsTopic.topicArn
 
-  const authorizerLambda = createFunction(
-    stack,
-    'deployment-service-authorizer-lambda',
-    path.resolve(__dirname, '..', '..', 'dist', 'authorizer'),
-    'authorizer/index.handler',
-    {
-      ISSUERS: config.ISSUERS,
-      CLIENT_ID: config.COGNITO_CLIENT_ID,
-      CONNECT_USER_POOL: config.CONNECT_USER_POOL,
-    },
-    undefined,
-    undefined,
-    512,
-    aws_lambda.Runtime.NODEJS_18_X,
-  )
+  // const authorizerLambda = createFunction(
+  //   stack,
+  //   'deployment-service-authorizer-lambda',
+  //   path.resolve(__dirname, '..', '..', 'dist', 'authorizer'),
+  //   'authorizer/index.handler',
+  //   {
+  //     ISSUERS: config.ISSUERS,
+  //     CLIENT_ID: config.COGNITO_CLIENT_ID,
+  //     CONNECT_USER_POOL: config.CONNECT_USER_POOL,
+  //   },
+  //   undefined,
+  //   undefined,
+  //   512,
+  //   aws_lambda.Runtime.NODEJS_18_X,
+  // )
 
-  const authorizer = new aws_apigateway.RequestAuthorizer(stack, 'deployment-service-authorizer', {
-    handler: authorizerLambda,
-    identitySources: [aws_apigateway.IdentitySource.header('authorization')],
-    resultsCacheTtl: cdk.Duration.seconds(0),
-  })
+  // const authorizer = new aws_apigateway.RequestAuthorizer(stack, 'deployment-service-authorizer', {
+  //   handler: authorizerLambda,
+  //   identitySources: [aws_apigateway.IdentitySource.header('authorization')],
+  //   resultsCacheTtl: cdk.Duration.seconds(0),
+  // })
 
   for (const [name, options] of Object.entries(functionSetups)) {
     const lambda = createLambda({
@@ -228,7 +228,7 @@ export const createStack = async () => {
     if (options.queues) {
       options.queues.forEach((queue) => addLambdaSQSTrigger(lambda, queue as Queue))
     } else if (options.api) {
-      addLambdaToApi(stack, api, lambda, options.api.routes, undefined, options.api.authorizer ? authorizer : undefined)
+      addLambdaToApi(stack, api, lambda, options.api.routes, config.CONNECT_USER_POOL, undefined)
     } else if (options.topic) {
       addLambdaSNSTrigger(lambda, options.topic)
     }
