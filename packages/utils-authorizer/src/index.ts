@@ -48,14 +48,9 @@ export const authorizerHandler =
         const cognitoVerifier = CognitoJwtVerifier.create([
           {
             userPoolId: process.env.CONNECT_USER_POOL ?? '',
-            tokenUse: 'access',
+            tokenUse: null, // null for both
             clientId: process.env.CLIENT_ID ?? '',
           },
-          {
-            userPoolId: process.env.CONNECT_USER_POOL ?? '',
-            tokenUse: 'id',
-            clientId: process.env.CLIENT_ID ?? '',
-          }
         ])
 
         const verified = await cognitoVerifier.verify(token)
