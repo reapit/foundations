@@ -15,10 +15,9 @@ import {
   LambdaRoute,
   Queue,
   createSecret,
-  createFunction,
 } from '@reapit/ts-scripts/src/cdk'
 import fs from 'fs/promises'
-import { aws_sqs as sqs, aws_lambda, aws_apigateway } from 'aws-cdk-lib'
+import { aws_sqs as sqs, aws_lambda } from 'aws-cdk-lib'
 
 import { createLambda } from './create-lambda'
 import { createS3Buckets } from './create-S3-bucket'

@@ -5,7 +5,6 @@ import path from 'path'
 import { execSync } from 'child_process'
 
 import { createApi, createFunction, createBaseStack, output, addLambdaToApi } from '@reapit/ts-scripts/src/cdk'
-import { Duration, aws_lambda, aws_apigateway } from 'aws-cdk-lib'
 
 import config from './config.json'
 
