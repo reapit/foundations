@@ -1,8 +1,8 @@
 {
   "name": "deployment-service",
   "dependencies": {
-    "@aws-sdk/client-cloudfront": "^3.535.0",
-    "@aws-sdk/client-route-53": "^3.536.0",
+    "@aws-sdk/client-cloudfront": "^3.637.0",
+    "@aws-sdk/client-route-53": "^3.637.0",
     "@nestjs/axios": "^2.0.0",
     "@nestjs/common": "^9.4.3",
     "@nestjs/config": "^2.3.4",
@@ -35,7 +35,7 @@
     "rimraf": "^3.0.2",
     "rxjs": "^7.8.1",
     "typeorm": "^0.3.20",
-    "yaml": "^2.4.1"
+    "yaml": "^2.5.0"
   },
   "main": "./src/index.ts",
   "scripts": {

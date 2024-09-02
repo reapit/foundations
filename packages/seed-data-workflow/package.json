@@ -21,10 +21,10 @@
   },
   "dependencies": {
     "@reapit/connect-session": "workspace:packages/connect-session",
-    "axios": "^1.7.7",
-    "dayjs": "^1.11.10",
+    "axios": "^1.6.8",
+    "dayjs": "^1.11.13",
     "eslint": "^8.57.0",
-    "snyk": "^1.1285.0",
+    "snyk": "^1.1293.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.2"
   },

@@ -27,8 +27,8 @@
     "@reapit/elements": "^4.1.2",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@reapit/utils-react": "workspace:packages/utils-react",
-    "@sentry/browser": "^7.107.0",
-    "dayjs": "^1.11.10",
+    "@sentry/browser": "^7.119.0",
+    "dayjs": "^1.11.13",
     "mixpanel-browser": "^2.49.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -36,7 +36,7 @@
     "react-router": "^6.22.3",
     "react-router-dom": "^6.22.3",
     "scroll-into-view-if-needed": "^2.2.31",
-    "snyk": "^1.1285.0",
+    "snyk": "^1.1293.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {

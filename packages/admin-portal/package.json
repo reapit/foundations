@@ -27,8 +27,8 @@
     "@reapit/use-reapit-data": "workspace:packages/use-reapit-data",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@reapit/utils-react": "workspace:packages/utils-react",
-    "@sentry/browser": "^7.107.0",
-    "dayjs": "^1.11.10",
+    "@sentry/browser": "^7.119.0",
+    "dayjs": "^1.11.13",
     "diff": "^4.0.2",
     "just-debounce-it": "^3.2.0",
     "react": "^18.2.0",
@@ -36,7 +36,7 @@
     "react-responsive": "8.2.0",
     "react-router": "^6.22.3",
     "react-router-dom": "^6.22.3",
-    "snyk": "^1.1285.0",
+    "snyk": "^1.1293.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {

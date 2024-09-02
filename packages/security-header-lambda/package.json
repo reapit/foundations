@@ -23,7 +23,7 @@
     "serverless-deployment-bucket": "^1.6.0",
     "serverless-lambda-edge-pre-existing-cloudfront": "^1.2.0",
     "serverless-plugin-log-retention": "^2.0.0",
-    "snyk": "^1.1285.0",
+    "snyk": "^1.1293.0",
     "tsup": "^6.7.0",
     "typescript": "^5.4.2"
   },

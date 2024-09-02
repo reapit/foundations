@@ -25,7 +25,7 @@
   "dependencies": {
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
-    "dayjs": "^1.11.10",
+    "dayjs": "^1.11.13",
     "isomorphic-fetch": "^3.0.0"
   },
   "devDependencies": {

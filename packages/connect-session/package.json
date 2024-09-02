@@ -72,7 +72,7 @@
     "jest-coverage-badges": "^1.1.2",
     "rimraf": "^5.0.5",
     "rollup": "^4.13.0",
-    "snyk": "^1.1285.0",
+    "snyk": "^1.1293.0",
     "ts-jest": "^29.1.2",
     "typescript": "^5.4.2"
   },

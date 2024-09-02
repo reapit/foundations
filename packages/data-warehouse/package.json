@@ -24,15 +24,15 @@
     "@linaria/react": "^5.0.3",
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "^4.1.2",
-    "@sentry/browser": "^7.107.0",
-    "dayjs": "^1.11.10",
+    "@sentry/browser": "^7.119.0",
+    "dayjs": "^1.11.13",
     "diff": "^4.0.2",
     "react": "^18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.22.3",
     "react-router-dom": "^6.22.3",
-    "snyk": "^1.1285.0",
+    "snyk": "^1.1293.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
