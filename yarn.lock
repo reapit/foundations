@@ -6129,7 +6129,7 @@ __metadata:
     isomorphic-fetch: "npm:^3.0.0"
     jest: "npm:^29.7.0"
     jest-coverage-badges: "npm:^1.1.2"
-    jwk-to-pem: "npm:^2.0.5"
+    jwk-to-pem: "npm:^2.0.6"
     jwt-decode: "npm:^3.1.2"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
@@ -6341,7 +6341,7 @@ __metadata:
     vite: "npm:^5.1.6"
     vite-plugin-checker: "npm:^0.6.4"
     vite-plugin-graphql-loader: "npm:^3.0.1"
-    vite-plugin-node-polyfills: "npm:^0.21.0"
+    vite-plugin-node-polyfills: "npm:^0.22.0"
     vite-plugin-pwa: "npm:^0.19.5"
     vite-plugin-top-level-await: "npm:^1.4.1"
   bin:
@@ -14808,7 +14808,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"elliptic@npm:^6.5.3, elliptic@npm:^6.5.4, elliptic@npm:^6.5.5":
+"elliptic@npm:^6.5.3, elliptic@npm:^6.5.5":
   version: 6.5.5
   resolution: "elliptic@npm:6.5.5"
   dependencies:
@@ -14820,6 +14820,21 @@ __metadata:
     minimalistic-assert: "npm:^1.0.1"
     minimalistic-crypto-utils: "npm:^1.0.1"
   checksum: 5444b4f18e0c0fdfa14de26f69f7dbc44c78a211e91825823d698dcc91071ef1a3954d87730f364183fc83b0a86d8affed864e347da2e549bdcead3b46de126f
+  languageName: node
+  linkType: hard
+
+"elliptic@npm:^6.5.7":
+  version: 6.5.7
+  resolution: "elliptic@npm:6.5.7"
+  dependencies:
+    bn.js: "npm:^4.11.9"
+    brorand: "npm:^1.1.0"
+    hash.js: "npm:^1.0.0"
+    hmac-drbg: "npm:^1.0.1"
+    inherits: "npm:^2.0.4"
+    minimalistic-assert: "npm:^1.0.1"
+    minimalistic-crypto-utils: "npm:^1.0.1"
+  checksum: fbad1fad0a5cc07df83f80cc1f7a784247ef59075194d3e340eaeb2f4dd594825ee24c7e9b0cf279c9f1982efe610503bb3139737926428c4821d4fca1bcf348
   languageName: node
   linkType: hard
 
@@ -19650,14 +19665,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jwk-to-pem@npm:^2.0.5":
-  version: 2.0.5
-  resolution: "jwk-to-pem@npm:2.0.5"
+"jwk-to-pem@npm:^2.0.6":
+  version: 2.0.6
+  resolution: "jwk-to-pem@npm:2.0.6"
   dependencies:
     asn1.js: "npm:^5.3.0"
-    elliptic: "npm:^6.5.4"
+    elliptic: "npm:^6.5.7"
     safe-buffer: "npm:^5.0.1"
-  checksum: 4ba3583fe95f1bb5e42c2a58c12d5e0116168dc0464c368a89327dfd8f89cabc1b11474d7d01e0b622e759c653bf93acc67f6082508fe2649c7f591d47d97f75
+  checksum: cb0a2e00d8cab516bac8a3ea1cd93641358ecddbd0f12aa5ab32ed27372b270082e1f892889b9d050cedda75c34dcb17e34d246ea495bdda65494f0aa8a4f185
   languageName: node
   linkType: hard
 
@@ -28488,15 +28503,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-node-polyfills@npm:^0.21.0":
-  version: 0.21.0
-  resolution: "vite-plugin-node-polyfills@npm:0.21.0"
+"vite-plugin-node-polyfills@npm:^0.22.0":
+  version: 0.22.0
+  resolution: "vite-plugin-node-polyfills@npm:0.22.0"
   dependencies:
     "@rollup/plugin-inject": "npm:^5.0.5"
     node-stdlib-browser: "npm:^1.2.0"
   peerDependencies:
     vite: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
-  checksum: 5e7985db67e0bb92a86e13bd4d55dce8e2dc2c7cb13127c8159d5740f062f2c00f44553efb5e95022a5971b54a60c26abf060880ac5dca89b684f47284e6ab99
+  checksum: 004a68987d271c04e1a7b9df38f8fca32b1e4a261b464f69895af5ea90e40cbb31e18170435613cb9f2edc735589267ff51772c8793f6f567ba2849da8d36ec4
   languageName: node
   linkType: hard
 
