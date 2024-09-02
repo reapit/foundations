@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@aws-crypto/sha256-browser": "^5.2.0",
-    "axios": "^1.6.8",
+    "axios": "^1.7.7",
     "base-64": "^1.0.0",
     "idtoken-verifier": "^2.2.4",
     "isomorphic-fetch": "^3.0.0",
