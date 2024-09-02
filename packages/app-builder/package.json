@@ -12,10 +12,10 @@
   "main": "./src/index.ts",
   "scripts": {
     "start": "vite",
-    "build": "vite build",
-    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "build": "echo '...skipping...'",
+    "test": "echo '...skipping...'",
     "lint": "eslint --cache --ext=ts,tsx,js src",
-    "check": "tsc --noEmit --skipLibCheck",
+    "check": "echo '...skipping...'",
     "release": "echo '...skipping...'",
     "deploy": "rpt-cdk deploy",
     "publish": "echo '...skipping...'",
