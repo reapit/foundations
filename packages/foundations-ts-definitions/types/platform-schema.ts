@@ -6046,6 +6046,37 @@ export interface CreateContactSourceModel {
   type?: string
 }
 /**
+ * Request body used to create a new development phase.
+ * example:
+ * [object Object]
+ */
+export interface CreateDevelopmentPhaseModel {
+  /**
+   * The development phase summary.
+   */
+  phase?: string
+  /**
+   * The development phase notes.
+   */
+  notes?: string
+  /**
+   * The release date of the development phase.
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  releaseDate?: string // date-time
+  /**
+   * The completion date of the development phase.
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  completionDate?: string // date-time
+  /**
+   * A flag to determine if the development phase is complete.
+   */
+  completed?: boolean
+}
+/**
  * Request body used to create a new document
  * example:
  * [object Object]
@@ -9761,6 +9792,139 @@ export interface Departments {
   pageNumber?: number
   id?: string[]
   name?: string
+}
+/**
+ * Representation of a property's development phase.
+ */
+export interface DevelopmentPhaseModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the development phase.
+   */
+  id?: string
+  /**
+   * The unique identifier of the property
+   */
+  propertyId?: string
+  /**
+   * The development phase summary.
+   */
+  phase?: string
+  /**
+   * The development phase notes.
+   */
+  notes?: string
+  /**
+   * The release date of the development phase.
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  releaseDate?: string // date-time
+  /**
+   * The completion date of the development phase.
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  completionDate?: string // date-time
+  /**
+   * A flag to determine if the development phase is complete.
+   */
+  completed?: boolean
+  /**
+   * The date and time when the development phase was created.
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the development phase was last modified.
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  modified?: string // date-time
+  /**
+   * The ETag for the current version of the development phase. Used for managing update
+   * concurrency.
+   */
+  readonly _eTag?: string
+}
+export interface DevelopmentPhaseModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the development phase.
+     */
+    id?: string
+    /**
+     * The unique identifier of the property
+     */
+    propertyId?: string
+    /**
+     * The development phase summary.
+     */
+    phase?: string
+    /**
+     * The development phase notes.
+     */
+    notes?: string
+    /**
+     * The release date of the development phase.
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    releaseDate?: string // date-time
+    /**
+     * The completion date of the development phase.
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    completionDate?: string // date-time
+    /**
+     * A flag to determine if the development phase is complete.
+     */
+    completed?: boolean
+    /**
+     * The date and time when the development phase was created.
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the development phase was last modified.
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    modified?: string // date-time
+    /**
+     * The ETag for the current version of the development phase. Used for managing update
+     * concurrency.
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
 }
 /**
  * Representation of a document
@@ -23292,6 +23456,37 @@ export interface UpdateConveyancingModel {
   metadata?: {
     [name: string]: any
   }
+}
+/**
+ * Request body used to update an existing development phase.
+ * example:
+ * [object Object]
+ */
+export interface UpdateDevelopmentPhaseModel {
+  /**
+   * The development phase summary.
+   */
+  phase?: string
+  /**
+   * The development phase notes.
+   */
+  notes?: string
+  /**
+   * The release date of the development phase.
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  releaseDate?: string // date-time
+  /**
+   * The completion date of the development phase.
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  completionDate?: string // date-time
+  /**
+   * A flag to determine if the development phase is complete.
+   */
+  completed?: boolean
 }
 /**
  * Request body used to update an existing document
