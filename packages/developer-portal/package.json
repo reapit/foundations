@@ -20,7 +20,7 @@
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
   },
   "dependencies": {
-    "@apollo/explorer": "^1.2.0",
+    "@apollo/explorer": "^3.7.0",
     "@harelpls/use-pusher": "^7.2.1",
     "@hookform/resolvers": "^2.9.11",
     "@linaria/core": "^5.0.2",

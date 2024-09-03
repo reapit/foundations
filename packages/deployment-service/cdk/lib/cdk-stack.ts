@@ -188,6 +188,28 @@ export const createStack = async () => {
 
   env['CODEBUILD_PIPELINE_UPDATE_TOPIC_ARN'] = codebuildSnsTopic.topicArn
 
+  // const authorizerLambda = createFunction(
+  //   stack,
+  //   'deployment-service-authorizer-lambda',
+  //   path.resolve(__dirname, '..', '..', 'dist', 'authorizer'),
+  //   'authorizer/index.handler',
+  //   {
+  //     ISSUERS: config.ISSUERS,
+  //     CLIENT_ID: config.COGNITO_CLIENT_ID,
+  //     CONNECT_USER_POOL: config.CONNECT_USER_POOL,
+  //   },
+  //   undefined,
+  //   undefined,
+  //   512,
+  //   aws_lambda.Runtime.NODEJS_18_X,
+  // )
+
+  // const authorizer = new aws_apigateway.RequestAuthorizer(stack, 'deployment-service-authorizer', {
+  //   handler: authorizerLambda,
+  //   identitySources: [aws_apigateway.IdentitySource.header('authorization')],
+  //   resultsCacheTtl: cdk.Duration.seconds(0),
+  // })
+
   for (const [name, options] of Object.entries(functionSetups)) {
     const lambda = createLambda({
       entrypoint: options.entrypoint,
@@ -210,8 +232,8 @@ export const createStack = async () => {
         api,
         lambda,
         options.api.routes,
-        // @ts-ignore
-        options.api.authorizer ? (config.AUTHORIZER_ID as string) : undefined,
+        options.api.authorizer ? config.CONNECT_USER_POOL : undefined,
+        undefined,
       )
     } else if (options.topic) {
       addLambdaSNSTrigger(lambda, options.topic)
