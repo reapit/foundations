@@ -49,7 +49,8 @@ export const authorizerHandler =
           {
             userPoolId: process.env.CONNECT_USER_POOL ?? '',
             tokenUse: null, // null for both
-            clientId: process.env.CLIENT_ID ?? '',
+            // clientId: process.env.CLIENT_ID ?? '',
+            clientId: null,
           },
         ])
 
