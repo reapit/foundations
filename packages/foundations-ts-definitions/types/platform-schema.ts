@@ -5560,7 +5560,7 @@ export interface CreateBulkJournalEntryModel {
      */
     propertyId?: string
     /**
-     * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy/worksOrder) (Required when 'associatedId' is given)
+     * The entity type the journal entry has been raised against (applicant/contact/company/enquiry/landlord/tenancy/worksOrder) (Required when 'associatedId' is given)
      * TypeId must be set to WO when passing worksOrder
      */
     associatedType?: string
@@ -6521,7 +6521,7 @@ export interface CreateJournalEntryModel {
    */
   propertyId?: string
   /**
-   * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy/worksOrder) (Required when 'associatedId' is given)
+   * The entity type the journal entry has been raised against (applicant/contact/company/enquiry/landlord/tenancy/worksOrder) (Required when 'associatedId' is given)
    * TypeId must be set to WO when passing worksOrder
    */
   associatedType?: string
@@ -7223,6 +7223,29 @@ export interface CreatePropertyExternalAreaModel {
   max?: number // double
 }
 /**
+ * Request body to set a properties flood erosion
+ */
+export interface CreatePropertyFloodErosionModel {
+  /**
+   * A flag determining if the property has flooded in the last 5 years.
+   */
+  floodedInLastFiveYears?: boolean
+  /**
+   * A flag determining if the property has flood defences.
+   */
+  floodDefences?: boolean
+  /**
+   * A list of flood sources which affect the property (river/lake/sea/reservoir/groundwater/other)
+   */
+  floodSources?: string[]
+  /**
+   * The date and time the property was last flooded
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  lastFlood?: string // date-time
+}
+/**
  * Request body used to set the geolocation coordinates of a new property's address
  */
 export interface CreatePropertyGeolocationModel {
@@ -7679,6 +7702,54 @@ export interface CreatePropertyModel {
      */
     firstPageDocumentUrl?: string
   }
+  /**
+   * Request body to set a properties rights restrictions
+   */
+  rightsRestrictions?: {
+    /**
+     * A flag determining if the property is listed.
+     */
+    listed?: boolean
+    /**
+     * A flag determining if the property has restrictions.
+     */
+    restrictions?: boolean
+    /**
+     * A flag determining if the property has any easements, servitudes or wayleaves.
+     */
+    easementsOrServitudesOrWayleaves?: boolean
+    /**
+     * A flag determining if their are any public rights of way across the property or its boundaries
+     */
+    rightOfWay?: boolean
+  }
+  /**
+   * Request body to set a properties flood erosion
+   */
+  floodErosion?: {
+    /**
+     * A flag determining if the property has flooded in the last 5 years.
+     */
+    floodedInLastFiveYears?: boolean
+    /**
+     * A flag determining if the property has flood defences.
+     */
+    floodDefences?: boolean
+    /**
+     * A list of flood sources which affect the property (river/lake/sea/reservoir/groundwater/other)
+     */
+    floodSources?: string[]
+    /**
+     * The date and time the property was last flooded
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    lastFlood?: string // date-time
+  }
+  /**
+   * A list of accesibility options provided by the property (unsuitableForWheelchairs/levelAccess/liftAccess/rampedAccess/wetRoom/wideDoorways/stepFreeAccess/levelAccessShower/lateralLiving)
+   */
+  accessibility?: string[]
   /**
    * Request body to set the external land area of a new property
    */
@@ -8162,6 +8233,27 @@ export interface CreatePropertyRegionalModel {
       epi?: string
     }
   }
+}
+/**
+ * Request body to set a properties rights restrictions
+ */
+export interface CreatePropertyRightsRestrictionsModel {
+  /**
+   * A flag determining if the property is listed.
+   */
+  listed?: boolean
+  /**
+   * A flag determining if the property has restrictions.
+   */
+  restrictions?: boolean
+  /**
+   * A flag determining if the property has any easements, servitudes or wayleaves.
+   */
+  easementsOrServitudesOrWayleaves?: boolean
+  /**
+   * A flag determining if their are any public rights of way across the property or its boundaries
+   */
+  rightOfWay?: boolean
 }
 /**
  * Request body to create a room in the Rooms collection of a new property
@@ -11257,7 +11349,7 @@ export interface JournalEntryModel {
    */
   propertyId?: string
   /**
-   * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy/worksOrder)
+   * The entity type the journal entry has been raised against (applicant/contact/company/enquiry/landlord/tenancy/worksOrder)
    */
   associatedType?: string
   /**
@@ -11298,7 +11390,7 @@ export interface JournalEntryModelPagedResult {
      */
     propertyId?: string
     /**
-     * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy/worksOrder)
+     * The entity type the journal entry has been raised against (applicant/contact/company/enquiry/landlord/tenancy/worksOrder)
      */
     associatedType?: string
     /**
@@ -14588,6 +14680,29 @@ export interface PropertyExternalAreaModel {
   max?: number // double
 }
 /**
+ * Details specific to a properties flood erosion
+ */
+export interface PropertyFloodErosionModel {
+  /**
+   * A flag determining if the property has flooded in the last 5 years.
+   */
+  floodedInLastFiveYears?: boolean
+  /**
+   * A flag determining if the property has flood defences.
+   */
+  floodDefences?: boolean
+  /**
+   * A list of flood sources which affect the property (river/lake/sea/reservoir/groundwater/other)
+   */
+  floodSources?: string[]
+  /**
+   * The date and time the property was last flooded
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  lastFlood?: string // date-time
+}
+/**
  * Representation of the geographical location of an address using coordinates
  */
 export interface PropertyGeolocationModel {
@@ -15570,6 +15685,54 @@ export interface PropertyModel {
      */
     firstPageDocumentUrl?: string
   }
+  /**
+   * Details specific to a properties rights restrictions
+   */
+  rightsRestrictions?: {
+    /**
+     * A flag determining if the property is listed.
+     */
+    listed?: boolean
+    /**
+     * A flag determining if the property has restrictions.
+     */
+    restrictions?: boolean
+    /**
+     * A flag determining if the property has any easements, servitudes or wayleaves.
+     */
+    easementsOrServitudesOrWayleaves?: boolean
+    /**
+     * A flag determining if their are any public rights of way across the property or its boundaries
+     */
+    rightOfWay?: boolean
+  }
+  /**
+   * Details specific to a properties flood erosion
+   */
+  floodErosion?: {
+    /**
+     * A flag determining if the property has flooded in the last 5 years.
+     */
+    floodedInLastFiveYears?: boolean
+    /**
+     * A flag determining if the property has flood defences.
+     */
+    floodDefences?: boolean
+    /**
+     * A list of flood sources which affect the property (river/lake/sea/reservoir/groundwater/other)
+     */
+    floodSources?: string[]
+    /**
+     * The date and time the property was last flooded
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    lastFlood?: string // date-time
+  }
+  /**
+   * A list of accesibility options provided by the property (unsuitableForWheelchairs/levelAccess/liftAccess/rampedAccess/wetRoom/wideDoorways/stepFreeAccess/levelAccessShower/lateralLiving)
+   */
+  accessibility?: string[]
   /**
    * Representation of property details specific to sales marketing
    */
@@ -16584,6 +16747,54 @@ export interface PropertyModelPagedResult {
       firstPageDocumentUrl?: string
     }
     /**
+     * Details specific to a properties rights restrictions
+     */
+    rightsRestrictions?: {
+      /**
+       * A flag determining if the property is listed.
+       */
+      listed?: boolean
+      /**
+       * A flag determining if the property has restrictions.
+       */
+      restrictions?: boolean
+      /**
+       * A flag determining if the property has any easements, servitudes or wayleaves.
+       */
+      easementsOrServitudesOrWayleaves?: boolean
+      /**
+       * A flag determining if their are any public rights of way across the property or its boundaries
+       */
+      rightOfWay?: boolean
+    }
+    /**
+     * Details specific to a properties flood erosion
+     */
+    floodErosion?: {
+      /**
+       * A flag determining if the property has flooded in the last 5 years.
+       */
+      floodedInLastFiveYears?: boolean
+      /**
+       * A flag determining if the property has flood defences.
+       */
+      floodDefences?: boolean
+      /**
+       * A list of flood sources which affect the property (river/lake/sea/reservoir/groundwater/other)
+       */
+      floodSources?: string[]
+      /**
+       * The date and time the property was last flooded
+       * example:
+       * 2019-08-14T12:30:02Z
+       */
+      lastFlood?: string // date-time
+    }
+    /**
+     * A list of accesibility options provided by the property (unsuitableForWheelchairs/levelAccess/liftAccess/rampedAccess/wetRoom/wideDoorways/stepFreeAccess/levelAccessShower/lateralLiving)
+     */
+    accessibility?: string[]
+    /**
      * Representation of property details specific to sales marketing
      */
     selling?: {
@@ -17246,6 +17457,27 @@ export interface PropertyRegionalModel {
       epi?: string
     }
   }
+}
+/**
+ * Details specific to a properties rights restrictions
+ */
+export interface PropertyRightsRestrictionsModel {
+  /**
+   * A flag determining if the property is listed.
+   */
+  listed?: boolean
+  /**
+   * A flag determining if the property has restrictions.
+   */
+  restrictions?: boolean
+  /**
+   * A flag determining if the property has any easements, servitudes or wayleaves.
+   */
+  easementsOrServitudesOrWayleaves?: boolean
+  /**
+   * A flag determining if their are any public rights of way across the property or its boundaries
+   */
+  rightOfWay?: boolean
 }
 /**
  * Representation of a single room in a property
@@ -23812,6 +24044,29 @@ export interface UpdatePropertyExternalAreaModel {
   max?: number // double
 }
 /**
+ * Request body to set a properties flood erosion
+ */
+export interface UpdatePropertyFloodErosionModel {
+  /**
+   * A flag determining if the property has flooded in the last 5 years.
+   */
+  floodedInLastFiveYears?: boolean
+  /**
+   * A flag determining if the property has flood defences.
+   */
+  floodDefences?: boolean
+  /**
+   * A list of flood sources which affect the property (river/lake/sea/reservoir/groundwater/other)
+   */
+  floodSources?: string[]
+  /**
+   * The date and time the property was last flooded
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  lastFlood?: string // date-time
+}
+/**
  * Request body used to update the geolocation coordinates of an existing property's address
  */
 export interface UpdatePropertyGeolocationModel {
@@ -24442,6 +24697,54 @@ export interface UpdatePropertyModel {
     firstPageDocumentUrl?: string
   }
   /**
+   * Request body to set a properties rights restrictions
+   */
+  rightsRestrictions?: {
+    /**
+     * A flag determining if the property is listed.
+     */
+    listed?: boolean
+    /**
+     * A flag determining if the property has restrictions.
+     */
+    restrictions?: boolean
+    /**
+     * A flag determining if the property has any easements, servitudes or wayleaves.
+     */
+    easementsOrServitudesOrWayleaves?: boolean
+    /**
+     * A flag determining if their are any public rights of way across the property or its boundaries
+     */
+    rightOfWay?: boolean
+  }
+  /**
+   * Request body to set a properties flood erosion
+   */
+  floodErosion?: {
+    /**
+     * A flag determining if the property has flooded in the last 5 years.
+     */
+    floodedInLastFiveYears?: boolean
+    /**
+     * A flag determining if the property has flood defences.
+     */
+    floodDefences?: boolean
+    /**
+     * A list of flood sources which affect the property (river/lake/sea/reservoir/groundwater/other)
+     */
+    floodSources?: string[]
+    /**
+     * The date and time the property was last flooded
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    lastFlood?: string // date-time
+  }
+  /**
+   * A list of accesibility options provided by the property (unsuitableForWheelchairs/levelAccess/liftAccess/rampedAccess/wetRoom/wideDoorways/stepFreeAccess/levelAccessShower/lateralLiving)
+   */
+  accessibility?: string[]
+  /**
    * Request body to update the external land area of an existing property
    */
   externalArea?: {
@@ -25008,6 +25311,27 @@ export interface UpdatePropertyRegionalModel {
       epi?: string
     }
   }
+}
+/**
+ * Request body to set a properties rights restrictions
+ */
+export interface UpdatePropertyRightsRestrictionsModel {
+  /**
+   * A flag determining if the property is listed.
+   */
+  listed?: boolean
+  /**
+   * A flag determining if the property has restrictions.
+   */
+  restrictions?: boolean
+  /**
+   * A flag determining if the property has any easements, servitudes or wayleaves.
+   */
+  easementsOrServitudesOrWayleaves?: boolean
+  /**
+   * A flag determining if their are any public rights of way across the property or its boundaries
+   */
+  rightOfWay?: boolean
 }
 /**
  * Request body used to set details specific to rural properties.
