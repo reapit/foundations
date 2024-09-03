@@ -27854,7 +27854,7 @@ __metadata:
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
     "@typescript-eslint/parser": "npm:^6.21.0"
-    axios: "npm:^1.6.8"
+    axios: "npm:^1.7.7"
     dayjs: "npm:^1.11.13"
     eslint: "npm:^8.57.0"
     eslint-plugin-prettier: "npm:^5.1.3"
