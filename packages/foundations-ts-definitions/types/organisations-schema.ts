@@ -949,7 +949,19 @@ export interface PatchUserModel {
   /**
    * The new name of the user
    */
-  name?: string
+
+  /**
+   * The date and time at which the user first logged in
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  firstLoginDate?: string // date-time
+  /**
+   * The date and time at which the user last logged in
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  lastLoginDate?: string // date-time
 }
 /**
  * Platform configuration information for a organisation
