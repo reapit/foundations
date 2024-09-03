@@ -29,8 +29,8 @@ const validationSchema = object({
     .required('Rule name is required')
     .max(50, 'Rule name must be less than 50 characters')
     .matches(
-      /^[A-Za-z][A-Za-z0-9]*$/,
-      'Rule name must start with a letter and contain only letters and numbers with no spaces',
+      /^[a-zA-Z][A-Za-z0-9_]{0,49}$/,
+      'Rule name must start with a letter and contain only letters, numbers, or the underscore character with no spaces',
     ),
   enabled: boolean(),
 })
