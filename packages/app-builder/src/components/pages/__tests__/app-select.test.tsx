@@ -7,7 +7,7 @@ import { MemoryRouter } from 'react-router'
 import { webcrypto } from 'crypto'
 
 Object.defineProperties(global, {
-  crypto: { value: webcrypto, writable: true }
+  crypto: { value: webcrypto, writable: true },
 })
 
 describe('AppSelect', () => {

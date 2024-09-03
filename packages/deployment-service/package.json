@@ -14,6 +14,7 @@
     "@octokit/app": "^14.0.2",
     "@reapit/api-key-verify": "workspace:packages/api-key-verify",
     "@reapit/connect-session": "workspace:packages/connect-session",
+    "@reapit/utils-authorizer": "workspace:^",
     "@reapit/utils-nest": "workspace:packages/utils-nest",
     "@reapit/utils-node": "workspace:packages/utils-node",
     "adm-zip": "^0.5.12",
@@ -84,5 +85,5 @@
     "tsup": "^6.7.0",
     "typescript": "^5.4.2"
   },
-  "version": "2.3.6"
+  "version": "3.0.5"
 }

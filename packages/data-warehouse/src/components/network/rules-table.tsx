@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction } from 'react'
-import { BodyText, Button, ButtonGroup, elMb11, elMb5, Icon, Loader, Table, useModal } from '@reapit/elements'
+import { Button, ButtonGroup, elMb11, elMb5, Icon, Loader, Table, useModal } from '@reapit/elements'
 import { RulesModel } from '../../types/network'
 import dayjs from 'dayjs'
 import { IpTable } from './ip-table'
@@ -36,7 +36,6 @@ export const handleUpdateRule =
 
 export const RulesTable: FC = () => {
   const { Modal: ModalIp, openModal: openModalIp, closeModal: closeModalIp, modalIsOpen: modalIsOpenIp } = useModal()
-  const { Modal: ModalBi, openModal: openModalBi, closeModal: closeModalBi, modalIsOpen: modalIsOpenBi } = useModal()
 
   const { rules, ips, networkSelected, ipsLoading, setNetworkSelected, customerId, refreshRules } = useNetworkState()
 
@@ -106,9 +105,6 @@ export const RulesTable: FC = () => {
                     >
                       {enabled ? 'Disable Rule' : 'Enable Rule'}
                     </Button>
-                    <Button intent="primary" onClick={openModalBi} disabled={modalIsOpenBi}>
-                      I Use PowerBI
-                    </Button>
                     <Button
                       intent="primary"
                       onClick={handleModalAction(setNetworkSelected, openModalIp, 'ipRuleId', id)}
@@ -127,28 +123,6 @@ export const RulesTable: FC = () => {
       <ModalIp title="Create Whitelisted IP">
         <IpCreateModal closeModal={closeModalIp} />
       </ModalIp>
-      <ModalBi title="Power BI Users">
-        <BodyText>
-          If you use PowerBI to access the Data Warehouse, there are around 200 IPs that could potentially be
-          whitelisted.
-        </BodyText>
-        <BodyText hasSectionMargin>
-          To avoid having to do this manually, just send us an email with the pre-filled subject line by clicking the
-          button below. One of our team will action the request as soon as possible and get back to you.
-        </BodyText>
-        <ButtonGroup alignment="right">
-          <Button intent="default" type="button" onClick={closeModalBi}>
-            Close
-          </Button>
-          <a
-            href={`mailto:dwh@reapitfoundations.zendesk.com?subject=Data%20Warehouse%20PowerBI%20Setup%20Request%20For%20CustomerId%20${customerId}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Button intent="primary">Open Mail Client</Button>
-          </a>
-        </ButtonGroup>
-      </ModalBi>
     </>
   )
 }

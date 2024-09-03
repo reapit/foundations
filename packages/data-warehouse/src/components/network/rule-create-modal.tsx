@@ -12,7 +12,7 @@ import {
   FormLayout,
   InputError,
   InputGroup,
-  InputWrap,
+  InputWrapFull,
   Label,
   Toggle,
 } from '@reapit/elements'
@@ -29,8 +29,8 @@ const validationSchema = object({
     .required('Rule name is required')
     .max(50, 'Rule name must be less than 50 characters')
     .matches(
-      /^[A-Za-z][A-Za-z0-9]*$/,
-      'Rule name must start with a letter and contain only letters and numbers with no spaces',
+      /^[a-zA-Z][A-Za-z0-9_]{0,49}$/,
+      'Rule name must start with a letter and contain only letters, numbers, or the underscore character with no spaces',
     ),
   enabled: boolean(),
 })
@@ -79,17 +79,17 @@ export const RuleCreateModal: FC<RuleCreateModalProps> = ({ closeModal }) => {
   return (
     <form onSubmit={handleSubmit(handleCreateRule(createRule, refreshRules, closeModal, setNetworkSelected))}>
       <FormLayout className={elMb11}>
-        <InputWrap>
+        <InputWrapFull>
           <InputGroup {...register('name')} placeholder="Enter rule name" label="Network Rule Name" />
           {errors.name?.message && <InputError message={errors.name.message} />}
-        </InputWrap>
-        <InputWrap>
+        </InputWrapFull>
+        <InputWrapFull>
           <Label>Network Rule Enabled</Label>
           <Toggle id="rule-is-enabled-toggle" {...register('enabled')} hasGreyBg>
             <ElToggleItem>Yes</ElToggleItem>
             <ElToggleItem>No</ElToggleItem>
           </Toggle>
-        </InputWrap>
+        </InputWrapFull>
       </FormLayout>
       <ButtonGroup alignment="right">
         <Button intent="default" type="button" onClick={closeModal}>

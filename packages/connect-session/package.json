@@ -1,6 +1,6 @@
 {
   "name": "@reapit/connect-session",
-  "version": "6.0.2",
+  "version": "6.0.3",
   "description": "OAuth Flow for Reapit Connect",
   "keywords": [],
   "homepage": "https://github.com/reapit/foundations#readme",
@@ -37,11 +37,12 @@
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
   },
   "dependencies": {
-    "axios": "^1.6.8",
+    "@aws-crypto/sha256-browser": "^5.2.0",
+    "axios": "^1.7.7",
     "base-64": "^1.0.0",
     "idtoken-verifier": "^2.2.4",
     "isomorphic-fetch": "^3.0.0",
-    "jwk-to-pem": "^2.0.5",
+    "jwk-to-pem": "^2.0.6",
     "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

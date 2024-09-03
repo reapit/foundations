@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es6",
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "typeRoots": ["./node_modules/@types", "../../node_modules/@types"],
+    "types": []
+  },
+  "include": ["./src/**/*"],
+  "exclude": [
+    "./public",
+    "./dist",
+    "./node_modules",
+    "./src/tests/coverage",
+    "./src/**/*.test.ts",
+    "./src/**/__mocks__"
+  ]
+}
