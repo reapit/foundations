@@ -77,7 +77,9 @@ export class MarketplaceAppModel implements AppsBrowseConfigItemInterface {
   @Type(() => AppBrowseLiveDataModel)
   live: AppBrowseLiveDataModel
 
-  @attribute()
+  @attribute({
+    type: 'String',
+  })
   configType: AppsBrowseConfigEnum
 
   @attribute()

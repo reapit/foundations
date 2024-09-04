@@ -9,10 +9,6 @@ const bootstrap = async () => {
     cwd: __dirname,
     stdio: 'inherit',
   })
-  execSync('yarn bundle --incremental', {
-    cwd: __dirname,
-    stdio: 'inherit',
-  })
   await createStack()
 }
 
