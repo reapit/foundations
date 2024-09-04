@@ -46,7 +46,7 @@ export const createStack = async () => {
     'authorizer/index.handler',
     {
       ISSUERS: config.ISSUERS,
-      CLIENT_ID: config.COGNITO_CLIENT_ID,
+      CONNECT_USER_POOL: config.CONNECT_USER_POOL,
     },
     undefined,
     undefined,
