@@ -11171,6 +11171,7 @@ __metadata:
     rxjs: "npm:^7.8.1"
     ts-jest: "npm:^29.1.2"
     ts-node: "npm:^10.9.2"
+    tsup: "npm:^8.2.4"
     typescript: "npm:^5.4.2"
   languageName: unknown
   linkType: soft

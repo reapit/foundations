@@ -1,7 +1,7 @@
 import * as path from 'path'
 import { addLambdaToApi, createApi, createBaseStack, createTable, createFunction } from '@reapit/ts-scripts/src/cdk'
 import config from '../config.json'
-import { aws_lambda } from 'aws-cdk-lib'
+import { aws_lambda, aws_apigateway, Duration } from 'aws-cdk-lib'
 
 export const createStack = async () => {
   const stack = createBaseStack({
@@ -29,8 +29,8 @@ export const createStack = async () => {
   const httpLambda = createFunction(
     stack,
     'marketplace-app-cms-http',
-    path.resolve('bundle.zip'),
-    'packages/app-marketplace-cms/src/http.handler',
+    path.resolve(__dirname, '..', 'dist', 'app'),
+    'http.handler',
     env,
     undefined,
     undefined,
@@ -38,6 +38,27 @@ export const createStack = async () => {
     aws_lambda.Runtime.NODEJS_18_X,
   )
   dynamodb.grantReadWriteData(httpLambda)
+
+  const authorizerLambda = createFunction(
+    stack,
+    'app-marketplace-authorizer-lambda',
+    path.resolve(__dirname, '..', 'dist', 'authorizer'),
+    'authorizer/index.handler',
+    {
+      ISSUERS: config.ISSUERS,
+      CLIENT_ID: config.COGNITO_CLIENT_ID,
+    },
+    undefined,
+    undefined,
+    512,
+    aws_lambda.Runtime.NODEJS_18_X,
+  )
+
+  const authorizer = new aws_apigateway.RequestAuthorizer(stack, 'app-marketplace-authorizer', {
+    handler: authorizerLambda,
+    identitySources: [aws_apigateway.IdentitySource.header('authorization')],
+    resultsCacheTtl: Duration.seconds(0),
+  })
 
   addLambdaToApi(
     stack,
@@ -47,8 +68,8 @@ export const createStack = async () => {
       path: '/cms/{proxy+}',
       method: 'ANY',
     },
-    // @ts-ignore
-    config.AUTHORIZER_ID as string,
+    undefined,
+    authorizer,
   )
   addLambdaToApi(stack, api, httpLambda, {
     path: '/',
