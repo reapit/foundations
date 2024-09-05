@@ -228,15 +228,7 @@ export const createStack = async () => {
     if (options.queues) {
       options.queues.forEach((queue) => addLambdaSQSTrigger(lambda, queue as Queue))
     } else if (options.api) {
-      addLambdaToApi(
-        stack,
-        api,
-        lambda,
-        options.api.routes,
-        // options.api.authorizer ? config.CONNECT_USER_POOL : undefined,
-        undefined,
-        authorizer,
-      )
+      addLambdaToApi(stack, api, lambda, options.api.routes, undefined, options.api.authorizer ? authorizer : undefined)
     } else if (options.topic) {
       addLambdaSNSTrigger(lambda, options.topic)
     }
