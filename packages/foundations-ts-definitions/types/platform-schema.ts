@@ -1622,6 +1622,10 @@ export interface AppointmentAttendeeModel {
      * A flag determining if the related contact is archived
      */
     fromArchive?: boolean
+    /**
+     * The marketing consent status of the contact (grant/deny/notAsked)
+     */
+    marketingConsent?: string
   }[]
 }
 /**
@@ -1668,6 +1672,10 @@ export interface AppointmentContactModel {
    * A flag determining if the related contact is archived
    */
   fromArchive?: boolean
+  /**
+   * The marketing consent status of the contact (grant/deny/notAsked)
+   */
+  marketingConsent?: string
 }
 /**
  * A view of the documents associated to the appointment
@@ -1867,6 +1875,10 @@ export interface AppointmentModel {
        * A flag determining if the related contact is archived
        */
       fromArchive?: boolean
+      /**
+       * The marketing consent status of the contact (grant/deny/notAsked)
+       */
+      marketingConsent?: string
     }[]
   }
   /**
@@ -2099,6 +2111,10 @@ export interface AppointmentModelPagedResult {
          * A flag determining if the related contact is archived
          */
         fromArchive?: boolean
+        /**
+         * The marketing consent status of the contact (grant/deny/notAsked)
+         */
+        marketingConsent?: string
       }[]
     }
     /**
@@ -8707,6 +8723,21 @@ export interface CreateTenancyAllowanceModel {
   }
 }
 /**
+ * Request body used to set the arrears of a new tenancy.
+ */
+export interface CreateTenancyArrearsModel {
+  /**
+   * The date to follow up on.
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  followUpOn?: string // date-time
+  /**
+   * The current status.
+   */
+  status?: string
+}
+/**
  * Request body used to update tenancy break clause
  * example:
  * [object Object]
@@ -9034,6 +9065,21 @@ export interface CreateTenancyModel {
      * The amount of deposit held
      */
     sum?: number // double
+  }
+  /**
+   * Request body used to set the arrears of a new tenancy.
+   */
+  arrears?: {
+    /**
+     * The date to follow up on.
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    followUpOn?: string // date-time
+    /**
+     * The current status.
+     */
+    status?: string
   }
   /**
    * Request body used to set the source of a new tenancy
@@ -14004,6 +14050,10 @@ export interface OpenHouseAttendeeModel {
        * A flag determining if the related contact is archived
        */
       fromArchive?: boolean
+      /**
+       * The marketing consent status of the contact (grant/deny/notAsked)
+       */
+      marketingConsent?: string
     }[]
   }
   /**
@@ -14105,6 +14155,10 @@ export interface OpenHouseAttendeeModelPagedResult {
          * A flag determining if the related contact is archived
          */
         fromArchive?: boolean
+        /**
+         * The marketing consent status of the contact (grant/deny/notAsked)
+         */
+        marketingConsent?: string
       }[]
     }
     /**
@@ -17583,6 +17637,125 @@ export interface PropertyModelPagedResult {
   }
 }
 /**
+ * Representation of a property-negotiator relationship.
+ */
+export interface PropertyNegotiatorModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the property negotiator.
+   */
+  id?: string
+  /**
+   * The date and time when the property negotiator was created.
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the property negotiator was last modified.
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  modified?: string // date-time
+  /**
+   * The name of the negotiator.
+   */
+  name?: string
+  /**
+   * The type of relationship between the property and the negotiator. List of available types:
+   * - propertyManager
+   * - propertyAdministrator
+   * - clientAccountAssistant
+   * - salesProgressor
+   * - salesPropertyAdministrator
+   */
+  type?: string
+  /**
+   * The unique identifier of the property.
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the negotiator.
+   */
+  negotiatorId?: string
+  /**
+   * The ETag for the current version of the property negotiator. Used for managing update
+   * concurrency.
+   */
+  readonly _eTag?: string
+}
+export interface PropertyNegotiatorModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the property negotiator.
+     */
+    id?: string
+    /**
+     * The date and time when the property negotiator was created.
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the property negotiator was last modified.
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    modified?: string // date-time
+    /**
+     * The name of the negotiator.
+     */
+    name?: string
+    /**
+     * The type of relationship between the property and the negotiator. List of available types:
+     * - propertyManager
+     * - propertyAdministrator
+     * - clientAccountAssistant
+     * - salesProgressor
+     * - salesPropertyAdministrator
+     */
+    type?: string
+    /**
+     * The unique identifier of the property.
+     */
+    propertyId?: string
+    /**
+     * The unique identifier of the negotiator.
+     */
+    negotiatorId?: string
+    /**
+     * The ETag for the current version of the property negotiator. Used for managing update
+     * concurrency.
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+/**
  * Details relating to the real estate market in specific countries. Child models are named based on the ISO3166 country code that the data inside the model relates to
  */
 export interface PropertyRegionalModel {
@@ -19169,6 +19342,16 @@ export interface TenancyArrearsModel {
    * Indicates whether or not a payment plan is set up for a tenancy in arrears (no/yes/negotiating)
    */
   paymentPlan?: string
+  /**
+   * The date to follow up on.
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  followUpOn?: string // date-time
+  /**
+   * The current status.
+   */
+  status?: string
 }
 /**
  * Representation of a tenancy break clauses break from details
@@ -20531,6 +20714,16 @@ export interface TenancyModel {
      * Indicates whether or not a payment plan is set up for a tenancy in arrears (no/yes/negotiating)
      */
     paymentPlan?: string
+    /**
+     * The date to follow up on.
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    followUpOn?: string // date-time
+    /**
+     * The current status.
+     */
+    status?: string
   }
   /**
    * The ETag for the current version of the tenancy. Used for managing update concurrency
@@ -20918,6 +21111,16 @@ export interface TenancyModelPagedResult {
        * Indicates whether or not a payment plan is set up for a tenancy in arrears (no/yes/negotiating)
        */
       paymentPlan?: string
+      /**
+       * The date to follow up on.
+       * example:
+       * 2019-08-14T12:30:02Z
+       */
+      followUpOn?: string // date-time
+      /**
+       * The current status.
+       */
+      status?: string
     }
     /**
      * The ETag for the current version of the tenancy. Used for managing update concurrency
@@ -26018,6 +26221,21 @@ export interface UpdateTenancyAllowanceModel {
   }
 }
 /**
+ * Request body used to set the arrears of an existing tenancy.
+ */
+export interface UpdateTenancyArrearsModel {
+  /**
+   * The date to follow up on.
+   * example:
+   * 2019-08-14T12:30:02Z
+   */
+  followUpOn?: string // date-time
+  /**
+   * The current status.
+   */
+  status?: string
+}
+/**
  * Request body used to update tenancy break clause
  * example:
  * [object Object]
@@ -26303,6 +26521,21 @@ export interface UpdateTenancyModel {
      * The amount of deposit held
      */
     sum?: number // double
+  }
+  /**
+   * Request body used to set the arrears of an existing tenancy.
+   */
+  arrears?: {
+    /**
+     * The date to follow up on.
+     * example:
+     * 2019-08-14T12:30:02Z
+     */
+    followUpOn?: string // date-time
+    /**
+     * The current status.
+     */
+    status?: string
   }
   /**
    * Request body used to update letting fees on an existing tenancy
