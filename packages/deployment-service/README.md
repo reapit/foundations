@@ -82,6 +82,12 @@ A Release deployment flow is much simpler to that of the automated flow. Rleases
 
 ![Rlease flow](docs/images/release-flow.jpg)
 
+## Architecture
+Below is a diagram displaying the 3rd part services, how they communicate with the deployment service, the resources responsible for managing the deployed website and how they operate together.
+
+![Flow Diagram](docs/images/architecture-and-flow.png)
+
+
 ## Event Handlers
 
 ### Codebuild Update Handler
