@@ -3,6 +3,10 @@ import { SettingsPasswordPage } from '..'
 import { render, setViewport } from '../../../../tests/react-testing'
 
 describe('SettingsPasswordPage', () => {
+  beforeEach(() => {
+    process.env.appEnv = 'local'
+  })
+
   it('should match snapshot', () => {
     expect(render(<SettingsPasswordPage />)).toMatchSnapshot()
   })

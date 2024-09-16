@@ -1,4 +1,4 @@
-import { CognitoUserPool, CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js'
+import { CognitoUserPool, CognitoUser } from 'amazon-cognito-identity-js'
 import { logger } from '@reapit/utils-react'
 
 export const getNewUser = (userName: string, connectClientId: string, userPoolId?: string) => {
@@ -14,46 +14,10 @@ export const getNewUser = (userName: string, connectClientId: string, userPoolId
   return new CognitoUser(userData)
 }
 
-export interface ChangePasswordParams {
-  newPassword: string
-  userName: string
-  password: string
-}
-
 export interface ConfirmRegistrationParams {
   userName: string
   verificationCode: string
   connectClientId: string
-}
-
-export const changePasswordService = async ({
-  password,
-  userName,
-  newPassword,
-}: ChangePasswordParams): Promise<boolean> => {
-  return new Promise((resolve, reject) => {
-    const authenticationData = {
-      Username: userName,
-      Password: password,
-    }
-    const authenticationDetails = new AuthenticationDetails(authenticationData)
-    const cognitoUser = getNewUser(userName, process.env.connectClientId)
-    cognitoUser.authenticateUser(authenticationDetails, {
-      onSuccess: () => {
-        cognitoUser.changePassword(password, newPassword, (err) => {
-          if (err) {
-            logger(new Error(err.message))
-            reject(err)
-          }
-          resolve(true)
-        })
-      },
-      onFailure: (err) => {
-        logger(new Error(err.message))
-        resolve(false)
-      },
-    })
-  })
 }
 
 export const confirmRegistrationService = async ({

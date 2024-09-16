@@ -11,73 +11,26 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
       >
         Password
       </mock-styled.h1>
-      <form>
+      <mock-styled.p
+        classname="el-text-base el-has-grey-text"
+      >
+        Please use the Reapit Connect My Account app to manage your account
+      </mock-styled.p>
+      <mock-styled.div
+        classname="el-mb11"
+      >
         <mock-styled.div
-          classname="el-form-layout-has-margin"
+          classname=""
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
-                id="test-static-id"
-                name="password"
-                placeholder="Current Password"
-                type="password"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Current Password
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
-                id="test-static-id"
-                name="newPassword"
-                placeholder="New Password"
-                type="password"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                New Password
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
-                id="test-static-id"
-                name="confirmPassword"
-                placeholder="Confirm New Password"
-                type="password"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Confirm New Password
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+          <mock-styled.button
+            classname="el-intent-primary"
+            type="submit"
           >
-            <mock-styled.button
-              classname="el-intent-primary"
-              type="submit"
-            >
-              <mock-styled.div />
-              Save Changes
-            </mock-styled.button>
-          </mock-styled.div>
+            <mock-styled.div />
+            Manage Account
+          </mock-styled.button>
         </mock-styled.div>
-      </form>
+      </mock-styled.div>
       <mock-styled.div
         aria-hidden="true"
         classname=""
@@ -119,73 +72,26 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
     >
       Password
     </mock-styled.h1>
-    <form>
+    <mock-styled.p
+      classname="el-text-base el-has-grey-text"
+    >
+      Please use the Reapit Connect My Account app to manage your account
+    </mock-styled.p>
+    <mock-styled.div
+      classname="el-mb11"
+    >
       <mock-styled.div
-        classname="el-form-layout-has-margin"
+        classname=""
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
-              id="test-static-id"
-              name="password"
-              placeholder="Current Password"
-              type="password"
-            />
-            <mock-styled.label
-              htmlfor="test-static-id"
-            >
-              Current Password
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
-              id="test-static-id"
-              name="newPassword"
-              placeholder="New Password"
-              type="password"
-            />
-            <mock-styled.label
-              htmlfor="test-static-id"
-            >
-              New Password
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
-              id="test-static-id"
-              name="confirmPassword"
-              placeholder="Confirm New Password"
-              type="password"
-            />
-            <mock-styled.label
-              htmlfor="test-static-id"
-            >
-              Confirm New Password
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+        <mock-styled.button
+          classname="el-intent-primary"
+          type="submit"
         >
-          <mock-styled.button
-            classname="el-intent-primary"
-            type="submit"
-          >
-            <mock-styled.div />
-            Save Changes
-          </mock-styled.button>
-        </mock-styled.div>
+          <mock-styled.div />
+          Manage Account
+        </mock-styled.button>
       </mock-styled.div>
-    </form>
+    </mock-styled.div>
     <mock-styled.div
       aria-hidden="true"
       classname=""
@@ -289,73 +195,26 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
       >
         Password
       </mock-styled.h1>
-      <form>
+      <mock-styled.p
+        classname="el-text-base el-has-grey-text"
+      >
+        Please use the Reapit Connect My Account app to manage your account
+      </mock-styled.p>
+      <mock-styled.div
+        classname="el-mb11"
+      >
         <mock-styled.div
-          classname="el-form-layout-has-margin"
+          classname=""
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
-                id="test-static-id"
-                name="password"
-                placeholder="Current Password"
-                type="password"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Current Password
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
-                id="test-static-id"
-                name="newPassword"
-                placeholder="New Password"
-                type="password"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                New Password
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
-                id="test-static-id"
-                name="confirmPassword"
-                placeholder="Confirm New Password"
-                type="password"
-              />
-              <mock-styled.label
-                htmlfor="test-static-id"
-              >
-                Confirm New Password
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+          <mock-styled.button
+            classname="el-intent-primary"
+            type="submit"
           >
-            <mock-styled.button
-              classname="el-intent-primary"
-              type="submit"
-            >
-              <mock-styled.div />
-              Save Changes
-            </mock-styled.button>
-          </mock-styled.div>
+            <mock-styled.div />
+            Manage Account
+          </mock-styled.button>
         </mock-styled.div>
-      </form>
+      </mock-styled.div>
       <mock-styled.div
         aria-hidden="true"
         classname=""
@@ -397,73 +256,26 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
     >
       Password
     </mock-styled.h1>
-    <form>
+    <mock-styled.p
+      classname="el-text-base el-has-grey-text"
+    >
+      Please use the Reapit Connect My Account app to manage your account
+    </mock-styled.p>
+    <mock-styled.div
+      classname="el-mb11"
+    >
       <mock-styled.div
-        classname="el-form-layout-has-margin"
+        classname=""
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
-              id="test-static-id"
-              name="password"
-              placeholder="Current Password"
-              type="password"
-            />
-            <mock-styled.label
-              htmlfor="test-static-id"
-            >
-              Current Password
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
-              id="test-static-id"
-              name="newPassword"
-              placeholder="New Password"
-              type="password"
-            />
-            <mock-styled.label
-              htmlfor="test-static-id"
-            >
-              New Password
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
-              id="test-static-id"
-              name="confirmPassword"
-              placeholder="Confirm New Password"
-              type="password"
-            />
-            <mock-styled.label
-              htmlfor="test-static-id"
-            >
-              Confirm New Password
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+        <mock-styled.button
+          classname="el-intent-primary"
+          type="submit"
         >
-          <mock-styled.button
-            classname="el-intent-primary"
-            type="submit"
-          >
-            <mock-styled.div />
-            Save Changes
-          </mock-styled.button>
-        </mock-styled.div>
+          <mock-styled.div />
+          Manage Account
+        </mock-styled.button>
       </mock-styled.div>
-    </form>
+    </mock-styled.div>
     <mock-styled.div
       aria-hidden="true"
       classname=""
