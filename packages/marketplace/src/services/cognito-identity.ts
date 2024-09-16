@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import { CognitoUserPool, CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js'
+import { CognitoUserPool, CognitoUser } from 'amazon-cognito-identity-js'
 import { logger } from '@reapit/utils-react'
 
 export const getNewUser = (userName: string, connectClientId: string, userPoolId?: string) => {

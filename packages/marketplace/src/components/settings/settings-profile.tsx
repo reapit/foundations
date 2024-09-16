@@ -16,7 +16,7 @@ import {
 import { LoginIdentity, useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { RolesChip } from './__styles__'
-import { trackEventHandler, trackEvent } from '../../core/analytics'
+import { trackEventHandler } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
 import { UpdateUserModel, UserModel } from '@reapit/foundations-ts-definitions'
 import { updateActions, UpdateActionNames } from '@reapit/use-reapit-data'
