@@ -24,6 +24,10 @@ jest.mock('@reapit/connect-session', () => ({
 }))
 
 describe('SettingsProfile', () => {
+  beforeEach(() => {
+    process.env.appEnv = 'local'
+  })
+
   it('should match snapshot', () => {
     expect(render(<SettingsProfile />)).toMatchSnapshot()
   })
