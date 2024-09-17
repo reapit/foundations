@@ -13,6 +13,9 @@ jest.mock('@reapit/use-reapit-data', () => ({
 const mockUseReapitGet = useReapitGet as jest.Mock
 
 describe('HomePage', () => {
+  beforeAll(() => {
+    process.env.appEnv = 'local'
+  })
   it('should render component when loading', () => {
     mockUseReapitGet.mockReturnValue([null, true, undefined, jest.fn()])
     expect(render(<HomePage />)).toMatchSnapshot()
