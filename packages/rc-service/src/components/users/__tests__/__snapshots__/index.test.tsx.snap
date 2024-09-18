@@ -5,27 +5,24 @@ exports[`UsersPage should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
-      <div
-        class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-        role="status"
+      <mock-styled.div />
+      <mock-styled.div
+        classname="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline"
+        role="alertdialog"
       >
         <div
           class="el-pn-icon"
           data-testid="close-icon"
         >
-          <span
-            class="mocked-styled-4 el-icon"
+          <mock-styled.span
+            classname="el-icon-new"
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
               fill="none"
               height="1em"
-              role="img"
               style="font-size: 1.25rem;"
-              title="Icon image with name info"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -35,39 +32,35 @@ exports[`UsersPage should match a snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </span>
+          </mock-styled.span>
         </div>
         <div
-          aria-live="polite"
           class="el-pn-content"
         >
           Something went wrong here, try refreshing your page.
         </div>
-      </div>
+      </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
-    <div
-      class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-      role="status"
+    <mock-styled.div />
+    <mock-styled.div
+      classname="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline"
+      role="alertdialog"
     >
       <div
         class="el-pn-icon"
         data-testid="close-icon"
       >
-        <span
-          class="mocked-styled-4 el-icon"
+        <mock-styled.span
+          classname="el-icon-new"
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
             fill="none"
             height="1em"
-            role="img"
             style="font-size: 1.25rem;"
-            title="Icon image with name info"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -77,15 +70,14 @@ exports[`UsersPage should match a snapshot 1`] = `
               fill="currentColor"
             />
           </svg>
-        </span>
+        </mock-styled.span>
       </div>
       <div
-        aria-live="polite"
         class="el-pn-content"
       >
         Something went wrong here, try refreshing your page.
       </div>
-    </div>
+    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

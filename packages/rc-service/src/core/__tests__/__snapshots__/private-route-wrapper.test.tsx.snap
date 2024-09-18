@@ -5,51 +5,39 @@ exports[`PrivateRouter should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="mocked-styled-86 el-snack-holder"
-      />
+      <mock-styled.div />
       <main
         class="el-main-container"
       >
         <section
           class="el-page-container"
         >
-          <div
-            class="el-is-full-page el-loader-container"
+          <mock-styled.div
+            classname="el-is-full-page"
           >
-            <div
-              class="mocked-styled-40 el-loader"
-            >
-              <div
-                class="mocked-styled-41 el-loader-moving-bar"
-              />
-            </div>
-          </div>
+            <mock-styled.div>
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
         </section>
       </main>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="mocked-styled-86 el-snack-holder"
-    />
+    <mock-styled.div />
     <main
       class="el-main-container"
     >
       <section
         class="el-page-container"
       >
-        <div
-          class="el-is-full-page el-loader-container"
+        <mock-styled.div
+          classname="el-is-full-page"
         >
-          <div
-            class="mocked-styled-40 el-loader"
-          >
-            <div
-              class="mocked-styled-41 el-loader-moving-bar"
-            />
-          </div>
-        </div>
+          <mock-styled.div>
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
       </section>
     </main>
   </div>,
