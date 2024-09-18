@@ -4,6 +4,12 @@ import { UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-r
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { UserModel } from '@reapit/foundations-ts-definitions'
 import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { object, string } from 'yup'
+
+const validationSchema = object().shape({
+  name: string().trim().required('Required').max(150, 'Limit of 150 characters'),
+})
 
 export const UpdateUserName: FC<{ user: UserModel }> = ({ user }) => {
   const { modalIsOpen, openModal, closeModal } = useModal()
@@ -17,7 +23,12 @@ export const UpdateUserName: FC<{ user: UserModel }> = ({ user }) => {
     method: 'PATCH',
   })
 
-  const { register, handleSubmit } = useForm<{ name: string }>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors: formErrors },
+  } = useForm<{ name?: string }>({
+    resolver: yupResolver(validationSchema) as any,
     defaultValues: {
       name: user.name,
     },
@@ -48,7 +59,12 @@ export const UpdateUserName: FC<{ user: UserModel }> = ({ user }) => {
               <Title>Update Name</Title>
             </InputWrapFull>
             <InputWrapFull>
-              <InputGroup label="Name" {...register('name')} />
+              <InputGroup
+                label="Name"
+                {...register('name')}
+                errorMessage={formErrors?.name?.message}
+                icon={formErrors?.name?.message ? 'asterisk' : null}
+              />
             </InputWrapFull>
             <InputWrapFull>
               <Button loading={isLoading} disabled={isLoading} intent="primary">
