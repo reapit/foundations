@@ -17,8 +17,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { validationSchemaChangePassword } from './validation-schema'
 import { changePasswordService } from '../../../services/cognito-identity'
 import { openNewPage } from '../../../utils/navigation'
-import { URLS } from '../../../constants/urls'
-import { tokenFromCognito } from '../../../utils/token'
+import { getTokenIssuer, tokenFromCognito } from '../../../utils/token'
 
 export type ChangePasswordFormValues = {
   password: string
@@ -45,9 +44,9 @@ export const handleChangePassword =
 export const ChangePasswordForm: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const snacks = useSnack()
-  const appEnv = process.env.appEnv
   const email = connectSession?.loginIdentity.email ?? ''
   const token = connectSession?.accessToken ?? ''
+
   const {
     register,
     handleSubmit,
@@ -111,7 +110,7 @@ export const ChangePasswordForm: FC = () => {
       <>
         <BodyText hasGreyText>Please use the Reapit Connect My Account app to manage your account</BodyText>
         <ButtonGroup className={elMb11}>
-          <Button intent="primary" type="submit" onClick={openNewPage(`${URLS[appEnv].reapitConnectMyAccount}`)}>
+          <Button intent="primary" type="submit" onClick={openNewPage(`${getTokenIssuer(token)}my-account`)}>
             Manage Account
           </Button>
         </ButtonGroup>

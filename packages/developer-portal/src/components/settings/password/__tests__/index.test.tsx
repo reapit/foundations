@@ -10,10 +10,6 @@ jest.mock('../../../../utils/token', () => ({
 const mockTokenUtil = tokenFromCognito as jest.Mock
 
 describe('SettingsPasswordPage', () => {
-  beforeEach(() => {
-    process.env.appEnv = 'local'
-  })
-
   mockTokenUtil.mockReturnValue(true)
 
   it('should match snapshot', () => {

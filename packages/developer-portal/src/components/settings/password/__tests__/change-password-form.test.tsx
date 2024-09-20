@@ -3,7 +3,7 @@ import { ChangePasswordForm, handleChangePassword } from '../change-password-for
 import { render } from '../../../../tests/react-testing'
 import { changePasswordService } from '../../../../services/cognito-identity'
 import { UseSnack } from '@reapit/elements'
-import { tokenFromCognito } from '../../../../utils/token'
+import { getTokenIssuer, tokenFromCognito } from '../../../../utils/token'
 
 jest.mock('../../../../services/cognito-identity', () => ({
   changePasswordService: jest.fn(),
@@ -11,14 +11,16 @@ jest.mock('../../../../services/cognito-identity', () => ({
 
 jest.mock('../../../../utils/token', () => ({
   tokenFromCognito: jest.fn(),
+  getTokenIssuer: jest.fn(),
 }))
 
 const mockChangePasswordService = changePasswordService as jest.Mock
 const mockTokenUtil = tokenFromCognito as jest.Mock
+const mockGetTokenIssuer = getTokenIssuer as jest.Mock
 
 describe('ChangePasswordForm', () => {
   beforeEach(() => {
-    process.env.appEnv = 'local'
+    mockGetTokenIssuer.mockReturnValue('https://connect.dev.paas.reapit.cloud/')
   })
 
   it('should match snapshot', () => {
@@ -28,7 +30,7 @@ describe('ChangePasswordForm', () => {
 
 describe('handleChangePassword', () => {
   beforeEach(() => {
-    process.env.appEnv = 'local'
+    mockGetTokenIssuer.mockReturnValue('https://connect.dev.paas.reapit.cloud/')
   })
 
   it('should successfully change the password', async () => {
