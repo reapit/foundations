@@ -3,22 +3,37 @@ import { ChangePasswordForm, handleChangePassword } from '../change-password-for
 import { render } from '../../../../tests/react-testing'
 import { changePasswordService } from '../../../../services/cognito-identity'
 import { UseSnack } from '@reapit/elements'
+import { tokenFromCognito } from '../../../../utils/token'
 
 jest.mock('../../../../services/cognito-identity', () => ({
   changePasswordService: jest.fn(),
 }))
 
+jest.mock('../../../../utils/token', () => ({
+  tokenFromCognito: jest.fn(),
+}))
+
 const mockChangePasswordService = changePasswordService as jest.Mock
+const mockTokenUtil = tokenFromCognito as jest.Mock
 
 describe('ChangePasswordForm', () => {
+  beforeEach(() => {
+    process.env.appEnv = 'local'
+  })
+
   it('should match snapshot', () => {
     expect(render(<ChangePasswordForm />)).toMatchSnapshot()
   })
 })
 
 describe('handleChangePassword', () => {
+  beforeEach(() => {
+    process.env.appEnv = 'local'
+  })
+
   it('should successfully change the password', async () => {
     mockChangePasswordService.mockReturnValue(true)
+    mockTokenUtil.mockReturnValue(true)
     const email = 'MOCK_EMAIL'
     const snack = {
       success: jest.fn(),
@@ -46,6 +61,7 @@ describe('handleChangePassword', () => {
 
   it('should throw an error if the change password service fails', async () => {
     mockChangePasswordService.mockReturnValue(false)
+    mockTokenUtil.mockReturnValue(true)
     const email = 'MOCK_EMAIL'
     const snack = {
       success: jest.fn(),

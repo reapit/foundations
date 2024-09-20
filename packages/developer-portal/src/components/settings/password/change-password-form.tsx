@@ -1,11 +1,24 @@
 import React, { FC } from 'react'
-import { Button, ButtonGroup, FormLayout, InputGroup, InputWrap, UseSnack, useSnack } from '@reapit/elements'
+import {
+  BodyText,
+  Button,
+  ButtonGroup,
+  elMb11,
+  FormLayout,
+  InputGroup,
+  InputWrap,
+  UseSnack,
+  useSnack,
+} from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { validationSchemaChangePassword } from './validation-schema'
 import { changePasswordService } from '../../../services/cognito-identity'
+import { openNewPage } from '../../../utils/navigation'
+import { URLS } from '../../../constants/urls'
+import { tokenFromCognito } from '../../../utils/token'
 
 export type ChangePasswordFormValues = {
   password: string
@@ -32,7 +45,9 @@ export const handleChangePassword =
 export const ChangePasswordForm: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const snacks = useSnack()
+  const appEnv = process.env.appEnv
   const email = connectSession?.loginIdentity.email ?? ''
+  const token = connectSession?.accessToken ?? ''
   const {
     register,
     handleSubmit,
@@ -46,48 +61,61 @@ export const ChangePasswordForm: FC = () => {
     },
   })
 
-  return (
-    <form onSubmit={handleSubmit(handleChangePassword(email, snacks))}>
-      <FormLayout hasMargin>
-        <InputWrap>
-          <InputGroup
-            {...register('password')}
-            type="password"
-            label="Current Password"
-            placeholder="Current Password"
-            errorMessage={errors?.password?.message}
-            icon={errors?.password?.message ? 'asterisk' : null}
-            intent="danger"
-          />
-        </InputWrap>
-        <InputWrap>
-          <InputGroup
-            {...register('newPassword')}
-            type="password"
-            label="New Password"
-            placeholder="New Password"
-            errorMessage={errors?.newPassword?.message}
-            icon={errors?.newPassword?.message ? 'asterisk' : null}
-            intent="danger"
-          />
-        </InputWrap>
-        <InputWrap>
-          <InputGroup
-            {...register('confirmPassword')}
-            type="password"
-            label="Confirm New Password"
-            placeholder="Confirm New Password"
-            errorMessage={errors?.confirmPassword?.message}
-            icon={errors?.confirmPassword?.message ? 'asterisk' : null}
-            intent="danger"
-          />
-        </InputWrap>
-      </FormLayout>
-      <ButtonGroup>
-        <Button intent="primary" type="submit">
-          Save Changes
-        </Button>
-      </ButtonGroup>
-    </form>
-  )
+  if (tokenFromCognito(token)) {
+    return (
+      <form onSubmit={handleSubmit(handleChangePassword(email, snacks))}>
+        <FormLayout hasMargin>
+          <InputWrap>
+            <InputGroup
+              {...register('password')}
+              type="password"
+              label="Current Password"
+              placeholder="Current Password"
+              errorMessage={errors?.password?.message}
+              icon={errors?.password?.message ? 'asterisk' : null}
+              intent="danger"
+            />
+          </InputWrap>
+          <InputWrap>
+            <InputGroup
+              {...register('newPassword')}
+              type="password"
+              label="New Password"
+              placeholder="New Password"
+              errorMessage={errors?.newPassword?.message}
+              icon={errors?.newPassword?.message ? 'asterisk' : null}
+              intent="danger"
+            />
+          </InputWrap>
+          <InputWrap>
+            <InputGroup
+              {...register('confirmPassword')}
+              type="password"
+              label="Confirm New Password"
+              placeholder="Confirm New Password"
+              errorMessage={errors?.confirmPassword?.message}
+              icon={errors?.confirmPassword?.message ? 'asterisk' : null}
+              intent="danger"
+            />
+          </InputWrap>
+        </FormLayout>
+        <ButtonGroup>
+          <Button intent="primary" type="submit">
+            Save Changes
+          </Button>
+        </ButtonGroup>
+      </form>
+    )
+  } else {
+    return (
+      <>
+        <BodyText hasGreyText>Please use the Reapit Connect My Account app to manage your account</BodyText>
+        <ButtonGroup className={elMb11}>
+          <Button intent="primary" type="submit" onClick={openNewPage(`${URLS[appEnv].reapitConnectMyAccount}`)}>
+            Manage Account
+          </Button>
+        </ButtonGroup>
+      </>
+    )
+  }
 }
