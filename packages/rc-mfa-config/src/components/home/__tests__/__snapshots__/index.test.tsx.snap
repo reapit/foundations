@@ -140,17 +140,15 @@ exports[`HomePage should render component when loading 1`] = `
           >
             Configure MFA Authenticator
           </mock-styled.h1>
-          <mock-styled.p
-            classname="el-text-base"
+          <mock-styled.div
+            classname=""
           >
-            To setup or reconfigure your MFA device, please click ‘Configure MFA’ below. You will be redirected to your account profile page within Reapit Connect.
-          </mock-styled.p>
-          <mock-styled.button
-            classname="el-intent-primary"
-          >
-            <mock-styled.div />
-            Configure MFA
-          </mock-styled.button>
+            <mock-styled.div
+              classname="el-mb11"
+            >
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
         </section>
       </div>
     </div>
@@ -291,17 +289,15 @@ exports[`HomePage should render component when loading 1`] = `
         >
           Configure MFA Authenticator
         </mock-styled.h1>
-        <mock-styled.p
-          classname="el-text-base"
+        <mock-styled.div
+          classname=""
         >
-          To setup or reconfigure your MFA device, please click ‘Configure MFA’ below. You will be redirected to your account profile page within Reapit Connect.
-        </mock-styled.p>
-        <mock-styled.button
-          classname="el-intent-primary"
-        >
-          <mock-styled.div />
-          Configure MFA
-        </mock-styled.button>
+          <mock-styled.div
+            classname="el-mb11"
+          >
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
       </section>
     </div>
   </div>,
@@ -499,17 +495,15 @@ exports[`HomePage should render component with data 1`] = `
           >
             Configure MFA Authenticator
           </mock-styled.h1>
-          <mock-styled.p
-            classname="el-text-base"
+          <mock-styled.div
+            classname=""
           >
-            To setup or reconfigure your MFA device, please click ‘Configure MFA’ below. You will be redirected to your account profile page within Reapit Connect.
-          </mock-styled.p>
-          <mock-styled.button
-            classname="el-intent-primary"
-          >
-            <mock-styled.div />
-            Configure MFA
-          </mock-styled.button>
+            <mock-styled.div
+              classname="el-mb11"
+            >
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
         </section>
       </div>
     </div>
@@ -650,17 +644,15 @@ exports[`HomePage should render component with data 1`] = `
         >
           Configure MFA Authenticator
         </mock-styled.h1>
-        <mock-styled.p
-          classname="el-text-base"
+        <mock-styled.div
+          classname=""
         >
-          To setup or reconfigure your MFA device, please click ‘Configure MFA’ below. You will be redirected to your account profile page within Reapit Connect.
-        </mock-styled.p>
-        <mock-styled.button
-          classname="el-intent-primary"
-        >
-          <mock-styled.div />
-          Configure MFA
-        </mock-styled.button>
+          <mock-styled.div
+            classname="el-mb11"
+          >
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
       </section>
     </div>
   </div>,
@@ -858,17 +850,15 @@ exports[`HomePage should render component with no data 1`] = `
           >
             Configure MFA Authenticator
           </mock-styled.h1>
-          <mock-styled.p
-            classname="el-text-base"
+          <mock-styled.div
+            classname=""
           >
-            To setup or reconfigure your MFA device, please click ‘Configure MFA’ below. You will be redirected to your account profile page within Reapit Connect.
-          </mock-styled.p>
-          <mock-styled.button
-            classname="el-intent-primary"
-          >
-            <mock-styled.div />
-            Configure MFA
-          </mock-styled.button>
+            <mock-styled.div
+              classname="el-mb11"
+            >
+              <mock-styled.div />
+            </mock-styled.div>
+          </mock-styled.div>
         </section>
       </div>
     </div>
@@ -1009,17 +999,15 @@ exports[`HomePage should render component with no data 1`] = `
         >
           Configure MFA Authenticator
         </mock-styled.h1>
-        <mock-styled.p
-          classname="el-text-base"
+        <mock-styled.div
+          classname=""
         >
-          To setup or reconfigure your MFA device, please click ‘Configure MFA’ below. You will be redirected to your account profile page within Reapit Connect.
-        </mock-styled.p>
-        <mock-styled.button
-          classname="el-intent-primary"
-        >
-          <mock-styled.div />
-          Configure MFA
-        </mock-styled.button>
+          <mock-styled.div
+            classname="el-mb11"
+          >
+            <mock-styled.div />
+          </mock-styled.div>
+        </mock-styled.div>
       </section>
     </div>
   </div>,
