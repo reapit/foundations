@@ -10,6 +10,7 @@ import {
   Grid,
   InputGroup,
   InputWrap,
+  Loader,
   Subtitle,
   Title,
   Toggle,
@@ -29,6 +30,8 @@ import { UpdateUserModel, UserModel } from '@reapit/foundations-ts-definitions'
 import { updateActions, UpdateActionNames } from '@reapit/use-reapit-data'
 import { SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
 import { useAppsBrowseState } from '../../core/use-apps-browse-state'
+import { openNewPage } from '../../utils/navigation'
+import { getTokenIssuer, tokenFromCognito } from '../../utils/token'
 
 export type ChangePasswordFormValues = {
   password: string
@@ -74,6 +77,7 @@ export const SettingsProfile: FC = () => {
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const snacks = useSnack()
   const loginIdentity = connectSession?.loginIdentity ?? ({} as LoginIdentity)
+  const token = connectSession?.accessToken ?? ''
   const email = connectSession?.loginIdentity.email ?? ''
   const userId = email ? window.btoa(email).replace(/=/g, '') : null
 
@@ -108,6 +112,8 @@ export const SettingsProfile: FC = () => {
   ])
 
   const { name, orgName, clientId, groups } = loginIdentity
+
+  if (!token) return <Loader />
 
   return (
     <>
@@ -155,7 +161,18 @@ export const SettingsProfile: FC = () => {
           </Col>
         )}
       </Grid>
-      {!connectIsDesktop && (
+
+      {!connectIsDesktop && !tokenFromCognito(token) ? (
+        <>
+          <Subtitle hasBoldText>Update Your Password</Subtitle>
+          <BodyText hasGreyText>Please use the Reapit Connect My Account app to manage your account</BodyText>
+          <ButtonGroup className={elMb11}>
+            <Button intent="primary" type="submit" onClick={openNewPage(`${getTokenIssuer(token)}my-account`)}>
+              Manage Account
+            </Button>
+          </ButtonGroup>
+        </>
+      ) : (
         <>
           <Subtitle hasBoldText>Update Your Password</Subtitle>
           <form className={elMb11} onSubmit={handleSubmit(handleChangePassword(email, snacks))}>
