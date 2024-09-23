@@ -31,7 +31,7 @@ import { updateActions, UpdateActionNames } from '@reapit/use-reapit-data'
 import { SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
 import { useAppsBrowseState } from '../../core/use-apps-browse-state'
 import { openNewPage } from '../../utils/navigation'
-import { getTokenIssuer } from '../../utils/token'
+import { getTokenIssuer, tokenFromCognito } from '../../utils/token'
 
 export type ChangePasswordFormValues = {
   password: string
@@ -162,7 +162,7 @@ export const SettingsProfile: FC = () => {
         )}
       </Grid>
 
-      {!connectIsDesktop && true ? (
+      {!connectIsDesktop && tokenFromCognito(token) ? (
         <>
           <Subtitle hasBoldText>Update Your Password</Subtitle>
           <BodyText hasGreyText>Please use the Reapit Connect My Account app to manage your account</BodyText>
