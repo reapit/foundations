@@ -113,8 +113,8 @@ export const SettingsProfile: FC = () => {
 
   const { name, orgName, clientId, groups } = loginIdentity
 
-  if (!token) return <Loader/>
-  
+  if (!token) return <Loader />
+
   return (
     <>
       <Title>Profile</Title>
