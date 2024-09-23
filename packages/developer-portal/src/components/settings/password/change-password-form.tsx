@@ -7,6 +7,7 @@ import {
   FormLayout,
   InputGroup,
   InputWrap,
+  Loader,
   UseSnack,
   useSnack,
 } from '@reapit/elements'
@@ -59,6 +60,8 @@ export const ChangePasswordForm: FC = () => {
       confirmPassword: '',
     },
   })
+
+  if (!token) return <Loader />
 
   if (tokenFromCognito(token)) {
     return (
