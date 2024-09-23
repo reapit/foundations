@@ -162,7 +162,7 @@ export const SettingsProfile: FC = () => {
         )}
       </Grid>
 
-      {!connectIsDesktop && tokenFromCognito(token) ? (
+      {!connectIsDesktop && !tokenFromCognito(token) ? (
         <>
           <Subtitle hasBoldText>Update Your Password</Subtitle>
           <BodyText hasGreyText>Please use the Reapit Connect My Account app to manage your account</BodyText>
