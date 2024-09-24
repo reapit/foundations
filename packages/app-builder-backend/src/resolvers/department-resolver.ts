@@ -4,7 +4,7 @@ import { Arg, Authorized, Ctx, Query, Resolver } from 'type-graphql'
 import { query } from '../utils/graphql-fetch'
 import { Context } from '../types'
 import { Department, DepartmentFragment } from '../entities/department'
-import { DepartmentModel, DepartmentModelPagedResult } from '@reapit/foundations-ts-definitions/types'
+import { DepartmentModel, DepartmentModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 const getDepartmentsQuery = gql`
   ${DepartmentFragment}
