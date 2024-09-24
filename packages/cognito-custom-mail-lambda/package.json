@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/reapit/foundations#readme",
   "dependencies": {
-    "@reapit/foundations-ts-definitions": "^1.5.7",
+    "@reapit/foundations-ts-definitions": "^1.5.9",
     "aws-lambda": "^1.0.7",
     "events": "^3.3.0",
     "snyk": "^1.1285.0",

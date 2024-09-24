@@ -13026,7 +13026,7 @@ __metadata:
   resolution: "cognito-custom-mail-lambda@workspace:packages/cognito-custom-mail-lambda"
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/foundations-ts-definitions": "npm:^1.5.7"
+    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:^"
     "@reapit/utils-node": "workspace:packages/utils-node"
     "@types/mjml": "npm:^4.7.4"
