@@ -17188,6 +17188,7 @@ __metadata:
     "@graphql-tools/load-files": "npm:^7.0.0"
     "@graphql-tools/merge": "npm:^9.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
