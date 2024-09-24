@@ -45,7 +45,6 @@
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
   },
   "dependencies": {
-    "@reapit/foundations-ts-definitions": "^1.5.9",
     "axios": "^1.7.7",
     "jwt-decode": "^4.0.0"
   }

@@ -29,7 +29,6 @@
     "@graphql-tools/load": "^8.0.2",
     "@graphql-tools/load-files": "^7.0.0",
     "@graphql-tools/merge": "^9.0.3",
-    "@reapit/foundations-ts-definitions": "^1.5.9",
     "@reapit/utils-node": "workspace:packages/utils-node",
     "@snyk/protect": "^1.1285.0",
     "apollo-server": "^3.13.0",

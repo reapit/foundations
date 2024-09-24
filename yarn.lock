@@ -6015,7 +6015,6 @@ __metadata:
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:^"
-    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@types/adm-zip": "npm:^0.5.5"
@@ -6083,7 +6082,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/connect-session-server@workspace:packages/connect-session-server"
   dependencies:
-    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@types/eslint": "npm:^8"
     "@types/jest": "npm:^29.5.12"
     "@types/node": "npm:^20.12.7"
@@ -11155,7 +11153,6 @@ __metadata:
     "@nestjs/core": "npm:^9.4.3"
     "@nestjs/platform-express": "npm:^9.4.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-nest": "workspace:packages/utils-nest"
@@ -17188,7 +17185,6 @@ __metadata:
     "@graphql-tools/load-files": "npm:^7.0.0"
     "@graphql-tools/merge": "npm:^9.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
@@ -20331,7 +20327,6 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "npm:^4.1.2"
-    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
@@ -20371,7 +20366,7 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "npm:^4.1.2"
-    "@reapit/foundations-ts-definitions": "npm:^1.5.7"
+    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
