@@ -7,7 +7,7 @@
     "baseUrl": "./",
     "sourceRoot": "/",
     "paths": {
-      "@reapit/*": ["../*"]
+
     },
     "declaration": true,
     "declarationDir": "dist",

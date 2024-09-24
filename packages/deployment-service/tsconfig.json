@@ -7,8 +7,7 @@
     "baseUrl": "./",
     "sourceRoot": "/",
     "paths": {
-      "@reapit/utils-nest": ["../utils-nest/src"],
-      "@reapit/*": ["../*"]
+      "@reapit/utils-nest": ["../utils-nest/src"]
     },
     "declaration": true,
     "declarationDir": "dist",
