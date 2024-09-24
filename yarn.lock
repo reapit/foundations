@@ -5962,7 +5962,7 @@ __metadata:
     "@graphql-tools/delegate": "npm:^8.8.1"
     "@graphql-tools/stitch": "npm:^8.7.50"
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/foundations-ts-definitions": "npm:^1.5.7"
+    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
