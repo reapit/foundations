@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "dependencies": {
     "@reapit/connect-session": "workspace:^",
+    "@reapit/foundations-ts-definitions": "^1.5.9",
     "adm-zip": "^0.5.12",
     "ansi-regex": "^6.0.1",
     "axios": "^1.7.7",
