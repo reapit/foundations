@@ -6083,6 +6083,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/connect-session-server@workspace:packages/connect-session-server"
   dependencies:
+    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@types/eslint": "npm:^8"
     "@types/jest": "npm:^29.5.12"
     "@types/node": "npm:^20.12.7"
