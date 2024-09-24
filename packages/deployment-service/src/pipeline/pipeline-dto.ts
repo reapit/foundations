@@ -1,4 +1,4 @@
-import { PackageManagerEnum } from '@reapit/foundations-ts-definitions/deployment-schema'
+import { PackageManagerEnum } from '@reapit/foundations-ts-definitions'
 import { Type } from 'class-transformer'
 import {
   IsString,
