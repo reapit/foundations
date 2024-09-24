@@ -6500,7 +6500,7 @@ __metadata:
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
-    "@reapit/foundations-ts-definitions": "npm:^1.5.7"
+    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
