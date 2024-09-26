@@ -10,7 +10,9 @@ Or use `reapit config --help` to describe an individual command.
 
 Command | description
 --- | ---
-`reapit config` | Starts a prompt to add the cli's config requirements (api-key)
+`reapit auth login` | Start the process of logging in with your Reapit SSO account
+`reapit auh logout` | Clears your logged in session
+`reapit config` | Starts a prompt to configure Reapit cli
 `reapit pipeline create` | Starts the process of creating a new pipeline
 `reapit pipeline edit` | Used to edit a given pipeline
 `reapit pipeline delete` | Deletes a given pipeline
@@ -32,7 +34,7 @@ Installing requires the below steps
 - [Obtain npm token](#obtaining-npm-token)
 - [Create `.npmrc` file](#create-the-npmrc-file)
 - [Installing the cli](#installing-the-cli)
-- [Adding your api-key](#adding-your-api-key)
+- [Log in with Reapit](#login)
 
 
 ### Obtaining NPM Token
@@ -62,19 +64,19 @@ Simply run the below command to install the reapit cli globally on your machine.
 $ npm i -g @reapit/cli
 ```
 
-### Adding your api key
+### Login
 
-In order to run commands you'll need to obtain an api-key in order to make authenticated requests.
-
-Get your api-key from the [reapit developers]()
-
-To add your api-key to the cli, simply run the below command. This will start a prompt for your config shown below.
+In order to be authenticated with the cli you can run the `login` command like below.
 
 ```bash
-$ reapit config
+$ reapit auth login
 ```
 
-![Config Snapshot](https://raw.githubusercontent.com/reapit/foundations/master/packages/cli/snapshots/config.png)
+You can also logout using
+
+```bash
+$ reapit auth logout
+```
 
 ## Terminology
 
