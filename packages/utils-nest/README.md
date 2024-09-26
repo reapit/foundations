@@ -65,40 +65,9 @@ export class ExampleController {
 
 ### CredsType
 
-There are 2 types of creds that can be returned. One is `jwt` which is a LoginIdentity type from `@reapit/connect` and `api-key` from `@reapit/api-key-verify`.
+There's currently only one credType that can be returned. `LoginIdentity` type is resolved from a `jwt` from the authorization header from `@reapit/connect`.
 
-[ApiKey](https://github.com/reapit/foundations/blob/master/packages/foundations-ts-definitions/api-key-schema/index.ts#L6)
 [LoginIdentity](https://github.com/reapit/foundations/blob/ead3b87bf9ad2600dc95492e1835afecab846ad9/packages/connect-session/src/types.ts#L23)
-
-### ApiKey Invoke Arn method
-
-The below example is how to use the api-key-verify method to use the invoke function to verify api-keys from the api-key-service. This will enable api-key verification from CredGuard.
-
-> AdminReadonlyGuard and AdminWriteGuard are unable to use api-key authentication method
-
-```ts
-import { AuthModule } from '@reapit/utils-nest'
-import { Module } from '@nestjs/common'
-import { ConfigModule, ConfigService } from '@nestjs/config'
-import authModuleConfig from './config/auth-module-config'
-
-@Module({
-  imports: [
-    ConfigModule.forRoot([authModuleConfig]),
-    AuthModule.forRootAsync({
-      useFactory: (config: ConfigService) => ({
-        apiKeyInvoke: {
-          enabled: true,
-          invokeArn: config.get('api-key-verify'),
-        },
-      }),
-      inject: [ConfigService],
-      imports: [ConfigModule],
-    }),
-  ],
-})
-export class AppModule {}
-```
 
 ### Admin checks
 

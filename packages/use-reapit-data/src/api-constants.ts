@@ -8,10 +8,6 @@ export const ApiNames = {
     process.env.appEnv !== 'production'
       ? 'https://deployments.dev.paas.reapit.cloud'
       : 'https://deployments.prod.paas.reapit.cloud',
-  apiKey:
-    process.env.appEnv !== 'production'
-      ? 'https://api-key.dev.paas.reapit.cloud/api-key'
-      : 'https://api-key.prod.paas.reapit.cloud/api-key',
   iaas: `${process.env.appEnv !== 'production' ? '.dev' : 'prod'}.paas.reapit.cloud`,
   appMarketCms: `https://marketplace-cms.${process.env.appEnv !== 'production' ? 'dev' : 'prod'}.paas.reapit.cloud`,
   payments: `https://payments-service.${process.env.appEnv !== 'production' ? 'dev' : 'prod'}.paas.reapit.cloud`,

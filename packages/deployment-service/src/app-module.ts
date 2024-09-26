@@ -6,7 +6,6 @@ import { S3Module } from './s3'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import databaseConfig, { liveDatabaseConfig } from './config/db'
-import apiKeyInvokeArnConfig from './config/apiKeyInvokeArn'
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions'
 import { GithubModule } from './github'
 import config from '../config.json'
@@ -16,7 +15,6 @@ import { AwsModule } from './aws'
 import { CodeBuildModule } from './codebuild'
 import { APP_INTERCEPTOR } from '@nestjs/core'
 import { CorsHeaderInterceptor, AuthModule } from '@reapit/utils-nest'
-import { ApiKeyModule, ApiKeyVerifyModuleOptionsInterface } from '@reapit/api-key-verify'
 
 process.env = {
   ...process.env,
@@ -28,7 +26,7 @@ process.env = {
     ConfigModule.forRoot({
       envFilePath: 'config.json',
       encoding: 'json',
-      load: [databaseConfig, apiKeyInvokeArnConfig],
+      load: [databaseConfig],
     }),
     TypeOrmModule.forRootAsync({
       useFactory: async (config: ConfigService) => {
@@ -37,17 +35,6 @@ process.env = {
         }
 
         return config.get<MysqlConnectionOptions>('database') as MysqlConnectionOptions
-      },
-      inject: [ConfigService],
-      imports: [ConfigModule],
-    }),
-    ApiKeyModule.forRootAsync({
-      useFactory: (config: ConfigService) => {
-        const invokeConfig = config.get<ApiKeyVerifyModuleOptionsInterface>('apiKeyInvokeArn')
-
-        if (!invokeConfig) throw new Error('invalid invokeArn for authModule')
-
-        return invokeConfig
       },
       inject: [ConfigService],
       imports: [ConfigModule],

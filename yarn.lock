@@ -5019,22 +5019,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/platform-express@npm:^8.4.7":
-  version: 8.4.7
-  resolution: "@nestjs/platform-express@npm:8.4.7"
-  dependencies:
-    body-parser: "npm:1.20.0"
-    cors: "npm:2.8.5"
-    express: "npm:4.18.1"
-    multer: "npm:1.4.4-lts.1"
-    tslib: "npm:2.4.0"
-  peerDependencies:
-    "@nestjs/common": ^8.0.0
-    "@nestjs/core": ^8.0.0
-  checksum: 91832d8f5423985c2eea507abb6d2a27b090f948959352273d7534267bfbe092adea394467e45256b60399fb57b4ff3f142251ecd92a351d6f700e170d64da81
-  languageName: node
-  linkType: hard
-
 "@nestjs/platform-express@npm:^9.4.3":
   version: 9.4.3
   resolution: "@nestjs/platform-express@npm:9.4.3"
@@ -5925,34 +5909,6 @@ __metadata:
   checksum: 6ae8eee1bbc639aa2426d1a0e00cc4bfc93e54e7cd57fcf97971d3acdb72de4b852b2377d4cca778de898f7024444da03ed0f41a94d702daf5a9c73b45fbb920
   languageName: node
   linkType: hard
-
-"@reapit/api-key-verify@workspace:packages/api-key-verify":
-  version: 0.0.0-use.local
-  resolution: "@reapit/api-key-verify@workspace:packages/api-key-verify"
-  dependencies:
-    "@aws/dynamodb-data-mapper": "npm:^0.7.3"
-    "@aws/dynamodb-data-mapper-annotations": "npm:^0.7.3"
-    "@nestjs/common": "npm:^9.4.3"
-    "@nestjs/testing": "npm:^9.4.3"
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
-    "@reapit/utils-nest": "workspace:packages/utils-nest"
-    "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
-    "@typescript-eslint/parser": "npm:^6.21.0"
-    aws: "npm:^0.0.3-2"
-    concurrently: "npm:^6.5.1"
-    cross-env: "npm:^7.0.3"
-    eslint: "npm:8.57.0"
-    eslint-plugin-prettier: "npm:^5.1.3"
-    jest: "npm:^29.7.0"
-    jest-coverage-badges: "npm:^1.1.2"
-    reflect-metadata: "npm:^0.1.14"
-    ts-jest: "npm:^29.1.2"
-    tsup: "npm:^6.7.0"
-    typescript: "npm:^5.4.2"
-  languageName: unknown
-  linkType: soft
 
 "@reapit/app-builder-backend@workspace:packages/app-builder-backend":
   version: 0.0.0-use.local
@@ -10858,43 +10814,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"api-key-service@workspace:packages/api-key-service":
-  version: 0.0.0-use.local
-  resolution: "api-key-service@workspace:packages/api-key-service"
-  dependencies:
-    "@nestjs/common": "npm:^9.4.3"
-    "@nestjs/config": "npm:^2.3.4"
-    "@nestjs/core": "npm:^9.4.3"
-    "@nestjs/platform-express": "npm:^8.4.7"
-    "@nestjs/testing": "npm:^9.4.3"
-    "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
-    "@reapit/ts-bundler": "workspace:packages/ts-bundler"
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
-    "@reapit/utils-common": "workspace:packages/utils-common"
-    "@reapit/utils-node": "workspace:packages/utils-node"
-    "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
-    "@typescript-eslint/parser": "npm:^6.21.0"
-    aws-lambda: "npm:^1.0.7"
-    aws-sdk: "npm:^2.1580.0"
-    aws-serverless-express: "npm:^3.4.0"
-    babel-jest: "npm:^29.7.0"
-    class-transformer: "npm:^0.5.1"
-    class-validator: "npm:^0.14.1"
-    concurrently: "npm:^6.5.1"
-    cross-env: "npm:^7.0.3"
-    eslint: "npm:^8.57.0"
-    eslint-plugin-prettier: "npm:^5.1.3"
-    express: "npm:^4.18.3"
-    jest: "npm:29.7.0"
-    rxjs: "npm:^7.8.1"
-    ts-node: "npm:^10.9.2"
-    tsup: "npm:^6.7.0"
-    typescript: "npm:^5.4.2"
-  languageName: unknown
-  linkType: soft
-
 "apollo-datasource@npm:^3.3.2":
   version: 3.3.2
   resolution: "apollo-datasource@npm:3.3.2"
@@ -11668,15 +11587,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws@npm:^0.0.3-2":
-  version: 0.0.3-2
-  resolution: "aws@npm:0.0.3-2"
-  dependencies:
-    vows: "npm:>= 0.5.1"
-  checksum: 91e71e529ed4511e273b96b47f1204df46951d9fa7170058df78bf3be206dcdfbfd0c1568f78988baf328691ffbb50f13133e4a57bc7d28eb513ebb8851cd86f
-  languageName: node
-  linkType: hard
-
 "axios-mock-adapter@npm:^1.22.0":
   version: 1.22.0
   resolution: "axios-mock-adapter@npm:1.22.0"
@@ -11994,26 +11904,6 @@ __metadata:
   version: 5.2.1
   resolution: "bn.js@npm:5.2.1"
   checksum: 7a7e8764d7a6e9708b8b9841b2b3d6019cc154d2fc23716d0efecfe1e16921b7533c6f7361fb05471eab47986c4aa310c270f88e3507172104632ac8df2cfd84
-  languageName: node
-  linkType: hard
-
-"body-parser@npm:1.20.0":
-  version: 1.20.0
-  resolution: "body-parser@npm:1.20.0"
-  dependencies:
-    bytes: "npm:3.1.2"
-    content-type: "npm:~1.0.4"
-    debug: "npm:2.6.9"
-    depd: "npm:2.0.0"
-    destroy: "npm:1.2.0"
-    http-errors: "npm:2.0.0"
-    iconv-lite: "npm:0.4.24"
-    on-finished: "npm:2.4.1"
-    qs: "npm:6.10.3"
-    raw-body: "npm:2.5.1"
-    type-is: "npm:~1.6.18"
-    unpipe: "npm:1.0.0"
-  checksum: 63fe82c27fdacac51d26665c3d13d4c6e48d1c3e9efe1fbc0fd18801aa9a598ab1023b09298ae4b3d0a7598d55902d793f7fa1b5551da99c16eabfed9b022a51
   languageName: node
   linkType: hard
 
@@ -14319,7 +14209,6 @@ __metadata:
     "@nestjs/testing": "npm:^9.4.3"
     "@nestjs/typeorm": "npm:^8.1.4"
     "@octokit/app": "npm:^14.0.2"
-    "@reapit/api-key-verify": "workspace:packages/api-key-verify"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
@@ -15931,45 +15820,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"express@npm:4.18.1":
-  version: 4.18.1
-  resolution: "express@npm:4.18.1"
-  dependencies:
-    accepts: "npm:~1.3.8"
-    array-flatten: "npm:1.1.1"
-    body-parser: "npm:1.20.0"
-    content-disposition: "npm:0.5.4"
-    content-type: "npm:~1.0.4"
-    cookie: "npm:0.5.0"
-    cookie-signature: "npm:1.0.6"
-    debug: "npm:2.6.9"
-    depd: "npm:2.0.0"
-    encodeurl: "npm:~1.0.2"
-    escape-html: "npm:~1.0.3"
-    etag: "npm:~1.8.1"
-    finalhandler: "npm:1.2.0"
-    fresh: "npm:0.5.2"
-    http-errors: "npm:2.0.0"
-    merge-descriptors: "npm:1.0.1"
-    methods: "npm:~1.1.2"
-    on-finished: "npm:2.4.1"
-    parseurl: "npm:~1.3.3"
-    path-to-regexp: "npm:0.1.7"
-    proxy-addr: "npm:~2.0.7"
-    qs: "npm:6.10.3"
-    range-parser: "npm:~1.2.1"
-    safe-buffer: "npm:5.2.1"
-    send: "npm:0.18.0"
-    serve-static: "npm:1.15.0"
-    setprototypeof: "npm:1.2.0"
-    statuses: "npm:2.0.1"
-    type-is: "npm:~1.6.18"
-    utils-merge: "npm:1.0.1"
-    vary: "npm:~1.1.2"
-  checksum: 7cfc95b09419c05aa565f841511853801d20c8b9a44863fbad797c325b329e4341e58fd0464489df014b8881579ae95625785c172d27e67f474a7fdb3aaf3923
-  languageName: node
-  linkType: hard
-
 "express@npm:4.18.2":
   version: 4.18.2
   resolution: "express@npm:4.18.2"
@@ -16084,13 +15934,6 @@ __metadata:
     iconv-lite: "npm:^0.4.24"
     tmp: "npm:^0.0.33"
   checksum: 776dff1d64a1d28f77ff93e9e75421a81c062983fd1544279d0a32f563c0b18c52abbb211f31262e2827e48edef5c9dc8f960d06dd2d42d1654443b88568056b
-  languageName: node
-  linkType: hard
-
-"eyes@npm:~0.1.6":
-  version: 0.1.8
-  resolution: "eyes@npm:0.1.8"
-  checksum: 58480c1f4c8e80ae9d4147afa0e0cc3403e5a3d1fa9e0c17dd8418f87273762c40ab035919ed407f6ed0992086495b93ff7163eb2a1027f58ae70e3c847d6c08
   languageName: node
   linkType: hard
 
@@ -16978,7 +16821,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^7.0.0, glob@npm:^7.0.5, glob@npm:^7.1.2, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6, glob@npm:^7.2.3":
+"glob@npm:^7.0.0, glob@npm:^7.0.5, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6, glob@npm:^7.2.3":
   version: 7.2.3
   resolution: "glob@npm:7.2.3"
   dependencies:
@@ -19203,7 +19046,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:29.7.0, jest@npm:^29.7.0":
+"jest@npm:^29.7.0":
   version: 29.7.0
   resolution: "jest@npm:29.7.0"
   dependencies:
@@ -23619,15 +23462,6 @@ __metadata:
   bin:
     qrcode: bin/qrcode
   checksum: 823642d59a81ba5f406a1e78415fee37fd53856038f49a85c4ca7aa32ba6b8505ab059a832718ac16612bed75aa2a18584faae38cf3c25e2c90fb19b8c55fe46
-  languageName: node
-  linkType: hard
-
-"qs@npm:6.10.3":
-  version: 6.10.3
-  resolution: "qs@npm:6.10.3"
-  dependencies:
-    side-channel: "npm:^1.0.4"
-  checksum: 73d07bfd77f07bec3750dca5e6d165cba0c87ce3e4688bb26e5e462e725ab1289ecdb69164b0b4a4d1b913e2a3ae6b22acbb8b2feb5c8f31bd76f2380f3dc23d
   languageName: node
   linkType: hard
 
@@ -28606,19 +28440,6 @@ __metadata:
   version: 1.1.2
   resolution: "vm-browserify@npm:1.1.2"
   checksum: ad5b17c9f7a9d9f1ed0e24c897782ab7a587c1fd40f370152482e1af154c7cf0b0bacc45c5ae76a44289881e083ae4ae127808fdff864aa9b562192aae8b5c3b
-  languageName: node
-  linkType: hard
-
-"vows@npm:>= 0.5.1":
-  version: 0.8.3
-  resolution: "vows@npm:0.8.3"
-  dependencies:
-    diff: "npm:^4.0.1"
-    eyes: "npm:~0.1.6"
-    glob: "npm:^7.1.2"
-  bin:
-    vows: ./bin/vows
-  checksum: 3d7c8055595dbcfa1e997cc10b0631f15664fdb97d0c108acfbbe03baa7f11f07c853b27665f5fb64c1c777beb811872472e79c1a7e176f7376b0ce200131e3a
   languageName: node
   linkType: hard
 
