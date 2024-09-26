@@ -16,7 +16,9 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
           classname="el-mb11"
         >
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              classname="el-w6"
+            >
               <mock-styled.input
                 classname=""
                 id="test-static-id"
@@ -32,7 +34,9 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              classname="el-w6"
+            >
               <mock-styled.input
                 classname=""
                 id="test-static-id"
@@ -48,7 +52,9 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              classname="el-w6"
+            >
               <mock-styled.input
                 classname=""
                 id="test-static-id"
@@ -62,6 +68,23 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
                 Confirm Password
               </mock-styled.label>
             </mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.p
+          classname="el-text-base el-has-grey-text"
+        >
+          Please provide an email address so we know who to contact about this account
+        </mock-styled.p>
+        <mock-styled.div
+          classname="el-mb11"
+        >
+          <mock-styled.div>
+            <mock-styled.input
+              classname="el-w6"
+              name="email"
+              placeholder="Your email address"
+              type="text"
+            />
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
@@ -99,7 +122,9 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
         classname="el-mb11"
       >
         <mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            classname="el-w6"
+          >
             <mock-styled.input
               classname=""
               id="test-static-id"
@@ -115,7 +140,9 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            classname="el-w6"
+          >
             <mock-styled.input
               classname=""
               id="test-static-id"
@@ -131,7 +158,9 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            classname="el-w6"
+          >
             <mock-styled.input
               classname=""
               id="test-static-id"
@@ -145,6 +174,23 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
               Confirm Password
             </mock-styled.label>
           </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <mock-styled.p
+        classname="el-text-base el-has-grey-text"
+      >
+        Please provide an email address so we know who to contact about this account
+      </mock-styled.p>
+      <mock-styled.div
+        classname="el-mb11"
+      >
+        <mock-styled.div>
+          <mock-styled.input
+            classname="el-w6"
+            name="email"
+            placeholder="Your email address"
+            type="text"
+          />
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
