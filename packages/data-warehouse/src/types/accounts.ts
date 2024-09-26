@@ -16,6 +16,7 @@ export interface AccountModel {
 export interface AccountCreateModel {
   username: string
   password: string
+  email: string
   passwordConfirm?: string
   isAdmin: boolean
   devMode: boolean

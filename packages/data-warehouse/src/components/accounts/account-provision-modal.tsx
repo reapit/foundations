@@ -3,7 +3,18 @@ import { passwordRegex } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { AccountCreateModel, AccountModel } from '../../types/accounts'
-import { BodyText, Button, ButtonGroup, elMb11, FormLayout, InputError, InputGroup, InputWrap } from '@reapit/elements'
+import {
+  BodyText,
+  Button,
+  ButtonGroup,
+  elMb11,
+  elW6,
+  FormLayout,
+  Input,
+  InputError,
+  InputGroup,
+  InputWrapFull,
+} from '@reapit/elements'
 import { useGlobalState } from '../../core/use-global-state'
 import { object, ref, string } from 'yup'
 import { useForm } from 'react-hook-form'
@@ -34,6 +45,7 @@ const validationSchema = object({
   passwordConfirm: string()
     .oneOf([ref('password')], 'Passwords must match')
     .required('Required'),
+  email: string().required('Required'),
 })
 
 export const handlePolling = (accountId: string): Promise<{ provisioned: boolean; interval: number }> => {
@@ -154,23 +166,46 @@ export const AccountProvisionModal: FC<AccountProvisionModalProps> = ({
     >
       <BodyText hasGreyText>The information below will be used to access your data warehouse account</BodyText>
       <FormLayout className={elMb11}>
-        <InputWrap>
-          <InputGroup {...register('username')} type="text" placeholder="Your username here" label="Username" />
+        <InputWrapFull>
+          <InputGroup
+            {...register('username')}
+            type="text"
+            placeholder="Your username here"
+            label="Username"
+            className={elW6}
+          />
           {errors.username?.message && <InputError message={errors.username.message} />}
-        </InputWrap>
-        <InputWrap>
-          <InputGroup {...register('password')} type="password" placeholder="*********" label="Password" />
+        </InputWrapFull>
+
+        <InputWrapFull>
+          <InputGroup
+            {...register('password')}
+            type="password"
+            placeholder="*********"
+            label="Password"
+            className={elW6}
+          />
           {errors.password?.message && <InputError message={errors.password.message} />}
-        </InputWrap>
-        <InputWrap>
+        </InputWrapFull>
+        <InputWrapFull>
           <InputGroup
             {...register('passwordConfirm')}
             type="password"
             placeholder="*********"
             label="Confirm Password"
+            className={elW6}
           />
           {errors.passwordConfirm?.message && <InputError message={errors.passwordConfirm.message} />}
-        </InputWrap>
+        </InputWrapFull>
+      </FormLayout>
+
+      <BodyText hasGreyText>Please provide an email address so we know who to contact about this account</BodyText>
+
+      <FormLayout className={elMb11}>
+        <InputWrapFull>
+          <Input {...register('email')} type="text" placeholder="Your email address" className={elW6} />
+          {errors.email?.message && <InputError message={errors.email.message} />}
+        </InputWrapFull>
       </FormLayout>
       <ButtonGroup alignment="center">
         <Button intent="default" type="button" onClick={closeModal}>
