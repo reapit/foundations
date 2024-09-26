@@ -11160,6 +11160,7 @@ __metadata:
     "@nestjs/core": "npm:^9.4.3"
     "@nestjs/platform-express": "npm:^9.4.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-nest": "workspace:packages/utils-nest"
