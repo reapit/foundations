@@ -9,7 +9,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "sourceMap": true,
-    "outDir": "./dist",
+    "outDir": "./dist/graphql-server",
     "baseUrl": ".",
     "typeRoots": ["./node_modules/@types", "../../node_modules/@types"],
     "paths": {
