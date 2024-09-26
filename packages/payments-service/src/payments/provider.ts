@@ -1,5 +1,5 @@
 import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common'
-import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
+import { Platform } from '@reapit/foundations-ts-definitions'
 import axios from 'axios'
 import { stringifyError } from '@reapit/utils-node'
 import reapitConnectSession from '../core/connect-session'
@@ -15,7 +15,7 @@ export class PaymentsProvider {
 
     if (!accessToken) throw new UnauthorizedException('No access token returned from Reapit Connect')
 
-    const payment = await axios.get<PaymentModel>(`${process.env.PLATFORM_API_BASE_URL}/payments/${paymentId}`, {
+    const payment = await axios.get<Platform.PaymentModel>(`${process.env.PLATFORM_API_BASE_URL}/payments/${paymentId}`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
         'reapit-customer': clientCode,
@@ -32,7 +32,7 @@ export class PaymentsProvider {
 
     if (!propertyId) return payment.data
 
-    const property = await axios.get<PropertyModel>(`${process.env.PLATFORM_API_BASE_URL}/properties/${propertyId}`, {
+    const property = await axios.get<Platform.PropertyModel>(`${process.env.PLATFORM_API_BASE_URL}/properties/${propertyId}`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
         'reapit-customer': clientCode,
