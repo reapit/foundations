@@ -14,7 +14,7 @@ import {
   useModal,
 } from '@reapit/elements'
 import { useReapitGet } from '@reapit/use-reapit-data'
-import { MemberModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -56,7 +56,7 @@ export const SettingsMembersPage: FC = () => {
   const [pageNumber, setPageNumber] = useState<number>(1)
   const developerId = connectSession?.loginIdentity.developerId
 
-  const [members, membersLoading, , refreshMembers] = useReapitGet<MemberModelPagedResult>({
+  const [members, membersLoading, , refreshMembers] = useReapitGet<Marketplace.MemberModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getDeveloperMembers],
     queryParams: { pageSize: 12, pageNumber },

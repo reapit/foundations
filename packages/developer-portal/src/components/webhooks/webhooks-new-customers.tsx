@@ -11,7 +11,7 @@ import {
 } from '@reapit/elements'
 import React, { FC, useMemo } from 'react'
 import { DeepMap, FieldError, UseFormGetValues, UseFormRegister } from 'react-hook-form'
-import { InstallationModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { CreateWebhookFormSchema } from './webhooks-new'
 import { useWebhooksState } from './state/use-webhooks-state'
 
@@ -31,7 +31,7 @@ export const ALL_CLIENTS = {
   value: 'ALL',
 }
 
-export const handleInstallationsToOptions = (installations: InstallationModel[]) => () => {
+export const handleInstallationsToOptions = (installations: Marketplace.InstallationModel[]) => () => {
   const customers = installations
     .map(({ customerName, customerId, status }) => {
       if (status === 'Active') {

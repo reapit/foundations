@@ -25,7 +25,7 @@ import { object, SchemaOf, string, TestFunction } from 'yup'
 import { whiteListLocalhostAndIsValidUrl } from '@reapit/utils-common'
 import errorMessages from '../../../constants/error-messages'
 import { AnyObject } from 'yup/lib/types'
-import { AppDetailModel, CreateAppModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import generate from 'project-name-generator'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import dashify from 'dashify'
@@ -135,7 +135,7 @@ export const handleSubmitApp =
     authFlow: AppAuthFlow,
     connectSession: ReapitConnectSession | null,
     stepHistory: (AppNewStepId | null)[],
-    createApp: SendFunction<CreateAppModel, AppDetailModel | null | boolean>,
+    createApp: SendFunction<Marketplace.CreateAppModel, Marketplace.AppDetailModel | null | boolean>,
   ) =>
   ({ redirectUris, signoutUris, scopes }: CreateAppFormSchema) => {
     const splitRedirectUris = redirectUris?.split(',').filter(Boolean)
@@ -146,7 +146,7 @@ export const handleSubmitApp =
 
     if (!developerId) return
 
-    const baseCreateAppModel: CreateAppModel = {
+    const baseCreateAppModel: Marketplace.CreateAppModel = {
       authFlow,
       name,
       scopes: splitScopes,
@@ -167,7 +167,7 @@ export const handleSubmitApp =
     const extraFields =
       authFlow === 'clientCredentials' ? {} : { redirectUris: splitRedirectUris, signoutUris: splitSignoutUris }
 
-    const createAppModel: CreateAppModel = {
+    const createAppModel: Marketplace.CreateAppModel = {
       ...baseCreateAppModel,
       ...extraFields,
     }
@@ -177,7 +177,7 @@ export const handleSubmitApp =
 
 export const handleNavigateOnSuccess =
   (
-    app: AppDetailModel | undefined,
+    app: Marketplace.AppDetailModel | undefined,
     navigate: NavigateFunction,
     appsRefresh: () => void,
     appPipelineRefresh: () => void,
@@ -217,7 +217,7 @@ export const AppsNewPage: FC = () => {
     resolver: yupResolver(authFlow === 'authorisationCode' ? authCodeSchema : clientCredsSchema),
   })
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [appCreating, app, createApp] = useReapitUpdate<CreateAppModel, AppDetailModel>({
+  const [appCreating, app, createApp] = useReapitUpdate<Marketplace.CreateAppModel, Marketplace.AppDetailModel>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.createApp],
     method: 'POST',

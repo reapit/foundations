@@ -3,7 +3,7 @@ import { ApiPage, handleChangeSwaggerDoc, handleDefaultSwaggerDoc } from '../api
 import { render } from '../../../tests/react-testing'
 import Routes from '../../../constants/routes'
 import { mockProductModelPagedResult } from '../../../tests/__stubs__/products'
-import { ProductModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { mockMemberModel } from '../../../tests/__stubs__/members'
 import { mockDeveloperModel } from '../../../tests/__stubs__/developers'
 
@@ -42,7 +42,7 @@ describe('handleDefaultSwaggerDoc', () => {
 
     curried()
 
-    expect(setSwaggerUri).toBeCalledWith((mockProductModelPagedResult.data as ProductModel[])[0].openApiUrl)
+    expect(setSwaggerUri).toBeCalledWith((mockProductModelPagedResult.data as Marketplace.ProductModel[])[0].openApiUrl)
   })
 })
 

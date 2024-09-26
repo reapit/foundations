@@ -15,7 +15,7 @@ import {
   useModal,
 } from '@reapit/elements'
 import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/use-reapit-data'
-import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -61,12 +61,13 @@ export const SettingsSubscriptionsPage: FC = () => {
   const { Modal, openModal, closeModal } = useModal()
   const { isMobile } = useMediaQuery()
 
-  const [subscriptions, subscriptionsLoading, , refreshSubscriptions] = useReapitGet<SubscriptionModelPagedResult>({
-    reapitConnectBrowserSession,
-    action: getActions[GetActionNames.getSubscriptions],
-    queryParams: { pageSize: 12, pageNumber, developerId },
-    fetchWhenTrue: [developerId],
-  })
+  const [subscriptions, subscriptionsLoading, , refreshSubscriptions] =
+    useReapitGet<Marketplace.SubscriptionModelPagedResult>({
+      reapitConnectBrowserSession,
+      action: getActions[GetActionNames.getSubscriptions],
+      queryParams: { pageSize: 12, pageNumber, developerId },
+      fetchWhenTrue: [developerId],
+    })
 
   const [, , deleteSubscription, deleteSubscriptionSuccess] = useReapitUpdate<undefined, boolean>({
     reapitConnectBrowserSession,

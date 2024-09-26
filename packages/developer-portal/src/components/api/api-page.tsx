@@ -34,7 +34,7 @@ import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { ControlsContainer } from '../webhooks/__styles__'
 import { useReapitGet } from '@reapit/use-reapit-data'
 import { GetActionNames, getActions } from '@reapit/use-reapit-data'
-import { MemberModel, ProductModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import WebhooksControls from '../webhooks/webhooks-controls'
 import { useWebhooksState } from '../webhooks/state/use-webhooks-state'
 import { useGlobalState } from '../../core/use-global-state'
@@ -48,8 +48,8 @@ export const handleChangeSwaggerDoc =
 export const handleDefaultSwaggerDoc =
   (
     setSwaggerUri: Dispatch<SetStateAction<string | null>>,
-    productsList: ProductModelPagedResult | null,
-    currentMember: MemberModel | null,
+    productsList: Marketplace.ProductModelPagedResult | null,
+    currentMember: Marketplace.MemberModel | null,
   ) =>
   () => {
     const sandboxId = currentMember?.sandboxId || 'GBR'
@@ -66,7 +66,7 @@ export const ApiPage: FC = () => {
   const { Modal, openModal, closeModal } = useModal()
   const [swaggerUri, setSwaggerUri] = useState<string | null>(null)
 
-  const [productsList] = useReapitGet<ProductModelPagedResult>({
+  const [productsList] = useReapitGet<Marketplace.ProductModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getProducts],
   })

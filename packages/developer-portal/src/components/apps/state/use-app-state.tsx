@@ -1,11 +1,4 @@
-import {
-  AppDetailModel,
-  AppRevisionModel,
-  AppRevisionModelPagedResult,
-  AppSummaryModelPagedResult,
-  InstallationModelPagedResult,
-  PipelineModelInterface,
-} from '@reapit/foundations-ts-definitions'
+import { Marketplace, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { useReapitGet } from '@reapit/use-reapit-data'
 import React, {
   useState,
@@ -44,12 +37,12 @@ export interface AppWizardState {
 }
 
 export interface AppsDataState {
-  apps: AppSummaryModelPagedResult | null
+  apps: Marketplace.AppSummaryModelPagedResult | null
   appsRefreshing: boolean
   appsLoading: boolean
-  appDetail: AppDetailModel | null
+  appDetail: Marketplace.AppDetailModel | null
   appDetailRefreshing: boolean
-  appRevisions: AppRevisionModelPagedResult | null
+  appRevisions: Marketplace.AppRevisionModelPagedResult | null
   appRevisionsLoading: boolean
   appRevisionsRefreshing: boolean
   appDetailLoading: boolean
@@ -68,7 +61,7 @@ export interface AppEditState {
   setAppUnsavedFields: Dispatch<SetStateAction<FieldNamesMarkedBoolean<AppEditFormSchema>>>
   appIncompleteFields: (keyof AppEditFormSchema)[]
   setIncompleteFields: Dispatch<SetStateAction<(keyof AppEditFormSchema)[]>>
-  appLatestRevision: AppRevisionModel | null
+  appLatestRevision: Marketplace.AppRevisionModel | null
   appHasInstallations: boolean
 }
 
@@ -113,22 +106,23 @@ export const AppProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const developerId = connectSession?.loginIdentity.developerId
 
-  const [apps, appsLoading, , appsRefresh, appsRefreshing] = useReapitGet<AppSummaryModelPagedResult>({
+  const [apps, appsLoading, , appsRefresh, appsRefreshing] = useReapitGet<Marketplace.AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', developerId, pageSize: 25, pageNumber: appsPageNumber },
     fetchWhenTrue: [developerId],
   })
 
-  const [appDetail, appDetailLoading, , appsDetailRefresh, appDetailRefreshing] = useReapitGet<AppDetailModel>({
-    reapitConnectBrowserSession,
-    action: getActions[GetActionNames.getAppById],
-    uriParams: { appId },
-    fetchWhenTrue: [appId],
-  })
+  const [appDetail, appDetailLoading, , appsDetailRefresh, appDetailRefreshing] =
+    useReapitGet<Marketplace.AppDetailModel>({
+      reapitConnectBrowserSession,
+      action: getActions[GetActionNames.getAppById],
+      uriParams: { appId },
+      fetchWhenTrue: [appId],
+    })
 
   const [appRevisions, appRevisionsLoading, , appRefreshRevisions, appRevisionsRefreshing] =
-    useReapitGet<AppRevisionModelPagedResult>({
+    useReapitGet<Marketplace.AppRevisionModelPagedResult>({
       reapitConnectBrowserSession,
       action: getActions[GetActionNames.getAppRevisions],
       queryParams: { pageSize: 2 },
@@ -136,7 +130,7 @@ export const AppProvider: FC<PropsWithChildren> = ({ children }) => {
       fetchWhenTrue: [appId],
     })
 
-  const [installations] = useReapitGet<InstallationModelPagedResult>({
+  const [installations] = useReapitGet<Marketplace.InstallationModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getInstallations],
     queryParams: {

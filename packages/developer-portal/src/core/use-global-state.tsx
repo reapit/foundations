@@ -1,4 +1,4 @@
-import { DeveloperModel, MemberModel, MemberModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import React, { FC, createContext, useContext, useState, Dispatch, SetStateAction, PropsWithChildren } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
@@ -12,8 +12,8 @@ export const PERMISSION_ERROR =
   'The identity attached to this request does not have the required group membership interact with this endpoint'
 
 export interface GlobalDataState {
-  currentMember: MemberModel | null
-  currentDeveloper: DeveloperModel | null
+  currentMember: Marketplace.MemberModel | null
+  currentDeveloper: Marketplace.DeveloperModel | null
 }
 
 export interface GlobalRefreshState {
@@ -49,7 +49,7 @@ export const GlobalProvider: FC<PropsWithChildren> = ({ children }) => {
   const developerId = connectSession?.loginIdentity.developerId
   const email = connectSession?.loginIdentity.email
 
-  const [members, , , refreshMembers] = useReapitGet<MemberModelPagedResult>({
+  const [members, , , refreshMembers] = useReapitGet<Marketplace.MemberModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getDeveloperMembers],
     queryParams: { email: encodeURIComponent(email ?? ''), pageSize: 1 },
@@ -58,7 +58,7 @@ export const GlobalProvider: FC<PropsWithChildren> = ({ children }) => {
     onError: handlePermissionError(error, navigate),
   })
 
-  const [currentDeveloper, , , refreshCurrentDeveloper] = useReapitGet<DeveloperModel>({
+  const [currentDeveloper, , , refreshCurrentDeveloper] = useReapitGet<Marketplace.DeveloperModel>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getDeveloper],
     uriParams: { developerId },

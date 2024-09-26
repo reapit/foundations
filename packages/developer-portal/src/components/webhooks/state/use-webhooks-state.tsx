@@ -1,8 +1,4 @@
-import {
-  AppDetailModel,
-  AppSummaryModelPagedResult,
-  InstallationModelPagedResult,
-} from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import React, {
   FC,
   createContext,
@@ -22,9 +18,9 @@ import { handleHistoryToQueryParams } from '../webhooks-controls'
 import { TopicModel, TopicModelPagedResult } from '../../../types/webhooks'
 
 export interface WebhooksDataState {
-  apps: AppSummaryModelPagedResult | null
+  apps: Marketplace.AppSummaryModelPagedResult | null
   topics: TopicModel[]
-  installations: InstallationModelPagedResult | null
+  installations: Marketplace.InstallationModelPagedResult | null
 }
 
 export interface WebhooksFilterState {
@@ -48,7 +44,7 @@ const { Provider } = WebhooksStateContext
 
 export const handleSetTopics =
   (
-    appDetail: AppDetailModel | null,
+    appDetail: Marketplace.AppDetailModel | null,
     allTopics: TopicModelPagedResult | null,
     setTopics: Dispatch<SetStateAction<TopicModel[]>>,
   ) =>
@@ -73,7 +69,7 @@ export const WebhooksProvider: FC<PropsWithChildren> = ({ children }) => {
   const developerId = connectSession?.loginIdentity.developerId
   const { applicationId } = webhooksFilterState
 
-  const [apps] = useReapitGet<AppSummaryModelPagedResult>({
+  const [apps] = useReapitGet<Marketplace.AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', developerId, pageSize: 100 },
@@ -87,14 +83,14 @@ export const WebhooksProvider: FC<PropsWithChildren> = ({ children }) => {
     fetchWhenTrue: [developerId],
   })
 
-  const [installations] = useReapitGet<InstallationModelPagedResult>({
+  const [installations] = useReapitGet<Marketplace.InstallationModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getInstallations],
     queryParams: { pageSize: 999, isInstalled: true, developerId, appId: applicationId },
     fetchWhenTrue: [developerId, applicationId],
   })
 
-  const [appDetail] = useReapitGet<AppDetailModel>({
+  const [appDetail] = useReapitGet<Marketplace.AppDetailModel>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getAppById],
     uriParams: { appId: applicationId },

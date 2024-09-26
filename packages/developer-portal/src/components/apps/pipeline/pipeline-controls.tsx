@@ -12,8 +12,7 @@ import {
 } from '@reapit/use-reapit-data'
 import { useAppState } from '../state/use-app-state'
 import {
-  AppDetailModel,
-  CreateAppRevisionModel,
+  Marketplace,
   pipelineDeploymentDisabled,
   PipelineModelInterface,
   pipelineNotDeletable,
@@ -67,10 +66,10 @@ export const handleSaveConfig = (setAppPipelineSaving: Dispatch<SetStateAction<b
 export const handleSavePipeline =
   (
     sendPipelineUpdate: SendFunction<PipelineModelInterface, boolean | PipelineModelInterface>,
-    createAppRevision: SendFunction<CreateAppRevisionModel, boolean | AppDetailModel>,
+    createAppRevision: SendFunction<Marketplace.CreateAppRevisionModel, boolean | Marketplace.AppDetailModel>,
     appsDetailRefresh: () => void,
     appRefreshRevisions: () => void,
-    appDetail: AppDetailModel | null,
+    appDetail: Marketplace.AppDetailModel | null,
     developerId: string | null,
     pipelineUpdate: PipelineModelInterface,
   ) =>
@@ -165,7 +164,7 @@ export const PipelineControls: FC = () => {
     returnType: UpdateReturnTypeEnum.RESPONSE,
   })
 
-  const [, , createAppRevision] = useReapitUpdate<CreateAppRevisionModel, AppDetailModel>({
+  const [, , createAppRevision] = useReapitUpdate<Marketplace.CreateAppRevisionModel, Marketplace.AppDetailModel>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.createAppRevsion],
     method: 'POST',

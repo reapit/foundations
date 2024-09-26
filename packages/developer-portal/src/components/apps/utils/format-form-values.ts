@@ -1,7 +1,7 @@
-import { CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { AppEditFormSchema } from '../edit/form-schema/form-fields'
 
-export const sanitizeAppData = (appData: CreateAppRevisionModel): CreateAppRevisionModel => {
+export const sanitizeAppData = (appData: Marketplace.CreateAppRevisionModel): Marketplace.CreateAppRevisionModel => {
   const sanitizedAppData = appData
   if (!sanitizedAppData.description) {
     delete sanitizedAppData.description
@@ -84,7 +84,7 @@ export const formatFormValues = ({
   isPrivateApp,
   launchWindowSizeX,
   launchWindowSizeY,
-}: AppEditFormSchema): CreateAppRevisionModel => {
+}: AppEditFormSchema): Marketplace.CreateAppRevisionModel => {
   const appData = {
     name,
     telephone,

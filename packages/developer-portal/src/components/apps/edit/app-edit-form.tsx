@@ -8,11 +8,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { appEditValidationSchema } from './form-schema/validation-schema'
 import { FieldNamesMarkedBoolean, useForm, UseFormHandleSubmit, UseFormReset, UseFormSetValue } from 'react-hook-form'
 import { SendFunction, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/use-reapit-data'
-import {
-  AppDetailModel,
-  CreateAppRevisionConsentsModel,
-  CreateAppRevisionModel,
-} from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { formatFormValues } from '../utils/format-form-values'
@@ -60,11 +56,11 @@ export const handleSetAppSubmitting =
     setAppEditSaving: Dispatch<SetStateAction<AppSavingParams>>,
     appEditSaving: AppSavingParams,
     handleSubmit: UseFormHandleSubmit<AppEditFormSchema>,
-    createAppRevision: SendFunction<CreateAppRevisionModel, boolean | AppDetailModel>,
+    createAppRevision: SendFunction<Marketplace.CreateAppRevisionModel, boolean | Marketplace.AppDetailModel>,
     appsRefresh: () => void,
     appsDetailRefresh: () => void,
     appRefreshRevisions: () => void,
-    appDetail: AppDetailModel | null,
+    appDetail: Marketplace.AppDetailModel | null,
     openModal: () => void,
     appHasInstallations: boolean,
   ) =>
@@ -98,7 +94,7 @@ export const handleSetAppSubmitting =
 
 export const handleSendConstents =
   (
-    createConsentEmails: SendFunction<CreateAppRevisionConsentsModel, boolean>,
+    createConsentEmails: SendFunction<Marketplace.CreateAppRevisionConsentsModel, boolean>,
     closeModal: () => void,
     developerEmail?: string,
   ) =>
@@ -124,7 +120,7 @@ export const AppEditForm: FC = () => {
   const developerEmail = globalDataState?.currentDeveloper?.email
   const { Modal, openModal, closeModal } = useModal()
 
-  const [, , createAppRevision] = useReapitUpdate<CreateAppRevisionModel, AppDetailModel>({
+  const [, , createAppRevision] = useReapitUpdate<Marketplace.CreateAppRevisionModel, Marketplace.AppDetailModel>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.createAppRevsion],
     method: 'POST',
@@ -134,7 +130,7 @@ export const AppEditForm: FC = () => {
     returnType: UpdateReturnTypeEnum.LOCATION,
   })
 
-  const [, , createConsentEmails] = useReapitUpdate<CreateAppRevisionConsentsModel, boolean>({
+  const [, , createConsentEmails] = useReapitUpdate<Marketplace.CreateAppRevisionConsentsModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.createConsentEmails],
     method: 'POST',

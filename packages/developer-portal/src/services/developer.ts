@@ -1,8 +1,8 @@
-import { AcceptInviteModel, CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { fetcher } from '@reapit/utils-common'
 import { logger } from '@reapit/utils-react'
 
-export const createDeveloperService = async (developer: CreateDeveloperModel) => {
+export const createDeveloperService = async (developer: Marketplace.CreateDeveloperModel) => {
   try {
     const response = await fetcher({
       url: '/marketplace/developers',
@@ -25,7 +25,7 @@ export const createDeveloperService = async (developer: CreateDeveloperModel) =>
 }
 
 export const acceptInviteService = async (
-  acceptInviteModel: AcceptInviteModel,
+  acceptInviteModel: Marketplace.AcceptInviteModel,
   developerId: string,
   memberId: string,
 ) => {

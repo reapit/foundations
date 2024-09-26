@@ -6174,6 +6174,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@reapit/foundations-ts-definitions@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@reapit/foundations-ts-definitions@npm:2.0.0"
+  checksum: 9a5f5c504e06004d1a6740870cbe7f734d09ce68402ac8ad59a0783d7e7d90c3b60f98ef2f0e20afe8d706f27196ee8a35fe75b86e0ea612a7dfbf31d6b2d08f
+  languageName: node
+  linkType: hard
+
 "@reapit/foundations-ts-definitions@npm:^1.5.7":
   version: 1.5.7
   resolution: "@reapit/foundations-ts-definitions@npm:1.5.7"
@@ -14441,7 +14448,7 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "npm:^4.1.2"
-    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
+    "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/use-reapit-data": "workspace:packages/use-reapit-data"

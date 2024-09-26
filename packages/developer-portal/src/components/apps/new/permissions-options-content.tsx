@@ -4,7 +4,7 @@ import { StepFormContainer } from './__styles__'
 import { AppWizardState, useAppState } from '../state/use-app-state'
 import { appWizardSteps } from './config'
 import { useReapitConnect } from '@reapit/connect-session'
-import { ScopeModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { useReapitGet, getActions, GetActionNames } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { UseFormRegister, UseFormGetValues, DeepMap, FieldError } from 'react-hook-form'
@@ -17,8 +17,8 @@ interface PermissionsOptionsContentProps {
   errors: DeepMap<Partial<CreateAppFormSchema>, FieldError>
 }
 
-export const prepareOptions = (permissions: ScopeModel[]): MultiSelectOption[] =>
-  permissions.map((permission: ScopeModel) => {
+export const prepareOptions = (permissions: Marketplace.ScopeModel[]): MultiSelectOption[] =>
+  permissions.map((permission: Marketplace.ScopeModel) => {
     const { description, name } = permission
 
     return {
@@ -30,7 +30,7 @@ export const prepareOptions = (permissions: ScopeModel[]): MultiSelectOption[] =
 export const handleSetOptions =
   (
     defaultScopes: string[],
-    permissions: ScopeModel[] | null,
+    permissions: Marketplace.ScopeModel[] | null,
     search: string,
     setOptions: Dispatch<SetStateAction<MultiSelectOption[]>>,
     getValues: UseFormGetValues<CreateAppFormSchema>,
@@ -47,9 +47,9 @@ export const handleSetOptions =
         return (isSelectedPermission || isSearchedPermission) && isNotPaymentScope
       })
 
-      const uniqueOptions: ScopeModel[] = [...new Set([...options.map((option) => JSON.stringify(option))])].map(
-        (jsonOption) => JSON.parse(jsonOption),
-      )
+      const uniqueOptions: Marketplace.ScopeModel[] = [
+        ...new Set([...options.map((option) => JSON.stringify(option))]),
+      ].map((jsonOption) => JSON.parse(jsonOption))
       const officeOptions = prepareOptions(uniqueOptions)
 
       setOptions(officeOptions)
@@ -66,7 +66,7 @@ export const handleSetLastStep = (setAppWizardState: Dispatch<SetStateAction<App
 export const PermissionsOptionsContent: FC<PermissionsOptionsContentProps> = ({ register, getValues, errors }) => {
   const { appWizardState, setAppWizardState } = useAppState()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [permissions, loading] = useReapitGet<ScopeModel[]>({
+  const [permissions, loading] = useReapitGet<Marketplace.ScopeModel[]>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getAppPermissions],
     fetchWhenTrue: [connectSession],

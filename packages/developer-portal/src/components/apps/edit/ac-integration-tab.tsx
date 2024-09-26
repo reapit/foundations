@@ -16,7 +16,7 @@ import {
 import { AppEditTabsProps } from './edit-page-tabs'
 import { formFields } from './form-schema/form-fields'
 import { useReapitGet } from '@reapit/use-reapit-data'
-import { DesktopIntegrationTypeModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { useAppState } from '../state/use-app-state'
@@ -36,7 +36,7 @@ export const AcIntegrationTab: FC<AppEditTabsProps> = ({ register, errors, contr
   })
 
   const [desktopIntegrationTypes, desktopIntegrationTypesLoading] =
-    useReapitGet<DesktopIntegrationTypeModelPagedResult>({
+    useReapitGet<Marketplace.DesktopIntegrationTypeModelPagedResult>({
       reapitConnectBrowserSession,
       action: getActions[GetActionNames.getDesktopIntegrationTypes],
       fetchWhenTrue: [isAgencyCloudIntegratedValue],

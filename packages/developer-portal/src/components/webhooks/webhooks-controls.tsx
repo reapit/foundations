@@ -14,7 +14,7 @@ import {
 import Routes from '../../constants/routes'
 import { ControlsContainer, inputFullWidth, overflowHidden } from './__styles__'
 import { cx } from '@linaria/core'
-import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import dayjs from 'dayjs'
 import { useWebhooksState, WebhooksFilterState } from './state/use-webhooks-state'
 import { NavigateFunction, useNavigate } from 'react-router'
@@ -97,7 +97,7 @@ export const WebhooksControls: FC = () => {
                   <option key="default-option" value="">
                     None selected
                   </option>
-                  {apps?.data?.map((app: AppSummaryModel) => (
+                  {apps?.data?.map((app: Marketplace.AppSummaryModel) => (
                     <option key={app.id} value={app.id}>
                       {app.name}
                     </option>

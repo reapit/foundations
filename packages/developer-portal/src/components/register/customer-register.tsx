@@ -7,14 +7,14 @@ import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { selectDeveloperId, selectIsCustomer, selectIsUserAdmin } from '../../utils/auth'
 import { UpdateActionNames, updateActions, SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
 import { ExternalPages, openNewPage } from '../../utils/navigation'
-import { CreateDeveloperModel, UpdateCustomerModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import TermsAndConditionsModal from './terms-and-conditions-modal'
 import dayjs from 'dayjs'
 
 export const handleCreateAccount =
   (
-    updateCustomer: SendFunction<UpdateCustomerModel, boolean | null>,
-    createDeveloper: SendFunction<CreateDeveloperModel, boolean | null>,
+    updateCustomer: SendFunction<Marketplace.UpdateCustomerModel, boolean | null>,
+    createDeveloper: SendFunction<Marketplace.CreateDeveloperModel, boolean | null>,
     connectSession: ReapitConnectSession | null,
   ) =>
   () => {
@@ -57,7 +57,7 @@ export const CustomerRegister: FC = () => {
   const isCustomerAdmin = selectIsUserAdmin(connectSession)
   const isCustomer = selectIsCustomer(connectSession)
 
-  const [updatingCustomer, , updateCustomer] = useReapitUpdate<UpdateCustomerModel, null>({
+  const [updatingCustomer, , updateCustomer] = useReapitUpdate<Marketplace.UpdateCustomerModel, null>({
     method: 'PUT',
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.updateCustomer],
@@ -66,7 +66,7 @@ export const CustomerRegister: FC = () => {
     },
   })
 
-  const [creatingDeveloper, , createDeveloper] = useReapitUpdate<CreateDeveloperModel, null>({
+  const [creatingDeveloper, , createDeveloper] = useReapitUpdate<Marketplace.CreateDeveloperModel, null>({
     method: 'POST',
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.createDeveloper],
