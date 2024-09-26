@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useMemo, useState } from 'react'
-import { PaymentModel, PaymentModelPagedResult, PropertyModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Payments, Platform } from '@reapit/foundations-ts-definitions'
 import { statusOptions } from '../../constants/filter-options'
 import { navigateRoute } from '@reapit/payments-ui'
 import { PaymentsFilterControls } from './payments-filter-controls'
@@ -37,7 +37,7 @@ import ErrorBoundary from '../error-boundary'
 import { useNavigate } from 'react-router'
 
 export interface CellProps {
-  properties?: PropertyModelPagedResult | null
+  properties?: Platform.PropertyModelPagedResult | null
   status?: string
   propertyId?: string
 }
@@ -64,11 +64,15 @@ export const StatusCell: FC<CellProps> = ({ status }) => {
   ) : null
 }
 
-export const handleGetPropertyIds = (payments: PaymentModelPagedResult | null) => () =>
+export const handleGetPropertyIds = (payments: Payments.PaymentModelPagedResult | null) => () =>
   payments?._embedded?.map((payment) => payment.propertyId).filter(isTruthy)
 
 export const handleOpenModal =
-  (openModal: () => void, setSelectedPayment: Dispatch<SetStateAction<PaymentModel | null>>, payment: PaymentModel) =>
+  (
+    openModal: () => void,
+    setSelectedPayment: Dispatch<SetStateAction<Payments.PaymentModel | null>>,
+    payment: Payments.PaymentModel,
+  ) =>
   () => {
     setSelectedPayment(payment)
     openModal()
@@ -77,7 +81,7 @@ export const handleOpenModal =
 export const PaymentsPage: FC = () => {
   const navigate = useNavigate()
   const [pageNumber, setPageNumber] = useState<number>(1)
-  const [selectedPayment, setSelectedPayment] = useState<PaymentModel | null>(null)
+  const [selectedPayment, setSelectedPayment] = useState<Payments.PaymentModel | null>(null)
   const [paymentsFilters, setPaymentsFilters] = useState<PaymentsFilters>({
     createdFrom: dayjs().subtract(1, 'month').format(DATE_TIME_FORMAT.YYYY_MM_DD),
     createdTo: dayjs().add(1, 'day').format(DATE_TIME_FORMAT.YYYY_MM_DD),
@@ -92,7 +96,7 @@ export const PaymentsPage: FC = () => {
     pageNumber,
   })
 
-  const [payments, paymentsLoading, , refreshPayments] = useReapitGet<PaymentModelPagedResult>({
+  const [payments, paymentsLoading, , refreshPayments] = useReapitGet<Payments.PaymentModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getPayments],
     queryParams,
@@ -100,7 +104,7 @@ export const PaymentsPage: FC = () => {
 
   const propertyIds = useMemo(handleGetPropertyIds(payments), [payments])
 
-  const [properties] = useReapitGet<PropertyModelPagedResult>({
+  const [properties] = useReapitGet<Platform.PropertyModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getProperties],
     queryParams: {

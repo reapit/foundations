@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction } from 'react'
-import { PaymentModel } from '@reapit/foundations-ts-definitions'
+import { Payments } from '@reapit/foundations-ts-definitions'
 import { DATE_TIME_FORMAT, emailRegex } from '@reapit/utils-common'
 import { object, string } from 'yup'
 import { useForm } from 'react-hook-form'
@@ -30,8 +30,8 @@ import { CreateSessionRequest, PaymentEmailRequest, SessionResponse, UpdateStatu
 export type PaymentRequestModalProps = {
   refreshPayments?: () => void
   closeModal: () => void
-  setSelectedPayment?: Dispatch<SetStateAction<PaymentModel | null>>
-  selectedPayment: PaymentModel | null
+  setSelectedPayment?: Dispatch<SetStateAction<Payments.PaymentModel | null>>
+  selectedPayment: Payments.PaymentModel | null
 }
 
 export interface PaymentEmailRequestModel {
@@ -51,8 +51,8 @@ export interface PaymentsEmailRequestForm {
 }
 
 export interface PaymentsRequestSubmitParams {
-  selectedPayment: PaymentModel | null
-  setSelectedPayment?: Dispatch<SetStateAction<PaymentModel | null>>
+  selectedPayment: Payments.PaymentModel | null
+  setSelectedPayment?: Dispatch<SetStateAction<Payments.PaymentModel | null>>
   closeModal: () => void
   updatePayment: SendFunction<UpdateStatusBody, boolean>
   generateSession: SendFunction<CreateSessionRequest, boolean | SessionResponse>

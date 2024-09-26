@@ -1,6 +1,6 @@
-import { PropertyModel } from '@reapit/foundations-ts-definitions'
+import { Platform } from '@reapit/foundations-ts-definitions'
 
-export const mockPropertyModel: PropertyModel = {
+export const mockPropertyModel: Platform.PropertyModel = {
   id: 'OXF200008',
   created: '2018-12-12T12:30:23.0000000Z',
   modified: '2019-01-08T12:30:34.0000000Z',

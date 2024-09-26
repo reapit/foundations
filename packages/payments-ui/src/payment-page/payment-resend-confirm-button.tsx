@@ -5,7 +5,7 @@ import { PaymentProvider } from '../payment-provider'
 import { resendConfirmationSchema } from './payment-validation-schema'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
-import { PaymentModel } from '@reapit/foundations-ts-definitions'
+import { Payments } from '@reapit/foundations-ts-definitions'
 import { PaymentEmailReceipt } from '../types/payment'
 
 export interface ResendConfirmButtonProps {
@@ -14,7 +14,7 @@ export interface ResendConfirmButtonProps {
 }
 
 export const handleOnSubmit =
-  (receiptSubmit: (transaction: PaymentEmailReceipt) => Promise<boolean>, payment: PaymentModel) =>
+  (receiptSubmit: (transaction: PaymentEmailReceipt) => Promise<boolean>, payment: Payments.PaymentModel) =>
   ({ email, customerFirstName, customerLastName }: CardDetails) => {
     receiptSubmit({
       receipientEmail: email,
