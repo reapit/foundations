@@ -21,13 +21,13 @@ export interface AuthenticatorModel {
   /**
    * The date and time when the authenticator was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the authenticator was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
 }
@@ -412,7 +412,7 @@ export interface EmailSuppressionModel {
   /**
    * The date and time the item on the suppression list was last updated (eg status change from Bounce -> Permanent)
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   lastUpdated?: string // date-time
   /**
@@ -453,7 +453,7 @@ export interface GroupMembershipModel {
   /**
    * The date and time when the user was added to the group
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
@@ -499,13 +499,13 @@ export interface GroupModel {
   /**
    * The date and time when the group was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the group was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -558,7 +558,7 @@ export interface IdentityClientUserInfoModel {
   /**
    * The date and time the user was created in the third party IdP
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
@@ -586,13 +586,13 @@ export interface OfficeGroupDetailedModel {
   /**
    * The date and time when the office group was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the office group was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -648,13 +648,13 @@ export interface OfficeGroupModel {
   /**
    * The date and time when the office group was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the office group was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -746,13 +746,13 @@ export interface OrganisationGroupMemberModel {
   /**
    * The date and time of when the organisation group membership was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time of when the organisation group membership was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -794,13 +794,13 @@ export interface OrganisationGroupModel {
   /**
    * The date and time when the organisation group was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the organisation group was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -834,13 +834,13 @@ export interface OrganisationModel {
   /**
    * The date and time when the organisation was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the organisation was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -953,13 +953,13 @@ export interface PatchUserModel {
   /**
    * The date and time at which the user first logged in
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   firstLoginDate?: string // date-time
   /**
    * The date and time at which the user last logged in
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   lastLoginDate?: string // date-time
 }
@@ -1028,7 +1028,7 @@ export interface ProductModel {
   /**
    * The date and time when the product was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
 }
@@ -1318,13 +1318,13 @@ export interface UpdateUserModel {
   /**
    * The date and time at which the user first logged in
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   firstLoginDate?: string // date-time
   /**
    * The date and time at which the user last logged in
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   lastLoginDate?: string // date-time
 }
@@ -1372,13 +1372,13 @@ export interface UserInfoModel {
   /**
    * The date and time when the user was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the user was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -1471,13 +1471,13 @@ export interface UserModel {
   /**
    * The date and time when the user was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the user was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -1547,13 +1547,13 @@ export interface UserModel {
   /**
    * The date and time that the user last updated their tracking consent status
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   consentToTrackModified?: string // date-time
   /**
    * The date and time at which the user first logged in
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   firstLoginDate?: string // date-time
   /**
@@ -1605,13 +1605,13 @@ export interface UserOrganisationModel {
   /**
    * The date and time when the user organisation link was created
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   created?: string // date-time
   /**
    * The date and time when the user organisation link was last modified
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   modified?: string // date-time
   /**
@@ -1669,7 +1669,7 @@ export interface UserSignInResponse {
   /**
    * The UTC date time of the sign in event
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14T12:30:02Z
    */
   timestamp?: string // date-time
   /**
