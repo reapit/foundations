@@ -32,7 +32,6 @@
     "@nestjs/common": "^9.4.3",
     "@nestjs/testing": "^9.4.3",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
-    "@reapit/ts-types": "workspace:packages/ts-types",
     "@reapit/utils-nest": "workspace:packages/utils-nest",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",

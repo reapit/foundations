@@ -125,9 +125,6 @@ ts-bundler:
 ts-scripts:
   - packages/ts-scripts/**
 
-ts-types:
-  - packages/ts-types/**
-
 utils-common:
   - packages/utils-common/**
 

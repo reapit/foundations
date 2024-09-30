@@ -58,7 +58,6 @@
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-bundler": "workspace:packages/ts-bundler",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
-    "@reapit/ts-types": "workspace:packages/ts-types",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "babel-jest": "^29.7.0",
