@@ -48,7 +48,6 @@
     "@linaria/shaker": "^5.0.3",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
-    "@reapit/ts-types": "workspace:packages/ts-types",
     "@testing-library/react": "^14.2.1",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",

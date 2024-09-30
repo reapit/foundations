@@ -41,7 +41,6 @@
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-bundler": "workspace:packages/ts-bundler",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
-    "@reapit/ts-types": "workspace:packages/ts-types",
     "@types/aws-serverless-express": "^3.3.9",
     "@types/graphql": "^14.5.0",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
