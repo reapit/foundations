@@ -9149,6 +9149,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/googlemaps@npm:^3.43.3":
+  version: 3.43.3
+  resolution: "@types/googlemaps@npm:3.43.3"
+  checksum: 91a15de88dc1dfea8d90c95f9de1db6f002f21ec22f8c0e84a7120cd42772a3c7b2de80bde534efbcabdb07399179583c9086af7a51efd4f727a08beac68518f
+  languageName: node
+  linkType: hard
+
 "@types/graceful-fs@npm:^4.1.3":
   version: 4.1.9
   resolution: "@types/graceful-fs@npm:4.1.9"
@@ -16393,6 +16400,7 @@ __metadata:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/browser": "npm:^7.107.0"
+    "@types/googlemaps": "npm:^3.43.3"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
     "@typescript-eslint/parser": "npm:^6.21.0"
     concurrently: "npm:^6.5.1"
