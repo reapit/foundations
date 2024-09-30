@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { PaymentModel } from '@reapit/foundations-ts-definitions'
+import { Payments } from '@reapit/foundations-ts-definitions'
 import {
   Button,
   elMb3,
@@ -25,7 +25,7 @@ export const PaymentPage: FC = () => {
   const { config } = useConfigState()
   const configNotConfigured = !config?.isConfigured
 
-  const paymentRequest = useReapitGet<PaymentModel>({
+  const paymentRequest = useReapitGet<Payments.PaymentModel>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getPaymentById],
     uriParams: {

@@ -15,7 +15,7 @@ import { useAnalyticsState } from '../state/use-analytics-state'
 import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { useReapitGet, listToBatchQuery } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { AppSummaryModel, TrafficEventsModel } from '@reapit/foundations-ts-definitions'
+import { TrafficEventsModel, Marketplace } from '@reapit/foundations-ts-definitions'
 import { ChartWrapper } from '../__styles__'
 import { HitsByResourceChart } from './hits-by-resource-chart'
 import { Controls } from '../page/controls'
@@ -30,7 +30,7 @@ export const AnalyticsCalls: FC = () => {
   const appsQuery = appId
     ? appId
     : apps?.data
-      ? listToBatchQuery<AppSummaryModel>(apps.data, 'id', 'applicationId')
+      ? listToBatchQuery<Marketplace.AppSummaryModel>(apps.data, 'id', 'applicationId')
       : null
 
   const customerQuery = clientId ? { customerId: clientId } : {}

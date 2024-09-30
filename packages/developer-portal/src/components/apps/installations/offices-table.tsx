@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { OfficeModel } from '@reapit/foundations-ts-definitions'
+import { Platform } from '@reapit/foundations-ts-definitions'
 import {
   Table,
   Subtitle,
@@ -14,7 +14,7 @@ import {
 } from '@reapit/elements'
 
 export interface OfficesTableProps {
-  offices: OfficeModel[]
+  offices: Platform.OfficeModel[]
 }
 
 export const OfficesTable: FC<OfficesTableProps> = ({ offices }) => (

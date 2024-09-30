@@ -21,7 +21,7 @@ import { PipelineRunnerProvider } from './pipeline-runner-provider'
 import { PipelineProvider } from '../pipeline'
 import { Pagination } from 'nestjs-typeorm-paginate'
 import { EventDispatcher } from '../events'
-import { PipelineRunnerType } from '@reapit/foundations-ts-definitions/deployment-schema'
+import { PipelineRunnerType } from '@reapit/foundations-ts-definitions'
 import { S3Provider } from '../s3'
 import { DeployProvider } from '../deployment'
 

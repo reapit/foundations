@@ -11,7 +11,7 @@ import {
   ThreeDSecureResponse,
   UpdateStatusBody,
 } from '@reapit/payments-ui'
-import { PaymentModel } from '@reapit/foundations-ts-definitions'
+import { Payments } from '@reapit/foundations-ts-definitions'
 
 export const useClientConfig = (session: string | null, clientCode: string | null, paymentId?: string) => {
   const url = `${process.env.paymentsApiUrl}/config/public/${paymentId}`
@@ -110,7 +110,11 @@ export const useReceipt = (session: string | null, clientCode: string | null, pa
   }
 }
 
-export const useStatusUpdate = (session: string | null, clientCode: string | null, payment: PaymentModel | null) => {
+export const useStatusUpdate = (
+  session: string | null,
+  clientCode: string | null,
+  payment: Payments.PaymentModel | null,
+) => {
   const { error } = useSnack()
 
   const paymentId = payment?.id

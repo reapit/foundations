@@ -1,8 +1,8 @@
-import { AppDetailModel, AppRevisionModel, CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
 export const checkShouldSendConsents = (
-  app: AppDetailModel | null,
-  createAppModel: CreateAppRevisionModel,
+  app: Marketplace.AppDetailModel | null,
+  createAppModel: Marketplace.CreateAppRevisionModel,
   hasInstallations: boolean,
 ): boolean => {
   const { isListed: isListedNew, scopes: newScopes } = createAppModel
@@ -14,8 +14,8 @@ export const checkShouldSendConsents = (
 }
 
 export const checkShouldRenderConsents = (
-  app: AppDetailModel | null,
-  latestRevision: AppRevisionModel | null,
+  app: Marketplace.AppDetailModel | null,
+  latestRevision: Marketplace.AppRevisionModel | null,
   hasInstallations: boolean,
 ): boolean => {
   const isListedNew = latestRevision?.isListed

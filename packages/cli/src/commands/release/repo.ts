@@ -3,7 +3,7 @@ import { AbstractCommand } from '../../abstract.command'
 import {
   PipelineModelInterface,
   PipelineRunnerModelInterface,
-} from '@reapit/foundations-ts-definitions/deployment-schema'
+} from '@reapit/foundations-ts-definitions'
 import ora from 'ora'
 import { REAPIT_PIPELINE_CONFIG_FILE } from '../pipeline/constants'
 import { Multispinner, SpinnerState } from '../../utils/multispinner'

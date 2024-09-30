@@ -1,8 +1,8 @@
-import { AppDetailModel, MediaModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { Dispatch, SetStateAction } from 'react'
 import { AppEditFormSchema, defaultValues } from '../edit/form-schema/form-fields'
 
-export const formatAppFields = (appDetail: AppDetailModel | null, developerId?: string | null) => {
+export const formatAppFields = (appDetail: Marketplace.AppDetailModel | null, developerId?: string | null) => {
   if (appDetail && developerId) {
     const { media, scopes } = appDetail
     const icon = (media ?? []).filter(({ order }) => order === 0)[0]
@@ -10,7 +10,7 @@ export const formatAppFields = (appDetail: AppDetailModel | null, developerId?: 
     const images = (media ?? [])
       .filter((item) => item.type === 'image')
       .reduce(
-        (formValuePartial: Partial<AppEditFormSchema>, image: MediaModel, index: number) => ({
+        (formValuePartial: Partial<AppEditFormSchema>, image: Marketplace.MediaModel, index: number) => ({
           ...formValuePartial,
           [`screen${index + 1}ImageUrl`]: image?.uri ?? '',
         }),
@@ -22,7 +22,7 @@ export const formatAppFields = (appDetail: AppDetailModel | null, developerId?: 
     const videos = (media ?? [])
       .filter((item) => item.type === 'video')
       .reduce(
-        (formValuePartial: Partial<AppEditFormSchema>, image: MediaModel, index: number) => ({
+        (formValuePartial: Partial<AppEditFormSchema>, image: Marketplace.MediaModel, index: number) => ({
           ...formValuePartial,
           [`videoUrl${index + 1}`]: image?.uri ?? '',
         }),
@@ -71,7 +71,7 @@ export const formatAppFields = (appDetail: AppDetailModel | null, developerId?: 
 export const handleSetDefaultFormValues =
   (
     setAppEditForm: Dispatch<SetStateAction<AppEditFormSchema>>,
-    appDetail: AppDetailModel | null,
+    appDetail: Marketplace.AppDetailModel | null,
     developerId?: string | null,
   ) =>
   () => {

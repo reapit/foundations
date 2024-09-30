@@ -1,6 +1,6 @@
-import { ProductModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
-export const mockProductModelPagedResult: ProductModelPagedResult = {
+export const mockProductModelPagedResult: Marketplace.ProductModelPagedResult = {
   data: [
     {
       id: 'agencyCloud',

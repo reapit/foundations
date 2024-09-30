@@ -1,5 +1,5 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { AppRevisionModel, AppRevisionModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import React, { MouseEvent } from 'react'
 import Routes from '../../../../constants/routes'
 import { render } from '../../../../tests/react-testing'
@@ -211,13 +211,13 @@ describe('handleCancelPendingRevsion', () => {
 
 describe('handleSetRevisionId', () => {
   it('should handle app saving', () => {
-    const appRevisions = mockAppSummaryModelPagedResult as AppRevisionModelPagedResult
+    const appRevisions = mockAppSummaryModelPagedResult as Marketplace.AppRevisionModelPagedResult
     const setRevisionId = jest.fn()
     const curried = handleSetRevisionId(appRevisions, setRevisionId)
 
     curried()
 
-    expect(setRevisionId).toHaveBeenCalledWith((appRevisions.data as AppRevisionModel[])[0].id)
+    expect(setRevisionId).toHaveBeenCalledWith((appRevisions.data as Marketplace.AppRevisionModel[])[0].id)
   })
 })
 

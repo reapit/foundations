@@ -25,7 +25,7 @@
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
     "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
+    "@reapit/foundations-ts-definitions": "^1.5.9",
     "aws": "^0.0.3-2"
   },
   "devDependencies": {

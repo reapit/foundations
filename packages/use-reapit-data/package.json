@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@reapit/connect-session": "workspace:packages/connect-session",
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
+    "@reapit/foundations-ts-definitions": "^1.5.9",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@tanstack/react-query": "^4.36.1",
     "@tanstack/react-query-devtools": "^4.36.1",

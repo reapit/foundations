@@ -1,4 +1,4 @@
-import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
+import { Payments, Platform } from '@reapit/foundations-ts-definitions'
 import { ClientConfigModel } from '../types/config'
 import { CreateTransactionModel, MerchantKey, ThreeDSecureResponse } from '../types/opayo'
 import { PaymentEmailReceipt, UpdateStatusBody } from '../types/payment'
@@ -15,8 +15,8 @@ export interface StatusAction {
 
 export interface PaymentProviderInitialisers {
   config: ClientConfigModel
-  payment: PaymentModel
-  property: PropertyModel | null
+  payment: Payments.PaymentModel
+  property: Platform.PropertyModel | null
   merchantKey: MerchantKey
   receiptAction: ReceiptAction
   statusAction: StatusAction
@@ -28,8 +28,8 @@ export interface PaymentProviderInitialisers {
 
 export class PaymentProvider {
   config: ClientConfigModel
-  payment: PaymentModel
-  property: PropertyModel | null
+  payment: Payments.PaymentModel
+  property: Platform.PropertyModel | null
   merchantKey: MerchantKey
   receiptAction: ReceiptAction
   statusAction: StatusAction

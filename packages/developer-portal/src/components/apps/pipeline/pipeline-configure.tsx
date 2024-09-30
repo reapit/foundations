@@ -2,7 +2,7 @@ import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
 import { BodyText, FormLayout, Input, InputError, InputGroup, InputWrap, Label, Select } from '@reapit/elements'
 import { object, SchemaOf, string } from 'yup'
 import {
-  AppDetailModel,
+  Marketplace,
   AppTypeEnum,
   PackageManagerEnum,
   PipelineModelInterface,
@@ -108,7 +108,10 @@ export const handleSavePipeline =
     }
   }
 
-export const getDefaultValues = (appPipeline: PipelineModelInterface | null, appDetail: AppDetailModel | null) => {
+export const getDefaultValues = (
+  appPipeline: PipelineModelInterface | null,
+  appDetail: Marketplace.AppDetailModel | null,
+) => {
   if (appPipeline) {
     const { name, branch, repository, buildCommand, packageManager, outDir } = appPipeline
     return {

@@ -1,6 +1,6 @@
 import { elMb11, Loader, Pagination, PersistentNotification, RowProps, StatusIndicator, Table } from '@reapit/elements'
 import React, { Dispatch, FC, SetStateAction, useMemo, useState } from 'react'
-import { InstallationModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { TopicModel, WebhookModel, WebhookModelPagedResult } from '../../types/webhooks'
 import { WebhooksEditControls } from './webhooks-edit-controls'
 import { useWebhooksState } from './state/use-webhooks-state'
@@ -22,7 +22,7 @@ export const renderTopicName = (topics: TopicModel[], subscriptionTopicIds?: str
     .join(' ')
 }
 
-export const renderCustomerName = (installations: InstallationModel[], customerIds?: string[]): string => {
+export const renderCustomerName = (installations: Marketplace.InstallationModel[], customerIds?: string[]): string => {
   if (customerIds && customerIds.length) {
     const uniqueIds = [...new Set(customerIds)]
     return uniqueIds
@@ -45,7 +45,7 @@ export const handleSortTableData =
     expandableContentType: ExpandableContentType,
     subscriptions: WebhookModel[],
     topics: TopicModel[],
-    installations: InstallationModel[],
+    installations: Marketplace.InstallationModel[],
   ) =>
   (): RowProps[] => {
     return subscriptions.map((subscription: WebhookModel) => ({

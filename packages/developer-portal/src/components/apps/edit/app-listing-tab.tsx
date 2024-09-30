@@ -31,7 +31,7 @@ import {
 } from '@reapit/use-reapit-data'
 import { Editor, ImageCropperFileInput } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { CategoryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { Controller, useWatch } from 'react-hook-form'
 import { exec } from 'pell'
 import { v4 as uuid } from 'uuid'
@@ -59,7 +59,7 @@ export const handleClosePreviewImage =
     closeModal()
   }
 
-export const handleSortCategoryies = (categoriesResult: CategoryModelPagedResult | null) => () =>
+export const handleSortCategoryies = (categoriesResult: Marketplace.CategoryModelPagedResult | null) => () =>
   categoriesResult?.data?.sort((a, b) => {
     const nameA = a.name?.toUpperCase()
     const nameB = b.name?.toUpperCase()
@@ -79,7 +79,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
   const { appEditState } = useAppState()
   const { appEditForm } = appEditState
 
-  const [categoriesResult, categoriesLoading] = useReapitGet<CategoryModelPagedResult>({
+  const [categoriesResult, categoriesLoading] = useReapitGet<Marketplace.CategoryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getAppCategories],
     queryParams: { pageSize: 25 },

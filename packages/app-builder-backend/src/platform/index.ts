@@ -5,13 +5,13 @@ import {
   SchemaModel,
   SchemaModelPagedResult,
   UpdateSchemaRequest,
-} from '@reapit/foundations-ts-definitions/types'
+} from '@reapit/foundations-ts-definitions'
 import config from '../config.json'
 import { fetch } from '../utils/fetch'
 
 const { platformApiUrl } = config
 
-export { SchemaModel } from '@reapit/foundations-ts-definitions/types'
+export { SchemaModel } from '@reapit/foundations-ts-definitions'
 
 export const getMetadataObject = async (
   id: string,

@@ -1,6 +1,6 @@
 import { Command } from '../../decorators'
 import { AbstractCommand } from '../../abstract.command'
-import { PipelineModelInterface } from '../../../../foundations-ts-definitions/deployment-schema'
+import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import ora from 'ora'
 import { REAPIT_PIPELINE_CONFIG_FILE } from './constants'
 import chalk from 'chalk'

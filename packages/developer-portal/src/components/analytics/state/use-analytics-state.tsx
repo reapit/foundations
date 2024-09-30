@@ -1,4 +1,4 @@
-import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import React, { FC, createContext, useContext, useState, SetStateAction, Dispatch, PropsWithChildren } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { GetActionNames, getActions } from '@reapit/use-reapit-data'
@@ -7,7 +7,7 @@ import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { defaultAnalyticsFilterState } from './defaults'
 
 export interface AnalyticsDataState {
-  apps: AppSummaryModelPagedResult | null
+  apps: Marketplace.AppSummaryModelPagedResult | null
 }
 
 export interface AnalyticsFilterState {
@@ -34,7 +34,7 @@ export const AnalyticsProvider: FC<PropsWithChildren> = ({ children }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const developerId = connectSession?.loginIdentity.developerId
 
-  const [apps] = useReapitGet<AppSummaryModelPagedResult>({
+  const [apps] = useReapitGet<Marketplace.AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', developerId, pageSize: 100 },

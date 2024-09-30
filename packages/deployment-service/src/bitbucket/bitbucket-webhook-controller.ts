@@ -12,7 +12,7 @@ import {
   UnauthorizedException,
   UnprocessableEntityException,
 } from '@nestjs/common'
-import { PipelineRunnerType } from '@reapit/foundations-ts-definitions/deployment-schema'
+import { PipelineRunnerType } from '@reapit/foundations-ts-definitions'
 import * as jwt from 'atlassian-jwt'
 import { Request } from 'express'
 import { BitbucketProvider } from './bitbucket-provider'

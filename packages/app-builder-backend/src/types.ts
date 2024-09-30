@@ -1,4 +1,4 @@
-import { AppDetailModel } from '@reapit/foundations-ts-definitions/types'
+import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { CustomEntity } from './entities/custom-entity'
 import { MetadataSchemaType } from './utils/extract-metadata'
 

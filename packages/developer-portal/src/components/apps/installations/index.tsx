@@ -28,11 +28,7 @@ import {
   UpdateActionNames,
   updateActions,
 } from '@reapit/use-reapit-data'
-import {
-  InstallationModelPagedResult,
-  OfficeModel,
-  TerminateInstallationModel,
-} from '@reapit/foundations-ts-definitions'
+import { Marketplace, Platform } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { combineAddress } from '@reapit/utils-common'
 import dayjs from 'dayjs'
@@ -46,7 +42,7 @@ import { specialCharsTest } from '../../../utils/yup'
 import { Helper } from '../page/helper'
 import { OfficesTable } from './offices-table'
 
-const uninstallAppSchema: SchemaOf<TerminateInstallationModel> = object().shape({
+const uninstallAppSchema: SchemaOf<Marketplace.TerminateInstallationModel> = object().shape({
   appId: string().trim().required(errorMessages.FIELD_REQUIRED),
   terminatedBy: string(),
   terminatedReason: string()
@@ -60,10 +56,10 @@ const uninstallAppSchema: SchemaOf<TerminateInstallationModel> = object().shape(
 export const handleUninstallApp =
   (
     email: string,
-    uninstallApp: SendFunction<TerminateInstallationModel, boolean | null>,
+    uninstallApp: SendFunction<Marketplace.TerminateInstallationModel, boolean | null>,
     setInstallationId: Dispatch<SetStateAction<string | null>>,
   ) =>
-  async (values: TerminateInstallationModel) => {
+  async (values: Marketplace.TerminateInstallationModel) => {
     const uninstall = await uninstallApp({
       ...values,
       terminatedBy: email,
@@ -92,7 +88,7 @@ export const handleSetInstallationId =
   }
 
 export const handleSetOffices =
-  (setOffices: Dispatch<SetStateAction<OfficeModel[] | null>>, offices: OfficeModel[]) => () => {
+  (setOffices: Dispatch<SetStateAction<Platform.OfficeModel[] | null>>, offices: Platform.OfficeModel[]) => () => {
     setOffices(offices)
   }
 
@@ -100,7 +96,7 @@ export const AppInstallations: FC = () => {
   const { appId } = useParams<'appId'>()
   const { setAppId } = useAppState()
   const [installationId, setInstallationId] = useState<null | string>(null)
-  const [offices, setOffices] = useState<OfficeModel[] | null>(null)
+  const [offices, setOffices] = useState<Platform.OfficeModel[] | null>(null)
   const [pageNumber, setPageNumber] = useState<number>(1)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { Modal, openModal, closeModal } = useModal()
@@ -109,20 +105,24 @@ export const AppInstallations: FC = () => {
   const developerId = connectSession?.loginIdentity.developerId
   const email = connectSession?.loginIdentity.email ?? ''
 
-  const [installations, installationsLoading, , refetchInstallations] = useReapitGet<InstallationModelPagedResult>({
-    reapitConnectBrowserSession,
-    action: getActions[GetActionNames.getInstallations],
-    queryParams: {
-      appId,
-      pageNumber,
-      pageSize: 12,
-      isInstalled: true,
-      developerId,
-    },
-    fetchWhenTrue: [developerId],
-  })
+  const [installations, installationsLoading, , refetchInstallations] =
+    useReapitGet<Marketplace.InstallationModelPagedResult>({
+      reapitConnectBrowserSession,
+      action: getActions[GetActionNames.getInstallations],
+      queryParams: {
+        appId,
+        pageNumber,
+        pageSize: 12,
+        isInstalled: true,
+        developerId,
+      },
+      fetchWhenTrue: [developerId],
+    })
 
-  const [uninstalling, , uninstallApp, uninstallSuccess] = useReapitUpdate<TerminateInstallationModel, null>({
+  const [uninstalling, , uninstallApp, uninstallSuccess] = useReapitUpdate<
+    Marketplace.TerminateInstallationModel,
+    null
+  >({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.terminateInstallation],
     uriParams: {
@@ -134,7 +134,7 @@ export const AppInstallations: FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<TerminateInstallationModel>({
+  } = useForm<Marketplace.TerminateInstallationModel>({
     resolver: yupResolver(uninstallAppSchema),
     defaultValues: {
       appId,

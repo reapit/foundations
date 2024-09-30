@@ -1,11 +1,11 @@
 import 'chart.js/auto'
-import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import React, { FC, useMemo } from 'react'
 import { Chart } from 'react-chartjs-2'
 import dayjs from 'dayjs'
 
 export interface InstallationsPerDayChartProps {
-  installations: InstallationModelPagedResult
+  installations: Marketplace.InstallationModelPagedResult
 }
 
 export interface ChartDataModel {
@@ -13,7 +13,7 @@ export interface ChartDataModel {
   data: number[]
 }
 
-export const handleSortChartData = (installations: InstallationModelPagedResult) => (): ChartDataModel => {
+export const handleSortChartData = (installations: Marketplace.InstallationModelPagedResult) => (): ChartDataModel => {
   if (!installations.data) {
     return {
       labels: [],

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, FC, Dispatch, SetStateAction } from 'react'
-import { PaymentModel } from '@reapit/foundations-ts-definitions'
+import { Payments } from '@reapit/foundations-ts-definitions'
 import { elFadeIn, Loader, PersistentNotification } from '@reapit/elements'
 import {
   ClientConfigModel,
@@ -23,7 +23,7 @@ export interface SetProviderParams extends Omit<PaymentProviderInitialisers, 'co
   paymentProvider: PaymentProvider | null
   setPaymentProvider: Dispatch<SetStateAction<PaymentProvider | null>>
   config: ClientConfigModel | null
-  payment: PaymentModel | null
+  payment: Payments.PaymentModel | null
   merchantKey: MerchantKey | null
 }
 
@@ -55,7 +55,7 @@ export const handleMerchantKeyRefresh =
   (
     merchantKey: MerchantKey | null,
     getMerchantKey: () => void,
-    payment: PaymentModel | null,
+    payment: Payments.PaymentModel | null,
     config: ClientConfigModel | null,
   ) =>
   () => {

@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, ReactNode, SetStateAction, useEffect } from 'react'
-import { CreateSubscriptionModel, DeveloperModel, MemberModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { selectLoginIdentity } from '../../utils/auth'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
@@ -25,8 +25,8 @@ export const handleDownload = () => {
 
 export const handleOnConfirm =
   (
-    developer: Partial<DeveloperModel> | null,
-    createSubscription: SendFunction<CreateSubscriptionModel, boolean>,
+    developer: Partial<Marketplace.DeveloperModel> | null,
+    createSubscription: SendFunction<Marketplace.CreateSubscriptionModel, boolean>,
     setSubscribingState: Dispatch<SetStateAction<SubscribingState>>,
     email?: string,
   ) =>
@@ -59,7 +59,7 @@ export const getTitle = (
   hasSubscription: boolean,
   subscriptionSuccessful: boolean,
   isClientAndClientData: boolean,
-  currentDeveloper: DeveloperModel | null,
+  currentDeveloper: Marketplace.DeveloperModel | null,
 ): string => {
   if (hasSubscription) {
     return 'Existing Subscription'
@@ -81,8 +81,8 @@ export const getTitle = (
 }
 
 export const getBillingContent = (
-  currentMember: MemberModel | null,
-  currentDeveloper: DeveloperModel | null,
+  currentMember: Marketplace.MemberModel | null,
+  currentDeveloper: Marketplace.DeveloperModel | null,
 ): ReactNode => {
   if (currentMember?.role === 'admin' && currentDeveloper?.status === 'incomplete') {
     return (
@@ -134,7 +134,7 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
   useEffect(handleModalOpen(openModal, visible), [visible])
 
   const [, subscriptionCreating, createSubscription, createSubscriptionSuccess, createSubscriptionError] =
-    useReapitUpdate<CreateSubscriptionModel, boolean>({
+    useReapitUpdate<Marketplace.CreateSubscriptionModel, boolean>({
       reapitConnectBrowserSession,
       action: updateActions[UpdateActionNames.createSubscription],
       method: 'POST',

@@ -11,7 +11,7 @@ import {
 import React, { FC, useEffect } from 'react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { selectIsCustomer } from '../../../utils/auth'
-import { DeveloperModel, MemberModelPagedResult, UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { useForm } from 'react-hook-form'
 import { object, SchemaOf, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
@@ -20,7 +20,7 @@ import { useGlobalState } from '../../../core/use-global-state'
 import { specialCharsTest } from '../../../utils/yup'
 
 interface SubmitReviewModalProps {
-  developer: DeveloperModel
+  developer: Marketplace.DeveloperModel
   closeModal: () => void
   refetchDeveloper: () => void
 }
@@ -56,7 +56,7 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refe
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<UpdateDeveloperModel>({
+  } = useForm<Marketplace.UpdateDeveloperModel>({
     resolver: yupResolver(schema),
     defaultValues: {
       ...developer,
@@ -68,7 +68,7 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refe
 
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
-  const [members] = useReapitGet<MemberModelPagedResult>({
+  const [members] = useReapitGet<Marketplace.MemberModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getDeveloperMembers],
     uriParams: {
@@ -82,8 +82,8 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refe
   })
 
   const [updateDeveloperLoading, , updateDeveloper, updateDeveloperSuccess] = useReapitUpdate<
-    UpdateDeveloperModel,
-    UpdateDeveloperModel
+    Marketplace.UpdateDeveloperModel,
+    Marketplace.UpdateDeveloperModel
   >({
     method: 'PUT',
     reapitConnectBrowserSession,

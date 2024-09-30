@@ -1,4 +1,4 @@
-import { MemberModel, UpdateMemberModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import React, { FC, useState, Dispatch, SetStateAction, PropsWithChildren, useEffect } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { SendFunction, UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
@@ -9,7 +9,8 @@ import dayjs from 'dayjs'
 import { useGlobalState } from './use-global-state'
 
 export const handleUpdateTerms =
-  (updateMember: SendFunction<UpdateMemberModel, boolean>, currentMember: MemberModel | null) => () => {
+  (updateMember: SendFunction<Marketplace.UpdateMemberModel, boolean>, currentMember: Marketplace.MemberModel | null) =>
+  () => {
     if (!currentMember) return
     updateMember({
       ...currentMember,
@@ -18,7 +19,11 @@ export const handleUpdateTerms =
   }
 
 export const handleMemberUpdate =
-  (currentMember: MemberModel | null, showTermsModal: boolean, setShowTermsModal: Dispatch<SetStateAction<boolean>>) =>
+  (
+    currentMember: Marketplace.MemberModel | null,
+    showTermsModal: boolean,
+    setShowTermsModal: Dispatch<SetStateAction<boolean>>,
+  ) =>
   () => {
     if (showTermsModal || !currentMember) return
     if (!currentMember.agreedTerms || dayjs(currentMember.agreedTerms).isBefore(dayjs('2021-06-18'))) {
@@ -49,7 +54,10 @@ export const TAndCsHoc: FC<PropsWithChildren> = ({ children }) => {
   const { globalDataState } = useGlobalState()
   const currentMember = globalDataState?.currentMember
 
-  const [, , updateMember, updateMemberSuccess, updateMemberError] = useReapitUpdate<UpdateMemberModel, boolean>({
+  const [, , updateMember, updateMemberSuccess, updateMemberError] = useReapitUpdate<
+    Marketplace.UpdateMemberModel,
+    boolean
+  >({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.updateMember],
     method: 'PUT',

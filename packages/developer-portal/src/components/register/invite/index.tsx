@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, MouseEvent, SetStateAction, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router'
-import { AcceptInviteModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { getParamsFromPath, letterNumberSpaceRegex, personNameRegex } from '@reapit/utils-common'
 import { useForm } from 'react-hook-form'
 import { BodyText, ButtonGroup, Button, FormLayout, InputWrap, InputGroup, useSnack, Modal } from '@reapit/elements'
@@ -39,7 +39,7 @@ export const handleAccept =
     developerId?: string,
     memberId?: string,
   ) =>
-  async (values: AcceptInviteModel) => {
+  async (values: Marketplace.AcceptInviteModel) => {
     if (!developerId || !memberId) return
 
     setInviteState('LOADING')
@@ -90,7 +90,7 @@ export const Invite: FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<AcceptInviteModel>({
+  } = useForm<Marketplace.AcceptInviteModel>({
     resolver: yupResolver(validationSchema),
     defaultValues: {
       name,

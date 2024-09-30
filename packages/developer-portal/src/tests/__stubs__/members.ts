@@ -1,6 +1,6 @@
-import { MemberModelPagedResult, MemberModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
-export const mockMembersPagedResult: MemberModelPagedResult = {
+export const mockMembersPagedResult: Marketplace.MemberModelPagedResult = {
   data: [
     {
       id: 'MOCK_ID',
@@ -25,7 +25,7 @@ export const mockMembersPagedResult: MemberModelPagedResult = {
   totalCount: 1,
 }
 
-export const mockMemberModel: MemberModel = {
+export const mockMemberModel: Marketplace.MemberModel = {
   id: 'MOCK_ID',
   created: '2020-11-03T12:18:38',
   modified: '2022-04-01T10:38:06',

@@ -15,7 +15,7 @@ import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { useReapitGet } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { ChartWrapper } from '../__styles__'
-import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { useReapitConnect } from '@reapit/connect-session'
 import { InstallationsPerDayChart } from './installations-per-day-chart'
 import { InstallationsByAppChart } from './installations-by-app-chart'
@@ -32,7 +32,7 @@ export const AnalyticsInstallations: FC = () => {
   const appsQuery = appId ? { appId } : {}
   const customerQuery = clientId ? { clientId } : {}
 
-  const [installations, installationsLoading] = useReapitGet<InstallationModelPagedResult>({
+  const [installations, installationsLoading] = useReapitGet<Marketplace.InstallationModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getInstallations],
     queryParams: {

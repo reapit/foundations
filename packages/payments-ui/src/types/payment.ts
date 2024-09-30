@@ -1,4 +1,4 @@
-import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
+import { Payments, Platform } from '@reapit/foundations-ts-definitions'
 
 export type PaymentStatus = 'awaitingAuthorisation' | 'awaitingPosting' | 'posted' | 'rejected'
 
@@ -45,6 +45,6 @@ export interface PaymentEmailReceipt {
   paymentCurrency: string
 }
 
-export interface PaymentWithPropertyModel extends PaymentModel {
-  property?: PropertyModel
+export interface PaymentWithPropertyModel extends Payments.PaymentModel {
+  property?: Platform.PropertyModel
 }
