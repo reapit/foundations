@@ -41,9 +41,6 @@ cloud-alert:
 cognito-custom-mail-lambda:
   - packages/cognito-custom-mail-lambda/**
 
-config-manager:
-  - packages/config-manager/**
-
 connect-session:
   - packages/connect-session/**
 
@@ -119,23 +116,5 @@ security-header-lambda:
 seed-data-workflow:
   - packages/seed-data-workflow/**
 
-ts-bundler:
-  - packages/ts-bundler/**
-
-ts-scripts:
-  - packages/ts-scripts/**
-
 ts-types:
   - packages/ts-types/**
-
-utils-common:
-  - packages/utils-common/**
-
-utils-node:
-  - packages/utils-node/**
-
-utils-react:
-  - packages/utils-react/**
-
-utils-nest:
-  -packages/utils-nest/**
