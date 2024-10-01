@@ -36,6 +36,7 @@
   "devDependencies": {
     "@reapit/config-manager": "^2.1.0",
     "@reapit/ts-scripts": "^0.1.1",
+    "@reapit/utils-authorizer": "^1.0.5",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "cross-env": "^7.0.3",

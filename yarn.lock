@@ -12984,6 +12984,7 @@ __metadata:
     "@reapit/config-manager": "npm:^2.1.0"
     "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-scripts": "npm:^0.1.1"
+    "@reapit/utils-authorizer": "npm:^1.0.5"
     "@reapit/utils-nest": "npm:^1.1.1"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
     "@typescript-eslint/parser": "npm:^6.21.0"
