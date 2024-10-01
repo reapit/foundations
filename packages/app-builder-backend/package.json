@@ -31,8 +31,7 @@
     "@graphql-tools/delegate": "^8.8.1",
     "@graphql-tools/stitch": "^8.7.50",
     "@reapit/foundations-ts-definitions": "^1.5.9",
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts",
-    "@reapit/utils-common": "workspace:packages/utils-common",
+    "@reapit/utils-common": "^1.0.2",
     "@types/luxon": "^2.4.0",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
@@ -62,8 +61,9 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "@reapit/config-manager": "workspace:packages/config-manager",
-    "@reapit/ts-bundler": "workspace:packages/ts-bundler",
+    "@reapit/config-manager": "^2.1.0",
+    "@reapit/ts-bundler": "^0.0.1",
+    "@reapit/ts-scripts": "^0.1.1",
     "@types/fs-extra": "^9.0.13",
     "@types/jest": "^29.5.12",
     "@types/jszip": "^3.4.1",

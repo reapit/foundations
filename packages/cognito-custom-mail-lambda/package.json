@@ -32,15 +32,14 @@
   "homepage": "https://github.com/reapit/foundations#readme",
   "dependencies": {
     "@reapit/foundations-ts-definitions": "^1.5.9",
+    "@reapit/utils-node": "^0.1.0",
     "aws-lambda": "^1.0.7",
     "events": "^3.3.0",
     "snyk": "^1.1285.0",
     "string-template": "^1.0.0"
   },
   "devDependencies": {
-    "@reapit/config-manager": "workspace:packages/config-manager",
-    "@reapit/ts-scripts": "workspace:^",
-    "@reapit/utils-node": "workspace:packages/utils-node",
+    "@reapit/config-manager": "^2.1.0",
     "@types/mjml": "^4.7.4",
     "@types/node": "^18.19.26",
     "@types/string-template": "^1.0.6",

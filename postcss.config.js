@@ -1,3 +1,3 @@
-module.exports = {
-  plugins: [require('autoprefixer'), require('postcss-flexbugs-fixes')],
-}
+const { postcssConfig } = require('@reapit/ts-scripts')
+
+module.exports = postcssConfig

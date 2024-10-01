@@ -29,7 +29,7 @@
     "@graphql-tools/load": "^8.0.2",
     "@graphql-tools/load-files": "^7.0.0",
     "@graphql-tools/merge": "^9.0.3",
-    "@reapit/utils-node": "workspace:packages/utils-node",
+    "@reapit/utils-node": "^0.1.0",
     "@snyk/protect": "^1.1285.0",
     "apollo-server": "^3.13.0",
     "apollo-server-core": "^3.13.0",
@@ -54,9 +54,8 @@
     "winston": "^3.12.0"
   },
   "devDependencies": {
-    "@reapit/config-manager": "workspace:packages/config-manager",
-    "@reapit/ts-bundler": "workspace:packages/ts-bundler",
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts",
+    "@reapit/config-manager": "^2.1.0",
+    "@reapit/ts-scripts": "^0.1.1",
     "@types/graphql": "^14.5.0",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
