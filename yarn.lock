@@ -12689,6 +12689,7 @@ __metadata:
     "@nestjs/core": "npm:^9.4.3"
     "@nestjs/platform-express": "npm:^8.4.7"
     "@nestjs/testing": "npm:^9.4.3"
+    "@reapit/config-manager": "npm:^2.1.0"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
     "@typescript-eslint/parser": "npm:^6.21.0"
