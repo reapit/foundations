@@ -7565,7 +7565,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reapit/connect-session-server@workspace:^, @reapit/connect-session-server@workspace:packages/connect-session-server":
+"@reapit/connect-session-server@npm:^1.0.0, @reapit/connect-session-server@workspace:^, @reapit/connect-session-server@workspace:packages/connect-session-server":
   version: 0.0.0-use.local
   resolution: "@reapit/connect-session-server@workspace:packages/connect-session-server"
   dependencies:
@@ -7684,7 +7684,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reapit/foundations-ts-definitions@npm:2.0.0":
+"@reapit/foundations-ts-definitions@npm:2.0.0, @reapit/foundations-ts-definitions@npm:^2.0.0":
   version: 2.0.0
   resolution: "@reapit/foundations-ts-definitions@npm:2.0.0"
   checksum: 9a5f5c504e06004d1a6740870cbe7f734d09ce68402ac8ad59a0783d7e7d90c3b60f98ef2f0e20afe8d706f27196ee8a35fe75b86e0ea612a7dfbf31d6b2d08f
@@ -7914,6 +7914,21 @@ __metadata:
     "@nestjs/core": "*"
     reflect-metadata: "*"
   checksum: 8c1d8164bbf5b5aeae7cdfc124bd3b607b11beebae736acfbcc06777b22590c60cb688eb6157a253e1e3346730124cb158dc34bda9da3dd5147396864f19f5e8
+  languageName: node
+  linkType: hard
+
+"@reapit/utils-nest@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "@reapit/utils-nest@npm:1.1.1"
+  dependencies:
+    "@reapit/connect-session-server": "npm:^1.0.0"
+    "@reapit/foundations-ts-definitions": "npm:^2.0.0"
+    jwt-decode: "npm:^3.1.2"
+  peerDependencies:
+    "@nestjs/common": "*"
+    "@nestjs/core": "*"
+    reflect-metadata: "*"
+  checksum: 283351afc7e268cc755ee827cc6bd01d6103d345e5a397f150c49b7c60a045e2a81bce8742b8780dac21e3c392c700669e82c46e9e2e36e58a00d4f8c4129d88
   languageName: node
   linkType: hard
 
@@ -12969,7 +12984,7 @@ __metadata:
     "@reapit/config-manager": "npm:^2.1.0"
     "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-scripts": "npm:^0.1.1"
-    "@reapit/utils-nest": "npm:^1.1.0"
+    "@reapit/utils-nest": "npm:^1.1.1"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
     "@typescript-eslint/parser": "npm:^6.21.0"
     aws-lambda: "npm:^1.0.7"

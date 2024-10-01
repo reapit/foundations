@@ -8,7 +8,7 @@
     "@nestjs/core": "^9.4.3",
     "@nestjs/platform-express": "^9.4.3",
     "@reapit/foundations-ts-definitions": "2.0.0",
-    "@reapit/utils-nest": "^1.1.0",
+    "@reapit/utils-nest": "^1.1.1",
     "aws-lambda": "^1.0.7",
     "aws-sdk": "^2.1580.0",
     "aws-serverless-express": "^3.4.0",
