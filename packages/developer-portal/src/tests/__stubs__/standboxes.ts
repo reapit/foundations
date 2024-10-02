@@ -1,6 +1,6 @@
-import { SandboxModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
-export const mockSandboxModelPagedResult: SandboxModelPagedResult = {
+export const mockSandboxModelPagedResult: Marketplace.SandboxModelPagedResult = {
   data: [
     {
       id: 'AUS',

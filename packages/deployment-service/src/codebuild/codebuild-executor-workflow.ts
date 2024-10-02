@@ -12,7 +12,7 @@ import { plainToClass } from 'class-transformer'
 import { BitbucketClientData } from '../entities/bitbucket-client.entity'
 import { BitBucketEvent } from '../bitbucket'
 import { ParameterProvider } from '../pipeline'
-import { PackageManagerEnum } from '@reapit/foundations-ts-definitions/deployment-schema'
+import { PackageManagerEnum } from '@reapit/foundations-ts-definitions'
 
 @Workflow(QueueNamesEnum.CODEBUILD_EXECUTOR)
 export class CodebuildExecutorWorkflow extends AbstractWorkflow<{

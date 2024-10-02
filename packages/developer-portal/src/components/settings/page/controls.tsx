@@ -15,7 +15,7 @@ import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useGlobalState } from '../../../core/use-global-state'
 import { SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
 import { UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
-import { InviteMemberModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { validationSchemaMember } from './validation-schema'
 import { useForm } from 'react-hook-form'
@@ -28,7 +28,8 @@ export const handleLogout = (connectLogoutRedirect: () => void) => () => {
 }
 
 export const handleInviteMember =
-  (reinviteMember: SendFunction<InviteMemberModel, boolean>, closeModal: () => void) => (member: InviteMemberModel) => {
+  (reinviteMember: SendFunction<Marketplace.InviteMemberModel, boolean>, closeModal: () => void) =>
+  (member: Marketplace.InviteMemberModel) => {
     reinviteMember(member)
     closeModal()
   }
@@ -51,7 +52,7 @@ export const Controls: FC = () => {
 
   const [, membersShouldRefresh] = members
 
-  const [, , inviteMember, inviteMemberSuccess] = useReapitUpdate<InviteMemberModel, boolean>({
+  const [, , inviteMember, inviteMemberSuccess] = useReapitUpdate<Marketplace.InviteMemberModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.inviteMember],
     method: 'POST',
@@ -66,7 +67,7 @@ export const Controls: FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<InviteMemberModel>({
+  } = useForm<Marketplace.InviteMemberModel>({
     resolver: yupResolver(validationSchemaMember),
     defaultValues: {
       name: '',

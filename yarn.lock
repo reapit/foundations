@@ -2921,7 +2921,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.1, @babel/runtime@npm:^7.11.1, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.18.0, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.20.0, @babel/runtime@npm:^7.20.7, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.23.9, @babel/runtime@npm:^7.24.1, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.23.9, @babel/runtime@npm:^7.24.1, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.24.1
   resolution: "@babel/runtime@npm:7.24.1"
   dependencies:
@@ -5769,13 +5769,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@popperjs/core@npm:^2.9.2":
-  version: 2.11.8
-  resolution: "@popperjs/core@npm:2.11.8"
-  checksum: ddd16090cde777aaf102940f05d0274602079a95ad9805bd20bc55dcc7c3a2ba1b99dd5c73e5cc2753c3d31250ca52a67d58059459d7d27debb983a9f552936c
-  languageName: node
-  linkType: hard
-
 "@probot/adapter-github-actions@npm:3.1.3":
   version: 3.1.3
   resolution: "@probot/adapter-github-actions@npm:3.1.3"
@@ -5895,37 +5888,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rc-component/portal@npm:^1.1.0":
-  version: 1.1.2
-  resolution: "@rc-component/portal@npm:1.1.2"
-  dependencies:
-    "@babel/runtime": "npm:^7.18.0"
-    classnames: "npm:^2.3.2"
-    rc-util: "npm:^5.24.4"
-  peerDependencies:
-    react: ">=16.9.0"
-    react-dom: ">=16.9.0"
-  checksum: ae9d4cdf07647fc4da3944f74ab4d25c16cc7021c5760d4db37c0600461a84f480243e5186f3e5760903041d3a3e0927cb4226f44583fa668d3cacd29245fd69
-  languageName: node
-  linkType: hard
-
-"@rc-component/trigger@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@rc-component/trigger@npm:2.0.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.23.2"
-    "@rc-component/portal": "npm:^1.1.0"
-    classnames: "npm:^2.3.2"
-    rc-motion: "npm:^2.0.0"
-    rc-resize-observer: "npm:^1.3.1"
-    rc-util: "npm:^5.38.0"
-  peerDependencies:
-    react: ">=16.9.0"
-    react-dom: ">=16.9.0"
-  checksum: 6ae8eee1bbc639aa2426d1a0e00cc4bfc93e54e7cd57fcf97971d3acdb72de4b852b2377d4cca778de898f7024444da03ed0f41a94d702daf5a9c73b45fbb920
-  languageName: node
-  linkType: hard
-
 "@reapit/api-key-verify@workspace:packages/api-key-verify":
   version: 0.0.0-use.local
   resolution: "@reapit/api-key-verify@workspace:packages/api-key-verify"
@@ -5934,9 +5896,8 @@ __metadata:
     "@aws/dynamodb-data-mapper-annotations": "npm:^0.7.3"
     "@nestjs/common": "npm:^9.4.3"
     "@nestjs/testing": "npm:^9.4.3"
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-nest": "workspace:packages/utils-nest"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
     "@typescript-eslint/parser": "npm:^6.21.0"
@@ -5962,10 +5923,9 @@ __metadata:
     "@graphql-tools/delegate": "npm:^8.8.1"
     "@graphql-tools/stitch": "npm:^8.7.50"
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@types/fs-extra": "npm:^9.0.13"
     "@types/jest": "npm:^29.5.12"
@@ -6016,7 +5976,6 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:^"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@types/adm-zip": "npm:^0.5.5"
     "@types/inquirer": "npm:^7.3.3"
     "@types/semver": "npm:^7.5.8"
@@ -6108,7 +6067,6 @@ __metadata:
     "@aws-crypto/sha256-browser": "npm:^5.2.0"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@rollup/plugin-babel": "npm:^6.0.4"
     "@rollup/plugin-commonjs": "npm:^25.0.7"
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
@@ -6174,18 +6132,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reapit/foundations-ts-definitions@workspace:^, @reapit/foundations-ts-definitions@workspace:packages/foundations-ts-definitions":
-  version: 0.0.0-use.local
-  resolution: "@reapit/foundations-ts-definitions@workspace:packages/foundations-ts-definitions"
-  dependencies:
-    "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
-    concurrently: "npm:^6.5.1"
-    eslint: "npm:8.57.0"
-    sw2dts: "npm:^2.6.3"
-  languageName: unknown
-  linkType: soft
+"@reapit/foundations-ts-definitions@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@reapit/foundations-ts-definitions@npm:2.0.0"
+  checksum: 9a5f5c504e06004d1a6740870cbe7f734d09ce68402ac8ad59a0783d7e7d90c3b60f98ef2f0e20afe8d706f27196ee8a35fe75b86e0ea612a7dfbf31d6b2d08f
+  languageName: node
+  linkType: hard
+
+"@reapit/foundations-ts-definitions@npm:^1.5.9":
+  version: 1.5.9
+  resolution: "@reapit/foundations-ts-definitions@npm:1.5.9"
+  checksum: c65ada0dec8f32efa7b6702103edca2674f0674a53ff96480447fb8bad106f2c4c6f288c2a46ad436c537b4017a2292e65ee007d66d66a6a86fbbe35bfe3fb60
+  languageName: node
+  linkType: hard
 
 "@reapit/payments-ui@workspace:packages/payments-ui":
   version: 0.0.0-use.local
@@ -6197,8 +6156,8 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "npm:^4.1.2"
+    "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/browser": "npm:^7.107.0"
     "@sentry/react": "npm:^7.107.0"
@@ -6238,7 +6197,6 @@ __metadata:
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
     "@typescript-eslint/parser": "npm:^6.21.0"
     aws-lambda: "npm:^1.0.7"
@@ -6352,58 +6310,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/ts-types@workspace:packages/ts-types":
-  version: 0.0.0-use.local
-  resolution: "@reapit/ts-types@workspace:packages/ts-types"
-  dependencies:
-    "@types/adm-zip": "npm:^0.5.5"
-    "@types/aws-lambda": "npm:^8.10.136"
-    "@types/body-parser": "npm:^1.19.5"
-    "@types/cors": "npm:^2.8.17"
-    "@types/diff": "npm:^4.0.2"
-    "@types/ejs": "npm:^2.7.0"
-    "@types/enzyme": "npm:^3.10.18"
-    "@types/express": "npm:4.17.21"
-    "@types/express-session": "npm:^1.18.0"
-    "@types/figlet": "npm:^1.5.8"
-    "@types/googlemaps": "npm:^3.43.3"
-    "@types/graphql-depth-limit": "npm:^1.1.6"
-    "@types/graphql-type-json": "npm:^0.3.5"
-    "@types/inquirer": "npm:^7.3.3"
-    "@types/jest": "npm:^29.5.12"
-    "@types/jsonwebtoken": "npm:^8.5.9"
-    "@types/just-debounce-it": "npm:^1.5.0"
-    "@types/jwk-to-pem": "npm:^2.0.3"
-    "@types/lodash.debounce": "npm:^4.0.9"
-    "@types/morgan": "npm:^1.9.9"
-    "@types/nanoid": "npm:^2.1.0"
-    "@types/node": "npm:^14.18.63"
-    "@types/papaparse": "npm:^5.3.14"
-    "@types/query-string": "npm:^6.3.0"
-    "@types/rc-select": "npm:^8.6.6"
-    "@types/react": "npm:^18.2.67"
-    "@types/react-copy-to-clipboard": "npm:^5.0.7"
-    "@types/react-datepicker": "npm:^4.19.6"
-    "@types/react-dom": "npm:^18.2.22"
-    "@types/react-google-maps-loader": "npm:^4.2.6"
-    "@types/react-router": "npm:^5.1.20"
-    "@types/react-router-dom": "npm:^5.3.3"
-    "@types/react-slick": "npm:^0.23.13"
-    "@types/react-transition-group": "npm:^4.4.10"
-    "@types/uuid": "npm:^9.0.8"
-    "@types/yargs": "npm:^16.0.9"
-  languageName: unknown
-  linkType: soft
-
 "@reapit/use-reapit-data@workspace:packages/use-reapit-data":
   version: 0.0.0-use.local
   resolution: "@reapit/use-reapit-data@workspace:packages/use-reapit-data"
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@tanstack/react-query": "npm:^4.36.1"
     "@tanstack/react-query-devtools": "npm:^4.36.1"
@@ -6443,9 +6357,8 @@ __metadata:
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
     "@typescript-eslint/parser": "npm:^6.21.0"
     babel-jest: "npm:^29.7.0"
@@ -6471,7 +6384,7 @@ __metadata:
     "@nestjs/core": "npm:^9.4.3"
     "@nestjs/testing": "npm:^9.4.3"
     "@reapit/connect-session": "workspace:packages/connect-session"
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     eslint: "npm:^8.57.0"
     express: "npm:^4.18.3"
@@ -6497,9 +6410,8 @@ __metadata:
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/node": "npm:^7.107.0"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
@@ -6530,9 +6442,8 @@ __metadata:
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/node": "npm:^7.107.0"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
@@ -8992,7 +8903,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/aws-lambda@npm:*, @types/aws-lambda@npm:^8.10.136, @types/aws-lambda@npm:^8.10.76, @types/aws-lambda@npm:^8.10.83":
+"@types/aws-lambda@npm:*, @types/aws-lambda@npm:^8.10.76, @types/aws-lambda@npm:^8.10.83":
   version: 8.10.136
   resolution: "@types/aws-lambda@npm:8.10.136"
   checksum: df7afa66d3ee9fb3697cd81156c7f71104437d81e0bce8a16e8c6c56f176ea93c1f3cb7ed0f219936f410849b413a739c485ca8572c22fb24b46b8ecd571949a
@@ -9058,7 +8969,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/body-parser@npm:*, @types/body-parser@npm:^1.19.5":
+"@types/body-parser@npm:*":
   version: 1.19.5
   resolution: "@types/body-parser@npm:1.19.5"
   dependencies:
@@ -9097,15 +9008,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/cheerio@npm:*":
-  version: 0.22.35
-  resolution: "@types/cheerio@npm:0.22.35"
-  dependencies:
-    "@types/node": "npm:*"
-  checksum: 7d834512df4682733ce2ff1010682251d2d597d4c2f035b5ae43125a18b8a14c37d805d7c7ebcf57be360259c989465c5fd7b9dc21159b6719760d3d7fbd927f
-  languageName: node
-  linkType: hard
-
 "@types/connect@npm:*":
   version: 3.4.38
   resolution: "@types/connect@npm:3.4.38"
@@ -9129,43 +9031,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/cors@npm:^2.8.17":
-  version: 2.8.17
-  resolution: "@types/cors@npm:2.8.17"
-  dependencies:
-    "@types/node": "npm:*"
-  checksum: 469bd85e29a35977099a3745c78e489916011169a664e97c4c3d6538143b0a16e4cc72b05b407dc008df3892ed7bf595f9b7c0f1f4680e169565ee9d64966bde
-  languageName: node
-  linkType: hard
-
 "@types/debounce@npm:^1.2.4":
   version: 1.2.4
   resolution: "@types/debounce@npm:1.2.4"
   checksum: decef3eee65d681556d50f7fac346f1b33134f6b21f806d41326f9dfb362fa66b0282ff0640ae6791b690694c9dc3dad4e146e909e707e6f96650f3aa325b9da
-  languageName: node
-  linkType: hard
-
-"@types/diff@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "@types/diff@npm:4.0.2"
-  checksum: 79df93f7e4379f62c7aa74c26ded627862158596ec942570a31a9c29a2a4980c92e86f303e92c443f249ea1a0a7fad9ebf3b74f1aa4ece2433489a65186c3727
-  languageName: node
-  linkType: hard
-
-"@types/ejs@npm:^2.7.0":
-  version: 2.7.0
-  resolution: "@types/ejs@npm:2.7.0"
-  checksum: 96bf395ee42ee7cf1d7a8ed907d8fb97b55371d87b5c8425943a74899fd1a28550543f925b5fca6b8c9fd86713f595de4e4813adf94674873d6d15fbc9cb92bf
-  languageName: node
-  linkType: hard
-
-"@types/enzyme@npm:^3.10.18":
-  version: 3.10.18
-  resolution: "@types/enzyme@npm:3.10.18"
-  dependencies:
-    "@types/cheerio": "npm:*"
-    "@types/react": "npm:^16"
-  checksum: 0dfabb97c9678f90c00cff1db0df0d8678d598770df1512ce11c98640e7931890e2de5861bad4327df0cc36c736c8d1406c74760645ef1b5180106631adc559d
   languageName: node
   linkType: hard
 
@@ -9227,16 +9096,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express-session@npm:^1.18.0":
-  version: 1.18.0
-  resolution: "@types/express-session@npm:1.18.0"
-  dependencies:
-    "@types/express": "npm:*"
-  checksum: 66757c413983c9e6bb90d16ef7bc1e5d15f7f2e64dba63340b0ed5eccc1929fcb55a694e356b5676e5beb672d11db91a5cc71f6b5860077a02740de9ab8bb5c4
-  languageName: node
-  linkType: hard
-
-"@types/express@npm:*, @types/express@npm:4.17.21, @types/express@npm:^4.17.9":
+"@types/express@npm:*, @types/express@npm:^4.17.9":
   version: 4.17.21
   resolution: "@types/express@npm:4.17.21"
   dependencies:
@@ -9257,13 +9117,6 @@ __metadata:
     "@types/qs": "npm:*"
     "@types/serve-static": "npm:*"
   checksum: 293e53a7572ef93f70c830a0b1d620b5e16670509bb91e800393a67e7f41f170478809d862deed0edf573fc1afc3a6f7fc99ed176a28c0d8dd3f07c433f88672
-  languageName: node
-  linkType: hard
-
-"@types/figlet@npm:^1.5.8":
-  version: 1.5.8
-  resolution: "@types/figlet@npm:1.5.8"
-  checksum: 95d81e778265bc8b4f1b58e98c7d8889b8a3046ef775aa0e95b6d41ad97ace47813887427d5bdfd760b6a3a4767d8799bbb8a1f7d5bbf17f6142ae46e32509d2
   languageName: node
   linkType: hard
 
@@ -9296,13 +9149,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/google.maps@npm:*":
-  version: 3.55.5
-  resolution: "@types/google.maps@npm:3.55.5"
-  checksum: 9e3fe7b2ef7391e97c91f0d614dbdabd683fa2d57d05ef1b4802464caaf837be4f850fa35e93059b003be82d16aabcf6a423a3d505a9e6c77ae5da3fe069e7bc
-  languageName: node
-  linkType: hard
-
 "@types/googlemaps@npm:^3.43.3":
   version: 3.43.3
   resolution: "@types/googlemaps@npm:3.43.3"
@@ -9316,24 +9162,6 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: 79d746a8f053954bba36bd3d94a90c78de995d126289d656fb3271dd9f1229d33f678da04d10bce6be440494a5a73438e2e363e92802d16b8315b051036c5256
-  languageName: node
-  linkType: hard
-
-"@types/graphql-depth-limit@npm:^1.1.6":
-  version: 1.1.6
-  resolution: "@types/graphql-depth-limit@npm:1.1.6"
-  dependencies:
-    graphql: "npm:^14.5.3"
-  checksum: f00b8935f8b72d6182350e058b8f4d7c408a33baceef9a62f97668465eafe4c1655d84fd991b06d2f65a7e8ca94a02f911d794d932c3524733c4847cb6e3adf7
-  languageName: node
-  linkType: hard
-
-"@types/graphql-type-json@npm:^0.3.5":
-  version: 0.3.5
-  resolution: "@types/graphql-type-json@npm:0.3.5"
-  dependencies:
-    graphql: "npm:^14.5.3"
-  checksum: 765d960bdb79435c6fbc2266dbf6fdaca2a8fe378d6d5cf5b349ff8ca37a89b6bab43b474b8a3875648d6e4da987d4198b0b92ec5f529c7ba9703f803eb9e107
   languageName: node
   linkType: hard
 
@@ -9352,13 +9180,6 @@ __metadata:
   dependencies:
     "@types/unist": "npm:^2"
   checksum: 41531b7fbf590b02452996fc63272479c20a07269e370bd6514982cbcd1819b4b84d3ea620f2410d1b9541a23d08ce2eeb0a592145d05e00e249c3d56700d460
-  languageName: node
-  linkType: hard
-
-"@types/history@npm:^4.7.11":
-  version: 4.7.11
-  resolution: "@types/history@npm:4.7.11"
-  checksum: 1da529a3485f3015daf794effa3185493bf7dd2551c26932389c614f5a0aab76ab97645897d1eef9c74ead216a3848fcaa019f165bbd6e4b71da6eff164b4c68
   languageName: node
   linkType: hard
 
@@ -9478,37 +9299,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jsonwebtoken@npm:^8.5.9":
-  version: 8.5.9
-  resolution: "@types/jsonwebtoken@npm:8.5.9"
-  dependencies:
-    "@types/node": "npm:*"
-  checksum: 4654f8429e943eeb0fa968f15137adc1be35930e33b641cce39e8876dca6ddd0c4c7308384d042963caaf2e15efe74303269bc46c0a7a07ec4a9a2242a4bbe9e
-  languageName: node
-  linkType: hard
-
 "@types/jszip@npm:^3.4.1":
   version: 3.4.1
   resolution: "@types/jszip@npm:3.4.1"
   dependencies:
     jszip: "npm:*"
   checksum: e779a531fadfc2152233b71055cb67d21e8a8c6bbc6e94ffc5d186bc3fea6a66294c3efa87314339a9fd4b17fe9cb65cacd6c60d14db1d9487f8b9ae17d03255
-  languageName: node
-  linkType: hard
-
-"@types/just-debounce-it@npm:^1.5.0":
-  version: 1.5.0
-  resolution: "@types/just-debounce-it@npm:1.5.0"
-  dependencies:
-    just-debounce-it: "npm:*"
-  checksum: 05bea37c41249d58d42690b07e3060c705be10ace058b2b47e7c9ab3249e0ced6d4c4a3c908973687bd7368aaeab0dc16b8b75e56bfa50c5b585a4c94f8b4366
-  languageName: node
-  linkType: hard
-
-"@types/jwk-to-pem@npm:^2.0.3":
-  version: 2.0.3
-  resolution: "@types/jwk-to-pem@npm:2.0.3"
-  checksum: c4808eda5713b72d59c579ea7048108081447f6609344b2f379c0f91955dd4991bf042742715b8401ce1af5ffdbed8ef85c96920f686956c93f075a99b5f702b
   languageName: node
   linkType: hard
 
@@ -9521,16 +9317,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.debounce@npm:^4.0.9":
-  version: 4.0.9
-  resolution: "@types/lodash.debounce@npm:4.0.9"
-  dependencies:
-    "@types/lodash": "npm:*"
-  checksum: 8183a152e01928e3b97ca773f6ae6038b8695e76493ba8bf6b743ec143948a62294fbc9d49fa4a78b52265b3ba4892ef57534e0c13d04aa0f111671b5a944feb
-  languageName: node
-  linkType: hard
-
-"@types/lodash@npm:*, @types/lodash@npm:^4.14.123, @types/lodash@npm:^4.14.175":
+"@types/lodash@npm:^4.14.123, @types/lodash@npm:^4.14.175":
   version: 4.17.0
   resolution: "@types/lodash@npm:4.17.0"
   checksum: 2053203292b5af99352d108656ceb15d39da5922fc3fb8186e1552d65c82d6e545372cc97f36c95873aa7186404d59d9305e9d49254d4ae55e77df1e27ab7b5d
@@ -9602,24 +9389,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/morgan@npm:^1.9.9":
-  version: 1.9.9
-  resolution: "@types/morgan@npm:1.9.9"
-  dependencies:
-    "@types/node": "npm:*"
-  checksum: a6969b4494de964d6b682fce93decd51988ec15a69be0d2766adacd5e942e06d9b4a5cad1708d6698b242edc5dee76ec6f909b81d68e148eb0634a0b6a4efb66
-  languageName: node
-  linkType: hard
-
-"@types/nanoid@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "@types/nanoid@npm:2.1.0"
-  dependencies:
-    "@types/node": "npm:*"
-  checksum: cf69ef50a62f7ce4d705b6fa698b2efb11f4a41eb4eee6fa21cc88192f04b800724251ccbdb05534308c69836038fcd9166fce27ec644ecb326245cae27d8764
-  languageName: node
-  linkType: hard
-
 "@types/node-fetch@npm:^2.5.7":
   version: 2.6.11
   resolution: "@types/node-fetch@npm:2.6.11"
@@ -9646,7 +9415,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^14.14.31, @types/node@npm:^14.18.63":
+"@types/node@npm:^14.14.31":
   version: 14.18.63
   resolution: "@types/node@npm:14.18.63"
   checksum: 82a7775898c2ea6db0b610a463512206fb2c7adc1af482c7eb44b99d94375fff51c74f67ae75a63c5532971159f30c866a4d308000624ef02fd9a7175e277019
@@ -9675,15 +9444,6 @@ __metadata:
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: b4a28a3b593a9bdca5650880b6a9acef46911d58cf7cfa57268f048e9a7157a7c3196421b96cea576850ddb732e3b54bc982c8eb5e1e5ef0635d4424c2fce801
-  languageName: node
-  linkType: hard
-
-"@types/papaparse@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@types/papaparse@npm:5.3.14"
-  dependencies:
-    "@types/node": "npm:*"
-  checksum: 9bd5cc0e6a2c02def6c8903dc4604e499907cb465186ed3532390468082a06f023adbac0216428d0d8e8fe017206780a03d20007041e9fed47c8d391cd69a536
   languageName: node
   linkType: hard
 
@@ -9785,15 +9545,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/query-string@npm:^6.3.0":
-  version: 6.3.0
-  resolution: "@types/query-string@npm:6.3.0"
-  dependencies:
-    query-string: "npm:*"
-  checksum: 7d507aea24e650548bc8a164ae695deb1eaf7a566fdaeb53ec3f89605dbd2c5201daf9b76c31843bc8accc01e866df8b2a06557514ad8014c3af99c664cd0b5c
-  languageName: node
-  linkType: hard
-
 "@types/ramda@npm:~0.29.6":
   version: 0.29.11
   resolution: "@types/ramda@npm:0.29.11"
@@ -9810,37 +9561,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/rc-select@npm:^8.6.6":
-  version: 8.6.6
-  resolution: "@types/rc-select@npm:8.6.6"
-  dependencies:
-    rc-select: "npm:*"
-  checksum: 52d4cb0a1d7691a5e4262751cef5a123005b4eaa16b7fd4ea5a5392c5520356bb1d3dcdf9b67ecf3bc3e5ca1281a339e2bcde8d9ec613eb49fa7b14751e0a699
-  languageName: node
-  linkType: hard
-
-"@types/react-copy-to-clipboard@npm:^5.0.7":
-  version: 5.0.7
-  resolution: "@types/react-copy-to-clipboard@npm:5.0.7"
-  dependencies:
-    "@types/react": "npm:*"
-  checksum: adc2970c8756e648daa06e294c422df3dc076a784344ab2ecb78a17ebd7e8e3dfd7f31e68c24267de4815cdeec573a743d952a308b45b8380f6b7912a9a8b911
-  languageName: node
-  linkType: hard
-
-"@types/react-datepicker@npm:^4.19.6":
-  version: 4.19.6
-  resolution: "@types/react-datepicker@npm:4.19.6"
-  dependencies:
-    "@popperjs/core": "npm:^2.9.2"
-    "@types/react": "npm:*"
-    date-fns: "npm:^2.0.1"
-    react-popper: "npm:^2.2.5"
-  checksum: 60d18d379c7ff1f1ab7d2c9c5ac45b5a1cbf14f33cacdb44042e13ce294233eb244ea71d6ed8c4d35c4f24f59d87260a2c04a55a4ea024927bccaacb6e73b54e
-  languageName: node
-  linkType: hard
-
-"@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.2.22":
+"@types/react-dom@npm:^18.0.0":
   version: 18.2.22
   resolution: "@types/react-dom@npm:18.2.22"
   dependencies:
@@ -9849,56 +9570,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-google-maps-loader@npm:^4.2.6":
-  version: 4.2.6
-  resolution: "@types/react-google-maps-loader@npm:4.2.6"
-  dependencies:
-    "@types/google.maps": "npm:*"
-    "@types/react": "npm:*"
-  checksum: 5aa772768b0a9f860689b8eb8f1694b94a51fc784b9bae550cfacdad761ae686f39708fe8d4b47887d27b34f8957de3afcc557183c42fcf30ec3c971083c7b0c
-  languageName: node
-  linkType: hard
-
-"@types/react-router-dom@npm:^5.3.3":
-  version: 5.3.3
-  resolution: "@types/react-router-dom@npm:5.3.3"
-  dependencies:
-    "@types/history": "npm:^4.7.11"
-    "@types/react": "npm:*"
-    "@types/react-router": "npm:*"
-  checksum: 28c4ea48909803c414bf5a08502acbb8ba414669b4b43bb51297c05fe5addc4df0b8fd00e0a9d1e3535ec4073ef38aaafac2c4a2b95b787167d113bc059beff3
-  languageName: node
-  linkType: hard
-
-"@types/react-router@npm:*, @types/react-router@npm:^5.1.20":
-  version: 5.1.20
-  resolution: "@types/react-router@npm:5.1.20"
-  dependencies:
-    "@types/history": "npm:^4.7.11"
-    "@types/react": "npm:*"
-  checksum: 72d78d2f4a4752ec40940066b73d7758a0824c4d0cbeb380ae24c8b1cdacc21a6fc835a99d6849b5b295517a3df5466fc28be038f1040bd870f8e39e5ded43a4
-  languageName: node
-  linkType: hard
-
-"@types/react-slick@npm:^0.23.13":
-  version: 0.23.13
-  resolution: "@types/react-slick@npm:0.23.13"
-  dependencies:
-    "@types/react": "npm:*"
-  checksum: 3e363220dd7efb7eb9d60aec80588365ddffb366cc75307b86ce83d84e6664d9a66edc9d796cc0b4f87bfd217fa912d4005a00c2a87c41b36fbe4412ae7a15a7
-  languageName: node
-  linkType: hard
-
-"@types/react-transition-group@npm:^4.4.10":
-  version: 4.4.10
-  resolution: "@types/react-transition-group@npm:4.4.10"
-  dependencies:
-    "@types/react": "npm:*"
-  checksum: b429f3bd54d9aea6c0395943ce2dda6b76fb458e902365bd91fd99bf72064fb5d59e2b74e78d10f2871908501d350da63e230d81bda2b616c967cab8dc51bd16
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:*, @types/react@npm:^18.2.67":
+"@types/react@npm:*":
   version: 18.2.67
   resolution: "@types/react@npm:18.2.67"
   dependencies:
@@ -9906,17 +9578,6 @@ __metadata:
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: d7e248dbe8d9d3b05f0d8e128d615fc9c85aa2c5d15634271d20cb9b343dbeffb0875f31a44e7ac63b42afc25949bd4c3633b7ebee45ee4666591ca934a8dffb
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:^16":
-  version: 16.14.59
-  resolution: "@types/react@npm:16.14.59"
-  dependencies:
-    "@types/prop-types": "npm:*"
-    "@types/scheduler": "npm:*"
-    csstype: "npm:^3.0.2"
-  checksum: d4710c845b2bbf8142af4fb799b876952b4521dd64249ee2b44b183e2943b745649b01c21344289405a0544c116b42ef3771dc36be67d0c467834ffa7e1ca63b
   languageName: node
   linkType: hard
 
@@ -10642,9 +10303,8 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "npm:4.1.2"
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/use-reapit-data": "workspace:packages/use-reapit-data"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
@@ -10868,10 +10528,9 @@ __metadata:
     "@nestjs/platform-express": "npm:^8.4.7"
     "@nestjs/testing": "npm:^9.4.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-node": "workspace:packages/utils-node"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
@@ -11054,7 +10713,6 @@ __metadata:
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "npm:^4.1.2"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
     "@sentry/browser": "npm:^7.107.0"
@@ -11107,9 +10765,8 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "npm:^4.1.2"
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-scripts": "workspace:^"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
     "@sentry/browser": "npm:^7.107.0"
@@ -11152,6 +10809,7 @@ __metadata:
     "@nestjs/core": "npm:^9.4.3"
     "@nestjs/platform-express": "npm:^9.4.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-nest": "workspace:packages/utils-nest"
@@ -12810,7 +12468,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"classnames@npm:2.x, classnames@npm:^2.2.1, classnames@npm:^2.2.6, classnames@npm:^2.3.2, classnames@npm:^2.5.1":
+"classnames@npm:^2.5.1":
   version: 2.5.1
   resolution: "classnames@npm:2.5.1"
   checksum: 58eb394e8817021b153bb6e7d782cfb667e4ab390cb2e9dac2fc7c6b979d1cc2b2a733093955fc5c94aa79ef5c8c89f11ab77780894509be6afbb91dddd79d15
@@ -13023,7 +12681,7 @@ __metadata:
   resolution: "cognito-custom-mail-lambda@workspace:packages/cognito-custom-mail-lambda"
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/foundations-ts-definitions": "workspace:^"
+    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:^"
     "@reapit/utils-node": "workspace:packages/utils-node"
     "@types/mjml": "npm:^4.7.4"
@@ -13155,7 +12813,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^2.18.0, commander@npm:^2.19.0, commander@npm:^2.20.0, commander@npm:^2.20.3, commander@npm:^2.8.1":
+"commander@npm:^2.19.0, commander@npm:^2.20.0, commander@npm:^2.20.3, commander@npm:^2.8.1":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
   checksum: 90c5b6898610cd075984c58c4f88418a4fb44af08c1b1415e9854c03171bec31b336b7f3e4cefe33de994b3f12b03c5e2d638da4316df83593b9e82554e7e95b
@@ -13194,13 +12852,6 @@ __metadata:
   version: 8.3.0
   resolution: "commander@npm:8.3.0"
   checksum: 6b7b5d334483ce24bd73c5dac2eab901a7dbb25fd983ea24a1eeac6e7166bb1967f641546e8abf1920afbde86a45fbfe5812fbc69d0dc451bb45ca416a12a3a3
-  languageName: node
-  linkType: hard
-
-"commandpost@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "commandpost@npm:1.4.0"
-  checksum: ec9f8699093031ed01dd86dae9cf11865c74d3faaa362a463997af43e8d265f34d4dd32b39acd4698b13739d19240bc08b6b6e3d12d5f0b9fb2af77edda519f7
   languageName: node
   linkType: hard
 
@@ -13617,16 +13268,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-fetch@npm:^2.2.2":
-  version: 2.2.6
-  resolution: "cross-fetch@npm:2.2.6"
-  dependencies:
-    node-fetch: "npm:^2.6.7"
-    whatwg-fetch: "npm:^2.0.4"
-  checksum: ebddaf11bc2dd267650b8a803c98422097de436a366abd498d9a21832fcb0edca59610ee6e30eff65e004fe3689e8b418ce6d52fe503824b59909df8cbe27e10
-  languageName: node
-  linkType: hard
-
 "cross-fetch@npm:^3.0.4":
   version: 3.1.8
   resolution: "cross-fetch@npm:3.1.8"
@@ -13932,7 +13573,6 @@ __metadata:
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "npm:^4.1.2"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@sentry/browser": "npm:^7.107.0"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
     "@typescript-eslint/parser": "npm:^6.21.0"
@@ -13972,7 +13612,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"date-fns@npm:^2.0.1, date-fns@npm:^2.16.1, date-fns@npm:^2.29.1, date-fns@npm:^2.30.0":
+"date-fns@npm:^2.16.1, date-fns@npm:^2.29.1, date-fns@npm:^2.30.0":
   version: 2.30.0
   resolution: "date-fns@npm:2.30.0"
   dependencies:
@@ -14011,7 +13651,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:4, debug@npm:^4.0.1, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.0, debug@npm:^4.3.1, debug@npm:^4.3.2, debug@npm:^4.3.3, debug@npm:^4.3.4":
+"debug@npm:4, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.0, debug@npm:^4.3.1, debug@npm:^4.3.2, debug@npm:^4.3.3, debug@npm:^4.3.4":
   version: 4.3.4
   resolution: "debug@npm:4.3.4"
   dependencies:
@@ -14062,13 +13702,6 @@ __metadata:
   version: 0.2.2
   resolution: "decode-uri-component@npm:0.2.2"
   checksum: 17a0e5fa400bf9ea84432226e252aa7b5e72793e16bf80b907c99b46a799aeacc139ec20ea57121e50c7bd875a1a4365928f884e92abf02e21a5a13790a0f33e
-  languageName: node
-  linkType: hard
-
-"decode-uri-component@npm:^0.4.1":
-  version: 0.4.1
-  resolution: "decode-uri-component@npm:0.4.1"
-  checksum: 74eec26f7bec3767164e37d526ef19bc1214cb0bbeeeea1c4f0ceb79299e5c38d3ba734e7243d829842aa140f24e5d020f54cc25b17c7082461c8eead8a72ce3
   languageName: node
   linkType: hard
 
@@ -14322,6 +13955,7 @@ __metadata:
     "@reapit/api-key-verify": "workspace:packages/api-key-verify"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
+    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-authorizer": "workspace:^"
     "@reapit/utils-nest": "workspace:packages/utils-nest"
@@ -14456,9 +14090,8 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "npm:^4.1.2"
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/use-reapit-data": "workspace:packages/use-reapit-data"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
@@ -14727,23 +14360,6 @@ __metadata:
   version: 3.1.3
   resolution: "dset@npm:3.1.3"
   checksum: f3f7096718eeabe1608886364ea02254d5221a4d59d4fb4d2fd2fdf53cccf293d486793a44c894d3a07a916a283d1214e831e423839096d461a38571fc092126
-  languageName: node
-  linkType: hard
-
-"dtsgenerator@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "dtsgenerator@npm:1.2.0"
-  dependencies:
-    commander: "npm:^2.18.0"
-    cross-fetch: "npm:^2.2.2"
-    debug: "npm:^4.0.1"
-    glob: "npm:^7.1.3"
-    js-yaml: "npm:^3.12.0"
-    mkdirp: "npm:^0.5.1"
-    tslib: "npm:^1.9.3"
-  bin:
-    dtsgen: ./bin/dtsgen
-  checksum: 776a14ef44a423eb6b2650bfafc1a1b199b8570db974c872876399b982fe91fa66444f0548e053a770662187720cc7d43a0ab18f48e2b3cca19f63279e9a1933
   languageName: node
   linkType: hard
 
@@ -16394,13 +16010,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"filter-obj@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "filter-obj@npm:5.1.0"
-  checksum: 8f6dab6d8d8855f686e8cc6be289bbbd64a80be52c660124e36e982f78017cf5dae7de95f79ec167fbf62101d6aab93067a3105ae8f56251785a721e678d6b07
-  languageName: node
-  linkType: hard
-
 "finalhandler@npm:1.2.0":
   version: 1.2.0
   resolution: "finalhandler@npm:1.2.0"
@@ -16787,11 +16396,11 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "npm:^4.1.2"
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/browser": "npm:^7.107.0"
+    "@types/googlemaps": "npm:^3.43.3"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
     "@typescript-eslint/parser": "npm:^6.21.0"
     concurrently: "npm:^6.5.1"
@@ -17172,7 +16781,6 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@sentry/node": "npm:^7.107.0"
     "@types/aws-serverless-express": "npm:^3.3.9"
     "@types/graphql": "npm:^14.5.0"
@@ -17219,7 +16827,6 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-node": "workspace:packages/utils-node"
     "@snyk/protect": "npm:^1.1285.0"
     "@types/graphql": "npm:^14.5.0"
@@ -17315,15 +16922,6 @@ __metadata:
   version: 15.8.0
   resolution: "graphql@npm:15.8.0"
   checksum: f8d830287a9028d6779b59c437e0ade63a713b47521b02b60316df1761b805b1a7ce03be88053d224b7f78f5d1d1a786d287ab229cd158b42ebeea9e86daaba5
-  languageName: node
-  linkType: hard
-
-"graphql@npm:^14.5.3":
-  version: 14.7.0
-  resolution: "graphql@npm:14.7.0"
-  dependencies:
-    iterall: "npm:^1.2.2"
-  checksum: 34d39240777b219a6927f92a55a80e63469bb7d733aaf5eb75d4ee564a3b918172bff7ce163ab0e869f42eca2c0dfbe6257a67f9cbf378b9a02c4db6b708dd54
   languageName: node
   linkType: hard
 
@@ -18667,7 +18265,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iterall@npm:^1.2.1, iterall@npm:^1.2.2, iterall@npm:^1.3.0":
+"iterall@npm:^1.2.1, iterall@npm:^1.3.0":
   version: 1.3.0
   resolution: "iterall@npm:1.3.0"
   checksum: 700c3e9ae194a00b66dc8dcb449195f84add4e64afaf7ed624177e19565393f9bddd34d621ea70c8eceab87a8536fc0e45bb1c9d1ea7c710d41ed0c3d937b19f
@@ -19322,7 +18920,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-yaml@npm:^3.12.0, js-yaml@npm:^3.13.1, js-yaml@npm:^3.14.1":
+"js-yaml@npm:^3.13.1, js-yaml@npm:^3.14.1":
   version: 3.14.1
   resolution: "js-yaml@npm:3.14.1"
   dependencies:
@@ -19653,17 +19251,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"just-debounce-it@npm:*, just-debounce-it@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "just-debounce-it@npm:3.2.0"
-  checksum: 4e355c1cddead99f74efde5a860494db26f8c7abf5b6a63124410c75df2079b885c5efa8382ede212af3bac59505a4fc2e02b4a1dc797b3fb18d4901e73a8641
-  languageName: node
-  linkType: hard
-
 "just-debounce-it@npm:^1.5.0":
   version: 1.5.0
   resolution: "just-debounce-it@npm:1.5.0"
   checksum: 10a2bfc7da46dfb94e46de3d9ee8c154041a90c6ef6cb8861cb7fe30003cc4732e1d148045d89889f83cde68fca7fcedbc717119e1929879661c7b21d2a1c6f6
+  languageName: node
+  linkType: hard
+
+"just-debounce-it@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "just-debounce-it@npm:3.2.0"
+  checksum: 4e355c1cddead99f74efde5a860494db26f8c7abf5b6a63124410c75df2079b885c5efa8382ede212af3bac59505a4fc2e02b4a1dc797b3fb18d4901e73a8641
   languageName: node
   linkType: hard
 
@@ -20360,7 +19958,6 @@ __metadata:
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "npm:^4.1.2"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
     "@sentry/browser": "npm:^7.107.0"
@@ -20398,9 +19995,8 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "npm:^4.1.2"
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
     "@sentry/browser": "npm:^7.107.0"
@@ -21268,7 +20864,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mkdirp@npm:^0.5.1, mkdirp@npm:^0.5.4":
+"mkdirp@npm:^0.5.4":
   version: 0.5.6
   resolution: "mkdirp@npm:0.5.6"
   dependencies:
@@ -22631,9 +22227,9 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "npm:^4.1.2"
+    "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/payments-ui": "workspace:packages/payments-ui"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/use-reapit-data": "workspace:packages/use-reapit-data"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/browser": "npm:^7.107.0"
@@ -22676,8 +22272,8 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "npm:^4.1.2"
+    "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/browser": "npm:^7.107.0"
     "@sentry/react": "npm:^7.107.0"
@@ -22720,10 +22316,9 @@ __metadata:
     "@nestjs/testing": "npm:^9.4.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session-server": "workspace:^"
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-node": "workspace:packages/utils-node"
     "@sentry/node": "npm:^7.107.0"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
@@ -23649,17 +23244,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"query-string@npm:*":
-  version: 9.0.0
-  resolution: "query-string@npm:9.0.0"
-  dependencies:
-    decode-uri-component: "npm:^0.4.1"
-    filter-obj: "npm:^5.1.0"
-    split-on-first: "npm:^3.0.0"
-  checksum: ea71a81a192743b633ab6acc27a917d9d868c16ef50d3985bddebf5e9b525012e450220b2bad6c208f29c013d34bd2c1e925362979d19f716c74a5fe3ebf4b21
-  languageName: node
-  linkType: hard
-
 "query-string@npm:5.1.1":
   version: 5.1.1
   resolution: "query-string@npm:5.1.1"
@@ -23838,7 +23422,6 @@ __metadata:
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "npm:^4.1.2"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
     "@sentry/browser": "npm:^7.107.0"
@@ -23868,68 +23451,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"rc-motion@npm:^2.0.0, rc-motion@npm:^2.0.1":
-  version: 2.9.0
-  resolution: "rc-motion@npm:2.9.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.11.1"
-    classnames: "npm:^2.2.1"
-    rc-util: "npm:^5.21.0"
-  peerDependencies:
-    react: ">=16.9.0"
-    react-dom: ">=16.9.0"
-  checksum: 12bb290860865edbc8d08a731d377ccc62936a28bbfa83246cfca5b831843a6bfa8912c5ca3624823b28ab43e0ac46215f67e198729f6f6d91e826f64af514a9
-  languageName: node
-  linkType: hard
-
-"rc-overflow@npm:^1.3.1":
-  version: 1.3.2
-  resolution: "rc-overflow@npm:1.3.2"
-  dependencies:
-    "@babel/runtime": "npm:^7.11.1"
-    classnames: "npm:^2.2.1"
-    rc-resize-observer: "npm:^1.0.0"
-    rc-util: "npm:^5.37.0"
-  peerDependencies:
-    react: ">=16.9.0"
-    react-dom: ">=16.9.0"
-  checksum: a35d6f035de9e5b71f5762ddaf9757770fadab7d5f5e6bf0451346cffb06027e9de75a8104ca782c71e381f55552588a350905a61083cd23d2fb6f24e2807007
-  languageName: node
-  linkType: hard
-
-"rc-resize-observer@npm:^1.0.0, rc-resize-observer@npm:^1.3.1":
-  version: 1.4.0
-  resolution: "rc-resize-observer@npm:1.4.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.20.7"
-    classnames: "npm:^2.2.1"
-    rc-util: "npm:^5.38.0"
-    resize-observer-polyfill: "npm:^1.5.1"
-  peerDependencies:
-    react: ">=16.9.0"
-    react-dom: ">=16.9.0"
-  checksum: 20af15f915f55f8e046402a209e0de30ecbf720c9a6131aa9d9451f77af9d837fd79dad9218cbbffe200f5d2503a2c03525b1eb38b5c6c21aed2827d535c1e5a
-  languageName: node
-  linkType: hard
-
-"rc-select@npm:*":
-  version: 14.13.0
-  resolution: "rc-select@npm:14.13.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.10.1"
-    "@rc-component/trigger": "npm:^2.0.0"
-    classnames: "npm:2.x"
-    rc-motion: "npm:^2.0.1"
-    rc-overflow: "npm:^1.3.1"
-    rc-util: "npm:^5.16.1"
-    rc-virtual-list: "npm:^3.5.2"
-  peerDependencies:
-    react: "*"
-    react-dom: "*"
-  checksum: 8b4b56e205d0a5c7111f6c547177ab06a39f9bf4a9dec1dbd71870d0d92642686de283d4f662540acc8f9a1541fd1a10c72f50ef54fa1e2821b5a45bb46d8894
-  languageName: node
-  linkType: hard
-
 "rc-service@workspace:packages/rc-service":
   version: 0.0.0-use.local
   resolution: "rc-service@workspace:packages/rc-service"
@@ -23941,7 +23462,6 @@ __metadata:
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "npm:^5.0.0-beta.7"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
     "@sentry/browser": "npm:^7.107.0"
@@ -23968,34 +23488,6 @@ __metadata:
     yup: "npm:^0.32.11"
   languageName: unknown
   linkType: soft
-
-"rc-util@npm:^5.16.1, rc-util@npm:^5.21.0, rc-util@npm:^5.24.4, rc-util@npm:^5.36.0, rc-util@npm:^5.37.0, rc-util@npm:^5.38.0":
-  version: 5.39.1
-  resolution: "rc-util@npm:5.39.1"
-  dependencies:
-    "@babel/runtime": "npm:^7.18.3"
-    react-is: "npm:^18.2.0"
-  peerDependencies:
-    react: ">=16.9.0"
-    react-dom: ">=16.9.0"
-  checksum: 475e7755f8a8aaf8428c535e14ad1475d3d764108852a011cb5186fb7d905e064c0d56b77818ddaea0c5fbde439d3606b52f459cef7725fde8abf15e3e2ece2b
-  languageName: node
-  linkType: hard
-
-"rc-virtual-list@npm:^3.5.2":
-  version: 3.11.4
-  resolution: "rc-virtual-list@npm:3.11.4"
-  dependencies:
-    "@babel/runtime": "npm:^7.20.0"
-    classnames: "npm:^2.2.6"
-    rc-resize-observer: "npm:^1.0.0"
-    rc-util: "npm:^5.36.0"
-  peerDependencies:
-    react: ">=16.9.0"
-    react-dom: ">=16.9.0"
-  checksum: 4d0ea4671c27852e5f48da11237b30299a6aac39bb9fba70575999f0922cf88b867f456314195bad9beb1a73057bb74bcbfe586da71a913c0a9947555fbda3f9
-  languageName: node
-  linkType: hard
 
 "rc@npm:^1.2.7":
   version: 1.2.8
@@ -24094,13 +23586,6 @@ __metadata:
   peerDependencies:
     react: ">=16.13.1"
   checksum: 7418637bf352b88f35ff3798e6faa094ee046df9d422fc08f54c017892c3c0738dac661ba3d64d97209464e7a60e7fbbeffdbeaee5edc38f3aaf5f1f4a8bf610
-  languageName: node
-  linkType: hard
-
-"react-fast-compare@npm:^3.0.1":
-  version: 3.2.2
-  resolution: "react-fast-compare@npm:3.2.2"
-  checksum: a6826180ba75cefba1c8d3ac539735f9b627ca05d3d307fe155487f5d0228d376dac6c9708d04a283a7b9f9aee599b637446635b79c8c8753d0b4eece56c125c
   languageName: node
   linkType: hard
 
@@ -24221,24 +23706,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^18.0.0, react-is@npm:^18.2.0":
+"react-is@npm:^18.0.0":
   version: 18.2.0
   resolution: "react-is@npm:18.2.0"
   checksum: 200cd65bf2e0be7ba6055f647091b725a45dd2a6abef03bf2380ce701fd5edccee40b49b9d15edab7ac08a762bf83cb4081e31ec2673a5bfb549a36ba21570df
-  languageName: node
-  linkType: hard
-
-"react-popper@npm:^2.2.5":
-  version: 2.3.0
-  resolution: "react-popper@npm:2.3.0"
-  dependencies:
-    react-fast-compare: "npm:^3.0.1"
-    warning: "npm:^4.0.2"
-  peerDependencies:
-    "@popperjs/core": ^2.0.0
-    react: ^16.8.0 || ^17 || ^18
-    react-dom: ^16.8.0 || ^17 || ^18
-  checksum: 2afc495479ae4b9e67f9a1642debd7121947fe71a00c5b326301adb8288a18dca53ebd836fe9c3b7a4e2feb838df0abe8e044eb278e89b1c5d50978b0b93d0ac
   languageName: node
   linkType: hard
 
@@ -24463,7 +23934,6 @@ __metadata:
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "npm:^4.1.2"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
     "@sentry/browser": "npm:^7.107.0"
@@ -24746,13 +24216,6 @@ __metadata:
   version: 5.1.0
   resolution: "reselect@npm:5.1.0"
   checksum: 657c379d9461781b7cb5f0a32133e23b4266886660c94fcc77c102bec8abe484b32bf43a911b99b747ecf7439f157696561d744d40dc920024611beb1a0d921f
-  languageName: node
-  linkType: hard
-
-"resize-observer-polyfill@npm:^1.5.1":
-  version: 1.5.1
-  resolution: "resize-observer-polyfill@npm:1.5.1"
-  checksum: e10ee50cd6cf558001de5c6fb03fee15debd011c2f694564b71f81742eef03fb30d6c2596d1d5bf946d9991cb692fcef529b7bd2e4057041377ecc9636c753ce
   languageName: node
   linkType: hard
 
@@ -25296,7 +24759,6 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
     "@typescript-eslint/parser": "npm:^6.21.0"
     axios: "npm:^1.7.7"
@@ -26073,13 +25535,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"split-on-first@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "split-on-first@npm:3.0.0"
-  checksum: 75dc27ecbac65cfbeab9a3b90cf046307220192d3d7a30e46aa0f19571cc9b4802aac813f3de2cc9b16f2e46aae72f275659b5d2614bb5369c77724d739e5f73
-  languageName: node
-  linkType: hard
-
 "split2@npm:^3.1.1, split2@npm:^3.2.2":
   version: 3.2.2
   resolution: "split2@npm:3.2.2"
@@ -26701,19 +26156,6 @@ __metadata:
   bin:
     svgo: ./bin/svgo
   checksum: 2fdf3f2090e17b3c309e60f69c78a2afd5a9771247adb540bae3fce467243f7a601a2a5497ef40998292da41ad828b3eabf3c18b75bf449c2d2cbf6d7f6e96d9
-  languageName: node
-  linkType: hard
-
-"sw2dts@npm:^2.6.3":
-  version: 2.6.3
-  resolution: "sw2dts@npm:2.6.3"
-  dependencies:
-    commandpost: "npm:^1.4.0"
-    dtsgenerator: "npm:^1.2.0"
-    js-yaml: "npm:^3.13.1"
-  bin:
-    sw2dts: bin/sw2dts
-  checksum: e31e281e8c53ee50003ae35125d3f218c50e8f488ef34a4c974377e3bec0321b1bf6a9e70d6a675f65010215ab83a4d784f3aff4680393efacc030a0db1fefe1
   languageName: node
   linkType: hard
 
@@ -28710,15 +28152,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"warning@npm:^4.0.2":
-  version: 4.0.3
-  resolution: "warning@npm:4.0.3"
-  dependencies:
-    loose-envify: "npm:^1.0.0"
-  checksum: e7842aff036e2e07ce7a6cc3225e707775b969fe3d0577ad64bd24660e3a9ce3017f0b8c22a136566dcd3a151f37b8ed1ccee103b3bd82bd8a571bf80b247bc4
-  languageName: node
-  linkType: hard
-
 "watchpack@npm:^2.0.0-beta.10":
   version: 2.4.1
   resolution: "watchpack@npm:2.4.1"
@@ -28807,13 +28240,6 @@ __metadata:
   dependencies:
     iconv-lite: "npm:0.6.3"
   checksum: 162d712d88fd134a4fe587e53302da812eb4215a1baa4c394dfd86eff31d0a079ff932c05233857997de07481093358d6e7587997358f49b8a580a777be22089
-  languageName: node
-  linkType: hard
-
-"whatwg-fetch@npm:^2.0.4":
-  version: 2.0.4
-  resolution: "whatwg-fetch@npm:2.0.4"
-  checksum: 407d11d1761b3c2d15e3a92adcdeec73313fa0c0019aac59fdfac674d97f1a7014a8d7f4c9d3061d4a58ccb1c31d06a72e473d1716098007d356d94b01954a80
   languageName: node
   linkType: hard
 

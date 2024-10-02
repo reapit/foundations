@@ -2,7 +2,7 @@ import React, { FC, useEffect } from 'react'
 import { Button, ButtonGroup, FormLayout, InputError, InputGroup, InputWrap, Select, TextArea } from '@reapit/elements'
 import { SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { DeveloperModel, UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { useForm, useWatch } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -12,7 +12,7 @@ import { InputWrapFull } from '@reapit/elements'
 import { Label } from '@reapit/elements'
 
 export interface CompanyFormProps {
-  developer: DeveloperModel
+  developer: Marketplace.DeveloperModel
   refreshDeveloper: () => void
 }
 
@@ -44,7 +44,7 @@ export const handleRefreshDeveloper = (refreshDeveloper: () => void, updateDevel
 }
 
 export const handleUpdateDeveloper =
-  (developer: DeveloperModel, updateDeveloper: SendFunction<UpdateDeveloperModel, boolean>) =>
+  (developer: Marketplace.DeveloperModel, updateDeveloper: SendFunction<Marketplace.UpdateDeveloperModel, boolean>) =>
   ({
     company,
     telephone,
@@ -88,16 +88,17 @@ export const handleUpdateDeveloper =
   }
 
 export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper }) => {
-  const [, developerUpdating, updateDeveloper, updateDeveloperSuccess] = useReapitUpdate<UpdateDeveloperModel, boolean>(
-    {
-      reapitConnectBrowserSession,
-      action: updateActions[UpdateActionNames.updateDeveloper],
-      method: 'PUT',
-      uriParams: {
-        developerId: developer.id,
-      },
+  const [, developerUpdating, updateDeveloper, updateDeveloperSuccess] = useReapitUpdate<
+    Marketplace.UpdateDeveloperModel,
+    boolean
+  >({
+    reapitConnectBrowserSession,
+    action: updateActions[UpdateActionNames.updateDeveloper],
+    method: 'PUT',
+    uriParams: {
+      developerId: developer.id,
     },
-  )
+  })
 
   useEffect(handleRefreshDeveloper(refreshDeveloper, updateDeveloperSuccess), [updateDeveloperSuccess])
 

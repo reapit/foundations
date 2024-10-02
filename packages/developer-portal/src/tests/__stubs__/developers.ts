@@ -1,6 +1,6 @@
-import { DeveloperModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
-export const mockDeveloperModel: DeveloperModel = {
+export const mockDeveloperModel: Marketplace.DeveloperModel = {
   id: 'MOCK_ID',
   created: '2020-11-03T12:18:40',
   modified: '2022-04-08T13:10:39',

@@ -11,7 +11,7 @@ import {
   handleCopyCode,
   handleSetShouldFetchSecret,
 } from '../index'
-import { AppClientSecretModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
 jest.mock('../../state/use-app-state')
 jest.mock('@reapit/use-reapit-data', () => ({
@@ -94,7 +94,7 @@ describe('handleAuthClient', () => {
   it('should handle an auth client action', async () => {
     const authClientAction = jest.fn(() => Promise.resolve(true))
     const appsDetailRefresh = jest.fn()
-    const appSecret = {} as AppClientSecretModel
+    const appSecret = {} as Marketplace.AppClientSecretModel
     const refreshAppSecret = jest.fn()
 
     const curried = handleAuthClient(authClientAction, appsDetailRefresh, appSecret, refreshAppSecret)

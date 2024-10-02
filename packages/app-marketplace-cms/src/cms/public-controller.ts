@@ -1,6 +1,6 @@
 import { QueryIterator } from '@aws/dynamodb-data-mapper'
 import { Controller, Get, Query } from '@nestjs/common'
-import { AppsBrowseConfigEnum } from '@reapit/foundations-ts-definitions/marketplace-cms'
+import { AppsBrowseConfigEnum } from '@reapit/foundations-ts-definitions'
 import { CmsProvider } from './cms-provider'
 import { MarketplaceAppModel } from './marketplace-app-model'
 

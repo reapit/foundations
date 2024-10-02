@@ -1,10 +1,10 @@
 import 'chart.js/auto'
-import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import React, { FC, useMemo } from 'react'
 import { Chart } from 'react-chartjs-2'
 
 export interface InstallationsByAppChartProps {
-  installations: InstallationModelPagedResult
+  installations: Marketplace.InstallationModelPagedResult
 }
 
 export interface ChartDataModel {
@@ -12,7 +12,7 @@ export interface ChartDataModel {
   data: number[]
 }
 
-export const handleSortChartData = (installations: InstallationModelPagedResult) => () => {
+export const handleSortChartData = (installations: Marketplace.InstallationModelPagedResult) => () => {
   if (!installations.data) {
     return {
       labels: [],

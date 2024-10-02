@@ -35,7 +35,7 @@ const createStack = () => {
     component,
   })
 
-  const handler = 'packages/graphql-server/src/index.graphqlHandler'
+  const handler = 'index.graphqlHandler'
   const entrypoint = path.resolve(__dirname, 'bundle.zip')
 
   const { ISSUERS, ...env } = config

@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Button, ButtonGroup, Loader, MobileControls, Title, useMediaQuery, useModal } from '@reapit/elements'
 import { useReapitGet } from '@reapit/use-reapit-data'
-import { DeveloperModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -14,7 +14,7 @@ export const SettingsCompanyPage: FC = () => {
   const { Modal, openModal, closeModal } = useModal()
   const { isMobile } = useMediaQuery()
 
-  const [developer, developerLoading, , refreshDeveloper] = useReapitGet<DeveloperModel>({
+  const [developer, developerLoading, , refreshDeveloper] = useReapitGet<Marketplace.DeveloperModel>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getDeveloper],
     uriParams: { developerId },

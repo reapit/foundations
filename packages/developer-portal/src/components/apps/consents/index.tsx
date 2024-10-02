@@ -7,17 +7,12 @@ import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/use-reapit-
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { useGlobalState } from '../../../core/use-global-state'
-import {
-  AppRevisionConsentModel,
-  CreateAppRevisionConsentsModel,
-  InstallationModelPagedResult,
-  ResendAppRevisionConsentModel,
-} from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import dayjs from 'dayjs'
 
 export const handleResendEmail =
   (
-    resendEmail: SendFunction<ResendAppRevisionConsentModel, boolean>,
+    resendEmail: SendFunction<Marketplace.ResendAppRevisionConsentModel, boolean>,
     setConsentId: Dispatch<SetStateAction<string | null>>,
     appConsentsRefresh: () => void,
     consentId: string | null,
@@ -46,7 +41,7 @@ export const handleSetConsentId = (setConsentId: Dispatch<SetStateAction<string 
 
 export const handleSendConstents =
   (
-    createConsentEmails: SendFunction<CreateAppRevisionConsentsModel, boolean>,
+    createConsentEmails: SendFunction<Marketplace.CreateAppRevisionConsentsModel, boolean>,
     appConsentsRefresh: () => void,
     developerEmail?: string,
   ) =>
@@ -73,7 +68,7 @@ export const AppConsentsPage: FC = () => {
   const { name } = appDetail ?? {}
   const latestRevision = appRevisions?.data ? appRevisions.data[0] : null
 
-  const [appConsents, appConsentsLoading, , appConsentsRefresh] = useReapitGet<AppRevisionConsentModel[]>({
+  const [appConsents, appConsentsLoading, , appConsentsRefresh] = useReapitGet<Marketplace.AppRevisionConsentModel[]>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getRevisionConsents],
     uriParams: {
@@ -83,7 +78,7 @@ export const AppConsentsPage: FC = () => {
     fetchWhenTrue: [appId, latestRevision, appDetail?.pendingRevisions, appDetail?.isListed],
   })
 
-  const [, , createConsentEmails] = useReapitUpdate<CreateAppRevisionConsentsModel, boolean>({
+  const [, , createConsentEmails] = useReapitUpdate<Marketplace.CreateAppRevisionConsentsModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.createConsentEmails],
     method: 'POST',
@@ -93,7 +88,7 @@ export const AppConsentsPage: FC = () => {
     },
   })
 
-  const [installations] = useReapitGet<InstallationModelPagedResult>({
+  const [installations] = useReapitGet<Marketplace.InstallationModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getInstallations],
     queryParams: {
@@ -106,7 +101,7 @@ export const AppConsentsPage: FC = () => {
     fetchWhenTrue: [developerId],
   })
 
-  const [, , resendEmail] = useReapitUpdate<ResendAppRevisionConsentModel, boolean>({
+  const [, , resendEmail] = useReapitUpdate<Marketplace.ResendAppRevisionConsentModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.resendConsentEmail],
     method: 'POST',

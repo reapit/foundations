@@ -1,6 +1,6 @@
 import React, { useState, useEffect, FC, Dispatch, SetStateAction } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
+import { Payments, Platform } from '@reapit/foundations-ts-definitions'
 import { elFadeIn, Loader, PersistentNotification } from '@reapit/elements'
 import {
   ClientConfigModel,
@@ -29,14 +29,14 @@ import dayjs from 'dayjs'
 import { useReapitConnect } from '@reapit/connect-session'
 
 export interface PaymentProps {
-  paymentRequest: ReapitGetState<PaymentModel>
+  paymentRequest: ReapitGetState<Payments.PaymentModel>
 }
 
 export interface SetProviderParams extends Omit<PaymentProviderInitialisers, 'config' | 'payment' | 'merchantKey'> {
   paymentProvider: PaymentProvider | null
   setPaymentProvider: Dispatch<SetStateAction<PaymentProvider | null>>
   config: ClientConfigModel | null
-  payment: PaymentModel | null
+  payment: Payments.PaymentModel | null
   merchantKey?: MerchantKey
 }
 
@@ -76,7 +76,7 @@ export const handleMerchantKeyRefresh =
   (
     merchantKey: MerchantKey | undefined,
     getMerchantKey: SendFunction<void, boolean | MerchantKey>,
-    payment: PaymentModel | null,
+    payment: Payments.PaymentModel | null,
     config: ClientConfigModel | null,
   ) =>
   () => {
@@ -120,7 +120,7 @@ export const Payment: FC<PaymentProps> = ({ paymentRequest }) => {
 
   const propertyId = payment?.propertyId
 
-  const [property, propertyLoading] = useReapitGet<PropertyModel>({
+  const [property, propertyLoading] = useReapitGet<Platform.PropertyModel>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getPropertyById],
     uriParams: {

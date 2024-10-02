@@ -1,5 +1,5 @@
 import { Button, elFadeIn, elMb3, Icon, SmallText, BodyText, ButtonGroup, elMb7 } from '@reapit/elements'
-import { AppRevisionModelPagedResult, RejectRevisionModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
 import React, { Dispatch, FC, SetStateAction, useEffect, useState, MouseEvent } from 'react'
 import { Link, NavigateFunction, useLocation, useNavigate } from 'react-router-dom'
@@ -45,7 +45,7 @@ export const handleSetAppEditSaving =
 
 export const handleCancelPendingRevsion =
   (
-    cancelRevision: SendFunction<RejectRevisionModel, boolean | null>,
+    cancelRevision: SendFunction<Marketplace.RejectRevisionModel, boolean | null>,
     connectSession: ReapitConnectSession | null,
     revisionId: string | null,
   ) =>
@@ -61,7 +61,11 @@ export const handleCancelPendingRevsion =
   }
 
 export const handleSetRevisionId =
-  (appRevisions: AppRevisionModelPagedResult | null, setRevisionId: Dispatch<SetStateAction<string | null>>) => () => {
+  (
+    appRevisions: Marketplace.AppRevisionModelPagedResult | null,
+    setRevisionId: Dispatch<SetStateAction<string | null>>,
+  ) =>
+  () => {
     if (appRevisions?.data && appRevisions.data[0] && appRevisions.data[0].id) {
       setRevisionId(appRevisions.data[0].id)
     }
@@ -137,7 +141,7 @@ export const Helper: FC = () => {
   const hasUnsavedChanges = Boolean(Object.keys(appUnsavedFields).length)
   const { deletionProtection, id, name } = appDetail ?? {}
 
-  const [, , cancelRevision, cancelRevisionSuccess] = useReapitUpdate<RejectRevisionModel, null>({
+  const [, , cancelRevision, cancelRevisionSuccess] = useReapitUpdate<Marketplace.RejectRevisionModel, null>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.cancelRevision],
     uriParams: {

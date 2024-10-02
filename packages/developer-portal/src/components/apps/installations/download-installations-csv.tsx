@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react'
-import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { useReapitGet } from '@reapit/use-reapit-data'
 import FileSaver from 'file-saver'
@@ -9,7 +9,7 @@ import { Button, ButtonGroup } from '@reapit/elements'
 import { useAppState } from '../state/use-app-state'
 import { useReapitConnect } from '@reapit/connect-session'
 
-export const downloadInstallationAction = (installations: InstallationModelPagedResult) => {
+export const downloadInstallationAction = (installations: Marketplace.InstallationModelPagedResult) => {
   const csv = Papa.unparse({
     fields: [
       'App Name',
@@ -46,7 +46,7 @@ export const DownloadInstallationsCSV: FC = () => {
   const appId = appsDataState.appDetail?.id
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
-  const [installations] = useReapitGet<InstallationModelPagedResult>({
+  const [installations] = useReapitGet<Marketplace.InstallationModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getInstallations],
     queryParams: {

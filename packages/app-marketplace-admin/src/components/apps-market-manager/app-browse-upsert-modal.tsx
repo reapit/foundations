@@ -26,11 +26,10 @@ import {
   ToggleRadio,
 } from '@reapit/elements'
 import {
+  Marketplace,
   AppsBrowseConfigEnum,
-  AppsBrowseConfigItemFiltersInterface,
   AppsBrowseConfigItemInterface,
-  AppSummaryModelPagedResult,
-  CategoryModelPagedResult,
+  AppsBrowseConfigItemFiltersInterface,
 } from '@reapit/foundations-ts-definitions'
 import { SearchableMultiSelect } from '@reapit/utils-react'
 import {
@@ -179,7 +178,7 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
 
   const [loading, setLoading] = useState<boolean>(false)
 
-  const [categories] = useReapitGet<CategoryModelPagedResult>({
+  const [categories] = useReapitGet<Marketplace.CategoryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getAppCategories],
     queryParams: { pageSize: 25 },
@@ -192,7 +191,7 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
     returnType: UpdateReturnTypeEnum.RESPONSE,
   })
 
-  const [initialApps] = useReapitGet<AppSummaryModelPagedResult>({
+  const [initialApps] = useReapitGet<Marketplace.AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', pageSize: 100, id: defaultValues?.filters?.id },

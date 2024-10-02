@@ -3,7 +3,7 @@ import { PaymentForm } from './payment-form'
 import { PaymentProvider } from '../payment-provider'
 import { BodyText, Col, elFadeIn, elMb11, elMr4, FlexContainer, Grid, Icon, Subtitle, Title } from '@reapit/elements'
 import { combineAddress } from '@reapit/utils-common'
-import { PaymentModel } from '@reapit/foundations-ts-definitions'
+import { Payments } from '@reapit/foundations-ts-definitions'
 import { PaymentsBackButton } from './__styles__'
 import { navigateRoute } from '../utils'
 import { useNavigate } from 'react-router'
@@ -13,7 +13,11 @@ export interface PaymentPageContentProps {
 }
 
 export const handleOpenModal =
-  (openModal: () => void, setSelectedPayment: Dispatch<SetStateAction<PaymentModel | null>>, payment: PaymentModel) =>
+  (
+    openModal: () => void,
+    setSelectedPayment: Dispatch<SetStateAction<Payments.PaymentModel | null>>,
+    payment: Payments.PaymentModel,
+  ) =>
   () => {
     setSelectedPayment(payment)
     openModal()

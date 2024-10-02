@@ -15,7 +15,7 @@ import {
   Toggle,
 } from '@reapit/elements'
 import { AppEditTabsProps } from './edit-page-tabs'
-import { ProductModelPagedResult, ScopeModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { getActions, GetActionNames } from '@reapit/use-reapit-data'
 import { useReapitGet } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
@@ -30,12 +30,12 @@ export const PermissionsTab: FC<AppEditTabsProps> = ({ register, errors, control
   const { appEditState } = useAppState()
   const { appEditForm } = appEditState
 
-  const [scopesList, scopesListLoading] = useReapitGet<ScopeModel[]>({
+  const [scopesList, scopesListLoading] = useReapitGet<Marketplace.ScopeModel[]>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getAppPermissions],
   })
 
-  const [productsList, productListLoading] = useReapitGet<ProductModelPagedResult>({
+  const [productsList, productListLoading] = useReapitGet<Marketplace.ProductModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getProducts],
   })

@@ -1,6 +1,6 @@
-import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
-export const mockInstallationModelPagedResult: InstallationModelPagedResult = {
+export const mockInstallationModelPagedResult: Marketplace.InstallationModelPagedResult = {
   data: [
     {
       id: 'MOCK_ID_ONE',

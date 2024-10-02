@@ -1,14 +1,14 @@
 import React, { FC, useEffect } from 'react'
 import { Button, ButtonGroup } from '@reapit/elements'
 import { SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
-import { InviteMemberModel, MemberModel, UpdateMemberModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 
 export interface MemberUpdateControlsProps {
-  member: MemberModel
+  member: Marketplace.MemberModel
   refreshMembers: () => void
 }
 
@@ -26,7 +26,8 @@ export const handleRefreshMembers =
   }
 
 export const handleUpdateMember =
-  (updateMember: SendFunction<UpdateMemberModel, boolean>, memberUpdate: UpdateMemberModel) => () => {
+  (updateMember: SendFunction<Marketplace.UpdateMemberModel, boolean>, memberUpdate: Marketplace.UpdateMemberModel) =>
+  () => {
     updateMember(memberUpdate)
   }
 
@@ -36,8 +37,8 @@ export const handleDeleteMember = (deleteMember: SendFunction<undefined, boolean
 
 export const handleReinviteMember =
   (
-    reinviteMember: SendFunction<InviteMemberModel, boolean>,
-    member: MemberModel,
+    reinviteMember: SendFunction<Marketplace.InviteMemberModel, boolean>,
+    member: Marketplace.MemberModel,
     connectSession: ReapitConnectSession | null,
   ) =>
   () => {
@@ -57,15 +58,17 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const currentMemberEmail = connectSession?.loginIdentity.email
 
-  const [memberUpdating, , updateMember, updateMemberSuccess] = useReapitUpdate<UpdateMemberModel, boolean>({
-    reapitConnectBrowserSession,
-    action: updateActions[UpdateActionNames.updateMember],
-    method: 'PUT',
-    uriParams: {
-      developerId: member.developerId,
-      memberId: member.id,
+  const [memberUpdating, , updateMember, updateMemberSuccess] = useReapitUpdate<Marketplace.UpdateMemberModel, boolean>(
+    {
+      reapitConnectBrowserSession,
+      action: updateActions[UpdateActionNames.updateMember],
+      method: 'PUT',
+      uriParams: {
+        developerId: member.developerId,
+        memberId: member.id,
+      },
     },
-  })
+  )
 
   const [memberDeleting, , deleteMember, deleteMemberSuccess] = useReapitUpdate<undefined, boolean>({
     reapitConnectBrowserSession,
@@ -77,7 +80,10 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
     },
   })
 
-  const [memberReinviting, , reinviteMember, reinviteMemberSuccess] = useReapitUpdate<InviteMemberModel, boolean>({
+  const [memberReinviting, , reinviteMember, reinviteMemberSuccess] = useReapitUpdate<
+    Marketplace.InviteMemberModel,
+    boolean
+  >({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.inviteMember],
     method: 'POST',

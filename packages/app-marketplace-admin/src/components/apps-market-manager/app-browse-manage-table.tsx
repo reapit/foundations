@@ -14,9 +14,9 @@ import {
   Table,
 } from '@reapit/elements'
 import {
+  Marketplace,
   AppsBrowseConfigEnum,
   AppsBrowseConfigItemInterface,
-  AppSummaryModelPagedResult,
 } from '@reapit/foundations-ts-definitions'
 import {
   SendFunction,
@@ -121,7 +121,7 @@ export const updatedItemIndex = async <T extends { index?: number; id?: string }
 
 export const ManageTableExpandableContent: FC<ManageTableExpandableContentProps> = (props) => {
   const { configItem, setSelectedItem, connectSession, deleteItem } = props
-  const [selectedApps] = useReapitGet<AppSummaryModelPagedResult>({
+  const [selectedApps] = useReapitGet<Marketplace.AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', pageSize: 100, id: configItem?.filters?.id },

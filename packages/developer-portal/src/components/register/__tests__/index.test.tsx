@@ -1,14 +1,14 @@
 import React, { MouseEvent } from 'react'
 import { Register, onSubmit, onDeclineTermsAndConditions, onLoginButtonClick, formSubmit } from '..'
 import MockDate from 'mockdate'
-import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import dayjs from 'dayjs'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { render } from '../../../tests/react-testing'
 import { DATE_TIME_FORMAT } from '@reapit/utils-common'
 import { createDeveloperService } from '../../../services/developer'
 
-const mockRegisterFormValues: CreateDeveloperModel = {
+const mockRegisterFormValues: Marketplace.CreateDeveloperModel = {
   name: 'test',
   companyName: 'test',
   email: 'test@email.com',

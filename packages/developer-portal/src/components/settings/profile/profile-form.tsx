@@ -21,7 +21,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { selectIsUserOrUserAdmin } from '../../../utils/auth'
 import { useReapitGet, useReapitUpdate } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { SandboxModelPagedResult, UpdateMemberModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { useForm } from 'react-hook-form'
 import { useGlobalState } from '../../../core/use-global-state'
@@ -52,20 +52,22 @@ export const ProfileForm: FC = () => {
   const isClient = clientId && isUserOrUserAdmin
   const hasProducts = process.env.swaggerWhitelist.includes(currentDeveloper?.id as string)
 
-  const [sandboxes] = useReapitGet<SandboxModelPagedResult>({
+  const [sandboxes] = useReapitGet<Marketplace.SandboxModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getSandboxes],
   })
 
-  const [memberUpdating, , updateMember, updateMemberSuccess] = useReapitUpdate<UpdateMemberModel, boolean>({
-    reapitConnectBrowserSession,
-    action: updateActions[UpdateActionNames.updateMember],
-    method: 'PUT',
-    uriParams: {
-      developerId: currentMember?.developerId,
-      memberId: currentMember?.id,
+  const [memberUpdating, , updateMember, updateMemberSuccess] = useReapitUpdate<Marketplace.UpdateMemberModel, boolean>(
+    {
+      reapitConnectBrowserSession,
+      action: updateActions[UpdateActionNames.updateMember],
+      method: 'PUT',
+      uriParams: {
+        developerId: currentMember?.developerId,
+        memberId: currentMember?.id,
+      },
     },
-  })
+  )
 
   useEffect(handleRefreshMember(globalRefreshCurrentMember, updateMemberSuccess), [updateMemberSuccess])
 

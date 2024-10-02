@@ -14,7 +14,7 @@ import {
 } from '@reapit/elements'
 import { ControlsContainer, inputFullWidth, overflowHidden, visiblyHidden } from './__styles__'
 import { cx } from '@linaria/core'
-import { AppSummaryModel, InstallationModel, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { useReapitGet } from '@reapit/use-reapit-data'
 import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
@@ -31,7 +31,7 @@ export const handleFormChange =
     setAnalyticsFilterState(values)
   }
 
-export const handleInstallationsToOptions = (installations?: InstallationModel[]) => () => {
+export const handleInstallationsToOptions = (installations?: Marketplace.InstallationModel[]) => () => {
   if (!installations) return []
 
   const customers = installations.map(({ customerName, client, officeGroupName }) => {
@@ -60,7 +60,7 @@ export const Controls: FC = () => {
   const isCostsPage = pathname === Routes.ANALYTICS_COSTS
   const isCalcPage = pathname === Routes.ANALYTICS_COST_CALCULATOR
 
-  const [installations] = useReapitGet<InstallationModelPagedResult>({
+  const [installations] = useReapitGet<Marketplace.InstallationModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getInstallations],
     queryParams: { developerId, pageSize: 999, isInstalled: true, ...appQuery },
@@ -129,7 +129,7 @@ export const Controls: FC = () => {
                 <option key="default-option" value="">
                   None selected
                 </option>
-                {apps?.data?.map(({ name, id }: AppSummaryModel) => (
+                {apps?.data?.map(({ name, id }: Marketplace.AppSummaryModel) => (
                   <option key={id} value={id}>
                     {name}
                   </option>

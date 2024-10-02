@@ -14,6 +14,7 @@
     "@octokit/app": "^14.0.2",
     "@reapit/api-key-verify": "workspace:packages/api-key-verify",
     "@reapit/connect-session": "workspace:packages/connect-session",
+    "@reapit/foundations-ts-definitions": "^1.5.9",
     "@reapit/utils-authorizer": "workspace:^",
     "@reapit/utils-nest": "workspace:packages/utils-nest",
     "@reapit/utils-node": "workspace:packages/utils-node",

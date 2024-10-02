@@ -25,14 +25,13 @@
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
     "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
+    "@reapit/foundations-ts-definitions": "^1.5.9",
     "aws": "^0.0.3-2"
   },
   "devDependencies": {
     "@nestjs/common": "^9.4.3",
     "@nestjs/testing": "^9.4.3",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
-    "@reapit/ts-types": "workspace:packages/ts-types",
     "@reapit/utils-nest": "workspace:packages/utils-nest",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",

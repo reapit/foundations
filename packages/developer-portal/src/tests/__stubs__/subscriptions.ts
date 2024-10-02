@@ -1,6 +1,6 @@
-import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
-export const mockSubscriptionModelPagedResult: SubscriptionModelPagedResult = {
+export const mockSubscriptionModelPagedResult: Marketplace.SubscriptionModelPagedResult = {
   data: [
     {
       id: 'MOCK_ID',

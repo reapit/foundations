@@ -20,7 +20,7 @@ import { useAppState } from '../state/use-app-state'
 import { useParams } from 'react-router-dom'
 import { handleSetAppId } from '../utils/handle-set-app-id'
 import CopyToClipboard from 'react-copy-to-clipboard'
-import { AppClientSecretModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { SendFunction, UpdateActionNames, updateActions, useReapitGet, useReapitUpdate } from '@reapit/use-reapit-data'
 import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
@@ -60,7 +60,7 @@ export const handleCopyCode = (setCopyState: Dispatch<SetStateAction<CopyState>>
   }, 5000)
 }
 
-export const getAppStatus = ({ isListed, pendingRevisions, limitToClientIds }: AppDetailModel) => {
+export const getAppStatus = ({ isListed, pendingRevisions, limitToClientIds }: Marketplace.AppDetailModel) => {
   const isPrivateApp = Boolean(limitToClientIds?.length)
 
   return isListed && !pendingRevisions && !isPrivateApp
@@ -74,7 +74,11 @@ export const getAppStatus = ({ isListed, pendingRevisions, limitToClientIds }: A
           : 'Your app is not live and in development only'
 }
 
-export const getIntegrationType = ({ isDirectApi, authFlow, desktopIntegrationTypeIds }: AppDetailModel) => {
+export const getIntegrationType = ({
+  isDirectApi,
+  authFlow,
+  desktopIntegrationTypeIds,
+}: Marketplace.AppDetailModel) => {
   const isAcIntegrated = Boolean(desktopIntegrationTypeIds?.length)
 
   return authFlow === 'clientCredentials'
@@ -94,7 +98,7 @@ export const handleAuthClient =
   (
     authClientAction: SendFunction<void, boolean>,
     appsDetailRefresh: () => void,
-    appSecret: AppClientSecretModel | null,
+    appSecret: Marketplace.AppClientSecretModel | null,
     refreshAppSecret: () => void,
   ) =>
   async () => {
@@ -122,7 +126,7 @@ export const AppDetail: FC = () => {
   const { appDetail, appDetailLoading, appsDetailRefresh } = appsDataState
   const { id, name, externalId, authFlow, redirectUris, signoutUris, scopes, rotatingExternalId } = appDetail ?? {}
 
-  const [appSecret, appSecretLoading, , refreshAppSecret] = useReapitGet<AppClientSecretModel>({
+  const [appSecret, appSecretLoading, , refreshAppSecret] = useReapitGet<Marketplace.AppClientSecretModel>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getAppSecret],
     uriParams: { appId },

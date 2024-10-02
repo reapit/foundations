@@ -15,7 +15,7 @@ import {
   Icon,
   elMb7,
 } from '@reapit/elements'
-import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import TermsAndConditionsModal from './terms-and-conditions-modal'
 import Routes from '../../constants/routes'
 import { formFields } from './form-fields'
@@ -30,7 +30,7 @@ const { nameField, emailField, companyNameField, telephoneField, gitHubUsernameF
 
 export type DeveloperState = 'LOADING' | 'SUCCESS' | 'ERROR' | 'INITIAL'
 
-export const registerFormInitialValues: CreateDeveloperModel = {
+export const registerFormInitialValues: Marketplace.CreateDeveloperModel = {
   name: '',
   companyName: '',
   email: '',
@@ -41,7 +41,7 @@ export const registerFormInitialValues: CreateDeveloperModel = {
 
 export const onSubmit =
   (
-    values: CreateDeveloperModel,
+    values: Marketplace.CreateDeveloperModel,
     setDeveloperState: Dispatch<SetStateAction<DeveloperState>>,
     error: (message: string, timeout: number) => void,
   ) =>
@@ -79,7 +79,7 @@ export const formChange =
     formStep,
     setFormStep,
   }: {
-    getValues: UseFormGetValues<CreateDeveloperModel>
+    getValues: UseFormGetValues<Marketplace.CreateDeveloperModel>
     errors: { [s: string]: any }
     setFormStep: (value: 1 | 2 | 3) => void
     formStep: number
@@ -104,7 +104,7 @@ export const Register: FC = () => {
     formState: { errors },
     register,
     getValues,
-  } = useForm<CreateDeveloperModel>({
+  } = useForm<Marketplace.CreateDeveloperModel>({
     resolver: yupResolver(validationSchema),
     defaultValues: registerFormInitialValues,
   })

@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@reapit/connect-session": "workspace:packages/connect-session",
-    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
+    "@reapit/foundations-ts-definitions": "^1.5.9",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@tanstack/react-query": "^4.36.1",
     "@tanstack/react-query-devtools": "^4.36.1",
@@ -34,7 +34,6 @@
   "devDependencies": {
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
-    "@reapit/ts-types": "workspace:packages/ts-types",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "babel-jest": "^29.7.0",
