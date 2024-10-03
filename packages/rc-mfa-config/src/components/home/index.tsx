@@ -36,7 +36,7 @@ import { QrCodeVerify } from './qr-code-verify'
 import { ActiveAuthenticator } from '../active-authenticator'
 import { cx } from '@linaria/core'
 import { actionOverride, useRCAPI } from '../../utils/action-override'
-import { URLS } from '../../constants/urls'
+import { getTokenIssuer, tokenFromCognito } from '../../utils/token'
 
 export interface CreateAuthenticatorReturnType {
   secret: string
@@ -73,7 +73,7 @@ export const handleRefresh =
 export const HomePage: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [qrCode, setQrCode] = useState<CreateAuthenticatorReturnType>()
-  const [isCognitoIssuer, setIsCognitoIssuer] = useState<true | false | 'loading'>('loading')
+  const [accessToken, setAccessToken] = useState<string>()
   const email = connectSession?.loginIdentity.email
   const userId = email ? window.btoa(email.toLowerCase()).replace(/=/g, '') : null
 
@@ -106,18 +106,13 @@ export const HomePage: FC = () => {
 
     if (!accessToken) return
 
-    const decoded = JSON.parse(Buffer.from(accessToken?.split('.')[1] as string, 'base64').toString())
-
-    const issuer = decoded.iss
-
-    setIsCognitoIssuer(issuer.includes('cognito'))
+    setAccessToken(accessToken)
   }, [connectSession])
 
   const activeAuthenticator = authenticators?.find((authenticator) => authenticator.status === 'active')
 
   useEffect(handleRefresh(refreshAuthenticators, qrCodeResponse), [qrCodeResponse])
   useEffect(handleSetQrCode(setQrCode, qrCodeResponse), [qrCodeResponse])
-  const appEnv = process.env.appEnv
 
   return (
     <FlexContainer isFlexAuto>
@@ -142,9 +137,9 @@ export const HomePage: FC = () => {
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         <Title>Configure MFA Authenticator</Title>
-        {isCognitoIssuer === 'loading' ? (
+        {!accessToken ? (
           <Loader className={elMb11} />
-        ) : isCognitoIssuer ? (
+        ) : tokenFromCognito(accessToken) ? (
           authenticatorsLoading ? (
             <Loader className={elMb11} />
           ) : activeAuthenticator ? (
@@ -182,7 +177,7 @@ export const HomePage: FC = () => {
               To setup or reconfigure your MFA device, please click &lsquo;Configure MFA&rsquo; below. You will be
               redirected to your account profile page within Reapit Connect.
             </BodyText>
-            <Button intent="primary" onClick={openNewPage(`${URLS[appEnv].reapitConnectMyAccount}`)}>
+            <Button intent="primary" onClick={openNewPage(`${getTokenIssuer(accessToken)}my-account`)}>
               Configure MFA
             </Button>
           </>
