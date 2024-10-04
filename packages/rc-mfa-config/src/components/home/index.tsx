@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, useState, useEffect } from 'react'
 import {
   Title,
   Subtitle,
@@ -10,6 +10,7 @@ import {
   PageContainer,
   SecondaryNavContainer,
   SmallText,
+  BodyText,
   Loader,
   PersistentNotification,
   elMb7,
@@ -35,6 +36,7 @@ import { QrCodeVerify } from './qr-code-verify'
 import { ActiveAuthenticator } from '../active-authenticator'
 import { cx } from '@linaria/core'
 import { actionOverride, useRCAPI } from '../../utils/action-override'
+import { getTokenIssuer, tokenFromCognito } from '../../utils/token'
 
 export interface CreateAuthenticatorReturnType {
   secret: string
@@ -71,6 +73,7 @@ export const handleRefresh =
 export const HomePage: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [qrCode, setQrCode] = useState<CreateAuthenticatorReturnType>()
+  const [accessToken, setAccessToken] = useState<string>()
   const email = connectSession?.loginIdentity.email
   const userId = email ? window.btoa(email.toLowerCase()).replace(/=/g, '') : null
 
@@ -97,6 +100,14 @@ export const HomePage: FC = () => {
       userId,
     },
   })
+
+  useEffect(() => {
+    const accessToken = connectSession?.accessToken
+
+    if (!accessToken) return
+
+    setAccessToken(accessToken)
+  }, [connectSession])
 
   const activeAuthenticator = authenticators?.find((authenticator) => authenticator.status === 'active')
 
@@ -126,35 +137,49 @@ export const HomePage: FC = () => {
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         <Title>Configure MFA Authenticator</Title>
-        {authenticatorsLoading ? (
+        {!accessToken ? (
           <Loader className={elMb11} />
-        ) : activeAuthenticator ? (
-          <>
-            <PersistentNotification className={cx(elMb7, elFadeIn)} isFullWidth isExpanded isInline intent="primary">
-              You have an active authenticator registered for your account. If you want to re-configure, click the
-              &lsquo;Reset Authenticator&rsquo; button below.
-            </PersistentNotification>
-            <ActiveAuthenticator
-              activeAuthenticator={activeAuthenticator}
-              refreshAuthenticators={refreshAuthenticators}
-            />
-          </>
+        ) : tokenFromCognito(accessToken) ? (
+          authenticatorsLoading ? (
+            <Loader className={elMb11} />
+          ) : activeAuthenticator ? (
+            <>
+              <PersistentNotification className={cx(elMb7, elFadeIn)} isFullWidth isExpanded isInline intent="primary">
+                You have an active authenticator registered for your account. If you want to re-configure, click the
+                &lsquo;Reset Authenticator&rsquo; button below.
+              </PersistentNotification>
+              <ActiveAuthenticator
+                activeAuthenticator={activeAuthenticator}
+                refreshAuthenticators={refreshAuthenticators}
+              />
+            </>
+          ) : (
+            <>
+              <PersistentNotification className={cx(elMb7, elFadeIn)} isFullWidth isExpanded isInline intent="primary">
+                No authenticators configured for your user account. Please use the button below to configure one.
+              </PersistentNotification>
+              <ButtonGroup>
+                <Button
+                  intent="primary"
+                  onClick={handleGetQrCode(requestQrCode)}
+                  loading={qrCodeLoading}
+                  disabled={qrCodeLoading}
+                >
+                  Configure MFA Device
+                </Button>
+              </ButtonGroup>
+              <QrCodeVerify refreshAuthenticators={refreshAuthenticators} qrCode={qrCode} setQrCode={setQrCode} />
+            </>
+          )
         ) : (
           <>
-            <PersistentNotification className={cx(elMb7, elFadeIn)} isFullWidth isExpanded isInline intent="primary">
-              No authenticators configured for your user account. Please use the button below to configure one.
-            </PersistentNotification>
-            <ButtonGroup>
-              <Button
-                intent="primary"
-                onClick={handleGetQrCode(requestQrCode)}
-                loading={qrCodeLoading}
-                disabled={qrCodeLoading}
-              >
-                Configure MFA Device
-              </Button>
-            </ButtonGroup>
-            <QrCodeVerify refreshAuthenticators={refreshAuthenticators} qrCode={qrCode} setQrCode={setQrCode} />
+            <BodyText>
+              To setup or reconfigure your MFA device, please click &lsquo;Configure MFA&rsquo; below. You will be
+              redirected to your account profile page within Reapit Connect.
+            </BodyText>
+            <Button intent="primary" onClick={openNewPage(`${getTokenIssuer(accessToken)}my-account`)}>
+              Configure MFA
+            </Button>
           </>
         )}
       </PageContainer>
