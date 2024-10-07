@@ -1,5 +1,5 @@
 import { DataMapper, QueryIterator } from '@aws/dynamodb-data-mapper'
-import { Injectable } from '@nestjs/common'
+import { Injectable, NotImplementedException } from '@nestjs/common'
 import { ApiKeyModel } from '@reapit/api-key-verify'
 
 @Injectable()
@@ -45,6 +45,8 @@ export class ApiKeyProvider {
   }
 
   async getApiKeyByKey(apiKey: string): Promise<ApiKeyModel | undefined> {
+    console.warn('Oh no! Someone was using the api-key service afterall!')
+    throw new NotImplementedException()
     const result = await this.datamapper.query<ApiKeyModel>(
       ApiKeyModel,
       { apiKey },
