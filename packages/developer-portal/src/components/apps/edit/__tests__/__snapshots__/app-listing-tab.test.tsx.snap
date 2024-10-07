@@ -303,190 +303,232 @@ exports[`AppListingTab should match a snapshot 1`] = `
           <div />
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          <div
+            class="mocked-styled-140 el-file-input-wrap"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Upload Icon Image
-            </mock-styled.label>
+            </label>
             <div
               class="el-flex-container el-flex-align-center"
             >
-              <mock-styled.button
-                classname="el-mr4 el-intent-neutral"
+              <button
+                class="el-mr4 el-intent-neutral el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Upload
-              </mock-styled.button>
-              <mock-styled.input
+              </button>
+              <input
+                class="mocked-styled-139 el-file-input"
                 type="file"
               />
-              <mock-styled.input
-                filename="MOCK_UUID"
+              <input
+                class="mocked-styled-142 el-file-input-hidden"
                 id="test-static-id"
                 value=""
               />
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text el-has-no-margin"
+              <small
+                class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 192px x 192px
-              </mock-styled.p>
+              </small>
             </div>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          <div
+            class="mocked-styled-140 el-file-input-wrap"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Upload Featured Image
-            </mock-styled.label>
+            </label>
             <div
               class="el-flex-container el-flex-align-center"
             >
-              <mock-styled.button
-                classname="el-mr4 el-intent-neutral"
+              <button
+                class="el-mr4 el-intent-neutral el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Upload
-              </mock-styled.button>
-              <mock-styled.input
+              </button>
+              <input
+                class="mocked-styled-139 el-file-input"
                 type="file"
               />
-              <mock-styled.input
-                filename="MOCK_UUID"
+              <input
+                class="mocked-styled-142 el-file-input-hidden"
                 id="test-static-id"
                 value=""
               />
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text el-has-no-margin"
+              <small
+                class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 990px x 444px
-              </mock-styled.p>
+              </small>
             </div>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          <div
+            class="mocked-styled-140 el-file-input-wrap"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Upload Other Listing Image
-            </mock-styled.label>
+            </label>
             <div
               class="el-flex-container el-flex-align-center"
             >
-              <mock-styled.button
-                classname="el-mr4 el-intent-neutral"
+              <button
+                class="el-mr4 el-intent-neutral el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Upload
-              </mock-styled.button>
-              <mock-styled.input
+              </button>
+              <input
+                class="mocked-styled-139 el-file-input"
                 type="file"
               />
-              <mock-styled.input
-                filename="MOCK_UUID"
+              <input
+                class="mocked-styled-142 el-file-input-hidden"
                 id="test-static-id"
                 value=""
               />
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text el-has-no-margin"
+              <small
+                class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 1196x x 914px
-              </mock-styled.p>
+              </small>
             </div>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          <div
+            class="mocked-styled-140 el-file-input-wrap"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Upload Other Listing Image
-            </mock-styled.label>
+            </label>
             <div
               class="el-flex-container el-flex-align-center"
             >
-              <mock-styled.button
-                classname="el-mr4 el-intent-neutral"
+              <button
+                class="el-mr4 el-intent-neutral el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Upload
-              </mock-styled.button>
-              <mock-styled.input
+              </button>
+              <input
+                class="mocked-styled-139 el-file-input"
                 type="file"
               />
-              <mock-styled.input
-                filename="MOCK_UUID"
+              <input
+                class="mocked-styled-142 el-file-input-hidden"
                 id="test-static-id"
                 value=""
               />
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text el-has-no-margin"
+              <small
+                class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 1196x x 914px
-              </mock-styled.p>
+              </small>
             </div>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          <div
+            class="mocked-styled-140 el-file-input-wrap"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Upload Other Listing Image
-            </mock-styled.label>
+            </label>
             <div
               class="el-flex-container el-flex-align-center"
             >
-              <mock-styled.button
-                classname="el-mr4 el-intent-neutral"
+              <button
+                class="el-mr4 el-intent-neutral el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Upload
-              </mock-styled.button>
-              <mock-styled.input
+              </button>
+              <input
+                class="mocked-styled-139 el-file-input"
                 type="file"
               />
-              <mock-styled.input
-                filename="MOCK_UUID"
+              <input
+                class="mocked-styled-142 el-file-input-hidden"
                 id="test-static-id"
                 value=""
               />
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text el-has-no-margin"
+              <small
+                class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 1196x x 914px
-              </mock-styled.p>
+              </small>
             </div>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          <div
+            class="mocked-styled-140 el-file-input-wrap"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Upload Other Listing Image
-            </mock-styled.label>
+            </label>
             <div
               class="el-flex-container el-flex-align-center"
             >
-              <mock-styled.button
-                classname="el-mr4 el-intent-neutral"
+              <button
+                class="el-mr4 el-intent-neutral el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Upload
-              </mock-styled.button>
-              <mock-styled.input
+              </button>
+              <input
+                class="mocked-styled-139 el-file-input"
                 type="file"
               />
-              <mock-styled.input
-                filename="MOCK_UUID"
+              <input
+                class="mocked-styled-142 el-file-input-hidden"
                 id="test-static-id"
                 value=""
               />
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text el-has-no-margin"
+              <small
+                class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 1196x x 914px
-              </mock-styled.p>
+              </small>
             </div>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
       </mock-styled.div>
     </div>
@@ -790,190 +832,232 @@ exports[`AppListingTab should match a snapshot 1`] = `
         <div />
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+        <div
+          class="mocked-styled-140 el-file-input-wrap"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Upload Icon Image
-          </mock-styled.label>
+          </label>
           <div
             class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.button
-              classname="el-mr4 el-intent-neutral"
+            <button
+              class="el-mr4 el-intent-neutral el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Upload
-            </mock-styled.button>
-            <mock-styled.input
+            </button>
+            <input
+              class="mocked-styled-139 el-file-input"
               type="file"
             />
-            <mock-styled.input
-              filename="MOCK_UUID"
+            <input
+              class="mocked-styled-142 el-file-input-hidden"
               id="test-static-id"
               value=""
             />
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-no-margin"
+            <small
+              class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
             >
               Dimensions: 192px x 192px
-            </mock-styled.p>
+            </small>
           </div>
-        </mock-styled.div>
+        </div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+        <div
+          class="mocked-styled-140 el-file-input-wrap"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Upload Featured Image
-          </mock-styled.label>
+          </label>
           <div
             class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.button
-              classname="el-mr4 el-intent-neutral"
+            <button
+              class="el-mr4 el-intent-neutral el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Upload
-            </mock-styled.button>
-            <mock-styled.input
+            </button>
+            <input
+              class="mocked-styled-139 el-file-input"
               type="file"
             />
-            <mock-styled.input
-              filename="MOCK_UUID"
+            <input
+              class="mocked-styled-142 el-file-input-hidden"
               id="test-static-id"
               value=""
             />
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-no-margin"
+            <small
+              class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
             >
               Dimensions: 990px x 444px
-            </mock-styled.p>
+            </small>
           </div>
-        </mock-styled.div>
+        </div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+        <div
+          class="mocked-styled-140 el-file-input-wrap"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Upload Other Listing Image
-          </mock-styled.label>
+          </label>
           <div
             class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.button
-              classname="el-mr4 el-intent-neutral"
+            <button
+              class="el-mr4 el-intent-neutral el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Upload
-            </mock-styled.button>
-            <mock-styled.input
+            </button>
+            <input
+              class="mocked-styled-139 el-file-input"
               type="file"
             />
-            <mock-styled.input
-              filename="MOCK_UUID"
+            <input
+              class="mocked-styled-142 el-file-input-hidden"
               id="test-static-id"
               value=""
             />
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-no-margin"
+            <small
+              class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
             >
               Dimensions: 1196x x 914px
-            </mock-styled.p>
+            </small>
           </div>
-        </mock-styled.div>
+        </div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+        <div
+          class="mocked-styled-140 el-file-input-wrap"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Upload Other Listing Image
-          </mock-styled.label>
+          </label>
           <div
             class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.button
-              classname="el-mr4 el-intent-neutral"
+            <button
+              class="el-mr4 el-intent-neutral el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Upload
-            </mock-styled.button>
-            <mock-styled.input
+            </button>
+            <input
+              class="mocked-styled-139 el-file-input"
               type="file"
             />
-            <mock-styled.input
-              filename="MOCK_UUID"
+            <input
+              class="mocked-styled-142 el-file-input-hidden"
               id="test-static-id"
               value=""
             />
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-no-margin"
+            <small
+              class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
             >
               Dimensions: 1196x x 914px
-            </mock-styled.p>
+            </small>
           </div>
-        </mock-styled.div>
+        </div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+        <div
+          class="mocked-styled-140 el-file-input-wrap"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Upload Other Listing Image
-          </mock-styled.label>
+          </label>
           <div
             class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.button
-              classname="el-mr4 el-intent-neutral"
+            <button
+              class="el-mr4 el-intent-neutral el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Upload
-            </mock-styled.button>
-            <mock-styled.input
+            </button>
+            <input
+              class="mocked-styled-139 el-file-input"
               type="file"
             />
-            <mock-styled.input
-              filename="MOCK_UUID"
+            <input
+              class="mocked-styled-142 el-file-input-hidden"
               id="test-static-id"
               value=""
             />
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-no-margin"
+            <small
+              class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
             >
               Dimensions: 1196x x 914px
-            </mock-styled.p>
+            </small>
           </div>
-        </mock-styled.div>
+        </div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+        <div
+          class="mocked-styled-140 el-file-input-wrap"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Upload Other Listing Image
-          </mock-styled.label>
+          </label>
           <div
             class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.button
-              classname="el-mr4 el-intent-neutral"
+            <button
+              class="el-mr4 el-intent-neutral el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Upload
-            </mock-styled.button>
-            <mock-styled.input
+            </button>
+            <input
+              class="mocked-styled-139 el-file-input"
               type="file"
             />
-            <mock-styled.input
-              filename="MOCK_UUID"
+            <input
+              class="mocked-styled-142 el-file-input-hidden"
               id="test-static-id"
               value=""
             />
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-no-margin"
+            <small
+              class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
             >
               Dimensions: 1196x x 914px
-            </mock-styled.p>
+            </small>
           </div>
-        </mock-styled.div>
+        </div>
       </mock-styled.div>
     </mock-styled.div>
   </div>,
@@ -1528,199 +1612,247 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
           </mock-styled.p>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          <div
+            class="mocked-styled-140 el-file-input-wrap"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Upload Icon Image
-            </mock-styled.label>
+            </label>
             <div
               class="el-flex-container el-flex-align-center"
             >
-              <mock-styled.button
-                classname="el-mr4 el-intent-neutral"
+              <button
+                class="el-mr4 el-intent-neutral el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Upload
-              </mock-styled.button>
-              <mock-styled.input
+              </button>
+              <input
+                class="mocked-styled-139 el-file-input"
                 type="file"
               />
-              <mock-styled.input
-                filename="MOCK_UUID"
+              <input
+                class="mocked-styled-142 el-file-input-hidden"
                 id="test-static-id"
+                value=""
               />
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text el-has-no-margin"
+              <small
+                class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 192px x 192px
-              </mock-styled.p>
+              </small>
             </div>
-          </mock-styled.div>
+          </div>
           <mock-styled.p>
             An Error
           </mock-styled.p>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          <div
+            class="mocked-styled-140 el-file-input-wrap"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Upload Featured Image
-            </mock-styled.label>
+            </label>
             <div
               class="el-flex-container el-flex-align-center"
             >
-              <mock-styled.button
-                classname="el-mr4 el-intent-neutral"
+              <button
+                class="el-mr4 el-intent-neutral el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Upload
-              </mock-styled.button>
-              <mock-styled.input
+              </button>
+              <input
+                class="mocked-styled-139 el-file-input"
                 type="file"
               />
-              <mock-styled.input
-                filename="MOCK_UUID"
+              <input
+                class="mocked-styled-142 el-file-input-hidden"
                 id="test-static-id"
+                value=""
               />
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text el-has-no-margin"
+              <small
+                class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 990px x 444px
-              </mock-styled.p>
+              </small>
             </div>
-          </mock-styled.div>
+          </div>
           <mock-styled.p>
             An Error
           </mock-styled.p>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          <div
+            class="mocked-styled-140 el-file-input-wrap"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Upload Other Listing Image
-            </mock-styled.label>
+            </label>
             <div
               class="el-flex-container el-flex-align-center"
             >
-              <mock-styled.button
-                classname="el-mr4 el-intent-neutral"
+              <button
+                class="el-mr4 el-intent-neutral el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Upload
-              </mock-styled.button>
-              <mock-styled.input
+              </button>
+              <input
+                class="mocked-styled-139 el-file-input"
                 type="file"
               />
-              <mock-styled.input
-                filename="MOCK_UUID"
+              <input
+                class="mocked-styled-142 el-file-input-hidden"
                 id="test-static-id"
+                value=""
               />
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text el-has-no-margin"
+              <small
+                class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 1196x x 914px
-              </mock-styled.p>
+              </small>
             </div>
-          </mock-styled.div>
+          </div>
           <mock-styled.p>
             An Error
           </mock-styled.p>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          <div
+            class="mocked-styled-140 el-file-input-wrap"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Upload Other Listing Image
-            </mock-styled.label>
+            </label>
             <div
               class="el-flex-container el-flex-align-center"
             >
-              <mock-styled.button
-                classname="el-mr4 el-intent-neutral"
+              <button
+                class="el-mr4 el-intent-neutral el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Upload
-              </mock-styled.button>
-              <mock-styled.input
+              </button>
+              <input
+                class="mocked-styled-139 el-file-input"
                 type="file"
               />
-              <mock-styled.input
-                filename="MOCK_UUID"
+              <input
+                class="mocked-styled-142 el-file-input-hidden"
                 id="test-static-id"
+                value=""
               />
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text el-has-no-margin"
+              <small
+                class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 1196x x 914px
-              </mock-styled.p>
+              </small>
             </div>
-          </mock-styled.div>
+          </div>
           <mock-styled.p>
             An Error
           </mock-styled.p>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          <div
+            class="mocked-styled-140 el-file-input-wrap"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Upload Other Listing Image
-            </mock-styled.label>
+            </label>
             <div
               class="el-flex-container el-flex-align-center"
             >
-              <mock-styled.button
-                classname="el-mr4 el-intent-neutral"
+              <button
+                class="el-mr4 el-intent-neutral el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Upload
-              </mock-styled.button>
-              <mock-styled.input
+              </button>
+              <input
+                class="mocked-styled-139 el-file-input"
                 type="file"
               />
-              <mock-styled.input
-                filename="MOCK_UUID"
+              <input
+                class="mocked-styled-142 el-file-input-hidden"
                 id="test-static-id"
+                value=""
               />
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text el-has-no-margin"
+              <small
+                class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 1196x x 914px
-              </mock-styled.p>
+              </small>
             </div>
-          </mock-styled.div>
+          </div>
           <mock-styled.p>
             An Error
           </mock-styled.p>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          <div
+            class="mocked-styled-140 el-file-input-wrap"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Upload Other Listing Image
-            </mock-styled.label>
+            </label>
             <div
               class="el-flex-container el-flex-align-center"
             >
-              <mock-styled.button
-                classname="el-mr4 el-intent-neutral"
+              <button
+                class="el-mr4 el-intent-neutral el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Upload
-              </mock-styled.button>
-              <mock-styled.input
+              </button>
+              <input
+                class="mocked-styled-139 el-file-input"
                 type="file"
               />
-              <mock-styled.input
-                filename="MOCK_UUID"
+              <input
+                class="mocked-styled-142 el-file-input-hidden"
                 id="test-static-id"
+                value=""
               />
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text el-has-no-margin"
+              <small
+                class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
               >
                 Dimensions: 1196x x 914px
-              </mock-styled.p>
+              </small>
             </div>
-          </mock-styled.div>
+          </div>
           <mock-styled.p>
             An Error
           </mock-styled.p>
@@ -2221,199 +2353,247 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         </mock-styled.p>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+        <div
+          class="mocked-styled-140 el-file-input-wrap"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Upload Icon Image
-          </mock-styled.label>
+          </label>
           <div
             class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.button
-              classname="el-mr4 el-intent-neutral"
+            <button
+              class="el-mr4 el-intent-neutral el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Upload
-            </mock-styled.button>
-            <mock-styled.input
+            </button>
+            <input
+              class="mocked-styled-139 el-file-input"
               type="file"
             />
-            <mock-styled.input
-              filename="MOCK_UUID"
+            <input
+              class="mocked-styled-142 el-file-input-hidden"
               id="test-static-id"
+              value=""
             />
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-no-margin"
+            <small
+              class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
             >
               Dimensions: 192px x 192px
-            </mock-styled.p>
+            </small>
           </div>
-        </mock-styled.div>
+        </div>
         <mock-styled.p>
           An Error
         </mock-styled.p>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+        <div
+          class="mocked-styled-140 el-file-input-wrap"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Upload Featured Image
-          </mock-styled.label>
+          </label>
           <div
             class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.button
-              classname="el-mr4 el-intent-neutral"
+            <button
+              class="el-mr4 el-intent-neutral el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Upload
-            </mock-styled.button>
-            <mock-styled.input
+            </button>
+            <input
+              class="mocked-styled-139 el-file-input"
               type="file"
             />
-            <mock-styled.input
-              filename="MOCK_UUID"
+            <input
+              class="mocked-styled-142 el-file-input-hidden"
               id="test-static-id"
+              value=""
             />
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-no-margin"
+            <small
+              class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
             >
               Dimensions: 990px x 444px
-            </mock-styled.p>
+            </small>
           </div>
-        </mock-styled.div>
+        </div>
         <mock-styled.p>
           An Error
         </mock-styled.p>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+        <div
+          class="mocked-styled-140 el-file-input-wrap"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Upload Other Listing Image
-          </mock-styled.label>
+          </label>
           <div
             class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.button
-              classname="el-mr4 el-intent-neutral"
+            <button
+              class="el-mr4 el-intent-neutral el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Upload
-            </mock-styled.button>
-            <mock-styled.input
+            </button>
+            <input
+              class="mocked-styled-139 el-file-input"
               type="file"
             />
-            <mock-styled.input
-              filename="MOCK_UUID"
+            <input
+              class="mocked-styled-142 el-file-input-hidden"
               id="test-static-id"
+              value=""
             />
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-no-margin"
+            <small
+              class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
             >
               Dimensions: 1196x x 914px
-            </mock-styled.p>
+            </small>
           </div>
-        </mock-styled.div>
+        </div>
         <mock-styled.p>
           An Error
         </mock-styled.p>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+        <div
+          class="mocked-styled-140 el-file-input-wrap"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Upload Other Listing Image
-          </mock-styled.label>
+          </label>
           <div
             class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.button
-              classname="el-mr4 el-intent-neutral"
+            <button
+              class="el-mr4 el-intent-neutral el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Upload
-            </mock-styled.button>
-            <mock-styled.input
+            </button>
+            <input
+              class="mocked-styled-139 el-file-input"
               type="file"
             />
-            <mock-styled.input
-              filename="MOCK_UUID"
+            <input
+              class="mocked-styled-142 el-file-input-hidden"
               id="test-static-id"
+              value=""
             />
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-no-margin"
+            <small
+              class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
             >
               Dimensions: 1196x x 914px
-            </mock-styled.p>
+            </small>
           </div>
-        </mock-styled.div>
+        </div>
         <mock-styled.p>
           An Error
         </mock-styled.p>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+        <div
+          class="mocked-styled-140 el-file-input-wrap"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Upload Other Listing Image
-          </mock-styled.label>
+          </label>
           <div
             class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.button
-              classname="el-mr4 el-intent-neutral"
+            <button
+              class="el-mr4 el-intent-neutral el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Upload
-            </mock-styled.button>
-            <mock-styled.input
+            </button>
+            <input
+              class="mocked-styled-139 el-file-input"
               type="file"
             />
-            <mock-styled.input
-              filename="MOCK_UUID"
+            <input
+              class="mocked-styled-142 el-file-input-hidden"
               id="test-static-id"
+              value=""
             />
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-no-margin"
+            <small
+              class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
             >
               Dimensions: 1196x x 914px
-            </mock-styled.p>
+            </small>
           </div>
-        </mock-styled.div>
+        </div>
         <mock-styled.p>
           An Error
         </mock-styled.p>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+        <div
+          class="mocked-styled-140 el-file-input-wrap"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Upload Other Listing Image
-          </mock-styled.label>
+          </label>
           <div
             class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.button
-              classname="el-mr4 el-intent-neutral"
+            <button
+              class="el-mr4 el-intent-neutral el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Upload
-            </mock-styled.button>
-            <mock-styled.input
+            </button>
+            <input
+              class="mocked-styled-139 el-file-input"
               type="file"
             />
-            <mock-styled.input
-              filename="MOCK_UUID"
+            <input
+              class="mocked-styled-142 el-file-input-hidden"
               id="test-static-id"
+              value=""
             />
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-no-margin"
+            <small
+              class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
             >
               Dimensions: 1196x x 914px
-            </mock-styled.p>
+            </small>
           </div>
-        </mock-styled.div>
+        </div>
         <mock-styled.p>
           An Error
         </mock-styled.p>
