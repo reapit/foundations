@@ -2,11 +2,6 @@ const fetchMock = require('jest-fetch-mock')
 const MockDate = require('mockdate')
 global.fetch = fetchMock
 
-jest.mock('react-chartjs-2', () => ({
-  Bar: () => null,
-  Line: () => null,
-}))
-
 jest.mock('uuid', () => ({
   v4: jest.fn(() => 'MOCK_UUID'),
 }))
