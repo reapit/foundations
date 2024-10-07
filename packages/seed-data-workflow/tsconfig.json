@@ -13,7 +13,6 @@
     "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
-      "@reapit/connect-session": ["../connect-session/src"]
     }
   },
   "include": ["./src/**/*"],
