@@ -1,4 +1,4 @@
-import { logger } from '@reapit/utils-react'
+import { logger } from './sentry-logger'
 import { useMemo } from 'react'
 import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 import { useSnack } from '@reapit/elements'

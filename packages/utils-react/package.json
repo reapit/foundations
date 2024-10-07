@@ -1,33 +1,43 @@
 {
   "name": "@reapit/utils-react",
-  "version": "0.0.1",
-  "private": true,
-  "description": "Common Package for Reapit Foundation",
+  "version": "0.0.6",
+  "description": "Reapit React utils package",
   "repository": {
     "type": "git",
     "url": "git+git@github.com:reapit/foundations.git"
   },
   "license": "MIT",
   "author": "Reapit Ltd",
-  "main": "./src/index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
+  "publishConfig": {
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js"
+  },
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "start": "echo '...skipping...'",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
-    "build": "echo '...skipping...'",
+    "build": "rm -rf dist && rollup -c",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
     "release": "echo '...skipping...'",
     "deploy": "echo '...skipping...'",
-    "publish": "echo '...skipping...'",
+    "publish": "yarn npm publish --access private",
     "conf": "echo '...skipping...'",
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
   },
   "dependencies": {
     "@linaria/core": "^5.0.2",
     "@linaria/react": "^5.0.3",
-    "@reapit/connect-session": "workspace:packages/connect-session",
+    "@reapit/connect-session": "^6.0.3",
     "@reapit/foundations-ts-definitions": "^1.5.9",
+    "@reapit/use-reapit-data": "workspace:^",
     "@reapit/utils-common": "workspace:packages/utils-common",
+    "@rollup/plugin-url": "^8.0.2",
     "@sentry/node": "^7.107.0",
     "error-polyfill": "^0.1.3",
     "himalaya": "^1.1.0",
@@ -36,11 +46,33 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.25.7",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-private-methods": "^7.18.6",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/plugin-transform-runtime": "^7.25.7",
+    "@babel/preset-env": "^7.25.7",
+    "@babel/preset-react": "^7.25.7",
+    "@babel/preset-typescript": "^7.25.7",
+    "@linaria/rollup": "^5.0.4",
     "@linaria/shaker": "^5.0.3",
-    "@reapit/config-manager": "workspace:packages/config-manager",
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts",
+    "@reapit/elements": "^4.3.1",
+    "@reapit/ts-scripts": "workspace:^",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.0",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.0",
+    "@sentry/react": "^8.32.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/babel__core": "^7",
+    "@types/babel__plugin-transform-runtime": "^7",
+    "@types/babel__preset-env": "^7",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
+    "@wyw-in-js/rollup": "^0.5.4",
     "babel-jest": "^29.7.0",
     "concurrently": "^6.5.1",
     "cross-env": "^7.0.3",
@@ -48,8 +80,16 @@
     "eslint-plugin-prettier": "^5.1.3",
     "jest": "^29.7.0",
     "jest-coverage-badges": "^1.1.2",
+    "just-debounce-it": "^3.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-router-dom": "^6.26.2",
+    "rollup": "^4.24.0",
+    "rollup-plugin-css-only": "^4.5.2",
     "serialize-error": "^7.0.1",
     "ts-jest": "^29.1.2",
     "typescript": "^5.4.2"
+  },
+  "peerDependencies": {
+    "@sentry/react": "*"
   }
 }

@@ -2,13 +2,18 @@
   "name": "@reapit/utils-authorizer",
   "packageManager": "yarn@4.0.1",
   "main": "src/index.ts",
+  "files": [
+    "src/*"
+  ],
+  "version": "1.0.5",
   "dependencies": {
     "aws-jwt-verify": "^4.0.1",
     "aws-lambda": "^1.0.7",
     "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
-    "@types/jsonwebtoken": "^9"
+    "@types/jsonwebtoken": "^9",
+    "@types/node": "^22.7.4"
   },
   "scripts": {
     "start": "echo '...skipping...'",
@@ -18,7 +23,7 @@
     "check": "tsc --noEmit --skipLibCheck",
     "release": "echo '...skipping...'",
     "deploy": "echo '...skipping...'",
-    "publish": "echo '...skipping...'",
+    "publish": "yarn npm publish --access private",
     "conf": "echo '...skipping...'"
   }
 }

@@ -5,18 +5,15 @@
     "baseUrl": "./",
     "sourceRoot": "/",
     "paths": {
-      "@reapit/connect-session": ["../connect-session/src"],
-      "@reapit/utils-common": ["../utils-common/src"]
+      "@reapit/utils-common": ["../utils-common/src"],
+      "@reapit/use-reapit-data": ["../use-reapit-data/src"]
     },
-    "declaration": true,
-    "declarationDir": "dist"
+    "declaration": true
   },
 
   "include": [
     "src",
-    "../utils-common/src/reapit-data/utils.ts",
-    "../utils-common/src/reapit-data/actions",
     "src/types/global.d.ts"
   ],
-  "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage"]
+  "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage", "../../node_modules"]
 }

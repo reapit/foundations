@@ -1,6 +1,6 @@
 {
   "name": "@reapit/ts-scripts",
-  "version": "0.1.0",
+  "version": "0.1.8",
   "description": "TS build scripts",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
@@ -46,6 +46,7 @@
     "@graphql-tools/jest-transform": "^2.0.0",
     "@linaria/babel-preset": "^5.0.4",
     "@linaria/shaker": "^5.0.3",
+    "@linaria/vite": "^5.0.4",
     "@octokit/rest": "^20.0.2",
     "@sentry/vite-plugin": "^0.7.2",
     "@svgr/rollup": "^8.1.0",

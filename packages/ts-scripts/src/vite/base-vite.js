@@ -20,7 +20,6 @@ module.exports = (config, appName) =>
       await import('vite-plugin-graphql-loader').then((module) => module.default()),
       linaria({
         babelOptions: {
-          presets: ['@babel/preset-typescript', ['@babel/preset-react', { runtime: 'automatic' }]],
           plugins: [],
         },
       }),

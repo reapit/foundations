@@ -24,7 +24,7 @@ const mockError = jest.fn()
 
 const mockAxios = axios as unknown as jest.Mock
 
-jest.mock('../..', () => ({
+jest.mock('../sentry-logger', () => ({
   logger: jest.fn(),
 }))
 
