@@ -47,5 +47,5 @@
     "synth": "rpt-cdk synth cdk/cdk.ts",
     "bundle": "tsup-zip api-key-service"
   },
-  "version": "1.0.1"
+  "version": "1.0.5"
 }
