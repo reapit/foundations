@@ -7313,6 +7313,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@reapit/connect-session-server@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@reapit/connect-session-server@npm:1.0.0"
+  dependencies:
+    axios: "npm:^1.6.8"
+    jwt-decode: "npm:^4.0.0"
+  checksum: b973edfe716288540a4e28a5c54e65e90382917858f69b9ef6bc519f2026796d900a8d8655cde5325b22d3b814dda1fcccdd9eeef7e6d195008a54a957e2f80e
+  languageName: node
+  linkType: hard
+
 "@reapit/connect-session@npm:^6.0.3":
   version: 6.0.3
   resolution: "@reapit/connect-session@npm:6.0.3"
@@ -20589,6 +20599,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jwt-decode@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "jwt-decode@npm:4.0.0"
+  checksum: 87b569e4a9a0067fb0d592bcf3b2ac3e638e49beee28620eeb07bef1b4470f4077dea68c15d191dd68e076846c3af8394be3bcaecffedc6e97433b221fdbbcf3
+  languageName: node
+  linkType: hard
+
 "keyv@npm:^4.0.0, keyv@npm:^4.5.3":
   version: 4.5.4
   resolution: "keyv@npm:4.5.4"
@@ -23599,6 +23616,7 @@ __metadata:
     "@nestjs/testing": "npm:^9.4.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.0.3"
+    "@reapit/connect-session-server": "npm:^1.0.0"
     "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
@@ -26138,6 +26156,7 @@ __metadata:
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.0.3"
+    "@reapit/connect-session-server": "npm:^1.0.0"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
     "@typescript-eslint/parser": "npm:^6.21.0"
