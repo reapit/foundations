@@ -26,6 +26,7 @@
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "^4.1.2",
     "@reapit/foundations-ts-definitions": "^1.5.9",
+    "@reapit/use-reapit-data": "workspace:^",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@reapit/utils-react": "workspace:packages/utils-react",
     "@sentry/browser": "^7.107.0",

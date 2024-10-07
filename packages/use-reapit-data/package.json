@@ -4,8 +4,6 @@
   "version": "1.0.0",
   "description": "Data Fetching for Reapit Foundations",
   "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "module": "./dist/index.mjs",
   "repository": {
     "type": "git",
     "url": "git+git@github.com:reapit/foundations.git"
@@ -15,7 +13,7 @@
   "scripts": {
     "start": "echo '...skipping...'",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
-    "build": "tsup",
+    "build": "echo '...skipping...'",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
     "release": "echo '...skipping...'",

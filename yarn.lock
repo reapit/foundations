@@ -21680,6 +21680,7 @@ __metadata:
     "@reapit/elements": "npm:^4.1.2"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/use-reapit-data": "workspace:^"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
     "@sentry/browser": "npm:^7.107.0"
