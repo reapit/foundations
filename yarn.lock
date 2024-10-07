@@ -7381,7 +7381,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/connect-session-server@npm:^1.0.0, @reapit/connect-session-server@workspace:^, @reapit/connect-session-server@workspace:packages/connect-session-server":
+"@reapit/connect-session-server@workspace:^, @reapit/connect-session-server@workspace:packages/connect-session-server":
   version: 0.0.0-use.local
   resolution: "@reapit/connect-session-server@workspace:packages/connect-session-server"
   dependencies:
@@ -7746,7 +7746,6 @@ __metadata:
     "@nestjs/common": "npm:^10.4.4"
     "@nestjs/core": "npm:^10.4.4"
     "@nestjs/testing": "npm:^10.4.4"
-    "@reapit/connect-session-server": "npm:^1.0.0"
     "@reapit/foundations-ts-definitions": "npm:^2.0.0"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@types/jest": "npm:^29.5.13"
@@ -12121,6 +12120,7 @@ __metadata:
     "@nestjs/platform-express": "npm:^8.4.7"
     "@nestjs/testing": "npm:^9.4.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/connect-session-server": "workspace:^"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"

@@ -5,7 +5,9 @@
     "typeRoots": ["./src/core/definitions.d.ts", "node_modules/@types", "../../node_modules/@types"],
     "baseUrl": "./",
     "sourceRoot": "/",
-    "paths": {},
+    "paths": {
+      "@reapit/connect-session-server": ["../connect-session-server"]
+    },
     "declaration": true
   },
   "include": ["src"],
