@@ -8,16 +8,7 @@
   },
   "license": "MIT",
   "author": "Reapit Ltd",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "module": "./dist/index.mjs",
-  "publishConfig": {
-    "main": "dist/cjs/index.js",
-    "module": "dist/esm/index.js"
-  },
-  "files": [
-    "dist/"
-  ],
+  "main": "./src/index.ts",
   "scripts": {
     "start": "echo '...skipping...'",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
