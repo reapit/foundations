@@ -17,5 +17,5 @@
     "outDir": "./dist"
   },
   "include": ["src"],
-  "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage", "../connect-session/**/*"]
+  "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage"]
 }

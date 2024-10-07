@@ -1,5 +1,5 @@
 import { UnauthorizedException } from '@nestjs/common'
-import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session'
+import { connectSessionVerifyDecodeIdTokenWithPublicKeys, LoginIdentity } from '@reapit/connect-session-server'
 import { Request } from 'express'
 import { AuthProviderInterface } from './auth-provider-interface'
 import { CredAuthTokenProvider } from './token.provider.decorator'
