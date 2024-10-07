@@ -33,6 +33,7 @@
     "@nestjs/platform-express": "^9.4.3",
     "@reapit/connect-session-server": "workspace:^",
     "@reapit/foundations-ts-definitions": "2.0.0",
+    "@reapit/utils-common": "workspace:^",
     "@reapit/utils-node": "workspace:packages/utils-node",
     "@sentry/node": "^7.107.0",
     "aws-lambda": "^1.0.7",
