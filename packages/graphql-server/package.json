@@ -51,7 +51,7 @@
     "tslib": "2.6.2",
     "uuid": "^3.4.0",
     "vue": "^2.7.16",
-    "winston": "^3.12.0"
+    "winston": "^3.15.0"
   },
   "devDependencies": {
     "@reapit/config-manager": "workspace:packages/config-manager",

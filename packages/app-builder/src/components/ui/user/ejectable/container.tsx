@@ -18,9 +18,8 @@ const ContainerDiv = styled.div<{ width: number }>`
   }
 `
 
-export const ComponentWrapper = styled.div<{ width: number }>`
+export const ComponentWrapper = styled.div<{ width?: number }>`
   justify-self: stretch;
-  grid-column: span ${(props) => props.width};
 `
 
 export interface ContainerProps {

@@ -54,24 +54,28 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
             <mock-styled.div
               classname="el-form-layout-has-margin"
             >
-              <mock-styled.div>
-                <mock-styled.div
-                  classname="el-mb5"
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <div
+                  class="el-mb5 el-input-group"
                 >
-                  <mock-styled.input
-                    classname=""
+                  <input
+                    aria-label="Input type undefined"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     placeholder="Search"
                   />
-                  <mock-styled.span
-                    classname=""
-                    role="img"
+                  <span
+                    class="mocked-styled-4 el-icon"
                     style="font-size: 1rem;"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
                       style="font-size: 1rem;"
+                      title="Icon image with name searchSystem"
                       viewBox="0 0 20 20"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -81,31 +85,34 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  </span>
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Search Apps
-                  </mock-styled.label>
-                </mock-styled.div>
-                <mock-styled.div
-                  aria-controls=":r1:"
-                  aria-haspopup="listbox"
-                  role="combobox"
+                  </label>
+                </div>
+                <div
+                  class="mocked-styled-58 el-multi-select-input-wrapper"
                 >
-                  <mock-styled.input
+                  <input
+                    class="mocked-styled-57 el-multi-select-input"
                     id="select-multi-apps"
                   />
-                  <mock-styled.div
-                    classname="el-mb5"
+                  <div
+                    aria-label="Multi selected options"
+                    class="el-mb5 el-multi-select-selected"
+                    role="listbox"
                   >
-                    <mock-styled.span
-                      classname="el-ml2 el-intent-default el-icon-new"
-                      role="img"
+                    <span
+                      class="el-ml2 el-intent-default el-icon-new el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name task"
                         viewBox="0 0 24 24"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -115,20 +122,20 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                           fill="currentColor"
                         />
                       </svg>
-                    </mock-styled.span>
+                    </span>
                     <p>
                       No apps selected
                     </p>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
+                  </div>
+                </div>
+              </div>
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.label>
                     Categories
                   </mock-styled.label>
                   <mock-styled.div
-                    aria-controls=":r2:"
+                    aria-controls=":r1:"
                     aria-haspopup="listbox"
                     role="combobox"
                   >
@@ -529,24 +536,28 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
           <mock-styled.div
             classname="el-form-layout-has-margin"
           >
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-mb5"
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+              <div
+                class="el-mb5 el-input-group"
               >
-                <mock-styled.input
-                  classname=""
+                <input
+                  aria-label="Input type undefined"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   placeholder="Search"
                 />
-                <mock-styled.span
-                  classname=""
-                  role="img"
+                <span
+                  class="mocked-styled-4 el-icon"
                   style="font-size: 1rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
                     style="font-size: 1rem;"
+                    title="Icon image with name searchSystem"
                     viewBox="0 0 20 20"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -556,31 +567,34 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                </span>
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Search Apps
-                </mock-styled.label>
-              </mock-styled.div>
-              <mock-styled.div
-                aria-controls=":r1:"
-                aria-haspopup="listbox"
-                role="combobox"
+                </label>
+              </div>
+              <div
+                class="mocked-styled-58 el-multi-select-input-wrapper"
               >
-                <mock-styled.input
+                <input
+                  class="mocked-styled-57 el-multi-select-input"
                   id="select-multi-apps"
                 />
-                <mock-styled.div
-                  classname="el-mb5"
+                <div
+                  aria-label="Multi selected options"
+                  class="el-mb5 el-multi-select-selected"
+                  role="listbox"
                 >
-                  <mock-styled.span
-                    classname="el-ml2 el-intent-default el-icon-new"
-                    role="img"
+                  <span
+                    class="el-ml2 el-intent-default el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name task"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -590,20 +604,20 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
+                  </span>
                   <p>
                     No apps selected
                   </p>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
+                </div>
+              </div>
+            </div>
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.label>
                   Categories
                 </mock-styled.label>
                 <mock-styled.div
-                  aria-controls=":r2:"
+                  aria-controls=":r1:"
                   aria-haspopup="listbox"
                   role="combobox"
                 >

@@ -3,11 +3,11 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "ES2018",
-    "typeRoots": ["./src/core/definitions.d.ts", "node_modules/@types", "../../node_modules/@types"],
+    "typeRoots": ["node_modules/@types", "../../node_modules/@types"],
     "baseUrl": "./",
     "sourceRoot": "/",
     "paths": {
-      "@reapit/connect-session": ["../connect-session"]
+      "@reapit/connect-session-server": ["../connect-session-server"]
     },
     "declaration": true,
     "declarationDir": "dist",
@@ -17,5 +17,5 @@
     "outDir": "./dist"
   },
   "include": ["src"],
-  "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage", "../connect-session/**/*"]
+  "exclude": ["dist", "src/scripts", "node_modules", "src/tests/coverage", "../connect-session/**/*"]
 }

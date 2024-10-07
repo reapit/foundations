@@ -24,6 +24,7 @@
     "@linaria/react": "^5.0.3",
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "^4.1.2",
+    "@reapit/utils-common": "workspace:^",
     "@sentry/browser": "^7.107.0",
     "dayjs": "^1.11.10",
     "diff": "^4.0.2",

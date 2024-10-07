@@ -4,7 +4,7 @@ import { handleSetInitialOptions, handleSetNewOptions, SearchableMultiSelect } f
 import { GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
   useReapitGet: jest.fn(() => [
     {
       data: [

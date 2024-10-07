@@ -6,25 +6,25 @@ exports[`HelperWidgetContent should match a snapshot for docs 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div>
-        <mock-styled.h2
-          classname="el-text-base el-has-bold-text el-has-no-margin"
+        <h2
+          class="el-text-base el-subtitle el-has-bold-text el-has-no-margin"
         >
           Webhooks
-        </mock-styled.h2>
+        </h2>
       </mock-styled.div>
       <mock-styled.div
         classname="el-fade-in"
       >
-        <mock-styled.p
-          classname="el-text-base"
+        <p
+          class="el-text-base el-body-text"
         >
           Webhook Docs
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
-        </mock-styled.p>
+        </small>
         <mock-styled.a>
           View in docs
         </mock-styled.a>
@@ -32,16 +32,16 @@ exports[`HelperWidgetContent should match a snapshot for docs 1`] = `
       <mock-styled.div
         classname="el-fade-in"
       >
-        <mock-styled.p
-          classname="el-text-base"
+        <p
+          class="el-text-base el-body-text"
         >
           Webhook Docs
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
-        </mock-styled.p>
+        </small>
         <mock-styled.a>
           View in docs
         </mock-styled.a>
@@ -50,25 +50,25 @@ exports[`HelperWidgetContent should match a snapshot for docs 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div>
-      <mock-styled.h2
-        classname="el-text-base el-has-bold-text el-has-no-margin"
+      <h2
+        class="el-text-base el-subtitle el-has-bold-text el-has-no-margin"
       >
         Webhooks
-      </mock-styled.h2>
+      </h2>
     </mock-styled.div>
     <mock-styled.div
       classname="el-fade-in"
     >
-      <mock-styled.p
-        classname="el-text-base"
+      <p
+        class="el-text-base el-body-text"
       >
         Webhook Docs
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
-      </mock-styled.p>
+      </small>
       <mock-styled.a>
         View in docs
       </mock-styled.a>
@@ -76,16 +76,16 @@ exports[`HelperWidgetContent should match a snapshot for docs 1`] = `
     <mock-styled.div
       classname="el-fade-in"
     >
-      <mock-styled.p
-        classname="el-text-base"
+      <p
+        class="el-text-base el-body-text"
       >
         Webhook Docs
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
-      </mock-styled.p>
+      </small>
       <mock-styled.a>
         View in docs
       </mock-styled.a>
@@ -151,11 +151,11 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div>
-        <mock-styled.h2
-          classname="el-text-base el-has-bold-text el-has-no-margin"
+        <h2
+          class="el-text-base el-subtitle el-has-bold-text el-has-no-margin"
         >
           Webhooks
-        </mock-styled.h2>
+        </h2>
       </mock-styled.div>
       <mock-styled.div
         classname="el-fade-in"
@@ -228,16 +228,16 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
             fill="#FFB71B"
           />
         </svg>
-        <mock-styled.p
-          classname="el-text-base"
+        <p
+          class="el-text-base el-body-text"
         >
           Webhook Video
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
-        </mock-styled.p>
+        </small>
         <mock-styled.a>
           View on Youtube
         </mock-styled.a>
@@ -313,16 +313,16 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
             fill="#FFB71B"
           />
         </svg>
-        <mock-styled.p
-          classname="el-text-base"
+        <p
+          class="el-text-base el-body-text"
         >
           Webhook Video
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
-        </mock-styled.p>
+        </small>
         <mock-styled.a>
           View on Youtube
         </mock-styled.a>
@@ -331,11 +331,11 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div>
-      <mock-styled.h2
-        classname="el-text-base el-has-bold-text el-has-no-margin"
+      <h2
+        class="el-text-base el-subtitle el-has-bold-text el-has-no-margin"
       >
         Webhooks
-      </mock-styled.h2>
+      </h2>
     </mock-styled.div>
     <mock-styled.div
       classname="el-fade-in"
@@ -408,16 +408,16 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
           fill="#FFB71B"
         />
       </svg>
-      <mock-styled.p
-        classname="el-text-base"
+      <p
+        class="el-text-base el-body-text"
       >
         Webhook Video
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
-      </mock-styled.p>
+      </small>
       <mock-styled.a>
         View on Youtube
       </mock-styled.a>
@@ -493,16 +493,16 @@ exports[`HelperWidgetContent should match a snapshot for videos 1`] = `
           fill="#FFB71B"
         />
       </svg>
-      <mock-styled.p
-        classname="el-text-base"
+      <p
+        class="el-text-base el-body-text"
       >
         Webhook Video
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe et itaque, nam sequi doloribus culpa unde! Itaque, asperiores! Rem est repudiandae placeat incidunt, adipisci maxime consequuntur. Suscipit facere nostru sunt.
-      </mock-styled.p>
+      </small>
       <mock-styled.a>
         View on Youtube
       </mock-styled.a>

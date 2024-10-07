@@ -12,7 +12,7 @@ import { GetAction } from './get-actions'
 import { useSnack } from '@reapit/elements'
 import { useQuery, useQueryClient, UseQueryOptions } from '@tanstack/react-query'
 import axios, { AxiosError } from 'axios'
-import { logger } from '@reapit/utils-react'
+import { logger } from './sentry-logger'
 import { useNavigate } from 'react-router-dom'
 
 export type ReapitGetState<DataType> = [

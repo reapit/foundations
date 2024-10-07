@@ -13,17 +13,7 @@
   },
   "license": "ISC",
   "author": "",
-  "files": [
-    "dist",
-    "src/tests/badges"
-  ],
-  "publishConfig": {
-    "main": "dist/cjs/index.js",
-    "module": "dist/esm/index.js"
-  },
   "main": "src/index.ts",
-  "typings": "dist/cjs/index.d.ts",
-  "types": "dist/cjs/index.d.ts",
   "scripts": {
     "start": "echo '...skipping...'",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",

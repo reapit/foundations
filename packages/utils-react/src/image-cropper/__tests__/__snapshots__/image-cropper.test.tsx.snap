@@ -5,61 +5,73 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 1
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
+      <div
+        class="mocked-styled-140 el-file-input-wrap"
+      >
         <div
           class="el-flex-container el-flex-align-center"
         >
-          <mock-styled.button
-            classname="el-mr4 el-intent-neutral"
+          <button
+            class="el-mr4 el-intent-neutral el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Upload
-          </mock-styled.button>
-          <mock-styled.input
+          </button>
+          <input
+            class="mocked-styled-139 el-file-input"
             type="file"
           />
-          <mock-styled.input
+          <input
+            class="mocked-styled-142 el-file-input-hidden"
             id="test-static-id"
-            labeltext="input image"
             name="inputImage"
+            value=""
           />
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-no-margin"
+          <small
+            class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
           >
             Upload File
-          </mock-styled.p>
+          </small>
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
+    <div
+      class="mocked-styled-140 el-file-input-wrap"
+    >
       <div
         class="el-flex-container el-flex-align-center"
       >
-        <mock-styled.button
-          classname="el-mr4 el-intent-neutral"
+        <button
+          class="el-mr4 el-intent-neutral el-button"
           type="button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Upload
-        </mock-styled.button>
-        <mock-styled.input
+        </button>
+        <input
+          class="mocked-styled-139 el-file-input"
           type="file"
         />
-        <mock-styled.input
+        <input
+          class="mocked-styled-142 el-file-input-hidden"
           id="test-static-id"
-          labeltext="input image"
           name="inputImage"
+          value=""
         />
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-no-margin"
+        <small
+          class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
         >
           Upload File
-        </mock-styled.p>
+        </small>
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -120,89 +132,107 @@ exports[`ImageCropperWithInput should match snapshots with multiple conditions 2
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
+      <div
+        class="mocked-styled-140 el-file-input-wrap"
+      >
         <div
           class="el-flex-container el-flex-align-center"
         >
-          <mock-styled.button
-            classname="el-mr4 el-intent-neutral"
+          <button
+            class="el-mr4 el-intent-neutral el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Upload
-          </mock-styled.button>
-          <mock-styled.input
+          </button>
+          <input
+            class="mocked-styled-139 el-file-input"
             type="file"
           />
-          <mock-styled.input
+          <input
+            class="mocked-styled-142 el-file-input-hidden"
             id="test-static-id"
-            labeltext="input image"
             name="inputImage"
+            value=""
           />
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-no-margin"
+          <small
+            class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
           >
             Upload File
-          </mock-styled.p>
+          </small>
         </div>
-      </mock-styled.div>
+      </div>
     </div>
     <div>
-      <mock-styled.div>
+      <div
+        class="mocked-styled-140 el-file-input-wrap"
+      >
         <div
           class="el-flex-container el-flex-align-center"
         >
-          <mock-styled.button
-            classname="el-mr4 el-intent-neutral"
+          <button
+            class="el-mr4 el-intent-neutral el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Upload
-          </mock-styled.button>
-          <mock-styled.input
+          </button>
+          <input
+            class="mocked-styled-139 el-file-input"
             type="file"
           />
-          <mock-styled.input
+          <input
+            class="mocked-styled-142 el-file-input-hidden"
             id="test-static-id"
-            labeltext="input image"
             name="inputImage"
+            value=""
           />
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-no-margin"
+          <small
+            class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
           >
             Upload File
-          </mock-styled.p>
+          </small>
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
+    <div
+      class="mocked-styled-140 el-file-input-wrap"
+    >
       <div
         class="el-flex-container el-flex-align-center"
       >
-        <mock-styled.button
-          classname="el-mr4 el-intent-neutral"
+        <button
+          class="el-mr4 el-intent-neutral el-button"
           type="button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Upload
-        </mock-styled.button>
-        <mock-styled.input
+        </button>
+        <input
+          class="mocked-styled-139 el-file-input"
           type="file"
         />
-        <mock-styled.input
+        <input
+          class="mocked-styled-142 el-file-input-hidden"
           id="test-static-id"
-          labeltext="input image"
           name="inputImage"
+          value=""
         />
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-no-margin"
+        <small
+          class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
         >
           Upload File
-        </mock-styled.p>
+        </small>
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
