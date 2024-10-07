@@ -16,7 +16,7 @@ import React, {
   useMemo,
   PropsWithChildren,
 } from 'react'
-import { useReapitConnect } from '../../../connect-session/src'
+import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from './connect-session'
 
 export interface AppsBrowseConfigItemContent {
