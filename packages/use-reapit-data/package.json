@@ -3,7 +3,7 @@
   "packageManager": "yarn@3.1.1",
   "version": "1.0.0",
   "description": "Data Fetching for Reapit Foundations",
-  "main": "./dist/index.js",
+  "main": "./src/index.ts",
   "repository": {
     "type": "git",
     "url": "git+git@github.com:reapit/foundations.git"
