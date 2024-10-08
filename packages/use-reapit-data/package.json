@@ -23,7 +23,7 @@
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
   },
   "dependencies": {
-    "@reapit/connect-session": "^6.0.3",
+    "@reapit/connect-session": "^6.1.0",
     "@reapit/foundations-ts-definitions": "^1.5.9",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@tanstack/react-query": "^4.36.1",

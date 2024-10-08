@@ -4,7 +4,7 @@
   "description": "A cli tool for reapit cloud",
   "main": "dist/index.js",
   "dependencies": {
-    "@reapit/connect-session": "^6.0.3",
+    "@reapit/connect-session": "^6.1.0",
     "adm-zip": "^0.5.12",
     "ansi-regex": "^6.0.1",
     "axios": "^1.7.7",
