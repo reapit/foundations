@@ -10,6 +10,7 @@ const confirmRegistrationUrl = `${process.env.MARKET_PLACE_URL}/login`
 const resetPasswordUrl = `${process.env.MARKET_PLACE_URL}/reset-password`
 const internalOrgServiceUrl = process.env.INTERNAL_ORG_SERVICE_URL
 const agentboxUrl = process.env.AGENTBOX_URL
+const consoleUrl = process.env.CONSOLE_URL ?? confirmRegistrationUrl
 
 const replaceAll = (str: string, find: string, replace: string): string => {
   return str.replace(new RegExp(find, 'g'), replace)
@@ -39,9 +40,12 @@ const getConfirmRegistrationUrl = async (emailAddress: string) => {
     return confirmRegistrationUrl
   }
   const user: UserModel = await res.json()
-  if (user.products.length === 1 && user.products[0].id === 'agentbox') {
-    return agentboxUrl
+  if (user.products.length === 1) {
+    const productId = user.products[0].id
+    if (productId === 'agentbox') return agentboxUrl
+    if (productId === 'consoleCloud') return consoleUrl
   }
+  
   return confirmRegistrationUrl
 }
 
