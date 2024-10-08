@@ -7313,13 +7313,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/connect-session-server@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@reapit/connect-session-server@npm:1.0.0"
+"@reapit/connect-session-server@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@reapit/connect-session-server@npm:1.1.0"
   dependencies:
-    axios: "npm:^1.6.8"
+    axios: "npm:^1.7.7"
+    idtoken-verifier: "npm:^2.2.4"
     jwt-decode: "npm:^4.0.0"
-  checksum: b973edfe716288540a4e28a5c54e65e90382917858f69b9ef6bc519f2026796d900a8d8655cde5325b22d3b814dda1fcccdd9eeef7e6d195008a54a957e2f80e
+  checksum: 7e03ea9f964e3beef16681cda71c2057c00181197398f1ac53746820855a0e9b5d145c815be09159d984039deb49b8973e4bd767784c1c606a686afa56c19b55
   languageName: node
   linkType: hard
 
@@ -15244,7 +15245,7 @@ __metadata:
     "@octokit/app": "npm:^14.0.2"
     "@reapit/api-key-verify": "workspace:packages/api-key-verify"
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/connect-session": "npm:^6.0.3"
+    "@reapit/connect-session": "npm:^6.1.0"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-authorizer": "workspace:^"
@@ -23635,7 +23636,7 @@ __metadata:
     "@nestjs/testing": "npm:^9.4.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.0"
-    "@reapit/connect-session-server": "npm:^1.0.0"
+    "@reapit/connect-session-server": "npm:^1.1.0"
     "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
@@ -26175,7 +26176,7 @@ __metadata:
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.0"
-    "@reapit/connect-session-server": "npm:^1.0.0"
+    "@reapit/connect-session-server": "npm:^1.1.0"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
     "@typescript-eslint/parser": "npm:^6.21.0"
