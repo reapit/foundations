@@ -9,7 +9,6 @@
     "strict": true,
     "skipLibCheck": true,
     "baseUrl": "./",
-
     "paths": {
       "@reapit/utils-common": ["../utils-common/src"]
     }
