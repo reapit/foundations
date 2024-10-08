@@ -7324,25 +7324,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reapit/connect-session@npm:^6.0.3":
-  version: 6.0.3
-  resolution: "@reapit/connect-session@npm:6.0.3"
-  dependencies:
-    "@aws-crypto/sha256-browser": "npm:^5.2.0"
-    axios: "npm:^1.6.8"
-    base-64: "npm:^1.0.0"
-    idtoken-verifier: "npm:^2.2.4"
-    isomorphic-fetch: "npm:^3.0.0"
-    jwk-to-pem: "npm:^2.0.5"
-    jwt-decode: "npm:^3.1.2"
-    react: "npm:^18.2.0"
-    react-dom: "npm:^18.2.0"
-    text-encoding: "npm:^0.7.0"
-    uuid: "npm:^9.0.1"
-  checksum: 97f8ceabe0de9306e64d3537238ec2f2b7f6a5f3eba908d3f43837d8330e7a09a3859d3afc51b4d084108bb0ff9e0485b16d0f6a10b90bf554af8f8cd42d761d
-  languageName: node
-  linkType: hard
-
 "@reapit/connect-session@npm:^6.1.0":
   version: 6.1.0
   resolution: "@reapit/connect-session@npm:6.1.0"
@@ -7682,7 +7663,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/utils-node@workspace:packages/utils-node":
+"@reapit/utils-node@workspace:^, @reapit/utils-node@workspace:packages/utils-node":
   version: 0.0.0-use.local
   resolution: "@reapit/utils-node@workspace:packages/utils-node"
   dependencies:
@@ -7690,8 +7671,7 @@ __metadata:
     "@linaria/react": "npm:^5.0.3"
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/connect-session": "npm:^6.0.3"
-    "@reapit/connect-session-server": "npm:^1.1.0"
+    "@reapit/connect-session": "npm:^6.1.0"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
@@ -15251,7 +15231,7 @@ __metadata:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-authorizer": "workspace:^"
     "@reapit/utils-nest": "workspace:packages/utils-nest"
-    "@reapit/utils-node": "workspace:packages/utils-node"
+    "@reapit/utils-node": "workspace:^"
     "@types/adm-zip": "npm:^0.5.5"
     "@types/aws-serverless-express": "npm:^3.3.9"
     "@types/mime-types": "npm:^2.1.4"
@@ -20585,7 +20565,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jwk-to-pem@npm:^2.0.5, jwk-to-pem@npm:^2.0.6":
+"jwk-to-pem@npm:^2.0.6":
   version: 2.0.6
   resolution: "jwk-to-pem@npm:2.0.6"
   dependencies:

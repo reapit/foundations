@@ -17,7 +17,7 @@
     "@reapit/foundations-ts-definitions": "^1.5.9",
     "@reapit/utils-authorizer": "workspace:^",
     "@reapit/utils-nest": "workspace:packages/utils-nest",
-    "@reapit/utils-node": "workspace:packages/utils-node",
+    "@reapit/utils-node": "workspace:^",
     "adm-zip": "^0.5.12",
     "atlassian-jwt": "^2.0.3",
     "aws-cdk": "^2.133.0",
