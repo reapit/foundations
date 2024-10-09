@@ -22,7 +22,7 @@
   "dependencies": {
     "@linaria/core": "^5.0.2",
     "@linaria/react": "^5.0.3",
-    "@reapit/connect-session": "^6.1.0",
+    "@reapit/connect-session": "^6.1.1",
     "@reapit/elements": "4.1.2",
     "@reapit/foundations-ts-definitions": "^1.5.9",
     "@reapit/use-reapit-data": "workspace:packages/use-reapit-data",

@@ -13,7 +13,7 @@
     "@nestjs/typeorm": "^8.1.4",
     "@octokit/app": "^14.0.2",
     "@reapit/api-key-verify": "workspace:packages/api-key-verify",
-    "@reapit/connect-session": "^6.1.0",
+    "@reapit/connect-session": "^6.1.1",
     "@reapit/foundations-ts-definitions": "^1.5.9",
     "@reapit/utils-authorizer": "workspace:^",
     "@reapit/utils-nest": "workspace:packages/utils-nest",

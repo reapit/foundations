@@ -25,7 +25,7 @@
   "dependencies": {
     "@linaria/core": "^5.0.2",
     "@linaria/react": "^5.0.3",
-    "@reapit/connect-session": "^6.1.0",
+    "@reapit/connect-session": "^6.1.1",
     "@reapit/elements": "^5.0.0-beta.7",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@reapit/utils-react": "workspace:packages/utils-react",

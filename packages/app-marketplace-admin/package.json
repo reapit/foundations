@@ -27,7 +27,7 @@
     "@hookform/resolvers": "^2.9.11",
     "@linaria/core": "^5.0.2",
     "@linaria/react": "^5.0.3",
-    "@reapit/connect-session": "^6.1.0",
+    "@reapit/connect-session": "^6.1.1",
     "@reapit/elements": "^4.1.2",
     "@reapit/foundations-ts-definitions": "2.0.0",
     "@reapit/utils-common": "workspace:packages/utils-common",
