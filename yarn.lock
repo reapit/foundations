@@ -7324,6 +7324,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@reapit/connect-session-server@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@reapit/connect-session-server@npm:1.2.0"
+  dependencies:
+    axios: "npm:^1.7.7"
+    idtoken-verifier: "npm:^2.2.4"
+    jwt-decode: "npm:^4.0.0"
+  checksum: f0c5ff1da9ff8af916fae8b5c4985b124c8cbb9314985876647aa22fbea10a38aab5d1133327ffbfe399bf30653cc911bc3ea8e635727cb4e3498662558092d0
+  languageName: node
+  linkType: hard
+
 "@reapit/connect-session@npm:^6.1.0":
   version: 6.1.0
   resolution: "@reapit/connect-session@npm:6.1.0"
@@ -15246,6 +15257,7 @@ __metadata:
     "@reapit/api-key-verify": "workspace:packages/api-key-verify"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.1"
+    "@reapit/connect-session-server": "npm:^1.2.0"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-authorizer": "workspace:^"
@@ -23636,7 +23648,7 @@ __metadata:
     "@nestjs/testing": "npm:^9.4.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.0"
-    "@reapit/connect-session-server": "npm:^1.1.0"
+    "@reapit/connect-session-server": "npm:^1.2.0"
     "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
