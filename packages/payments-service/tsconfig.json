@@ -17,8 +17,7 @@
     "typeRoots": ["./node_modules/@types", "../../node_modules/@types"],
     "paths": {
       "@reapit/utils-node": ["../utils-node"],
-      "@reapit/utils-nest": ["../utils-nest/src"],
-      "@reapit/connect-session-server": ["../connect-session-server/src"]
+      "@reapit/utils-nest": ["../utils-nest/src"]
     }
   },
   "include": ["./src/**/*", "../ts-scripts/src/authorizer"],

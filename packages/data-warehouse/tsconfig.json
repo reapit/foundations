@@ -6,7 +6,6 @@
     "sourceRoot": "/",
     "typeRoots": ["./node_modules/@types", "../../node_modules/@types"],
     "paths": {
-      "@reapit/connect-session": ["../connect-session/src"]
     }
   },
   "include": ["src"],

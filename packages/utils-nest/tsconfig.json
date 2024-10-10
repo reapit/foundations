@@ -7,7 +7,6 @@
     "baseUrl": "./",
     "sourceRoot": "/",
     "paths": {
-      "@reapit/connect-session-server": ["../connect-session-server"]
     },
     "declaration": true,
     "declarationDir": "dist",
