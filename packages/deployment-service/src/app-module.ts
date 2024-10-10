@@ -6,7 +6,6 @@ import { S3Module } from './s3'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import databaseConfig, { liveDatabaseConfig } from './config/db'
-import apiKeyInvokeArnConfig from './config/apiKeyInvokeArn'
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions'
 import { GithubModule } from './github'
 import config from '../config.json'
@@ -27,7 +26,7 @@ process.env = {
     ConfigModule.forRoot({
       envFilePath: 'config.json',
       encoding: 'json',
-      load: [databaseConfig, apiKeyInvokeArnConfig],
+      load: [databaseConfig],
     }),
     TypeOrmModule.forRootAsync({
       useFactory: async (config: ConfigService) => {
