@@ -16,7 +16,6 @@ import { AwsModule } from './aws'
 import { CodeBuildModule } from './codebuild'
 import { APP_INTERCEPTOR } from '@nestjs/core'
 import { CorsHeaderInterceptor, AuthModule } from '@reapit/utils-nest'
-import { ApiKeyModule, ApiKeyVerifyModuleOptionsInterface } from '@reapit/api-key-verify'
 
 process.env = {
   ...process.env,
@@ -37,17 +36,6 @@ process.env = {
         }
 
         return config.get<MysqlConnectionOptions>('database') as MysqlConnectionOptions
-      },
-      inject: [ConfigService],
-      imports: [ConfigModule],
-    }),
-    ApiKeyModule.forRootAsync({
-      useFactory: (config: ConfigService) => {
-        const invokeConfig = config.get<ApiKeyVerifyModuleOptionsInterface>('apiKeyInvokeArn')
-
-        if (!invokeConfig) throw new Error('invalid invokeArn for authModule')
-
-        return invokeConfig
       },
       inject: [ConfigService],
       imports: [ConfigModule],
