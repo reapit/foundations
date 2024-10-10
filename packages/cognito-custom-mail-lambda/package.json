@@ -1,6 +1,6 @@
 {
   "name": "cognito-custom-mail-lambda",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Lambda Mailer Function",
   "files": [
     "dist"
@@ -12,7 +12,7 @@
     "build": "yarn generate-html && tsup && cd dist && zip -r app.zip app.js",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "echo '...skipping...'",
-    "release": "echo '...deprecated... was previously \"devops-release && serverless deploy\"'",
+    "release": "devops-release",
     "release:devops": "devops-release",
     "deploy": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
