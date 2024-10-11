@@ -668,6 +668,16 @@ exports[`AppsNew should match a snapshot 1`] = `
                       please click here.
                     </a>
                   </mock-styled.p>
+                  <mock-styled.p
+                    classname="el-text-base el-has-grey-text"
+                  >
+                    From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                     
+                    <a>
+                      please click here.
+                    </a>
+                     Apps registered prior to this date are unaffected by this change.
+                  </mock-styled.p>
                 </div>
               </div>
             </div>
@@ -690,6 +700,16 @@ exports[`AppsNew should match a snapshot 1`] = `
                 classname="el-text-base el-has-grey-text"
               >
                 Your application can be authenticated against our Platform either on the client-side or server-side. If you choose client-side authentication at the next step but later wish to upgrade to a full AgencyCloud integration in the future, you can do this. However, it is important to note, server-side integrations cannot be launched from within AgencyCloud.
+              </mock-styled.p>
+              <mock-styled.p
+                classname="el-text-base el-has-grey-text"
+              >
+                From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                 
+                <a>
+                  please click here.
+                </a>
+                 Apps registered prior to this date are unaffected by this change.
               </mock-styled.p>
             </div>
             <div
@@ -812,6 +832,16 @@ exports[`AppsNew should match a snapshot 1`] = `
                 </a>
                 to investigate which data sets and permissions you will need before getting started.
               </mock-styled.p>
+              <mock-styled.p
+                classname="el-text-base el-has-grey-text"
+              >
+                From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                 
+                <a>
+                  please click here.
+                </a>
+                 Apps registered prior to this date are unaffected by this change.
+              </mock-styled.p>
             </div>
             <div
               class="mock-css.
@@ -841,6 +871,16 @@ exports[`AppsNew should match a snapshot 1`] = `
                 <a>
                   visit here
                 </a>
+              </mock-styled.p>
+              <mock-styled.p
+                classname="el-text-base el-has-grey-text"
+              >
+                From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                 
+                <a>
+                  please click here.
+                </a>
+                 Apps registered prior to this date are unaffected by this change.
               </mock-styled.p>
             </div>
             <div
@@ -882,6 +922,16 @@ exports[`AppsNew should match a snapshot 1`] = `
                   Create React App Template
                 </a>
                  for quick start client-side development.
+              </mock-styled.p>
+              <mock-styled.p
+                classname="el-text-base el-has-grey-text"
+              >
+                From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                 
+                <a>
+                  please click here.
+                </a>
+                 Apps registered prior to this date are unaffected by this change.
               </mock-styled.p>
             </div>
             <div
@@ -996,10 +1046,10 @@ exports[`AppsNew should match a snapshot 1`] = `
         />
         <mock-styled.div
           classname=""
-          id=":r4:"
+          id=":r5:"
         >
           <mock-styled.button
-            aria-controls=":r4:"
+            aria-controls=":r5:"
             classname="el-floating-button el-intent-primary"
           >
             <mock-styled.div />
@@ -1689,6 +1739,16 @@ exports[`AppsNew should match a snapshot 1`] = `
                     please click here.
                   </a>
                 </mock-styled.p>
+                <mock-styled.p
+                  classname="el-text-base el-has-grey-text"
+                >
+                  From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                   
+                  <a>
+                    please click here.
+                  </a>
+                   Apps registered prior to this date are unaffected by this change.
+                </mock-styled.p>
               </div>
             </div>
           </div>
@@ -1711,6 +1771,16 @@ exports[`AppsNew should match a snapshot 1`] = `
               classname="el-text-base el-has-grey-text"
             >
               Your application can be authenticated against our Platform either on the client-side or server-side. If you choose client-side authentication at the next step but later wish to upgrade to a full AgencyCloud integration in the future, you can do this. However, it is important to note, server-side integrations cannot be launched from within AgencyCloud.
+            </mock-styled.p>
+            <mock-styled.p
+              classname="el-text-base el-has-grey-text"
+            >
+              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+               
+              <a>
+                please click here.
+              </a>
+               Apps registered prior to this date are unaffected by this change.
             </mock-styled.p>
           </div>
           <div
@@ -1833,6 +1903,16 @@ exports[`AppsNew should match a snapshot 1`] = `
               </a>
               to investigate which data sets and permissions you will need before getting started.
             </mock-styled.p>
+            <mock-styled.p
+              classname="el-text-base el-has-grey-text"
+            >
+              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+               
+              <a>
+                please click here.
+              </a>
+               Apps registered prior to this date are unaffected by this change.
+            </mock-styled.p>
           </div>
           <div
             class="mock-css.
@@ -1862,6 +1942,16 @@ exports[`AppsNew should match a snapshot 1`] = `
               <a>
                 visit here
               </a>
+            </mock-styled.p>
+            <mock-styled.p
+              classname="el-text-base el-has-grey-text"
+            >
+              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+               
+              <a>
+                please click here.
+              </a>
+               Apps registered prior to this date are unaffected by this change.
             </mock-styled.p>
           </div>
           <div
@@ -1903,6 +1993,16 @@ exports[`AppsNew should match a snapshot 1`] = `
                 Create React App Template
               </a>
                for quick start client-side development.
+            </mock-styled.p>
+            <mock-styled.p
+              classname="el-text-base el-has-grey-text"
+            >
+              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+               
+              <a>
+                please click here.
+              </a>
+               Apps registered prior to this date are unaffected by this change.
             </mock-styled.p>
           </div>
           <div
@@ -2017,10 +2117,10 @@ exports[`AppsNew should match a snapshot 1`] = `
       />
       <mock-styled.div
         classname=""
-        id=":r4:"
+        id=":r5:"
       >
         <mock-styled.button
-          aria-controls=":r4:"
+          aria-controls=":r5:"
           classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
@@ -2106,6 +2206,50 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
     <div
       id="root"
     >
+      <div>
+        <mock-styled.div
+          classname="el-is-active"
+        />
+        <mock-styled.div
+          aria-describedby=":r6:"
+          aria-modal="true"
+          classname="el-is-active"
+          role="dialog"
+        >
+          <mock-styled.div>
+            Important changes to refresh tokens
+          </mock-styled.div>
+          <mock-styled.div
+            id=":r6:"
+          >
+            <mock-styled.p
+              classname="el-text-base el-has-grey-text"
+            >
+              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. Apps registered prior to this date were given reusable refresh tokens from Reapit Connect. New apps will only be given single use refresh tokens as part of enhanced security updates.
+            </mock-styled.p>
+            <mock-styled.p
+              classname="el-text-base el-has-grey-text"
+            >
+              For more information about this change,
+               
+              <a>
+                please click here.
+              </a>
+               Any apps registered prior to this date are unaffected by this change.
+            </mock-styled.p>
+            <mock-styled.p
+              classname="el-text-base el-has-grey-text"
+            >
+              <mock-styled.button
+                classname="el-intent-primary"
+              >
+                <mock-styled.div />
+                Close
+              </mock-styled.button>
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+      </div>
       <div />
       <div />
       <div />
@@ -2776,6 +2920,16 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                       please click here.
                     </a>
                   </mock-styled.p>
+                  <mock-styled.p
+                    classname="el-text-base el-has-grey-text"
+                  >
+                    From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                     
+                    <a>
+                      please click here.
+                    </a>
+                     Apps registered prior to this date are unaffected by this change.
+                  </mock-styled.p>
                 </div>
               </div>
             </div>
@@ -2798,6 +2952,16 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                 classname="el-text-base el-has-grey-text"
               >
                 Your application can be authenticated against our Platform either on the client-side or server-side. If you choose client-side authentication at the next step but later wish to upgrade to a full AgencyCloud integration in the future, you can do this. However, it is important to note, server-side integrations cannot be launched from within AgencyCloud.
+              </mock-styled.p>
+              <mock-styled.p
+                classname="el-text-base el-has-grey-text"
+              >
+                From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                 
+                <a>
+                  please click here.
+                </a>
+                 Apps registered prior to this date are unaffected by this change.
               </mock-styled.p>
             </div>
             <div
@@ -2920,6 +3084,16 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                 </a>
                 to investigate which data sets and permissions you will need before getting started.
               </mock-styled.p>
+              <mock-styled.p
+                classname="el-text-base el-has-grey-text"
+              >
+                From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                 
+                <a>
+                  please click here.
+                </a>
+                 Apps registered prior to this date are unaffected by this change.
+              </mock-styled.p>
             </div>
             <div
               class="mock-css.
@@ -2949,6 +3123,16 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                 <a>
                   visit here
                 </a>
+              </mock-styled.p>
+              <mock-styled.p
+                classname="el-text-base el-has-grey-text"
+              >
+                From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                 
+                <a>
+                  please click here.
+                </a>
+                 Apps registered prior to this date are unaffected by this change.
               </mock-styled.p>
             </div>
             <div
@@ -2990,6 +3174,16 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                   Create React App Template
                 </a>
                  for quick start client-side development.
+              </mock-styled.p>
+              <mock-styled.p
+                classname="el-text-base el-has-grey-text"
+              >
+                From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                 
+                <a>
+                  please click here.
+                </a>
+                 Apps registered prior to this date are unaffected by this change.
               </mock-styled.p>
             </div>
             <div
@@ -3104,10 +3298,10 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
         />
         <mock-styled.div
           classname=""
-          id=":ra:"
+          id=":rc:"
         >
           <mock-styled.button
-            aria-controls=":ra:"
+            aria-controls=":rc:"
             classname="el-floating-button el-intent-primary"
           >
             <mock-styled.div />
@@ -3797,6 +3991,16 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                     please click here.
                   </a>
                 </mock-styled.p>
+                <mock-styled.p
+                  classname="el-text-base el-has-grey-text"
+                >
+                  From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                   
+                  <a>
+                    please click here.
+                  </a>
+                   Apps registered prior to this date are unaffected by this change.
+                </mock-styled.p>
               </div>
             </div>
           </div>
@@ -3819,6 +4023,16 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
               classname="el-text-base el-has-grey-text"
             >
               Your application can be authenticated against our Platform either on the client-side or server-side. If you choose client-side authentication at the next step but later wish to upgrade to a full AgencyCloud integration in the future, you can do this. However, it is important to note, server-side integrations cannot be launched from within AgencyCloud.
+            </mock-styled.p>
+            <mock-styled.p
+              classname="el-text-base el-has-grey-text"
+            >
+              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+               
+              <a>
+                please click here.
+              </a>
+               Apps registered prior to this date are unaffected by this change.
             </mock-styled.p>
           </div>
           <div
@@ -3941,6 +4155,16 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
               </a>
               to investigate which data sets and permissions you will need before getting started.
             </mock-styled.p>
+            <mock-styled.p
+              classname="el-text-base el-has-grey-text"
+            >
+              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+               
+              <a>
+                please click here.
+              </a>
+               Apps registered prior to this date are unaffected by this change.
+            </mock-styled.p>
           </div>
           <div
             class="mock-css.
@@ -3970,6 +4194,16 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
               <a>
                 visit here
               </a>
+            </mock-styled.p>
+            <mock-styled.p
+              classname="el-text-base el-has-grey-text"
+            >
+              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+               
+              <a>
+                please click here.
+              </a>
+               Apps registered prior to this date are unaffected by this change.
             </mock-styled.p>
           </div>
           <div
@@ -4011,6 +4245,16 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                 Create React App Template
               </a>
                for quick start client-side development.
+            </mock-styled.p>
+            <mock-styled.p
+              classname="el-text-base el-has-grey-text"
+            >
+              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+               
+              <a>
+                please click here.
+              </a>
+               Apps registered prior to this date are unaffected by this change.
             </mock-styled.p>
           </div>
           <div
@@ -4125,10 +4369,10 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
       />
       <mock-styled.div
         classname=""
-        id=":ra:"
+        id=":rc:"
       >
         <mock-styled.button
-          aria-controls=":ra:"
+          aria-controls=":rc:"
           classname="el-floating-button el-intent-primary"
         >
           <mock-styled.div />
