@@ -44,7 +44,6 @@ import { HelperContent } from './helper-content'
 import { defaultAppWizardState } from '../state/defaults'
 import { Helper } from '../page/helper'
 import { ExternalPages, openNewPage } from '../../../utils/navigation'
-import { setMarketplaceGlobalsByKey } from '@reapit/utils-react'
 
 export interface CreateAppFormSchema {
   redirectUris?: string
