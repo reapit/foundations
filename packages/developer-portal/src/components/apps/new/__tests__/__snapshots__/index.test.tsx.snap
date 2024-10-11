@@ -706,10 +706,13 @@ exports[`AppsNew should match a snapshot 1`] = `
               >
                 From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
                  
-                <a>
+                <a
+                  role="link"
+                >
                   please click here.
                 </a>
-                 Apps registered prior to this date are unaffected by this change.
+                 
+                Apps registered prior to this date are unaffected by this change.
               </mock-styled.p>
             </div>
             <div
@@ -837,10 +840,13 @@ exports[`AppsNew should match a snapshot 1`] = `
               >
                 From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
                  
-                <a>
+                <a
+                  role="link"
+                >
                   please click here.
                 </a>
-                 Apps registered prior to this date are unaffected by this change.
+                 
+                Apps registered prior to this date are unaffected by this change.
               </mock-styled.p>
             </div>
             <div
@@ -877,10 +883,13 @@ exports[`AppsNew should match a snapshot 1`] = `
               >
                 From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
                  
-                <a>
+                <a
+                  role="link"
+                >
                   please click here.
                 </a>
-                 Apps registered prior to this date are unaffected by this change.
+                 
+                Apps registered prior to this date are unaffected by this change.
               </mock-styled.p>
             </div>
             <div
@@ -928,10 +937,13 @@ exports[`AppsNew should match a snapshot 1`] = `
               >
                 From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
                  
-                <a>
+                <a
+                  role="link"
+                >
                   please click here.
                 </a>
-                 Apps registered prior to this date are unaffected by this change.
+                 
+                Apps registered prior to this date are unaffected by this change.
               </mock-styled.p>
             </div>
             <div
@@ -1777,10 +1789,13 @@ exports[`AppsNew should match a snapshot 1`] = `
             >
               From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
                
-              <a>
+              <a
+                role="link"
+              >
                 please click here.
               </a>
-               Apps registered prior to this date are unaffected by this change.
+               
+              Apps registered prior to this date are unaffected by this change.
             </mock-styled.p>
           </div>
           <div
@@ -1908,10 +1923,13 @@ exports[`AppsNew should match a snapshot 1`] = `
             >
               From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
                
-              <a>
+              <a
+                role="link"
+              >
                 please click here.
               </a>
-               Apps registered prior to this date are unaffected by this change.
+               
+              Apps registered prior to this date are unaffected by this change.
             </mock-styled.p>
           </div>
           <div
@@ -1948,10 +1966,13 @@ exports[`AppsNew should match a snapshot 1`] = `
             >
               From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
                
-              <a>
+              <a
+                role="link"
+              >
                 please click here.
               </a>
-               Apps registered prior to this date are unaffected by this change.
+               
+              Apps registered prior to this date are unaffected by this change.
             </mock-styled.p>
           </div>
           <div
@@ -1999,10 +2020,13 @@ exports[`AppsNew should match a snapshot 1`] = `
             >
               From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
                
-              <a>
+              <a
+                role="link"
+              >
                 please click here.
               </a>
-               Apps registered prior to this date are unaffected by this change.
+               
+              Apps registered prior to this date are unaffected by this change.
             </mock-styled.p>
           </div>
           <div
@@ -2958,10 +2982,13 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
               >
                 From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
                  
-                <a>
+                <a
+                  role="link"
+                >
                   please click here.
                 </a>
-                 Apps registered prior to this date are unaffected by this change.
+                 
+                Apps registered prior to this date are unaffected by this change.
               </mock-styled.p>
             </div>
             <div
@@ -3089,10 +3116,13 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
               >
                 From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
                  
-                <a>
+                <a
+                  role="link"
+                >
                   please click here.
                 </a>
-                 Apps registered prior to this date are unaffected by this change.
+                 
+                Apps registered prior to this date are unaffected by this change.
               </mock-styled.p>
             </div>
             <div
@@ -3129,10 +3159,13 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
               >
                 From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
                  
-                <a>
+                <a
+                  role="link"
+                >
                   please click here.
                 </a>
-                 Apps registered prior to this date are unaffected by this change.
+                 
+                Apps registered prior to this date are unaffected by this change.
               </mock-styled.p>
             </div>
             <div
@@ -3180,10 +3213,13 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
               >
                 From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
                  
-                <a>
+                <a
+                  role="link"
+                >
                   please click here.
                 </a>
-                 Apps registered prior to this date are unaffected by this change.
+                 
+                Apps registered prior to this date are unaffected by this change.
               </mock-styled.p>
             </div>
             <div
@@ -4029,10 +4065,13 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
             >
               From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
                
-              <a>
+              <a
+                role="link"
+              >
                 please click here.
               </a>
-               Apps registered prior to this date are unaffected by this change.
+               
+              Apps registered prior to this date are unaffected by this change.
             </mock-styled.p>
           </div>
           <div
@@ -4160,10 +4199,13 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
             >
               From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
                
-              <a>
+              <a
+                role="link"
+              >
                 please click here.
               </a>
-               Apps registered prior to this date are unaffected by this change.
+               
+              Apps registered prior to this date are unaffected by this change.
             </mock-styled.p>
           </div>
           <div
@@ -4200,10 +4242,13 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
             >
               From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
                
-              <a>
+              <a
+                role="link"
+              >
                 please click here.
               </a>
-               Apps registered prior to this date are unaffected by this change.
+               
+              Apps registered prior to this date are unaffected by this change.
             </mock-styled.p>
           </div>
           <div
@@ -4251,10 +4296,13 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
             >
               From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
                
-              <a>
+              <a
+                role="link"
+              >
                 please click here.
               </a>
-               Apps registered prior to this date are unaffected by this change.
+               
+              Apps registered prior to this date are unaffected by this change.
             </mock-styled.p>
           </div>
           <div
