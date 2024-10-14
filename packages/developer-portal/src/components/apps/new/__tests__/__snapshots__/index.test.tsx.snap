@@ -1016,7 +1016,7 @@ exports[`AppsNew should match a snapshot 1`] = `
                 <a>
                   Create React App Template
                 </a>
-                 however, any localhost (for local development), or https URI is acceptable. Please note, the URIs must match those in your app exactly, inclusive of white space and trailing slashes.
+                 however, any localhost or dev.reapit (for local development), or https URI is acceptable. Please note, the URIs must match those in your app exactly, inclusive of white space and trailing slashes.
               </mock-styled.p>
             </div>
             <div
@@ -2099,7 +2099,7 @@ exports[`AppsNew should match a snapshot 1`] = `
               <a>
                 Create React App Template
               </a>
-               however, any localhost (for local development), or https URI is acceptable. Please note, the URIs must match those in your app exactly, inclusive of white space and trailing slashes.
+               however, any localhost or dev.reapit (for local development), or https URI is acceptable. Please note, the URIs must match those in your app exactly, inclusive of white space and trailing slashes.
             </mock-styled.p>
           </div>
           <div
@@ -3292,7 +3292,7 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                 <a>
                   Create React App Template
                 </a>
-                 however, any localhost (for local development), or https URI is acceptable. Please note, the URIs must match those in your app exactly, inclusive of white space and trailing slashes.
+                 however, any localhost or dev.reapit (for local development), or https URI is acceptable. Please note, the URIs must match those in your app exactly, inclusive of white space and trailing slashes.
               </mock-styled.p>
             </div>
             <div
@@ -4375,7 +4375,7 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
               <a>
                 Create React App Template
               </a>
-               however, any localhost (for local development), or https URI is acceptable. Please note, the URIs must match those in your app exactly, inclusive of white space and trailing slashes.
+               however, any localhost or dev.reapit (for local development), or https URI is acceptable. Please note, the URIs must match those in your app exactly, inclusive of white space and trailing slashes.
             </mock-styled.p>
           </div>
           <div

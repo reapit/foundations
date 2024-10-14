@@ -325,9 +325,9 @@ export const HelperContent: FC = () => {
         </BodyText>
         <BodyText hasGreyText>
           We have pre-populated the URIs that you need when using our{' '}
-          <a onClick={openNewPage(ExternalPages.craDocs)}>Create React App Template</a> however, any localhost (for
-          local development), or https URI is acceptable. Please note, the URIs must match those in your app exactly,
-          inclusive of white space and trailing slashes.
+          <a onClick={openNewPage(ExternalPages.craDocs)}>Create React App Template</a> however, any localhost or
+          dev.reapit (for local development), or https URI is acceptable. Please note, the URIs must match those in your
+          app exactly, inclusive of white space and trailing slashes.
         </BodyText>
       </div>
       <div className={cx(shouldShowStep(AppNewStepId.permissionsStep) ? elFadeIn : stepIsHidden)}>
