@@ -55,7 +55,7 @@ export const appWizardSteps: AppNewWizardSteps = {
   [AppNewStepId.agencyCloudStep]: {
     headingText: 'Authentication',
     headerText:
-      'Please supply at least one redirect and logout uri. A non-https localhost uri is acceptable for quick start development.',
+      'Please supply at least one redirect and logout uri. A non-https localhost or dev.reapit uri is acceptable for quick start development.',
     iconName: 'userAuthInfographic',
   },
   [AppNewStepId.dataFeedStep]: {
@@ -73,13 +73,13 @@ export const appWizardSteps: AppNewWizardSteps = {
   [AppNewStepId.clientSideStep]: {
     headingText: 'Authentication',
     headerText:
-      'Please supply at least one redirect and logout uri. A non-https localhost uri is acceptable for quick start development.',
+      'Please supply at least one redirect and logout uri. A non-https localhost or dev.reapit uri is acceptable for quick start development.',
     iconName: 'userAuthInfographic',
   },
   [AppNewStepId.rcRedirectsStep]: {
     headingText: 'Authentication',
     headerText:
-      'Please supply at least one redirect and logout uri. A non-https localhost uri is acceptable for quick start development.',
+      'Please supply at least one redirect and logout uri. A non-https localhost or dev.reapit uri is acceptable for quick start development.',
     iconName: 'userAuthInfographic',
   },
   [AppNewStepId.websiteFeedStep]: {
