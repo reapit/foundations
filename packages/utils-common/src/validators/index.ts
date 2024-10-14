@@ -22,9 +22,9 @@ export const checkValidCustomScheme = (url: string): boolean => {
     return false
   }
   const [, protocol, link] = result
-  // allow http only for localhost
+  // allow http only for localhost and dev.reapit addresses
   if (protocol === 'http') {
-    return link.indexOf('localhost') === 0
+    return link.indexOf('localhost') === 0 || link.indexOf('dev.reapit') === 0
   }
 
   return !!protocol && !!link
@@ -48,6 +48,10 @@ export const isValidHttpUrl = (url: string) => {
 
 export const whiteListLocalhostAndIsValidUrl = (url: string) => {
   return isValidHttpsUrl(url) || /http?:\/\/localhost/.test(url)
+}
+
+export const isWhitelistedLocalDevelopmentUrlAndValidUrl = (url: string) => {
+  return isValidHttpsUrl(url) || /http?:\/\/localhost/.test(url) || /http?:\/\/dev.reapit/.test(url)
 }
 
 export const hasSpecialChars = (value: string): boolean => {

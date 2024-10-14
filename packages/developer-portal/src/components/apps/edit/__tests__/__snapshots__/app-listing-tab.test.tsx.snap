@@ -100,7 +100,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
               classname=""
               id="test-static-id"
               name="launchUri"
-              placeholder="HTTPS or HTTP only for localhost"
+              placeholder="HTTPS or HTTP only for localhost/dev.reapit"
               type="text"
               value="Mock field value"
             />
@@ -629,7 +629,7 @@ exports[`AppListingTab should match a snapshot 1`] = `
             classname=""
             id="test-static-id"
             name="launchUri"
-            placeholder="HTTPS or HTTP only for localhost"
+            placeholder="HTTPS or HTTP only for localhost/dev.reapit"
             type="text"
             value="Mock field value"
           />
@@ -1278,7 +1278,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               classname="el-has-input-error"
               id="test-static-id"
               name="launchUri"
-              placeholder="HTTPS or HTTP only for localhost"
+              placeholder="HTTPS or HTTP only for localhost/dev.reapit"
               type="text"
             />
             <mock-styled.span
@@ -2019,7 +2019,7 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             classname="el-has-input-error"
             id="test-static-id"
             name="launchUri"
-            placeholder="HTTPS or HTTP only for localhost"
+            placeholder="HTTPS or HTTP only for localhost/dev.reapit"
             type="text"
           />
           <mock-styled.span

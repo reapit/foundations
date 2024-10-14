@@ -22,7 +22,7 @@ import { StepOptionsContent } from './step-options-content'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm, UseFormTrigger } from 'react-hook-form'
 import { object, SchemaOf, string, TestFunction } from 'yup'
-import { whiteListLocalhostAndIsValidUrl } from '@reapit/utils-common'
+import { isWhitelistedLocalDevelopmentUrlAndValidUrl } from '@reapit/utils-common'
 import errorMessages from '../../../constants/error-messages'
 import { AnyObject } from 'yup/lib/types'
 import { Marketplace } from '@reapit/foundations-ts-definitions'
@@ -54,15 +54,15 @@ const authCodeSchema: SchemaOf<CreateAppFormSchema> = object().shape({
     .trim()
     .required(errorMessages.FIELD_REQUIRED)
     .test({
-      test: whiteListLocalhostAndIsValidUrl as TestFunction<string | undefined, AnyObject>,
-      message: 'Should be a secure https url or http if localhost',
+      test: isWhitelistedLocalDevelopmentUrlAndValidUrl as TestFunction<string | undefined, AnyObject>,
+      message: 'Should be a secure https url or http if localhost or dev.reapit',
     }),
   signoutUris: string()
     .trim()
     .required(errorMessages.FIELD_REQUIRED)
     .test({
-      test: whiteListLocalhostAndIsValidUrl as TestFunction<string | undefined, AnyObject>,
-      message: 'Should be a secure https url or http if localhost',
+      test: isWhitelistedLocalDevelopmentUrlAndValidUrl as TestFunction<string | undefined, AnyObject>,
+      message: 'Should be a secure https url or http if localhost or dev.reapit',
     }),
   scopes: string().trim(),
 })

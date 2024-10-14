@@ -109,7 +109,7 @@ export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { nam
   launchUri: {
     name: 'launchUri',
     label: 'Launch URI',
-    placeholder: 'HTTPS or HTTP only for localhost',
+    placeholder: 'HTTPS or HTTP only for localhost/dev.reapit',
     errorMessage: 'Invalid Launch URI',
     type: 'text',
   },
