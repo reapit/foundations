@@ -7,6 +7,7 @@ import {
   isValidHttpUrl,
   whiteListLocalhostAndIsValidUrl,
   hasSpecialChars,
+  isWhitelistedLocalDevelopmentUrlAndValidUrl,
 } from '..'
 
 describe('isImageType', () => {
@@ -49,10 +50,12 @@ describe('isValidUrlWithCustomScheme', () => {
     const urls2 = 'myapp://link.com, http://localhost'
     const urls3 = 'https://link.com, http://localhost:9090'
     const urls4 = 'https://link.com,    https://localhost'
+    const urls5 = 'https://link.com, http://dev.reapit:8080'
     expect(isValidUrlWithCustomScheme(urls1)).toBe(true)
     expect(isValidUrlWithCustomScheme(urls2)).toBe(true)
     expect(isValidUrlWithCustomScheme(urls3)).toBe(true)
     expect(isValidUrlWithCustomScheme(urls4)).toBe(true)
+    expect(isValidUrlWithCustomScheme(urls5)).toBe(true)
   })
   it('should return false with invalid urls', () => {
     const urls1 = 'myapp:link.com, myapp://link2'
@@ -60,11 +63,13 @@ describe('isValidUrlWithCustomScheme', () => {
     const urls3 = 'http://link.com, http://localhost:9090'
     const urls4 = 'link-com,    https://localhost'
     const urls5 = 'app2://link-com, https://localhost'
+    const urls6 = 'link-com, http://dev.app'
     expect(isValidUrlWithCustomScheme(urls1)).toBe(false)
     expect(isValidUrlWithCustomScheme(urls2)).toBe(false)
     expect(isValidUrlWithCustomScheme(urls3)).toBe(false)
     expect(isValidUrlWithCustomScheme(urls4)).toBe(false)
     expect(isValidUrlWithCustomScheme(urls5)).toBe(false)
+    expect(isValidUrlWithCustomScheme(urls6)).toBe(false)
   })
 })
 
@@ -107,6 +112,20 @@ describe('whiteListLocalhostAndIsValidUrl', () => {
   it('invalid url test', () => {
     ;['invalid url test', 'htt://www.google.com'].forEach((url) =>
       expect(whiteListLocalhostAndIsValidUrl(url)).toBeFalsy(),
+    )
+  })
+})
+
+describe('isWhitelistedLocalDevelopmentUrlAndValidUrl', () => {
+  it('valid url test', () => {
+    ;['https://www.google.com', 'http://localhost:8080', 'http://dev.reapit', 'http://dev.reapit:8080'].forEach((url) =>
+      expect(isWhitelistedLocalDevelopmentUrlAndValidUrl(url)).toBeTruthy(),
+    )
+  })
+
+  it('invalid url test', () => {
+    ;['invalid url test', 'htt://www.google.com', 'http://invalid.app'].forEach((url) =>
+      expect(isWhitelistedLocalDevelopmentUrlAndValidUrl(url)).toBeFalsy(),
     )
   })
 })
