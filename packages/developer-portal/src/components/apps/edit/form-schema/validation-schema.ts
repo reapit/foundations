@@ -7,7 +7,7 @@ import {
   emailRegex,
   isValidUrlWithCustomScheme,
   isValidLimitToClientIds,
-  whiteListLocalhostAndIsValidUrl,
+  isWhitelistedLocalDevelopmentUrlAndValidUrl,
   isValidHttpUrl,
   isValidHttpsUrl,
 } from '@reapit/utils-common'
@@ -82,7 +82,7 @@ export const appEditValidationSchema = object().shape({
           if (authFlow === USER_SESSION) {
             return schema.required(errorMessages.FIELD_REQUIRED).test({
               name: 'isValidLaunchUri',
-              test: whiteListLocalhostAndIsValidUrl,
+              test: isWhitelistedLocalDevelopmentUrlAndValidUrl,
               message: launchUri.errorMessage,
             })
           }
@@ -95,7 +95,7 @@ export const appEditValidationSchema = object().shape({
       message: launchUri.errorMessage,
       test: (value) => {
         if (!value) return true
-        return whiteListLocalhostAndIsValidUrl(value)
+        return isWhitelistedLocalDevelopmentUrlAndValidUrl(value)
       },
     }),
 
@@ -123,7 +123,7 @@ export const appEditValidationSchema = object().shape({
       message: homePage.errorMessage,
       test: (value) => {
         if (!value) return true
-        return whiteListLocalhostAndIsValidUrl(value) || isValidHttpUrl(value)
+        return isWhitelistedLocalDevelopmentUrlAndValidUrl(value) || isValidHttpUrl(value)
       },
     }),
 
