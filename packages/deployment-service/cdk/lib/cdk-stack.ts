@@ -139,7 +139,7 @@ export const createStack = async () => {
         cors: {
           origin: '*',
         },
-        headers: ['Content-Type', 'api-version', 'X-Api-Key'],
+        headers: ['Content-Type', 'api-version'],
       },
       entrypoint: 'bundle/http.zip',
     },
@@ -165,8 +165,6 @@ export const createStack = async () => {
 
   const MYSQL_DATABASE = databaseName
 
-  const invokeApiKeyVerifyArn = cdk.Fn.importValue('cloud-api-key-service-invoke-arn')
-
   const env: any = {
     DATABASE_SECRET_ARN: secretManager.secretArn,
     MYSQL_DATABASE,
@@ -179,7 +177,6 @@ export const createStack = async () => {
     USERCODE_ROLE_ARN: policies.usercodeStackRoleArn,
     GITHUB_PEM_SECRET_ARN: githubPemSecret.ref,
     NODE_ENV: process.env.NODE_ENV || 'development',
-    API_KEY_INVOKE_ARN: invokeApiKeyVerifyArn,
   }
 
   Object.values(QueueNames).forEach((queueKey) => {

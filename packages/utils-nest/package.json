@@ -9,9 +9,6 @@
   "license": "MIT",
   "author": "Reapit Ltd",
   "main": "src/index.ts",
-  "publishConfig": {
-    "main": "./dist/index.js"
-  },
   "scripts": {
     "start": "echo '...skipping...'",
     "test": "jest",
@@ -40,6 +37,7 @@
     "typescript": "^5.4.2"
   },
   "dependencies": {
+    "@reapit/connect-session-server": "^1.3.2",
     "@reapit/foundations-ts-definitions": "^2.0.0",
     "jwt-decode": "^3.1.2"
   },
