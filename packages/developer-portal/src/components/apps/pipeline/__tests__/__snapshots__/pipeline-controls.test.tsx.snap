@@ -8,7 +8,6 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline 
       id="root"
     >
       <div />
-      <div />
     </div>
     <div>
       <mock-styled.div />
@@ -195,12 +194,6 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline 
             >
               <mock-styled.div />
               Deploy
-            </mock-styled.button>
-            <mock-styled.button
-              classname="el-intent-primary"
-            >
-              <mock-styled.div />
-              API Keys
             </mock-styled.button>
             <mock-styled.button
               classname="el-intent-danger"
@@ -405,12 +398,6 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline 
           >
             <mock-styled.div />
             Deploy
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-primary"
-          >
-            <mock-styled.div />
-            API Keys
           </mock-styled.button>
           <mock-styled.button
             classname="el-intent-danger"
@@ -491,7 +478,6 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
       id="root"
     >
       <div />
-      <div />
     </div>
     <div
       id="root"
@@ -681,12 +667,6 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
             >
               <mock-styled.div />
               Deploy
-            </mock-styled.button>
-            <mock-styled.button
-              classname="el-intent-primary"
-            >
-              <mock-styled.div />
-              API Keys
             </mock-styled.button>
             <mock-styled.button
               classname="el-intent-danger"
@@ -891,12 +871,6 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
           >
             <mock-styled.div />
             Deploy
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-primary"
-          >
-            <mock-styled.div />
-            API Keys
           </mock-styled.button>
           <mock-styled.button
             classname="el-intent-danger"
@@ -977,7 +951,6 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
       id="root"
     >
       <div />
-      <div />
     </div>
     <div
       id="root"
@@ -1173,12 +1146,6 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
             >
               <mock-styled.div />
               Deploy
-            </mock-styled.button>
-            <mock-styled.button
-              classname="el-intent-primary"
-            >
-              <mock-styled.div />
-              API Keys
             </mock-styled.button>
             <mock-styled.button
               classname="el-intent-danger"
@@ -1383,12 +1350,6 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
           >
             <mock-styled.div />
             Deploy
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-primary"
-          >
-            <mock-styled.div />
-            API Keys
           </mock-styled.button>
           <mock-styled.button
             classname="el-intent-danger"
@@ -1469,7 +1430,6 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
       id="root"
     >
       <div />
-      <div />
     </div>
     <div
       id="root"
@@ -1662,12 +1622,6 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
             >
               <mock-styled.div />
               Deploy
-            </mock-styled.button>
-            <mock-styled.button
-              classname="el-intent-primary"
-            >
-              <mock-styled.div />
-              API Keys
             </mock-styled.button>
             <mock-styled.button
               classname="el-intent-danger"
@@ -1874,12 +1828,6 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
             Deploy
           </mock-styled.button>
           <mock-styled.button
-            classname="el-intent-primary"
-          >
-            <mock-styled.div />
-            API Keys
-          </mock-styled.button>
-          <mock-styled.button
             classname="el-intent-danger"
             disabled="false"
           >
@@ -1957,7 +1905,6 @@ exports[`PipelineControls should match snapshot where pipeline is provisioning 1
     <div
       id="root"
     >
-      <div />
       <div />
     </div>
     <div
@@ -2160,12 +2107,6 @@ exports[`PipelineControls should match snapshot where pipeline is provisioning 1
             >
               <mock-styled.div />
               Provision
-            </mock-styled.button>
-            <mock-styled.button
-              classname="el-intent-primary"
-            >
-              <mock-styled.div />
-              API Keys
             </mock-styled.button>
             <mock-styled.button
               classname="el-intent-danger"
@@ -2372,12 +2313,6 @@ exports[`PipelineControls should match snapshot where pipeline is provisioning 1
             Provision
           </mock-styled.button>
           <mock-styled.button
-            classname="el-intent-primary"
-          >
-            <mock-styled.div />
-            API Keys
-          </mock-styled.button>
-          <mock-styled.button
             classname="el-intent-danger"
             disabled="true"
           >
@@ -2455,7 +2390,6 @@ exports[`PipelineControls should match snapshot where there is no pipeline 1`] =
     <div
       id="root"
     >
-      <div />
       <div />
     </div>
     <div
@@ -2650,12 +2584,6 @@ exports[`PipelineControls should match snapshot where there is no pipeline 1`] =
             classname=""
           >
             <mock-styled.button
-              classname="el-intent-primary"
-            >
-              <mock-styled.div />
-              API Keys
-            </mock-styled.button>
-            <mock-styled.button
               classname="el-intent-neutral"
             >
               <mock-styled.div />
@@ -2845,12 +2773,6 @@ exports[`PipelineControls should match snapshot where there is no pipeline 1`] =
         <mock-styled.div
           classname=""
         >
-          <mock-styled.button
-            classname="el-intent-primary"
-          >
-            <mock-styled.div />
-            API Keys
-          </mock-styled.button>
           <mock-styled.button
             classname="el-intent-neutral"
           >
