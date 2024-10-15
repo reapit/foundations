@@ -23,9 +23,6 @@ app-market:
 app-marketplace-cms:
   - packages/app-marketplace-cms/**
 
-auto-reply-bot:
-  - packages/auto-reply-bot/**
-
 cli:
   - packages/cli/**
 
