@@ -33,6 +33,7 @@ export enum ExternalPages {
   codeExampleNetWebsite = 'https://github.com/reapit/foundations-code-examples/tree/main/dotnet-website-feed',
   iaasBugs = 'https://github.com/reapit/foundations/issues/new?assignees=&labels=bug%2C+needs-triage%2C+iaas%2C+front-end&template=bug_report.md&title=',
   appPermissionsDocs = 'https://foundations-documentation.reapit.cloud/listing-your-app/app-permissions',
+  refreshTokenDocs = 'https://foundations-documentation.reapit.cloud/api/reapit-connect#using-refresh-tokens',
 }
 
 export const openNewPage = (uri: ExternalPages | string) => (event?: MouseEvent) => {

@@ -140,6 +140,12 @@ export const HelperContent: FC = () => {
               simply link out from your integrated app or render a pre-existing app in an iframe. For more information
               on the requirements, <a onClick={openNewPage(ExternalPages.acLaunchableDocs)}>please click here.</a>
             </BodyText>
+            <BodyText hasGreyText>
+              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure
+              it can handle rotating refresh tokens. For more information about this change,{' '}
+              <a onClick={openNewPage(ExternalPages.refreshTokenDocs)}>please click here.</a> Apps registered prior to
+              this date are unaffected by this change.
+            </BodyText>
           </div>
         </FlexContainer>
       </div>
@@ -154,6 +160,14 @@ export const HelperContent: FC = () => {
           choose client-side authentication at the next step but later wish to upgrade to a full AgencyCloud integration
           in the future, you can do this. However, it is important to note, server-side integrations cannot be launched
           from within AgencyCloud.
+        </BodyText>
+        <BodyText hasGreyText>
+          From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it
+          can handle rotating refresh tokens. For more information about this change,{' '}
+          <a onClick={openNewPage(ExternalPages.refreshTokenDocs)} role="link">
+            please click here.
+          </a>{' '}
+          Apps registered prior to this date are unaffected by this change.
         </BodyText>
       </div>
       <div className={cx(shouldShowStep(AppNewStepId.dataFeedStep) ? elFadeIn : stepIsHidden)}>
@@ -218,6 +232,14 @@ export const HelperContent: FC = () => {
           </Link>
           to investigate which data sets and permissions you will need before getting started.
         </BodyText>
+        <BodyText hasGreyText>
+          From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it
+          can handle rotating refresh tokens. For more information about this change,{' '}
+          <a onClick={openNewPage(ExternalPages.refreshTokenDocs)} role="link">
+            please click here.
+          </a>{' '}
+          Apps registered prior to this date are unaffected by this change.
+        </BodyText>
       </div>
       <div className={cx(shouldShowStep(AppNewStepId.reapitConnectStep) ? elFadeIn : stepIsHidden)}>
         <Subtitle hasBoldText>Using Reapit Connect as an Identity Provider</Subtitle>
@@ -231,6 +253,14 @@ export const HelperContent: FC = () => {
           <a onClick={openNewPage(ExternalPages.reapitConnectDocs)}>Reapit Connect visit here</a> and if you are
           interested in using our Sign In With Reapit button to embed on your own site{' '}
           <a onClick={openNewPage(ExternalPages.loginWithReapitDocs)}>visit here</a>
+        </BodyText>
+        <BodyText hasGreyText>
+          From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it
+          can handle rotating refresh tokens. For more information about this change,{' '}
+          <a onClick={openNewPage(ExternalPages.refreshTokenDocs)} role="link">
+            please click here.
+          </a>{' '}
+          Apps registered prior to this date are unaffected by this change.
         </BodyText>
       </div>
       <div className={cx(shouldShowStep(AppNewStepId.clientSideStep) ? elFadeIn : stepIsHidden)}>
@@ -249,6 +279,14 @@ export const HelperContent: FC = () => {
           <a onClick={openNewPage(ExternalPages.connectSessionDocs)}>Connect Session</a>, which comes bundled with our{' '}
           <a onClick={openNewPage(ExternalPages.craDocs)}>Create React App Template</a> for quick start client-side
           development.
+        </BodyText>
+        <BodyText hasGreyText>
+          From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it
+          can handle rotating refresh tokens. For more information about this change,{' '}
+          <a onClick={openNewPage(ExternalPages.refreshTokenDocs)} role="link">
+            please click here.
+          </a>{' '}
+          Apps registered prior to this date are unaffected by this change.
         </BodyText>
       </div>
       <div className={cx(shouldShowStep(AppNewStepId.serverSideStep) ? elFadeIn : stepIsHidden)}>
