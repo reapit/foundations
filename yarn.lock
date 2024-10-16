@@ -15478,7 +15478,6 @@ __metadata:
     "@nestjs/typeorm": "npm:^8.1.4"
     "@octokit/app": "npm:^14.0.2"
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/connect-session": "npm:^6.1.1"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-authorizer": "workspace:^"

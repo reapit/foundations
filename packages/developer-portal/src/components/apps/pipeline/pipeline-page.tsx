@@ -59,8 +59,10 @@ export const PipelinePage: FC = () => {
             <PipelineConfigure />
           ) : tab === 'deployments' ? (
             <PipelineInfo />
-          ) : (
+          ) : tab === 'environment' ? (
             <PipelineEnvironment />
+          ) : (
+            <div>DNS here</div>
           )}
         </>
       ) : (
