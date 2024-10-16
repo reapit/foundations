@@ -1,6 +1,6 @@
-import { DnsProvider } from "./dns.provider";
+import { DnsProvider } from './dns.provider'
 import { PipelineProvider } from '../pipeline'
-import { CertificateProvider } from "./certificate.provider";
+import { CertificateProvider } from './certificate.provider'
 
 export class DnsEventBridgeTriggerProvider {
   constructor(
@@ -10,7 +10,6 @@ export class DnsEventBridgeTriggerProvider {
   ) {}
 
   async validateCertificateDomain(pipelineId: string) {
-    
     // TODO notify developer of certificate creation?
   }
 }

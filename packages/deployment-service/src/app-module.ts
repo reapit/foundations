@@ -15,6 +15,7 @@ import { AwsModule } from './aws'
 import { CodeBuildModule } from './codebuild'
 import { APP_INTERCEPTOR } from '@nestjs/core'
 import { CorsHeaderInterceptor, AuthModule } from '@reapit/utils-nest'
+import { DnsModule } from './dns'
 
 process.env = {
   ...process.env,
@@ -53,6 +54,7 @@ process.env = {
     BitbucketModule,
     AwsModule,
     CodeBuildModule,
+    DnsModule,
   ],
   providers: [
     CorsHeaderInterceptor,
