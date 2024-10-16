@@ -4,8 +4,10 @@ import { DnsController } from './dns.controller'
 import { Route53Client } from '@aws-sdk/client-route-53'
 import { CertificateProvider } from './certificate.provider'
 import { ACMClient } from '@aws-sdk/client-acm'
+import { PipelineModule } from '../pipeline'
 
 @Module({
+  imports: [PipelineModule],
   providers: [
     {
       provide: Route53Client,
@@ -13,13 +15,11 @@ import { ACMClient } from '@aws-sdk/client-acm'
     },
     {
       provide: ACMClient,
-      useFactory: () => new ACMClient,
+      useFactory: () => new ACMClient(),
     },
     DnsProvider,
     CertificateProvider,
   ],
-  controllers: [
-    DnsController,
-  ],
+  controllers: [DnsController],
 })
 export class DnsModule {}

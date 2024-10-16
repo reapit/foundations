@@ -1,4 +1,4 @@
-import { LoginIdentity } from '@reapit/connect-session'
+import { LoginIdentity } from '@reapit/connect-session-server'
 import { ApiKeyInterface } from '@reapit/foundations-ts-definitions'
 
 type LoginCredsType = {

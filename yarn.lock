@@ -6866,7 +6866,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/app@npm:^14.1.0":
+"@octokit/app@npm:^14.0.2":
   version: 14.1.0
   resolution: "@octokit/app@npm:14.1.0"
   dependencies:
@@ -16236,7 +16236,7 @@ __metadata:
     "@nestjs/platform-express": "npm:^11.0.5"
     "@nestjs/testing": "npm:^11.0.5"
     "@nestjs/typeorm": "npm:^8.1.4"
-    "@octokit/app": "npm:^14.1.0"
+    "@octokit/app": "npm:^14.0.2"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
