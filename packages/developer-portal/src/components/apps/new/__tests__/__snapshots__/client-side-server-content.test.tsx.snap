@@ -8,15 +8,16 @@ exports[`ClientServerSideContent should match a snapshot 1`] = `
       <mock-styled.div
         classname="el-mr8"
       >
-        <mock-styled.span
-          classname="el-mr8"
-          role="img"
+        <span
+          class="el-mr8 el-icon"
           style="font-size: 2rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 2rem;"
+            title="Icon image with name devicesInfographic"
             viewBox="0 0 40 40"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +57,7 @@ exports[`ClientServerSideContent should match a snapshot 1`] = `
               fill="#798da1"
             />
           </svg>
-        </mock-styled.span>
+        </span>
         <mock-styled.div>
           Client Side App
         </mock-styled.div>
@@ -64,15 +65,16 @@ exports[`ClientServerSideContent should match a snapshot 1`] = `
       <mock-styled.div
         classname=""
       >
-        <mock-styled.span
-          classname="el-mr8"
-          role="img"
+        <span
+          class="el-mr8 el-icon"
           style="font-size: 2rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 2rem;"
+            title="Icon image with name serverInfographic"
             viewBox="0 0 32 32"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +88,7 @@ exports[`ClientServerSideContent should match a snapshot 1`] = `
               fill="#d8dee4"
             />
           </svg>
-        </mock-styled.span>
+        </span>
         <mock-styled.div>
           Server Side Integration
         </mock-styled.div>
@@ -97,15 +99,16 @@ exports[`ClientServerSideContent should match a snapshot 1`] = `
     <mock-styled.div
       classname="el-mr8"
     >
-      <mock-styled.span
-        classname="el-mr8"
-        role="img"
+      <span
+        class="el-mr8 el-icon"
         style="font-size: 2rem;"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
           style="font-size: 2rem;"
+          title="Icon image with name devicesInfographic"
           viewBox="0 0 40 40"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +148,7 @@ exports[`ClientServerSideContent should match a snapshot 1`] = `
             fill="#798da1"
           />
         </svg>
-      </mock-styled.span>
+      </span>
       <mock-styled.div>
         Client Side App
       </mock-styled.div>
@@ -153,15 +156,16 @@ exports[`ClientServerSideContent should match a snapshot 1`] = `
     <mock-styled.div
       classname=""
     >
-      <mock-styled.span
-        classname="el-mr8"
-        role="img"
+      <span
+        class="el-mr8 el-icon"
         style="font-size: 2rem;"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
           style="font-size: 2rem;"
+          title="Icon image with name serverInfographic"
           viewBox="0 0 32 32"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -175,7 +179,7 @@ exports[`ClientServerSideContent should match a snapshot 1`] = `
             fill="#d8dee4"
           />
         </svg>
-      </mock-styled.span>
+      </span>
       <mock-styled.div>
         Server Side Integration
       </mock-styled.div>

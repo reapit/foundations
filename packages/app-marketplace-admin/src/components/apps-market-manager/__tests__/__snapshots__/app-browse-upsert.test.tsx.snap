@@ -5,20 +5,23 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.span
-            classname="el-mb3 el-icon-size-large"
-            role="img"
+          <span
+            class="el-mb3 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name myAppsInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -88,179 +91,204 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
                 fill="#d8dee4"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.p
-            classname="el-text-base"
+          </span>
+          <p
+            class="el-text-base el-body-text"
           >
             Getting Started
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </p>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             The AppMarket does not render anything on the browse page without this dashboard. Each section on the page is configured by type and differing information is required for each confg item type.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </small>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             All config items can be configured to go live bettween given dates using the config options provided, or can be toggled on or off in live time.
-          </mock-styled.p>
-          <mock-styled.button
-            classname="el-intent-neutral"
+          </small>
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
+          </button>
         </aside>
         <section
           class="el-page-container"
         >
-          <mock-styled.h1
-            classname="el-text-base"
+          <h1
+            class="el-text-base el-title"
           >
             AppMarket Configuration Table
-          </mock-styled.h1>
+          </h1>
           <div
             class="el-mb11"
           >
-            <mock-styled.h2
-              classname="el-text-base el-has-capitalised-text"
+            <h2
+              class="el-text-base el-subtitle el-has-capitalised-text"
             >
               featured hero apps
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               Featured Hero apps are the first thing you will see in on the browse apps page and therefore the most prominant and important. There should be only 1 Featured Hero set to live at any given time.
-            </mock-styled.p>
-            <mock-styled.div />
+            </p>
+            <div
+              class="mocked-styled-115 el-table"
+            />
             <br />
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Add
-            </mock-styled.button>
+            </button>
           </div>
           <div
             class="el-mb11"
           >
-            <mock-styled.h2
-              classname="el-text-base el-has-capitalised-text"
+            <h2
+              class="el-text-base el-subtitle el-has-capitalised-text"
             >
               hero apps
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               Hero apps are of secondary prominance to the Featured Hero. There should only be 2 Heros set to live at any given time
-            </mock-styled.p>
-            <mock-styled.div />
+            </p>
+            <div
+              class="mocked-styled-115 el-table"
+            />
             <br />
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Add
-            </mock-styled.button>
+            </button>
           </div>
           <div
             class="el-mb11"
           >
-            <mock-styled.h2
-              classname="el-text-base el-has-capitalised-text"
+            <h2
+              class="el-text-base el-subtitle el-has-capitalised-text"
             >
               apps filters
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               App Filters are tiles that on the user clicking, set a pre-defined set of filters is applied to the page which will then render the filtered results as a related collection.
-            </mock-styled.p>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </p>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               You can have any number of Filter Collections live however, 6 is advised in line with the design.
-            </mock-styled.p>
-            <mock-styled.div />
+            </p>
+            <div
+              class="mocked-styled-115 el-table"
+            />
             <br />
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Add
-            </mock-styled.button>
+            </button>
           </div>
           <div
             class="el-mb11"
           >
-            <mock-styled.h2
-              classname="el-text-base el-has-capitalised-text"
+            <h2
+              class="el-text-base el-subtitle el-has-capitalised-text"
             >
               featured apps
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               Featured apps are lists of apps, grouped as a collection that sit below the filter collections typically. They have slightly larger tiles and slightly greater prominence than Simple Apps.
-            </mock-styled.p>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </p>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               You can add as many to a collection as you like however, the list will be paginatied by the UI at some resolutions in line with the design. All apps selected will be returned when hitting the See All link.
-            </mock-styled.p>
-            <mock-styled.div />
+            </p>
+            <div
+              class="mocked-styled-115 el-table"
+            />
             <br />
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Add
-            </mock-styled.button>
+            </button>
           </div>
           <div
             class="el-mb11"
           >
-            <mock-styled.h2
-              classname="el-text-base el-has-capitalised-text"
+            <h2
+              class="el-text-base el-subtitle el-has-capitalised-text"
             >
               simple apps
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               Simple apps behave almost identically to featured apps however, they are of slightly less prominence on the page.
-            </mock-styled.p>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </p>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             />
-            <mock-styled.div />
+            <div
+              class="mocked-styled-115 el-table"
+            />
             <br />
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Add
-            </mock-styled.button>
+            </button>
           </div>
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.span
-          classname="el-mb3 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb3 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name myAppsInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -330,159 +358,181 @@ exports[`AppBrowseManageUpsert should match a snapshot 1`] = `
               fill="#d8dee4"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base"
+        </span>
+        <p
+          class="el-text-base el-body-text"
         >
           Getting Started
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           The AppMarket does not render anything on the browse page without this dashboard. Each section on the page is configured by type and differing information is required for each confg item type.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </small>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           All config items can be configured to go live bettween given dates using the config options provided, or can be toggled on or off in live time.
-        </mock-styled.p>
-        <mock-styled.button
-          classname="el-intent-neutral"
+        </small>
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           View Docs
-        </mock-styled.button>
+        </button>
       </aside>
       <section
         class="el-page-container"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           AppMarket Configuration Table
-        </mock-styled.h1>
+        </h1>
         <div
           class="el-mb11"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-capitalised-text"
+          <h2
+            class="el-text-base el-subtitle el-has-capitalised-text"
           >
             featured hero apps
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             Featured Hero apps are the first thing you will see in on the browse apps page and therefore the most prominant and important. There should be only 1 Featured Hero set to live at any given time.
-          </mock-styled.p>
-          <mock-styled.div />
+          </p>
+          <div
+            class="mocked-styled-115 el-table"
+          />
           <br />
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Add
-          </mock-styled.button>
+          </button>
         </div>
         <div
           class="el-mb11"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-capitalised-text"
+          <h2
+            class="el-text-base el-subtitle el-has-capitalised-text"
           >
             hero apps
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             Hero apps are of secondary prominance to the Featured Hero. There should only be 2 Heros set to live at any given time
-          </mock-styled.p>
-          <mock-styled.div />
+          </p>
+          <div
+            class="mocked-styled-115 el-table"
+          />
           <br />
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Add
-          </mock-styled.button>
+          </button>
         </div>
         <div
           class="el-mb11"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-capitalised-text"
+          <h2
+            class="el-text-base el-subtitle el-has-capitalised-text"
           >
             apps filters
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             App Filters are tiles that on the user clicking, set a pre-defined set of filters is applied to the page which will then render the filtered results as a related collection.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </p>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             You can have any number of Filter Collections live however, 6 is advised in line with the design.
-          </mock-styled.p>
-          <mock-styled.div />
+          </p>
+          <div
+            class="mocked-styled-115 el-table"
+          />
           <br />
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Add
-          </mock-styled.button>
+          </button>
         </div>
         <div
           class="el-mb11"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-capitalised-text"
+          <h2
+            class="el-text-base el-subtitle el-has-capitalised-text"
           >
             featured apps
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             Featured apps are lists of apps, grouped as a collection that sit below the filter collections typically. They have slightly larger tiles and slightly greater prominence than Simple Apps.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </p>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             You can add as many to a collection as you like however, the list will be paginatied by the UI at some resolutions in line with the design. All apps selected will be returned when hitting the See All link.
-          </mock-styled.p>
-          <mock-styled.div />
+          </p>
+          <div
+            class="mocked-styled-115 el-table"
+          />
           <br />
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Add
-          </mock-styled.button>
+          </button>
         </div>
         <div
           class="el-mb11"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-capitalised-text"
+          <h2
+            class="el-text-base el-subtitle el-has-capitalised-text"
           >
             simple apps
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             Simple apps behave almost identically to featured apps however, they are of slightly less prominence on the page.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </p>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           />
-          <mock-styled.div />
+          <div
+            class="mocked-styled-115 el-table"
+          />
           <br />
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Add
-          </mock-styled.button>
+          </button>
         </div>
       </section>
     </div>

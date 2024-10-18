@@ -5,42 +5,49 @@ exports[`UsagePage should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <section
         class="el-page-container"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           API Usage
-        </mock-styled.h1>
+        </h1>
         <form>
-          <mock-styled.div
-            classname="el-form-layout-has-margin"
+          <div
+            class="el-form-layout-has-margin el-form-layout"
           >
-            <mock-styled.div>
-              <mock-styled.h2
-                classname="el-text-base"
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+              <h2
+                class="el-text-base el-subtitle"
               >
                 Filters
-              </mock-styled.h2>
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text"
+              </h2>
+              <p
+                class="el-text-base el-body-text el-has-grey-text"
               >
                 Apply a filter to get started. Developer and month are required by default.
-              </mock-styled.p>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label
-                classname="el-flex el-mb3"
-                htmlfor="developer-search-box"
+              </p>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <label
+                class="el-flex el-mb3 el-label"
+                for="developer-search-box"
               >
                 Company
-              </mock-styled.label>
-              <mock-styled.div
+              </label>
+              <div
                 aria-controls=":r0:"
                 aria-expanded="false"
                 aria-haspopup="listbox"
+                class="mocked-styled-84 el-searchable-dropdown-container"
                 role="combobox"
               >
                 <input
@@ -49,16 +56,19 @@ exports[`UsagePage should match a snapshot 1`] = `
                   style="display: none;"
                   value=""
                 />
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-default el-icon-new"
-                    role="img"
+                <span
+                  class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                >
+                  <span
+                    class="el-intent-default el-icon-new el-icon"
                     style="font-size: 1rem;"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
                       style="font-size: 1rem;"
+                      title="Icon image with name search"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -68,38 +78,55 @@ exports[`UsagePage should match a snapshot 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div
+                  </span>
+                </span>
+                <input
+                  aria-label="Input type undefined"
+                  class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                   data-testid="search-input"
                   name="developerId"
                   placeholder="Search developer organisations"
                   value=""
                 />
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type month"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="month"
                   type="month"
+                  value="2019-09"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Month
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   App
-                </mock-styled.label>
-                <mock-styled.select
-                  disabled="true"
+                </label>
+                <select
+                  aria-label="Select an item from the dropdown list"
+                  class="mocked-styled-83 el-select"
+                  disabled=""
                   name="appId"
                 >
                   <option
@@ -107,16 +134,24 @@ exports[`UsagePage should match a snapshot 1`] = `
                   >
                     Please Select
                   </option>
-                </mock-styled.select>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+                </select>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Customer
-                </mock-styled.label>
-                <mock-styled.select
-                  disabled="true"
+                </label>
+                <select
+                  aria-label="Select an item from the dropdown list"
+                  class="mocked-styled-83 el-select"
+                  disabled=""
                   name="customerId"
                 >
                   <option
@@ -124,46 +159,51 @@ exports[`UsagePage should match a snapshot 1`] = `
                   >
                     Please Select
                   </option>
-                </mock-styled.select>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
+                </select>
+              </div>
+            </div>
+          </div>
         </form>
         <div
           class="el-mb11"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-2 el-button-group"
+          >
+            <div
+              class="mocked-styled-3 el-button-group-inner"
             >
-              <mock-styled.button
-                classname="el-intent-primary"
+              <button
+                class="el-intent-primary el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Download CSV
-              </mock-styled.button>
-            </mock-styled.div>
-          </mock-styled.div>
+              </button>
+            </div>
+          </div>
         </div>
         <div>
-          <mock-styled.div
-            classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-            role="alertdialog"
+          <div
+            class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+            role="status"
           >
             <div
               class="el-pn-icon"
               data-testid="close-icon"
             >
-              <mock-styled.span
-                classname="el-icon-new"
-                role="img"
+              <span
+                class="el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name info"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -173,55 +213,63 @@ exports[`UsagePage should match a snapshot 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
             </div>
             <div
+              aria-live="polite"
               class="el-pn-content"
             >
               No results found for your selected filters
             </div>
-          </mock-styled.div>
+          </div>
         </div>
       </section>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <section
       class="el-page-container"
     >
-      <mock-styled.h1
-        classname="el-text-base"
+      <h1
+        class="el-text-base el-title"
       >
         API Usage
-      </mock-styled.h1>
+      </h1>
       <form>
-        <mock-styled.div
-          classname="el-form-layout-has-margin"
+        <div
+          class="el-form-layout-has-margin el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.h2
-              classname="el-text-base"
+          <div
+            class="mocked-styled-135 el-input-wrap-full"
+          >
+            <h2
+              class="el-text-base el-subtitle"
             >
               Filters
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               Apply a filter to get started. Developer and month are required by default.
-            </mock-styled.p>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label
-              classname="el-flex el-mb3"
-              htmlfor="developer-search-box"
+            </p>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <label
+              class="el-flex el-mb3 el-label"
+              for="developer-search-box"
             >
               Company
-            </mock-styled.label>
-            <mock-styled.div
+            </label>
+            <div
               aria-controls=":r0:"
               aria-expanded="false"
               aria-haspopup="listbox"
+              class="mocked-styled-84 el-searchable-dropdown-container"
               role="combobox"
             >
               <input
@@ -230,16 +278,19 @@ exports[`UsagePage should match a snapshot 1`] = `
                 style="display: none;"
                 value=""
               />
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+              <span
+                class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
+              >
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
                     style="font-size: 1rem;"
+                    title="Icon image with name search"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -249,38 +300,55 @@ exports[`UsagePage should match a snapshot 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div
+                </span>
+              </span>
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                 data-testid="search-input"
                 name="developerId"
                 placeholder="Search developer organisations"
                 value=""
               />
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type month"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="month"
                 type="month"
+                value="2019-09"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Month
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 App
-              </mock-styled.label>
-              <mock-styled.select
-                disabled="true"
+              </label>
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="mocked-styled-83 el-select"
+                disabled=""
                 name="appId"
               >
                 <option
@@ -288,16 +356,24 @@ exports[`UsagePage should match a snapshot 1`] = `
                 >
                   Please Select
                 </option>
-              </mock-styled.select>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+              </select>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Customer
-              </mock-styled.label>
-              <mock-styled.select
-                disabled="true"
+              </label>
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="mocked-styled-83 el-select"
+                disabled=""
                 name="customerId"
               >
                 <option
@@ -305,46 +381,51 @@ exports[`UsagePage should match a snapshot 1`] = `
                 >
                   Please Select
                 </option>
-              </mock-styled.select>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+              </select>
+            </div>
+          </div>
+        </div>
       </form>
       <div
         class="el-mb11"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Download CSV
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
       <div>
-        <mock-styled.div
-          classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-          role="alertdialog"
+        <div
+          class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          role="status"
         >
           <div
             class="el-pn-icon"
             data-testid="close-icon"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name info"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -354,14 +435,15 @@ exports[`UsagePage should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
           </div>
           <div
+            aria-live="polite"
             class="el-pn-content"
           >
             No results found for your selected filters
           </div>
-        </mock-styled.div>
+        </div>
       </div>
     </section>
   </div>,

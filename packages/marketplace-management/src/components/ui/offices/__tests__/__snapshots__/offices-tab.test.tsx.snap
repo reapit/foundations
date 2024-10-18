@@ -5,125 +5,161 @@ exports[`OfficesTab should match a snapshot where there are no offices 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-justify-between"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           SOME_NAME
            Offices
-        </mock-styled.h1>
+        </h1>
       </div>
       <form>
-        <mock-styled.div
-          classname="el-form-layout-has-margin el-fade-in"
+        <div
+          class="el-form-layout-has-margin el-fade-in el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="name"
                 placeholder="Search for an office"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Search
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
             <div
               class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
             >
-              <mock-styled.div>
-                <mock-styled.div
-                  classname="el-button-group-align-left"
+              <div
+                class="mocked-styled-2 el-button-group"
+              >
+                <div
+                  class="el-button-group-align-left el-button-group-inner"
                 >
-                  <mock-styled.button
-                    classname="el-intent-primary"
+                  <button
+                    class="el-intent-primary el-button"
                     type="submit"
                   >
-                    <mock-styled.div />
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
                     Search
-                  </mock-styled.button>
-                </mock-styled.div>
-              </mock-styled.div>
+                  </button>
+                </div>
+              </div>
             </div>
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </form>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-44 el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+        <div
+          class="mocked-styled-46 el-loader"
+        >
+          <div
+            class="mocked-styled-47 el-loader-moving-bar"
+          />
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-justify-between"
     >
-      <mock-styled.h1
-        classname="el-text-base"
+      <h1
+        class="el-text-base el-title"
       >
         SOME_NAME
          Offices
-      </mock-styled.h1>
+      </h1>
     </div>
     <form>
-      <mock-styled.div
-        classname="el-form-layout-has-margin el-fade-in"
+      <div
+        class="el-form-layout-has-margin el-fade-in el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="name"
               placeholder="Search for an office"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Search
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
           <div
             class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
           >
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-button-group-align-left"
+            <div
+              class="mocked-styled-2 el-button-group"
+            >
+              <div
+                class="el-button-group-align-left el-button-group-inner"
               >
-                <mock-styled.button
-                  classname="el-intent-primary"
+                <button
+                  class="el-intent-primary el-button"
                   type="submit"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Search
-                </mock-styled.button>
-              </mock-styled.div>
-            </mock-styled.div>
+                </button>
+              </div>
+            </div>
           </div>
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
     </form>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-44 el-loader-container"
     >
-      <mock-styled.div>
-        <mock-styled.div />
-      </mock-styled.div>
-    </mock-styled.div>
+      <div
+        class="mocked-styled-46 el-loader"
+      >
+        <div
+          class="mocked-styled-47 el-loader-moving-bar"
+        />
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -184,125 +220,161 @@ exports[`OfficesTab should match a snapshot where there are offices 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-justify-between"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           SOME_NAME
            Offices
-        </mock-styled.h1>
+        </h1>
       </div>
       <form>
-        <mock-styled.div
-          classname="el-form-layout-has-margin el-fade-in"
+        <div
+          class="el-form-layout-has-margin el-fade-in el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="name"
                 placeholder="Search for an office"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Search
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
             <div
               class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
             >
-              <mock-styled.div>
-                <mock-styled.div
-                  classname="el-button-group-align-left"
+              <div
+                class="mocked-styled-2 el-button-group"
+              >
+                <div
+                  class="el-button-group-align-left el-button-group-inner"
                 >
-                  <mock-styled.button
-                    classname="el-intent-primary"
+                  <button
+                    class="el-intent-primary el-button"
                     type="submit"
                   >
-                    <mock-styled.div />
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
                     Search
-                  </mock-styled.button>
-                </mock-styled.div>
-              </mock-styled.div>
+                  </button>
+                </div>
+              </div>
             </div>
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </form>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-44 el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+        <div
+          class="mocked-styled-46 el-loader"
+        >
+          <div
+            class="mocked-styled-47 el-loader-moving-bar"
+          />
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-justify-between"
     >
-      <mock-styled.h1
-        classname="el-text-base"
+      <h1
+        class="el-text-base el-title"
       >
         SOME_NAME
          Offices
-      </mock-styled.h1>
+      </h1>
     </div>
     <form>
-      <mock-styled.div
-        classname="el-form-layout-has-margin el-fade-in"
+      <div
+        class="el-form-layout-has-margin el-fade-in el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="name"
               placeholder="Search for an office"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Search
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
           <div
             class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
           >
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-button-group-align-left"
+            <div
+              class="mocked-styled-2 el-button-group"
+            >
+              <div
+                class="el-button-group-align-left el-button-group-inner"
               >
-                <mock-styled.button
-                  classname="el-intent-primary"
+                <button
+                  class="el-intent-primary el-button"
                   type="submit"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Search
-                </mock-styled.button>
-              </mock-styled.div>
-            </mock-styled.div>
+                </button>
+              </div>
+            </div>
           </div>
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
     </form>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-44 el-loader-container"
     >
-      <mock-styled.div>
-        <mock-styled.div />
-      </mock-styled.div>
-    </mock-styled.div>
+      <div
+        class="mocked-styled-46 el-loader"
+      >
+        <div
+          class="mocked-styled-47 el-loader-moving-bar"
+        />
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -363,73 +435,88 @@ exports[`OfficesTab should match a snapshot where there is no orgId 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-justify-between"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           Offices
-        </mock-styled.h1>
+        </h1>
       </div>
       <form>
-        <mock-styled.div
-          classname="el-form-layout-has-margin el-fade-in"
+        <div
+          class="el-form-layout-has-margin el-fade-in el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="name"
                 placeholder="Search for an office"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Search
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
             <div
               class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
             >
-              <mock-styled.div>
-                <mock-styled.div
-                  classname="el-button-group-align-left"
+              <div
+                class="mocked-styled-2 el-button-group"
+              >
+                <div
+                  class="el-button-group-align-left el-button-group-inner"
                 >
-                  <mock-styled.button
-                    classname="el-intent-primary"
+                  <button
+                    class="el-intent-primary el-button"
                     type="submit"
                   >
-                    <mock-styled.div />
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
                     Search
-                  </mock-styled.button>
-                </mock-styled.div>
-              </mock-styled.div>
+                  </button>
+                </div>
+              </div>
             </div>
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </form>
-      <mock-styled.div
-        classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-        role="alertdialog"
+      <div
+        class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        role="status"
       >
         <div
           class="el-pn-icon"
           data-testid="close-icon"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1.25rem;"
+              title="Icon image with name info"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -439,84 +526,100 @@ exports[`OfficesTab should match a snapshot where there is no orgId 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
         </div>
         <div
+          aria-live="polite"
           class="el-pn-content"
         >
           No organisation selected. You need to select an organisation to view offices.
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-justify-between"
     >
-      <mock-styled.h1
-        classname="el-text-base"
+      <h1
+        class="el-text-base el-title"
       >
         Offices
-      </mock-styled.h1>
+      </h1>
     </div>
     <form>
-      <mock-styled.div
-        classname="el-form-layout-has-margin el-fade-in"
+      <div
+        class="el-form-layout-has-margin el-fade-in el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="name"
               placeholder="Search for an office"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Search
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
           <div
             class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
           >
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-button-group-align-left"
+            <div
+              class="mocked-styled-2 el-button-group"
+            >
+              <div
+                class="el-button-group-align-left el-button-group-inner"
               >
-                <mock-styled.button
-                  classname="el-intent-primary"
+                <button
+                  class="el-intent-primary el-button"
                   type="submit"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Search
-                </mock-styled.button>
-              </mock-styled.div>
-            </mock-styled.div>
+                </button>
+              </div>
+            </div>
           </div>
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
     </form>
-    <mock-styled.div
-      classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-      role="alertdialog"
+    <div
+      class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      role="status"
     >
       <div
         class="el-pn-icon"
         data-testid="close-icon"
       >
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <span
+          class="el-icon-new el-icon"
           style="font-size: 1.25rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 1.25rem;"
+            title="Icon image with name info"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -526,14 +629,15 @@ exports[`OfficesTab should match a snapshot where there is no orgId 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
+        </span>
       </div>
       <div
+        aria-live="polite"
         class="el-pn-content"
       >
         No organisation selected. You need to select an organisation to view offices.
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

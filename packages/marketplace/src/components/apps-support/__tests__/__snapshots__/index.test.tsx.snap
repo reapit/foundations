@@ -5,20 +5,23 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.span
-            classname="el-mb5 el-icon-size-large"
-            role="img"
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name userInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -106,23 +109,25 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </span>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             For AppMarket support, you will need to contact the app developer directly. You can find the relevant contact details by searching by app or developer name.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </small>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             In addition we have provided comprehensive documentation on using the AppMarket at the below link.
-          </mock-styled.p>
-          <mock-styled.button
-            classname="el-intent-neutral"
+          </small>
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
+          </button>
         </aside>
         <section
           class="el-page-container el-hfull"
@@ -145,8 +150,8 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
   }
  el-mb11"
           >
-            <mock-styled.span
-              classname="mock-css.
+            <span
+              class="mock-css.
   border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
   height: 2.25rem;
@@ -160,12 +165,13 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
- el-intent-default el-icon-new"
-              role="img"
+ el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name search"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -175,29 +181,30 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
             <mock-styled.input
               placeholder="Search by App or Developer"
               type="text"
             />
           </div>
-          <mock-styled.div
-            classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-            role="alertdialog"
+          <div
+            class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+            role="status"
           >
             <div
               class="el-pn-icon"
               data-testid="close-icon"
             >
-              <mock-styled.span
-                classname="el-icon-new"
-                role="img"
+              <span
+                class="el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name info"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -207,33 +214,37 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
             </div>
             <div
+              aria-live="polite"
               class="el-pn-content"
             >
               Search for an app or developer name to get support contact details
             </div>
-          </mock-styled.div>
+          </div>
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name userInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -321,23 +332,25 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
               </clippath>
             </defs>
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </span>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           For AppMarket support, you will need to contact the app developer directly. You can find the relevant contact details by searching by app or developer name.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </small>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           In addition we have provided comprehensive documentation on using the AppMarket at the below link.
-        </mock-styled.p>
-        <mock-styled.button
-          classname="el-intent-neutral"
+        </small>
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           View Docs
-        </mock-styled.button>
+        </button>
       </aside>
       <section
         class="el-page-container el-hfull"
@@ -360,8 +373,8 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
   }
  el-mb11"
         >
-          <mock-styled.span
-            classname="mock-css.
+          <span
+            class="mock-css.
   border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
   height: 2.25rem;
@@ -375,12 +388,13 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
- el-intent-default el-icon-new"
-            role="img"
+ el-intent-default el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name search"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -390,29 +404,30 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <mock-styled.input
             placeholder="Search by App or Developer"
             type="text"
           />
         </div>
-        <mock-styled.div
-          classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-          role="alertdialog"
+        <div
+          class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          role="status"
         >
           <div
             class="el-pn-icon"
             data-testid="close-icon"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name info"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -422,14 +437,15 @@ exports[`AppsSupportPage should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
           </div>
           <div
+            aria-live="polite"
             class="el-pn-content"
           >
             Search for an app or developer name to get support contact details
           </div>
-        </mock-styled.div>
+        </div>
       </section>
     </div>
   </div>,
@@ -492,20 +508,23 @@ exports[`AppsSupportPage should match a snapshot when loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.span
-            classname="el-mb5 el-icon-size-large"
-            role="img"
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name userInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -593,23 +612,25 @@ exports[`AppsSupportPage should match a snapshot when loading 1`] = `
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </span>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             For AppMarket support, you will need to contact the app developer directly. You can find the relevant contact details by searching by app or developer name.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </small>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             In addition we have provided comprehensive documentation on using the AppMarket at the below link.
-          </mock-styled.p>
-          <mock-styled.button
-            classname="el-intent-neutral"
+          </small>
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
+          </button>
         </aside>
         <section
           class="el-page-container el-hfull"
@@ -632,8 +653,8 @@ exports[`AppsSupportPage should match a snapshot when loading 1`] = `
   }
  el-mb11"
           >
-            <mock-styled.span
-              classname="mock-css.
+            <span
+              class="mock-css.
   border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
   height: 2.25rem;
@@ -647,12 +668,13 @@ exports[`AppsSupportPage should match a snapshot when loading 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
- el-intent-default el-icon-new"
-              role="img"
+ el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name search"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -662,38 +684,45 @@ exports[`AppsSupportPage should match a snapshot when loading 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
             <mock-styled.input
               placeholder="Search by App or Developer"
               type="text"
             />
           </div>
-          <mock-styled.div
-            classname=""
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name userInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -781,23 +810,25 @@ exports[`AppsSupportPage should match a snapshot when loading 1`] = `
               </clippath>
             </defs>
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </span>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           For AppMarket support, you will need to contact the app developer directly. You can find the relevant contact details by searching by app or developer name.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </small>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           In addition we have provided comprehensive documentation on using the AppMarket at the below link.
-        </mock-styled.p>
-        <mock-styled.button
-          classname="el-intent-neutral"
+        </small>
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           View Docs
-        </mock-styled.button>
+        </button>
       </aside>
       <section
         class="el-page-container el-hfull"
@@ -820,8 +851,8 @@ exports[`AppsSupportPage should match a snapshot when loading 1`] = `
   }
  el-mb11"
         >
-          <mock-styled.span
-            classname="mock-css.
+          <span
+            class="mock-css.
   border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
   height: 2.25rem;
@@ -835,12 +866,13 @@ exports[`AppsSupportPage should match a snapshot when loading 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
- el-intent-default el-icon-new"
-            role="img"
+ el-intent-default el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name search"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -850,19 +882,23 @@ exports[`AppsSupportPage should match a snapshot when loading 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <mock-styled.input
             placeholder="Search by App or Developer"
             type="text"
           />
         </div>
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </section>
     </div>
   </div>,

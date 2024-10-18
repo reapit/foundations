@@ -5,12 +5,14 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-column"
       >
-        <mock-styled.p
-          classname="el-text-base el-has-no-margin mock-css.
+        <small
+          class="el-text-base el-small-text el-has-no-margin mock-css.
   margin-top: 1.25rem;
   min-height: 1.5rem;
  mock-css.
@@ -22,13 +24,13 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
 "
         >
           Browse By
-        </mock-styled.p>
+        </small>
       </div>
       <div
         class="el-flex-container el-flex-justify-between"
       >
-        <mock-styled.p
-          classname="el-text-base el-has-bold-text mock-css.
+        <p
+          class="el-text-base el-body-text el-has-bold-text mock-css.
   display: none;
 
   , {
@@ -37,134 +39,152 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
 "
         >
           Browse By
-        </mock-styled.p>
+        </p>
       </div>
-      <mock-styled.div
-        classname="el-fade-in mock-css.
+      <div
+        class="el-fade-in mock-css.
   width: 100%;
   border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
   border-radius: 0.125rem;
-"
+ el-multi-select-un-selected"
       >
-        <mock-styled.input
-          checked="false"
+        <input
+          aria-hidden="true"
+          class="mocked-styled-52 el-multi-select-checkbox"
           id="9"
           name="Tools"
           type="checkbox"
           value="9"
         />
-        <mock-styled.label
-          classname="el-has-grey-chips"
-          htmlfor="9"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="9"
+          role="option"
         >
           Tools
-        </mock-styled.label>
-        <mock-styled.input
-          checked="false"
+        </label>
+        <input
+          aria-hidden="true"
+          class="mocked-styled-52 el-multi-select-checkbox"
           id="8"
           name="Social"
           type="checkbox"
           value="8"
         />
-        <mock-styled.label
-          classname="el-has-grey-chips"
-          htmlfor="8"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="8"
+          role="option"
         >
           Social
-        </mock-styled.label>
-        <mock-styled.input
-          checked="false"
+        </label>
+        <input
+          aria-hidden="true"
+          class="mocked-styled-52 el-multi-select-checkbox"
           id="7"
           name="Marketing"
           type="checkbox"
           value="7"
         />
-        <mock-styled.label
-          classname="el-has-grey-chips"
-          htmlfor="7"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="7"
+          role="option"
         >
           Marketing
-        </mock-styled.label>
-        <mock-styled.input
-          checked="false"
+        </label>
+        <input
+          aria-hidden="true"
+          class="mocked-styled-52 el-multi-select-checkbox"
           id="6"
           name="Communication"
           type="checkbox"
           value="6"
         />
-        <mock-styled.label
-          classname="el-has-grey-chips"
-          htmlfor="6"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="6"
+          role="option"
         >
           Communication
-        </mock-styled.label>
-        <mock-styled.input
-          checked="false"
+        </label>
+        <input
+          aria-hidden="true"
+          class="mocked-styled-52 el-multi-select-checkbox"
           id="5"
           name="Media"
           type="checkbox"
           value="5"
         />
-        <mock-styled.label
-          classname="el-has-grey-chips"
-          htmlfor="5"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="5"
+          role="option"
         >
           Media
-        </mock-styled.label>
-        <mock-styled.input
-          checked="false"
+        </label>
+        <input
+          aria-hidden="true"
+          class="mocked-styled-52 el-multi-select-checkbox"
           id="4"
           name="Events"
           type="checkbox"
           value="4"
         />
-        <mock-styled.label
-          classname="el-has-grey-chips"
-          htmlfor="4"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="4"
+          role="option"
         >
           Events
-        </mock-styled.label>
-        <mock-styled.input
-          checked="false"
+        </label>
+        <input
+          aria-hidden="true"
+          class="mocked-styled-52 el-multi-select-checkbox"
           id="3"
           name="Finance"
           type="checkbox"
           value="3"
         />
-        <mock-styled.label
-          classname="el-has-grey-chips"
-          htmlfor="3"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="3"
+          role="option"
         >
           Finance
-        </mock-styled.label>
-        <mock-styled.input
-          checked="false"
+        </label>
+        <input
+          aria-hidden="true"
+          class="mocked-styled-52 el-multi-select-checkbox"
           id="2"
           name="Productivity"
           type="checkbox"
           value="2"
         />
-        <mock-styled.label
-          classname="el-has-grey-chips"
-          htmlfor="2"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="2"
+          role="option"
         >
           Productivity
-        </mock-styled.label>
-        <mock-styled.input
-          checked="false"
+        </label>
+        <input
+          aria-hidden="true"
+          class="mocked-styled-52 el-multi-select-checkbox"
           id="1"
           name="Other"
           type="checkbox"
           value="1"
         />
-        <mock-styled.label
-          classname="el-has-grey-chips"
-          htmlfor="1"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="1"
+          role="option"
         >
           Other
-        </mock-styled.label>
-      </mock-styled.div>
+        </label>
+      </div>
       <div
         class="el-flex-container mock-css.
   display: none;
@@ -192,8 +212,8 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
   }
  el-mr5"
         >
-          <mock-styled.span
-            classname="mock-css.
+          <span
+            class="mock-css.
   border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
   height: 2.25rem;
@@ -207,12 +227,13 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
- el-intent-default el-icon-new"
-            role="img"
+ el-intent-default el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name search"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -222,7 +243,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <mock-styled.input
             placeholder="Search by App or Developer"
             type="text"
@@ -232,12 +253,14 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-column"
     >
-      <mock-styled.p
-        classname="el-text-base el-has-no-margin mock-css.
+      <small
+        class="el-text-base el-small-text el-has-no-margin mock-css.
   margin-top: 1.25rem;
   min-height: 1.5rem;
  mock-css.
@@ -249,13 +272,13 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
 "
       >
         Browse By
-      </mock-styled.p>
+      </small>
     </div>
     <div
       class="el-flex-container el-flex-justify-between"
     >
-      <mock-styled.p
-        classname="el-text-base el-has-bold-text mock-css.
+      <p
+        class="el-text-base el-body-text el-has-bold-text mock-css.
   display: none;
 
   , {
@@ -264,134 +287,152 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
 "
       >
         Browse By
-      </mock-styled.p>
+      </p>
     </div>
-    <mock-styled.div
-      classname="el-fade-in mock-css.
+    <div
+      class="el-fade-in mock-css.
   width: 100%;
   border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
   border-radius: 0.125rem;
-"
+ el-multi-select-un-selected"
     >
-      <mock-styled.input
-        checked="false"
+      <input
+        aria-hidden="true"
+        class="mocked-styled-52 el-multi-select-checkbox"
         id="9"
         name="Tools"
         type="checkbox"
         value="9"
       />
-      <mock-styled.label
-        classname="el-has-grey-chips"
-        htmlfor="9"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="9"
+        role="option"
       >
         Tools
-      </mock-styled.label>
-      <mock-styled.input
-        checked="false"
+      </label>
+      <input
+        aria-hidden="true"
+        class="mocked-styled-52 el-multi-select-checkbox"
         id="8"
         name="Social"
         type="checkbox"
         value="8"
       />
-      <mock-styled.label
-        classname="el-has-grey-chips"
-        htmlfor="8"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="8"
+        role="option"
       >
         Social
-      </mock-styled.label>
-      <mock-styled.input
-        checked="false"
+      </label>
+      <input
+        aria-hidden="true"
+        class="mocked-styled-52 el-multi-select-checkbox"
         id="7"
         name="Marketing"
         type="checkbox"
         value="7"
       />
-      <mock-styled.label
-        classname="el-has-grey-chips"
-        htmlfor="7"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="7"
+        role="option"
       >
         Marketing
-      </mock-styled.label>
-      <mock-styled.input
-        checked="false"
+      </label>
+      <input
+        aria-hidden="true"
+        class="mocked-styled-52 el-multi-select-checkbox"
         id="6"
         name="Communication"
         type="checkbox"
         value="6"
       />
-      <mock-styled.label
-        classname="el-has-grey-chips"
-        htmlfor="6"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="6"
+        role="option"
       >
         Communication
-      </mock-styled.label>
-      <mock-styled.input
-        checked="false"
+      </label>
+      <input
+        aria-hidden="true"
+        class="mocked-styled-52 el-multi-select-checkbox"
         id="5"
         name="Media"
         type="checkbox"
         value="5"
       />
-      <mock-styled.label
-        classname="el-has-grey-chips"
-        htmlfor="5"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="5"
+        role="option"
       >
         Media
-      </mock-styled.label>
-      <mock-styled.input
-        checked="false"
+      </label>
+      <input
+        aria-hidden="true"
+        class="mocked-styled-52 el-multi-select-checkbox"
         id="4"
         name="Events"
         type="checkbox"
         value="4"
       />
-      <mock-styled.label
-        classname="el-has-grey-chips"
-        htmlfor="4"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="4"
+        role="option"
       >
         Events
-      </mock-styled.label>
-      <mock-styled.input
-        checked="false"
+      </label>
+      <input
+        aria-hidden="true"
+        class="mocked-styled-52 el-multi-select-checkbox"
         id="3"
         name="Finance"
         type="checkbox"
         value="3"
       />
-      <mock-styled.label
-        classname="el-has-grey-chips"
-        htmlfor="3"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="3"
+        role="option"
       >
         Finance
-      </mock-styled.label>
-      <mock-styled.input
-        checked="false"
+      </label>
+      <input
+        aria-hidden="true"
+        class="mocked-styled-52 el-multi-select-checkbox"
         id="2"
         name="Productivity"
         type="checkbox"
         value="2"
       />
-      <mock-styled.label
-        classname="el-has-grey-chips"
-        htmlfor="2"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="2"
+        role="option"
       >
         Productivity
-      </mock-styled.label>
-      <mock-styled.input
-        checked="false"
+      </label>
+      <input
+        aria-hidden="true"
+        class="mocked-styled-52 el-multi-select-checkbox"
         id="1"
         name="Other"
         type="checkbox"
         value="1"
       />
-      <mock-styled.label
-        classname="el-has-grey-chips"
-        htmlfor="1"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="1"
+        role="option"
       >
         Other
-      </mock-styled.label>
-    </mock-styled.div>
+      </label>
+    </div>
     <div
       class="el-flex-container mock-css.
   display: none;
@@ -419,8 +460,8 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
   }
  el-mr5"
       >
-        <mock-styled.span
-          classname="mock-css.
+        <span
+          class="mock-css.
   border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
   height: 2.25rem;
@@ -434,12 +475,13 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
- el-intent-default el-icon-new"
-          role="img"
+ el-intent-default el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name search"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -449,7 +491,7 @@ exports[`AppSearchFilters should match a snapshot 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
+        </span>
         <mock-styled.input
           placeholder="Search by App or Developer"
           type="text"
@@ -516,7 +558,9 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-column"
       >
@@ -541,8 +585,8 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
   }
 "
           >
-            <mock-styled.span
-              classname="mock-css.
+            <span
+              class="mock-css.
   border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
   height: 2.25rem;
@@ -556,12 +600,13 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
- el-intent-default el-icon-new"
-              role="img"
+ el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name search"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -571,7 +616,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
             <mock-styled.input
               placeholder="Search by App or Developer"
               type="text"
@@ -582,8 +627,8 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
       <div
         class="el-flex-container el-flex-justify-between"
       >
-        <mock-styled.p
-          classname="el-text-base el-has-bold-text mock-css.
+        <p
+          class="el-text-base el-body-text el-has-bold-text mock-css.
   display: none;
 
   , {
@@ -592,10 +637,10 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
 "
         >
           Browse By
-        </mock-styled.p>
+        </p>
       </div>
-      <mock-styled.div
-        classname="el-fade-in mock-css.
+      <div
+        class="el-fade-in mock-css.
   width: 100%;
   border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
@@ -606,146 +651,166 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
   , {
     display: flex;
   }
-"
+ el-multi-select-un-selected"
       >
-        <mock-styled.input
-          checked="false"
+        <input
+          aria-hidden="true"
+          class="mocked-styled-52 el-multi-select-checkbox"
           id="9"
           name="Tools"
           type="checkbox"
           value="9"
         />
-        <mock-styled.label
-          classname="el-has-grey-chips"
-          htmlfor="9"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="9"
+          role="option"
         >
           Tools
-        </mock-styled.label>
-        <mock-styled.input
-          checked="false"
+        </label>
+        <input
+          aria-hidden="true"
+          class="mocked-styled-52 el-multi-select-checkbox"
           id="8"
           name="Social"
           type="checkbox"
           value="8"
         />
-        <mock-styled.label
-          classname="el-has-grey-chips"
-          htmlfor="8"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="8"
+          role="option"
         >
           Social
-        </mock-styled.label>
-        <mock-styled.input
-          checked="false"
+        </label>
+        <input
+          aria-hidden="true"
+          class="mocked-styled-52 el-multi-select-checkbox"
           id="7"
           name="Marketing"
           type="checkbox"
           value="7"
         />
-        <mock-styled.label
-          classname="el-has-grey-chips"
-          htmlfor="7"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="7"
+          role="option"
         >
           Marketing
-        </mock-styled.label>
-        <mock-styled.input
-          checked="false"
+        </label>
+        <input
+          aria-hidden="true"
+          class="mocked-styled-52 el-multi-select-checkbox"
           id="6"
           name="Communication"
           type="checkbox"
           value="6"
         />
-        <mock-styled.label
-          classname="el-has-grey-chips"
-          htmlfor="6"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="6"
+          role="option"
         >
           Communication
-        </mock-styled.label>
-        <mock-styled.input
-          checked="false"
+        </label>
+        <input
+          aria-hidden="true"
+          class="mocked-styled-52 el-multi-select-checkbox"
           id="5"
           name="Media"
           type="checkbox"
           value="5"
         />
-        <mock-styled.label
-          classname="el-has-grey-chips"
-          htmlfor="5"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="5"
+          role="option"
         >
           Media
-        </mock-styled.label>
-        <mock-styled.input
-          checked="false"
+        </label>
+        <input
+          aria-hidden="true"
+          class="mocked-styled-52 el-multi-select-checkbox"
           id="4"
           name="Events"
           type="checkbox"
           value="4"
         />
-        <mock-styled.label
-          classname="el-has-grey-chips"
-          htmlfor="4"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="4"
+          role="option"
         >
           Events
-        </mock-styled.label>
-        <mock-styled.input
-          checked="false"
+        </label>
+        <input
+          aria-hidden="true"
+          class="mocked-styled-52 el-multi-select-checkbox"
           id="3"
           name="Finance"
           type="checkbox"
           value="3"
         />
-        <mock-styled.label
-          classname="el-has-grey-chips"
-          htmlfor="3"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="3"
+          role="option"
         >
           Finance
-        </mock-styled.label>
-        <mock-styled.input
-          checked="false"
+        </label>
+        <input
+          aria-hidden="true"
+          class="mocked-styled-52 el-multi-select-checkbox"
           id="2"
           name="Productivity"
           type="checkbox"
           value="2"
         />
-        <mock-styled.label
-          classname="el-has-grey-chips"
-          htmlfor="2"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="2"
+          role="option"
         >
           Productivity
-        </mock-styled.label>
-        <mock-styled.input
-          checked="false"
+        </label>
+        <input
+          aria-hidden="true"
+          class="mocked-styled-52 el-multi-select-checkbox"
           id="1"
           name="Other"
           type="checkbox"
           value="1"
         />
-        <mock-styled.label
-          classname="el-has-grey-chips"
-          htmlfor="1"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="1"
+          role="option"
         >
           Other
-        </mock-styled.label>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
+        </label>
+      </div>
+      <div
+        class="mock-css.
   display: flex;
 
   , {
     display: none;
   }
- el-mb5"
+ el-mb5 el-button-group"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Clear Search Filters
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
       <div
         class="el-flex-container mock-css.
   display: none;
@@ -773,8 +838,8 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
   }
  el-mr5"
         >
-          <mock-styled.span
-            classname="mock-css.
+          <span
+            class="mock-css.
   border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
   height: 2.25rem;
@@ -788,12 +853,13 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
- el-intent-default el-icon-new"
-            role="img"
+ el-intent-default el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name search"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -803,23 +869,27 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <mock-styled.input
             placeholder="Search by App or Developer"
             type="text"
           />
         </div>
-        <mock-styled.button
-          classname="el-intent-neutral"
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Clear Search Filters
-        </mock-styled.button>
+        </button>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-column"
     >
@@ -844,8 +914,8 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
   }
 "
         >
-          <mock-styled.span
-            classname="mock-css.
+          <span
+            class="mock-css.
   border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
   height: 2.25rem;
@@ -859,12 +929,13 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
- el-intent-default el-icon-new"
-            role="img"
+ el-intent-default el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name search"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -874,7 +945,7 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <mock-styled.input
             placeholder="Search by App or Developer"
             type="text"
@@ -885,8 +956,8 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
     <div
       class="el-flex-container el-flex-justify-between"
     >
-      <mock-styled.p
-        classname="el-text-base el-has-bold-text mock-css.
+      <p
+        class="el-text-base el-body-text el-has-bold-text mock-css.
   display: none;
 
   , {
@@ -895,10 +966,10 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
 "
       >
         Browse By
-      </mock-styled.p>
+      </p>
     </div>
-    <mock-styled.div
-      classname="el-fade-in mock-css.
+    <div
+      class="el-fade-in mock-css.
   width: 100%;
   border: 1px solid var(--color-grey-150);
   margin-bottom: 1.25rem;
@@ -909,146 +980,166 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
   , {
     display: flex;
   }
-"
+ el-multi-select-un-selected"
     >
-      <mock-styled.input
-        checked="false"
+      <input
+        aria-hidden="true"
+        class="mocked-styled-52 el-multi-select-checkbox"
         id="9"
         name="Tools"
         type="checkbox"
         value="9"
       />
-      <mock-styled.label
-        classname="el-has-grey-chips"
-        htmlfor="9"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="9"
+        role="option"
       >
         Tools
-      </mock-styled.label>
-      <mock-styled.input
-        checked="false"
+      </label>
+      <input
+        aria-hidden="true"
+        class="mocked-styled-52 el-multi-select-checkbox"
         id="8"
         name="Social"
         type="checkbox"
         value="8"
       />
-      <mock-styled.label
-        classname="el-has-grey-chips"
-        htmlfor="8"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="8"
+        role="option"
       >
         Social
-      </mock-styled.label>
-      <mock-styled.input
-        checked="false"
+      </label>
+      <input
+        aria-hidden="true"
+        class="mocked-styled-52 el-multi-select-checkbox"
         id="7"
         name="Marketing"
         type="checkbox"
         value="7"
       />
-      <mock-styled.label
-        classname="el-has-grey-chips"
-        htmlfor="7"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="7"
+        role="option"
       >
         Marketing
-      </mock-styled.label>
-      <mock-styled.input
-        checked="false"
+      </label>
+      <input
+        aria-hidden="true"
+        class="mocked-styled-52 el-multi-select-checkbox"
         id="6"
         name="Communication"
         type="checkbox"
         value="6"
       />
-      <mock-styled.label
-        classname="el-has-grey-chips"
-        htmlfor="6"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="6"
+        role="option"
       >
         Communication
-      </mock-styled.label>
-      <mock-styled.input
-        checked="false"
+      </label>
+      <input
+        aria-hidden="true"
+        class="mocked-styled-52 el-multi-select-checkbox"
         id="5"
         name="Media"
         type="checkbox"
         value="5"
       />
-      <mock-styled.label
-        classname="el-has-grey-chips"
-        htmlfor="5"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="5"
+        role="option"
       >
         Media
-      </mock-styled.label>
-      <mock-styled.input
-        checked="false"
+      </label>
+      <input
+        aria-hidden="true"
+        class="mocked-styled-52 el-multi-select-checkbox"
         id="4"
         name="Events"
         type="checkbox"
         value="4"
       />
-      <mock-styled.label
-        classname="el-has-grey-chips"
-        htmlfor="4"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="4"
+        role="option"
       >
         Events
-      </mock-styled.label>
-      <mock-styled.input
-        checked="false"
+      </label>
+      <input
+        aria-hidden="true"
+        class="mocked-styled-52 el-multi-select-checkbox"
         id="3"
         name="Finance"
         type="checkbox"
         value="3"
       />
-      <mock-styled.label
-        classname="el-has-grey-chips"
-        htmlfor="3"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="3"
+        role="option"
       >
         Finance
-      </mock-styled.label>
-      <mock-styled.input
-        checked="false"
+      </label>
+      <input
+        aria-hidden="true"
+        class="mocked-styled-52 el-multi-select-checkbox"
         id="2"
         name="Productivity"
         type="checkbox"
         value="2"
       />
-      <mock-styled.label
-        classname="el-has-grey-chips"
-        htmlfor="2"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="2"
+        role="option"
       >
         Productivity
-      </mock-styled.label>
-      <mock-styled.input
-        checked="false"
+      </label>
+      <input
+        aria-hidden="true"
+        class="mocked-styled-52 el-multi-select-checkbox"
         id="1"
         name="Other"
         type="checkbox"
         value="1"
       />
-      <mock-styled.label
-        classname="el-has-grey-chips"
-        htmlfor="1"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="1"
+        role="option"
       >
         Other
-      </mock-styled.label>
-    </mock-styled.div>
-    <mock-styled.div
-      classname="mock-css.
+      </label>
+    </div>
+    <div
+      class="mock-css.
   display: flex;
 
   , {
     display: none;
   }
- el-mb5"
+ el-mb5 el-button-group"
     >
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-3 el-button-group-inner"
       >
-        <mock-styled.button
-          classname="el-intent-neutral"
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Clear Search Filters
-        </mock-styled.button>
-      </mock-styled.div>
-    </mock-styled.div>
+        </button>
+      </div>
+    </div>
     <div
       class="el-flex-container mock-css.
   display: none;
@@ -1076,8 +1167,8 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
   }
  el-mr5"
       >
-        <mock-styled.span
-          classname="mock-css.
+        <span
+          class="mock-css.
   border-radius: 0.125rem 0 0 0.125rem;
   padding: 0 0.5rem 0 1.25rem;
   height: 2.25rem;
@@ -1091,12 +1182,13 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
     border: 1px solid var(--intent-primary);
     border-right: none;
   }
- el-intent-default el-icon-new"
-          role="img"
+ el-intent-default el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name search"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -1106,18 +1198,20 @@ exports[`AppSearchFilters should match a snapshot where has search 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
+        </span>
         <mock-styled.input
           placeholder="Search by App or Developer"
           type="text"
         />
       </div>
-      <mock-styled.button
-        classname="el-intent-neutral"
+      <button
+        class="el-intent-neutral el-button"
       >
-        <mock-styled.div />
+        <div
+          class="mocked-styled-0 el-button-loader"
+        />
         Clear Search Filters
-      </mock-styled.button>
+      </button>
     </div>
   </div>,
   "debug": [Function],

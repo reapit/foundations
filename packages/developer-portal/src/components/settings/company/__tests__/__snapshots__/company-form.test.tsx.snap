@@ -5,268 +5,377 @@ exports[`CompanyForm should match snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <form>
-        <mock-styled.div
-          classname="el-form-layout-has-margin"
+        <div
+          class="el-form-layout-has-margin el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="company"
                 placeholder="This will be the display name of the company in our AppMarket"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Company Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="telephone"
                 placeholder="A number we can discuss your developer account on"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Telephone
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="website"
                 placeholder="Your company's corporate website"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Website Address
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
-                disabled="true"
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
+                disabled=""
                 id="test-static-id"
                 name="email"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Office Email
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="notificationsEmail"
                 placeholder="An email address we can send notifications about your developer account to"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Notifications Email
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type checkbox"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="noTaxRegistration"
                 type="checkbox"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 No VAT Number
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
-                disabled="false"
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="taxNumber"
                 placeholder="If VAT registered, your must supply your VAT Number"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 VAT Number
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type checkbox"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="noregistrationNumber"
                 type="checkbox"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 No Company Reg Number
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
-                disabled="false"
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="registrationNumber"
                 placeholder="If you have a formal company, your should supply the registration number"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Company Reg Number
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.textarea
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-135 el-input-wrap-full"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <textarea
+                aria-label="Text area input field"
+                class="mocked-styled-122 el-text-area"
                 name="about"
                 placeholder="Tell us about your company in a few words. This will appear on your AppMarket listing pages"
               />
-              <mock-styled.label>
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 About Company
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="buildingName"
                 placeholder="The building of your corporate office"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Building Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="buildingNumber"
                 placeholder="The number of your corporate office"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Building Number
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="line1"
                 placeholder="Line one of the address for your office"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Address Line 1
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="line2"
                 placeholder="Line two of the address for your office"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Address Line 2
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="line3"
                 placeholder="Line three of the address for your office"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Address Line 3
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="line4"
                 placeholder="Line four of the address for your office"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Address Line 4
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="postcode"
                 placeholder="Your office postcode"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Postcode
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.select
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="mocked-styled-83 el-select"
                 name="countryId"
               >
                 <option
@@ -1514,292 +1623,407 @@ exports[`CompanyForm should match snapshot 1`] = `
                 >
                   Zimbabwe
                 </option>
-              </mock-styled.select>
-              <mock-styled.label>
+              </select>
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Country
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
               type="submit"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Save Changes
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <form>
-      <mock-styled.div
-        classname="el-form-layout-has-margin"
+      <div
+        class="el-form-layout-has-margin el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="company"
               placeholder="This will be the display name of the company in our AppMarket"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Company Name
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="telephone"
               placeholder="A number we can discuss your developer account on"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Telephone
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="website"
               placeholder="Your company's corporate website"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Website Address
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
-              disabled="true"
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
+              disabled=""
               id="test-static-id"
               name="email"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Office Email
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="notificationsEmail"
               placeholder="An email address we can send notifications about your developer account to"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Notifications Email
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type checkbox"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="noTaxRegistration"
               type="checkbox"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               No VAT Number
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
-              disabled="false"
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="taxNumber"
               placeholder="If VAT registered, your must supply your VAT Number"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               VAT Number
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type checkbox"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="noregistrationNumber"
               type="checkbox"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               No Company Reg Number
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
-              disabled="false"
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="registrationNumber"
               placeholder="If you have a formal company, your should supply the registration number"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Company Reg Number
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.textarea
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <textarea
+              aria-label="Text area input field"
+              class="mocked-styled-122 el-text-area"
               name="about"
               placeholder="Tell us about your company in a few words. This will appear on your AppMarket listing pages"
             />
-            <mock-styled.label>
+            <label
+              class="mocked-styled-41 el-label"
+            >
               About Company
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="buildingName"
               placeholder="The building of your corporate office"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Building Name
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="buildingNumber"
               placeholder="The number of your corporate office"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Building Number
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="line1"
               placeholder="Line one of the address for your office"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Address Line 1
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="line2"
               placeholder="Line two of the address for your office"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Address Line 2
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="line3"
               placeholder="Line three of the address for your office"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Address Line 3
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="line4"
               placeholder="Line four of the address for your office"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Address Line 4
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="postcode"
               placeholder="Your office postcode"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Postcode
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.select
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <select
+              aria-label="Select an item from the dropdown list"
+              class="mocked-styled-83 el-select"
               name="countryId"
             >
               <option
@@ -3047,26 +3271,32 @@ exports[`CompanyForm should match snapshot 1`] = `
               >
                 Zimbabwe
               </option>
-            </mock-styled.select>
-            <mock-styled.label>
+            </select>
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Country
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
             type="submit"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Save Changes
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </form>
   </div>,
   "debug": [Function],

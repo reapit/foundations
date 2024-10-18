@@ -2,8 +2,9 @@
 
 exports[`ToolbarRadio should match a snapshot - Number 1`] = `
 <DocumentFragment>
-  <mock-styled.input
-    classname=""
+  <input
+    aria-label="Input type number"
+    class="mocked-styled-38 el-input"
     type="number"
     value=""
   />
@@ -12,8 +13,9 @@ exports[`ToolbarRadio should match a snapshot - Number 1`] = `
 
 exports[`ToolbarRadio should match a snapshot - Radio 1`] = `
 <DocumentFragment>
-  <mock-styled.input
-    classname=""
+  <input
+    aria-label="Input type number"
+    class="mocked-styled-38 el-input"
     type="number"
     value=""
   />
@@ -22,8 +24,9 @@ exports[`ToolbarRadio should match a snapshot - Radio 1`] = `
 
 exports[`ToolbarRadio should match a snapshot - Select 1`] = `
 <DocumentFragment>
-  <mock-styled.input
-    classname=""
+  <input
+    aria-label="Input type number"
+    class="mocked-styled-38 el-input"
     type="number"
     value=""
   />
@@ -32,8 +35,9 @@ exports[`ToolbarRadio should match a snapshot - Select 1`] = `
 
 exports[`ToolbarRadio should match a snapshot - Slider 1`] = `
 <DocumentFragment>
-  <mock-styled.input
-    classname=""
+  <input
+    aria-label="Input type number"
+    class="mocked-styled-38 el-input"
     type="number"
     value=""
   />
@@ -42,8 +46,9 @@ exports[`ToolbarRadio should match a snapshot - Slider 1`] = `
 
 exports[`ToolbarRadio should match a snapshot - Text 1`] = `
 <DocumentFragment>
-  <mock-styled.input
-    classname=""
+  <input
+    aria-label="Input type text"
+    class="mocked-styled-38 el-input"
     type="text"
     value=""
   />

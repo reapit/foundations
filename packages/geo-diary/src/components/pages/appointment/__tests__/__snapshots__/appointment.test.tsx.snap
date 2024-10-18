@@ -5,22 +5,26 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base el-has-bold-text"
+          <h2
+            class="el-text-base el-subtitle el-has-bold-text"
           >
             Location
-          </mock-styled.h2>
+          </h2>
           <mock-styled.div>
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               MAP
-            </mock-styled.button>
+            </button>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
@@ -28,8 +32,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
             classname=""
           >
             <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 placeholder="Enter location"
                 value=""
               />
@@ -43,52 +48,68 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
       <mock-styled.div
         classname="mock-css."
       >
-        <mock-styled.div
-          classname="el-mx-auto"
+        <div
+          class="el-mx-auto el-toggle-radio-wrap"
         >
-          <mock-styled.input
+          <input
+            checked=""
+            class="mocked-styled-127 el-toggle-radio"
             id="today"
             name="appointment-time"
             type="radio"
             value="TODAY"
           />
-          <mock-styled.label
-            classname=""
-            htmlfor="today"
+          <label
+            class="mocked-styled-128 el-toggle-radio-label"
+            for="today"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-124 el-toggle-radio-item"
+            >
               Today
-            </mock-styled.span>
-          </mock-styled.label>
-          <mock-styled.input
+            </span>
+          </label>
+          <input
+            class="mocked-styled-127 el-toggle-radio"
             id="tomorrow"
             name="appointment-time"
             type="radio"
             value="TOMORROW"
           />
-          <mock-styled.label
-            classname=""
-            htmlfor="tomorrow"
+          <label
+            class="mocked-styled-128 el-toggle-radio-label"
+            for="tomorrow"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-124 el-toggle-radio-item"
+            >
               Tomorrow
-            </mock-styled.span>
-          </mock-styled.label>
-          <mock-styled.input
+            </span>
+          </label>
+          <input
+            class="mocked-styled-127 el-toggle-radio"
             id="week"
             name="appointment-time"
             type="radio"
             value="WEEK"
           />
-          <mock-styled.label
-            classname=""
-            htmlfor="week"
+          <label
+            class="mocked-styled-128 el-toggle-radio-label"
+            for="week"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-124 el-toggle-radio-item"
+            >
               Week
-            </mock-styled.span>
-          </mock-styled.label>
-        </mock-styled.div>
+            </span>
+          </label>
+        </div>
       </mock-styled.div>
       <mock-styled.div
         classname="mock-css.
@@ -106,34 +127,41 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
           class="el-fade-in"
         >
           <div>
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
   * {
     color: #646464;
   }
- el-mb6"
+ el-mb6 el-card-wrap"
             >
-              <mock-styled.div
-                classname="el-card-list-main-wrap-expanded"
+              <div
+                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-17 el-card-list-heading"
+                >
                   undefined - undefined - Cancelled 
-                </mock-styled.h5>
-                <mock-styled.h6>
+                </h5>
+                <h6
+                  class="mocked-styled-18 el-card-list-sub-heading"
+                >
                   Appointment
-                </mock-styled.h6>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                </h6>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name edit"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -143,48 +171,61 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Notes
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Add Follow Up Notes
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div>
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
   * {
     color: #646464;
   }
- el-mb6"
+ el-mb6 el-card-wrap"
             >
-              <mock-styled.div
-                classname="el-card-list-main-wrap-expanded"
+              <div
+                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-17 el-card-list-heading"
+                >
                   undefined - undefined - Cancelled 
-                </mock-styled.h5>
-                <mock-styled.h6>
+                </h5>
+                <h6
+                  class="mocked-styled-18 el-card-list-sub-heading"
+                >
                   Viewing
-                </mock-styled.h6>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                </h6>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name edit"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -194,44 +235,57 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Notes
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Add Follow Up Notes
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div>
-            <mock-styled.div
-              classname="el-mb6"
+            <div
+              class="el-mb6 el-card-wrap"
             >
-              <mock-styled.div
-                classname="el-card-list-main-wrap-expanded"
+              <div
+                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-17 el-card-list-heading"
+                >
                   undefined - undefined
-                </mock-styled.h5>
-                <mock-styled.h6>
+                </h5>
+                <h6
+                  class="mocked-styled-18 el-card-list-sub-heading"
+                >
                   Viewing
-                </mock-styled.h6>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                </h6>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name property"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -241,28 +295,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Property
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Yew Tree Cottage Church Walk
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name contacts"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -272,28 +335,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Attendee
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Ms Harper Dale
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name contacts"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -303,28 +375,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Attendee
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Mr Teddy Allan
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name edit"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -334,28 +415,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Notes
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Add Follow Up Notes
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-danger el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-danger el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name trash"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -371,44 +461,57 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill-rule="evenodd"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Cancel
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Cancel This Appointment
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div>
-            <mock-styled.div
-              classname="el-mb6"
+            <div
+              class="el-mb6 el-card-wrap"
             >
-              <mock-styled.div
-                classname="el-card-list-main-wrap-expanded"
+              <div
+                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-17 el-card-list-heading"
+                >
                   undefined - undefined
-                </mock-styled.h5>
-                <mock-styled.h6>
+                </h5>
+                <h6
+                  class="mocked-styled-18 el-card-list-sub-heading"
+                >
                   Viewing
-                </mock-styled.h6>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                </h6>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name property"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -418,28 +521,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Property
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Belmont Hanover Farm
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name contacts"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -449,28 +561,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Attendee
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Mr Ronnie Akhtar
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name edit"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -480,28 +601,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Notes
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Add Follow Up Notes
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-danger el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-danger el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name trash"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -517,44 +647,57 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill-rule="evenodd"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Cancel
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Cancel This Appointment
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div>
-            <mock-styled.div
-              classname="el-mb6"
+            <div
+              class="el-mb6 el-card-wrap"
             >
-              <mock-styled.div
-                classname="el-card-list-main-wrap-expanded"
+              <div
+                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-17 el-card-list-heading"
+                >
                   undefined - undefined
-                </mock-styled.h5>
-                <mock-styled.h6>
+                </h5>
+                <h6
+                  class="mocked-styled-18 el-card-list-sub-heading"
+                >
                   Viewing
-                </mock-styled.h6>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                </h6>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name property"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -564,28 +707,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Property
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     78 Wadworth Holme
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name contacts"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -595,28 +747,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Attendee
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Ms Poppy Beggs
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name edit"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -626,28 +787,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Notes
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Add Follow Up Notes
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-danger el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-danger el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name trash"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -663,44 +833,57 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill-rule="evenodd"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Cancel
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Cancel This Appointment
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div>
-            <mock-styled.div
-              classname="el-mb6"
+            <div
+              class="el-mb6 el-card-wrap"
             >
-              <mock-styled.div
-                classname="el-card-list-main-wrap-expanded"
+              <div
+                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-17 el-card-list-heading"
+                >
                   undefined - undefined
-                </mock-styled.h5>
-                <mock-styled.h6>
+                </h5>
+                <h6
+                  class="mocked-styled-18 el-card-list-sub-heading"
+                >
                   Viewing
-                </mock-styled.h6>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                </h6>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name property"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -710,28 +893,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Property
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Sunnyside St. Rumbolds Lane
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name contacts"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -741,28 +933,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Attendee
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Mr Elijah Brown
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name edit"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -772,28 +973,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Notes
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Add Follow Up Notes
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-danger el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-danger el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name trash"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -809,44 +1019,57 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill-rule="evenodd"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Cancel
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Cancel This Appointment
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div>
-            <mock-styled.div
-              classname="el-mb6"
+            <div
+              class="el-mb6 el-card-wrap"
             >
-              <mock-styled.div
-                classname="el-card-list-main-wrap-expanded"
+              <div
+                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-17 el-card-list-heading"
+                >
                   undefined - undefined
-                </mock-styled.h5>
-                <mock-styled.h6>
+                </h5>
+                <h6
+                  class="mocked-styled-18 el-card-list-sub-heading"
+                >
                   Appointment
-                </mock-styled.h6>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                </h6>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name contacts"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -856,28 +1079,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Attendee
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Mr Jenson Brown
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name edit"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -887,28 +1119,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Notes
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Add Follow Up Notes
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-danger el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-danger el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name trash"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -924,44 +1165,57 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill-rule="evenodd"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Cancel
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Cancel This Appointment
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div>
-            <mock-styled.div
-              classname="el-mb6"
+            <div
+              class="el-mb6 el-card-wrap"
             >
-              <mock-styled.div
-                classname="el-card-list-main-wrap-expanded"
+              <div
+                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-17 el-card-list-heading"
+                >
                   undefined - undefined
-                </mock-styled.h5>
-                <mock-styled.h6>
+                </h5>
+                <h6
+                  class="mocked-styled-18 el-card-list-sub-heading"
+                >
                   Viewing
-                </mock-styled.h6>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                </h6>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name property"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -971,28 +1225,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Property
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     90 Bromham Road
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name contacts"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -1002,28 +1265,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Attendee
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Mr Colton Jackson
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name edit"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -1033,28 +1305,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Notes
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Add Follow Up Notes
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-list-item-expanded"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="el-card-list-item-expanded el-card-list-item"
               >
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-danger el-icon-new"
-                    role="img"
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-danger el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name trash"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -1070,18 +1351,24 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                         fill-rule="evenodd"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Cancel
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Cancel This Appointment
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </mock-styled.div>
@@ -1154,51 +1441,57 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
             </mock-styled.label>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.h2
-              classname="el-text-base el-has-bold-text"
+            <h2
+              class="el-text-base el-subtitle el-has-bold-text"
             >
               ETA
-            </mock-styled.h2>
+            </h2>
             <p />
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.h2
-              classname="el-text-base el-has-bold-text"
+            <h2
+              class="el-text-base el-subtitle el-has-bold-text"
             >
               Distance
-            </mock-styled.h2>
+            </h2>
             <p />
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Start Journey
-            </mock-styled.button>
+            </button>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
     <mock-styled.div>
       <mock-styled.div>
-        <mock-styled.h2
-          classname="el-text-base el-has-bold-text"
+        <h2
+          class="el-text-base el-subtitle el-has-bold-text"
         >
           Location
-        </mock-styled.h2>
+        </h2>
         <mock-styled.div>
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             MAP
-          </mock-styled.button>
+          </button>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
@@ -1206,8 +1499,9 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
           classname=""
         >
           <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               placeholder="Enter location"
               value=""
             />
@@ -1221,52 +1515,68 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
     <mock-styled.div
       classname="mock-css."
     >
-      <mock-styled.div
-        classname="el-mx-auto"
+      <div
+        class="el-mx-auto el-toggle-radio-wrap"
       >
-        <mock-styled.input
+        <input
+          checked=""
+          class="mocked-styled-127 el-toggle-radio"
           id="today"
           name="appointment-time"
           type="radio"
           value="TODAY"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="today"
+        <label
+          class="mocked-styled-128 el-toggle-radio-label"
+          for="today"
+          role="button"
+          tabindex="0"
         >
-          <mock-styled.span>
+          <span
+            class="mocked-styled-124 el-toggle-radio-item"
+          >
             Today
-          </mock-styled.span>
-        </mock-styled.label>
-        <mock-styled.input
+          </span>
+        </label>
+        <input
+          class="mocked-styled-127 el-toggle-radio"
           id="tomorrow"
           name="appointment-time"
           type="radio"
           value="TOMORROW"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="tomorrow"
+        <label
+          class="mocked-styled-128 el-toggle-radio-label"
+          for="tomorrow"
+          role="button"
+          tabindex="0"
         >
-          <mock-styled.span>
+          <span
+            class="mocked-styled-124 el-toggle-radio-item"
+          >
             Tomorrow
-          </mock-styled.span>
-        </mock-styled.label>
-        <mock-styled.input
+          </span>
+        </label>
+        <input
+          class="mocked-styled-127 el-toggle-radio"
           id="week"
           name="appointment-time"
           type="radio"
           value="WEEK"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="week"
+        <label
+          class="mocked-styled-128 el-toggle-radio-label"
+          for="week"
+          role="button"
+          tabindex="0"
         >
-          <mock-styled.span>
+          <span
+            class="mocked-styled-124 el-toggle-radio-item"
+          >
             Week
-          </mock-styled.span>
-        </mock-styled.label>
-      </mock-styled.div>
+          </span>
+        </label>
+      </div>
     </mock-styled.div>
     <mock-styled.div
       classname="mock-css.
@@ -1284,34 +1594,41 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
         class="el-fade-in"
       >
         <div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
   * {
     color: #646464;
   }
- el-mb6"
+ el-mb6 el-card-wrap"
           >
-            <mock-styled.div
-              classname="el-card-list-main-wrap-expanded"
+            <div
+              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
             >
-              <mock-styled.h5>
+              <h5
+                class="mocked-styled-17 el-card-list-heading"
+              >
                 undefined - undefined - Cancelled 
-              </mock-styled.h5>
-              <mock-styled.h6>
+              </h5>
+              <h6
+                class="mocked-styled-18 el-card-list-sub-heading"
+              >
                 Appointment
-              </mock-styled.h6>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+              </h6>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name edit"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1321,48 +1638,61 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Notes
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Add Follow Up Notes
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
   * {
     color: #646464;
   }
- el-mb6"
+ el-mb6 el-card-wrap"
           >
-            <mock-styled.div
-              classname="el-card-list-main-wrap-expanded"
+            <div
+              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
             >
-              <mock-styled.h5>
+              <h5
+                class="mocked-styled-17 el-card-list-heading"
+              >
                 undefined - undefined - Cancelled 
-              </mock-styled.h5>
-              <mock-styled.h6>
+              </h5>
+              <h6
+                class="mocked-styled-18 el-card-list-sub-heading"
+              >
                 Viewing
-              </mock-styled.h6>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+              </h6>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name edit"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1372,44 +1702,57 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Notes
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Add Follow Up Notes
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div>
-          <mock-styled.div
-            classname="el-mb6"
+          <div
+            class="el-mb6 el-card-wrap"
           >
-            <mock-styled.div
-              classname="el-card-list-main-wrap-expanded"
+            <div
+              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
             >
-              <mock-styled.h5>
+              <h5
+                class="mocked-styled-17 el-card-list-heading"
+              >
                 undefined - undefined
-              </mock-styled.h5>
-              <mock-styled.h6>
+              </h5>
+              <h6
+                class="mocked-styled-18 el-card-list-sub-heading"
+              >
                 Viewing
-              </mock-styled.h6>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+              </h6>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name property"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1419,28 +1762,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Property
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Yew Tree Cottage Church Walk
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name contacts"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1450,28 +1802,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Attendee
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Ms Harper Dale
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name contacts"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1481,28 +1842,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Attendee
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Mr Teddy Allan
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name edit"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1512,28 +1882,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Notes
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Add Follow Up Notes
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-danger el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-danger el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name trash"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1549,44 +1928,57 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill-rule="evenodd"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Cancel
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Cancel This Appointment
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div>
-          <mock-styled.div
-            classname="el-mb6"
+          <div
+            class="el-mb6 el-card-wrap"
           >
-            <mock-styled.div
-              classname="el-card-list-main-wrap-expanded"
+            <div
+              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
             >
-              <mock-styled.h5>
+              <h5
+                class="mocked-styled-17 el-card-list-heading"
+              >
                 undefined - undefined
-              </mock-styled.h5>
-              <mock-styled.h6>
+              </h5>
+              <h6
+                class="mocked-styled-18 el-card-list-sub-heading"
+              >
                 Viewing
-              </mock-styled.h6>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+              </h6>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name property"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1596,28 +1988,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Property
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Belmont Hanover Farm
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name contacts"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1627,28 +2028,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Attendee
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Mr Ronnie Akhtar
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name edit"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1658,28 +2068,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Notes
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Add Follow Up Notes
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-danger el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-danger el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name trash"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1695,44 +2114,57 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill-rule="evenodd"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Cancel
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Cancel This Appointment
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div>
-          <mock-styled.div
-            classname="el-mb6"
+          <div
+            class="el-mb6 el-card-wrap"
           >
-            <mock-styled.div
-              classname="el-card-list-main-wrap-expanded"
+            <div
+              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
             >
-              <mock-styled.h5>
+              <h5
+                class="mocked-styled-17 el-card-list-heading"
+              >
                 undefined - undefined
-              </mock-styled.h5>
-              <mock-styled.h6>
+              </h5>
+              <h6
+                class="mocked-styled-18 el-card-list-sub-heading"
+              >
                 Viewing
-              </mock-styled.h6>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+              </h6>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name property"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1742,28 +2174,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Property
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   78 Wadworth Holme
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name contacts"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1773,28 +2214,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Attendee
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Ms Poppy Beggs
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name edit"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1804,28 +2254,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Notes
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Add Follow Up Notes
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-danger el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-danger el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name trash"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1841,44 +2300,57 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill-rule="evenodd"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Cancel
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Cancel This Appointment
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div>
-          <mock-styled.div
-            classname="el-mb6"
+          <div
+            class="el-mb6 el-card-wrap"
           >
-            <mock-styled.div
-              classname="el-card-list-main-wrap-expanded"
+            <div
+              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
             >
-              <mock-styled.h5>
+              <h5
+                class="mocked-styled-17 el-card-list-heading"
+              >
                 undefined - undefined
-              </mock-styled.h5>
-              <mock-styled.h6>
+              </h5>
+              <h6
+                class="mocked-styled-18 el-card-list-sub-heading"
+              >
                 Viewing
-              </mock-styled.h6>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+              </h6>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name property"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1888,28 +2360,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Property
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Sunnyside St. Rumbolds Lane
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name contacts"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1919,28 +2400,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Attendee
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Mr Elijah Brown
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name edit"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1950,28 +2440,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Notes
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Add Follow Up Notes
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-danger el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-danger el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name trash"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1987,44 +2486,57 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill-rule="evenodd"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Cancel
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Cancel This Appointment
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div>
-          <mock-styled.div
-            classname="el-mb6"
+          <div
+            class="el-mb6 el-card-wrap"
           >
-            <mock-styled.div
-              classname="el-card-list-main-wrap-expanded"
+            <div
+              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
             >
-              <mock-styled.h5>
+              <h5
+                class="mocked-styled-17 el-card-list-heading"
+              >
                 undefined - undefined
-              </mock-styled.h5>
-              <mock-styled.h6>
+              </h5>
+              <h6
+                class="mocked-styled-18 el-card-list-sub-heading"
+              >
                 Appointment
-              </mock-styled.h6>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+              </h6>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name contacts"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -2034,28 +2546,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Attendee
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Mr Jenson Brown
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name edit"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -2065,28 +2586,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Notes
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Add Follow Up Notes
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-danger el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-danger el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name trash"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -2102,44 +2632,57 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill-rule="evenodd"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Cancel
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Cancel This Appointment
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div>
-          <mock-styled.div
-            classname="el-mb6"
+          <div
+            class="el-mb6 el-card-wrap"
           >
-            <mock-styled.div
-              classname="el-card-list-main-wrap-expanded"
+            <div
+              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
             >
-              <mock-styled.h5>
+              <h5
+                class="mocked-styled-17 el-card-list-heading"
+              >
                 undefined - undefined
-              </mock-styled.h5>
-              <mock-styled.h6>
+              </h5>
+              <h6
+                class="mocked-styled-18 el-card-list-sub-heading"
+              >
                 Viewing
-              </mock-styled.h6>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+              </h6>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name property"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -2149,28 +2692,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Property
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   90 Bromham Road
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name contacts"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -2180,28 +2732,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Attendee
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Mr Colton Jackson
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-primary el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-primary el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name edit"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -2211,28 +2772,37 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Notes
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Add Follow Up Notes
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-list-item-expanded"
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-card-list-item-expanded el-card-list-item"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-danger el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-23 el-card-list-icon"
+              >
+                <span
+                  class="el-intent-danger el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name trash"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -2248,18 +2818,24 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
                       fill-rule="evenodd"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
+                </span>
+              </div>
+              <div
+                class="mocked-styled-20 el-card-list-item-text-wrap"
+              >
+                <div
+                  class="mocked-styled-21 el-card-list-item-text-primary"
+                >
                   Cancel
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-22 el-card-list-item-text-secondary"
+                >
                   Cancel This Appointment
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </mock-styled.div>
@@ -2332,29 +2908,31 @@ exports[`appointment AppointmentContent should match snapshot when has appointme
           </mock-styled.label>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base el-has-bold-text"
+          <h2
+            class="el-text-base el-subtitle el-has-bold-text"
           >
             ETA
-          </mock-styled.h2>
+          </h2>
           <p />
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base el-has-bold-text"
+          <h2
+            class="el-text-base el-subtitle el-has-bold-text"
           >
             Distance
-          </mock-styled.h2>
+          </h2>
           <p />
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Start Journey
-          </mock-styled.button>
+          </button>
         </mock-styled.div>
       </mock-styled.div>
     </mock-styled.div>
@@ -2418,22 +2996,26 @@ exports[`appointment AppointmentContent should match snapshot when loading 1`] =
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base el-has-bold-text"
+          <h2
+            class="el-text-base el-subtitle el-has-bold-text"
           >
             Location
-          </mock-styled.h2>
+          </h2>
           <mock-styled.div>
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               MAP
-            </mock-styled.button>
+            </button>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
@@ -2441,8 +3023,9 @@ exports[`appointment AppointmentContent should match snapshot when loading 1`] =
             classname=""
           >
             <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 placeholder="Enter location"
                 value=""
               />
@@ -2456,52 +3039,68 @@ exports[`appointment AppointmentContent should match snapshot when loading 1`] =
       <mock-styled.div
         classname="mock-css."
       >
-        <mock-styled.div
-          classname="el-mx-auto"
+        <div
+          class="el-mx-auto el-toggle-radio-wrap"
         >
-          <mock-styled.input
+          <input
+            checked=""
+            class="mocked-styled-127 el-toggle-radio"
             id="today"
             name="appointment-time"
             type="radio"
             value="TODAY"
           />
-          <mock-styled.label
-            classname=""
-            htmlfor="today"
+          <label
+            class="mocked-styled-128 el-toggle-radio-label"
+            for="today"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-124 el-toggle-radio-item"
+            >
               Today
-            </mock-styled.span>
-          </mock-styled.label>
-          <mock-styled.input
+            </span>
+          </label>
+          <input
+            class="mocked-styled-127 el-toggle-radio"
             id="tomorrow"
             name="appointment-time"
             type="radio"
             value="TOMORROW"
           />
-          <mock-styled.label
-            classname=""
-            htmlfor="tomorrow"
+          <label
+            class="mocked-styled-128 el-toggle-radio-label"
+            for="tomorrow"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-124 el-toggle-radio-item"
+            >
               Tomorrow
-            </mock-styled.span>
-          </mock-styled.label>
-          <mock-styled.input
+            </span>
+          </label>
+          <input
+            class="mocked-styled-127 el-toggle-radio"
             id="week"
             name="appointment-time"
             type="radio"
             value="WEEK"
           />
-          <mock-styled.label
-            classname=""
-            htmlfor="week"
+          <label
+            class="mocked-styled-128 el-toggle-radio-label"
+            for="week"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-124 el-toggle-radio-item"
+            >
               Week
-            </mock-styled.span>
-          </mock-styled.label>
-        </mock-styled.div>
+            </span>
+          </label>
+        </div>
       </mock-styled.div>
       <mock-styled.div
         classname="mock-css.
@@ -2516,13 +3115,17 @@ exports[`appointment AppointmentContent should match snapshot when loading 1`] =
 "
       >
         <mock-styled.div>
-          <mock-styled.div
-            classname=""
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </mock-styled.div>
       </mock-styled.div>
       <div
@@ -2594,51 +3197,57 @@ exports[`appointment AppointmentContent should match snapshot when loading 1`] =
             </mock-styled.label>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.h2
-              classname="el-text-base el-has-bold-text"
+            <h2
+              class="el-text-base el-subtitle el-has-bold-text"
             >
               ETA
-            </mock-styled.h2>
+            </h2>
             <p />
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.h2
-              classname="el-text-base el-has-bold-text"
+            <h2
+              class="el-text-base el-subtitle el-has-bold-text"
             >
               Distance
-            </mock-styled.h2>
+            </h2>
             <p />
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Start Journey
-            </mock-styled.button>
+            </button>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
     <mock-styled.div>
       <mock-styled.div>
-        <mock-styled.h2
-          classname="el-text-base el-has-bold-text"
+        <h2
+          class="el-text-base el-subtitle el-has-bold-text"
         >
           Location
-        </mock-styled.h2>
+        </h2>
         <mock-styled.div>
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             MAP
-          </mock-styled.button>
+          </button>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
@@ -2646,8 +3255,9 @@ exports[`appointment AppointmentContent should match snapshot when loading 1`] =
           classname=""
         >
           <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               placeholder="Enter location"
               value=""
             />
@@ -2661,52 +3271,68 @@ exports[`appointment AppointmentContent should match snapshot when loading 1`] =
     <mock-styled.div
       classname="mock-css."
     >
-      <mock-styled.div
-        classname="el-mx-auto"
+      <div
+        class="el-mx-auto el-toggle-radio-wrap"
       >
-        <mock-styled.input
+        <input
+          checked=""
+          class="mocked-styled-127 el-toggle-radio"
           id="today"
           name="appointment-time"
           type="radio"
           value="TODAY"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="today"
+        <label
+          class="mocked-styled-128 el-toggle-radio-label"
+          for="today"
+          role="button"
+          tabindex="0"
         >
-          <mock-styled.span>
+          <span
+            class="mocked-styled-124 el-toggle-radio-item"
+          >
             Today
-          </mock-styled.span>
-        </mock-styled.label>
-        <mock-styled.input
+          </span>
+        </label>
+        <input
+          class="mocked-styled-127 el-toggle-radio"
           id="tomorrow"
           name="appointment-time"
           type="radio"
           value="TOMORROW"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="tomorrow"
+        <label
+          class="mocked-styled-128 el-toggle-radio-label"
+          for="tomorrow"
+          role="button"
+          tabindex="0"
         >
-          <mock-styled.span>
+          <span
+            class="mocked-styled-124 el-toggle-radio-item"
+          >
             Tomorrow
-          </mock-styled.span>
-        </mock-styled.label>
-        <mock-styled.input
+          </span>
+        </label>
+        <input
+          class="mocked-styled-127 el-toggle-radio"
           id="week"
           name="appointment-time"
           type="radio"
           value="WEEK"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="week"
+        <label
+          class="mocked-styled-128 el-toggle-radio-label"
+          for="week"
+          role="button"
+          tabindex="0"
         >
-          <mock-styled.span>
+          <span
+            class="mocked-styled-124 el-toggle-radio-item"
+          >
             Week
-          </mock-styled.span>
-        </mock-styled.label>
-      </mock-styled.div>
+          </span>
+        </label>
+      </div>
     </mock-styled.div>
     <mock-styled.div
       classname="mock-css.
@@ -2721,13 +3347,17 @@ exports[`appointment AppointmentContent should match snapshot when loading 1`] =
 "
     >
       <mock-styled.div>
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </mock-styled.div>
     </mock-styled.div>
     <div
@@ -2799,29 +3429,31 @@ exports[`appointment AppointmentContent should match snapshot when loading 1`] =
           </mock-styled.label>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base el-has-bold-text"
+          <h2
+            class="el-text-base el-subtitle el-has-bold-text"
           >
             ETA
-          </mock-styled.h2>
+          </h2>
           <p />
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base el-has-bold-text"
+          <h2
+            class="el-text-base el-subtitle el-has-bold-text"
           >
             Distance
-          </mock-styled.h2>
+          </h2>
           <p />
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Start Journey
-          </mock-styled.button>
+          </button>
         </mock-styled.div>
       </mock-styled.div>
     </mock-styled.div>
@@ -2885,22 +3517,26 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base el-has-bold-text"
+          <h2
+            class="el-text-base el-subtitle el-has-bold-text"
           >
             Location
-          </mock-styled.h2>
+          </h2>
           <mock-styled.div>
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               MAP
-            </mock-styled.button>
+            </button>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
@@ -2908,8 +3544,9 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
             classname=""
           >
             <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 placeholder="Enter location"
                 value=""
               />
@@ -2923,52 +3560,68 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
       <mock-styled.div
         classname="mock-css."
       >
-        <mock-styled.div
-          classname="el-mx-auto"
+        <div
+          class="el-mx-auto el-toggle-radio-wrap"
         >
-          <mock-styled.input
+          <input
+            checked=""
+            class="mocked-styled-127 el-toggle-radio"
             id="today"
             name="appointment-time"
             type="radio"
             value="TODAY"
           />
-          <mock-styled.label
-            classname=""
-            htmlfor="today"
+          <label
+            class="mocked-styled-128 el-toggle-radio-label"
+            for="today"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-124 el-toggle-radio-item"
+            >
               Today
-            </mock-styled.span>
-          </mock-styled.label>
-          <mock-styled.input
+            </span>
+          </label>
+          <input
+            class="mocked-styled-127 el-toggle-radio"
             id="tomorrow"
             name="appointment-time"
             type="radio"
             value="TOMORROW"
           />
-          <mock-styled.label
-            classname=""
-            htmlfor="tomorrow"
+          <label
+            class="mocked-styled-128 el-toggle-radio-label"
+            for="tomorrow"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-124 el-toggle-radio-item"
+            >
               Tomorrow
-            </mock-styled.span>
-          </mock-styled.label>
-          <mock-styled.input
+            </span>
+          </label>
+          <input
+            class="mocked-styled-127 el-toggle-radio"
             id="week"
             name="appointment-time"
             type="radio"
             value="WEEK"
           />
-          <mock-styled.label
-            classname=""
-            htmlfor="week"
+          <label
+            class="mocked-styled-128 el-toggle-radio-label"
+            for="week"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-124 el-toggle-radio-item"
+            >
               Week
-            </mock-styled.span>
-          </mock-styled.label>
-        </mock-styled.div>
+            </span>
+          </label>
+        </div>
       </mock-styled.div>
       <mock-styled.div
         classname="mock-css.
@@ -2985,23 +3638,24 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
         <div
           class="el-fade-in"
         >
-          <mock-styled.div
-            classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-            role="alertdialog"
+          <div
+            class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+            role="status"
           >
             <div
               class="el-pn-icon"
               data-testid="close-icon"
             >
-              <mock-styled.span
-                classname="el-icon-new"
-                role="img"
+              <span
+                class="el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name info"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -3011,14 +3665,15 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
             </div>
             <div
+              aria-live="polite"
               class="el-pn-content"
             >
               No appointments
             </div>
-          </mock-styled.div>
+          </div>
         </div>
       </mock-styled.div>
       <div
@@ -3090,51 +3745,57 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
             </mock-styled.label>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.h2
-              classname="el-text-base el-has-bold-text"
+            <h2
+              class="el-text-base el-subtitle el-has-bold-text"
             >
               ETA
-            </mock-styled.h2>
+            </h2>
             <p />
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.h2
-              classname="el-text-base el-has-bold-text"
+            <h2
+              class="el-text-base el-subtitle el-has-bold-text"
             >
               Distance
-            </mock-styled.h2>
+            </h2>
             <p />
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Start Journey
-            </mock-styled.button>
+            </button>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
     <mock-styled.div>
       <mock-styled.div>
-        <mock-styled.h2
-          classname="el-text-base el-has-bold-text"
+        <h2
+          class="el-text-base el-subtitle el-has-bold-text"
         >
           Location
-        </mock-styled.h2>
+        </h2>
         <mock-styled.div>
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             MAP
-          </mock-styled.button>
+          </button>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
@@ -3142,8 +3803,9 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
           classname=""
         >
           <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               placeholder="Enter location"
               value=""
             />
@@ -3157,52 +3819,68 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
     <mock-styled.div
       classname="mock-css."
     >
-      <mock-styled.div
-        classname="el-mx-auto"
+      <div
+        class="el-mx-auto el-toggle-radio-wrap"
       >
-        <mock-styled.input
+        <input
+          checked=""
+          class="mocked-styled-127 el-toggle-radio"
           id="today"
           name="appointment-time"
           type="radio"
           value="TODAY"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="today"
+        <label
+          class="mocked-styled-128 el-toggle-radio-label"
+          for="today"
+          role="button"
+          tabindex="0"
         >
-          <mock-styled.span>
+          <span
+            class="mocked-styled-124 el-toggle-radio-item"
+          >
             Today
-          </mock-styled.span>
-        </mock-styled.label>
-        <mock-styled.input
+          </span>
+        </label>
+        <input
+          class="mocked-styled-127 el-toggle-radio"
           id="tomorrow"
           name="appointment-time"
           type="radio"
           value="TOMORROW"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="tomorrow"
+        <label
+          class="mocked-styled-128 el-toggle-radio-label"
+          for="tomorrow"
+          role="button"
+          tabindex="0"
         >
-          <mock-styled.span>
+          <span
+            class="mocked-styled-124 el-toggle-radio-item"
+          >
             Tomorrow
-          </mock-styled.span>
-        </mock-styled.label>
-        <mock-styled.input
+          </span>
+        </label>
+        <input
+          class="mocked-styled-127 el-toggle-radio"
           id="week"
           name="appointment-time"
           type="radio"
           value="WEEK"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="week"
+        <label
+          class="mocked-styled-128 el-toggle-radio-label"
+          for="week"
+          role="button"
+          tabindex="0"
         >
-          <mock-styled.span>
+          <span
+            class="mocked-styled-124 el-toggle-radio-item"
+          >
             Week
-          </mock-styled.span>
-        </mock-styled.label>
-      </mock-styled.div>
+          </span>
+        </label>
+      </div>
     </mock-styled.div>
     <mock-styled.div
       classname="mock-css.
@@ -3219,23 +3897,24 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
       <div
         class="el-fade-in"
       >
-        <mock-styled.div
-          classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-          role="alertdialog"
+        <div
+          class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          role="status"
         >
           <div
             class="el-pn-icon"
             data-testid="close-icon"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name info"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -3245,14 +3924,15 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
           </div>
           <div
+            aria-live="polite"
             class="el-pn-content"
           >
             No appointments
           </div>
-        </mock-styled.div>
+        </div>
       </div>
     </mock-styled.div>
     <div
@@ -3324,29 +4004,31 @@ exports[`appointment Apppointment should match snapshot with an empty query 1`] 
           </mock-styled.label>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base el-has-bold-text"
+          <h2
+            class="el-text-base el-subtitle el-has-bold-text"
           >
             ETA
-          </mock-styled.h2>
+          </h2>
           <p />
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base el-has-bold-text"
+          <h2
+            class="el-text-base el-subtitle el-has-bold-text"
           >
             Distance
-          </mock-styled.h2>
+          </h2>
           <p />
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Start Journey
-          </mock-styled.button>
+          </button>
         </mock-styled.div>
       </mock-styled.div>
     </mock-styled.div>
@@ -3410,22 +4092,26 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base el-has-bold-text"
+          <h2
+            class="el-text-base el-subtitle el-has-bold-text"
           >
             Location
-          </mock-styled.h2>
+          </h2>
           <mock-styled.div>
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               MAP
-            </mock-styled.button>
+            </button>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div>
@@ -3433,8 +4119,9 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
             classname=""
           >
             <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 placeholder="Enter location"
                 value=""
               />
@@ -3448,52 +4135,68 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
       <mock-styled.div
         classname="mock-css."
       >
-        <mock-styled.div
-          classname="el-mx-auto"
+        <div
+          class="el-mx-auto el-toggle-radio-wrap"
         >
-          <mock-styled.input
+          <input
+            checked=""
+            class="mocked-styled-127 el-toggle-radio"
             id="today"
             name="appointment-time"
             type="radio"
             value="TODAY"
           />
-          <mock-styled.label
-            classname=""
-            htmlfor="today"
+          <label
+            class="mocked-styled-128 el-toggle-radio-label"
+            for="today"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-124 el-toggle-radio-item"
+            >
               Today
-            </mock-styled.span>
-          </mock-styled.label>
-          <mock-styled.input
+            </span>
+          </label>
+          <input
+            class="mocked-styled-127 el-toggle-radio"
             id="tomorrow"
             name="appointment-time"
             type="radio"
             value="TOMORROW"
           />
-          <mock-styled.label
-            classname=""
-            htmlfor="tomorrow"
+          <label
+            class="mocked-styled-128 el-toggle-radio-label"
+            for="tomorrow"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-124 el-toggle-radio-item"
+            >
               Tomorrow
-            </mock-styled.span>
-          </mock-styled.label>
-          <mock-styled.input
+            </span>
+          </label>
+          <input
+            class="mocked-styled-127 el-toggle-radio"
             id="week"
             name="appointment-time"
             type="radio"
             value="WEEK"
           />
-          <mock-styled.label
-            classname=""
-            htmlfor="week"
+          <label
+            class="mocked-styled-128 el-toggle-radio-label"
+            for="week"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-124 el-toggle-radio-item"
+            >
               Week
-            </mock-styled.span>
-          </mock-styled.label>
-        </mock-styled.div>
+            </span>
+          </label>
+        </div>
       </mock-styled.div>
       <mock-styled.div
         classname="mock-css.
@@ -3510,23 +4213,24 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
         <div
           class="el-fade-in"
         >
-          <mock-styled.div
-            classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-            role="alertdialog"
+          <div
+            class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+            role="status"
           >
             <div
               class="el-pn-icon"
               data-testid="close-icon"
             >
-              <mock-styled.span
-                classname="el-icon-new"
-                role="img"
+              <span
+                class="el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name info"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -3536,14 +4240,15 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
             </div>
             <div
+              aria-live="polite"
               class="el-pn-content"
             >
               No appointments
             </div>
-          </mock-styled.div>
+          </div>
         </div>
       </mock-styled.div>
       <div
@@ -3615,51 +4320,57 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
             </mock-styled.label>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.h2
-              classname="el-text-base el-has-bold-text"
+            <h2
+              class="el-text-base el-subtitle el-has-bold-text"
             >
               ETA
-            </mock-styled.h2>
+            </h2>
             <p />
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.h2
-              classname="el-text-base el-has-bold-text"
+            <h2
+              class="el-text-base el-subtitle el-has-bold-text"
             >
               Distance
-            </mock-styled.h2>
+            </h2>
             <p />
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Start Journey
-            </mock-styled.button>
+            </button>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
     <mock-styled.div>
       <mock-styled.div>
-        <mock-styled.h2
-          classname="el-text-base el-has-bold-text"
+        <h2
+          class="el-text-base el-subtitle el-has-bold-text"
         >
           Location
-        </mock-styled.h2>
+        </h2>
         <mock-styled.div>
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             MAP
-          </mock-styled.button>
+          </button>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div>
@@ -3667,8 +4378,9 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
           classname=""
         >
           <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               placeholder="Enter location"
               value=""
             />
@@ -3682,52 +4394,68 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
     <mock-styled.div
       classname="mock-css."
     >
-      <mock-styled.div
-        classname="el-mx-auto"
+      <div
+        class="el-mx-auto el-toggle-radio-wrap"
       >
-        <mock-styled.input
+        <input
+          checked=""
+          class="mocked-styled-127 el-toggle-radio"
           id="today"
           name="appointment-time"
           type="radio"
           value="TODAY"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="today"
+        <label
+          class="mocked-styled-128 el-toggle-radio-label"
+          for="today"
+          role="button"
+          tabindex="0"
         >
-          <mock-styled.span>
+          <span
+            class="mocked-styled-124 el-toggle-radio-item"
+          >
             Today
-          </mock-styled.span>
-        </mock-styled.label>
-        <mock-styled.input
+          </span>
+        </label>
+        <input
+          class="mocked-styled-127 el-toggle-radio"
           id="tomorrow"
           name="appointment-time"
           type="radio"
           value="TOMORROW"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="tomorrow"
+        <label
+          class="mocked-styled-128 el-toggle-radio-label"
+          for="tomorrow"
+          role="button"
+          tabindex="0"
         >
-          <mock-styled.span>
+          <span
+            class="mocked-styled-124 el-toggle-radio-item"
+          >
             Tomorrow
-          </mock-styled.span>
-        </mock-styled.label>
-        <mock-styled.input
+          </span>
+        </label>
+        <input
+          class="mocked-styled-127 el-toggle-radio"
           id="week"
           name="appointment-time"
           type="radio"
           value="WEEK"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="week"
+        <label
+          class="mocked-styled-128 el-toggle-radio-label"
+          for="week"
+          role="button"
+          tabindex="0"
         >
-          <mock-styled.span>
+          <span
+            class="mocked-styled-124 el-toggle-radio-item"
+          >
             Week
-          </mock-styled.span>
-        </mock-styled.label>
-      </mock-styled.div>
+          </span>
+        </label>
+      </div>
     </mock-styled.div>
     <mock-styled.div
       classname="mock-css.
@@ -3744,23 +4472,24 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
       <div
         class="el-fade-in"
       >
-        <mock-styled.div
-          classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-          role="alertdialog"
+        <div
+          class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          role="status"
         >
           <div
             class="el-pn-icon"
             data-testid="close-icon"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name info"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -3770,14 +4499,15 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
           </div>
           <div
+            aria-live="polite"
             class="el-pn-content"
           >
             No appointments
           </div>
-        </mock-styled.div>
+        </div>
       </div>
     </mock-styled.div>
     <div
@@ -3849,29 +4579,31 @@ exports[`appointment Apppointment should match snapshot with data 1`] = `
           </mock-styled.label>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base el-has-bold-text"
+          <h2
+            class="el-text-base el-subtitle el-has-bold-text"
           >
             ETA
-          </mock-styled.h2>
+          </h2>
           <p />
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base el-has-bold-text"
+          <h2
+            class="el-text-base el-subtitle el-has-bold-text"
           >
             Distance
-          </mock-styled.h2>
+          </h2>
           <p />
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Start Journey
-          </mock-styled.button>
+          </button>
         </mock-styled.div>
       </mock-styled.div>
     </mock-styled.div>

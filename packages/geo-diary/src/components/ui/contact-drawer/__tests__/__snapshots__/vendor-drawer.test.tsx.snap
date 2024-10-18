@@ -5,7 +5,9 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
       <div
         class="mock-css.
@@ -17,11 +19,11 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   align-items: center;
 "
       >
-        <mock-styled.h2
-          classname="el-text-base el-has-no-margin"
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
         >
           Mr John Smith
-        </mock-styled.h2>
+        </h2>
         <button
           class="mock-css.
   border: none;
@@ -121,9 +123,11 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   grid-column-end: span 8;
 "
           >
-            <mock-styled.label>
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Mobile
-            </mock-styled.label>
+            </label>
             <div
               class="mock-css.
   text-align: left;
@@ -419,9 +423,11 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   grid-column-end: span 8;
 "
           >
-            <mock-styled.label>
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Home
-            </mock-styled.label>
+            </label>
             <div
               class="mock-css.
   text-align: left;
@@ -547,9 +553,11 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   grid-column-end: span 8;
 "
           >
-            <mock-styled.label>
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Work
-            </mock-styled.label>
+            </label>
             <div
               class="mock-css.
   text-align: left;
@@ -675,9 +683,11 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   grid-column-end: span 10;
 "
           >
-            <mock-styled.label>
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Email
-            </mock-styled.label>
+            </label>
             <div
               class="mock-css.
   text-align: left;
@@ -798,9 +808,11 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   grid-column-end: span 8;
 "
           >
-            <mock-styled.label>
+            <label
+              class="mocked-styled-41 el-label"
+            >
               AML Check
-            </mock-styled.label>
+            </label>
             <div
               class="mock-css.
   text-align: left;
@@ -908,7 +920,9 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
     <div
       class="mock-css.
@@ -920,11 +934,11 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   align-items: center;
 "
     >
-      <mock-styled.h2
-        classname="el-text-base el-has-no-margin"
+      <h2
+        class="el-text-base el-subtitle el-has-no-margin"
       >
         Mr John Smith
-      </mock-styled.h2>
+      </h2>
       <button
         class="mock-css.
   border: none;
@@ -1024,9 +1038,11 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   grid-column-end: span 8;
 "
         >
-          <mock-styled.label>
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Mobile
-          </mock-styled.label>
+          </label>
           <div
             class="mock-css.
   text-align: left;
@@ -1322,9 +1338,11 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   grid-column-end: span 8;
 "
         >
-          <mock-styled.label>
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Home
-          </mock-styled.label>
+          </label>
           <div
             class="mock-css.
   text-align: left;
@@ -1450,9 +1468,11 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   grid-column-end: span 8;
 "
         >
-          <mock-styled.label>
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Work
-          </mock-styled.label>
+          </label>
           <div
             class="mock-css.
   text-align: left;
@@ -1578,9 +1598,11 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   grid-column-end: span 10;
 "
         >
-          <mock-styled.label>
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Email
-          </mock-styled.label>
+          </label>
           <div
             class="mock-css.
   text-align: left;
@@ -1701,9 +1723,11 @@ exports[`VendorDrawer should match snapshot with vendors in state and an AML app
   grid-column-end: span 8;
 "
         >
-          <mock-styled.label>
+          <label
+            class="mocked-styled-41 el-label"
+          >
             AML Check
-          </mock-styled.label>
+          </label>
           <div
             class="mock-css.
   text-align: left;
@@ -1868,12 +1892,16 @@ exports[`VendorDrawer should match snapshot without vendors in state 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
   </div>,
   "debug": [Function],

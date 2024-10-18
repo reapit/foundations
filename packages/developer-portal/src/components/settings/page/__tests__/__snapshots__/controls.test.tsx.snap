@@ -5,17 +5,20 @@ exports[`Controls should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-mb7"
       >
-        <mock-styled.span
-          classname="el-icon-size-large"
-          role="img"
+        <span
+          class="el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name reapitConnectInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -69,49 +72,56 @@ exports[`Controls should match a snapshot 1`] = `
               fill="#fff"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.h2
-          classname="el-text-base"
+        </span>
+        <h2
+          class="el-text-base el-subtitle"
         >
           Settings
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </h2>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           You can manage the information we hold about you and change your password in these pages.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </small>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           Additionally, as an admin, you can manage your developer organisation, members and subscriptions.
-        </mock-styled.p>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        </small>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Logout
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-mb7"
     >
-      <mock-styled.span
-        classname="el-icon-size-large"
-        role="img"
+      <span
+        class="el-icon-size-large el-icon"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
+          title="Icon image with name reapitConnectInfographic"
           viewBox="0 0 80 80"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -165,34 +175,38 @@ exports[`Controls should match a snapshot 1`] = `
             fill="#fff"
           />
         </svg>
-      </mock-styled.span>
-      <mock-styled.h2
-        classname="el-text-base"
+      </span>
+      <h2
+        class="el-text-base el-subtitle"
       >
         Settings
-      </mock-styled.h2>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </h2>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         You can manage the information we hold about you and change your password in these pages.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </small>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         Additionally, as an admin, you can manage your developer organisation, members and subscriptions.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+      </small>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Logout
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -254,17 +268,20 @@ exports[`Controls should match a snapshot for the members page 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-mb7"
       >
-        <mock-styled.span
-          classname="el-icon-size-large"
-          role="img"
+        <span
+          class="el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name reapitConnectInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -318,49 +335,56 @@ exports[`Controls should match a snapshot for the members page 1`] = `
               fill="#fff"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.h2
-          classname="el-text-base"
+        </span>
+        <h2
+          class="el-text-base el-subtitle"
         >
           Settings
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </h2>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           You can manage the information we hold about you and change your password in these pages.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </small>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           Additionally, as an admin, you can manage your developer organisation, members and subscriptions.
-        </mock-styled.p>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        </small>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Logout
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-mb7"
     >
-      <mock-styled.span
-        classname="el-icon-size-large"
-        role="img"
+      <span
+        class="el-icon-size-large el-icon"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
+          title="Icon image with name reapitConnectInfographic"
           viewBox="0 0 80 80"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -414,34 +438,38 @@ exports[`Controls should match a snapshot for the members page 1`] = `
             fill="#fff"
           />
         </svg>
-      </mock-styled.span>
-      <mock-styled.h2
-        classname="el-text-base"
+      </span>
+      <h2
+        class="el-text-base el-subtitle"
       >
         Settings
-      </mock-styled.h2>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </h2>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         You can manage the information we hold about you and change your password in these pages.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </small>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         Additionally, as an admin, you can manage your developer organisation, members and subscriptions.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+      </small>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Logout
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],

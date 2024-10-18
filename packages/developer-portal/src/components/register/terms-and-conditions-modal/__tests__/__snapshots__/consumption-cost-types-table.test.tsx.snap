@@ -5,497 +5,569 @@ exports[`ConsumptionCostTypesTable it matches a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname="el-mb11"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-mb11 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="false"
         role="table"
       >
-        <mock-styled.div
+        <div
+          class="mocked-styled-101 el-table-headers-row"
           role="row"
         >
-          <mock-styled.div
+          <div
             aria-label="Type"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Type
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Amount"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Amount
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Payable"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Payable
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </div>
+        </div>
+        <div
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-103 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Type"
               >
                 Annual Registration Fee
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Amount"
               >
                 £995
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Payable"
               >
                 Per Contract year, payable in advance
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-103 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Type"
               >
                 Annual App Marketplace Fee
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Amount"
               >
                 £595
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Payable"
               >
                 Payable for each Application approved in accordance with clauses 2.5 and 2.5.3, and payable per contract year, in advance
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-103 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Type"
               >
                 Monthly Developer Edition Fee
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Amount"
               >
                 £300 
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Payable"
               >
                 Payable monthly on an ongoing basis until cancelled.
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-103 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Type"
               >
                 Total Consumption Cost 
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Amount"
               >
                 Calculated in accordance with the table below.
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Payable"
               >
                 Payable monthly in arrears
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-103 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Type"
               >
                 Warehouse
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Amount"
               />
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Payable"
               />
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-103 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Type"
               >
                 Reapit Connect
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Amount"
               />
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Payable"
               />
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="el-mb11"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-mb11 el-table"
       data-has-call-to-action="false"
       data-has-expandable-action="false"
       role="table"
     >
-      <mock-styled.div
+      <div
+        class="mocked-styled-101 el-table-headers-row"
         role="row"
       >
-        <mock-styled.div
+        <div
           aria-label="Type"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Type
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Amount"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Amount
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Payable"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Payable
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+        </div>
+      </div>
+      <div
+        class="mocked-styled-110 el-table-row-container"
         role="row"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+        <div
+          class="mocked-styled-103 el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Type"
             >
               Annual Registration Fee
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Amount"
             >
               £995
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Payable"
             >
               Per Contract year, payable in advance
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-110 el-table-row-container"
         role="row"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+        <div
+          class="mocked-styled-103 el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Type"
             >
               Annual App Marketplace Fee
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Amount"
             >
               £595
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Payable"
             >
               Payable for each Application approved in accordance with clauses 2.5 and 2.5.3, and payable per contract year, in advance
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-110 el-table-row-container"
         role="row"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+        <div
+          class="mocked-styled-103 el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Type"
             >
               Monthly Developer Edition Fee
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Amount"
             >
               £300 
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Payable"
             >
               Payable monthly on an ongoing basis until cancelled.
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-110 el-table-row-container"
         role="row"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+        <div
+          class="mocked-styled-103 el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Type"
             >
               Total Consumption Cost 
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Amount"
             >
               Calculated in accordance with the table below.
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Payable"
             >
               Payable monthly in arrears
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-110 el-table-row-container"
         role="row"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+        <div
+          class="mocked-styled-103 el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Type"
             >
               Warehouse
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Amount"
             />
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Payable"
             />
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-110 el-table-row-container"
         role="row"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+        <div
+          class="mocked-styled-103 el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Type"
             >
               Reapit Connect
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Amount"
             />
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Payable"
             />
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

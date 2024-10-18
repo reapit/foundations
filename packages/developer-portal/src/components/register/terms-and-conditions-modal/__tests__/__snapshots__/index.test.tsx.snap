@@ -13,11 +13,15 @@ exports[`TermsAndConditionsModal should match a snapshot when not visible 1`] = 
       id="root"
     />
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -81,48 +85,52 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
       id="root"
     >
       <div>
-        <mock-styled.div
-          classname="el-is-active"
+        <div
+          class="el-is-active el-modal-bg"
         />
-        <mock-styled.div
+        <div
           aria-describedby=":r1:"
           aria-modal="true"
-          classname="mock-css.
+          class="mock-css.
   max-width: 1000px !important;
   top: 50% !important;
   height: 80vh !important;
   overflow: scroll;
- el-is-active"
+ el-is-active el-modal"
           role="dialog"
         >
-          <mock-styled.div>
+          <div
+            class="mocked-styled-50 el-modal-header"
+          >
             Terms and Conditions
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
+            class="mocked-styled-51 el-modal-body"
             id=":r1:"
           >
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               These Reapit Foundations User Terms and Conditions govern access to Reapit’s Foundations Platform and incorporate the Registration Details, to the exclusion of all other terms.
-            </mock-styled.p>
-            <mock-styled.div
-              classname="el-mb6 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-              role="alertdialog"
+            </p>
+            <div
+              class="el-mb6 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+              role="status"
             >
               <div
                 class="el-pn-icon"
                 data-testid="close-icon"
               >
-                <mock-styled.span
-                  classname="el-icon-new"
-                  role="img"
+                <span
+                  class="el-icon-new el-icon"
                   style="font-size: 1.25rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
                     style="font-size: 1.25rem;"
+                    title="Icon image with name info"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -132,21 +140,22 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
+                </span>
               </div>
               <div
+                aria-live="polite"
                 class="el-pn-content"
               >
                 Please agree to the Reapit Developer Terms and Conditions to proceed
               </div>
-            </mock-styled.div>
+            </div>
             <mock-styled.ol>
               <mock-styled.li>
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   Definitions and Interpretation
-                </mock-styled.h2>
+                </h2>
                 <mock-styled.ol>
                   <mock-styled.li>
                     In this Agreement, the following words and expressions have the following meaning:
@@ -446,11 +455,11 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                 </mock-styled.li>
               </mock-styled.li>
               <mock-styled.li>
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   Foundations Platform and Applications
-                </mock-styled.h2>
+                </h2>
                 <mock-styled.ol>
                   <mock-styled.li>
                     Reapit hereby grants the Developer access to the Foundations Platform for the purpose of:
@@ -567,11 +576,11 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                 </mock-styled.ol>
               </mock-styled.li>
               <mock-styled.li>
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   Fees and Payment
-                </mock-styled.h2>
+                </h2>
                 <mock-styled.ol>
                   <mock-styled.li>
                     Developer shall pay Reapit the Fees as calculated in accordance with Schedule 2 and as invoiced by Reapit in accordance with this clause 3. The Fees do not include value added tax or any locally applicable equivalent sales tax which Developer shall pay, in addition to the Fees, at the prevailing rate, and in the manner prescribed by applicable law. Without prejudice to the foregoing, Reapit reserves the right to invoice the Developer for any API Calls in excess of the Monthly API Call limit set out in Schedule 2.
@@ -602,11 +611,11 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                 </mock-styled.ol>
               </mock-styled.li>
               <mock-styled.li>
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   Intellectual Property Rights and Indemnity
-                </mock-styled.h2>
+                </h2>
                 <mock-styled.ol>
                   <mock-styled.li>
                     All Intellectual Property Rights belonging to a Party prior to the Commencement Date, including all enhancements and modifications to those Intellectual Property Rights, shall remain vested in that Party. Unless expressly agreed in writing in an Order form, the Parties do not intend that the ownership of any Intellectual Property Rights shall transfer from one Party to another as a result of entering into this Agreement.
@@ -694,11 +703,11 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                 </mock-styled.ol>
               </mock-styled.li>
               <mock-styled.li>
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   Developer Feedback
-                </mock-styled.h2>
+                </h2>
                 <mock-styled.ol>
                   <mock-styled.li>
                     The Developer grants Reapit a perpetual royalty-free and non-exclusive licence to use any Developer Feedback on the terms and conditions of this Agreement for the purposes of
@@ -720,11 +729,11 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                 </mock-styled.ol>
               </mock-styled.li>
               <mock-styled.li>
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   Data and Data Protection
-                </mock-styled.h2>
+                </h2>
                 <mock-styled.ol>
                   <mock-styled.li>
                     Data
@@ -802,11 +811,11 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                 </mock-styled.li>
               </mock-styled.li>
               <mock-styled.li>
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   Confidentiality
-                </mock-styled.h2>
+                </h2>
                 <mock-styled.ol>
                   <mock-styled.li>
                     Each Party (a Recipient) undertakes to the other Party (each, a 
@@ -852,11 +861,11 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                 </mock-styled.ol>
               </mock-styled.li>
               <mock-styled.li>
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   Representations, Warranties and Undertakings
-                </mock-styled.h2>
+                </h2>
                 <mock-styled.ol>
                   <mock-styled.li>
                     Each Party represents and warrants to the other Party that:
@@ -905,11 +914,11 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                 </mock-styled.li>
               </mock-styled.li>
               <mock-styled.li>
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   Force Majeure
-                </mock-styled.h2>
+                </h2>
                 <mock-styled.ol>
                   <mock-styled.li>
                     Subject to clause 10.1, neither Party shall be liable to the other Party for any delay or non-performance of its obligations under this Agreement arising directly from a Force Majeure Event, provided that the affected Party:
@@ -931,11 +940,11 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                 </mock-styled.ol>
               </mock-styled.li>
               <mock-styled.li>
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   Limitation of Liability
-                </mock-styled.h2>
+                </h2>
                 <mock-styled.ol>
                   <mock-styled.li>
                     Nothing in this Agreement excludes or limits either Party’s liability:
@@ -1042,11 +1051,11 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                 </mock-styled.ol>
               </mock-styled.li>
               <mock-styled.li>
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   Term and Termination
-                </mock-styled.h2>
+                </h2>
                 <mock-styled.ol>
                   <mock-styled.li>
                     The Agreement comes into effect on the Commencement Date and, subject to early termination in accordance with the terms of clause 11.3, shall continue to be in force until the expiry of the Initial Term. 
@@ -1098,11 +1107,11 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                 </mock-styled.ol>
               </mock-styled.li>
               <mock-styled.li>
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   Consequences of Termination
-                </mock-styled.h2>
+                </h2>
                 <mock-styled.ol>
                   <mock-styled.li>
                     The following clauses shall survive termination or expiry of this Agreement: 3, 4, 5, 6, 7, 10, 12, 13, 15 and 16.
@@ -1124,11 +1133,11 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                 </mock-styled.ol>
               </mock-styled.li>
               <mock-styled.li>
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   Notices
-                </mock-styled.h2>
+                </h2>
                 <mock-styled.ol>
                   <mock-styled.li>
                     Any notice request instruction or other document to be given under this Agreement shall be in writing and shall be deemed to have been duly given if left at or sent by hand or by registered post or by e-mail to (i) a Party at its registered company address in England; or (ii) e-mail address set out below for such Party or such other address as one Party may from time to time designate by written notice to the other.
@@ -1164,11 +1173,11 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                 </mock-styled.ol>
               </mock-styled.li>
               <mock-styled.li>
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   Miscellaneous
-                </mock-styled.h2>
+                </h2>
                 <mock-styled.ol>
                   <mock-styled.li>
                     Announcements: Neither Party shall:
@@ -1252,11 +1261,11 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                 </mock-styled.ol>
               </mock-styled.li>
               <mock-styled.li>
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   Disputes
-                </mock-styled.h2>
+                </h2>
                 <mock-styled.ol>
                   <mock-styled.li>
                     Any Dispute shall be referred for resolution by either Party first to the Chief Commercial Officer (for Reapit) and Key Contact (for the Developer).
@@ -1280,11 +1289,11 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                 </mock-styled.ol>
               </mock-styled.li>
               <mock-styled.li>
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   Governing Law and Jurisdiction
-                </mock-styled.h2>
+                </h2>
                 <mock-styled.ol>
                   <mock-styled.li>
                     This Agreement shall be governed by, construed and interpreted in accordance with English law and the Parties hereby agree, for the purposes of this Agreement only and subject to the provisions of clause 15, to submit themselves and any claim or matter arising under or in connection with this Agreement to the exclusive jurisdiction of the English courts.
@@ -1292,18 +1301,18 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                 </mock-styled.ol>
               </mock-styled.li>
             </mock-styled.ol>
-            <mock-styled.h2
-              classname="el-text-base"
+            <h2
+              class="el-text-base el-subtitle"
             >
               Schedule 1 - Application User Terms Principles
-            </mock-styled.h2>
+            </h2>
             <mock-styled.ol>
               <mock-styled.li>
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   General
-                </mock-styled.h2>
+                </h2>
                 <mock-styled.ol>
                   <mock-styled.li>
                     <span>
@@ -1340,11 +1349,11 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                 </mock-styled.ol>
               </mock-styled.li>
               <mock-styled.li>
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   Data Protection
-                </mock-styled.h2>
+                </h2>
                 <mock-styled.ol>
                   <mock-styled.li>
                     <span>
@@ -1376,1034 +1385,1156 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                 </mock-styled.ol>
               </mock-styled.li>
             </mock-styled.ol>
-            <mock-styled.h2
-              classname="el-text-base"
+            <h2
+              class="el-text-base el-subtitle"
             >
               Schedule 2 - Fees
-            </mock-styled.h2>
-            <mock-styled.div
-              classname="el-mb11"
+            </h2>
+            <div
+              class="el-mb11 el-table"
               data-has-call-to-action="false"
               data-has-expandable-action="false"
               role="table"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-101 el-table-headers-row"
                 role="row"
               >
-                <mock-styled.div
+                <div
                   aria-label="Type"
+                  class="mocked-styled-102 el-table-header"
                   role="columnheader"
                 >
                   Type
-                </mock-styled.div>
-                <mock-styled.div
+                </div>
+                <div
                   aria-label="Amount"
+                  class="mocked-styled-102 el-table-header"
                   role="columnheader"
                 >
                   Amount
-                </mock-styled.div>
-                <mock-styled.div
+                </div>
+                <div
                   aria-label="Payable"
+                  class="mocked-styled-102 el-table-header"
                   role="columnheader"
                 >
                   Payable
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Type"
                     >
                       Annual Registration Fee
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Amount"
                     >
                       £995
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Payable"
                     >
                       Per Contract year, payable in advance
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Type"
                     >
                       Annual App Marketplace Fee
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Amount"
                     >
                       £595
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Payable"
                     >
                       Payable for each Application approved in accordance with clauses 2.5 and 2.5.3, and payable per contract year, in advance
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Type"
                     >
                       Monthly Developer Edition Fee
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Amount"
                     >
                       £300 
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Payable"
                     >
                       Payable monthly on an ongoing basis until cancelled.
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Type"
                     >
                       Total Consumption Cost 
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Amount"
                     >
                       Calculated in accordance with the table below.
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Payable"
                     >
                       Payable monthly in arrears
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Type"
                     >
                       Warehouse
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Amount"
                     />
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Payable"
                     />
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Type"
                     >
                       Reapit Connect
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Amount"
                     />
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Payable"
                     />
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.p
-              classname="el-text-base"
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p
+              class="el-text-base el-body-text"
             >
               Calculation of Total Consumption Cost - Methodology (On last day of monthly billing period):
-            </mock-styled.p>
-            <mock-styled.div
-              classname="el-mb11"
+            </p>
+            <div
+              class="el-mb11 el-table"
               data-has-call-to-action="false"
               data-has-expandable-action="false"
               role="table"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-101 el-table-headers-row"
                 role="row"
               >
-                <mock-styled.div
+                <div
                   aria-label="Month API Call"
+                  class="mocked-styled-102 el-table-header"
                   role="columnheader"
                 >
                   Month API Call
-                </mock-styled.div>
-                <mock-styled.div
+                </div>
+                <div
                   aria-label="First 1,000"
+                  class="mocked-styled-102 el-table-header"
                   role="columnheader"
                 >
                   First 1,000
-                </mock-styled.div>
-                <mock-styled.div
+                </div>
+                <div
                   aria-label="1,001 - 2,500"
+                  class="mocked-styled-102 el-table-header"
                   role="columnheader"
                 >
                   1,001 - 2,500
-                </mock-styled.div>
-                <mock-styled.div
+                </div>
+                <div
                   aria-label="2,501 - 5,000"
+                  class="mocked-styled-102 el-table-header"
                   role="columnheader"
                 >
                   2,501 - 5,000
-                </mock-styled.div>
-                <mock-styled.div
+                </div>
+                <div
                   aria-label="5,001 - 10,000"
+                  class="mocked-styled-102 el-table-header"
                   role="columnheader"
                 >
                   5,001 - 10,000
-                </mock-styled.div>
-                <mock-styled.div
+                </div>
+                <div
                   aria-label="10,001 - 25,000"
+                  class="mocked-styled-102 el-table-header"
                   role="columnheader"
                 >
                   10,001 - 25,000
-                </mock-styled.div>
-                <mock-styled.div
+                </div>
+                <div
                   aria-label="25,001 - 50,000"
+                  class="mocked-styled-102 el-table-header"
                   role="columnheader"
                 >
                   25,001 - 50,000
-                </mock-styled.div>
-                <mock-styled.div
+                </div>
+                <div
                   aria-label="above 50,000"
+                  class="mocked-styled-102 el-table-header"
                   role="columnheader"
                 >
                   above 50,000
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Month API Call"
                     >
                       1-5
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="First 1,000"
                     >
                       £0.010000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="1,001 - 2,500"
                     >
                       £0.008000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="2,501 - 5,000"
                     >
                       £0.006000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="5,001 - 10,000"
                     >
                       £0.005000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="10,001 - 25,000"
                     >
                       £0.004000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="25,001 - 50,000"
                     >
                       £0.002500
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="above 50,000"
                     >
                       £0.001000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Month API Call"
                     >
                       6-10
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="First 1,000"
                     >
                       £0.011000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="1,001 - 2,500"
                     >
                       £0.008800
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="2,501 - 5,000"
                     >
                       £0.006600
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="5,001 - 10,000"
                     >
                       £0.005500
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="10,001 - 25,000"
                     >
                       £0.004400
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="25,001 - 50,000"
                     >
                       £0.00270
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="above 50,000"
                     >
                       £0.001100
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Month API Call"
                     >
                       11-20
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="First 1,000"
                     >
                       £0.012500
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="1,001 - 2,500"
                     >
                       £0.010000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="2,501 - 5,000"
                     >
                       £0.007500
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="5,001 - 10,000"
                     >
                       £0.006250
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="10,001 - 25,000"
                     >
                       £0.005000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="25,001 - 50,000"
                     >
                       £0.003125
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="above 50,000"
                     >
                       £0.001250
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Month API Call"
                     >
                       21-30
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="First 1,000"
                     >
                       £0.014500
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="1,001 - 2,500"
                     >
                       £0.011600
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="2,501 - 5,000"
                     >
                       £0.008700
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="5,001 - 10,000"
                     >
                       £0.007250
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="10,001 - 25,000"
                     >
                       £0.005800
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="25,001 - 50,000"
                     >
                       £0.003625
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="above 50,000"
                     >
                       £0.001450
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Month API Call"
                     >
                       31-40
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="First 1,000"
                     >
                       £0.017000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="1,001 - 2,500"
                     >
                       £0.013600
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="2,501 - 5,000"
                     >
                       £0.010200
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="5,001 - 10,000"
                     >
                       £0.008500
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="10,001 - 25,000"
                     >
                       £0.006800
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="25,001 - 50,000"
                     >
                       £0.004250
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="above 50,000"
                     >
                       £0.001700
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Month API Call"
                     >
                       41-50
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="First 1,000"
                     >
                       £0.020000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="1,001 - 2,500"
                     >
                       £0.016000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="2,501 - 5,000"
                     >
                       £0.012000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="5,001 - 10,000"
                     >
                       £0.010000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="10,001 - 25,000"
                     >
                       £0.008000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="25,001 - 50,000"
                     >
                       £0.005000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="above 50,000"
                     >
                       £0.002000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Month API Call"
                     >
                       51+
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="First 1,000"
                     >
                       £0.023500
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="1,001 - 2,500"
                     >
                       £0.018800
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="2,501 - 5,000"
                     >
                       £0.014000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="5,001 - 10,000"
                     >
                       £0.011750
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="10,001 - 25,000"
                     >
                       £0.009400
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="25,001 - 50,000"
                     >
                       £0.005875
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="above 50,000"
                     >
                       £0.002350
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.p
-              classname="el-text-base"
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p
+              class="el-text-base el-body-text"
             >
               Calculation of Total Consumption Cost - Example for representative purposes only: 
-            </mock-styled.p>
-            <mock-styled.div
-              classname=""
+            </p>
+            <div
+              class="mocked-styled-30 el-grid"
             >
-              <mock-styled.div
-                classname=""
+              <div
+                class="mocked-styled-34 el-col-split"
               >
-                <mock-styled.p
-                  classname="el-text-base"
+                <p
+                  class="el-text-base el-body-text"
                 >
                   Endpoints Used
-                </mock-styled.p>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                </p>
+              </div>
+              <div
+                class="mocked-styled-34 el-col-split"
               >
                 21-30
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+              </div>
+            </div>
+            <div
+              class="mocked-styled-30 el-grid"
             >
-              <mock-styled.div
-                classname=""
+              <div
+                class="mocked-styled-34 el-col-split"
               >
-                <mock-styled.p
-                  classname="el-text-base"
+                <p
+                  class="el-text-base el-body-text"
                 >
                   Monthly API Calls
-                </mock-styled.p>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="is-half-mobile"
+                </p>
+              </div>
+              <div
+                class="is-half-mobile el-col-split"
               >
                 100,000
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-mb11"
+              </div>
+            </div>
+            <div
+              class="el-mb11 el-table"
               data-has-call-to-action="false"
               data-has-expandable-action="false"
               role="table"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-101 el-table-headers-row"
                 role="row"
               >
-                <mock-styled.div
+                <div
                   aria-label="Number of API Calls"
+                  class="mocked-styled-102 el-table-header"
                   role="columnheader"
                 >
                   Number of API Calls
-                </mock-styled.div>
-                <mock-styled.div
+                </div>
+                <div
                   aria-label="Cost Per API Call"
+                  class="mocked-styled-102 el-table-header"
                   role="columnheader"
                 >
                   Cost Per API Call
-                </mock-styled.div>
-                <mock-styled.div
+                </div>
+                <div
                   aria-label="Total Cost"
+                  class="mocked-styled-102 el-table-header"
                   role="columnheader"
                 >
                   Total Cost
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Number of API Calls"
                     >
                       1000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Cost Per API Call"
                     >
                       0.0145
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.span
-                      classname="el-intent-default"
-                      role="img"
+                    <span
+                      class="el-intent-default el-icon"
                       style="font-size: 1.25rem;"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
                         style="font-size: 1.25rem;"
+                        title="Icon image with name paymentSystem"
                         viewBox="0 0 20 20"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -2415,53 +2546,59 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                           fill-rule="evenodd"
                         />
                       </svg>
-                    </mock-styled.span>
-                    <mock-styled.div
+                    </span>
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Total Cost"
                     >
                       £14.50
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Number of API Calls"
                     >
                       1500
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Cost Per API Call"
                     >
                       0.0116
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.span
-                      classname="el-intent-default"
-                      role="img"
+                    <span
+                      class="el-intent-default el-icon"
                       style="font-size: 1.25rem;"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
                         style="font-size: 1.25rem;"
+                        title="Icon image with name paymentSystem"
                         viewBox="0 0 20 20"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -2473,53 +2610,59 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                           fill-rule="evenodd"
                         />
                       </svg>
-                    </mock-styled.span>
-                    <mock-styled.div
+                    </span>
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Total Cost"
                     >
                       £17.40
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Number of API Calls"
                     >
                       2500
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Cost Per API Call"
                     >
                       0.0087
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.span
-                      classname="el-intent-default"
-                      role="img"
+                    <span
+                      class="el-intent-default el-icon"
                       style="font-size: 1.25rem;"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
                         style="font-size: 1.25rem;"
+                        title="Icon image with name paymentSystem"
                         viewBox="0 0 20 20"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -2531,53 +2674,59 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                           fill-rule="evenodd"
                         />
                       </svg>
-                    </mock-styled.span>
-                    <mock-styled.div
+                    </span>
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Total Cost"
                     >
                       £21.75
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Number of API Calls"
                     >
                       5000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Cost Per API Call"
                     >
                       0.00725
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.span
-                      classname="el-intent-default"
-                      role="img"
+                    <span
+                      class="el-intent-default el-icon"
                       style="font-size: 1.25rem;"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
                         style="font-size: 1.25rem;"
+                        title="Icon image with name paymentSystem"
                         viewBox="0 0 20 20"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -2589,53 +2738,59 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                           fill-rule="evenodd"
                         />
                       </svg>
-                    </mock-styled.span>
-                    <mock-styled.div
+                    </span>
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Total Cost"
                     >
                       £36.25
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Number of API Calls"
                     >
                       15000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Cost Per API Call"
                     >
                       0.0058
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.span
-                      classname="el-intent-default"
-                      role="img"
+                    <span
+                      class="el-intent-default el-icon"
                       style="font-size: 1.25rem;"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
                         style="font-size: 1.25rem;"
+                        title="Icon image with name paymentSystem"
                         viewBox="0 0 20 20"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -2647,53 +2802,59 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                           fill-rule="evenodd"
                         />
                       </svg>
-                    </mock-styled.span>
-                    <mock-styled.div
+                    </span>
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Total Cost"
                     >
                       £87.00
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Number of API Calls"
                     >
                       25000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Cost Per API Call"
                     >
                       0.003625
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.span
-                      classname="el-intent-default"
-                      role="img"
+                    <span
+                      class="el-intent-default el-icon"
                       style="font-size: 1.25rem;"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
                         style="font-size: 1.25rem;"
+                        title="Icon image with name paymentSystem"
                         viewBox="0 0 20 20"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -2705,53 +2866,59 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                           fill-rule="evenodd"
                         />
                       </svg>
-                    </mock-styled.span>
-                    <mock-styled.div
+                    </span>
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Total Cost"
                     >
                       £90.63
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
                 role="row"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                <div
+                  class="mocked-styled-103 el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Number of API Calls"
                     >
                       50000
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.div
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Cost Per API Call"
                     >
                       0.00145
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                     role="cell"
                   >
-                    <mock-styled.span
-                      classname="el-intent-default"
-                      role="img"
+                    <span
+                      class="el-intent-default el-icon"
                       style="font-size: 1.25rem;"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
                         style="font-size: 1.25rem;"
+                        title="Icon image with name paymentSystem"
                         viewBox="0 0 20 20"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -2763,27 +2930,28 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                           fill-rule="evenodd"
                         />
                       </svg>
-                    </mock-styled.span>
-                    <mock-styled.div
+                    </span>
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
                       data-narrow-label="Total Cost"
                     >
                       £72.50
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               Estimated total monthly cost: 
               £340.03
-            </mock-styled.p>
-            <mock-styled.h2
-              classname="el-text-base"
+            </p>
+            <h2
+              class="el-text-base el-subtitle"
             >
               Schedule 3 - Developer Obligations
-            </mock-styled.h2>
+            </h2>
             <mock-styled.ol>
               <mock-styled.li>
                 The Developer agrees that:
@@ -2888,35 +3056,45 @@ exports[`TermsAndConditionsModal should match a snapshot when visibe 1`] = `
                 An Application must maintain no more than 5 API interaction threads and awaits completion of previous requests before submitting new ones
               </mock-styled.li>
             </mock-styled.ol>
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-button-group-align-right"
+            <div
+              class="mocked-styled-2 el-button-group"
+            >
+              <div
+                class="el-button-group-align-right el-button-group-inner"
               >
-                <mock-styled.button
-                  classname="el-intent-danger"
+                <button
+                  class="el-intent-danger el-button"
                   type="button"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Decline
-                </mock-styled.button>
-                <mock-styled.button
-                  classname="el-intent-primary"
+                </button>
+                <button
+                  class="el-intent-primary el-button"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Accept
-                </mock-styled.button>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

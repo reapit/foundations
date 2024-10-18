@@ -6,19 +6,19 @@ exports[`Nav should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <div
-        class="mocked-styled-53 el-nav-bg"
+        class="mocked-styled-59 el-nav-bg"
       />
       <nav
-        class="mocked-styled-55 el-nav-container"
+        class="mocked-styled-61 el-nav-container"
       >
         <a
           class="el-nav-item-active el-nav-item"
         >
           <span
-            class="mocked-styled-4 el-icon"
+            class="el-icon-new el-icon"
             role="button"
             style="width: 100px;"
             tabindex="0"
@@ -52,7 +52,7 @@ exports[`Nav should match a snapshot 1`] = `
             </svg>
           </span>
           <span
-            class="el-ml-auto el-mr4 el-nav-item-hide-desktop el-intent-default el-icon"
+            class="el-ml-auto el-mr4 el-nav-item-hide-desktop el-intent-default el-icon-new el-icon"
             role="button"
             tabindex="0"
           >
@@ -72,7 +72,7 @@ exports[`Nav should match a snapshot 1`] = `
             </svg>
           </span>
           <div
-            class="mocked-styled-54 el-nav-controls-bg"
+            class="mocked-styled-60 el-nav-controls-bg"
           />
           <div
             class="el-nav-is-hidden el-nav-responsive-avatar-wrap"
@@ -85,7 +85,7 @@ exports[`Nav should match a snapshot 1`] = `
               title="A profile image"
             />
             <span
-              class="el-intent-default el-icon"
+              class="el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
@@ -105,17 +105,17 @@ exports[`Nav should match a snapshot 1`] = `
           </div>
         </a>
         <a
-          class="mocked-styled-57 el-nav-item"
+          class="mocked-styled-63 el-nav-item"
           role="button"
           tabindex="0"
         >
           Users
         </a>
         <div
-          class="mocked-styled-54 el-nav-controls-bg"
+          class="mocked-styled-60 el-nav-controls-bg"
         />
         <div
-          class="mocked-styled-62 el-nav-responsive-avatar-wrap"
+          class="mocked-styled-68 el-nav-responsive-avatar-wrap"
           role="button"
           tabindex="0"
         >
@@ -125,7 +125,7 @@ exports[`Nav should match a snapshot 1`] = `
             title="A profile image"
           />
           <span
-            class="el-intent-default el-icon"
+            class="el-intent-default el-icon-new el-icon"
           >
             <svg
               fill="none"
@@ -148,19 +148,19 @@ exports[`Nav should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <div
-      class="mocked-styled-53 el-nav-bg"
+      class="mocked-styled-59 el-nav-bg"
     />
     <nav
-      class="mocked-styled-55 el-nav-container"
+      class="mocked-styled-61 el-nav-container"
     >
       <a
         class="el-nav-item-active el-nav-item"
       >
         <span
-          class="mocked-styled-4 el-icon"
+          class="el-icon-new el-icon"
           role="button"
           style="width: 100px;"
           tabindex="0"
@@ -194,7 +194,7 @@ exports[`Nav should match a snapshot 1`] = `
           </svg>
         </span>
         <span
-          class="el-ml-auto el-mr4 el-nav-item-hide-desktop el-intent-default el-icon"
+          class="el-ml-auto el-mr4 el-nav-item-hide-desktop el-intent-default el-icon-new el-icon"
           role="button"
           tabindex="0"
         >
@@ -214,7 +214,7 @@ exports[`Nav should match a snapshot 1`] = `
           </svg>
         </span>
         <div
-          class="mocked-styled-54 el-nav-controls-bg"
+          class="mocked-styled-60 el-nav-controls-bg"
         />
         <div
           class="el-nav-is-hidden el-nav-responsive-avatar-wrap"
@@ -227,7 +227,7 @@ exports[`Nav should match a snapshot 1`] = `
             title="A profile image"
           />
           <span
-            class="el-intent-default el-icon"
+            class="el-intent-default el-icon-new el-icon"
           >
             <svg
               fill="none"
@@ -247,17 +247,17 @@ exports[`Nav should match a snapshot 1`] = `
         </div>
       </a>
       <a
-        class="mocked-styled-57 el-nav-item"
+        class="mocked-styled-63 el-nav-item"
         role="button"
         tabindex="0"
       >
         Users
       </a>
       <div
-        class="mocked-styled-54 el-nav-controls-bg"
+        class="mocked-styled-60 el-nav-controls-bg"
       />
       <div
-        class="mocked-styled-62 el-nav-responsive-avatar-wrap"
+        class="mocked-styled-68 el-nav-responsive-avatar-wrap"
         role="button"
         tabindex="0"
       >
@@ -267,7 +267,7 @@ exports[`Nav should match a snapshot 1`] = `
           title="A profile image"
         />
         <span
-          class="el-intent-default el-icon"
+          class="el-intent-default el-icon-new el-icon"
         >
           <svg
             fill="none"

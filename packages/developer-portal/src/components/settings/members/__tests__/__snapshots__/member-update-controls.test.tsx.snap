@@ -5,95 +5,113 @@ exports[`MemberUpdateControls should match snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-button-group-align-center"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="el-button-group-align-center el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-primary"
-            disabled="false"
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Set As 
             User
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-primary"
-            disabled="false"
+          </button>
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Invite Again
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-primary"
-            disabled="false"
+          </button>
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Set As Main Contact
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-danger"
-            disabled="false"
+          </button>
+          <button
+            class="el-intent-danger el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Disable
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-danger"
-            disabled="false"
+          </button>
+          <button
+            class="el-intent-danger el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Delete
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div>
-      <mock-styled.div
-        classname="el-button-group-align-center"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="mocked-styled-2 el-button-group"
+    >
+      <div
+        class="el-button-group-align-center el-button-group-inner"
       >
-        <mock-styled.button
-          classname="el-intent-primary"
-          disabled="false"
+        <button
+          class="el-intent-primary el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Set As 
           User
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-intent-primary"
-          disabled="false"
+        </button>
+        <button
+          class="el-intent-primary el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Invite Again
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-intent-primary"
-          disabled="false"
+        </button>
+        <button
+          class="el-intent-primary el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Set As Main Contact
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-intent-danger"
-          disabled="false"
+        </button>
+        <button
+          class="el-intent-danger el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Disable
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-intent-danger"
-          disabled="false"
+        </button>
+        <button
+          class="el-intent-danger el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Delete
-        </mock-styled.button>
-      </mock-styled.div>
-    </mock-styled.div>
+        </button>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

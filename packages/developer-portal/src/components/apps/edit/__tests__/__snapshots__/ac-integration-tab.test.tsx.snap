@@ -5,73 +5,92 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
          
         <a>
           see here.
         </a>
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
-      </mock-styled.p>
-      <mock-styled.div
-        classname="el-form-layout-has-margin"
+      </p>
+      <div
+        class="el-form-layout-has-margin el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               AgencyCloud Integration
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              class="mocked-styled-125 el-toggle-checkbox"
               id="app-edit-is-ac-inegrated"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-bg"
-              htmlfor="app-edit-is-ac-inegrated"
+            <label
+              class="el-has-grey-bg el-toggle-label"
+              for="app-edit-is-ac-inegrated"
+              role="button"
+              tabindex="0"
             >
-              <mock-styled.span>
+              <span
+                class="mocked-styled-123 el-toggle-item"
+              >
                 Yes
-              </mock-styled.span>
-              <mock-styled.span>
+              </span>
+              <span
+                class="mocked-styled-123 el-toggle-item"
+              >
                 No
-              </mock-styled.span>
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            aria-controls=":r0:"
-            aria-haspopup="listbox"
-            role="combobox"
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <div
+            class="mocked-styled-58 el-multi-select-input-wrapper"
           >
-            <mock-styled.input
+            <input
+              class="mocked-styled-57 el-multi-select-input"
               id="desktopIntegrationTypeIds"
               label="Integration Type"
               name="desktopIntegrationTypeIds"
               placeholder="Please select"
             />
-            <mock-styled.div
-              classname=""
+            <div
+              aria-label="Multi selected options"
+              class="mocked-styled-55 el-multi-select-selected"
+              role="listbox"
             >
-              <mock-styled.span
-                classname="el-ml2 el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-ml2 el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name task"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -81,135 +100,176 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
               <p>
                 Please select from the options below
               </p>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              aria-label="Multi unselected options"
+              class="mocked-styled-56 el-multi-select-un-selected"
+              role="listbox"
             >
-              <mock-styled.input
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 MOCK_NAME
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.p>
+              </label>
+            </div>
+          </div>
+          <p
+            class="mocked-styled-42 el-input-error"
+          >
             An Error
-          </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
-              disabled="true"
+          </p>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
+              disabled=""
               id="test-static-id"
               name="launchWindowSizeX"
               placeholder="Width of window your app will be launched in AgencyCloud"
               type="text"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Default App Window Width
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
-              disabled="true"
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
+              disabled=""
               id="test-static-id"
               name="launchWindowSizeY"
               placeholder="Height of window your app will be launched in AgencyCloud"
               type="text"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Default App Window Height
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
        
       <a>
         see here.
       </a>
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
-    </mock-styled.p>
-    <mock-styled.div
-      classname="el-form-layout-has-margin"
+    </p>
+    <div
+      class="el-form-layout-has-margin el-form-layout"
     >
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             AgencyCloud Integration
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            class="mocked-styled-125 el-toggle-checkbox"
             id="app-edit-is-ac-inegrated"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-bg"
-            htmlfor="app-edit-is-ac-inegrated"
+          <label
+            class="el-has-grey-bg el-toggle-label"
+            for="app-edit-is-ac-inegrated"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
               Yes
-            </mock-styled.span>
-            <mock-styled.span>
+            </span>
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
               No
-            </mock-styled.span>
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div
-          aria-controls=":r0:"
-          aria-haspopup="listbox"
-          role="combobox"
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="mocked-styled-58 el-multi-select-input-wrapper"
         >
-          <mock-styled.input
+          <input
+            class="mocked-styled-57 el-multi-select-input"
             id="desktopIntegrationTypeIds"
             label="Integration Type"
             name="desktopIntegrationTypeIds"
             placeholder="Please select"
           />
-          <mock-styled.div
-            classname=""
+          <div
+            aria-label="Multi selected options"
+            class="mocked-styled-55 el-multi-select-selected"
+            role="listbox"
           >
-            <mock-styled.span
-              classname="el-ml2 el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-ml2 el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name task"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -219,65 +279,87 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
             <p>
               Please select from the options below
             </p>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            aria-label="Multi unselected options"
+            class="mocked-styled-56 el-multi-select-un-selected"
+            role="listbox"
           >
-            <mock-styled.input
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               MOCK_NAME
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.p>
+            </label>
+          </div>
+        </div>
+        <p
+          class="mocked-styled-42 el-input-error"
+        >
           An Error
-        </mock-styled.p>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
-            disabled="true"
+        </p>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
+            disabled=""
             id="test-static-id"
             name="launchWindowSizeX"
             placeholder="Width of window your app will be launched in AgencyCloud"
             type="text"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Default App Window Width
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
-            disabled="true"
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
+            disabled=""
             id="test-static-id"
             name="launchWindowSizeY"
             placeholder="Height of window your app will be launched in AgencyCloud"
             type="text"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Default App Window Height
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+          </label>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -338,187 +420,253 @@ exports[`AcIntegrationTab should match a snapshot when loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
          
         <a>
           see here.
         </a>
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
-      </mock-styled.p>
-      <mock-styled.div
-        classname="el-form-layout-has-margin"
+      </p>
+      <div
+        class="el-form-layout-has-margin el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               AgencyCloud Integration
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              class="mocked-styled-125 el-toggle-checkbox"
               id="app-edit-is-ac-inegrated"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-bg"
-              htmlfor="app-edit-is-ac-inegrated"
+            <label
+              class="el-has-grey-bg el-toggle-label"
+              for="app-edit-is-ac-inegrated"
+              role="button"
+              tabindex="0"
             >
-              <mock-styled.span>
+              <span
+                class="mocked-styled-123 el-toggle-item"
+              >
                 Yes
-              </mock-styled.span>
-              <mock-styled.span>
+              </span>
+              <span
+                class="mocked-styled-123 el-toggle-item"
+              >
                 No
-              </mock-styled.span>
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
-              disabled="true"
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
+              disabled=""
               id="test-static-id"
               name="launchWindowSizeX"
               placeholder="Width of window your app will be launched in AgencyCloud"
               type="text"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Default App Window Width
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
-              disabled="true"
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
+              disabled=""
               id="test-static-id"
               name="launchWindowSizeY"
               placeholder="Height of window your app will be launched in AgencyCloud"
               type="text"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Default App Window Height
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
        
       <a>
         see here.
       </a>
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
-    </mock-styled.p>
-    <mock-styled.div
-      classname="el-form-layout-has-margin"
+    </p>
+    <div
+      class="el-form-layout-has-margin el-form-layout"
     >
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             AgencyCloud Integration
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            class="mocked-styled-125 el-toggle-checkbox"
             id="app-edit-is-ac-inegrated"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-bg"
-            htmlfor="app-edit-is-ac-inegrated"
+          <label
+            class="el-has-grey-bg el-toggle-label"
+            for="app-edit-is-ac-inegrated"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
               Yes
-            </mock-styled.span>
-            <mock-styled.span>
+            </span>
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
               No
-            </mock-styled.span>
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
-            disabled="true"
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
+            disabled=""
             id="test-static-id"
             name="launchWindowSizeX"
             placeholder="Width of window your app will be launched in AgencyCloud"
             type="text"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Default App Window Width
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
-            disabled="true"
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
+            disabled=""
             id="test-static-id"
             name="launchWindowSizeY"
             placeholder="Height of window your app will be launched in AgencyCloud"
             type="text"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Default App Window Height
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+          </label>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -579,73 +727,92 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
          
         <a>
           see here.
         </a>
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
-      </mock-styled.p>
-      <mock-styled.div
-        classname="el-form-layout-has-margin"
+      </p>
+      <div
+        class="el-form-layout-has-margin el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               AgencyCloud Integration
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              class="mocked-styled-125 el-toggle-checkbox"
               id="app-edit-is-ac-inegrated"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-bg"
-              htmlfor="app-edit-is-ac-inegrated"
+            <label
+              class="el-has-grey-bg el-toggle-label"
+              for="app-edit-is-ac-inegrated"
+              role="button"
+              tabindex="0"
             >
-              <mock-styled.span>
+              <span
+                class="mocked-styled-123 el-toggle-item"
+              >
                 Yes
-              </mock-styled.span>
-              <mock-styled.span>
+              </span>
+              <span
+                class="mocked-styled-123 el-toggle-item"
+              >
                 No
-              </mock-styled.span>
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            aria-controls=":r1:"
-            aria-haspopup="listbox"
-            role="combobox"
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <div
+            class="mocked-styled-58 el-multi-select-input-wrapper"
           >
-            <mock-styled.input
+            <input
+              class="mocked-styled-57 el-multi-select-input"
               id="desktopIntegrationTypeIds"
               label="Integration Type"
               name="desktopIntegrationTypeIds"
               placeholder="Please select"
             />
-            <mock-styled.div
-              classname=""
+            <div
+              aria-label="Multi selected options"
+              class="mocked-styled-55 el-multi-select-selected"
+              role="listbox"
             >
-              <mock-styled.span
-                classname="el-ml2 el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-ml2 el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name task"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -655,118 +822,149 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
               <p>
                 Please select from the options below
               </p>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
-              disabled="true"
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
+              disabled=""
               id="test-static-id"
               name="launchWindowSizeX"
               placeholder="Width of window your app will be launched in AgencyCloud"
               type="text"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Default App Window Width
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
-              disabled="true"
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
+              disabled=""
               id="test-static-id"
               name="launchWindowSizeY"
               placeholder="Height of window your app will be launched in AgencyCloud"
               type="text"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Default App Window Height
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
        
       <a>
         see here.
       </a>
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
-    </mock-styled.p>
-    <mock-styled.div
-      classname="el-form-layout-has-margin"
+    </p>
+    <div
+      class="el-form-layout-has-margin el-form-layout"
     >
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             AgencyCloud Integration
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            class="mocked-styled-125 el-toggle-checkbox"
             id="app-edit-is-ac-inegrated"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-bg"
-            htmlfor="app-edit-is-ac-inegrated"
+          <label
+            class="el-has-grey-bg el-toggle-label"
+            for="app-edit-is-ac-inegrated"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
               Yes
-            </mock-styled.span>
-            <mock-styled.span>
+            </span>
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
               No
-            </mock-styled.span>
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div
-          aria-controls=":r1:"
-          aria-haspopup="listbox"
-          role="combobox"
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="mocked-styled-58 el-multi-select-input-wrapper"
         >
-          <mock-styled.input
+          <input
+            class="mocked-styled-57 el-multi-select-input"
             id="desktopIntegrationTypeIds"
             label="Integration Type"
             name="desktopIntegrationTypeIds"
             placeholder="Please select"
           />
-          <mock-styled.div
-            classname=""
+          <div
+            aria-label="Multi selected options"
+            class="mocked-styled-55 el-multi-select-selected"
+            role="listbox"
           >
-            <mock-styled.span
-              classname="el-ml2 el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-ml2 el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name task"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -776,48 +974,60 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
             <p>
               Please select from the options below
             </p>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
-            disabled="true"
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
+            disabled=""
             id="test-static-id"
             name="launchWindowSizeX"
             placeholder="Width of window your app will be launched in AgencyCloud"
             type="text"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Default App Window Width
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
-            disabled="true"
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
+            disabled=""
             id="test-static-id"
             name="launchWindowSizeY"
             placeholder="Height of window your app will be launched in AgencyCloud"
             type="text"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Default App Window Height
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+          </label>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

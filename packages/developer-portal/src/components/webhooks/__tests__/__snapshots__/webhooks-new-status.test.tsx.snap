@@ -5,119 +5,161 @@ exports[`WebhooksNewStatus should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-mb11"
       >
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-no-margin"
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
         >
           Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
-        </mock-styled.p>
+        </p>
       </div>
-      <mock-styled.div
-        classname="el-fade-in"
+      <div
+        class="el-fade-in el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              class="mocked-styled-125 el-toggle-checkbox"
               id="status-toggle"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-mt1 el-has-grey-bg"
-              htmlfor="status-toggle"
+            <label
+              class="el-mt1 el-has-grey-bg el-toggle-label"
+              for="status-toggle"
+              role="button"
+              tabindex="0"
             >
-              <mock-styled.span>
+              <span
+                class="mocked-styled-123 el-toggle-item"
+              >
                 Active
-              </mock-styled.span>
-              <mock-styled.span>
+              </span>
+              <span
+                class="mocked-styled-123 el-toggle-item"
+              >
                 Inactive
-              </mock-styled.span>
-            </mock-styled.label>
-            <mock-styled.label>
+              </span>
+            </label>
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Status
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type checkbox"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="checkbox"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Ignore where only the etag has been modified
-            </mock-styled.label>
-            <mock-styled.span
-              classname=""
+            </label>
+            <span
+              class="mocked-styled-39 el-input-add-on"
             >
               Ignore
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-mb11"
     >
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text el-has-no-margin"
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
       >
         Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
-      </mock-styled.p>
+      </p>
     </div>
-    <mock-styled.div
-      classname="el-fade-in"
+    <div
+      class="el-fade-in el-form-layout"
     >
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            class="mocked-styled-125 el-toggle-checkbox"
             id="status-toggle"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-mt1 el-has-grey-bg"
-            htmlfor="status-toggle"
+          <label
+            class="el-mt1 el-has-grey-bg el-toggle-label"
+            for="status-toggle"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
               Active
-            </mock-styled.span>
-            <mock-styled.span>
+            </span>
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
               Inactive
-            </mock-styled.span>
-          </mock-styled.label>
-          <mock-styled.label>
+            </span>
+          </label>
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Status
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type checkbox"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="checkbox"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Ignore where only the etag has been modified
-          </mock-styled.label>
-          <mock-styled.span
-            classname=""
+          </label>
+          <span
+            class="mocked-styled-39 el-input-add-on"
           >
             Ignore
-          </mock-styled.span>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+          </span>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

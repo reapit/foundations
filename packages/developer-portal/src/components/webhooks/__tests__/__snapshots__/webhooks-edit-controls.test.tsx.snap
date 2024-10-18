@@ -5,66 +5,86 @@ exports[`WebhooksEditControls should match a snapshot with controls content 1`] 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-justify-center"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Edit
-            </mock-styled.button>
-            <mock-styled.button
-              classname="el-intent-primary"
+            </button>
+            <button
+              class="el-intent-primary el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Ping
-            </mock-styled.button>
-            <mock-styled.button
-              classname="el-intent-neutral"
+            </button>
+            <button
+              class="el-intent-neutral el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Copy Public Key
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-justify-center"
     >
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Edit
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-primary"
+          </button>
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Ping
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-neutral"
+          </button>
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Copy Public Key
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -126,90 +146,107 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <form
         class="el-p8"
       >
         <div
           class="el-flex-container el-flex-justify-between el-flex-align-center el-mb11"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-bold-text"
+          <h2
+            class="el-text-base el-subtitle el-has-bold-text"
           >
             Edit Webhook
-          </mock-styled.h2>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-button-group-align-right"
+          </h2>
+          <div
+            class="mocked-styled-2 el-button-group"
+          >
+            <div
+              class="el-button-group-align-right el-button-group-inner"
             >
-              <mock-styled.button
-                classname="el-intent-neutral"
-                disabled="false"
+              <button
+                class="el-intent-neutral el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Delete
-              </mock-styled.button>
-              <mock-styled.button
-                classname="el-intent-primary"
-                disabled="false"
+              </button>
+              <button
+                class="el-intent-primary el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Cancel
-              </mock-styled.button>
-              <mock-styled.button
-                classname="el-intent-primary"
-                disabled="false"
+              </button>
+              <button
+                class="el-intent-primary el-button"
                 type="submit"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Update
-              </mock-styled.button>
-            </mock-styled.div>
-          </mock-styled.div>
+              </button>
+            </div>
+          </div>
         </div>
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-130 el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+          <div
+            class="mocked-styled-135 el-input-wrap-full"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="url"
                 placeholder="Enter secure https:// url"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Webhook URL
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-135 el-input-wrap-full"
+          >
             <div
               class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
             >
-              <mock-styled.div
-                classname="mock-css.
+              <div
+                class="mock-css.
   min-width: 210px;
-"
+ el-input-group"
               >
-                <mock-styled.input
-                  classname=""
+                <input
+                  aria-label="Input type undefined"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   placeholder="Search topics to get started"
                 />
-                <mock-styled.span
-                  classname="el-icon-new"
-                  role="img"
+                <span
+                  class="el-icon-new el-icon"
                   style="font-size: 1rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
                     style="font-size: 1rem;"
+                    title="Icon image with name search"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -219,254 +256,328 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                </span>
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Subscription topics
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </div>
-            <mock-styled.div
-              aria-controls=":r1:"
-              aria-haspopup="listbox"
-              role="combobox"
+            <div
+              class="mocked-styled-58 el-multi-select-input-wrapper"
             >
-              <mock-styled.input
+              <input
+                class="mocked-styled-57 el-multi-select-input"
                 id="topic-edit-ids-MOCK_ID"
                 name="topicIds"
               />
-              <mock-styled.div
-                classname=""
+              <div
+                aria-label="Multi selected options"
+                class="mocked-styled-55 el-multi-select-selected"
+                role="listbox"
               />
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label
-              classname="el-ml3 el-mb5"
+            </div>
+          </div>
+          <div
+            class="mocked-styled-135 el-input-wrap-full"
+          >
+            <label
+              class="el-ml3 el-mb5 el-label"
             >
               Subscription customers
-            </mock-styled.label>
-            <mock-styled.div
-              aria-controls=":r2:"
-              aria-haspopup="listbox"
-              role="combobox"
+            </label>
+            <div
+              class="mocked-styled-58 el-multi-select-input-wrapper"
             >
-              <mock-styled.input
+              <input
+                class="mocked-styled-57 el-multi-select-input"
                 id="customer-edit-ids-MOCK_ID"
                 name="customerIds"
               />
-              <mock-styled.div
-                classname=""
+              <div
+                aria-label="Multi selected options"
+                class="mocked-styled-55 el-multi-select-selected"
+                role="listbox"
               />
-              <mock-styled.div
-                classname=""
+              <div
+                aria-label="Multi unselected options"
+                class="mocked-styled-56 el-multi-select-un-selected"
+                role="listbox"
               >
-                <mock-styled.input
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   All Customers
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   Sandbox Estates
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   Reapit Sales
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   Foo Bar
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-135 el-input-wrap-full"
+          >
             <div
               class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
             >
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type undefined"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   placeholder="Type and press enter to add a field"
                   value=""
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Semi-structured Fields
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </div>
-            <mock-styled.div>
-              <mock-styled.input
+            <div
+              class="mocked-styled-58 el-multi-select-input-wrapper"
+            >
+              <input
+                class="mocked-styled-57 el-multi-select-input"
                 id="semi-structured-fields-MOCK_ID"
                 name="extraFields"
               />
-              <mock-styled.div
-                classname=""
+              <div
+                class="mocked-styled-55 el-multi-select-selected"
               >
                 <p>
                   Please enter a semi-structured field name above, then press enter.
                 </p>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Status
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              class="mocked-styled-125 el-toggle-checkbox"
               id="status-edit-toggle-MOCK_ID"
               name="active"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-bg"
-              htmlfor="status-edit-toggle-MOCK_ID"
+            <label
+              class="el-has-grey-bg el-toggle-label"
+              for="status-edit-toggle-MOCK_ID"
+              role="button"
+              tabindex="0"
             >
-              <mock-styled.span>
+              <span
+                class="mocked-styled-123 el-toggle-item"
+              >
                 Active
-              </mock-styled.span>
-              <mock-styled.span>
+              </span>
+              <span
+                class="mocked-styled-123 el-toggle-item"
+              >
                 Inactive
-              </mock-styled.span>
-            </mock-styled.label>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </span>
+            </label>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type checkbox"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="ignoreEtagOnlyChanges"
                 type="checkbox"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Ignore where only the etag has been modified
-              </mock-styled.label>
-              <mock-styled.span
-                classname=""
+              </label>
+              <span
+                class="mocked-styled-39 el-input-add-on"
               >
                 Ignore
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+              </span>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <form
       class="el-p8"
     >
       <div
         class="el-flex-container el-flex-justify-between el-flex-align-center el-mb11"
       >
-        <mock-styled.h2
-          classname="el-text-base el-has-bold-text"
+        <h2
+          class="el-text-base el-subtitle el-has-bold-text"
         >
           Edit Webhook
-        </mock-styled.h2>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-button-group-align-right"
+        </h2>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="el-button-group-align-right el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-neutral"
-              disabled="false"
+            <button
+              class="el-intent-neutral el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Delete
-            </mock-styled.button>
-            <mock-styled.button
-              classname="el-intent-primary"
-              disabled="false"
+            </button>
+            <button
+              class="el-intent-primary el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Cancel
-            </mock-styled.button>
-            <mock-styled.button
-              classname="el-intent-primary"
-              disabled="false"
+            </button>
+            <button
+              class="el-intent-primary el-button"
               type="submit"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Update
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-130 el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="url"
               placeholder="Enter secure https:// url"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Webhook URL
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
           <div
             class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
           >
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
   min-width: 210px;
-"
+ el-input-group"
             >
-              <mock-styled.input
-                classname=""
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 placeholder="Search topics to get started"
               />
-              <mock-styled.span
-                classname="el-icon-new"
-                role="img"
+              <span
+                class="el-icon-new el-icon"
                 style="font-size: 1rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1rem;"
+                  title="Icon image with name search"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -476,166 +587,223 @@ exports[`WebhooksEditControls should match a snapshot with manage content 1`] = 
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.label
-                htmlfor="test-static-id"
+              </span>
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Subscription topics
-              </mock-styled.label>
-            </mock-styled.div>
+              </label>
+            </div>
           </div>
-          <mock-styled.div
-            aria-controls=":r1:"
-            aria-haspopup="listbox"
-            role="combobox"
+          <div
+            class="mocked-styled-58 el-multi-select-input-wrapper"
           >
-            <mock-styled.input
+            <input
+              class="mocked-styled-57 el-multi-select-input"
               id="topic-edit-ids-MOCK_ID"
               name="topicIds"
             />
-            <mock-styled.div
-              classname=""
+            <div
+              aria-label="Multi selected options"
+              class="mocked-styled-55 el-multi-select-selected"
+              role="listbox"
             />
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label
-            classname="el-ml3 el-mb5"
+          </div>
+        </div>
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <label
+            class="el-ml3 el-mb5 el-label"
           >
             Subscription customers
-          </mock-styled.label>
-          <mock-styled.div
-            aria-controls=":r2:"
-            aria-haspopup="listbox"
-            role="combobox"
+          </label>
+          <div
+            class="mocked-styled-58 el-multi-select-input-wrapper"
           >
-            <mock-styled.input
+            <input
+              class="mocked-styled-57 el-multi-select-input"
               id="customer-edit-ids-MOCK_ID"
               name="customerIds"
             />
-            <mock-styled.div
-              classname=""
+            <div
+              aria-label="Multi selected options"
+              class="mocked-styled-55 el-multi-select-selected"
+              role="listbox"
             />
-            <mock-styled.div
-              classname=""
+            <div
+              aria-label="Multi unselected options"
+              class="mocked-styled-56 el-multi-select-un-selected"
+              role="listbox"
             >
-              <mock-styled.input
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 All Customers
-              </mock-styled.label>
-              <mock-styled.input
+              </label>
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 Sandbox Estates
-              </mock-styled.label>
-              <mock-styled.input
+              </label>
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 Reapit Sales
-              </mock-styled.label>
-              <mock-styled.input
+              </label>
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 Foo Bar
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
           <div
             class="el-flex-container el-flex-wrap el-flex-justify-between el-flex-align-center el-mb5"
           >
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 placeholder="Type and press enter to add a field"
                 value=""
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Semi-structured Fields
-              </mock-styled.label>
-            </mock-styled.div>
+              </label>
+            </div>
           </div>
-          <mock-styled.div>
-            <mock-styled.input
+          <div
+            class="mocked-styled-58 el-multi-select-input-wrapper"
+          >
+            <input
+              class="mocked-styled-57 el-multi-select-input"
               id="semi-structured-fields-MOCK_ID"
               name="extraFields"
             />
-            <mock-styled.div
-              classname=""
+            <div
+              class="mocked-styled-55 el-multi-select-selected"
             >
               <p>
                 Please enter a semi-structured field name above, then press enter.
               </p>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Status
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            class="mocked-styled-125 el-toggle-checkbox"
             id="status-edit-toggle-MOCK_ID"
             name="active"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-bg"
-            htmlfor="status-edit-toggle-MOCK_ID"
+          <label
+            class="el-has-grey-bg el-toggle-label"
+            for="status-edit-toggle-MOCK_ID"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
               Active
-            </mock-styled.span>
-            <mock-styled.span>
+            </span>
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
               Inactive
-            </mock-styled.span>
-          </mock-styled.label>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </span>
+          </label>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type checkbox"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="ignoreEtagOnlyChanges"
               type="checkbox"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Ignore where only the etag has been modified
-            </mock-styled.label>
-            <mock-styled.span
-              classname=""
+            </label>
+            <span
+              class="mocked-styled-39 el-input-add-on"
             >
               Ignore
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </span>
+          </div>
+        </div>
+      </div>
     </form>
   </div>,
   "debug": [Function],
@@ -697,28 +865,34 @@ exports[`WebhooksEditControls should match a snapshot with ping content 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <form
         class="el-p8"
       >
-        <mock-styled.h2
-          classname="el-text-base el-ml3"
+        <h2
+          class="el-text-base el-subtitle el-ml3"
         >
           Test Webhook Subscription
-        </mock-styled.h2>
-        <mock-styled.div
-          classname=""
+        </h2>
+        <div
+          class="mocked-styled-30 el-grid"
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="mocked-styled-34 el-col-split"
           >
-            <mock-styled.label
-              classname="el-ml3"
+            <label
+              class="el-ml3 el-label"
             >
               Subscription topics
-            </mock-styled.label>
-            <mock-styled.div>
-              <mock-styled.select
+            </label>
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="mocked-styled-83 el-select"
                 name="topicId"
               >
                 <option
@@ -729,73 +903,81 @@ exports[`WebhooksEditControls should match a snapshot with ping content 1`] = `
                 <option />
                 <option />
                 <option />
-              </mock-styled.select>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+              </select>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-34 el-col-split"
           >
-            <mock-styled.p
-              classname="el-text-base"
+            <p
+              class="el-text-base el-body-text"
             >
               To test your Webhook subscription, please select a subscription topic and an example payload for that topic will be sent to the configured URL. For more information, please
                
               <a>
                 click here
               </a>
-            </mock-styled.p>
-            <mock-styled.div
-              classname="el-ml-auto"
+            </p>
+            <div
+              class="el-ml-auto el-button-group"
             >
-              <mock-styled.div
-                classname="el-button-group-align-right"
+              <div
+                class="el-button-group-align-right el-button-group-inner"
               >
-                <mock-styled.button
-                  classname="el-intent-primary"
-                  disabled="false"
+                <button
+                  class="el-intent-primary el-button"
                   type="button"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Cancel
-                </mock-styled.button>
-                <mock-styled.button
-                  classname="el-intent-primary"
-                  disabled="false"
+                </button>
+                <button
+                  class="el-intent-primary el-button"
                   type="submit"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Test
-                </mock-styled.button>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <form
       class="el-p8"
     >
-      <mock-styled.h2
-        classname="el-text-base el-ml3"
+      <h2
+        class="el-text-base el-subtitle el-ml3"
       >
         Test Webhook Subscription
-      </mock-styled.h2>
-      <mock-styled.div
-        classname=""
+      </h2>
+      <div
+        class="mocked-styled-30 el-grid"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-34 el-col-split"
         >
-          <mock-styled.label
-            classname="el-ml3"
+          <label
+            class="el-ml3 el-label"
           >
             Subscription topics
-          </mock-styled.label>
-          <mock-styled.div>
-            <mock-styled.select
+          </label>
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <select
+              aria-label="Select an item from the dropdown list"
+              class="mocked-styled-83 el-select"
               name="topicId"
             >
               <option
@@ -806,47 +988,49 @@ exports[`WebhooksEditControls should match a snapshot with ping content 1`] = `
               <option />
               <option />
               <option />
-            </mock-styled.select>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+            </select>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-34 el-col-split"
         >
-          <mock-styled.p
-            classname="el-text-base"
+          <p
+            class="el-text-base el-body-text"
           >
             To test your Webhook subscription, please select a subscription topic and an example payload for that topic will be sent to the configured URL. For more information, please
              
             <a>
               click here
             </a>
-          </mock-styled.p>
-          <mock-styled.div
-            classname="el-ml-auto"
+          </p>
+          <div
+            class="el-ml-auto el-button-group"
           >
-            <mock-styled.div
-              classname="el-button-group-align-right"
+            <div
+              class="el-button-group-align-right el-button-group-inner"
             >
-              <mock-styled.button
-                classname="el-intent-primary"
-                disabled="false"
+              <button
+                class="el-intent-primary el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Cancel
-              </mock-styled.button>
-              <mock-styled.button
-                classname="el-intent-primary"
-                disabled="false"
+              </button>
+              <button
+                class="el-intent-primary el-button"
                 type="submit"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Test
-              </mock-styled.button>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
   </div>,
   "debug": [Function],

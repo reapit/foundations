@@ -5,47 +5,57 @@ exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-button-group-align-right"
-          >
-            <mock-styled.button
-              classname="el-intent-primary"
-              disabled="false"
-            >
-              <mock-styled.div />
-              Select all
-            </mock-styled.button>
-            <mock-styled.button
-              classname="el-intent-primary"
-              disabled="false"
-            >
-              <mock-styled.div />
-              Deselect all
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div
-          aria-controls=":r0:"
-          aria-haspopup="listbox"
-          role="combobox"
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="mocked-styled-2 el-button-group"
         >
-          <mock-styled.input
+          <div
+            class="el-button-group-align-right el-button-group-inner"
+          >
+            <button
+              class="el-intent-primary el-button"
+            >
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
+              Select all
+            </button>
+            <button
+              class="el-intent-primary el-button"
+            >
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
+              Deselect all
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="mocked-styled-58 el-multi-select-input-wrapper"
+        >
+          <input
+            class="mocked-styled-57 el-multi-select-input"
             id="select-groups-to-install"
           />
-          <mock-styled.div
-            classname=""
+          <div
+            aria-label="Multi selected options"
+            class="mocked-styled-55 el-multi-select-selected"
+            role="listbox"
           >
-            <mock-styled.span
-              classname="el-ml2 el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-ml2 el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name task"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -55,281 +65,425 @@ exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
             <p>
               No groups selected to install
             </p>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            aria-label="Multi unselected options"
+            class="mocked-styled-56 el-multi-select-un-selected"
+            role="listbox"
           >
-            <mock-styled.input
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               Hi World Again
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               Hi World
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               Hello World Group
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               Group test 2.1
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               Group test 1
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               off
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               Another test group
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               New Office Group
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               Hello World 2 Group
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               hiya
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               long test 5.2
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               Hello World Again
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               long test 1.1
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               Holly test 123
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               long test 4
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               test group 3
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               Group test 1
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               long test 6
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               Testing RLTD
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               long test 2.1
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               Holly Page Test
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               long test 2
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-button-group-align-right"
-        >
-          <mock-styled.button
-            classname="el-intent-primary"
-            disabled="false"
-          >
-            <mock-styled.div />
-            Select all
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-primary"
-            disabled="false"
-          >
-            <mock-styled.div />
-            Deselect all
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div>
-      <mock-styled.div
-        aria-controls=":r0:"
-        aria-haspopup="listbox"
-        role="combobox"
+    <div
+      class="mocked-styled-135 el-input-wrap-full"
+    >
+      <div
+        class="mocked-styled-2 el-button-group"
       >
-        <mock-styled.input
+        <div
+          class="el-button-group-align-right el-button-group-inner"
+        >
+          <button
+            class="el-intent-primary el-button"
+          >
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
+            Select all
+          </button>
+          <button
+            class="el-intent-primary el-button"
+          >
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
+            Deselect all
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="mocked-styled-135 el-input-wrap-full"
+    >
+      <div
+        class="mocked-styled-58 el-multi-select-input-wrapper"
+      >
+        <input
+          class="mocked-styled-57 el-multi-select-input"
           id="select-groups-to-install"
         />
-        <mock-styled.div
-          classname=""
+        <div
+          aria-label="Multi selected options"
+          class="mocked-styled-55 el-multi-select-selected"
+          role="listbox"
         >
-          <mock-styled.span
-            classname="el-ml2 el-intent-default el-icon-new"
-            role="img"
+          <span
+            class="el-ml2 el-intent-default el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name task"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -339,237 +493,371 @@ exports[`AppInstallationPerOfficeGroup should match a snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <p>
             No groups selected to install
           </p>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          aria-label="Multi unselected options"
+          class="mocked-styled-56 el-multi-select-un-selected"
+          role="listbox"
         >
-          <mock-styled.input
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             Hi World Again
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             Hi World
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             Hello World Group
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             Group test 2.1
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             Group test 1
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             off
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             Another test group
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             New Office Group
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             Hello World 2 Group
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             hiya
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             long test 5.2
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             Hello World Again
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             long test 1.1
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             Holly test 123
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             long test 4
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             test group 3
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             Group test 1
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             long test 6
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             Testing RLTD
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             long test 2.1
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             Holly Page Test
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             long test 2
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+          </label>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

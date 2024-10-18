@@ -5,32 +5,37 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         Webhooks
-      </mock-styled.h1>
-      <mock-styled.div
+      </h1>
+      <div
         aria-hidden="true"
-        classname=""
+        class="mocked-styled-146 el-mobile-controls-bg"
       />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-147 el-mobile-controls"
         id=":r3:"
       >
-        <mock-styled.button
+        <button
           aria-controls=":r3:"
-          classname="el-floating-button el-intent-primary"
+          class="el-floating-button el-intent-primary el-button"
         >
-          <mock-styled.div />
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name menu"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -40,116 +45,136 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-tabs-full-width"
-        role="tablist"
+          </span>
+        </button>
+      </div>
+      <div
+        class="el-tabs-full-width el-tabs-wrap"
       >
-        <mock-styled.div>
-          <mock-styled.input
+        <div
+          class="mocked-styled-120 el-tabs-options-wrap"
+          role="tablist"
+        >
+          <input
             aria-selected="true"
+            checked=""
+            class="mocked-styled-117 el-tabs"
             id="webhook-tab-about"
             name="webhook-tabs"
-            role="tab"
             type="radio"
             value="/webhooks/about"
           />
-          <mock-styled.label
-            htmlfor="webhook-tab-about"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="webhook-tab-about"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               About Webhooks
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="webhook-tab-new"
             name="webhook-tabs"
-            role="tab"
             type="radio"
             value="/webhooks/new"
           />
-          <mock-styled.label
-            htmlfor="webhook-tab-new"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="webhook-tab-new"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Add Webhook
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="webhook-tab-manage"
             name="webhook-tabs"
-            role="tab"
             type="radio"
             value="/webhooks/manage"
           />
-          <mock-styled.label
-            htmlfor="webhook-tab-manage"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="webhook-tab-manage"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Manage Webhooks
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="webhook-tab-logs"
             name="webhook-tabs"
-            role="tab"
             type="radio"
             value="/webhooks/logs"
           />
-          <mock-styled.label
-            htmlfor="webhook-tab-logs"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="webhook-tab-logs"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Transaction Logs
             </span>
-          </mock-styled.label>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-tabs-full-width"
+          </label>
+        </div>
+        <div
+          class="el-tabs-full-width el-tabs-footer"
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       Webhooks
-    </mock-styled.h1>
-    <mock-styled.div
+    </h1>
+    <div
       aria-hidden="true"
-      classname=""
+      class="mocked-styled-146 el-mobile-controls-bg"
     />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-147 el-mobile-controls"
       id=":r3:"
     >
-      <mock-styled.button
+      <button
         aria-controls=":r3:"
-        classname="el-floating-button el-intent-primary"
+        class="el-floating-button el-intent-primary el-button"
       >
-        <mock-styled.div />
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <div
+          class="mocked-styled-0 el-button-loader"
+        />
+        <span
+          class="el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name menu"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -159,87 +184,102 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/about page 1`
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
-    <mock-styled.div
-      classname="el-tabs-full-width"
-      role="tablist"
+        </span>
+      </button>
+    </div>
+    <div
+      class="el-tabs-full-width el-tabs-wrap"
     >
-      <mock-styled.div>
-        <mock-styled.input
+      <div
+        class="mocked-styled-120 el-tabs-options-wrap"
+        role="tablist"
+      >
+        <input
           aria-selected="true"
+          checked=""
+          class="mocked-styled-117 el-tabs"
           id="webhook-tab-about"
           name="webhook-tabs"
-          role="tab"
           type="radio"
           value="/webhooks/about"
         />
-        <mock-styled.label
-          htmlfor="webhook-tab-about"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="webhook-tab-about"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             About Webhooks
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="webhook-tab-new"
           name="webhook-tabs"
-          role="tab"
           type="radio"
           value="/webhooks/new"
         />
-        <mock-styled.label
-          htmlfor="webhook-tab-new"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="webhook-tab-new"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Add Webhook
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="webhook-tab-manage"
           name="webhook-tabs"
-          role="tab"
           type="radio"
           value="/webhooks/manage"
         />
-        <mock-styled.label
-          htmlfor="webhook-tab-manage"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="webhook-tab-manage"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Manage Webhooks
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="webhook-tab-logs"
           name="webhook-tabs"
-          role="tab"
           type="radio"
           value="/webhooks/logs"
         />
-        <mock-styled.label
-          htmlfor="webhook-tab-logs"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="webhook-tab-logs"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Transaction Logs
           </span>
-        </mock-styled.label>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-tabs-full-width"
+        </label>
+      </div>
+      <div
+        class="el-tabs-full-width el-tabs-footer"
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -300,32 +340,37 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         Webhooks
-      </mock-styled.h1>
-      <mock-styled.div
+      </h1>
+      <div
         aria-hidden="true"
-        classname=""
+        class="mocked-styled-146 el-mobile-controls-bg"
       />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-147 el-mobile-controls"
         id=":r2:"
       >
-        <mock-styled.button
+        <button
           aria-controls=":r2:"
-          classname="el-floating-button el-intent-primary"
+          class="el-floating-button el-intent-primary el-button"
         >
-          <mock-styled.div />
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name menu"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -335,116 +380,136 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-tabs-full-width"
-        role="tablist"
+          </span>
+        </button>
+      </div>
+      <div
+        class="el-tabs-full-width el-tabs-wrap"
       >
-        <mock-styled.div>
-          <mock-styled.input
+        <div
+          class="mocked-styled-120 el-tabs-options-wrap"
+          role="tablist"
+        >
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="webhook-tab-about"
             name="webhook-tabs"
-            role="tab"
             type="radio"
             value="/webhooks/about"
           />
-          <mock-styled.label
-            htmlfor="webhook-tab-about"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="webhook-tab-about"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               About Webhooks
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="webhook-tab-new"
             name="webhook-tabs"
-            role="tab"
             type="radio"
             value="/webhooks/new"
           />
-          <mock-styled.label
-            htmlfor="webhook-tab-new"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="webhook-tab-new"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Add Webhook
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="webhook-tab-manage"
             name="webhook-tabs"
-            role="tab"
             type="radio"
             value="/webhooks/manage"
           />
-          <mock-styled.label
-            htmlfor="webhook-tab-manage"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="webhook-tab-manage"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Manage Webhooks
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="true"
+            checked=""
+            class="mocked-styled-117 el-tabs"
             id="webhook-tab-logs"
             name="webhook-tabs"
-            role="tab"
             type="radio"
             value="/webhooks/logs"
           />
-          <mock-styled.label
-            htmlfor="webhook-tab-logs"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="webhook-tab-logs"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Transaction Logs
             </span>
-          </mock-styled.label>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-tabs-full-width"
+          </label>
+        </div>
+        <div
+          class="el-tabs-full-width el-tabs-footer"
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       Webhooks
-    </mock-styled.h1>
-    <mock-styled.div
+    </h1>
+    <div
       aria-hidden="true"
-      classname=""
+      class="mocked-styled-146 el-mobile-controls-bg"
     />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-147 el-mobile-controls"
       id=":r2:"
     >
-      <mock-styled.button
+      <button
         aria-controls=":r2:"
-        classname="el-floating-button el-intent-primary"
+        class="el-floating-button el-intent-primary el-button"
       >
-        <mock-styled.div />
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <div
+          class="mocked-styled-0 el-button-loader"
+        />
+        <span
+          class="el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name menu"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -454,87 +519,102 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/logs page 1`]
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
-    <mock-styled.div
-      classname="el-tabs-full-width"
-      role="tablist"
+        </span>
+      </button>
+    </div>
+    <div
+      class="el-tabs-full-width el-tabs-wrap"
     >
-      <mock-styled.div>
-        <mock-styled.input
+      <div
+        class="mocked-styled-120 el-tabs-options-wrap"
+        role="tablist"
+      >
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="webhook-tab-about"
           name="webhook-tabs"
-          role="tab"
           type="radio"
           value="/webhooks/about"
         />
-        <mock-styled.label
-          htmlfor="webhook-tab-about"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="webhook-tab-about"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             About Webhooks
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="webhook-tab-new"
           name="webhook-tabs"
-          role="tab"
           type="radio"
           value="/webhooks/new"
         />
-        <mock-styled.label
-          htmlfor="webhook-tab-new"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="webhook-tab-new"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Add Webhook
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="webhook-tab-manage"
           name="webhook-tabs"
-          role="tab"
           type="radio"
           value="/webhooks/manage"
         />
-        <mock-styled.label
-          htmlfor="webhook-tab-manage"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="webhook-tab-manage"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Manage Webhooks
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="true"
+          checked=""
+          class="mocked-styled-117 el-tabs"
           id="webhook-tab-logs"
           name="webhook-tabs"
-          role="tab"
           type="radio"
           value="/webhooks/logs"
         />
-        <mock-styled.label
-          htmlfor="webhook-tab-logs"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="webhook-tab-logs"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Transaction Logs
           </span>
-        </mock-styled.label>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-tabs-full-width"
+        </label>
+      </div>
+      <div
+        class="el-tabs-full-width el-tabs-footer"
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -595,32 +675,37 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         Webhooks
-      </mock-styled.h1>
-      <mock-styled.div
+      </h1>
+      <div
         aria-hidden="true"
-        classname=""
+        class="mocked-styled-146 el-mobile-controls-bg"
       />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-147 el-mobile-controls"
         id=":r1:"
       >
-        <mock-styled.button
+        <button
           aria-controls=":r1:"
-          classname="el-floating-button el-intent-primary"
+          class="el-floating-button el-intent-primary el-button"
         >
-          <mock-styled.div />
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name menu"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -630,116 +715,136 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-tabs-full-width"
-        role="tablist"
+          </span>
+        </button>
+      </div>
+      <div
+        class="el-tabs-full-width el-tabs-wrap"
       >
-        <mock-styled.div>
-          <mock-styled.input
+        <div
+          class="mocked-styled-120 el-tabs-options-wrap"
+          role="tablist"
+        >
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="webhook-tab-about"
             name="webhook-tabs"
-            role="tab"
             type="radio"
             value="/webhooks/about"
           />
-          <mock-styled.label
-            htmlfor="webhook-tab-about"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="webhook-tab-about"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               About Webhooks
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="webhook-tab-new"
             name="webhook-tabs"
-            role="tab"
             type="radio"
             value="/webhooks/new"
           />
-          <mock-styled.label
-            htmlfor="webhook-tab-new"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="webhook-tab-new"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Add Webhook
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="true"
+            checked=""
+            class="mocked-styled-117 el-tabs"
             id="webhook-tab-manage"
             name="webhook-tabs"
-            role="tab"
             type="radio"
             value="/webhooks/manage"
           />
-          <mock-styled.label
-            htmlfor="webhook-tab-manage"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="webhook-tab-manage"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Manage Webhooks
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="webhook-tab-logs"
             name="webhook-tabs"
-            role="tab"
             type="radio"
             value="/webhooks/logs"
           />
-          <mock-styled.label
-            htmlfor="webhook-tab-logs"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="webhook-tab-logs"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Transaction Logs
             </span>
-          </mock-styled.label>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-tabs-full-width"
+          </label>
+        </div>
+        <div
+          class="el-tabs-full-width el-tabs-footer"
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       Webhooks
-    </mock-styled.h1>
-    <mock-styled.div
+    </h1>
+    <div
       aria-hidden="true"
-      classname=""
+      class="mocked-styled-146 el-mobile-controls-bg"
     />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-147 el-mobile-controls"
       id=":r1:"
     >
-      <mock-styled.button
+      <button
         aria-controls=":r1:"
-        classname="el-floating-button el-intent-primary"
+        class="el-floating-button el-intent-primary el-button"
       >
-        <mock-styled.div />
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <div
+          class="mocked-styled-0 el-button-loader"
+        />
+        <span
+          class="el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name menu"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -749,87 +854,102 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/manage page 1
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
-    <mock-styled.div
-      classname="el-tabs-full-width"
-      role="tablist"
+        </span>
+      </button>
+    </div>
+    <div
+      class="el-tabs-full-width el-tabs-wrap"
     >
-      <mock-styled.div>
-        <mock-styled.input
+      <div
+        class="mocked-styled-120 el-tabs-options-wrap"
+        role="tablist"
+      >
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="webhook-tab-about"
           name="webhook-tabs"
-          role="tab"
           type="radio"
           value="/webhooks/about"
         />
-        <mock-styled.label
-          htmlfor="webhook-tab-about"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="webhook-tab-about"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             About Webhooks
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="webhook-tab-new"
           name="webhook-tabs"
-          role="tab"
           type="radio"
           value="/webhooks/new"
         />
-        <mock-styled.label
-          htmlfor="webhook-tab-new"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="webhook-tab-new"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Add Webhook
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="true"
+          checked=""
+          class="mocked-styled-117 el-tabs"
           id="webhook-tab-manage"
           name="webhook-tabs"
-          role="tab"
           type="radio"
           value="/webhooks/manage"
         />
-        <mock-styled.label
-          htmlfor="webhook-tab-manage"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="webhook-tab-manage"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Manage Webhooks
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="webhook-tab-logs"
           name="webhook-tabs"
-          role="tab"
           type="radio"
           value="/webhooks/logs"
         />
-        <mock-styled.label
-          htmlfor="webhook-tab-logs"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="webhook-tab-logs"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Transaction Logs
           </span>
-        </mock-styled.label>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-tabs-full-width"
+        </label>
+      </div>
+      <div
+        class="el-tabs-full-width el-tabs-footer"
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -890,32 +1010,37 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         Webhooks
-      </mock-styled.h1>
-      <mock-styled.div
+      </h1>
+      <div
         aria-hidden="true"
-        classname=""
+        class="mocked-styled-146 el-mobile-controls-bg"
       />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-147 el-mobile-controls"
         id=":r0:"
       >
-        <mock-styled.button
+        <button
           aria-controls=":r0:"
-          classname="el-floating-button el-intent-primary"
+          class="el-floating-button el-intent-primary el-button"
         >
-          <mock-styled.div />
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name menu"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -925,116 +1050,136 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-tabs-full-width"
-        role="tablist"
+          </span>
+        </button>
+      </div>
+      <div
+        class="el-tabs-full-width el-tabs-wrap"
       >
-        <mock-styled.div>
-          <mock-styled.input
+        <div
+          class="mocked-styled-120 el-tabs-options-wrap"
+          role="tablist"
+        >
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="webhook-tab-about"
             name="webhook-tabs"
-            role="tab"
             type="radio"
             value="/webhooks/about"
           />
-          <mock-styled.label
-            htmlfor="webhook-tab-about"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="webhook-tab-about"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               About Webhooks
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="true"
+            checked=""
+            class="mocked-styled-117 el-tabs"
             id="webhook-tab-new"
             name="webhook-tabs"
-            role="tab"
             type="radio"
             value="/webhooks/new"
           />
-          <mock-styled.label
-            htmlfor="webhook-tab-new"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="webhook-tab-new"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Add Webhook
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="webhook-tab-manage"
             name="webhook-tabs"
-            role="tab"
             type="radio"
             value="/webhooks/manage"
           />
-          <mock-styled.label
-            htmlfor="webhook-tab-manage"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="webhook-tab-manage"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Manage Webhooks
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="webhook-tab-logs"
             name="webhook-tabs"
-            role="tab"
             type="radio"
             value="/webhooks/logs"
           />
-          <mock-styled.label
-            htmlfor="webhook-tab-logs"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="webhook-tab-logs"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Transaction Logs
             </span>
-          </mock-styled.label>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-tabs-full-width"
+          </label>
+        </div>
+        <div
+          class="el-tabs-full-width el-tabs-footer"
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       Webhooks
-    </mock-styled.h1>
-    <mock-styled.div
+    </h1>
+    <div
       aria-hidden="true"
-      classname=""
+      class="mocked-styled-146 el-mobile-controls-bg"
     />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-147 el-mobile-controls"
       id=":r0:"
     >
-      <mock-styled.button
+      <button
         aria-controls=":r0:"
-        classname="el-floating-button el-intent-primary"
+        class="el-floating-button el-intent-primary el-button"
       >
-        <mock-styled.div />
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <div
+          class="mocked-styled-0 el-button-loader"
+        />
+        <span
+          class="el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name menu"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -1044,87 +1189,102 @@ exports[`WebhooksWrapper should match a snapshot for the /webhooks/new page 1`] 
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
-    <mock-styled.div
-      classname="el-tabs-full-width"
-      role="tablist"
+        </span>
+      </button>
+    </div>
+    <div
+      class="el-tabs-full-width el-tabs-wrap"
     >
-      <mock-styled.div>
-        <mock-styled.input
+      <div
+        class="mocked-styled-120 el-tabs-options-wrap"
+        role="tablist"
+      >
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="webhook-tab-about"
           name="webhook-tabs"
-          role="tab"
           type="radio"
           value="/webhooks/about"
         />
-        <mock-styled.label
-          htmlfor="webhook-tab-about"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="webhook-tab-about"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             About Webhooks
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="true"
+          checked=""
+          class="mocked-styled-117 el-tabs"
           id="webhook-tab-new"
           name="webhook-tabs"
-          role="tab"
           type="radio"
           value="/webhooks/new"
         />
-        <mock-styled.label
-          htmlfor="webhook-tab-new"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="webhook-tab-new"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Add Webhook
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="webhook-tab-manage"
           name="webhook-tabs"
-          role="tab"
           type="radio"
           value="/webhooks/manage"
         />
-        <mock-styled.label
-          htmlfor="webhook-tab-manage"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="webhook-tab-manage"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Manage Webhooks
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="webhook-tab-logs"
           name="webhook-tabs"
-          role="tab"
           type="radio"
           value="/webhooks/logs"
         />
-        <mock-styled.label
-          htmlfor="webhook-tab-logs"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="webhook-tab-logs"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Transaction Logs
           </span>
-        </mock-styled.label>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-tabs-full-width"
+        </label>
+      </div>
+      <div
+        class="el-tabs-full-width el-tabs-footer"
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

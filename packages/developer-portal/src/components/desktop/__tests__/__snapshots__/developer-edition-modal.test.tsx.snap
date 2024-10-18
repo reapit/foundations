@@ -8,23 +8,26 @@ exports[`DeveloperEditionModal should match snapshot when has a subscription alr
       id="root"
     >
       <div>
-        <mock-styled.div
-          classname="el-is-active"
+        <div
+          class="el-is-active el-modal-bg"
         />
-        <mock-styled.div
+        <div
           aria-describedby=":r6:"
           aria-modal="true"
-          classname="el-is-active"
+          class="el-is-active el-modal"
           role="dialog"
         >
-          <mock-styled.div>
+          <div
+            class="mocked-styled-50 el-modal-header"
+          >
             Existing Subscription
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
+            class="mocked-styled-51 el-modal-body"
             id=":r6:"
           >
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               It looks as though you already have a subscription in place for the Developer Edition of Agency Cloud. To download, please use the ‘Download Now’ button below. For more information or support using the Developer Edition, please 
               <a
@@ -34,28 +37,34 @@ exports[`DeveloperEditionModal should match snapshot when has a subscription alr
               >
                 click here
               </a>
-            </mock-styled.p>
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-button-group-align-right"
+            </p>
+            <div
+              class="mocked-styled-2 el-button-group"
+            >
+              <div
+                class="el-button-group-align-right el-button-group-inner"
               >
-                <mock-styled.button
-                  classname="el-intent-neutral"
+                <button
+                  class="el-intent-neutral el-button"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Close
-                </mock-styled.button>
-                <mock-styled.button
-                  classname="el-intent-primary"
+                </button>
+                <button
+                  class="el-intent-primary el-button"
                   type="submit"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Download
-                </mock-styled.button>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div
@@ -68,11 +77,15 @@ exports[`DeveloperEditionModal should match snapshot when has a subscription alr
       id="root"
     />
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -136,42 +149,49 @@ exports[`DeveloperEditionModal should match snapshot when has billing content an
       id="root"
     >
       <div>
-        <mock-styled.div
-          classname="el-is-active"
+        <div
+          class="el-is-active el-modal-bg"
         />
-        <mock-styled.div
+        <div
           aria-describedby=":ra:"
           aria-modal="true"
-          classname="el-is-active"
+          class="el-is-active el-modal"
           role="dialog"
         >
-          <mock-styled.div>
+          <div
+            class="mocked-styled-50 el-modal-header"
+          >
             Account Information Required
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
+            class="mocked-styled-51 el-modal-body"
             id=":ra:"
           >
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               <p>
                 Before you can subscribe to the Developer Edition of Agency Cloud, billing information will need to be submitted. Please ask the Admin of your organisation to visit this page to contact a member of the team.
               </p>
-            </mock-styled.p>
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-button-group-align-right"
+            </p>
+            <div
+              class="mocked-styled-2 el-button-group"
+            >
+              <div
+                class="el-button-group-align-right el-button-group-inner"
               >
-                <mock-styled.button
-                  classname="el-intent-neutral"
+                <button
+                  class="el-intent-neutral el-button"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Cancel
-                </mock-styled.button>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div
@@ -190,11 +210,15 @@ exports[`DeveloperEditionModal should match snapshot when has billing content an
       id="root"
     />
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -258,23 +282,26 @@ exports[`DeveloperEditionModal should match snapshot when has billing content an
       id="root"
     >
       <div>
-        <mock-styled.div
-          classname="el-is-active"
+        <div
+          class="el-is-active el-modal-bg"
         />
-        <mock-styled.div
+        <div
           aria-describedby=":r8:"
           aria-modal="true"
-          classname="el-is-active"
+          class="el-is-active el-modal"
           role="dialog"
         >
-          <mock-styled.div>
+          <div
+            class="mocked-styled-50 el-modal-header"
+          >
             Account Information Required
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
+            class="mocked-styled-51 el-modal-body"
             id=":r8:"
           >
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               <p>
                 Before you can subscribe to the Developer Edition of AgencyCloud, we will first need to verify your account information. Please
@@ -289,21 +316,25 @@ exports[`DeveloperEditionModal should match snapshot when has billing content an
                  
                 to contact a member of the team.
               </p>
-            </mock-styled.p>
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-button-group-align-right"
+            </p>
+            <div
+              class="mocked-styled-2 el-button-group"
+            >
+              <div
+                class="el-button-group-align-right el-button-group-inner"
               >
-                <mock-styled.button
-                  classname="el-intent-neutral"
+                <button
+                  class="el-intent-neutral el-button"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Cancel
-                </mock-styled.button>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div
@@ -319,11 +350,15 @@ exports[`DeveloperEditionModal should match snapshot when has billing content an
       id="root"
     />
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -387,23 +422,26 @@ exports[`DeveloperEditionModal should match snapshot when has client data 1`] = 
       id="root"
     >
       <div>
-        <mock-styled.div
-          classname="el-is-active"
+        <div
+          class="el-is-active el-modal-bg"
         />
-        <mock-styled.div
+        <div
           aria-describedby=":rc:"
           aria-modal="true"
-          classname="el-is-active"
+          class="el-is-active el-modal"
           role="dialog"
         >
-          <mock-styled.div>
+          <div
+            class="mocked-styled-50 el-modal-header"
+          >
             Unable to create subscription
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
+            class="mocked-styled-51 el-modal-body"
             id=":rc:"
           >
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               Your account is currently set to use 
               <strong>
@@ -417,21 +455,25 @@ exports[`DeveloperEditionModal should match snapshot when has client data 1`] = 
                 click here
               </a>
                to update your information.
-            </mock-styled.p>
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-button-group-align-right"
+            </p>
+            <div
+              class="mocked-styled-2 el-button-group"
+            >
+              <div
+                class="el-button-group-align-right el-button-group-inner"
               >
-                <mock-styled.button
-                  classname="el-intent-neutral"
+                <button
+                  class="el-intent-neutral el-button"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Cancel
-                </mock-styled.button>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div
@@ -453,11 +495,15 @@ exports[`DeveloperEditionModal should match snapshot when has client data 1`] = 
       id="root"
     />
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -521,28 +567,31 @@ exports[`DeveloperEditionModal should match snapshot when has subscribed 1`] = `
       id="root"
     >
       <div>
-        <mock-styled.div
-          classname="el-is-active"
+        <div
+          class="el-is-active el-modal-bg"
         />
-        <mock-styled.div
+        <div
           aria-describedby=":r4:"
           aria-modal="true"
-          classname="el-is-active"
+          class="el-is-active el-modal"
           role="dialog"
         >
-          <mock-styled.div>
+          <div
+            class="mocked-styled-50 el-modal-header"
+          >
             Success
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
+            class="mocked-styled-51 el-modal-body"
             id=":r4:"
           >
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               You have successfully subscribed 1 Agency Cloud user licence and an email has been sent to the following members of your organisation with instructions on how to get started.
-            </mock-styled.p>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </p>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               Joe Dev
                - 
@@ -553,33 +602,39 @@ exports[`DeveloperEditionModal should match snapshot when has subscribed 1`] = `
               >
                 example@email.com
               </a>
-            </mock-styled.p>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </p>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               We have added your subscription to your monthly billing. To manage your subscriptions please visit the 'Billing' tab.
-            </mock-styled.p>
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-button-group-align-right"
+            </p>
+            <div
+              class="mocked-styled-2 el-button-group"
+            >
+              <div
+                class="el-button-group-align-right el-button-group-inner"
               >
-                <mock-styled.button
-                  classname="el-intent-neutral"
+                <button
+                  class="el-intent-neutral el-button"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Close
-                </mock-styled.button>
-                <mock-styled.button
-                  classname="el-intent-primary"
+                </button>
+                <button
+                  class="el-intent-primary el-button"
                   type="submit"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Download
-                </mock-styled.button>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div
@@ -589,11 +644,15 @@ exports[`DeveloperEditionModal should match snapshot when has subscribed 1`] = `
       id="root"
     />
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -662,11 +721,15 @@ exports[`DeveloperEditionModal should match snapshot when not visible 1`] = `
       id="root"
     />
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -730,23 +793,26 @@ exports[`DeveloperEditionModal should match snapshot when visible 1`] = `
       id="root"
     >
       <div>
-        <mock-styled.div
-          classname="el-is-active"
+        <div
+          class="el-is-active el-modal-bg"
         />
-        <mock-styled.div
+        <div
           aria-describedby=":r1:"
           aria-modal="true"
-          classname="el-is-active"
+          class="el-is-active el-modal"
           role="dialog"
         >
-          <mock-styled.div>
+          <div
+            class="mocked-styled-50 el-modal-header"
+          >
             Agency Cloud Developer Edition
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
+            class="mocked-styled-51 el-modal-body"
             id=":r1:"
           >
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               The Agency Cloud Developer Edition is a licensed product. 
               By confirming the subscription below, a subscription of £300 will automatically be added to your monthly billing.
@@ -759,44 +825,54 @@ exports[`DeveloperEditionModal should match snapshot when visible 1`] = `
               >
                 Terms and Conditions.
               </a>
-            </mock-styled.p>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </p>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               To proceed, please confirm your subscription below for 
               <strong>
                 Joe Dev
               </strong>
-            </mock-styled.p>
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-button-group-align-right"
+            </p>
+            <div
+              class="mocked-styled-2 el-button-group"
+            >
+              <div
+                class="el-button-group-align-right el-button-group-inner"
               >
-                <mock-styled.button
-                  classname="el-intent-neutral"
+                <button
+                  class="el-intent-neutral el-button"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Cancel
-                </mock-styled.button>
-                <mock-styled.button
-                  classname="el-intent-primary"
+                </button>
+                <button
+                  class="el-intent-primary el-button"
                   type="submit"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Confirm
-                </mock-styled.button>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

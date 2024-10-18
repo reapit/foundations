@@ -5,20 +5,23 @@ exports[`MarketplacePage should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.span
-            classname="el-mb5 el-icon-size-large"
-            role="img"
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name appMarketInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -126,37 +129,39 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                 fill="#fff"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.p
-            classname="el-text-base"
+          </span>
+          <p
+            class="el-text-base el-body-text"
           >
             AppMarket Visibility and Installation Management
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </p>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             To set the visibility of an app in the AppMarket or to manage installations for your organisation or specific office groups, please select an app.
-          </mock-styled.p>
+          </small>
           <div
             class="el-mb5"
           >
-            <mock-styled.p
-              classname="el-text-base"
+            <p
+              class="el-text-base el-body-text"
             >
               Organisations
-            </mock-styled.p>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </p>
+            <small
+              class="el-text-base el-small-text el-has-grey-text"
             >
               You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-            </mock-styled.p>
+            </small>
             <mock-styled.div
               classname="el-border-radius"
             >
-              <mock-styled.div>
-                <mock-styled.select
-                  classname="el-wfull"
-                  value="SOME_ID"
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <select
+                  aria-label="Select an item from the dropdown list"
+                  class="el-wfull el-select"
                 >
                   <option
                     value=""
@@ -173,36 +178,40 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                   >
                     name
                   </option>
-                </mock-styled.select>
-                <mock-styled.label
-                  htmlfor="myId"
+                </select>
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="myId"
                 >
                   Select Organisation
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
           </div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
             >
-              <mock-styled.input
-                classname=""
+              <input
+                aria-label="Input type text"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="searchTerm"
                 placeholder="Developer or App"
                 type="text"
+                value=""
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Search
-              </mock-styled.label>
-            </mock-styled.div>
+              </label>
+            </div>
           </mock-styled.div>
         </aside>
         <section
@@ -211,28 +220,33 @@ exports[`MarketplacePage should match a snapshot 1`] = `
           <div
             class="el-flex-container el-flex-justify-between"
           >
-            <mock-styled.h1
-              classname="el-text-base"
+            <h1
+              class="el-text-base el-title"
             >
               SOME_NAME
                AppMarket
-            </mock-styled.h1>
+            </h1>
           </div>
-          <mock-styled.div
-            classname=""
+          <div
+            class="mocked-styled-30 el-grid"
           >
-            <mock-styled.div
-              classname=""
+            <div
+              class="mocked-styled-31 el-col"
             >
-              <mock-styled.div
-                classname="el-fade-in"
+              <div
+                class="el-fade-in el-card-wrap"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname=""
+                <div
+                  class="mocked-styled-7 el-card-main-wrap"
+                >
+                  <div
+                    class="mocked-styled-28 el-avatar"
                     role="img"
+                    title="A profile image"
                   >
-                    <mock-styled.div
+                    <div
+                      aria-label="A generic placeholder image"
+                      class="mocked-styled-144 el-placeholder-image"
                       role="img"
                       style="font-size: 1.953125em; width: 50px; height: 50px;"
                     >
@@ -248,39 +262,54 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                           fill="#E3E3E3"
                         />
                       </svg>
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-card-sub-heading-wrap-avatar"
+                    </div>
+                  </div>
+                  <div
+                    class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
                   >
-                    <mock-styled.h5>
+                    <h5
+                      class="mocked-styled-8 el-card-heading"
+                    >
                       Test App Dev
-                    </mock-styled.h5>
-                    <mock-styled.h6>
+                    </h5>
+                    <h6
+                      class="mocked-styled-9 el-card-sub-heading"
+                    >
                       DFG
-                    </mock-styled.h6>
-                    <mock-styled.h6>
+                    </h6>
+                    <h6
+                      class="mocked-styled-10 el-card-sub-heading-additional"
+                    >
                       Integration
-                    </mock-styled.h6>
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-mt5"
+                    </h6>
+                  </div>
+                </div>
+                <div
+                  class="el-mt5 el-card-list-main-wrap"
                 >
-                  <mock-styled.h5>
+                  <h5
+                    class="mocked-styled-17 el-card-list-heading"
+                  >
                     Installation and Visibility
-                  </mock-styled.h5>
-                  <mock-styled.h6 />
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-intent-primary"
-                      role="img"
+                  </h5>
+                  <h6
+                    class="mocked-styled-18 el-card-list-sub-heading"
+                  />
+                </div>
+                <div
+                  class="mocked-styled-19 el-card-list-item"
+                >
+                  <div
+                    class="mocked-styled-23 el-card-list-icon"
+                  >
+                    <span
+                      class="el-intent-primary el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name customerInfographic"
                         viewBox="0 0 80 80"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -346,26 +375,37 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                           fill="#7e9bfa"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.div>
+                    </span>
+                  </div>
+                  <div
+                    class="mocked-styled-20 el-card-list-item-text-wrap"
+                  >
+                    <div
+                      class="mocked-styled-21 el-card-list-item-text-primary"
+                    >
                       Installation Status
-                    </mock-styled.div>
-                    <mock-styled.div>
+                    </div>
+                    <div
+                      class="mocked-styled-22 el-card-list-item-text-secondary"
+                    >
                       Not installed
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-intent-primary"
-                      role="img"
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mocked-styled-19 el-card-list-item"
+                >
+                  <div
+                    class="mocked-styled-23 el-card-list-icon"
+                  >
+                    <span
+                      class="el-intent-primary el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name agencyCloudInfographic"
                         viewBox="0 0 80 80"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -403,68 +443,93 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                           fill="#fff"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.div>
+                    </span>
+                  </div>
+                  <div
+                    class="mocked-styled-20 el-card-list-item-text-wrap"
+                  >
+                    <div
+                      class="mocked-styled-21 el-card-list-item-text-primary"
+                    >
                       Marketplace Visibility
-                    </mock-styled.div>
-                    <mock-styled.div>
+                    </div>
+                    <div
+                      class="mocked-styled-22 el-card-list-item-text-secondary"
+                    >
                       Marketplace visible
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-31 el-col"
             >
-              <mock-styled.div
-                classname="el-fade-in"
+              <div
+                class="el-fade-in el-card-wrap"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname=""
+                <div
+                  class="mocked-styled-7 el-card-main-wrap"
+                >
+                  <div
+                    class="mocked-styled-28 el-avatar"
                     role="img"
+                    title="A profile image"
                   >
                     <img
+                      alt="An image with source https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Insights-icon.png"
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Insights-icon.png"
                     />
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-card-sub-heading-wrap-avatar"
+                  </div>
+                  <div
+                    class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
                   >
-                    <mock-styled.h5>
+                    <h5
+                      class="mocked-styled-8 el-card-heading"
+                    >
                       Reapit Insights
-                    </mock-styled.h5>
-                    <mock-styled.h6>
+                    </h5>
+                    <h6
+                      class="mocked-styled-9 el-card-sub-heading"
+                    >
                       Reapit Ltd
-                    </mock-styled.h6>
-                    <mock-styled.h6 />
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-mb5"
+                    </h6>
+                    <h6
+                      class="mocked-styled-10 el-card-sub-heading-additional"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="el-mb5 el-card-body-wrap"
                 >
                   Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah.
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-mt5"
+                </div>
+                <div
+                  class="el-mt5 el-card-list-main-wrap"
                 >
-                  <mock-styled.h5>
+                  <h5
+                    class="mocked-styled-17 el-card-list-heading"
+                  >
                     Installation and Visibility
-                  </mock-styled.h5>
-                  <mock-styled.h6 />
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-intent-primary"
-                      role="img"
+                  </h5>
+                  <h6
+                    class="mocked-styled-18 el-card-list-sub-heading"
+                  />
+                </div>
+                <div
+                  class="mocked-styled-19 el-card-list-item"
+                >
+                  <div
+                    class="mocked-styled-23 el-card-list-icon"
+                  >
+                    <span
+                      class="el-intent-primary el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name customerInfographic"
                         viewBox="0 0 80 80"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -530,26 +595,37 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                           fill="#7e9bfa"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.div>
+                    </span>
+                  </div>
+                  <div
+                    class="mocked-styled-20 el-card-list-item-text-wrap"
+                  >
+                    <div
+                      class="mocked-styled-21 el-card-list-item-text-primary"
+                    >
                       Installation Status
-                    </mock-styled.div>
-                    <mock-styled.div>
+                    </div>
+                    <div
+                      class="mocked-styled-22 el-card-list-item-text-secondary"
+                    >
                       Not installed
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-intent-primary"
-                      role="img"
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mocked-styled-19 el-card-list-item"
+                >
+                  <div
+                    class="mocked-styled-23 el-card-list-icon"
+                  >
+                    <span
+                      class="el-intent-primary el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name agencyCloudInfographic"
                         viewBox="0 0 80 80"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -587,68 +663,93 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                           fill="#fff"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.div>
+                    </span>
+                  </div>
+                  <div
+                    class="mocked-styled-20 el-card-list-item-text-wrap"
+                  >
+                    <div
+                      class="mocked-styled-21 el-card-list-item-text-primary"
+                    >
                       Marketplace Visibility
-                    </mock-styled.div>
-                    <mock-styled.div>
+                    </div>
+                    <div
+                      class="mocked-styled-22 el-card-list-item-text-secondary"
+                    >
                       Marketplace visible
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-31 el-col"
             >
-              <mock-styled.div
-                classname="el-fade-in"
+              <div
+                class="el-fade-in el-card-wrap"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname=""
+                <div
+                  class="mocked-styled-7 el-card-main-wrap"
+                >
+                  <div
+                    class="mocked-styled-28 el-avatar"
                     role="img"
+                    title="A profile image"
                   >
                     <img
+                      alt="An image with source https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Connect-Management-icon.png"
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Connect-Management-icon.png"
                     />
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-card-sub-heading-wrap-avatar"
+                  </div>
+                  <div
+                    class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
                   >
-                    <mock-styled.h5>
+                    <h5
+                      class="mocked-styled-8 el-card-heading"
+                    >
                       Marketplace Management
-                    </mock-styled.h5>
-                    <mock-styled.h6>
+                    </h5>
+                    <h6
+                      class="mocked-styled-9 el-card-sub-heading"
+                    >
                       Reapit Ltd
-                    </mock-styled.h6>
-                    <mock-styled.h6 />
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-mb5"
+                    </h6>
+                    <h6
+                      class="mocked-styled-10 el-card-sub-heading-additional"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="el-mb5 el-card-body-wrap"
                 >
                   Description Description Description Description Description Description Description Description
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-mt5"
+                </div>
+                <div
+                  class="el-mt5 el-card-list-main-wrap"
                 >
-                  <mock-styled.h5>
+                  <h5
+                    class="mocked-styled-17 el-card-list-heading"
+                  >
                     Installation and Visibility
-                  </mock-styled.h5>
-                  <mock-styled.h6 />
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-intent-primary"
-                      role="img"
+                  </h5>
+                  <h6
+                    class="mocked-styled-18 el-card-list-sub-heading"
+                  />
+                </div>
+                <div
+                  class="mocked-styled-19 el-card-list-item"
+                >
+                  <div
+                    class="mocked-styled-23 el-card-list-icon"
+                  >
+                    <span
+                      class="el-intent-primary el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name customerInfographic"
                         viewBox="0 0 80 80"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -714,26 +815,37 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                           fill="#7e9bfa"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.div>
+                    </span>
+                  </div>
+                  <div
+                    class="mocked-styled-20 el-card-list-item-text-wrap"
+                  >
+                    <div
+                      class="mocked-styled-21 el-card-list-item-text-primary"
+                    >
                       Installation Status
-                    </mock-styled.div>
-                    <mock-styled.div>
+                    </div>
+                    <div
+                      class="mocked-styled-22 el-card-list-item-text-secondary"
+                    >
                       Not installed
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-intent-primary"
-                      role="img"
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mocked-styled-19 el-card-list-item"
+                >
+                  <div
+                    class="mocked-styled-23 el-card-list-icon"
+                  >
+                    <span
+                      class="el-intent-primary el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name agencyCloudInfographic"
                         viewBox="0 0 80 80"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -771,68 +883,93 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                           fill="#fff"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.div>
+                    </span>
+                  </div>
+                  <div
+                    class="mocked-styled-20 el-card-list-item-text-wrap"
+                  >
+                    <div
+                      class="mocked-styled-21 el-card-list-item-text-primary"
+                    >
                       Marketplace Visibility
-                    </mock-styled.div>
-                    <mock-styled.div>
+                    </div>
+                    <div
+                      class="mocked-styled-22 el-card-list-item-text-secondary"
+                    >
                       Marketplace visible
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-31 el-col"
             >
-              <mock-styled.div
-                classname="el-fade-in"
+              <div
+                class="el-fade-in el-card-wrap"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname=""
+                <div
+                  class="mocked-styled-7 el-card-main-wrap"
+                >
+                  <div
+                    class="mocked-styled-28 el-avatar"
                     role="img"
+                    title="A profile image"
                   >
                     <img
+                      alt="An image with source https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Holly-Test-App-icon(1).png"
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Holly-Test-App-icon(1).png"
                     />
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-card-sub-heading-wrap-avatar"
+                  </div>
+                  <div
+                    class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
                   >
-                    <mock-styled.h5>
+                    <h5
+                      class="mocked-styled-8 el-card-heading"
+                    >
                       Holly Test App
-                    </mock-styled.h5>
-                    <mock-styled.h6>
+                    </h5>
+                    <h6
+                      class="mocked-styled-9 el-card-sub-heading"
+                    >
                       Holly Phillips Testing
-                    </mock-styled.h6>
-                    <mock-styled.h6 />
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-mb5"
+                    </h6>
+                    <h6
+                      class="mocked-styled-10 el-card-sub-heading-additional"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="el-mb5 el-card-body-wrap"
                 >
                   https://holly.com https://holly.com https://holly.com https://holly.comhttps://holly.com https://holly.comhttps://holly.com https://holly.com
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-mt5"
+                </div>
+                <div
+                  class="el-mt5 el-card-list-main-wrap"
                 >
-                  <mock-styled.h5>
+                  <h5
+                    class="mocked-styled-17 el-card-list-heading"
+                  >
                     Installation and Visibility
-                  </mock-styled.h5>
-                  <mock-styled.h6 />
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-intent-primary"
-                      role="img"
+                  </h5>
+                  <h6
+                    class="mocked-styled-18 el-card-list-sub-heading"
+                  />
+                </div>
+                <div
+                  class="mocked-styled-19 el-card-list-item"
+                >
+                  <div
+                    class="mocked-styled-23 el-card-list-icon"
+                  >
+                    <span
+                      class="el-intent-primary el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name customerInfographic"
                         viewBox="0 0 80 80"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -898,26 +1035,37 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                           fill="#7e9bfa"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.div>
+                    </span>
+                  </div>
+                  <div
+                    class="mocked-styled-20 el-card-list-item-text-wrap"
+                  >
+                    <div
+                      class="mocked-styled-21 el-card-list-item-text-primary"
+                    >
                       Installation Status
-                    </mock-styled.div>
-                    <mock-styled.div>
+                    </div>
+                    <div
+                      class="mocked-styled-22 el-card-list-item-text-secondary"
+                    >
                       Not installed
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-intent-primary"
-                      role="img"
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mocked-styled-19 el-card-list-item"
+                >
+                  <div
+                    class="mocked-styled-23 el-card-list-icon"
+                  >
+                    <span
+                      class="el-intent-primary el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name agencyCloudInfographic"
                         viewBox="0 0 80 80"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -955,68 +1103,93 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                           fill="#fff"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.div>
+                    </span>
+                  </div>
+                  <div
+                    class="mocked-styled-20 el-card-list-item-text-wrap"
+                  >
+                    <div
+                      class="mocked-styled-21 el-card-list-item-text-primary"
+                    >
                       Marketplace Visibility
-                    </mock-styled.div>
-                    <mock-styled.div>
+                    </div>
+                    <div
+                      class="mocked-styled-22 el-card-list-item-text-secondary"
+                    >
                       Marketplace hidden
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-31 el-col"
             >
-              <mock-styled.div
-                classname="el-fade-in"
+              <div
+                class="el-fade-in el-card-wrap"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname=""
+                <div
+                  class="mocked-styled-7 el-card-main-wrap"
+                >
+                  <div
+                    class="mocked-styled-28 el-avatar"
                     role="img"
+                    title="A profile image"
                   >
                     <img
+                      alt="An image with source https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Payments-Portal-icon.png"
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Payments-Portal-icon.png"
                     />
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-card-sub-heading-wrap-avatar"
+                  </div>
+                  <div
+                    class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
                   >
-                    <mock-styled.h5>
+                    <h5
+                      class="mocked-styled-8 el-card-heading"
+                    >
                       Reapit Payments Portal
-                    </mock-styled.h5>
-                    <mock-styled.h6>
+                    </h5>
+                    <h6
+                      class="mocked-styled-9 el-card-sub-heading"
+                    >
                       Reapit Ltd
-                    </mock-styled.h6>
-                    <mock-styled.h6 />
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-mb5"
+                    </h6>
+                    <h6
+                      class="mocked-styled-10 el-card-sub-heading-additional"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="el-mb5 el-card-body-wrap"
                 >
                   It takes your money and sends it to Sage Pay. Then it updates RPS.
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-mt5"
+                </div>
+                <div
+                  class="el-mt5 el-card-list-main-wrap"
                 >
-                  <mock-styled.h5>
+                  <h5
+                    class="mocked-styled-17 el-card-list-heading"
+                  >
                     Installation and Visibility
-                  </mock-styled.h5>
-                  <mock-styled.h6 />
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-intent-primary"
-                      role="img"
+                  </h5>
+                  <h6
+                    class="mocked-styled-18 el-card-list-sub-heading"
+                  />
+                </div>
+                <div
+                  class="mocked-styled-19 el-card-list-item"
+                >
+                  <div
+                    class="mocked-styled-23 el-card-list-icon"
+                  >
+                    <span
+                      class="el-intent-primary el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name customerInfographic"
                         viewBox="0 0 80 80"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1082,26 +1255,37 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                           fill="#7e9bfa"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.div>
+                    </span>
+                  </div>
+                  <div
+                    class="mocked-styled-20 el-card-list-item-text-wrap"
+                  >
+                    <div
+                      class="mocked-styled-21 el-card-list-item-text-primary"
+                    >
                       Installation Status
-                    </mock-styled.div>
-                    <mock-styled.div>
+                    </div>
+                    <div
+                      class="mocked-styled-22 el-card-list-item-text-secondary"
+                    >
                       Not installed
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-intent-primary"
-                      role="img"
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mocked-styled-19 el-card-list-item"
+                >
+                  <div
+                    class="mocked-styled-23 el-card-list-icon"
+                  >
+                    <span
+                      class="el-intent-primary el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name agencyCloudInfographic"
                         viewBox="0 0 80 80"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1139,68 +1323,93 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                           fill="#fff"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.div>
+                    </span>
+                  </div>
+                  <div
+                    class="mocked-styled-20 el-card-list-item-text-wrap"
+                  >
+                    <div
+                      class="mocked-styled-21 el-card-list-item-text-primary"
+                    >
                       Marketplace Visibility
-                    </mock-styled.div>
-                    <mock-styled.div>
+                    </div>
+                    <div
+                      class="mocked-styled-22 el-card-list-item-text-secondary"
+                    >
                       Marketplace visible
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-31 el-col"
             >
-              <mock-styled.div
-                classname="el-fade-in"
+              <div
+                class="el-fade-in el-card-wrap"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname=""
+                <div
+                  class="mocked-styled-7 el-card-main-wrap"
+                >
+                  <div
+                    class="mocked-styled-28 el-avatar"
                     role="img"
+                    title="A profile image"
                   >
                     <img
+                      alt="An image with source https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Data-Warehouse-icon.png"
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Data-Warehouse-icon.png"
                     />
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-card-sub-heading-wrap-avatar"
+                  </div>
+                  <div
+                    class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
                   >
-                    <mock-styled.h5>
+                    <h5
+                      class="mocked-styled-8 el-card-heading"
+                    >
                       Data Warehouse
-                    </mock-styled.h5>
-                    <mock-styled.h6>
+                    </h5>
+                    <h6
+                      class="mocked-styled-9 el-card-sub-heading"
+                    >
                       Reapit Ltd
-                    </mock-styled.h6>
-                    <mock-styled.h6 />
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-mb5"
+                    </h6>
+                    <h6
+                      class="mocked-styled-10 el-card-sub-heading-additional"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="el-mb5 el-card-body-wrap"
                 >
                   The data warehouse houses lots of data. The data warehouse houses lots of data.
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-mt5"
+                </div>
+                <div
+                  class="el-mt5 el-card-list-main-wrap"
                 >
-                  <mock-styled.h5>
+                  <h5
+                    class="mocked-styled-17 el-card-list-heading"
+                  >
                     Installation and Visibility
-                  </mock-styled.h5>
-                  <mock-styled.h6 />
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-intent-primary"
-                      role="img"
+                  </h5>
+                  <h6
+                    class="mocked-styled-18 el-card-list-sub-heading"
+                  />
+                </div>
+                <div
+                  class="mocked-styled-19 el-card-list-item"
+                >
+                  <div
+                    class="mocked-styled-23 el-card-list-icon"
+                  >
+                    <span
+                      class="el-intent-primary el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name customerInfographic"
                         viewBox="0 0 80 80"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1266,26 +1475,37 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                           fill="#7e9bfa"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.div>
+                    </span>
+                  </div>
+                  <div
+                    class="mocked-styled-20 el-card-list-item-text-wrap"
+                  >
+                    <div
+                      class="mocked-styled-21 el-card-list-item-text-primary"
+                    >
                       Installation Status
-                    </mock-styled.div>
-                    <mock-styled.div>
+                    </div>
+                    <div
+                      class="mocked-styled-22 el-card-list-item-text-secondary"
+                    >
                       Not installed
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-intent-primary"
-                      role="img"
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mocked-styled-19 el-card-list-item"
+                >
+                  <div
+                    class="mocked-styled-23 el-card-list-icon"
+                  >
+                    <span
+                      class="el-intent-primary el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name agencyCloudInfographic"
                         viewBox="0 0 80 80"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1323,70 +1543,95 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                           fill="#fff"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.div>
+                    </span>
+                  </div>
+                  <div
+                    class="mocked-styled-20 el-card-list-item-text-wrap"
+                  >
+                    <div
+                      class="mocked-styled-21 el-card-list-item-text-primary"
+                    >
                       Marketplace Visibility
-                    </mock-styled.div>
-                    <mock-styled.div>
+                    </div>
+                    <div
+                      class="mocked-styled-22 el-card-list-item-text-secondary"
+                    >
                       Marketplace hidden
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-31 el-col"
             >
-              <mock-styled.div
-                classname="el-fade-in"
+              <div
+                class="el-fade-in el-card-wrap"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname=""
+                <div
+                  class="mocked-styled-7 el-card-main-wrap"
+                >
+                  <div
+                    class="mocked-styled-28 el-avatar"
                     role="img"
+                    title="A profile image"
                   >
                     <img
+                      alt="An image with source https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Connect-icon.png"
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Connect-icon.png"
                     />
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-card-sub-heading-wrap-avatar"
+                  </div>
+                  <div
+                    class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
                   >
-                    <mock-styled.h5>
+                    <h5
+                      class="mocked-styled-8 el-card-heading"
+                    >
                       Reapit Connect
-                    </mock-styled.h5>
-                    <mock-styled.h6>
+                    </h5>
+                    <h6
+                      class="mocked-styled-9 el-card-sub-heading"
+                    >
                       Reapit Ltd
-                    </mock-styled.h6>
-                    <mock-styled.h6>
+                    </h6>
+                    <h6
+                      class="mocked-styled-10 el-card-sub-heading-additional"
+                    >
                       Integration
-                    </mock-styled.h6>
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-mb5"
+                    </h6>
+                  </div>
+                </div>
+                <div
+                  class="el-mb5 el-card-body-wrap"
                 >
                   Reapit Connect removes the overhead of having to build and maintain a user credential directory for your app.
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-mt5"
+                </div>
+                <div
+                  class="el-mt5 el-card-list-main-wrap"
                 >
-                  <mock-styled.h5>
+                  <h5
+                    class="mocked-styled-17 el-card-list-heading"
+                  >
                     Installation and Visibility
-                  </mock-styled.h5>
-                  <mock-styled.h6 />
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-intent-primary"
-                      role="img"
+                  </h5>
+                  <h6
+                    class="mocked-styled-18 el-card-list-sub-heading"
+                  />
+                </div>
+                <div
+                  class="mocked-styled-19 el-card-list-item"
+                >
+                  <div
+                    class="mocked-styled-23 el-card-list-icon"
+                  >
+                    <span
+                      class="el-intent-primary el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name customerInfographic"
                         viewBox="0 0 80 80"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1452,26 +1697,37 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                           fill="#7e9bfa"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.div>
+                    </span>
+                  </div>
+                  <div
+                    class="mocked-styled-20 el-card-list-item-text-wrap"
+                  >
+                    <div
+                      class="mocked-styled-21 el-card-list-item-text-primary"
+                    >
                       Installation Status
-                    </mock-styled.div>
-                    <mock-styled.div>
+                    </div>
+                    <div
+                      class="mocked-styled-22 el-card-list-item-text-secondary"
+                    >
                       Not installed
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-intent-primary"
-                      role="img"
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mocked-styled-19 el-card-list-item"
+                >
+                  <div
+                    class="mocked-styled-23 el-card-list-icon"
+                  >
+                    <span
+                      class="el-intent-primary el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name agencyCloudInfographic"
                         viewBox="0 0 80 80"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1509,68 +1765,93 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                           fill="#fff"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.div>
+                    </span>
+                  </div>
+                  <div
+                    class="mocked-styled-20 el-card-list-item-text-wrap"
+                  >
+                    <div
+                      class="mocked-styled-21 el-card-list-item-text-primary"
+                    >
                       Marketplace Visibility
-                    </mock-styled.div>
-                    <mock-styled.div>
+                    </div>
+                    <div
+                      class="mocked-styled-22 el-card-list-item-text-secondary"
+                    >
                       Marketplace hidden
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-31 el-col"
             >
-              <mock-styled.div
-                classname="el-fade-in"
+              <div
+                class="el-fade-in el-card-wrap"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname=""
+                <div
+                  class="mocked-styled-7 el-card-main-wrap"
+                >
+                  <div
+                    class="mocked-styled-28 el-avatar"
                     role="img"
+                    title="A profile image"
                   >
                     <img
+                      alt="An image with source https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
                     />
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-card-sub-heading-wrap-avatar"
+                  </div>
+                  <div
+                    class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
                   >
-                    <mock-styled.h5>
+                    <h5
+                      class="mocked-styled-8 el-card-heading"
+                    >
                       Online Check List
-                    </mock-styled.h5>
-                    <mock-styled.h6>
+                    </h5>
+                    <h6
+                      class="mocked-styled-9 el-card-sub-heading"
+                    >
                       Reapit Ltd
-                    </mock-styled.h6>
-                    <mock-styled.h6 />
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-mb5"
+                    </h6>
+                    <h6
+                      class="mocked-styled-10 el-card-sub-heading-additional"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="el-mb5 el-card-body-wrap"
                 >
                   Helps you to get organised, simplify your workflow, and to ensure checks are carried out. Manage your checks online from anywhere.
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-mt5"
+                </div>
+                <div
+                  class="el-mt5 el-card-list-main-wrap"
                 >
-                  <mock-styled.h5>
+                  <h5
+                    class="mocked-styled-17 el-card-list-heading"
+                  >
                     Installation and Visibility
-                  </mock-styled.h5>
-                  <mock-styled.h6 />
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-intent-primary"
-                      role="img"
+                  </h5>
+                  <h6
+                    class="mocked-styled-18 el-card-list-sub-heading"
+                  />
+                </div>
+                <div
+                  class="mocked-styled-19 el-card-list-item"
+                >
+                  <div
+                    class="mocked-styled-23 el-card-list-icon"
+                  >
+                    <span
+                      class="el-intent-primary el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name customerInfographic"
                         viewBox="0 0 80 80"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1636,26 +1917,37 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                           fill="#7e9bfa"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.div>
+                    </span>
+                  </div>
+                  <div
+                    class="mocked-styled-20 el-card-list-item-text-wrap"
+                  >
+                    <div
+                      class="mocked-styled-21 el-card-list-item-text-primary"
+                    >
                       Installation Status
-                    </mock-styled.div>
-                    <mock-styled.div>
+                    </div>
+                    <div
+                      class="mocked-styled-22 el-card-list-item-text-secondary"
+                    >
                       Not installed
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-intent-primary"
-                      role="img"
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mocked-styled-19 el-card-list-item"
+                >
+                  <div
+                    class="mocked-styled-23 el-card-list-icon"
+                  >
+                    <span
+                      class="el-intent-primary el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name agencyCloudInfographic"
                         viewBox="0 0 80 80"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1693,68 +1985,93 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                           fill="#fff"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.div>
+                    </span>
+                  </div>
+                  <div
+                    class="mocked-styled-20 el-card-list-item-text-wrap"
+                  >
+                    <div
+                      class="mocked-styled-21 el-card-list-item-text-primary"
+                    >
                       Marketplace Visibility
-                    </mock-styled.div>
-                    <mock-styled.div>
+                    </div>
+                    <div
+                      class="mocked-styled-22 el-card-list-item-text-secondary"
+                    >
                       Marketplace visible
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-31 el-col"
             >
-              <mock-styled.div
-                classname="el-fade-in"
+              <div
+                class="el-fade-in el-card-wrap"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname=""
+                <div
+                  class="mocked-styled-7 el-card-main-wrap"
+                >
+                  <div
+                    class="mocked-styled-28 el-avatar"
                     role="img"
+                    title="A profile image"
                   >
                     <img
+                      alt="An image with source https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Geo-Diary-icon.png"
                       src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Geo-Diary-icon.png"
                     />
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-card-sub-heading-wrap-avatar"
+                  </div>
+                  <div
+                    class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
                   >
-                    <mock-styled.h5>
+                    <h5
+                      class="mocked-styled-8 el-card-heading"
+                    >
                       Geo Diary
-                    </mock-styled.h5>
-                    <mock-styled.h6>
+                    </h5>
+                    <h6
+                      class="mocked-styled-9 el-card-sub-heading"
+                    >
                       Reapit Ltd
-                    </mock-styled.h6>
-                    <mock-styled.h6 />
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-mb5"
+                    </h6>
+                    <h6
+                      class="mocked-styled-10 el-card-sub-heading-additional"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="el-mb5 el-card-body-wrap"
                 >
                   GEO Diary is the App for the Negotiator on the go, instant access to your daily & weekly appointments.
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-mt5"
+                </div>
+                <div
+                  class="el-mt5 el-card-list-main-wrap"
                 >
-                  <mock-styled.h5>
+                  <h5
+                    class="mocked-styled-17 el-card-list-heading"
+                  >
                     Installation and Visibility
-                  </mock-styled.h5>
-                  <mock-styled.h6 />
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-intent-primary"
-                      role="img"
+                  </h5>
+                  <h6
+                    class="mocked-styled-18 el-card-list-sub-heading"
+                  />
+                </div>
+                <div
+                  class="mocked-styled-19 el-card-list-item"
+                >
+                  <div
+                    class="mocked-styled-23 el-card-list-icon"
+                  >
+                    <span
+                      class="el-intent-primary el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name customerInfographic"
                         viewBox="0 0 80 80"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1820,26 +2137,37 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                           fill="#7e9bfa"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.div>
+                    </span>
+                  </div>
+                  <div
+                    class="mocked-styled-20 el-card-list-item-text-wrap"
+                  >
+                    <div
+                      class="mocked-styled-21 el-card-list-item-text-primary"
+                    >
                       Installation Status
-                    </mock-styled.div>
-                    <mock-styled.div>
+                    </div>
+                    <div
+                      class="mocked-styled-22 el-card-list-item-text-secondary"
+                    >
                       Not installed
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-intent-primary"
-                      role="img"
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mocked-styled-19 el-card-list-item"
+                >
+                  <div
+                    class="mocked-styled-23 el-card-list-icon"
+                  >
+                    <span
+                      class="el-intent-primary el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name agencyCloudInfographic"
                         viewBox="0 0 80 80"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1877,34 +2205,44 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                           fill="#fff"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.div>
+                    </span>
+                  </div>
+                  <div
+                    class="mocked-styled-20 el-card-list-item-text-wrap"
+                  >
+                    <div
+                      class="mocked-styled-21 el-card-list-item-text-primary"
+                    >
                       Marketplace Visibility
-                    </mock-styled.div>
-                    <mock-styled.div>
+                    </div>
+                    <div
+                      class="mocked-styled-22 el-card-list-item-text-secondary"
+                    >
                       Marketplace visible
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.button
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-71 el-pagination-wrap"
+          >
+            <button
               aria-label="Previous"
+              class="mocked-styled-74 el-pagination-button"
               data-testid="back-button"
               role="button"
               type="button"
             >
-              <mock-styled.span
-                classname="el-icon-new"
-                role="img"
+              <span
+                class="el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name chevronLeft"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1914,28 +2252,35 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.button>
-            <mock-styled.div>
-              <mock-styled.input
+              </span>
+            </button>
+            <div
+              class="mocked-styled-72 el-pagination-text"
+            >
+              <input
+                aria-label="Current page number, edit to select page of 1 available"
+                class="mocked-styled-73 el-pagination-input"
                 value="1"
               />
-               of 
+               
+              of 
               1
-            </mock-styled.div>
-            <mock-styled.button
+            </div>
+            <button
               aria-label="Next"
+              class="mocked-styled-74 el-pagination-button"
               data-testid="forward-button"
               role="button"
               type="button"
             >
-              <mock-styled.span
-                classname="el-icon-new"
-                role="img"
+              <span
+                class="el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name chevronRight"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1945,28 +2290,31 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.button>
-          </mock-styled.div>
+              </span>
+            </button>
+          </div>
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name appMarketInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -2074,37 +2422,39 @@ exports[`MarketplacePage should match a snapshot 1`] = `
               fill="#fff"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base"
+        </span>
+        <p
+          class="el-text-base el-body-text"
         >
           AppMarket Visibility and Installation Management
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           To set the visibility of an app in the AppMarket or to manage installations for your organisation or specific office groups, please select an app.
-        </mock-styled.p>
+        </small>
         <div
           class="el-mb5"
         >
-          <mock-styled.p
-            classname="el-text-base"
+          <p
+            class="el-text-base el-body-text"
           >
             Organisations
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </p>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-          </mock-styled.p>
+          </small>
           <mock-styled.div
             classname="el-border-radius"
           >
-            <mock-styled.div>
-              <mock-styled.select
-                classname="el-wfull"
-                value="SOME_ID"
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="el-wfull el-select"
               >
                 <option
                   value=""
@@ -2121,36 +2471,40 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                 >
                   name
                 </option>
-              </mock-styled.select>
-              <mock-styled.label
-                htmlfor="myId"
+              </select>
+              <label
+                class="mocked-styled-41 el-label"
+                for="myId"
               >
                 Select Organisation
-              </mock-styled.label>
-            </mock-styled.div>
+              </label>
+            </div>
           </mock-styled.div>
         </div>
         <mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="searchTerm"
               placeholder="Developer or App"
               type="text"
+              value=""
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Search
-            </mock-styled.label>
-          </mock-styled.div>
+            </label>
+          </div>
         </mock-styled.div>
       </aside>
       <section
@@ -2159,28 +2513,33 @@ exports[`MarketplacePage should match a snapshot 1`] = `
         <div
           class="el-flex-container el-flex-justify-between"
         >
-          <mock-styled.h1
-            classname="el-text-base"
+          <h1
+            class="el-text-base el-title"
           >
             SOME_NAME
              AppMarket
-          </mock-styled.h1>
+          </h1>
         </div>
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-30 el-grid"
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="mocked-styled-31 el-col"
           >
-            <mock-styled.div
-              classname="el-fade-in"
+            <div
+              class="el-fade-in el-card-wrap"
             >
-              <mock-styled.div>
-                <mock-styled.div
-                  classname=""
+              <div
+                class="mocked-styled-7 el-card-main-wrap"
+              >
+                <div
+                  class="mocked-styled-28 el-avatar"
                   role="img"
+                  title="A profile image"
                 >
-                  <mock-styled.div
+                  <div
+                    aria-label="A generic placeholder image"
+                    class="mocked-styled-144 el-placeholder-image"
                     role="img"
                     style="font-size: 1.953125em; width: 50px; height: 50px;"
                   >
@@ -2196,39 +2555,54 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                         fill="#E3E3E3"
                       />
                     </svg>
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-card-sub-heading-wrap-avatar"
+                  </div>
+                </div>
+                <div
+                  class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
                 >
-                  <mock-styled.h5>
+                  <h5
+                    class="mocked-styled-8 el-card-heading"
+                  >
                     Test App Dev
-                  </mock-styled.h5>
-                  <mock-styled.h6>
+                  </h5>
+                  <h6
+                    class="mocked-styled-9 el-card-sub-heading"
+                  >
                     DFG
-                  </mock-styled.h6>
-                  <mock-styled.h6>
+                  </h6>
+                  <h6
+                    class="mocked-styled-10 el-card-sub-heading-additional"
+                  >
                     Integration
-                  </mock-styled.h6>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-mt5"
+                  </h6>
+                </div>
+              </div>
+              <div
+                class="el-mt5 el-card-list-main-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-17 el-card-list-heading"
+                >
                   Installation and Visibility
-                </mock-styled.h5>
-                <mock-styled.h6 />
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary"
-                    role="img"
+                </h5>
+                <h6
+                  class="mocked-styled-18 el-card-list-sub-heading"
+                />
+              </div>
+              <div
+                class="mocked-styled-19 el-card-list-item"
+              >
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name customerInfographic"
                       viewBox="0 0 80 80"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -2294,26 +2668,37 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                         fill="#7e9bfa"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Installation Status
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Not installed
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary"
-                    role="img"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-19 el-card-list-item"
+              >
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name agencyCloudInfographic"
                       viewBox="0 0 80 80"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -2351,68 +2736,93 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                         fill="#fff"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Marketplace Visibility
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Marketplace visible
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-31 el-col"
           >
-            <mock-styled.div
-              classname="el-fade-in"
+            <div
+              class="el-fade-in el-card-wrap"
             >
-              <mock-styled.div>
-                <mock-styled.div
-                  classname=""
+              <div
+                class="mocked-styled-7 el-card-main-wrap"
+              >
+                <div
+                  class="mocked-styled-28 el-avatar"
                   role="img"
+                  title="A profile image"
                 >
                   <img
+                    alt="An image with source https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Insights-icon.png"
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Insights-icon.png"
                   />
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-card-sub-heading-wrap-avatar"
+                </div>
+                <div
+                  class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
                 >
-                  <mock-styled.h5>
+                  <h5
+                    class="mocked-styled-8 el-card-heading"
+                  >
                     Reapit Insights
-                  </mock-styled.h5>
-                  <mock-styled.h6>
+                  </h5>
+                  <h6
+                    class="mocked-styled-9 el-card-sub-heading"
+                  >
                     Reapit Ltd
-                  </mock-styled.h6>
-                  <mock-styled.h6 />
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-mb5"
+                  </h6>
+                  <h6
+                    class="mocked-styled-10 el-card-sub-heading-additional"
+                  />
+                </div>
+              </div>
+              <div
+                class="el-mb5 el-card-body-wrap"
               >
                 Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah.
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-mt5"
+              </div>
+              <div
+                class="el-mt5 el-card-list-main-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-17 el-card-list-heading"
+                >
                   Installation and Visibility
-                </mock-styled.h5>
-                <mock-styled.h6 />
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary"
-                    role="img"
+                </h5>
+                <h6
+                  class="mocked-styled-18 el-card-list-sub-heading"
+                />
+              </div>
+              <div
+                class="mocked-styled-19 el-card-list-item"
+              >
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name customerInfographic"
                       viewBox="0 0 80 80"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -2478,26 +2888,37 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                         fill="#7e9bfa"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Installation Status
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Not installed
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary"
-                    role="img"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-19 el-card-list-item"
+              >
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name agencyCloudInfographic"
                       viewBox="0 0 80 80"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -2535,68 +2956,93 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                         fill="#fff"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Marketplace Visibility
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Marketplace visible
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-31 el-col"
           >
-            <mock-styled.div
-              classname="el-fade-in"
+            <div
+              class="el-fade-in el-card-wrap"
             >
-              <mock-styled.div>
-                <mock-styled.div
-                  classname=""
+              <div
+                class="mocked-styled-7 el-card-main-wrap"
+              >
+                <div
+                  class="mocked-styled-28 el-avatar"
                   role="img"
+                  title="A profile image"
                 >
                   <img
+                    alt="An image with source https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Connect-Management-icon.png"
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Connect-Management-icon.png"
                   />
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-card-sub-heading-wrap-avatar"
+                </div>
+                <div
+                  class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
                 >
-                  <mock-styled.h5>
+                  <h5
+                    class="mocked-styled-8 el-card-heading"
+                  >
                     Marketplace Management
-                  </mock-styled.h5>
-                  <mock-styled.h6>
+                  </h5>
+                  <h6
+                    class="mocked-styled-9 el-card-sub-heading"
+                  >
                     Reapit Ltd
-                  </mock-styled.h6>
-                  <mock-styled.h6 />
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-mb5"
+                  </h6>
+                  <h6
+                    class="mocked-styled-10 el-card-sub-heading-additional"
+                  />
+                </div>
+              </div>
+              <div
+                class="el-mb5 el-card-body-wrap"
               >
                 Description Description Description Description Description Description Description Description
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-mt5"
+              </div>
+              <div
+                class="el-mt5 el-card-list-main-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-17 el-card-list-heading"
+                >
                   Installation and Visibility
-                </mock-styled.h5>
-                <mock-styled.h6 />
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary"
-                    role="img"
+                </h5>
+                <h6
+                  class="mocked-styled-18 el-card-list-sub-heading"
+                />
+              </div>
+              <div
+                class="mocked-styled-19 el-card-list-item"
+              >
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name customerInfographic"
                       viewBox="0 0 80 80"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -2662,26 +3108,37 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                         fill="#7e9bfa"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Installation Status
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Not installed
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary"
-                    role="img"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-19 el-card-list-item"
+              >
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name agencyCloudInfographic"
                       viewBox="0 0 80 80"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -2719,68 +3176,93 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                         fill="#fff"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Marketplace Visibility
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Marketplace visible
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-31 el-col"
           >
-            <mock-styled.div
-              classname="el-fade-in"
+            <div
+              class="el-fade-in el-card-wrap"
             >
-              <mock-styled.div>
-                <mock-styled.div
-                  classname=""
+              <div
+                class="mocked-styled-7 el-card-main-wrap"
+              >
+                <div
+                  class="mocked-styled-28 el-avatar"
                   role="img"
+                  title="A profile image"
                 >
                   <img
+                    alt="An image with source https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Holly-Test-App-icon(1).png"
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Holly-Test-App-icon(1).png"
                   />
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-card-sub-heading-wrap-avatar"
+                </div>
+                <div
+                  class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
                 >
-                  <mock-styled.h5>
+                  <h5
+                    class="mocked-styled-8 el-card-heading"
+                  >
                     Holly Test App
-                  </mock-styled.h5>
-                  <mock-styled.h6>
+                  </h5>
+                  <h6
+                    class="mocked-styled-9 el-card-sub-heading"
+                  >
                     Holly Phillips Testing
-                  </mock-styled.h6>
-                  <mock-styled.h6 />
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-mb5"
+                  </h6>
+                  <h6
+                    class="mocked-styled-10 el-card-sub-heading-additional"
+                  />
+                </div>
+              </div>
+              <div
+                class="el-mb5 el-card-body-wrap"
               >
                 https://holly.com https://holly.com https://holly.com https://holly.comhttps://holly.com https://holly.comhttps://holly.com https://holly.com
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-mt5"
+              </div>
+              <div
+                class="el-mt5 el-card-list-main-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-17 el-card-list-heading"
+                >
                   Installation and Visibility
-                </mock-styled.h5>
-                <mock-styled.h6 />
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary"
-                    role="img"
+                </h5>
+                <h6
+                  class="mocked-styled-18 el-card-list-sub-heading"
+                />
+              </div>
+              <div
+                class="mocked-styled-19 el-card-list-item"
+              >
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name customerInfographic"
                       viewBox="0 0 80 80"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -2846,26 +3328,37 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                         fill="#7e9bfa"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Installation Status
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Not installed
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary"
-                    role="img"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-19 el-card-list-item"
+              >
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name agencyCloudInfographic"
                       viewBox="0 0 80 80"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -2903,68 +3396,93 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                         fill="#fff"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Marketplace Visibility
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Marketplace hidden
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-31 el-col"
           >
-            <mock-styled.div
-              classname="el-fade-in"
+            <div
+              class="el-fade-in el-card-wrap"
             >
-              <mock-styled.div>
-                <mock-styled.div
-                  classname=""
+              <div
+                class="mocked-styled-7 el-card-main-wrap"
+              >
+                <div
+                  class="mocked-styled-28 el-avatar"
                   role="img"
+                  title="A profile image"
                 >
                   <img
+                    alt="An image with source https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Payments-Portal-icon.png"
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Payments-Portal-icon.png"
                   />
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-card-sub-heading-wrap-avatar"
+                </div>
+                <div
+                  class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
                 >
-                  <mock-styled.h5>
+                  <h5
+                    class="mocked-styled-8 el-card-heading"
+                  >
                     Reapit Payments Portal
-                  </mock-styled.h5>
-                  <mock-styled.h6>
+                  </h5>
+                  <h6
+                    class="mocked-styled-9 el-card-sub-heading"
+                  >
                     Reapit Ltd
-                  </mock-styled.h6>
-                  <mock-styled.h6 />
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-mb5"
+                  </h6>
+                  <h6
+                    class="mocked-styled-10 el-card-sub-heading-additional"
+                  />
+                </div>
+              </div>
+              <div
+                class="el-mb5 el-card-body-wrap"
               >
                 It takes your money and sends it to Sage Pay. Then it updates RPS.
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-mt5"
+              </div>
+              <div
+                class="el-mt5 el-card-list-main-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-17 el-card-list-heading"
+                >
                   Installation and Visibility
-                </mock-styled.h5>
-                <mock-styled.h6 />
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary"
-                    role="img"
+                </h5>
+                <h6
+                  class="mocked-styled-18 el-card-list-sub-heading"
+                />
+              </div>
+              <div
+                class="mocked-styled-19 el-card-list-item"
+              >
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name customerInfographic"
                       viewBox="0 0 80 80"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -3030,26 +3548,37 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                         fill="#7e9bfa"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Installation Status
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Not installed
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary"
-                    role="img"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-19 el-card-list-item"
+              >
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name agencyCloudInfographic"
                       viewBox="0 0 80 80"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -3087,68 +3616,93 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                         fill="#fff"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Marketplace Visibility
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Marketplace visible
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-31 el-col"
           >
-            <mock-styled.div
-              classname="el-fade-in"
+            <div
+              class="el-fade-in el-card-wrap"
             >
-              <mock-styled.div>
-                <mock-styled.div
-                  classname=""
+              <div
+                class="mocked-styled-7 el-card-main-wrap"
+              >
+                <div
+                  class="mocked-styled-28 el-avatar"
                   role="img"
+                  title="A profile image"
                 >
                   <img
+                    alt="An image with source https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Data-Warehouse-icon.png"
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Data-Warehouse-icon.png"
                   />
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-card-sub-heading-wrap-avatar"
+                </div>
+                <div
+                  class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
                 >
-                  <mock-styled.h5>
+                  <h5
+                    class="mocked-styled-8 el-card-heading"
+                  >
                     Data Warehouse
-                  </mock-styled.h5>
-                  <mock-styled.h6>
+                  </h5>
+                  <h6
+                    class="mocked-styled-9 el-card-sub-heading"
+                  >
                     Reapit Ltd
-                  </mock-styled.h6>
-                  <mock-styled.h6 />
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-mb5"
+                  </h6>
+                  <h6
+                    class="mocked-styled-10 el-card-sub-heading-additional"
+                  />
+                </div>
+              </div>
+              <div
+                class="el-mb5 el-card-body-wrap"
               >
                 The data warehouse houses lots of data. The data warehouse houses lots of data.
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-mt5"
+              </div>
+              <div
+                class="el-mt5 el-card-list-main-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-17 el-card-list-heading"
+                >
                   Installation and Visibility
-                </mock-styled.h5>
-                <mock-styled.h6 />
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary"
-                    role="img"
+                </h5>
+                <h6
+                  class="mocked-styled-18 el-card-list-sub-heading"
+                />
+              </div>
+              <div
+                class="mocked-styled-19 el-card-list-item"
+              >
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name customerInfographic"
                       viewBox="0 0 80 80"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -3214,26 +3768,37 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                         fill="#7e9bfa"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Installation Status
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Not installed
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary"
-                    role="img"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-19 el-card-list-item"
+              >
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name agencyCloudInfographic"
                       viewBox="0 0 80 80"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -3271,70 +3836,95 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                         fill="#fff"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Marketplace Visibility
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Marketplace hidden
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-31 el-col"
           >
-            <mock-styled.div
-              classname="el-fade-in"
+            <div
+              class="el-fade-in el-card-wrap"
             >
-              <mock-styled.div>
-                <mock-styled.div
-                  classname=""
+              <div
+                class="mocked-styled-7 el-card-main-wrap"
+              >
+                <div
+                  class="mocked-styled-28 el-avatar"
                   role="img"
+                  title="A profile image"
                 >
                   <img
+                    alt="An image with source https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Connect-icon.png"
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Connect-icon.png"
                   />
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-card-sub-heading-wrap-avatar"
+                </div>
+                <div
+                  class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
                 >
-                  <mock-styled.h5>
+                  <h5
+                    class="mocked-styled-8 el-card-heading"
+                  >
                     Reapit Connect
-                  </mock-styled.h5>
-                  <mock-styled.h6>
+                  </h5>
+                  <h6
+                    class="mocked-styled-9 el-card-sub-heading"
+                  >
                     Reapit Ltd
-                  </mock-styled.h6>
-                  <mock-styled.h6>
+                  </h6>
+                  <h6
+                    class="mocked-styled-10 el-card-sub-heading-additional"
+                  >
                     Integration
-                  </mock-styled.h6>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-mb5"
+                  </h6>
+                </div>
+              </div>
+              <div
+                class="el-mb5 el-card-body-wrap"
               >
                 Reapit Connect removes the overhead of having to build and maintain a user credential directory for your app.
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-mt5"
+              </div>
+              <div
+                class="el-mt5 el-card-list-main-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-17 el-card-list-heading"
+                >
                   Installation and Visibility
-                </mock-styled.h5>
-                <mock-styled.h6 />
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary"
-                    role="img"
+                </h5>
+                <h6
+                  class="mocked-styled-18 el-card-list-sub-heading"
+                />
+              </div>
+              <div
+                class="mocked-styled-19 el-card-list-item"
+              >
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name customerInfographic"
                       viewBox="0 0 80 80"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -3400,26 +3990,37 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                         fill="#7e9bfa"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Installation Status
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Not installed
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary"
-                    role="img"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-19 el-card-list-item"
+              >
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name agencyCloudInfographic"
                       viewBox="0 0 80 80"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -3457,68 +4058,93 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                         fill="#fff"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Marketplace Visibility
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Marketplace hidden
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-31 el-col"
           >
-            <mock-styled.div
-              classname="el-fade-in"
+            <div
+              class="el-fade-in el-card-wrap"
             >
-              <mock-styled.div>
-                <mock-styled.div
-                  classname=""
+              <div
+                class="mocked-styled-7 el-card-main-wrap"
+              >
+                <div
+                  class="mocked-styled-28 el-avatar"
                   role="img"
+                  title="A profile image"
                 >
                   <img
+                    alt="An image with source https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
                   />
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-card-sub-heading-wrap-avatar"
+                </div>
+                <div
+                  class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
                 >
-                  <mock-styled.h5>
+                  <h5
+                    class="mocked-styled-8 el-card-heading"
+                  >
                     Online Check List
-                  </mock-styled.h5>
-                  <mock-styled.h6>
+                  </h5>
+                  <h6
+                    class="mocked-styled-9 el-card-sub-heading"
+                  >
                     Reapit Ltd
-                  </mock-styled.h6>
-                  <mock-styled.h6 />
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-mb5"
+                  </h6>
+                  <h6
+                    class="mocked-styled-10 el-card-sub-heading-additional"
+                  />
+                </div>
+              </div>
+              <div
+                class="el-mb5 el-card-body-wrap"
               >
                 Helps you to get organised, simplify your workflow, and to ensure checks are carried out. Manage your checks online from anywhere.
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-mt5"
+              </div>
+              <div
+                class="el-mt5 el-card-list-main-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-17 el-card-list-heading"
+                >
                   Installation and Visibility
-                </mock-styled.h5>
-                <mock-styled.h6 />
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary"
-                    role="img"
+                </h5>
+                <h6
+                  class="mocked-styled-18 el-card-list-sub-heading"
+                />
+              </div>
+              <div
+                class="mocked-styled-19 el-card-list-item"
+              >
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name customerInfographic"
                       viewBox="0 0 80 80"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -3584,26 +4210,37 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                         fill="#7e9bfa"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Installation Status
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Not installed
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary"
-                    role="img"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-19 el-card-list-item"
+              >
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name agencyCloudInfographic"
                       viewBox="0 0 80 80"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -3641,68 +4278,93 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                         fill="#fff"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Marketplace Visibility
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Marketplace visible
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-31 el-col"
           >
-            <mock-styled.div
-              classname="el-fade-in"
+            <div
+              class="el-fade-in el-card-wrap"
             >
-              <mock-styled.div>
-                <mock-styled.div
-                  classname=""
+              <div
+                class="mocked-styled-7 el-card-main-wrap"
+              >
+                <div
+                  class="mocked-styled-28 el-avatar"
                   role="img"
+                  title="A profile image"
                 >
                   <img
+                    alt="An image with source https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Geo-Diary-icon.png"
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Geo-Diary-icon.png"
                   />
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-card-sub-heading-wrap-avatar"
+                </div>
+                <div
+                  class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
                 >
-                  <mock-styled.h5>
+                  <h5
+                    class="mocked-styled-8 el-card-heading"
+                  >
                     Geo Diary
-                  </mock-styled.h5>
-                  <mock-styled.h6>
+                  </h5>
+                  <h6
+                    class="mocked-styled-9 el-card-sub-heading"
+                  >
                     Reapit Ltd
-                  </mock-styled.h6>
-                  <mock-styled.h6 />
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-mb5"
+                  </h6>
+                  <h6
+                    class="mocked-styled-10 el-card-sub-heading-additional"
+                  />
+                </div>
+              </div>
+              <div
+                class="el-mb5 el-card-body-wrap"
               >
                 GEO Diary is the App for the Negotiator on the go, instant access to your daily & weekly appointments.
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-mt5"
+              </div>
+              <div
+                class="el-mt5 el-card-list-main-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-17 el-card-list-heading"
+                >
                   Installation and Visibility
-                </mock-styled.h5>
-                <mock-styled.h6 />
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary"
-                    role="img"
+                </h5>
+                <h6
+                  class="mocked-styled-18 el-card-list-sub-heading"
+                />
+              </div>
+              <div
+                class="mocked-styled-19 el-card-list-item"
+              >
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name customerInfographic"
                       viewBox="0 0 80 80"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -3768,26 +4430,37 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                         fill="#7e9bfa"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Installation Status
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Not installed
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-primary"
-                    role="img"
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-19 el-card-list-item"
+              >
+                <div
+                  class="mocked-styled-23 el-card-list-icon"
+                >
+                  <span
+                    class="el-intent-primary el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name agencyCloudInfographic"
                       viewBox="0 0 80 80"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -3825,34 +4498,44 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                         fill="#fff"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
+                  </span>
+                </div>
+                <div
+                  class="mocked-styled-20 el-card-list-item-text-wrap"
+                >
+                  <div
+                    class="mocked-styled-21 el-card-list-item-text-primary"
+                  >
                     Marketplace Visibility
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-22 el-card-list-item-text-secondary"
+                  >
                     Marketplace visible
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.button
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-71 el-pagination-wrap"
+        >
+          <button
             aria-label="Previous"
+            class="mocked-styled-74 el-pagination-button"
             data-testid="back-button"
             role="button"
             type="button"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name chevronLeft"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -3862,28 +4545,35 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.button>
-          <mock-styled.div>
-            <mock-styled.input
+            </span>
+          </button>
+          <div
+            class="mocked-styled-72 el-pagination-text"
+          >
+            <input
+              aria-label="Current page number, edit to select page of 1 available"
+              class="mocked-styled-73 el-pagination-input"
               value="1"
             />
-             of 
+             
+            of 
             1
-          </mock-styled.div>
-          <mock-styled.button
+          </div>
+          <button
             aria-label="Next"
+            class="mocked-styled-74 el-pagination-button"
             data-testid="forward-button"
             role="button"
             type="button"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name chevronRight"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -3893,9 +4583,9 @@ exports[`MarketplacePage should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.button>
-        </mock-styled.div>
+            </span>
+          </button>
+        </div>
       </section>
     </div>
   </div>,
@@ -3958,20 +4648,23 @@ exports[`MarketplacePage should match a snapshot where no orgClientId exists 1`]
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.span
-            classname="el-mb5 el-icon-size-large"
-            role="img"
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name appMarketInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -4079,37 +4772,39 @@ exports[`MarketplacePage should match a snapshot where no orgClientId exists 1`]
                 fill="#fff"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.p
-            classname="el-text-base"
+          </span>
+          <p
+            class="el-text-base el-body-text"
           >
             AppMarket Visibility and Installation Management
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </p>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             To set the visibility of an app in the AppMarket or to manage installations for your organisation or specific office groups, please select an app.
-          </mock-styled.p>
+          </small>
           <div
             class="el-mb5"
           >
-            <mock-styled.p
-              classname="el-text-base"
+            <p
+              class="el-text-base el-body-text"
             >
               Organisations
-            </mock-styled.p>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </p>
+            <small
+              class="el-text-base el-small-text el-has-grey-text"
             >
               You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-            </mock-styled.p>
+            </small>
             <mock-styled.div
               classname="el-border-radius"
             >
-              <mock-styled.div>
-                <mock-styled.select
-                  classname="el-wfull"
-                  value="SOME_ID"
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <select
+                  aria-label="Select an item from the dropdown list"
+                  class="el-wfull el-select"
                 >
                   <option
                     value=""
@@ -4126,36 +4821,40 @@ exports[`MarketplacePage should match a snapshot where no orgClientId exists 1`]
                   >
                     name
                   </option>
-                </mock-styled.select>
-                <mock-styled.label
-                  htmlfor="myId"
+                </select>
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="myId"
                 >
                   Select Organisation
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
           </div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
             >
-              <mock-styled.input
-                classname=""
+              <input
+                aria-label="Input type text"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="searchTerm"
                 placeholder="Developer or App"
                 type="text"
+                value=""
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Search
-              </mock-styled.label>
-            </mock-styled.div>
+              </label>
+            </div>
           </mock-styled.div>
         </aside>
         <section
@@ -4164,29 +4863,30 @@ exports[`MarketplacePage should match a snapshot where no orgClientId exists 1`]
           <div
             class="el-flex-container el-flex-justify-between"
           >
-            <mock-styled.h1
-              classname="el-text-base"
+            <h1
+              class="el-text-base el-title"
             >
                AppMarket
-            </mock-styled.h1>
+            </h1>
           </div>
-          <mock-styled.div
-            classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-            role="alertdialog"
+          <div
+            class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+            role="status"
           >
             <div
               class="el-pn-icon"
               data-testid="close-icon"
             >
-              <mock-styled.span
-                classname="el-icon-new"
-                role="img"
+              <span
+                class="el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name info"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -4196,33 +4896,37 @@ exports[`MarketplacePage should match a snapshot where no orgClientId exists 1`]
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
             </div>
             <div
+              aria-live="polite"
               class="el-pn-content"
             >
               No organisation selected. You need to select an organisation to view available apps.
             </div>
-          </mock-styled.div>
+          </div>
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name appMarketInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -4330,37 +5034,39 @@ exports[`MarketplacePage should match a snapshot where no orgClientId exists 1`]
               fill="#fff"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base"
+        </span>
+        <p
+          class="el-text-base el-body-text"
         >
           AppMarket Visibility and Installation Management
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           To set the visibility of an app in the AppMarket or to manage installations for your organisation or specific office groups, please select an app.
-        </mock-styled.p>
+        </small>
         <div
           class="el-mb5"
         >
-          <mock-styled.p
-            classname="el-text-base"
+          <p
+            class="el-text-base el-body-text"
           >
             Organisations
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </p>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-          </mock-styled.p>
+          </small>
           <mock-styled.div
             classname="el-border-radius"
           >
-            <mock-styled.div>
-              <mock-styled.select
-                classname="el-wfull"
-                value="SOME_ID"
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="el-wfull el-select"
               >
                 <option
                   value=""
@@ -4377,36 +5083,40 @@ exports[`MarketplacePage should match a snapshot where no orgClientId exists 1`]
                 >
                   name
                 </option>
-              </mock-styled.select>
-              <mock-styled.label
-                htmlfor="myId"
+              </select>
+              <label
+                class="mocked-styled-41 el-label"
+                for="myId"
               >
                 Select Organisation
-              </mock-styled.label>
-            </mock-styled.div>
+              </label>
+            </div>
           </mock-styled.div>
         </div>
         <mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="searchTerm"
               placeholder="Developer or App"
               type="text"
+              value=""
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Search
-            </mock-styled.label>
-          </mock-styled.div>
+            </label>
+          </div>
         </mock-styled.div>
       </aside>
       <section
@@ -4415,29 +5125,30 @@ exports[`MarketplacePage should match a snapshot where no orgClientId exists 1`]
         <div
           class="el-flex-container el-flex-justify-between"
         >
-          <mock-styled.h1
-            classname="el-text-base"
+          <h1
+            class="el-text-base el-title"
           >
              AppMarket
-          </mock-styled.h1>
+          </h1>
         </div>
-        <mock-styled.div
-          classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-          role="alertdialog"
+        <div
+          class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          role="status"
         >
           <div
             class="el-pn-icon"
             data-testid="close-icon"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name info"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -4447,14 +5158,15 @@ exports[`MarketplacePage should match a snapshot where no orgClientId exists 1`]
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
           </div>
           <div
+            aria-live="polite"
             class="el-pn-content"
           >
             No organisation selected. You need to select an organisation to view available apps.
           </div>
-        </mock-styled.div>
+        </div>
       </section>
     </div>
   </div>,

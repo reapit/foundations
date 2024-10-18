@@ -5,73 +5,87 @@ exports[`CancelConfirmModal should match snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
       <div
         class="el-mb6"
       >
-        <mock-styled.p
-          classname="el-text-base el-text-center"
+        <p
+          class="el-text-base el-body-text el-text-center"
         >
           Are you sure you want to cancel this appointment?
-        </mock-styled.p>
+        </p>
       </div>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-button-group-align-right"
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="el-button-group-align-right el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
-            disabled="false"
+          <button
+            class="el-intent-neutral el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             No
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-danger"
+          </button>
+          <button
+            class="el-intent-danger el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Yes
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
     <div
       class="el-mb6"
     >
-      <mock-styled.p
-        classname="el-text-base el-text-center"
+      <p
+        class="el-text-base el-body-text el-text-center"
       >
         Are you sure you want to cancel this appointment?
-      </mock-styled.p>
+      </p>
     </div>
-    <mock-styled.div>
-      <mock-styled.div
-        classname="el-button-group-align-right"
+    <div
+      class="mocked-styled-2 el-button-group"
+    >
+      <div
+        class="el-button-group-align-right el-button-group-inner"
       >
-        <mock-styled.button
-          classname="el-intent-neutral"
-          disabled="false"
+        <button
+          class="el-intent-neutral el-button"
           type="button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           No
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-intent-danger"
+        </button>
+        <button
+          class="el-intent-danger el-button"
           type="button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Yes
-        </mock-styled.button>
-      </mock-styled.div>
-    </mock-styled.div>
+        </button>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

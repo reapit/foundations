@@ -6,7 +6,7 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <form>
         <h2
@@ -23,19 +23,19 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
           class="el-form-layout-has-margin el-fade-in el-form-layout"
         >
           <div
-            class="mocked-styled-128 el-input-wrap-full"
+            class="mocked-styled-135 el-input-wrap-full"
           >
             <div
-              class="mocked-styled-52 el-multi-select-input-wrapper"
+              class="mocked-styled-58 el-multi-select-input-wrapper"
             >
               <input
-                class="mocked-styled-51 el-multi-select-input"
+                class="mocked-styled-57 el-multi-select-input"
                 id="user-groups-ids-d2lsbG1jdmF5QGljbG91ZC5jb20"
                 name="groupIds"
               />
               <div
                 aria-label="Multi selected options"
-                class="mocked-styled-49 el-multi-select-selected"
+                class="mocked-styled-55 el-multi-select-selected"
                 role="listbox"
               />
             </div>
@@ -63,7 +63,7 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <form>
       <h2
@@ -80,19 +80,19 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
         class="el-form-layout-has-margin el-fade-in el-form-layout"
       >
         <div
-          class="mocked-styled-128 el-input-wrap-full"
+          class="mocked-styled-135 el-input-wrap-full"
         >
           <div
-            class="mocked-styled-52 el-multi-select-input-wrapper"
+            class="mocked-styled-58 el-multi-select-input-wrapper"
           >
             <input
-              class="mocked-styled-51 el-multi-select-input"
+              class="mocked-styled-57 el-multi-select-input"
               id="user-groups-ids-d2lsbG1jdmF5QGljbG91ZC5jb20"
               name="groupIds"
             />
             <div
               aria-label="Multi selected options"
-              class="mocked-styled-49 el-multi-select-selected"
+              class="mocked-styled-55 el-multi-select-selected"
               role="listbox"
             />
           </div>

@@ -5,6 +5,7 @@ exports[`SettingsProfile should match snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+<<<<<<< HEAD
       <mock-styled.div />
       <mock-styled.div
         classname=""
@@ -24,6 +25,455 @@ exports[`SettingsProfile should match snapshot 1`] = `
         <mock-styled.div />
       </mock-styled.div>
     </mock-styled.div>
+=======
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
+      >
+        Profile
+      </h1>
+      <h2
+        class="el-text-base el-subtitle el-has-bold-text"
+      >
+        Your Details
+      </h2>
+      <div
+        class="el-mb11 el-grid"
+      >
+        <div
+          class="mocked-styled-31 el-col"
+        >
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
+          >
+            Name
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+          >
+            MOCK_NAME
+          </p>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
+        >
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
+          >
+            Email
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+          >
+            foo@example.com
+          </p>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
+        >
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
+          >
+            Company Name
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+          >
+            MOCK_ORG_NAME
+          </p>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
+        >
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
+          >
+            Customer Code
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+          >
+            MOCK_CLIENT_ID
+          </p>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
+        >
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
+          >
+            Roles
+          </h2>
+          <mock-styled.div>
+            OrganisationAdmin
+          </mock-styled.div>
+        </div>
+      </div>
+      <h2
+        class="el-text-base el-subtitle el-has-bold-text"
+      >
+        Update Your Password
+      </h2>
+      <form
+        class="el-mb11"
+      >
+        <div
+          class="el-form-layout-has-margin el-form-layout"
+        >
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type password"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="password"
+                placeholder="Current Password"
+                type="password"
+              />
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                Current Password
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type password"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="newPassword"
+                placeholder="New Password"
+                type="password"
+              />
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                New Password
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type password"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="confirmPassword"
+                placeholder="Confirm New Password"
+                type="password"
+              />
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                Confirm New Password
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
+          >
+            <button
+              class="el-intent-primary el-button"
+              type="submit"
+            >
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
+              Save Changes
+            </button>
+          </div>
+        </div>
+      </form>
+      <h2
+        class="el-text-base el-subtitle el-has-bold-text"
+      >
+        Update Tracking Consent
+      </h2>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
+      >
+        The AppMarket users mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product. You can update your preferences below.
+      </p>
+      <div
+        class="mocked-styled-130 el-form-layout"
+      >
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <input
+            checked=""
+            class="mocked-styled-125 el-toggle-checkbox"
+            id="tracking-consent"
+            type="checkbox"
+          />
+          <label
+            class="el-has-grey-bg el-toggle-label"
+            for="tracking-consent"
+            role="button"
+            tabindex="0"
+          >
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
+              Consent
+            </span>
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
+              Deny
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
+    >
+      Profile
+    </h1>
+    <h2
+      class="el-text-base el-subtitle el-has-bold-text"
+    >
+      Your Details
+    </h2>
+    <div
+      class="el-mb11 el-grid"
+    >
+      <div
+        class="mocked-styled-31 el-col"
+      >
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
+        >
+          Name
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+        >
+          MOCK_NAME
+        </p>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
+      >
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
+        >
+          Email
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+        >
+          foo@example.com
+        </p>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
+      >
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
+        >
+          Company Name
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+        >
+          MOCK_ORG_NAME
+        </p>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
+      >
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
+        >
+          Customer Code
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+        >
+          MOCK_CLIENT_ID
+        </p>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
+      >
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
+        >
+          Roles
+        </h2>
+        <mock-styled.div>
+          OrganisationAdmin
+        </mock-styled.div>
+      </div>
+    </div>
+    <h2
+      class="el-text-base el-subtitle el-has-bold-text"
+    >
+      Update Your Password
+    </h2>
+    <form
+      class="el-mb11"
+    >
+      <div
+        class="el-form-layout-has-margin el-form-layout"
+      >
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type password"
+              class="mocked-styled-38 el-input"
+              id="test-static-id"
+              name="password"
+              placeholder="Current Password"
+              type="password"
+            />
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
+            >
+              Current Password
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type password"
+              class="mocked-styled-38 el-input"
+              id="test-static-id"
+              name="newPassword"
+              placeholder="New Password"
+              type="password"
+            />
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
+            >
+              New Password
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type password"
+              class="mocked-styled-38 el-input"
+              id="test-static-id"
+              name="confirmPassword"
+              placeholder="Confirm New Password"
+              type="password"
+            />
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
+            >
+              Confirm New Password
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
+        >
+          <button
+            class="el-intent-primary el-button"
+            type="submit"
+          >
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </form>
+    <h2
+      class="el-text-base el-subtitle el-has-bold-text"
+    >
+      Update Tracking Consent
+    </h2>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
+    >
+      The AppMarket users mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product. You can update your preferences below.
+    </p>
+    <div
+      class="mocked-styled-130 el-form-layout"
+    >
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <input
+          checked=""
+          class="mocked-styled-125 el-toggle-checkbox"
+          id="tracking-consent"
+          type="checkbox"
+        />
+        <label
+          class="el-has-grey-bg el-toggle-label"
+          for="tracking-consent"
+          role="button"
+          tabindex="0"
+        >
+          <span
+            class="mocked-styled-123 el-toggle-item"
+          >
+            Consent
+          </span>
+          <span
+            class="mocked-styled-123 el-toggle-item"
+          >
+            Deny
+          </span>
+        </label>
+      </div>
+    </div>
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -84,6 +534,7 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+<<<<<<< HEAD
       <mock-styled.div />
       <mock-styled.div
         classname=""
@@ -103,6 +554,455 @@ exports[`SettingsProfile should match snapshot in mobile 1`] = `
         <mock-styled.div />
       </mock-styled.div>
     </mock-styled.div>
+=======
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
+      >
+        Profile
+      </h1>
+      <h2
+        class="el-text-base el-subtitle el-has-bold-text"
+      >
+        Your Details
+      </h2>
+      <div
+        class="el-mb11 el-grid"
+      >
+        <div
+          class="mocked-styled-31 el-col"
+        >
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
+          >
+            Name
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+          >
+            MOCK_NAME
+          </p>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
+        >
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
+          >
+            Email
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+          >
+            foo@example.com
+          </p>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
+        >
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
+          >
+            Company Name
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+          >
+            MOCK_ORG_NAME
+          </p>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
+        >
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
+          >
+            Customer Code
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+          >
+            MOCK_CLIENT_ID
+          </p>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
+        >
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
+          >
+            Roles
+          </h2>
+          <mock-styled.div>
+            OrganisationAdmin
+          </mock-styled.div>
+        </div>
+      </div>
+      <h2
+        class="el-text-base el-subtitle el-has-bold-text"
+      >
+        Update Your Password
+      </h2>
+      <form
+        class="el-mb11"
+      >
+        <div
+          class="el-form-layout-has-margin el-form-layout"
+        >
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type password"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="password"
+                placeholder="Current Password"
+                type="password"
+              />
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                Current Password
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type password"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="newPassword"
+                placeholder="New Password"
+                type="password"
+              />
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                New Password
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type password"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="confirmPassword"
+                placeholder="Confirm New Password"
+                type="password"
+              />
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                Confirm New Password
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
+          >
+            <button
+              class="el-intent-primary el-button"
+              type="submit"
+            >
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
+              Save Changes
+            </button>
+          </div>
+        </div>
+      </form>
+      <h2
+        class="el-text-base el-subtitle el-has-bold-text"
+      >
+        Update Tracking Consent
+      </h2>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
+      >
+        The AppMarket users mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product. You can update your preferences below.
+      </p>
+      <div
+        class="mocked-styled-130 el-form-layout"
+      >
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <input
+            checked=""
+            class="mocked-styled-125 el-toggle-checkbox"
+            id="tracking-consent"
+            type="checkbox"
+          />
+          <label
+            class="el-has-grey-bg el-toggle-label"
+            for="tracking-consent"
+            role="button"
+            tabindex="0"
+          >
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
+              Consent
+            </span>
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
+              Deny
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
+    >
+      Profile
+    </h1>
+    <h2
+      class="el-text-base el-subtitle el-has-bold-text"
+    >
+      Your Details
+    </h2>
+    <div
+      class="el-mb11 el-grid"
+    >
+      <div
+        class="mocked-styled-31 el-col"
+      >
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
+        >
+          Name
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+        >
+          MOCK_NAME
+        </p>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
+      >
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
+        >
+          Email
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+        >
+          foo@example.com
+        </p>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
+      >
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
+        >
+          Company Name
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+        >
+          MOCK_ORG_NAME
+        </p>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
+      >
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
+        >
+          Customer Code
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+        >
+          MOCK_CLIENT_ID
+        </p>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
+      >
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
+        >
+          Roles
+        </h2>
+        <mock-styled.div>
+          OrganisationAdmin
+        </mock-styled.div>
+      </div>
+    </div>
+    <h2
+      class="el-text-base el-subtitle el-has-bold-text"
+    >
+      Update Your Password
+    </h2>
+    <form
+      class="el-mb11"
+    >
+      <div
+        class="el-form-layout-has-margin el-form-layout"
+      >
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type password"
+              class="mocked-styled-38 el-input"
+              id="test-static-id"
+              name="password"
+              placeholder="Current Password"
+              type="password"
+            />
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
+            >
+              Current Password
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type password"
+              class="mocked-styled-38 el-input"
+              id="test-static-id"
+              name="newPassword"
+              placeholder="New Password"
+              type="password"
+            />
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
+            >
+              New Password
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type password"
+              class="mocked-styled-38 el-input"
+              id="test-static-id"
+              name="confirmPassword"
+              placeholder="Confirm New Password"
+              type="password"
+            />
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
+            >
+              Confirm New Password
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
+        >
+          <button
+            class="el-intent-primary el-button"
+            type="submit"
+          >
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </form>
+    <h2
+      class="el-text-base el-subtitle el-has-bold-text"
+    >
+      Update Tracking Consent
+    </h2>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
+    >
+      The AppMarket users mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product. You can update your preferences below.
+    </p>
+    <div
+      class="mocked-styled-130 el-form-layout"
+    >
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <input
+          checked=""
+          class="mocked-styled-125 el-toggle-checkbox"
+          id="tracking-consent"
+          type="checkbox"
+        />
+        <label
+          class="el-has-grey-bg el-toggle-label"
+          for="tracking-consent"
+          role="button"
+          tabindex="0"
+        >
+          <span
+            class="mocked-styled-123 el-toggle-item"
+          >
+            Consent
+          </span>
+          <span
+            class="mocked-styled-123 el-toggle-item"
+          >
+            Deny
+          </span>
+        </label>
+      </div>
+    </div>
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

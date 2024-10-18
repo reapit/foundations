@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { ElBodyText } from '@reapit/elements'
+import { BodyText } from '@reapit/elements'
 import {
   forDesktopAndAbove,
   forMobileAndAbove,
@@ -50,7 +50,7 @@ export const AppsCol = styled.div`
   }
 `
 
-export const FeaturedAppStrapline = styled(ElBodyText)`
+export const FeaturedAppStrapline = styled(BodyText)`
   font-size: 12px;
   line-height: 14px;
   color: var(--color-grey-dark);
@@ -67,7 +67,7 @@ export const FeaturedAppStrapline = styled(ElBodyText)`
   }
 `
 
-export const AppTitle = styled(ElBodyText)`
+export const AppTitle = styled(BodyText)`
   font-size: 12px;
   font-weight: bold;
   display: -webkit-box;
@@ -107,7 +107,7 @@ export const SimpleAppsGrid = styled(AppsGrid)`
   }
 `
 
-export const SimpleAppStrapline = styled(ElBodyText)`
+export const SimpleAppStrapline = styled(BodyText)`
   font-size: 12px;
   line-height: 14px;
   color: var(--color-grey-dark);

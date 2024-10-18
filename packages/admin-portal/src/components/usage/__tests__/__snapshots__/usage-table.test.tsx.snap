@@ -5,87 +5,95 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-30 el-grid"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Billable Amount
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             £
             9.57
-          </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </p>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Actual Cost
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             £
-          </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.h2
-        classname="el-text-base"
+          </p>
+        </div>
+      </div>
+      <h2
+        class="el-text-base el-subtitle"
       >
         Breakdown
-      </mock-styled.h2>
-      <mock-styled.div
+      </h2>
+      <div
+        class="mocked-styled-115 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="4"
         role="table"
       >
-        <mock-styled.div
+        <div
+          class="mocked-styled-101 el-table-headers-row"
           role="row"
         >
-          <mock-styled.div
+          <div
             aria-label="Entity Name"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Entity Name
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Total Number Calls"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Total Number Calls
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Total Cost"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Total Cost
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Total Number Endpoints"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Total Number Endpoints
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name settings"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -95,27 +103,30 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+            </span>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-103 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name property"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -125,26 +136,28 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.div
+              </span>
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Entity Name"
               >
                 contacts
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name property"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -154,26 +167,28 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.div
+              </span>
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Total Number Calls"
               >
                 157
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name property"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -183,26 +198,28 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.div
+              </span>
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Total Cost"
               >
                 £1.96
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name property"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -212,24 +229,27 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.div
+              </span>
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Total Number Endpoints"
               >
                 2
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+              </div>
+            </div>
+            <div
+              class="mocked-styled-109 el-table-expandable-row-trigger-cell"
               role="cell"
+              tabindex="0"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name more"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -239,119 +259,136 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            aria-hidden="false"
-            classname=""
+              </span>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-113 el-table-expandable-row"
           >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div
-                  classname="mock-css.
+            <div
+              class="mocked-styled-114 el-table-expandable-container"
+            >
+              <div
+                class="mocked-styled-115 el-table"
+              >
+                <div
+                  class="mock-css.
   grid-template-columns: repeat(3, 1fr);
-"
+ el-table-headers-row"
                 >
-                  <mock-styled.div>
+                  <div
+                    class="mocked-styled-102 el-table-header"
+                  >
                     Endpoint Name
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-102 el-table-header"
+                  >
                     Endpoint Number Calls
-                  </mock-styled.div>
-                  <mock-styled.div>
+                  </div>
+                  <div
+                    class="mocked-styled-102 el-table-header"
+                  >
                     Endpoint Cost
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-30 el-grid"
     >
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Billable Amount
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
         >
           £
           9.57
-        </mock-styled.p>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+        </p>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Actual Cost
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
         >
           £
-        </mock-styled.p>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.h2
-      classname="el-text-base"
+        </p>
+      </div>
+    </div>
+    <h2
+      class="el-text-base el-subtitle"
     >
       Breakdown
-    </mock-styled.h2>
-    <mock-styled.div
+    </h2>
+    <div
+      class="mocked-styled-115 el-table"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="4"
       role="table"
     >
-      <mock-styled.div
+      <div
+        class="mocked-styled-101 el-table-headers-row"
         role="row"
       >
-        <mock-styled.div
+        <div
           aria-label="Entity Name"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Entity Name
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Total Number Calls"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Total Number Calls
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Total Cost"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Total Cost
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Total Number Endpoints"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Total Number Endpoints
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
-          <mock-styled.span
-            classname="el-intent-default el-icon-new"
-            role="img"
+          <span
+            class="el-intent-default el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name settings"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -361,27 +398,30 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+          </span>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-110 el-table-row-container"
         role="row"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+        <div
+          class="mocked-styled-103 el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name property"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -391,26 +431,28 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.div
+            </span>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Entity Name"
             >
               contacts
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name property"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -420,26 +462,28 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.div
+            </span>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Total Number Calls"
             >
               157
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name property"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -449,26 +493,28 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.div
+            </span>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Total Cost"
             >
               £1.96
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name property"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -478,24 +524,27 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.div
+            </span>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Total Number Endpoints"
             >
               2
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+            </div>
+          </div>
+          <div
+            class="mocked-styled-109 el-table-expandable-row-trigger-cell"
             role="cell"
+            tabindex="0"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name more"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -505,35 +554,44 @@ exports[`UsageTable should match a snapshot with billing 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          aria-hidden="false"
-          classname=""
+            </span>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-113 el-table-expandable-row"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div
-                classname="mock-css.
+          <div
+            class="mocked-styled-114 el-table-expandable-container"
+          >
+            <div
+              class="mocked-styled-115 el-table"
+            >
+              <div
+                class="mock-css.
   grid-template-columns: repeat(3, 1fr);
-"
+ el-table-headers-row"
               >
-                <mock-styled.div>
+                <div
+                  class="mocked-styled-102 el-table-header"
+                >
                   Endpoint Name
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-102 el-table-header"
+                >
                   Endpoint Number Calls
-                </mock-styled.div>
-                <mock-styled.div>
+                </div>
+                <div
+                  class="mocked-styled-102 el-table-header"
+                >
                   Endpoint Cost
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -595,23 +653,24 @@ exports[`UsageTable should match a snapshot with no billing 1`] = `
   "baseElement": <body>
     <div>
       <div>
-        <mock-styled.div
-          classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-          role="alertdialog"
+        <div
+          class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          role="status"
         >
           <div
             class="el-pn-icon"
             data-testid="close-icon"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name info"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -621,36 +680,38 @@ exports[`UsageTable should match a snapshot with no billing 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
           </div>
           <div
+            aria-live="polite"
             class="el-pn-content"
           >
             No results found for your selected filters
           </div>
-        </mock-styled.div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
     <div>
-      <mock-styled.div
-        classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-        role="alertdialog"
+      <div
+        class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        role="status"
       >
         <div
           class="el-pn-icon"
           data-testid="close-icon"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1.25rem;"
+              title="Icon image with name info"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -660,14 +721,15 @@ exports[`UsageTable should match a snapshot with no billing 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
         </div>
         <div
+          aria-live="polite"
           class="el-pn-content"
         >
           No results found for your selected filters
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </div>,
   "debug": [Function],

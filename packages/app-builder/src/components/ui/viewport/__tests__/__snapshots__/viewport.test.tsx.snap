@@ -415,13 +415,17 @@ exports[`Viewport should match a snapshot 1`] = `
                 </mock-styled.p>
               </mock-styled.div>
               <mock-styled.div>
-                <mock-styled.div
-                  classname=""
+                <div
+                  class="mocked-styled-44 el-loader-container"
                 >
-                  <mock-styled.div>
-                    <mock-styled.div />
-                  </mock-styled.div>
-                </mock-styled.div>
+                  <div
+                    class="mocked-styled-46 el-loader"
+                  >
+                    <div
+                      class="mocked-styled-47 el-loader-moving-bar"
+                    />
+                  </div>
+                </div>
               </mock-styled.div>
             </mock-styled.div>
             <mock-styled.hr />
@@ -440,13 +444,17 @@ exports[`Viewport should match a snapshot 1`] = `
                 </mock-styled.p>
               </mock-styled.div>
               <mock-styled.div>
-                <mock-styled.div
-                  classname=""
+                <div
+                  class="mocked-styled-44 el-loader-container"
                 >
-                  <mock-styled.div>
-                    <mock-styled.div />
-                  </mock-styled.div>
-                </mock-styled.div>
+                  <div
+                    class="mocked-styled-46 el-loader"
+                  >
+                    <div
+                      class="mocked-styled-47 el-loader-moving-bar"
+                    />
+                  </div>
+                </div>
               </mock-styled.div>
             </mock-styled.div>
           </div>

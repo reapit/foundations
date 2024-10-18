@@ -5,19 +5,25 @@ exports[`KeyInfo should match snapshot with an appointment in state 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
-      <mock-styled.label>
+      <label
+        class="mocked-styled-41 el-label"
+      >
         Key Number
-      </mock-styled.label>
+      </label>
       <p
         class="el-mb3"
       >
         123
       </p>
-      <mock-styled.label>
+      <label
+        class="mocked-styled-41 el-label"
+      >
         Keys in set
-      </mock-styled.label>
+      </label>
       <div
         class="el-mb3"
       >
@@ -25,17 +31,21 @@ exports[`KeyInfo should match snapshot with an appointment in state 1`] = `
           Front door key
         </p>
       </div>
-      <mock-styled.label>
+      <label
+        class="mocked-styled-41 el-label"
+      >
         Office
-      </mock-styled.label>
+      </label>
       <p
         class="el-mb3"
       >
         Camberwell
       </p>
-      <mock-styled.label>
+      <label
+        class="mocked-styled-41 el-label"
+      >
         Status
-      </mock-styled.label>
+      </label>
       <p
         class="el-mb3"
       >
@@ -44,19 +54,25 @@ exports[`KeyInfo should match snapshot with an appointment in state 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
-    <mock-styled.label>
+    <label
+      class="mocked-styled-41 el-label"
+    >
       Key Number
-    </mock-styled.label>
+    </label>
     <p
       class="el-mb3"
     >
       123
     </p>
-    <mock-styled.label>
+    <label
+      class="mocked-styled-41 el-label"
+    >
       Keys in set
-    </mock-styled.label>
+    </label>
     <div
       class="el-mb3"
     >
@@ -64,17 +80,21 @@ exports[`KeyInfo should match snapshot with an appointment in state 1`] = `
         Front door key
       </p>
     </div>
-    <mock-styled.label>
+    <label
+      class="mocked-styled-41 el-label"
+    >
       Office
-    </mock-styled.label>
+    </label>
     <p
       class="el-mb3"
     >
       Camberwell
     </p>
-    <mock-styled.label>
+    <label
+      class="mocked-styled-41 el-label"
+    >
       Status
-    </mock-styled.label>
+    </label>
     <p
       class="el-mb3"
     >
@@ -140,7 +160,9 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
       <div
         class="mock-css.
@@ -152,11 +174,11 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
   align-items: center;
 "
       >
-        <mock-styled.h2
-          classname="el-text-base el-has-no-margin"
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
         >
           Property Information
-        </mock-styled.h2>
+        </h2>
         <button
           class="mock-css.
   border: none;
@@ -256,9 +278,11 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
   grid-column-end: span 16;
 "
           >
-            <mock-styled.label>
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Address
-            </mock-styled.label>
+            </label>
           </div>
           <div
             class="mock-css. mock-css.
@@ -312,9 +336,11 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
   grid-column-end: span 16;
 "
           >
-            <mock-styled.label>
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Price
-            </mock-styled.label>
+            </label>
           </div>
           <div
             class="mock-css. mock-css.
@@ -351,9 +377,11 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
   grid-column-end: span 16;
 "
           >
-            <mock-styled.label>
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Viewing Arrangements
-            </mock-styled.label>
+            </label>
           </div>
           <div
             class="mock-css. mock-css.
@@ -390,7 +418,9 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
   grid-column-end: span 16;
 "
           >
-            <mock-styled.label />
+            <label
+              class="mocked-styled-41 el-label"
+            />
           </div>
           <div
             class="mock-css. mock-css.
@@ -399,17 +429,21 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
           >
             <ul>
               <li>
-                <mock-styled.label>
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Key Number
-                </mock-styled.label>
+                </label>
                 <p
                   class="el-mb3"
                 >
                   123
                 </p>
-                <mock-styled.label>
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Keys in set
-                </mock-styled.label>
+                </label>
                 <div
                   class="el-mb3"
                 >
@@ -417,17 +451,21 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
                     Front door key
                   </p>
                 </div>
-                <mock-styled.label>
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Office
-                </mock-styled.label>
+                </label>
                 <p
                   class="el-mb3"
                 >
                   Camberwell
                 </p>
-                <mock-styled.label>
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Status
-                </mock-styled.label>
+                </label>
                 <p
                   class="el-mb3"
                 >
@@ -441,7 +479,9 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
     <div
       class="mock-css.
@@ -453,11 +493,11 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
   align-items: center;
 "
     >
-      <mock-styled.h2
-        classname="el-text-base el-has-no-margin"
+      <h2
+        class="el-text-base el-subtitle el-has-no-margin"
       >
         Property Information
-      </mock-styled.h2>
+      </h2>
       <button
         class="mock-css.
   border: none;
@@ -557,9 +597,11 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
   grid-column-end: span 16;
 "
         >
-          <mock-styled.label>
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Address
-          </mock-styled.label>
+          </label>
         </div>
         <div
           class="mock-css. mock-css.
@@ -613,9 +655,11 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
   grid-column-end: span 16;
 "
         >
-          <mock-styled.label>
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Price
-          </mock-styled.label>
+          </label>
         </div>
         <div
           class="mock-css. mock-css.
@@ -652,9 +696,11 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
   grid-column-end: span 16;
 "
         >
-          <mock-styled.label>
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Viewing Arrangements
-          </mock-styled.label>
+          </label>
         </div>
         <div
           class="mock-css. mock-css.
@@ -691,7 +737,9 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
   grid-column-end: span 16;
 "
         >
-          <mock-styled.label />
+          <label
+            class="mocked-styled-41 el-label"
+          />
         </div>
         <div
           class="mock-css. mock-css.
@@ -700,17 +748,21 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
         >
           <ul>
             <li>
-              <mock-styled.label>
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Key Number
-              </mock-styled.label>
+              </label>
               <p
                 class="el-mb3"
               >
                 123
               </p>
-              <mock-styled.label>
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Keys in set
-              </mock-styled.label>
+              </label>
               <div
                 class="el-mb3"
               >
@@ -718,17 +770,21 @@ exports[`PropertyDrawer should match snapshot with an appointment in state 1`] =
                   Front door key
                 </p>
               </div>
-              <mock-styled.label>
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Office
-              </mock-styled.label>
+              </label>
               <p
                 class="el-mb3"
               >
                 Camberwell
               </p>
-              <mock-styled.label>
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Status
-              </mock-styled.label>
+              </label>
               <p
                 class="el-mb3"
               >
@@ -799,12 +855,16 @@ exports[`PropertyDrawer should match snapshot without an appointment in state 1`
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
   </div>,
   "debug": [Function],

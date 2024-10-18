@@ -5,14 +5,16 @@ exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <mock-styled.div>
         <div
           class="el-flex-container el-flex-column"
         >
-          <mock-styled.mock-styled.h2>
+          <mock-styled.div>
             New in AppMarket
-          </mock-styled.mock-styled.h2>
+          </mock-styled.div>
           <mock-styled.div
             style="background-color: rgba(0, 97, 168, 0.102);"
           >
@@ -25,17 +27,17 @@ exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
                     src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
                   />
                   <mock-styled.div>
-                    <mock-styled.mock-styled.h2>
+                    <mock-styled.div>
                       will-test-dev-co-voracious-person
-                    </mock-styled.mock-styled.h2>
+                    </mock-styled.div>
                     <mock-styled.div>
                       <mock-styled.span>
                         Category
                       </mock-styled.span>
                     </mock-styled.div>
                   </mock-styled.div>
-                  <mock-styled.button
-                    classname="mock-css.
+                  <button
+                    class="mock-css.
   display: none;
 
   , {
@@ -49,18 +51,20 @@ exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
   , {
     display: block;
   }
- el-intent-neutral"
+ el-intent-neutral el-button"
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
-                    <mock-styled.div />
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
                     Find Out More
-                  </mock-styled.button>
+                  </button>
                 </mock-styled.div>
-                <mock-styled.mock-styled.p>
+                <mock-styled.div>
                   Lorem ipsum dolor sit amet, consectetur adip
-                </mock-styled.mock-styled.p>
-                <mock-styled.button
-                  classname="mock-css.
+                </mock-styled.div>
+                <button
+                  class="mock-css.
   display: none;
 
   , {
@@ -70,16 +74,22 @@ exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
   , {
     display: none;
   }
- el-intent-neutral"
+ el-intent-neutral el-button"
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Find Out More
-                </mock-styled.button>
+                </button>
               </mock-styled.div>
               <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div
+                <div
+                  class="mocked-styled-145 el-placeholder-image-wrapper"
+                >
+                  <div
+                    aria-label="A generic placeholder image"
+                    class="mocked-styled-144 el-placeholder-image"
                     role="img"
                     style="font-size: 7.8125em;"
                   >
@@ -130,8 +140,8 @@ exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
                         fill="white"
                       />
                     </svg>
-                  </mock-styled.div>
-                </mock-styled.div>
+                  </div>
+                </div>
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
@@ -140,14 +150,16 @@ exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <mock-styled.div>
       <div
         class="el-flex-container el-flex-column"
       >
-        <mock-styled.mock-styled.h2>
+        <mock-styled.div>
           New in AppMarket
-        </mock-styled.mock-styled.h2>
+        </mock-styled.div>
         <mock-styled.div
           style="background-color: rgba(0, 97, 168, 0.102);"
         >
@@ -160,17 +172,17 @@ exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
                   src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
                 />
                 <mock-styled.div>
-                  <mock-styled.mock-styled.h2>
+                  <mock-styled.div>
                     will-test-dev-co-voracious-person
-                  </mock-styled.mock-styled.h2>
+                  </mock-styled.div>
                   <mock-styled.div>
                     <mock-styled.span>
                       Category
                     </mock-styled.span>
                   </mock-styled.div>
                 </mock-styled.div>
-                <mock-styled.button
-                  classname="mock-css.
+                <button
+                  class="mock-css.
   display: none;
 
   , {
@@ -184,18 +196,20 @@ exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
   , {
     display: block;
   }
- el-intent-neutral"
+ el-intent-neutral el-button"
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Find Out More
-                </mock-styled.button>
+                </button>
               </mock-styled.div>
-              <mock-styled.mock-styled.p>
+              <mock-styled.div>
                 Lorem ipsum dolor sit amet, consectetur adip
-              </mock-styled.mock-styled.p>
-              <mock-styled.button
-                classname="mock-css.
+              </mock-styled.div>
+              <button
+                class="mock-css.
   display: none;
 
   , {
@@ -205,16 +219,22 @@ exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
   , {
     display: none;
   }
- el-intent-neutral"
+ el-intent-neutral el-button"
                 style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Find Out More
-              </mock-styled.button>
+              </button>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div
+              <div
+                class="mocked-styled-145 el-placeholder-image-wrapper"
+              >
+                <div
+                  aria-label="A generic placeholder image"
+                  class="mocked-styled-144 el-placeholder-image"
                   role="img"
                   style="font-size: 7.8125em;"
                 >
@@ -265,8 +285,8 @@ exports[`FeaturedHeroAppsCollection should match a snapshot 1`] = `
                       fill="white"
                     />
                   </svg>
-                </mock-styled.div>
-              </mock-styled.div>
+                </div>
+              </div>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
@@ -332,22 +352,25 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <mock-styled.div>
         <div
           class="el-flex-container el-flex-column"
         >
-          <mock-styled.mock-styled.h2>
+          <mock-styled.div>
             New in AppMarket
-          </mock-styled.mock-styled.h2>
+          </mock-styled.div>
           <mock-styled.div
             style="background-color: rgba(0, 97, 168, 0.102);"
           >
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-mb7"
+                  <div
+                    aria-label="A generic placeholder image"
+                    class="el-mb7 el-placeholder-image"
                     role="img"
                     style="font-size: 2.8125em; width: 72px; height: 72px;"
                   >
@@ -363,13 +386,13 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
                         fill="#E3E3E3"
                       />
                     </svg>
-                  </mock-styled.div>
+                  </div>
                   <mock-styled.div>
-                    <mock-styled.mock-styled.h2 />
+                    <mock-styled.div />
                     <mock-styled.div />
                   </mock-styled.div>
-                  <mock-styled.button
-                    classname="mock-css.
+                  <button
+                    class="mock-css.
   display: none;
 
   , {
@@ -383,18 +406,20 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
   , {
     display: block;
   }
- el-intent-neutral"
+ el-intent-neutral el-button"
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
-                    <mock-styled.div />
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
                     Find Out More
-                  </mock-styled.button>
+                  </button>
                 </mock-styled.div>
-                <mock-styled.mock-styled.p>
+                <mock-styled.div>
                   Lorem ipsum dolor sit amet, consectetur adip
-                </mock-styled.mock-styled.p>
-                <mock-styled.button
-                  classname="mock-css.
+                </mock-styled.div>
+                <button
+                  class="mock-css.
   display: none;
 
   , {
@@ -404,16 +429,22 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
   , {
     display: none;
   }
- el-intent-neutral"
+ el-intent-neutral el-button"
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Find Out More
-                </mock-styled.button>
+                </button>
               </mock-styled.div>
               <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div
+                <div
+                  class="mocked-styled-145 el-placeholder-image-wrapper"
+                >
+                  <div
+                    aria-label="A generic placeholder image"
+                    class="mocked-styled-144 el-placeholder-image"
                     role="img"
                     style="font-size: 7.8125em;"
                   >
@@ -464,8 +495,8 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
                         fill="white"
                       />
                     </svg>
-                  </mock-styled.div>
-                </mock-styled.div>
+                  </div>
+                </div>
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>
@@ -474,22 +505,25 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <mock-styled.div>
       <div
         class="el-flex-container el-flex-column"
       >
-        <mock-styled.mock-styled.h2>
+        <mock-styled.div>
           New in AppMarket
-        </mock-styled.mock-styled.h2>
+        </mock-styled.div>
         <mock-styled.div
           style="background-color: rgba(0, 97, 168, 0.102);"
         >
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.div>
-                <mock-styled.div
-                  classname="el-mb7"
+                <div
+                  aria-label="A generic placeholder image"
+                  class="el-mb7 el-placeholder-image"
                   role="img"
                   style="font-size: 2.8125em; width: 72px; height: 72px;"
                 >
@@ -505,13 +539,13 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
                       fill="#E3E3E3"
                     />
                   </svg>
-                </mock-styled.div>
+                </div>
                 <mock-styled.div>
-                  <mock-styled.mock-styled.h2 />
+                  <mock-styled.div />
                   <mock-styled.div />
                 </mock-styled.div>
-                <mock-styled.button
-                  classname="mock-css.
+                <button
+                  class="mock-css.
   display: none;
 
   , {
@@ -525,18 +559,20 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
   , {
     display: block;
   }
- el-intent-neutral"
+ el-intent-neutral el-button"
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Find Out More
-                </mock-styled.button>
+                </button>
               </mock-styled.div>
-              <mock-styled.mock-styled.p>
+              <mock-styled.div>
                 Lorem ipsum dolor sit amet, consectetur adip
-              </mock-styled.mock-styled.p>
-              <mock-styled.button
-                classname="mock-css.
+              </mock-styled.div>
+              <button
+                class="mock-css.
   display: none;
 
   , {
@@ -546,16 +582,22 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
   , {
     display: none;
   }
- el-intent-neutral"
+ el-intent-neutral el-button"
                 style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Find Out More
-              </mock-styled.button>
+              </button>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div
+              <div
+                class="mocked-styled-145 el-placeholder-image-wrapper"
+              >
+                <div
+                  aria-label="A generic placeholder image"
+                  class="mocked-styled-144 el-placeholder-image"
                   role="img"
                   style="font-size: 7.8125em;"
                 >
@@ -606,8 +648,8 @@ exports[`FeaturedHeroAppsCollection should match a snapshot when loading 1`] = `
                       fill="white"
                     />
                   </svg>
-                </mock-styled.div>
-              </mock-styled.div>
+                </div>
+              </div>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>

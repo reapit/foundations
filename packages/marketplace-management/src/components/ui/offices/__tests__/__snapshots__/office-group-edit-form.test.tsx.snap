@@ -8,73 +8,94 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
       <form
         class="el-p8"
       >
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Edit Office Group
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-section-margin"
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-section-margin"
         >
           To manage offices associated to this group, you can search and select users from the ‘Offices’ section below:
-        </mock-styled.p>
-        <mock-styled.div
-          classname="el-form-layout-has-margin el-fade-in"
+        </p>
+        <div
+          class="el-form-layout-has-margin el-fade-in el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="name"
                 placeholder="Enter an office group name"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Office Group Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Group Active
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              class="mocked-styled-125 el-toggle-checkbox"
               id="status-edit-toggle-23299392-dfb0-48c5-ab2b-34135f82e44e"
               name="status"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-bg"
-              htmlfor="status-edit-toggle-23299392-dfb0-48c5-ab2b-34135f82e44e"
+            <label
+              class="el-has-grey-bg el-toggle-label"
+              for="status-edit-toggle-23299392-dfb0-48c5-ab2b-34135f82e44e"
+              role="button"
+              tabindex="0"
             >
-              <mock-styled.span>
+              <span
+                class="mocked-styled-123 el-toggle-item"
+              >
                 Active
-              </mock-styled.span>
-              <mock-styled.span>
+              </span>
+              <span
+                class="mocked-styled-123 el-toggle-item"
+              >
                 Inactive
-              </mock-styled.span>
-            </mock-styled.label>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-mb3"
+              </span>
+            </label>
+          </div>
+          <div
+            class="mocked-styled-135 el-input-wrap-full"
+          >
+            <div
+              class="el-mb3 el-input-group"
             >
-              <mock-styled.input
-                classname=""
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 placeholder="Search"
               />
-              <mock-styled.span
-                classname=""
-                role="img"
+              <span
+                class="mocked-styled-4 el-icon"
                 style="font-size: 1rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1rem;"
+                  title="Icon image with name searchSystem"
                   viewBox="0 0 20 20"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -84,172 +105,254 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.label
-                htmlfor="test-static-id"
+              </span>
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Offices
-              </mock-styled.label>
-            </mock-styled.div>
-            <mock-styled.div
-              aria-controls=":r0:"
-              aria-haspopup="listbox"
-              role="combobox"
+              </label>
+            </div>
+            <div
+              class="mocked-styled-58 el-multi-select-input-wrapper"
             >
-              <mock-styled.input
+              <input
+                class="mocked-styled-57 el-multi-select-input"
                 id="office-group-edit-edit-ids-23299392-dfb0-48c5-ab2b-34135f82e44e"
                 name="officeIds"
               />
-              <mock-styled.div
-                classname=""
+              <div
+                aria-label="Multi selected options"
+                class="mocked-styled-55 el-multi-select-selected"
+                role="listbox"
               />
-              <mock-styled.div
-                classname=""
+              <div
+                aria-label="Multi unselected options"
+                class="mocked-styled-56 el-multi-select-un-selected"
+                role="listbox"
               >
-                <mock-styled.input
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   create new office 5
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   8eck1r06k6ti0c3hm6tdml
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   aa Create new one
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   aa Create new one
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   aa Create new one
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   aa Create new one
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   aa Create new one
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   aa Create new one
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   aa Create new one
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   aa Create new one
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   aa create office
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   AA Test 11
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-button-group-align-right"
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="el-button-group-align-right el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-danger"
+            <button
+              class="el-intent-danger el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Delete
-            </mock-styled.button>
-            <mock-styled.button
-              classname="el-intent-primary"
+            </button>
+            <button
+              class="el-intent-primary el-button"
               type="submit"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Submit
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   </body>,
@@ -257,73 +360,94 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
     <form
       class="el-p8"
     >
-      <mock-styled.h2
-        classname="el-text-base"
+      <h2
+        class="el-text-base el-subtitle"
       >
         Edit Office Group
-      </mock-styled.h2>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text el-has-section-margin"
+      </h2>
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-has-section-margin"
       >
         To manage offices associated to this group, you can search and select users from the ‘Offices’ section below:
-      </mock-styled.p>
-      <mock-styled.div
-        classname="el-form-layout-has-margin el-fade-in"
+      </p>
+      <div
+        class="el-form-layout-has-margin el-fade-in el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="name"
               placeholder="Enter an office group name"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Office Group Name
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Group Active
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            class="mocked-styled-125 el-toggle-checkbox"
             id="status-edit-toggle-23299392-dfb0-48c5-ab2b-34135f82e44e"
             name="status"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-bg"
-            htmlfor="status-edit-toggle-23299392-dfb0-48c5-ab2b-34135f82e44e"
+          <label
+            class="el-has-grey-bg el-toggle-label"
+            for="status-edit-toggle-23299392-dfb0-48c5-ab2b-34135f82e44e"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
               Active
-            </mock-styled.span>
-            <mock-styled.span>
+            </span>
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
               Inactive
-            </mock-styled.span>
-          </mock-styled.label>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-mb3"
+            </span>
+          </label>
+        </div>
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <div
+            class="el-mb3 el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               placeholder="Search"
             />
-            <mock-styled.span
-              classname=""
-              role="img"
+            <span
+              class="mocked-styled-4 el-icon"
               style="font-size: 1rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1rem;"
+                title="Icon image with name searchSystem"
                 viewBox="0 0 20 20"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -333,172 +457,254 @@ exports[`OfficeGroupEditForm should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.label
-              htmlfor="test-static-id"
+            </span>
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Offices
-            </mock-styled.label>
-          </mock-styled.div>
-          <mock-styled.div
-            aria-controls=":r0:"
-            aria-haspopup="listbox"
-            role="combobox"
+            </label>
+          </div>
+          <div
+            class="mocked-styled-58 el-multi-select-input-wrapper"
           >
-            <mock-styled.input
+            <input
+              class="mocked-styled-57 el-multi-select-input"
               id="office-group-edit-edit-ids-23299392-dfb0-48c5-ab2b-34135f82e44e"
               name="officeIds"
             />
-            <mock-styled.div
-              classname=""
+            <div
+              aria-label="Multi selected options"
+              class="mocked-styled-55 el-multi-select-selected"
+              role="listbox"
             />
-            <mock-styled.div
-              classname=""
+            <div
+              aria-label="Multi unselected options"
+              class="mocked-styled-56 el-multi-select-un-selected"
+              role="listbox"
             >
-              <mock-styled.input
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 create new office 5
-              </mock-styled.label>
-              <mock-styled.input
+              </label>
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 8eck1r06k6ti0c3hm6tdml
-              </mock-styled.label>
-              <mock-styled.input
+              </label>
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 aa Create new one
-              </mock-styled.label>
-              <mock-styled.input
+              </label>
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 aa Create new one
-              </mock-styled.label>
-              <mock-styled.input
+              </label>
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 aa Create new one
-              </mock-styled.label>
-              <mock-styled.input
+              </label>
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 aa Create new one
-              </mock-styled.label>
-              <mock-styled.input
+              </label>
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 aa Create new one
-              </mock-styled.label>
-              <mock-styled.input
+              </label>
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 aa Create new one
-              </mock-styled.label>
-              <mock-styled.input
+              </label>
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 aa Create new one
-              </mock-styled.label>
-              <mock-styled.input
+              </label>
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 aa Create new one
-              </mock-styled.label>
-              <mock-styled.input
+              </label>
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 aa create office
-              </mock-styled.label>
-              <mock-styled.input
+              </label>
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 AA Test 11
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-button-group-align-right"
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="el-button-group-align-right el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-danger"
+          <button
+            class="el-intent-danger el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Delete
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-primary"
+          </button>
+          <button
+            class="el-intent-primary el-button"
             type="submit"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Submit
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </form>
   </div>,
   "debug": [Function],

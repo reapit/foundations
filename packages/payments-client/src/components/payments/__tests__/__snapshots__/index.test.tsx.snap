@@ -5,20 +5,23 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.span
-            classname="el-mb5 el-icon-size-large"
-            role="img"
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name newCustomerInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -158,22 +161,22 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </span>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             From this dashboard you can use the below filters to locate payments held by Reapit.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </small>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             When you have located your desired payment, you can either send an email request for payment to the customer, or take a payment in person using our payment form.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </small>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             Both options are available from the slide down on each payment item in the table.
-          </mock-styled.p>
+          </small>
           <div
             class="el-border-radius mock-css.
   overflow: hidden;
@@ -181,55 +184,62 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
           >
             <form>
               <mock-styled.div>
-                <mock-styled.div
-                  classname="mock-css.
+                <div
+                  class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
                 >
-                  <mock-styled.input
-                    classname=""
+                  <input
+                    aria-label="Input type date format dd/mm/yyy max date of 2019-10-11 min date of 2017-10-10"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     max="2019-10-11"
                     min="2017-10-10"
                     name="createdFrom"
                     type="date"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Created From
-                  </mock-styled.label>
-                </mock-styled.div>
+                  </label>
+                </div>
               </mock-styled.div>
               <mock-styled.div>
-                <mock-styled.div
-                  classname="mock-css.
+                <div
+                  class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
                 >
-                  <mock-styled.input
-                    classname=""
+                  <input
+                    aria-label="Input type date format dd/mm/yyy max date of 2019-10-11 min date of 2019-09-10"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     max="2019-10-11"
                     min="2019-09-10"
                     name="createdTo"
                     type="date"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Created To
-                  </mock-styled.label>
-                </mock-styled.div>
+                  </label>
+                </div>
               </mock-styled.div>
               <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.select
-                    classname="el-wfull"
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <select
+                    aria-label="Select an item from the dropdown list"
+                    class="el-wfull el-select"
                     name="status"
                   >
                     <option
@@ -257,67 +267,74 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
                     >
                       Failed
                     </option>
-                  </mock-styled.select>
-                  <mock-styled.label>
+                  </select>
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
                     Status
-                  </mock-styled.label>
-                </mock-styled.div>
+                  </label>
+                </div>
               </mock-styled.div>
               <mock-styled.div>
-                <mock-styled.div
-                  classname="mock-css.
+                <div
+                  class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
                 >
-                  <mock-styled.input
-                    classname=""
+                  <input
+                    aria-label="Input type text"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="description"
                     type="text"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Description
-                  </mock-styled.label>
-                </mock-styled.div>
+                  </label>
+                </div>
               </mock-styled.div>
             </form>
           </div>
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
+          </button>
         </aside>
         <section
           class="el-page-container"
         >
-          <mock-styled.h1
-            classname="el-text-base"
+          <h1
+            class="el-text-base el-title"
           >
             Payments Dashboard
-          </mock-styled.h1>
-          <mock-styled.div
-            classname="el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-            role="alertdialog"
+          </h1>
+          <div
+            class="el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+            role="status"
           >
             <div
               class="el-pn-icon"
               data-testid="close-icon"
             >
-              <mock-styled.span
-                classname="el-icon-new"
-                role="img"
+              <span
+                class="el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name info"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -327,33 +344,37 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
             </div>
             <div
+              aria-live="polite"
               class="el-pn-content"
             >
               No payments match your search criteria
             </div>
-          </mock-styled.div>
+          </div>
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name newCustomerInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -493,22 +514,22 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
               </clippath>
             </defs>
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </span>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           From this dashboard you can use the below filters to locate payments held by Reapit.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </small>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           When you have located your desired payment, you can either send an email request for payment to the customer, or take a payment in person using our payment form.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </small>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           Both options are available from the slide down on each payment item in the table.
-        </mock-styled.p>
+        </small>
         <div
           class="el-border-radius mock-css.
   overflow: hidden;
@@ -516,55 +537,62 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
         >
           <form>
             <mock-styled.div>
-              <mock-styled.div
-                classname="mock-css.
+              <div
+                class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
               >
-                <mock-styled.input
-                  classname=""
+                <input
+                  aria-label="Input type date format dd/mm/yyy max date of 2019-10-11 min date of 2017-10-10"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   max="2019-10-11"
                   min="2017-10-10"
                   name="createdFrom"
                   type="date"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Created From
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.div
-                classname="mock-css.
+              <div
+                class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
               >
-                <mock-styled.input
-                  classname=""
+                <input
+                  aria-label="Input type date format dd/mm/yyy max date of 2019-10-11 min date of 2019-09-10"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   max="2019-10-11"
                   min="2019-09-10"
                   name="createdTo"
                   type="date"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Created To
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.select
-                  classname="el-wfull"
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <select
+                  aria-label="Select an item from the dropdown list"
+                  class="el-wfull el-select"
                   name="status"
                 >
                   <option
@@ -592,67 +620,74 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
                   >
                     Failed
                   </option>
-                </mock-styled.select>
-                <mock-styled.label>
+                </select>
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Status
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.div
-                classname="mock-css.
+              <div
+                class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
               >
-                <mock-styled.input
-                  classname=""
+                <input
+                  aria-label="Input type text"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="description"
                   type="text"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Description
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
           </form>
         </div>
-        <mock-styled.button
-          classname="el-intent-neutral"
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           View Docs
-        </mock-styled.button>
+        </button>
       </aside>
       <section
         class="el-page-container"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           Payments Dashboard
-        </mock-styled.h1>
-        <mock-styled.div
-          classname="el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-          role="alertdialog"
+        </h1>
+        <div
+          class="el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          role="status"
         >
           <div
             class="el-pn-icon"
             data-testid="close-icon"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name info"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -662,14 +697,15 @@ exports[`PaymentsPage  should match a snapshot where fetched but no payments 1`]
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
           </div>
           <div
+            aria-live="polite"
             class="el-pn-content"
           >
             No payments match your search criteria
           </div>
-        </mock-styled.div>
+        </div>
       </section>
     </div>
   </div>,
@@ -732,20 +768,23 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.span
-            classname="el-mb5 el-icon-size-large"
-            role="img"
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name newCustomerInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -885,22 +924,22 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </span>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             From this dashboard you can use the below filters to locate payments held by Reapit.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </small>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             When you have located your desired payment, you can either send an email request for payment to the customer, or take a payment in person using our payment form.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </small>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             Both options are available from the slide down on each payment item in the table.
-          </mock-styled.p>
+          </small>
           <div
             class="el-border-radius mock-css.
   overflow: hidden;
@@ -908,55 +947,62 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
           >
             <form>
               <mock-styled.div>
-                <mock-styled.div
-                  classname="mock-css.
+                <div
+                  class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
                 >
-                  <mock-styled.input
-                    classname=""
+                  <input
+                    aria-label="Input type date format dd/mm/yyy max date of 2019-10-11 min date of 2017-10-10"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     max="2019-10-11"
                     min="2017-10-10"
                     name="createdFrom"
                     type="date"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Created From
-                  </mock-styled.label>
-                </mock-styled.div>
+                  </label>
+                </div>
               </mock-styled.div>
               <mock-styled.div>
-                <mock-styled.div
-                  classname="mock-css.
+                <div
+                  class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
                 >
-                  <mock-styled.input
-                    classname=""
+                  <input
+                    aria-label="Input type date format dd/mm/yyy max date of 2019-10-11 min date of 2019-09-10"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     max="2019-10-11"
                     min="2019-09-10"
                     name="createdTo"
                     type="date"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Created To
-                  </mock-styled.label>
-                </mock-styled.div>
+                  </label>
+                </div>
               </mock-styled.div>
               <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.select
-                    classname="el-wfull"
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <select
+                    aria-label="Select an item from the dropdown list"
+                    class="el-wfull el-select"
                     name="status"
                   >
                     <option
@@ -984,112 +1030,128 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                     >
                       Failed
                     </option>
-                  </mock-styled.select>
-                  <mock-styled.label>
+                  </select>
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
                     Status
-                  </mock-styled.label>
-                </mock-styled.div>
+                  </label>
+                </div>
               </mock-styled.div>
               <mock-styled.div>
-                <mock-styled.div
-                  classname="mock-css.
+                <div
+                  class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
                 >
-                  <mock-styled.input
-                    classname=""
+                  <input
+                    aria-label="Input type text"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="description"
                     type="text"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Description
-                  </mock-styled.label>
-                </mock-styled.div>
+                  </label>
+                </div>
               </mock-styled.div>
             </form>
           </div>
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
+          </button>
         </aside>
         <section
           class="el-page-container"
         >
-          <mock-styled.h1
-            classname="el-text-base"
+          <h1
+            class="el-text-base el-title"
           >
             Payments Dashboard
-          </mock-styled.h1>
-          <mock-styled.div
-            classname="el-mb11 el-fade-in"
+          </h1>
+          <div
+            class="el-mb11 el-fade-in el-table"
             data-has-call-to-action="false"
             data-has-expandable-action="true"
             data-num-columns-excl-action-col="7"
             role="table"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-101 el-table-headers-row"
               role="row"
             >
-              <mock-styled.div
+              <div
                 aria-label="Property"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Property
-              </mock-styled.div>
-              <mock-styled.div
+              </div>
+              <div
                 aria-label="Amount"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Amount
-              </mock-styled.div>
-              <mock-styled.div
+              </div>
+              <div
                 aria-label="Customer"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Customer
-              </mock-styled.div>
-              <mock-styled.div
+              </div>
+              <div
                 aria-label="Description"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Description
-              </mock-styled.div>
-              <mock-styled.div
+              </div>
+              <div
                 aria-label="Client A/C"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Client A/C
-              </mock-styled.div>
-              <mock-styled.div
+              </div>
+              <div
                 aria-label="Status"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Status
-              </mock-styled.div>
-              <mock-styled.div
+              </div>
+              <div
                 aria-label="Request Date"
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
                 Request Date
-              </mock-styled.div>
-              <mock-styled.div
+              </div>
+              <div
+                class="mocked-styled-102 el-table-header"
                 role="columnheader"
               >
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name settings"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1099,27 +1161,30 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+                </span>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-110 el-table-row-container"
               role="row"
             >
-              <mock-styled.div>
-                <mock-styled.div
-                  classname="el-table-cell-has-dark-text"
+              <div
+                class="mocked-styled-103 el-table-row"
+              >
+                <div
+                  class="el-table-cell-has-dark-text el-table-cell"
                   role="cell"
                 >
-                  <mock-styled.span
-                    classname="el-intent-default el-icon-new"
-                    role="img"
+                  <span
+                    class="el-intent-default el-icon-new el-icon"
                     style="font-size: 1.25rem;"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
                       style="font-size: 1.25rem;"
+                      title="Icon image with name property"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -1129,8 +1194,9 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                  <mock-styled.div
+                  </span>
+                  <div
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Property"
                   >
                     <div
@@ -1138,21 +1204,22 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                     >
                       15 Example street Solihull West Midlands B91 2XX
                     </div>
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-table-cell-has-dark-text"
+                  </div>
+                </div>
+                <div
+                  class="el-table-cell-has-dark-text el-table-cell"
                   role="cell"
                 >
-                  <mock-styled.span
-                    classname="el-intent-default el-icon-new"
-                    role="img"
+                  <span
+                    class="el-intent-default el-icon-new el-icon"
                     style="font-size: 1.25rem;"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
                       style="font-size: 1.25rem;"
+                      title="Icon image with name pound"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -1162,26 +1229,28 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                  <mock-styled.div
+                  </span>
+                  <div
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Amount"
                   >
                     £100.00
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-table-cell-has-dark-text"
+                  </div>
+                </div>
+                <div
+                  class="el-table-cell-has-dark-text el-table-cell"
                   role="cell"
                 >
-                  <mock-styled.span
-                    classname="el-intent-default el-icon-new"
-                    role="img"
+                  <span
+                    class="el-intent-default el-icon-new el-icon"
                     style="font-size: 1.25rem;"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
                       style="font-size: 1.25rem;"
+                      title="Icon image with name contact"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -1191,68 +1260,75 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                  <mock-styled.div
+                  </span>
+                  <div
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Customer"
                   >
                     Mr John Smith
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-table-cell-has-dark-text"
+                  </div>
+                </div>
+                <div
+                  class="el-table-cell-has-dark-text el-table-cell"
                   role="cell"
                 >
-                  <mock-styled.div
+                  <div
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Description"
                   >
                     Tenancy Check Fee
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-table-cell-has-dark-text"
+                  </div>
+                </div>
+                <div
+                  class="el-table-cell-has-dark-text el-table-cell"
                   role="cell"
                 >
-                  <mock-styled.div
+                  <div
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Client A/C"
                   >
                     Primary
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-table-cell-has-dark-text"
+                  </div>
+                </div>
+                <div
+                  class="el-table-cell-has-dark-text el-table-cell"
                   role="cell"
                 >
-                  <mock-styled.div
+                  <div
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Status"
                   >
-                    <mock-styled.span
-                      classname="el-intent-pending"
+                    <span
+                      class="el-intent-pending el-status-indicator"
                     />
                      
                     Awaiting Payment
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname="el-table-cell-has-dark-text"
+                  </div>
+                </div>
+                <div
+                  class="el-table-cell-has-dark-text el-table-cell"
                   role="cell"
                 >
-                  <mock-styled.div
+                  <div
+                    class="mocked-styled-111 el-table-cell-content"
                     data-narrow-label="Request Date"
                   >
                     12 Dec 2018
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname=""
+                  </div>
+                </div>
+                <div
+                  class="mocked-styled-109 el-table-expandable-row-trigger-cell"
                   role="cell"
+                  tabindex="0"
                 >
-                  <mock-styled.span
-                    classname="el-intent-default el-icon-new"
-                    role="img"
+                  <span
+                    class="el-intent-default el-icon-new el-icon"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
+                      title="Icon image with name more"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -1262,52 +1338,61 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                aria-hidden="false"
-                classname=""
+                  </span>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-113 el-table-expandable-row"
               >
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.div
-                      classname="el-button-group-align-center"
+                <div
+                  class="mocked-styled-114 el-table-expandable-container"
+                >
+                  <div
+                    class="mocked-styled-2 el-button-group"
+                  >
+                    <div
+                      class="el-button-group-align-center el-button-group-inner"
                     >
-                      <mock-styled.button
-                        classname="el-intent-primary"
-                        disabled="false"
+                      <button
+                        class="el-intent-primary el-button"
                       >
-                        <mock-styled.div />
+                        <div
+                          class="mocked-styled-0 el-button-loader"
+                        />
                         Email Request
-                      </mock-styled.button>
-                      <mock-styled.button
-                        classname="el-intent-primary"
-                        disabled="false"
+                      </button>
+                      <button
+                        class="el-intent-primary el-button"
                       >
-                        <mock-styled.div />
+                        <div
+                          class="mocked-styled-0 el-button-loader"
+                        />
                         Take Payment
-                      </mock-styled.button>
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.button
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-71 el-pagination-wrap"
+          >
+            <button
               aria-label="Previous"
+              class="mocked-styled-74 el-pagination-button"
               data-testid="back-button"
               role="button"
               type="button"
             >
-              <mock-styled.span
-                classname="el-icon-new"
-                role="img"
+              <span
+                class="el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name chevronLeft"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1317,28 +1402,35 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.button>
-            <mock-styled.div>
-              <mock-styled.input
+              </span>
+            </button>
+            <div
+              class="mocked-styled-72 el-pagination-text"
+            >
+              <input
+                aria-label="Current page number, edit to select page of 1 available"
+                class="mocked-styled-73 el-pagination-input"
                 value="1"
               />
-               of 
+               
+              of 
               1
-            </mock-styled.div>
-            <mock-styled.button
+            </div>
+            <button
               aria-label="Next"
+              class="mocked-styled-74 el-pagination-button"
               data-testid="forward-button"
               role="button"
               type="button"
             >
-              <mock-styled.span
-                classname="el-icon-new"
-                role="img"
+              <span
+                class="el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name chevronRight"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1348,28 +1440,31 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.button>
-          </mock-styled.div>
+              </span>
+            </button>
+          </div>
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name newCustomerInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -1509,22 +1604,22 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
               </clippath>
             </defs>
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </span>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           From this dashboard you can use the below filters to locate payments held by Reapit.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </small>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           When you have located your desired payment, you can either send an email request for payment to the customer, or take a payment in person using our payment form.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </small>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           Both options are available from the slide down on each payment item in the table.
-        </mock-styled.p>
+        </small>
         <div
           class="el-border-radius mock-css.
   overflow: hidden;
@@ -1532,55 +1627,62 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
         >
           <form>
             <mock-styled.div>
-              <mock-styled.div
-                classname="mock-css.
+              <div
+                class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
               >
-                <mock-styled.input
-                  classname=""
+                <input
+                  aria-label="Input type date format dd/mm/yyy max date of 2019-10-11 min date of 2017-10-10"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   max="2019-10-11"
                   min="2017-10-10"
                   name="createdFrom"
                   type="date"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Created From
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.div
-                classname="mock-css.
+              <div
+                class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
               >
-                <mock-styled.input
-                  classname=""
+                <input
+                  aria-label="Input type date format dd/mm/yyy max date of 2019-10-11 min date of 2019-09-10"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   max="2019-10-11"
                   min="2019-09-10"
                   name="createdTo"
                   type="date"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Created To
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.select
-                  classname="el-wfull"
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <select
+                  aria-label="Select an item from the dropdown list"
+                  class="el-wfull el-select"
                   name="status"
                 >
                   <option
@@ -1608,112 +1710,128 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                   >
                     Failed
                   </option>
-                </mock-styled.select>
-                <mock-styled.label>
+                </select>
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Status
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.div
-                classname="mock-css.
+              <div
+                class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
               >
-                <mock-styled.input
-                  classname=""
+                <input
+                  aria-label="Input type text"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="description"
                   type="text"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Description
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
           </form>
         </div>
-        <mock-styled.button
-          classname="el-intent-neutral"
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           View Docs
-        </mock-styled.button>
+        </button>
       </aside>
       <section
         class="el-page-container"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           Payments Dashboard
-        </mock-styled.h1>
-        <mock-styled.div
-          classname="el-mb11 el-fade-in"
+        </h1>
+        <div
+          class="el-mb11 el-fade-in el-table"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="7"
           role="table"
         >
-          <mock-styled.div
+          <div
+            class="mocked-styled-101 el-table-headers-row"
             role="row"
           >
-            <mock-styled.div
+            <div
               aria-label="Property"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Property
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Amount"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Amount
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Customer"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Customer
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Description"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Description
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Client A/C"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Client A/C
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Status"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Status
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Request Date"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Request Date
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name settings"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1723,27 +1841,30 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+              </span>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-110 el-table-row-container"
             role="row"
           >
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+            <div
+              class="mocked-styled-103 el-table-row"
+            >
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1.25rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
                     style="font-size: 1.25rem;"
+                    title="Icon image with name property"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1753,8 +1874,9 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-                <mock-styled.div
+                </span>
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Property"
                 >
                   <div
@@ -1762,21 +1884,22 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                   >
                     15 Example street Solihull West Midlands B91 2XX
                   </div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1.25rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
                     style="font-size: 1.25rem;"
+                    title="Icon image with name pound"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1786,26 +1909,28 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-                <mock-styled.div
+                </span>
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Amount"
                 >
                   £100.00
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1.25rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
                     style="font-size: 1.25rem;"
+                    title="Icon image with name contact"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1815,68 +1940,75 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-                <mock-styled.div
+                </span>
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Customer"
                 >
                   Mr John Smith
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Description"
                 >
                   Tenancy Check Fee
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Client A/C"
                 >
                   Primary
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Status"
                 >
-                  <mock-styled.span
-                    classname="el-intent-pending"
+                  <span
+                    class="el-intent-pending el-status-indicator"
                   />
                    
                   Awaiting Payment
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Request Date"
                 >
                   12 Dec 2018
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+                </div>
+              </div>
+              <div
+                class="mocked-styled-109 el-table-expandable-row-trigger-cell"
                 role="cell"
+                tabindex="0"
               >
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name more"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1886,52 +2018,61 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              aria-hidden="false"
-              classname=""
+                </span>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-113 el-table-expandable-row"
             >
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-button-group-align-center"
+              <div
+                class="mocked-styled-114 el-table-expandable-container"
+              >
+                <div
+                  class="mocked-styled-2 el-button-group"
+                >
+                  <div
+                    class="el-button-group-align-center el-button-group-inner"
                   >
-                    <mock-styled.button
-                      classname="el-intent-primary"
-                      disabled="false"
+                    <button
+                      class="el-intent-primary el-button"
                     >
-                      <mock-styled.div />
+                      <div
+                        class="mocked-styled-0 el-button-loader"
+                      />
                       Email Request
-                    </mock-styled.button>
-                    <mock-styled.button
-                      classname="el-intent-primary"
-                      disabled="false"
+                    </button>
+                    <button
+                      class="el-intent-primary el-button"
                     >
-                      <mock-styled.div />
+                      <div
+                        class="mocked-styled-0 el-button-loader"
+                      />
                       Take Payment
-                    </mock-styled.button>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.button
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-71 el-pagination-wrap"
+        >
+          <button
             aria-label="Previous"
+            class="mocked-styled-74 el-pagination-button"
             data-testid="back-button"
             role="button"
             type="button"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name chevronLeft"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1941,28 +2082,35 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.button>
-          <mock-styled.div>
-            <mock-styled.input
+            </span>
+          </button>
+          <div
+            class="mocked-styled-72 el-pagination-text"
+          >
+            <input
+              aria-label="Current page number, edit to select page of 1 available"
+              class="mocked-styled-73 el-pagination-input"
               value="1"
             />
-             of 
+             
+            of 
             1
-          </mock-styled.div>
-          <mock-styled.button
+          </div>
+          <button
             aria-label="Next"
+            class="mocked-styled-74 el-pagination-button"
             data-testid="forward-button"
             role="button"
             type="button"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name chevronRight"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1972,9 +2120,9 @@ exports[`PaymentsPage  should match a snapshot where has payments list 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.button>
-        </mock-styled.div>
+            </span>
+          </button>
+        </div>
       </section>
     </div>
   </div>,
@@ -2037,20 +2185,23 @@ exports[`PaymentsPage  should match a snapshot where loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.span
-            classname="el-mb5 el-icon-size-large"
-            role="img"
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name newCustomerInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -2190,22 +2341,22 @@ exports[`PaymentsPage  should match a snapshot where loading 1`] = `
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </span>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             From this dashboard you can use the below filters to locate payments held by Reapit.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </small>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             When you have located your desired payment, you can either send an email request for payment to the customer, or take a payment in person using our payment form.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </small>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             Both options are available from the slide down on each payment item in the table.
-          </mock-styled.p>
+          </small>
           <div
             class="el-border-radius mock-css.
   overflow: hidden;
@@ -2213,55 +2364,62 @@ exports[`PaymentsPage  should match a snapshot where loading 1`] = `
           >
             <form>
               <mock-styled.div>
-                <mock-styled.div
-                  classname="mock-css.
+                <div
+                  class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
                 >
-                  <mock-styled.input
-                    classname=""
+                  <input
+                    aria-label="Input type date format dd/mm/yyy max date of 2019-10-11 min date of 2017-10-10"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     max="2019-10-11"
                     min="2017-10-10"
                     name="createdFrom"
                     type="date"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Created From
-                  </mock-styled.label>
-                </mock-styled.div>
+                  </label>
+                </div>
               </mock-styled.div>
               <mock-styled.div>
-                <mock-styled.div
-                  classname="mock-css.
+                <div
+                  class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
                 >
-                  <mock-styled.input
-                    classname=""
+                  <input
+                    aria-label="Input type date format dd/mm/yyy max date of 2019-10-11 min date of 2019-09-10"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     max="2019-10-11"
                     min="2019-09-10"
                     name="createdTo"
                     type="date"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Created To
-                  </mock-styled.label>
-                </mock-styled.div>
+                  </label>
+                </div>
               </mock-styled.div>
               <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.select
-                    classname="el-wfull"
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <select
+                    aria-label="Select an item from the dropdown list"
+                    class="el-wfull el-select"
                     name="status"
                   >
                     <option
@@ -2289,76 +2447,89 @@ exports[`PaymentsPage  should match a snapshot where loading 1`] = `
                     >
                       Failed
                     </option>
-                  </mock-styled.select>
-                  <mock-styled.label>
+                  </select>
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
                     Status
-                  </mock-styled.label>
-                </mock-styled.div>
+                  </label>
+                </div>
               </mock-styled.div>
               <mock-styled.div>
-                <mock-styled.div
-                  classname="mock-css.
+                <div
+                  class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
                 >
-                  <mock-styled.input
-                    classname=""
+                  <input
+                    aria-label="Input type text"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="description"
                     type="text"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Description
-                  </mock-styled.label>
-                </mock-styled.div>
+                  </label>
+                </div>
               </mock-styled.div>
             </form>
           </div>
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
+          </button>
         </aside>
         <section
           class="el-page-container"
         >
-          <mock-styled.h1
-            classname="el-text-base"
+          <h1
+            class="el-text-base el-title"
           >
             Payments Dashboard
-          </mock-styled.h1>
-          <mock-styled.div
-            classname=""
+          </h1>
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name newCustomerInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -2498,22 +2669,22 @@ exports[`PaymentsPage  should match a snapshot where loading 1`] = `
               </clippath>
             </defs>
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </span>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           From this dashboard you can use the below filters to locate payments held by Reapit.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </small>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           When you have located your desired payment, you can either send an email request for payment to the customer, or take a payment in person using our payment form.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </small>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           Both options are available from the slide down on each payment item in the table.
-        </mock-styled.p>
+        </small>
         <div
           class="el-border-radius mock-css.
   overflow: hidden;
@@ -2521,55 +2692,62 @@ exports[`PaymentsPage  should match a snapshot where loading 1`] = `
         >
           <form>
             <mock-styled.div>
-              <mock-styled.div
-                classname="mock-css.
+              <div
+                class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
               >
-                <mock-styled.input
-                  classname=""
+                <input
+                  aria-label="Input type date format dd/mm/yyy max date of 2019-10-11 min date of 2017-10-10"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   max="2019-10-11"
                   min="2017-10-10"
                   name="createdFrom"
                   type="date"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Created From
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.div
-                classname="mock-css.
+              <div
+                class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
               >
-                <mock-styled.input
-                  classname=""
+                <input
+                  aria-label="Input type date format dd/mm/yyy max date of 2019-10-11 min date of 2019-09-10"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   max="2019-10-11"
                   min="2019-09-10"
                   name="createdTo"
                   type="date"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Created To
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.select
-                  classname="el-wfull"
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <select
+                  aria-label="Select an item from the dropdown list"
+                  class="el-wfull el-select"
                   name="status"
                 >
                   <option
@@ -2597,57 +2775,67 @@ exports[`PaymentsPage  should match a snapshot where loading 1`] = `
                   >
                     Failed
                   </option>
-                </mock-styled.select>
-                <mock-styled.label>
+                </select>
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Status
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
             <mock-styled.div>
-              <mock-styled.div
-                classname="mock-css.
+              <div
+                class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
               >
-                <mock-styled.input
-                  classname=""
+                <input
+                  aria-label="Input type text"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="description"
                   type="text"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Description
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
           </form>
         </div>
-        <mock-styled.button
-          classname="el-intent-neutral"
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           View Docs
-        </mock-styled.button>
+        </button>
       </aside>
       <section
         class="el-page-container"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           Payments Dashboard
-        </mock-styled.h1>
-        <mock-styled.div
-          classname=""
+        </h1>
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </section>
     </div>
   </div>,
@@ -2710,7 +2898,9 @@ exports[`PropertyCell should match a snapshot for default status 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-fade-in"
       >
@@ -2719,7 +2909,9 @@ exports[`PropertyCell should match a snapshot for default status 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-fade-in"
     >
@@ -2785,18 +2977,22 @@ exports[`StatusCell should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.span
-        classname="el-intent-success"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <span
+        class="el-intent-success el-status-indicator"
       />
        
       Paid
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.span
-      classname="el-intent-success"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <span
+      class="el-intent-success el-status-indicator"
     />
      
     Paid
@@ -2860,11 +3056,15 @@ exports[`StatusCell should match a snapshot for default status 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

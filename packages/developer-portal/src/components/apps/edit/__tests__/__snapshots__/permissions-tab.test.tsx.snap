@@ -5,9 +5,11 @@ exports[`PermissionsTab should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
          
@@ -20,36 +22,43 @@ exports[`PermissionsTab should match a snapshot 1`] = `
            
         </a>
         before proceeding, to investigate which permissions you think you will need.
-      </mock-styled.p>
-      <mock-styled.div
-        classname="el-form-layout-has-margin"
+      </p>
+      <div
+        class="el-form-layout-has-margin el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
-              Permissions
-            </mock-styled.label>
-            <mock-styled.div
-              aria-controls=":r0:"
-              aria-haspopup="listbox"
-              role="combobox"
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
             >
-              <mock-styled.input
-                errormessage="At least one Permission is required"
+              Permissions
+            </label>
+            <div
+              class="mocked-styled-58 el-multi-select-input-wrapper"
+            >
+              <input
+                class="mocked-styled-57 el-multi-select-input"
                 id="app-edit-scopes-select"
                 label="Permissions"
                 name="scopes"
               />
-              <mock-styled.div
-                classname=""
+              <div
+                aria-label="Multi selected options"
+                class="mocked-styled-55 el-multi-select-selected"
+                role="listbox"
               >
-                <mock-styled.span
-                  classname="el-ml2 el-intent-default el-icon-new"
-                  role="img"
+                <span
+                  class="el-ml2 el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name task"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -59,62 +68,78 @@ exports[`PermissionsTab should match a snapshot 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
+                </span>
                 <p>
                   Please select from the options below
                 </p>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+              </div>
+              <div
+                aria-label="Multi unselected options"
+                class="mocked-styled-56 el-multi-select-un-selected"
+                role="listbox"
               >
-                <mock-styled.input
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   MOCK_DESCRIPTION
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
-      </mock-styled.p>
-      <mock-styled.div
-        classname="el-form-layout-has-margin"
+      </p>
+      <div
+        class="el-form-layout-has-margin el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
-              Reapit Products
-            </mock-styled.label>
-            <mock-styled.div
-              aria-controls=":r1:"
-              aria-haspopup="listbox"
-              role="combobox"
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
             >
-              <mock-styled.input
+              Reapit Products
+            </label>
+            <div
+              class="mocked-styled-58 el-multi-select-input-wrapper"
+            >
+              <input
+                class="mocked-styled-57 el-multi-select-input"
                 id="app-edit-products-select"
                 label="Reapit Products"
                 name="products"
               />
-              <mock-styled.div
-                classname=""
+              <div
+                aria-label="Multi selected options"
+                class="mocked-styled-55 el-multi-select-selected"
+                role="listbox"
               >
-                <mock-styled.span
-                  classname="el-ml2 el-intent-default el-icon-new"
-                  role="img"
+                <span
+                  class="el-ml2 el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name task"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -124,87 +149,116 @@ exports[`PermissionsTab should match a snapshot 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
+                </span>
                 <p>
                   Please select from the options below
                 </p>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+              </div>
+              <div
+                aria-label="Multi unselected options"
+                class="mocked-styled-56 el-multi-select-un-selected"
+                role="listbox"
               >
-                <mock-styled.input
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   MOCK_NAME
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘Customer ID’ as a comma separated list. For more information on how to find the Customer ID,
          
         <a>
            please see here.
         </a>
-      </mock-styled.p>
-      <mock-styled.div
-        classname="el-form-layout-has-margin"
+      </p>
+      <div
+        class="el-form-layout-has-margin el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Private App
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              class="mocked-styled-125 el-toggle-checkbox"
               id="app-edit-is-private-app"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-bg"
-              htmlfor="app-edit-is-private-app"
+            <label
+              class="el-has-grey-bg el-toggle-label"
+              for="app-edit-is-private-app"
+              role="button"
+              tabindex="0"
             >
-              <mock-styled.span>
+              <span
+                class="mocked-styled-123 el-toggle-item"
+              >
                 Yes
-              </mock-styled.span>
-              <mock-styled.span>
+              </span>
+              <span
+                class="mocked-styled-123 el-toggle-item"
+              >
                 No
-              </mock-styled.span>
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
-              disabled="true"
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-134 el-input-wrap-med"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
+              disabled=""
               id="test-static-id"
               name="limitToClientIds"
               placeholder="Please enter the Customer ID. For multiple Customer ID’s, please separate using a comma"
               type="text"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Private App Client Ids
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
        
@@ -217,36 +271,43 @@ exports[`PermissionsTab should match a snapshot 1`] = `
          
       </a>
       before proceeding, to investigate which permissions you think you will need.
-    </mock-styled.p>
-    <mock-styled.div
-      classname="el-form-layout-has-margin"
+    </p>
+    <div
+      class="el-form-layout-has-margin el-form-layout"
     >
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
-            Permissions
-          </mock-styled.label>
-          <mock-styled.div
-            aria-controls=":r0:"
-            aria-haspopup="listbox"
-            role="combobox"
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <label
+            class="mocked-styled-41 el-label"
           >
-            <mock-styled.input
-              errormessage="At least one Permission is required"
+            Permissions
+          </label>
+          <div
+            class="mocked-styled-58 el-multi-select-input-wrapper"
+          >
+            <input
+              class="mocked-styled-57 el-multi-select-input"
               id="app-edit-scopes-select"
               label="Permissions"
               name="scopes"
             />
-            <mock-styled.div
-              classname=""
+            <div
+              aria-label="Multi selected options"
+              class="mocked-styled-55 el-multi-select-selected"
+              role="listbox"
             >
-              <mock-styled.span
-                classname="el-ml2 el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-ml2 el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name task"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -256,62 +317,78 @@ exports[`PermissionsTab should match a snapshot 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
               <p>
                 Please select from the options below
               </p>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              aria-label="Multi unselected options"
+              class="mocked-styled-56 el-multi-select-un-selected"
+              role="listbox"
             >
-              <mock-styled.input
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 MOCK_DESCRIPTION
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
-    </mock-styled.p>
-    <mock-styled.div
-      classname="el-form-layout-has-margin"
+    </p>
+    <div
+      class="el-form-layout-has-margin el-form-layout"
     >
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
-            Reapit Products
-          </mock-styled.label>
-          <mock-styled.div
-            aria-controls=":r1:"
-            aria-haspopup="listbox"
-            role="combobox"
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <label
+            class="mocked-styled-41 el-label"
           >
-            <mock-styled.input
+            Reapit Products
+          </label>
+          <div
+            class="mocked-styled-58 el-multi-select-input-wrapper"
+          >
+            <input
+              class="mocked-styled-57 el-multi-select-input"
               id="app-edit-products-select"
               label="Reapit Products"
               name="products"
             />
-            <mock-styled.div
-              classname=""
+            <div
+              aria-label="Multi selected options"
+              class="mocked-styled-55 el-multi-select-selected"
+              role="listbox"
             >
-              <mock-styled.span
-                classname="el-ml2 el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-ml2 el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name task"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -321,81 +398,108 @@ exports[`PermissionsTab should match a snapshot 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
               <p>
                 Please select from the options below
               </p>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              aria-label="Multi unselected options"
+              class="mocked-styled-56 el-multi-select-un-selected"
+              role="listbox"
             >
-              <mock-styled.input
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 MOCK_NAME
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘Customer ID’ as a comma separated list. For more information on how to find the Customer ID,
        
       <a>
          please see here.
       </a>
-    </mock-styled.p>
-    <mock-styled.div
-      classname="el-form-layout-has-margin"
+    </p>
+    <div
+      class="el-form-layout-has-margin el-form-layout"
     >
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Private App
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            class="mocked-styled-125 el-toggle-checkbox"
             id="app-edit-is-private-app"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-bg"
-            htmlfor="app-edit-is-private-app"
+          <label
+            class="el-has-grey-bg el-toggle-label"
+            for="app-edit-is-private-app"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
               Yes
-            </mock-styled.span>
-            <mock-styled.span>
+            </span>
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
               No
-            </mock-styled.span>
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
-            disabled="true"
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-134 el-input-wrap-med"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
+            disabled=""
             id="test-static-id"
             name="limitToClientIds"
             placeholder="Please enter the Customer ID. For multiple Customer ID’s, please separate using a comma"
             type="text"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Private App Client Ids
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+          </label>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -456,9 +560,11 @@ exports[`PermissionsTab should match a snapshot when loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
          
@@ -471,97 +577,130 @@ exports[`PermissionsTab should match a snapshot when loading 1`] = `
            
         </a>
         before proceeding, to investigate which permissions you think you will need.
-      </mock-styled.p>
-      <mock-styled.div
-        classname=""
+      </p>
+      <div
+        class="mocked-styled-44 el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-form-layout-has-margin"
+        <div
+          class="mocked-styled-46 el-loader"
+        >
+          <div
+            class="mocked-styled-47 el-loader-moving-bar"
+          />
+        </div>
+      </div>
+      <div
+        class="el-form-layout-has-margin el-form-layout"
       />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
-      </mock-styled.p>
-      <mock-styled.div
-        classname=""
+      </p>
+      <div
+        class="mocked-styled-44 el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-form-layout-has-margin"
+        <div
+          class="mocked-styled-46 el-loader"
+        >
+          <div
+            class="mocked-styled-47 el-loader-moving-bar"
+          />
+        </div>
+      </div>
+      <div
+        class="el-form-layout-has-margin el-form-layout"
       />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘Customer ID’ as a comma separated list. For more information on how to find the Customer ID,
          
         <a>
            please see here.
         </a>
-      </mock-styled.p>
-      <mock-styled.div
-        classname=""
+      </p>
+      <div
+        class="mocked-styled-44 el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-form-layout-has-margin"
+        <div
+          class="mocked-styled-46 el-loader"
+        >
+          <div
+            class="mocked-styled-47 el-loader-moving-bar"
+          />
+        </div>
+      </div>
+      <div
+        class="el-form-layout-has-margin el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Private App
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              class="mocked-styled-125 el-toggle-checkbox"
               id="app-edit-is-private-app"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-bg"
-              htmlfor="app-edit-is-private-app"
+            <label
+              class="el-has-grey-bg el-toggle-label"
+              for="app-edit-is-private-app"
+              role="button"
+              tabindex="0"
             >
-              <mock-styled.span>
+              <span
+                class="mocked-styled-123 el-toggle-item"
+              >
                 Yes
-              </mock-styled.span>
-              <mock-styled.span>
+              </span>
+              <span
+                class="mocked-styled-123 el-toggle-item"
+              >
                 No
-              </mock-styled.span>
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
-              disabled="true"
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-134 el-input-wrap-med"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
+              disabled=""
               id="test-static-id"
               name="limitToClientIds"
               placeholder="Please enter the Customer ID. For multiple Customer ID’s, please separate using a comma"
               type="text"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Private App Client Ids
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
        
@@ -574,91 +713,122 @@ exports[`PermissionsTab should match a snapshot when loading 1`] = `
          
       </a>
       before proceeding, to investigate which permissions you think you will need.
-    </mock-styled.p>
-    <mock-styled.div
-      classname=""
+    </p>
+    <div
+      class="mocked-styled-44 el-loader-container"
     >
-      <mock-styled.div>
-        <mock-styled.div />
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div
-      classname="el-form-layout-has-margin"
+      <div
+        class="mocked-styled-46 el-loader"
+      >
+        <div
+          class="mocked-styled-47 el-loader-moving-bar"
+        />
+      </div>
+    </div>
+    <div
+      class="el-form-layout-has-margin el-form-layout"
     />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
-    </mock-styled.p>
-    <mock-styled.div
-      classname=""
+    </p>
+    <div
+      class="mocked-styled-44 el-loader-container"
     >
-      <mock-styled.div>
-        <mock-styled.div />
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div
-      classname="el-form-layout-has-margin"
+      <div
+        class="mocked-styled-46 el-loader"
+      >
+        <div
+          class="mocked-styled-47 el-loader-moving-bar"
+        />
+      </div>
+    </div>
+    <div
+      class="el-form-layout-has-margin el-form-layout"
     />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘Customer ID’ as a comma separated list. For more information on how to find the Customer ID,
        
       <a>
          please see here.
       </a>
-    </mock-styled.p>
-    <mock-styled.div
-      classname=""
+    </p>
+    <div
+      class="mocked-styled-44 el-loader-container"
     >
-      <mock-styled.div>
-        <mock-styled.div />
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div
-      classname="el-form-layout-has-margin"
+      <div
+        class="mocked-styled-46 el-loader"
+      >
+        <div
+          class="mocked-styled-47 el-loader-moving-bar"
+        />
+      </div>
+    </div>
+    <div
+      class="el-form-layout-has-margin el-form-layout"
     >
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Private App
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            class="mocked-styled-125 el-toggle-checkbox"
             id="app-edit-is-private-app"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-bg"
-            htmlfor="app-edit-is-private-app"
+          <label
+            class="el-has-grey-bg el-toggle-label"
+            for="app-edit-is-private-app"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span>
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
               Yes
-            </mock-styled.span>
-            <mock-styled.span>
+            </span>
+            <span
+              class="mocked-styled-123 el-toggle-item"
+            >
               No
-            </mock-styled.span>
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
-            disabled="true"
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-134 el-input-wrap-med"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
+            disabled=""
             id="test-static-id"
             name="limitToClientIds"
             placeholder="Please enter the Customer ID. For multiple Customer ID’s, please separate using a comma"
             type="text"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Private App Client Ids
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+          </label>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

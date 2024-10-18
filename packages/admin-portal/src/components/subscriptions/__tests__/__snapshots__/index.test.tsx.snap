@@ -5,54 +5,76 @@ exports[`Subscriptions should render component when has data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <section
         class="el-page-container"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           Subscriptions
-        </mock-styled.h1>
+        </h1>
         <form>
-          <mock-styled.div
-            classname="el-form-layout-has-margin"
+          <div
+            class="el-form-layout-has-margin el-form-layout"
           >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type undefined"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="organisationName"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Company Name
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type email"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="userEmail"
                   type="email"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   User Email
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Subscription Type
-                </mock-styled.label>
-                <mock-styled.select
+                </label>
+                <select
+                  aria-label="Select an item from the dropdown list"
+                  class="mocked-styled-83 el-select"
                   name="subscriptionType"
                 >
                   <option
@@ -75,15 +97,23 @@ exports[`Subscriptions should render component when has data 1`] = `
                   >
                     Developer Edition
                   </option>
-                </mock-styled.select>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+                </select>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Status
-                </mock-styled.label>
-                <mock-styled.select
+                </label>
+                <select
+                  aria-label="Select an item from the dropdown list"
+                  class="mocked-styled-83 el-select"
                   name="status"
                 >
                   <option
@@ -101,203 +131,235 @@ exports[`Subscriptions should render component when has data 1`] = `
                   >
                     Cancelled
                   </option>
-                </mock-styled.select>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
+                </select>
+              </div>
+            </div>
+          </div>
         </form>
         <div
           class="el-mb11"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-2 el-button-group"
+          >
+            <div
+              class="mocked-styled-3 el-button-group-inner"
             >
-              <mock-styled.button
-                classname="el-intent-primary"
+              <button
+                class="el-intent-primary el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Download CSV
-              </mock-styled.button>
-            </mock-styled.div>
-          </mock-styled.div>
+              </button>
+            </div>
+          </div>
         </div>
-        <mock-styled.div
-          classname="el-mb11"
+        <div
+          class="el-mb11 el-table"
           data-has-call-to-action="true"
           data-has-expandable-action="false"
           data-num-columns-excl-action-col="9"
           role="table"
         >
-          <mock-styled.div
+          <div
+            class="mocked-styled-101 el-table-headers-row"
             role="row"
           >
-            <mock-styled.div
+            <div
               aria-label="Subcription Type"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Subcription Type
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Summary"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Summary
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Company Name"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Company Name
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="User Email"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               User Email
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Start Date"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Start Date
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Renews"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Renews
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Frequency"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Frequency
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Cost"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Cost
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Cancelled"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Cancelled
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Cancel
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+            </div>
+          </div>
+          <div
+            class="mocked-styled-110 el-table-row-container"
             role="row"
           >
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+            <div
+              class="mocked-styled-103 el-table-row"
+            >
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Subcription Type"
                 />
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Summary"
                 />
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Company Name"
                 />
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="User Email"
                 />
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Start Date"
                 >
                   03 Mar 2022 10:18
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Renews"
                 >
                   -
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Frequency"
                 />
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Cost"
                 >
                   £undefined
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Cancelled"
                 >
                   -
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
+                </div>
+              </div>
+              <div
+                class="mocked-styled-104 el-table-cta-cell"
                 role="cell"
+                tabindex="0"
               />
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.button
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-71 el-pagination-wrap"
+        >
+          <button
             aria-label="Previous"
+            class="mocked-styled-74 el-pagination-button"
             data-testid="back-button"
             role="button"
             type="button"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name chevronLeft"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -307,28 +369,35 @@ exports[`Subscriptions should render component when has data 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.button>
-          <mock-styled.div>
-            <mock-styled.input
+            </span>
+          </button>
+          <div
+            class="mocked-styled-72 el-pagination-text"
+          >
+            <input
+              aria-label="Current page number, edit to select page of 1 available"
+              class="mocked-styled-73 el-pagination-input"
               value="1"
             />
-             of 
+             
+            of 
             1
-          </mock-styled.div>
-          <mock-styled.button
+          </div>
+          <button
             aria-label="Next"
+            class="mocked-styled-74 el-pagination-button"
             data-testid="forward-button"
             role="button"
             type="button"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name chevronRight"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -338,61 +407,83 @@ exports[`Subscriptions should render component when has data 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.button>
-        </mock-styled.div>
+            </span>
+          </button>
+        </div>
       </section>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <section
       class="el-page-container"
     >
-      <mock-styled.h1
-        classname="el-text-base"
+      <h1
+        class="el-text-base el-title"
       >
         Subscriptions
-      </mock-styled.h1>
+      </h1>
       <form>
-        <mock-styled.div
-          classname="el-form-layout-has-margin"
+        <div
+          class="el-form-layout-has-margin el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="organisationName"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Company Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type email"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="userEmail"
                 type="email"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 User Email
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Subscription Type
-              </mock-styled.label>
-              <mock-styled.select
+              </label>
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="mocked-styled-83 el-select"
                 name="subscriptionType"
               >
                 <option
@@ -415,15 +506,23 @@ exports[`Subscriptions should render component when has data 1`] = `
                 >
                   Developer Edition
                 </option>
-              </mock-styled.select>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+              </select>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Status
-              </mock-styled.label>
-              <mock-styled.select
+              </label>
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="mocked-styled-83 el-select"
                 name="status"
               >
                 <option
@@ -441,203 +540,235 @@ exports[`Subscriptions should render component when has data 1`] = `
                 >
                   Cancelled
                 </option>
-              </mock-styled.select>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+              </select>
+            </div>
+          </div>
+        </div>
       </form>
       <div
         class="el-mb11"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Download CSV
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
-      <mock-styled.div
-        classname="el-mb11"
+      <div
+        class="el-mb11 el-table"
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="9"
         role="table"
       >
-        <mock-styled.div
+        <div
+          class="mocked-styled-101 el-table-headers-row"
           role="row"
         >
-          <mock-styled.div
+          <div
             aria-label="Subcription Type"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Subcription Type
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Summary"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Summary
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Company Name"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Company Name
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="User Email"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             User Email
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Start Date"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Start Date
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Renews"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Renews
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Frequency"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Frequency
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Cost"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Cost
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Cancelled"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Cancelled
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Cancel
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </div>
+        </div>
+        <div
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-103 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Subcription Type"
               />
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Summary"
               />
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Company Name"
               />
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="User Email"
               />
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Start Date"
               >
                 03 Mar 2022 10:18
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Renews"
               >
                 -
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Frequency"
               />
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Cost"
               >
                 £undefined
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Cancelled"
               >
                 -
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
+              </div>
+            </div>
+            <div
+              class="mocked-styled-104 el-table-cta-cell"
               role="cell"
+              tabindex="0"
             />
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.button
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-71 el-pagination-wrap"
+      >
+        <button
           aria-label="Previous"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name chevronLeft"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -647,28 +778,35 @@ exports[`Subscriptions should render component when has data 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-        <mock-styled.div>
-          <mock-styled.input
+          </span>
+        </button>
+        <div
+          class="mocked-styled-72 el-pagination-text"
+        >
+          <input
+            aria-label="Current page number, edit to select page of 1 available"
+            class="mocked-styled-73 el-pagination-input"
             value="1"
           />
-           of 
+           
+          of 
           1
-        </mock-styled.div>
-        <mock-styled.button
+        </div>
+        <button
           aria-label="Next"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="forward-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name chevronRight"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -678,9 +816,9 @@ exports[`Subscriptions should render component when has data 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+          </span>
+        </button>
+      </div>
     </section>
   </div>,
   "debug": [Function],
@@ -742,54 +880,76 @@ exports[`Subscriptions should render component when loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <section
         class="el-page-container"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           Subscriptions
-        </mock-styled.h1>
+        </h1>
         <form>
-          <mock-styled.div
-            classname="el-form-layout-has-margin"
+          <div
+            class="el-form-layout-has-margin el-form-layout"
           >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type undefined"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="organisationName"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Company Name
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type email"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="userEmail"
                   type="email"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   User Email
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Subscription Type
-                </mock-styled.label>
-                <mock-styled.select
+                </label>
+                <select
+                  aria-label="Select an item from the dropdown list"
+                  class="mocked-styled-83 el-select"
                   name="subscriptionType"
                 >
                   <option
@@ -812,15 +972,23 @@ exports[`Subscriptions should render component when loading 1`] = `
                   >
                     Developer Edition
                   </option>
-                </mock-styled.select>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+                </select>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Status
-                </mock-styled.label>
-                <mock-styled.select
+                </label>
+                <select
+                  aria-label="Select an item from the dropdown list"
+                  class="mocked-styled-83 el-select"
                   name="status"
                 >
                   <option
@@ -838,87 +1006,117 @@ exports[`Subscriptions should render component when loading 1`] = `
                   >
                     Cancelled
                   </option>
-                </mock-styled.select>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
+                </select>
+              </div>
+            </div>
+          </div>
         </form>
         <div
           class="el-mb11"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-2 el-button-group"
+          >
+            <div
+              class="mocked-styled-3 el-button-group-inner"
             >
-              <mock-styled.button
-                classname="el-intent-primary"
+              <button
+                class="el-intent-primary el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Download CSV
-              </mock-styled.button>
-            </mock-styled.div>
-          </mock-styled.div>
+              </button>
+            </div>
+          </div>
         </div>
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </section>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <section
       class="el-page-container"
     >
-      <mock-styled.h1
-        classname="el-text-base"
+      <h1
+        class="el-text-base el-title"
       >
         Subscriptions
-      </mock-styled.h1>
+      </h1>
       <form>
-        <mock-styled.div
-          classname="el-form-layout-has-margin"
+        <div
+          class="el-form-layout-has-margin el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="organisationName"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Company Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type email"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="userEmail"
                 type="email"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 User Email
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Subscription Type
-              </mock-styled.label>
-              <mock-styled.select
+              </label>
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="mocked-styled-83 el-select"
                 name="subscriptionType"
               >
                 <option
@@ -941,15 +1139,23 @@ exports[`Subscriptions should render component when loading 1`] = `
                 >
                   Developer Edition
                 </option>
-              </mock-styled.select>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+              </select>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Status
-              </mock-styled.label>
-              <mock-styled.select
+              </label>
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="mocked-styled-83 el-select"
                 name="status"
               >
                 <option
@@ -967,35 +1173,43 @@ exports[`Subscriptions should render component when loading 1`] = `
                 >
                   Cancelled
                 </option>
-              </mock-styled.select>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+              </select>
+            </div>
+          </div>
+        </div>
       </form>
       <div
         class="el-mb11"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Download CSV
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-44 el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+        <div
+          class="mocked-styled-46 el-loader"
+        >
+          <div
+            class="mocked-styled-47 el-loader-moving-bar"
+          />
+        </div>
+      </div>
     </section>
   </div>,
   "debug": [Function],

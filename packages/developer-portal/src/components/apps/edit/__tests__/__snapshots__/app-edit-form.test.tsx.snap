@@ -10,12 +10,16 @@ exports[`AppEditForm should match a snapshot 1`] = `
       <div />
     </div>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <form />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <form />
   </div>,
   "debug": [Function],

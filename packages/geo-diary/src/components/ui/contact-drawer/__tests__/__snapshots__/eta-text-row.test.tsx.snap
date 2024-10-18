@@ -5,7 +5,9 @@ exports[`EtaTextRow should match snapshot with a phone number and populated stat
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
       <div
         class="mock-css.
@@ -33,9 +35,11 @@ exports[`EtaTextRow should match snapshot with a phone number and populated stat
   grid-column-end: span 8;
 "
           >
-            <mock-styled.label>
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Send ETA Text
-            </mock-styled.label>
+            </label>
             <div
               class="mock-css.
   text-align: left;
@@ -107,7 +111,9 @@ exports[`EtaTextRow should match snapshot with a phone number and populated stat
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
     <div
       class="mock-css.
@@ -135,9 +141,11 @@ exports[`EtaTextRow should match snapshot with a phone number and populated stat
   grid-column-end: span 8;
 "
         >
-          <mock-styled.label>
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Send ETA Text
-          </mock-styled.label>
+          </label>
           <div
             class="mock-css.
   text-align: left;
@@ -266,12 +274,16 @@ exports[`EtaTextRow should match snapshot without phone number and default state
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
   </div>,
   "debug": [Function],

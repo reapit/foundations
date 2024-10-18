@@ -5,7 +5,9 @@ exports[`AmlCheckRow should match snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
       <div
         class="mock-css.
@@ -33,9 +35,11 @@ exports[`AmlCheckRow should match snapshot 1`] = `
   grid-column-end: span 8;
 "
           >
-            <mock-styled.label>
+            <label
+              class="mocked-styled-41 el-label"
+            >
               AML Check
-            </mock-styled.label>
+            </label>
             <div
               class="mock-css.
   text-align: left;
@@ -143,7 +147,9 @@ exports[`AmlCheckRow should match snapshot 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
     <div
       class="mock-css.
@@ -171,9 +177,11 @@ exports[`AmlCheckRow should match snapshot 1`] = `
   grid-column-end: span 8;
 "
         >
-          <mock-styled.label>
+          <label
+            class="mocked-styled-41 el-label"
+          >
             AML Check
-          </mock-styled.label>
+          </label>
           <div
             class="mock-css.
   text-align: left;

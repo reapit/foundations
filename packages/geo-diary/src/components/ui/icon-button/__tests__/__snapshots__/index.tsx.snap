@@ -5,7 +5,9 @@ exports[`IconButton component should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
       <button
         class="mock-css.
@@ -71,7 +73,9 @@ exports[`IconButton component should match a snapshot 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
     <button
       class="mock-css.
@@ -194,7 +198,9 @@ exports[`IconButton component should match a snapshot when disabled 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
       <button
         class="mock-css.
@@ -263,7 +269,9 @@ exports[`IconButton component should match a snapshot when disabled 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
     <button
       class="mock-css.
@@ -389,7 +397,9 @@ exports[`IconButton component should match a snapshot when in dark mode 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
       <button
         class="mock-css.
@@ -458,7 +468,9 @@ exports[`IconButton component should match a snapshot when in dark mode 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
     <button
       class="mock-css.

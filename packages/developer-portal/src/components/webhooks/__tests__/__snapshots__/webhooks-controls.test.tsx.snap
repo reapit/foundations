@@ -5,51 +5,63 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/about page 1
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname="el-mb7"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-mb7 el-button-group"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-neutral"
+          </button>
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Video
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="el-mb7"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-mb7 el-button-group"
     >
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-3 el-button-group-inner"
       >
-        <mock-styled.button
-          classname="el-intent-neutral"
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           View Docs
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-intent-neutral"
+        </button>
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Video
-        </mock-styled.button>
-      </mock-styled.div>
-    </mock-styled.div>
+        </button>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -110,18 +122,22 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-border-radius mock-css.
   overflow: hidden;
  el-mb5"
       >
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.select
-              classname="el-wfull"
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <select
+              aria-label="Select an item from the dropdown list"
+              class="el-wfull el-select"
               name="applicationId"
-              value=""
             >
               <option
                 value=""
@@ -138,22 +154,25 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
               >
                 MOCK_APP_NAME_ANOTHER
               </option>
-            </mock-styled.select>
-            <mock-styled.label>
+            </select>
+            <label
+              class="mocked-styled-41 el-label"
+            >
               App Name
-            </mock-styled.label>
-          </mock-styled.div>
+            </label>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type date format dd/mm/yyy max date of 2019-10-10 min date of 2019-04"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               max="2019-10-10"
               min="2019-04"
@@ -161,23 +180,25 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
               type="date"
               value="2019-10-10"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Date From
-            </mock-styled.label>
-          </mock-styled.div>
+            </label>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type date format dd/mm/yyy max date of 2019-10-10 min date of 2019-10-10"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               max="2019-10-10"
               min="2019-10-10"
@@ -185,19 +206,22 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
               type="date"
               value="2019-10-10"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Date To
-            </mock-styled.label>
-          </mock-styled.div>
+            </label>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.select
-              classname="el-wfull"
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <select
+              aria-label="Select an item from the dropdown list"
+              class="el-wfull el-select"
               name="topicId"
-              value=""
             >
               <option
                 value=""
@@ -214,92 +238,106 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
               >
                 Property modified
               </option>
-            </mock-styled.select>
-            <mock-styled.label>
+            </select>
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Topic Name
-            </mock-styled.label>
-          </mock-styled.div>
+            </label>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="entityId"
               type="text"
               value=""
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Entity Id
-            </mock-styled.label>
-          </mock-styled.div>
+            </label>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="eventId"
               type="text"
               value=""
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Event Id
-            </mock-styled.label>
-          </mock-styled.div>
+            </label>
+          </div>
         </mock-styled.div>
       </div>
-      <mock-styled.div
-        classname="el-mb7"
+      <div
+        class="el-mb7 el-button-group"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-neutral"
+          </button>
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Video
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-border-radius mock-css.
   overflow: hidden;
  el-mb5"
     >
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.select
-            classname="el-wfull"
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <select
+            aria-label="Select an item from the dropdown list"
+            class="el-wfull el-select"
             name="applicationId"
-            value=""
           >
             <option
               value=""
@@ -316,22 +354,25 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
             >
               MOCK_APP_NAME_ANOTHER
             </option>
-          </mock-styled.select>
-          <mock-styled.label>
+          </select>
+          <label
+            class="mocked-styled-41 el-label"
+          >
             App Name
-          </mock-styled.label>
-        </mock-styled.div>
+          </label>
+        </div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
+        <div
+          class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
         >
-          <mock-styled.input
-            classname=""
+          <input
+            aria-label="Input type date format dd/mm/yyy max date of 2019-10-10 min date of 2019-04"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             max="2019-10-10"
             min="2019-04"
@@ -339,23 +380,25 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
             type="date"
             value="2019-10-10"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Date From
-          </mock-styled.label>
-        </mock-styled.div>
+          </label>
+        </div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
+        <div
+          class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
         >
-          <mock-styled.input
-            classname=""
+          <input
+            aria-label="Input type date format dd/mm/yyy max date of 2019-10-10 min date of 2019-10-10"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             max="2019-10-10"
             min="2019-10-10"
@@ -363,19 +406,22 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
             type="date"
             value="2019-10-10"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Date To
-          </mock-styled.label>
-        </mock-styled.div>
+          </label>
+        </div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.select
-            classname="el-wfull"
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <select
+            aria-label="Select an item from the dropdown list"
+            class="el-wfull el-select"
             name="topicId"
-            value=""
           >
             <option
               value=""
@@ -392,77 +438,87 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/logs page 1`
             >
               Property modified
             </option>
-          </mock-styled.select>
-          <mock-styled.label>
+          </select>
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Topic Name
-          </mock-styled.label>
-        </mock-styled.div>
+          </label>
+        </div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
+        <div
+          class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
         >
-          <mock-styled.input
-            classname=""
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="entityId"
             type="text"
             value=""
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Entity Id
-          </mock-styled.label>
-        </mock-styled.div>
+          </label>
+        </div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
+        <div
+          class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
         >
-          <mock-styled.input
-            classname=""
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="eventId"
             type="text"
             value=""
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Event Id
-          </mock-styled.label>
-        </mock-styled.div>
+          </label>
+        </div>
       </mock-styled.div>
     </div>
-    <mock-styled.div
-      classname="el-mb7"
+    <div
+      class="el-mb7 el-button-group"
     >
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-3 el-button-group-inner"
       >
-        <mock-styled.button
-          classname="el-intent-neutral"
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           View Docs
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-intent-neutral"
+        </button>
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Video
-        </mock-styled.button>
-      </mock-styled.div>
-    </mock-styled.div>
+        </button>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -523,18 +579,22 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/manage page 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-border-radius mock-css.
   overflow: hidden;
  el-mb5"
       >
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.select
-              classname="el-wfull"
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <select
+              aria-label="Select an item from the dropdown list"
+              class="el-wfull el-select"
               name="applicationId"
-              value=""
             >
               <option
                 value=""
@@ -551,48 +611,58 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/manage page 
               >
                 MOCK_APP_NAME_ANOTHER
               </option>
-            </mock-styled.select>
-            <mock-styled.label>
+            </select>
+            <label
+              class="mocked-styled-41 el-label"
+            >
               App Name
-            </mock-styled.label>
-          </mock-styled.div>
+            </label>
+          </div>
         </mock-styled.div>
       </div>
-      <mock-styled.div
-        classname="el-mb7"
+      <div
+        class="el-mb7 el-button-group"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-neutral"
+          </button>
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Video
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-border-radius mock-css.
   overflow: hidden;
  el-mb5"
     >
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.select
-            classname="el-wfull"
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <select
+            aria-label="Select an item from the dropdown list"
+            class="el-wfull el-select"
             name="applicationId"
-            value=""
           >
             <option
               value=""
@@ -609,33 +679,39 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/manage page 
             >
               MOCK_APP_NAME_ANOTHER
             </option>
-          </mock-styled.select>
-          <mock-styled.label>
+          </select>
+          <label
+            class="mocked-styled-41 el-label"
+          >
             App Name
-          </mock-styled.label>
-        </mock-styled.div>
+          </label>
+        </div>
       </mock-styled.div>
     </div>
-    <mock-styled.div
-      classname="el-mb7"
+    <div
+      class="el-mb7 el-button-group"
     >
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-3 el-button-group-inner"
       >
-        <mock-styled.button
-          classname="el-intent-neutral"
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           View Docs
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-intent-neutral"
+        </button>
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Video
-        </mock-styled.button>
-      </mock-styled.div>
-    </mock-styled.div>
+        </button>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -696,51 +772,63 @@ exports[`WebhooksControls should match a snapshot for the /webhooks/new page 1`]
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname="el-mb7"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-mb7 el-button-group"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-neutral"
+          </button>
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Video
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="el-mb7"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-mb7 el-button-group"
     >
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-3 el-button-group-inner"
       >
-        <mock-styled.button
-          classname="el-intent-neutral"
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           View Docs
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-intent-neutral"
+        </button>
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Video
-        </mock-styled.button>
-      </mock-styled.div>
-    </mock-styled.div>
+        </button>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

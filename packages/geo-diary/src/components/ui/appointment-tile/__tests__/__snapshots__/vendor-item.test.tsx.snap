@@ -5,19 +5,24 @@ exports[`VendorItem should match snapshot with vendors in state 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
-      <mock-styled.div
-        classname="el-fade-in el-card-list-item-expanded"
+      <div
+        class="el-fade-in el-card-list-item-expanded el-card-list-item"
       >
-        <mock-styled.div>
-          <mock-styled.span
-            classname="el-intent-primary el-icon-new"
-            role="img"
+        <div
+          class="mocked-styled-23 el-card-list-icon"
+        >
+          <span
+            class="el-intent-primary el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name sale"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -33,33 +38,44 @@ exports[`VendorItem should match snapshot with vendors in state 1`] = `
                 fill-rule="evenodd"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
+          </span>
+        </div>
+        <div
+          class="mocked-styled-20 el-card-list-item-text-wrap"
+        >
+          <div
+            class="mocked-styled-21 el-card-list-item-text-primary"
+          >
             Vendor
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-22 el-card-list-item-text-secondary"
+          >
             Mr John Smith
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
-    <mock-styled.div
-      classname="el-fade-in el-card-list-item-expanded"
+    <div
+      class="el-fade-in el-card-list-item-expanded el-card-list-item"
     >
-      <mock-styled.div>
-        <mock-styled.span
-          classname="el-intent-primary el-icon-new"
-          role="img"
+      <div
+        class="mocked-styled-23 el-card-list-icon"
+      >
+        <span
+          class="el-intent-primary el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name sale"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -75,17 +91,23 @@ exports[`VendorItem should match snapshot with vendors in state 1`] = `
               fill-rule="evenodd"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
+        </span>
+      </div>
+      <div
+        class="mocked-styled-20 el-card-list-item-text-wrap"
+      >
+        <div
+          class="mocked-styled-21 el-card-list-item-text-primary"
+        >
           Vendor
-        </mock-styled.div>
-        <mock-styled.div>
+        </div>
+        <div
+          class="mocked-styled-22 el-card-list-item-text-secondary"
+        >
           Mr John Smith
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -146,12 +168,16 @@ exports[`VendorItem should match snapshot without vendors in state 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
   </div>,
   "debug": [Function],

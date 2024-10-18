@@ -5,20 +5,23 @@ exports[`HomePage should render component when loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.span
-            classname="el-mb5 el-icon-size-large"
-            role="img"
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name userAuthInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -114,60 +117,67 @@ exports[`HomePage should render component when loading 1`] = `
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-          <mock-styled.h2
-            classname="el-text-base"
+          </span>
+          <h2
+            class="el-text-base el-subtitle"
           >
             Your MFA Config
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </h2>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             This page allows you to configure and reset your Multi Factor Authentication (MFA) device for use with Reapit Connect. For more information on how to do this, please refer to the documentation link below.
-          </mock-styled.p>
-          <mock-styled.button
-            classname="el-mb5 el-intent-neutral"
+          </small>
+          <button
+            class="el-mb5 el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Docs
-          </mock-styled.button>
+          </button>
         </aside>
         <section
           class="el-page-container el-hfull"
         >
-          <mock-styled.h1
-            classname="el-text-base"
+          <h1
+            class="el-text-base el-title"
           >
             Configure MFA Authenticator
-          </mock-styled.h1>
-          <mock-styled.div
-            classname=""
+          </h1>
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div
-              classname="el-mb11"
+            <div
+              class="el-mb11 el-loader"
             >
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name userAuthInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -263,41 +273,45 @@ exports[`HomePage should render component when loading 1`] = `
               </clippath>
             </defs>
           </svg>
-        </mock-styled.span>
-        <mock-styled.h2
-          classname="el-text-base"
+        </span>
+        <h2
+          class="el-text-base el-subtitle"
         >
           Your MFA Config
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </h2>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           This page allows you to configure and reset your Multi Factor Authentication (MFA) device for use with Reapit Connect. For more information on how to do this, please refer to the documentation link below.
-        </mock-styled.p>
-        <mock-styled.button
-          classname="el-mb5 el-intent-neutral"
+        </small>
+        <button
+          class="el-mb5 el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Docs
-        </mock-styled.button>
+        </button>
       </aside>
       <section
         class="el-page-container el-hfull"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           Configure MFA Authenticator
-        </mock-styled.h1>
-        <mock-styled.div
-          classname=""
+        </h1>
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div
-            classname="el-mb11"
+          <div
+            class="el-mb11 el-loader"
           >
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </section>
     </div>
   </div>,
@@ -360,20 +374,23 @@ exports[`HomePage should render component with data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.span
-            classname="el-mb5 el-icon-size-large"
-            role="img"
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name userAuthInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -469,31 +486,34 @@ exports[`HomePage should render component with data 1`] = `
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-          <mock-styled.h2
-            classname="el-text-base"
+          </span>
+          <h2
+            class="el-text-base el-subtitle"
           >
             Your MFA Config
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </h2>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             This page allows you to configure and reset your Multi Factor Authentication (MFA) device for use with Reapit Connect. For more information on how to do this, please refer to the documentation link below.
-          </mock-styled.p>
-          <mock-styled.button
-            classname="el-mb5 el-intent-neutral"
+          </small>
+          <button
+            class="el-mb5 el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Docs
-          </mock-styled.button>
+          </button>
         </aside>
         <section
           class="el-page-container el-hfull"
         >
-          <mock-styled.h1
-            classname="el-text-base"
+          <h1
+            class="el-text-base el-title"
           >
             Configure MFA Authenticator
+<<<<<<< HEAD
           </mock-styled.h1>
           <mock-styled.div
             classname=""
@@ -504,25 +524,135 @@ exports[`HomePage should render component with data 1`] = `
               <mock-styled.div />
             </mock-styled.div>
           </mock-styled.div>
+=======
+          </h1>
+          <div
+            class="el-mb7 el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+            role="status"
+          >
+            <div
+              class="el-pn-icon"
+              data-testid="close-icon"
+            >
+              <span
+                class="el-icon-new el-icon"
+                style="font-size: 1.25rem;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  style="font-size: 1.25rem;"
+                  title="Icon image with name info"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div
+              aria-live="polite"
+              class="el-pn-content"
+            >
+              You have an active authenticator registered for your account. If you want to re-configure, click the ‘Reset Authenticator’ button below.
+            </div>
+          </div>
+          <div
+            class="el-mb11 el-fade-in el-grid"
+          >
+            <div
+              class="mocked-styled-31 el-col"
+            >
+              <h2
+                class="el-text-base el-subtitle el-has-no-margin"
+              >
+                Authenticator Type
+              </h2>
+              <p
+                class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+              >
+                Authenticator App
+              </p>
+            </div>
+            <div
+              class="mocked-styled-31 el-col"
+            >
+              <h2
+                class="el-text-base el-subtitle el-has-no-margin"
+              >
+                Status
+              </h2>
+              <p
+                class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+              >
+                Active
+              </p>
+            </div>
+            <div
+              class="mocked-styled-31 el-col"
+            >
+              <h2
+                class="el-text-base el-subtitle el-has-no-margin"
+              >
+                Created
+              </h2>
+              <p
+                class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+              >
+                11/11/2022 11:03
+              </p>
+            </div>
+            <div
+              class="mocked-styled-31 el-col"
+            >
+              <h2
+                class="el-text-base el-subtitle el-has-no-margin"
+              >
+                Last Updated
+              </h2>
+              <p
+                class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+              >
+                11/11/2022 11:03
+              </p>
+            </div>
+          </div>
+          <button
+            class="el-intent-primary el-button"
+          >
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
+            Reset Authenticator
+          </button>
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name userAuthInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -618,31 +748,34 @@ exports[`HomePage should render component with data 1`] = `
               </clippath>
             </defs>
           </svg>
-        </mock-styled.span>
-        <mock-styled.h2
-          classname="el-text-base"
+        </span>
+        <h2
+          class="el-text-base el-subtitle"
         >
           Your MFA Config
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </h2>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           This page allows you to configure and reset your Multi Factor Authentication (MFA) device for use with Reapit Connect. For more information on how to do this, please refer to the documentation link below.
-        </mock-styled.p>
-        <mock-styled.button
-          classname="el-mb5 el-intent-neutral"
+        </small>
+        <button
+          class="el-mb5 el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Docs
-        </mock-styled.button>
+        </button>
       </aside>
       <section
         class="el-page-container el-hfull"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           Configure MFA Authenticator
+<<<<<<< HEAD
         </mock-styled.h1>
         <mock-styled.div
           classname=""
@@ -653,6 +786,113 @@ exports[`HomePage should render component with data 1`] = `
             <mock-styled.div />
           </mock-styled.div>
         </mock-styled.div>
+=======
+        </h1>
+        <div
+          class="el-mb7 el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          role="status"
+        >
+          <div
+            class="el-pn-icon"
+            data-testid="close-icon"
+          >
+            <span
+              class="el-icon-new el-icon"
+              style="font-size: 1.25rem;"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                role="img"
+                style="font-size: 1.25rem;"
+                title="Icon image with name info"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            aria-live="polite"
+            class="el-pn-content"
+          >
+            You have an active authenticator registered for your account. If you want to re-configure, click the ‘Reset Authenticator’ button below.
+          </div>
+        </div>
+        <div
+          class="el-mb11 el-fade-in el-grid"
+        >
+          <div
+            class="mocked-styled-31 el-col"
+          >
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin"
+            >
+              Authenticator Type
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+            >
+              Authenticator App
+            </p>
+          </div>
+          <div
+            class="mocked-styled-31 el-col"
+          >
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin"
+            >
+              Status
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+            >
+              Active
+            </p>
+          </div>
+          <div
+            class="mocked-styled-31 el-col"
+          >
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin"
+            >
+              Created
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+            >
+              11/11/2022 11:03
+            </p>
+          </div>
+          <div
+            class="mocked-styled-31 el-col"
+          >
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin"
+            >
+              Last Updated
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
+            >
+              11/11/2022 11:03
+            </p>
+          </div>
+        </div>
+        <button
+          class="el-intent-primary el-button"
+        >
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          Reset Authenticator
+        </button>
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
       </section>
     </div>
   </div>,
@@ -715,20 +955,23 @@ exports[`HomePage should render component with no data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.span
-            classname="el-mb5 el-icon-size-large"
-            role="img"
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name userAuthInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -824,31 +1067,34 @@ exports[`HomePage should render component with no data 1`] = `
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-          <mock-styled.h2
-            classname="el-text-base"
+          </span>
+          <h2
+            class="el-text-base el-subtitle"
           >
             Your MFA Config
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </h2>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             This page allows you to configure and reset your Multi Factor Authentication (MFA) device for use with Reapit Connect. For more information on how to do this, please refer to the documentation link below.
-          </mock-styled.p>
-          <mock-styled.button
-            classname="el-mb5 el-intent-neutral"
+          </small>
+          <button
+            class="el-mb5 el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Docs
-          </mock-styled.button>
+          </button>
         </aside>
         <section
           class="el-page-container el-hfull"
         >
-          <mock-styled.h1
-            classname="el-text-base"
+          <h1
+            class="el-text-base el-title"
           >
             Configure MFA Authenticator
+<<<<<<< HEAD
           </mock-styled.h1>
           <mock-styled.div
             classname=""
@@ -859,25 +1105,83 @@ exports[`HomePage should render component with no data 1`] = `
               <mock-styled.div />
             </mock-styled.div>
           </mock-styled.div>
+=======
+          </h1>
+          <div
+            class="el-mb7 el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+            role="status"
+          >
+            <div
+              class="el-pn-icon"
+              data-testid="close-icon"
+            >
+              <span
+                class="el-icon-new el-icon"
+                style="font-size: 1.25rem;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  style="font-size: 1.25rem;"
+                  title="Icon image with name info"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div
+              aria-live="polite"
+              class="el-pn-content"
+            >
+              No authenticators configured for your user account. Please use the button below to configure one.
+            </div>
+          </div>
+          <div
+            class="mocked-styled-2 el-button-group"
+          >
+            <div
+              class="mocked-styled-3 el-button-group-inner"
+            >
+              <button
+                class="el-intent-primary el-button"
+              >
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
+                Configure MFA Device
+              </button>
+            </div>
+          </div>
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name userAuthInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -973,31 +1277,34 @@ exports[`HomePage should render component with no data 1`] = `
               </clippath>
             </defs>
           </svg>
-        </mock-styled.span>
-        <mock-styled.h2
-          classname="el-text-base"
+        </span>
+        <h2
+          class="el-text-base el-subtitle"
         >
           Your MFA Config
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </h2>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           This page allows you to configure and reset your Multi Factor Authentication (MFA) device for use with Reapit Connect. For more information on how to do this, please refer to the documentation link below.
-        </mock-styled.p>
-        <mock-styled.button
-          classname="el-mb5 el-intent-neutral"
+        </small>
+        <button
+          class="el-mb5 el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Docs
-        </mock-styled.button>
+        </button>
       </aside>
       <section
         class="el-page-container el-hfull"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           Configure MFA Authenticator
+<<<<<<< HEAD
         </mock-styled.h1>
         <mock-styled.div
           classname=""
@@ -1008,6 +1315,61 @@ exports[`HomePage should render component with no data 1`] = `
             <mock-styled.div />
           </mock-styled.div>
         </mock-styled.div>
+=======
+        </h1>
+        <div
+          class="el-mb7 el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          role="status"
+        >
+          <div
+            class="el-pn-icon"
+            data-testid="close-icon"
+          >
+            <span
+              class="el-icon-new el-icon"
+              style="font-size: 1.25rem;"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                role="img"
+                style="font-size: 1.25rem;"
+                title="Icon image with name info"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            aria-live="polite"
+            class="el-pn-content"
+          >
+            No authenticators configured for your user account. Please use the button below to configure one.
+          </div>
+        </div>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
+          >
+            <button
+              class="el-intent-primary el-button"
+            >
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
+              Configure MFA Device
+            </button>
+          </div>
+        </div>
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
       </section>
     </div>
   </div>,

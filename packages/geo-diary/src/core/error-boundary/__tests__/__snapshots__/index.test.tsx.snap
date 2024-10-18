@@ -5,25 +5,28 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
-      <mock-styled.div
-        classname="el-intent-danger el-is-active el-pn-is-full-width"
-        role="alertdialog"
+      <div
+        class="el-intent-danger el-is-active el-pn-is-full-width el-persistent-notification"
+        role="status"
       >
         <div
           class="el-pn-icon"
           data-testid="close-icon"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1.25rem;"
+              title="Icon image with name info"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -33,36 +36,40 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
         </div>
         <div
+          aria-live="polite"
           class="el-pn-content"
         >
           Something went wrong here, try refreshing your page.
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
-    <mock-styled.div
-      classname="el-intent-danger el-is-active el-pn-is-full-width"
-      role="alertdialog"
+    <div
+      class="el-intent-danger el-is-active el-pn-is-full-width el-persistent-notification"
+      role="status"
     >
       <div
         class="el-pn-icon"
         data-testid="close-icon"
       >
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <span
+          class="el-icon-new el-icon"
           style="font-size: 1.25rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 1.25rem;"
+            title="Icon image with name info"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -72,14 +79,15 @@ exports[`ErrorBoundary should call the errorThrownComponent and sets the state t
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
+        </span>
       </div>
       <div
+        aria-live="polite"
         class="el-pn-content"
       >
         Something went wrong here, try refreshing your page.
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -140,7 +148,9 @@ exports[`ErrorBoundary should match a snapshot when no error 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
       <div>
         I am a component!
@@ -148,7 +158,9 @@ exports[`ErrorBoundary should match a snapshot when no error 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
     <div>
       I am a component!

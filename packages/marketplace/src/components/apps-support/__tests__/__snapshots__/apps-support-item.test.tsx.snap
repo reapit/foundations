@@ -5,29 +5,40 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="mocked-styled-5 el-card-wrap"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-16 el-card-list-main-wrap"
         >
-          <mock-styled.h5>
+          <h5
+            class="mocked-styled-17 el-card-list-heading"
+          >
             MOCK_APP_NAME
-          </mock-styled.h5>
-          <mock-styled.h6>
+          </h5>
+          <h6
+            class="mocked-styled-18 el-card-list-sub-heading"
+          >
             Will Test DevCo
-          </mock-styled.h6>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="el-intent-primary"
-              role="img"
+          </h6>
+        </div>
+        <div
+          class="mocked-styled-19 el-card-list-item"
+        >
+          <div
+            class="mocked-styled-23 el-card-list-icon"
+          >
+            <span
+              class="el-intent-primary el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name webInfographic"
                 viewBox="0 0 20 20"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -59,13 +70,19 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
                   </clippath>
                 </defs>
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
+            </span>
+          </div>
+          <div
+            class="mocked-styled-20 el-card-list-item-text-wrap"
+          >
+            <div
+              class="mocked-styled-21 el-card-list-item-text-primary"
+            >
               Website
-            </mock-styled.div>
-            <mock-styled.div>
+            </div>
+            <div
+              class="mocked-styled-22 el-card-list-item-text-secondary"
+            >
               <a
                 href="https://foo.bar"
                 rel="noopener noreferrer"
@@ -73,18 +90,23 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
               >
                 https://foo.bar
               </a>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="el-intent-primary"
-              role="img"
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-19 el-card-list-item"
+        >
+          <div
+            class="mocked-styled-23 el-card-list-icon"
+          >
+            <span
+              class="el-intent-primary el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name mailInfographic"
                 viewBox="0 0 20 20"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -98,13 +120,19 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
                   fill="#d8dee4"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
+            </span>
+          </div>
+          <div
+            class="mocked-styled-20 el-card-list-item-text-wrap"
+          >
+            <div
+              class="mocked-styled-21 el-card-list-item-text-primary"
+            >
               Support Email
-            </mock-styled.div>
-            <mock-styled.div>
+            </div>
+            <div
+              class="mocked-styled-22 el-card-list-item-text-secondary"
+            >
               <a
                 href="mailto:foo@bar.com"
                 rel="noopener noreferrer"
@@ -112,18 +140,23 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
               >
                 foo@bar.com
               </a>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="el-intent-primary"
-              role="img"
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-19 el-card-list-item"
+        >
+          <div
+            class="mocked-styled-23 el-card-list-icon"
+          >
+            <span
+              class="el-intent-primary el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name phoneInfographic"
                 viewBox="0 0 20 20"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -155,26 +188,37 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
                   </clippath>
                 </defs>
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
+            </span>
+          </div>
+          <div
+            class="mocked-styled-20 el-card-list-item-text-wrap"
+          >
+            <div
+              class="mocked-styled-21 el-card-list-item-text-primary"
+            >
               Telephone
-            </mock-styled.div>
-            <mock-styled.div>
+            </div>
+            <div
+              class="mocked-styled-22 el-card-list-item-text-secondary"
+            >
               07777777777
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="el-intent-primary"
-              role="img"
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-19 el-card-list-item"
+        >
+          <div
+            class="mocked-styled-23 el-card-list-icon"
+          >
+            <span
+              class="el-intent-primary el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name listInfographic"
                 viewBox="0 0 20 20"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -206,13 +250,19 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
                   </clippath>
                 </defs>
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
+            </span>
+          </div>
+          <div
+            class="mocked-styled-20 el-card-list-item-text-wrap"
+          >
+            <div
+              class="mocked-styled-21 el-card-list-item-text-primary"
+            >
               Terms and Conditions
-            </mock-styled.div>
-            <mock-styled.div>
+            </div>
+            <div
+              class="mocked-styled-22 el-card-list-item-text-secondary"
+            >
               <a
                 href="https://foo.bar"
                 rel="noopener noreferrer"
@@ -220,18 +270,23 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
               >
                 https://foo.bar
               </a>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="el-intent-primary"
-              role="img"
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-19 el-card-list-item"
+        >
+          <div
+            class="mocked-styled-23 el-card-list-icon"
+          >
+            <span
+              class="el-intent-primary el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name shieldInfographic"
                 viewBox="0 0 20 20"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -265,13 +320,19 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
                   </clippath>
                 </defs>
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
+            </span>
+          </div>
+          <div
+            class="mocked-styled-20 el-card-list-item-text-wrap"
+          >
+            <div
+              class="mocked-styled-21 el-card-list-item-text-primary"
+            >
               Privacy Policy
-            </mock-styled.div>
-            <mock-styled.div>
+            </div>
+            <div
+              class="mocked-styled-22 el-card-list-item-text-secondary"
+            >
               <a
                 href="https://foo.bar"
                 rel="noopener noreferrer"
@@ -279,18 +340,23 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
               >
                 https://foo.bar
               </a>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="el-intent-primary"
-              role="img"
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-19 el-card-list-item"
+        >
+          <div
+            class="mocked-styled-23 el-card-list-icon"
+          >
+            <span
+              class="el-intent-primary el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name doorLockInfographic"
                 viewBox="0 0 40 40"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -318,13 +384,19 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
                   r="2"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
+            </span>
+          </div>
+          <div
+            class="mocked-styled-20 el-card-list-item-text-wrap"
+          >
+            <div
+              class="mocked-styled-21 el-card-list-item-text-primary"
+            >
               Pricing Policy
-            </mock-styled.div>
-            <mock-styled.div>
+            </div>
+            <div
+              class="mocked-styled-22 el-card-list-item-text-secondary"
+            >
               <a
                 href="https://foo.bar"
                 rel="noopener noreferrer"
@@ -332,36 +404,47 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
               >
                 https://foo.bar
               </a>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="mocked-styled-5 el-card-wrap"
     >
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-16 el-card-list-main-wrap"
       >
-        <mock-styled.h5>
+        <h5
+          class="mocked-styled-17 el-card-list-heading"
+        >
           MOCK_APP_NAME
-        </mock-styled.h5>
-        <mock-styled.h6>
+        </h5>
+        <h6
+          class="mocked-styled-18 el-card-list-sub-heading"
+        >
           Will Test DevCo
-        </mock-styled.h6>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.span
-            classname="el-intent-primary"
-            role="img"
+        </h6>
+      </div>
+      <div
+        class="mocked-styled-19 el-card-list-item"
+      >
+        <div
+          class="mocked-styled-23 el-card-list-icon"
+        >
+          <span
+            class="el-intent-primary el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name webInfographic"
               viewBox="0 0 20 20"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -393,13 +476,19 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
+          </span>
+        </div>
+        <div
+          class="mocked-styled-20 el-card-list-item-text-wrap"
+        >
+          <div
+            class="mocked-styled-21 el-card-list-item-text-primary"
+          >
             Website
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-22 el-card-list-item-text-secondary"
+          >
             <a
               href="https://foo.bar"
               rel="noopener noreferrer"
@@ -407,18 +496,23 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
             >
               https://foo.bar
             </a>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.span
-            classname="el-intent-primary"
-            role="img"
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-19 el-card-list-item"
+      >
+        <div
+          class="mocked-styled-23 el-card-list-icon"
+        >
+          <span
+            class="el-intent-primary el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name mailInfographic"
               viewBox="0 0 20 20"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -432,13 +526,19 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
                 fill="#d8dee4"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
+          </span>
+        </div>
+        <div
+          class="mocked-styled-20 el-card-list-item-text-wrap"
+        >
+          <div
+            class="mocked-styled-21 el-card-list-item-text-primary"
+          >
             Support Email
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-22 el-card-list-item-text-secondary"
+          >
             <a
               href="mailto:foo@bar.com"
               rel="noopener noreferrer"
@@ -446,18 +546,23 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
             >
               foo@bar.com
             </a>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.span
-            classname="el-intent-primary"
-            role="img"
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-19 el-card-list-item"
+      >
+        <div
+          class="mocked-styled-23 el-card-list-icon"
+        >
+          <span
+            class="el-intent-primary el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name phoneInfographic"
               viewBox="0 0 20 20"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -489,26 +594,37 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
+          </span>
+        </div>
+        <div
+          class="mocked-styled-20 el-card-list-item-text-wrap"
+        >
+          <div
+            class="mocked-styled-21 el-card-list-item-text-primary"
+          >
             Telephone
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-22 el-card-list-item-text-secondary"
+          >
             07777777777
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.span
-            classname="el-intent-primary"
-            role="img"
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-19 el-card-list-item"
+      >
+        <div
+          class="mocked-styled-23 el-card-list-icon"
+        >
+          <span
+            class="el-intent-primary el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name listInfographic"
               viewBox="0 0 20 20"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -540,13 +656,19 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
+          </span>
+        </div>
+        <div
+          class="mocked-styled-20 el-card-list-item-text-wrap"
+        >
+          <div
+            class="mocked-styled-21 el-card-list-item-text-primary"
+          >
             Terms and Conditions
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-22 el-card-list-item-text-secondary"
+          >
             <a
               href="https://foo.bar"
               rel="noopener noreferrer"
@@ -554,18 +676,23 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
             >
               https://foo.bar
             </a>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.span
-            classname="el-intent-primary"
-            role="img"
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-19 el-card-list-item"
+      >
+        <div
+          class="mocked-styled-23 el-card-list-icon"
+        >
+          <span
+            class="el-intent-primary el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name shieldInfographic"
               viewBox="0 0 20 20"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -599,13 +726,19 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
+          </span>
+        </div>
+        <div
+          class="mocked-styled-20 el-card-list-item-text-wrap"
+        >
+          <div
+            class="mocked-styled-21 el-card-list-item-text-primary"
+          >
             Privacy Policy
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-22 el-card-list-item-text-secondary"
+          >
             <a
               href="https://foo.bar"
               rel="noopener noreferrer"
@@ -613,18 +746,23 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
             >
               https://foo.bar
             </a>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.span
-            classname="el-intent-primary"
-            role="img"
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-19 el-card-list-item"
+      >
+        <div
+          class="mocked-styled-23 el-card-list-icon"
+        >
+          <span
+            class="el-intent-primary el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name doorLockInfographic"
               viewBox="0 0 40 40"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -652,13 +790,19 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
                 r="2"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
+          </span>
+        </div>
+        <div
+          class="mocked-styled-20 el-card-list-item-text-wrap"
+        >
+          <div
+            class="mocked-styled-21 el-card-list-item-text-primary"
+          >
             Pricing Policy
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-22 el-card-list-item-text-secondary"
+          >
             <a
               href="https://foo.bar"
               rel="noopener noreferrer"
@@ -666,10 +810,10 @@ exports[`AppsSupportItem should match a snapshot 1`] = `
             >
               https://foo.bar
             </a>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -730,27 +874,38 @@ exports[`AppsSupportItem should match a snapshot where details not supplied 1`] 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="mocked-styled-5 el-card-wrap"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-16 el-card-list-main-wrap"
         >
-          <mock-styled.h5>
+          <h5
+            class="mocked-styled-17 el-card-list-heading"
+          >
             MOCK_APP_NAME
-          </mock-styled.h5>
-          <mock-styled.h6 />
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="el-intent-primary"
-              role="img"
+          </h5>
+          <h6
+            class="mocked-styled-18 el-card-list-sub-heading"
+          />
+        </div>
+        <div
+          class="mocked-styled-19 el-card-list-item"
+        >
+          <div
+            class="mocked-styled-23 el-card-list-icon"
+          >
+            <span
+              class="el-intent-primary el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name webInfographic"
                 viewBox="0 0 20 20"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -782,26 +937,37 @@ exports[`AppsSupportItem should match a snapshot where details not supplied 1`] 
                   </clippath>
                 </defs>
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
+            </span>
+          </div>
+          <div
+            class="mocked-styled-20 el-card-list-item-text-wrap"
+          >
+            <div
+              class="mocked-styled-21 el-card-list-item-text-primary"
+            >
               Website
-            </mock-styled.div>
-            <mock-styled.div>
+            </div>
+            <div
+              class="mocked-styled-22 el-card-list-item-text-secondary"
+            >
               Not Supplied
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="el-intent-primary"
-              role="img"
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-19 el-card-list-item"
+        >
+          <div
+            class="mocked-styled-23 el-card-list-icon"
+          >
+            <span
+              class="el-intent-primary el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name mailInfographic"
                 viewBox="0 0 20 20"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -815,26 +981,37 @@ exports[`AppsSupportItem should match a snapshot where details not supplied 1`] 
                   fill="#d8dee4"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
+            </span>
+          </div>
+          <div
+            class="mocked-styled-20 el-card-list-item-text-wrap"
+          >
+            <div
+              class="mocked-styled-21 el-card-list-item-text-primary"
+            >
               Support Email
-            </mock-styled.div>
-            <mock-styled.div>
+            </div>
+            <div
+              class="mocked-styled-22 el-card-list-item-text-secondary"
+            >
               Not Supplied
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="el-intent-primary"
-              role="img"
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-19 el-card-list-item"
+        >
+          <div
+            class="mocked-styled-23 el-card-list-icon"
+          >
+            <span
+              class="el-intent-primary el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name phoneInfographic"
                 viewBox="0 0 20 20"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -866,26 +1043,37 @@ exports[`AppsSupportItem should match a snapshot where details not supplied 1`] 
                   </clippath>
                 </defs>
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
+            </span>
+          </div>
+          <div
+            class="mocked-styled-20 el-card-list-item-text-wrap"
+          >
+            <div
+              class="mocked-styled-21 el-card-list-item-text-primary"
+            >
               Telephone
-            </mock-styled.div>
-            <mock-styled.div>
+            </div>
+            <div
+              class="mocked-styled-22 el-card-list-item-text-secondary"
+            >
               Not Supplied
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="el-intent-primary"
-              role="img"
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-19 el-card-list-item"
+        >
+          <div
+            class="mocked-styled-23 el-card-list-icon"
+          >
+            <span
+              class="el-intent-primary el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name listInfographic"
                 viewBox="0 0 20 20"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -917,26 +1105,37 @@ exports[`AppsSupportItem should match a snapshot where details not supplied 1`] 
                   </clippath>
                 </defs>
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
+            </span>
+          </div>
+          <div
+            class="mocked-styled-20 el-card-list-item-text-wrap"
+          >
+            <div
+              class="mocked-styled-21 el-card-list-item-text-primary"
+            >
               Terms and Conditions
-            </mock-styled.div>
-            <mock-styled.div>
+            </div>
+            <div
+              class="mocked-styled-22 el-card-list-item-text-secondary"
+            >
               Not Supplied
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="el-intent-primary"
-              role="img"
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-19 el-card-list-item"
+        >
+          <div
+            class="mocked-styled-23 el-card-list-icon"
+          >
+            <span
+              class="el-intent-primary el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name shieldInfographic"
                 viewBox="0 0 20 20"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -970,26 +1169,37 @@ exports[`AppsSupportItem should match a snapshot where details not supplied 1`] 
                   </clippath>
                 </defs>
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
+            </span>
+          </div>
+          <div
+            class="mocked-styled-20 el-card-list-item-text-wrap"
+          >
+            <div
+              class="mocked-styled-21 el-card-list-item-text-primary"
+            >
               Privacy Policy
-            </mock-styled.div>
-            <mock-styled.div>
+            </div>
+            <div
+              class="mocked-styled-22 el-card-list-item-text-secondary"
+            >
               Not Supplied
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="el-intent-primary"
-              role="img"
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-19 el-card-list-item"
+        >
+          <div
+            class="mocked-styled-23 el-card-list-icon"
+          >
+            <span
+              class="el-intent-primary el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name doorLockInfographic"
                 viewBox="0 0 40 40"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1017,42 +1227,59 @@ exports[`AppsSupportItem should match a snapshot where details not supplied 1`] 
                   r="2"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
+            </span>
+          </div>
+          <div
+            class="mocked-styled-20 el-card-list-item-text-wrap"
+          >
+            <div
+              class="mocked-styled-21 el-card-list-item-text-primary"
+            >
               Pricing Policy
-            </mock-styled.div>
-            <mock-styled.div>
+            </div>
+            <div
+              class="mocked-styled-22 el-card-list-item-text-secondary"
+            >
               Free
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="mocked-styled-5 el-card-wrap"
     >
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-16 el-card-list-main-wrap"
       >
-        <mock-styled.h5>
+        <h5
+          class="mocked-styled-17 el-card-list-heading"
+        >
           MOCK_APP_NAME
-        </mock-styled.h5>
-        <mock-styled.h6 />
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.span
-            classname="el-intent-primary"
-            role="img"
+        </h5>
+        <h6
+          class="mocked-styled-18 el-card-list-sub-heading"
+        />
+      </div>
+      <div
+        class="mocked-styled-19 el-card-list-item"
+      >
+        <div
+          class="mocked-styled-23 el-card-list-icon"
+        >
+          <span
+            class="el-intent-primary el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name webInfographic"
               viewBox="0 0 20 20"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1084,26 +1311,37 @@ exports[`AppsSupportItem should match a snapshot where details not supplied 1`] 
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
+          </span>
+        </div>
+        <div
+          class="mocked-styled-20 el-card-list-item-text-wrap"
+        >
+          <div
+            class="mocked-styled-21 el-card-list-item-text-primary"
+          >
             Website
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-22 el-card-list-item-text-secondary"
+          >
             Not Supplied
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.span
-            classname="el-intent-primary"
-            role="img"
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-19 el-card-list-item"
+      >
+        <div
+          class="mocked-styled-23 el-card-list-icon"
+        >
+          <span
+            class="el-intent-primary el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name mailInfographic"
               viewBox="0 0 20 20"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1117,26 +1355,37 @@ exports[`AppsSupportItem should match a snapshot where details not supplied 1`] 
                 fill="#d8dee4"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
+          </span>
+        </div>
+        <div
+          class="mocked-styled-20 el-card-list-item-text-wrap"
+        >
+          <div
+            class="mocked-styled-21 el-card-list-item-text-primary"
+          >
             Support Email
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-22 el-card-list-item-text-secondary"
+          >
             Not Supplied
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.span
-            classname="el-intent-primary"
-            role="img"
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-19 el-card-list-item"
+      >
+        <div
+          class="mocked-styled-23 el-card-list-icon"
+        >
+          <span
+            class="el-intent-primary el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name phoneInfographic"
               viewBox="0 0 20 20"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1168,26 +1417,37 @@ exports[`AppsSupportItem should match a snapshot where details not supplied 1`] 
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
+          </span>
+        </div>
+        <div
+          class="mocked-styled-20 el-card-list-item-text-wrap"
+        >
+          <div
+            class="mocked-styled-21 el-card-list-item-text-primary"
+          >
             Telephone
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-22 el-card-list-item-text-secondary"
+          >
             Not Supplied
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.span
-            classname="el-intent-primary"
-            role="img"
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-19 el-card-list-item"
+      >
+        <div
+          class="mocked-styled-23 el-card-list-icon"
+        >
+          <span
+            class="el-intent-primary el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name listInfographic"
               viewBox="0 0 20 20"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1219,26 +1479,37 @@ exports[`AppsSupportItem should match a snapshot where details not supplied 1`] 
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
+          </span>
+        </div>
+        <div
+          class="mocked-styled-20 el-card-list-item-text-wrap"
+        >
+          <div
+            class="mocked-styled-21 el-card-list-item-text-primary"
+          >
             Terms and Conditions
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-22 el-card-list-item-text-secondary"
+          >
             Not Supplied
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.span
-            classname="el-intent-primary"
-            role="img"
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-19 el-card-list-item"
+      >
+        <div
+          class="mocked-styled-23 el-card-list-icon"
+        >
+          <span
+            class="el-intent-primary el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name shieldInfographic"
               viewBox="0 0 20 20"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1272,26 +1543,37 @@ exports[`AppsSupportItem should match a snapshot where details not supplied 1`] 
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
+          </span>
+        </div>
+        <div
+          class="mocked-styled-20 el-card-list-item-text-wrap"
+        >
+          <div
+            class="mocked-styled-21 el-card-list-item-text-primary"
+          >
             Privacy Policy
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-22 el-card-list-item-text-secondary"
+          >
             Not Supplied
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.span
-            classname="el-intent-primary"
-            role="img"
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-19 el-card-list-item"
+      >
+        <div
+          class="mocked-styled-23 el-card-list-icon"
+        >
+          <span
+            class="el-intent-primary el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name doorLockInfographic"
               viewBox="0 0 40 40"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1319,18 +1601,24 @@ exports[`AppsSupportItem should match a snapshot where details not supplied 1`] 
                 r="2"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
+          </span>
+        </div>
+        <div
+          class="mocked-styled-20 el-card-list-item-text-wrap"
+        >
+          <div
+            class="mocked-styled-21 el-card-list-item-text-primary"
+          >
             Pricing Policy
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-22 el-card-list-item-text-secondary"
+          >
             Free
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

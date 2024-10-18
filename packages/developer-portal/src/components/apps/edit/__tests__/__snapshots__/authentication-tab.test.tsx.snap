@@ -5,9 +5,11 @@ exports[`AuthenticationTab should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         When using the Reapit Connect
          
@@ -15,49 +17,63 @@ exports[`AuthenticationTab should match a snapshot 1`] = `
           Authorization Code flow,
         </a>
          you need to register both a re-direct URI and a logout URI. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only URIs that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
-      </mock-styled.p>
-      <mock-styled.div
-        classname="el-form-layout-has-margin"
+      </p>
+      <div
+        class="el-form-layout-has-margin el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="redirectUris"
               placeholder="Enter your Redirect URI(s)"
               type="text"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Redirect URI(s)
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="signoutUris"
               placeholder="Enter your Sign Out URI(s)"
               type="text"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Sign Out URI(s)
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       When using the Reapit Connect
        
@@ -65,43 +81,55 @@ exports[`AuthenticationTab should match a snapshot 1`] = `
         Authorization Code flow,
       </a>
        you need to register both a re-direct URI and a logout URI. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only URIs that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
-    </mock-styled.p>
-    <mock-styled.div
-      classname="el-form-layout-has-margin"
+    </p>
+    <div
+      class="el-form-layout-has-margin el-form-layout"
     >
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="redirectUris"
             placeholder="Enter your Redirect URI(s)"
             type="text"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Redirect URI(s)
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="signoutUris"
             placeholder="Enter your Sign Out URI(s)"
             type="text"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Sign Out URI(s)
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+          </label>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

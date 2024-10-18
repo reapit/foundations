@@ -5,20 +5,23 @@ exports[`Carousel should match a snapshot with options 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <mock-styled.div>
         <mock-styled.mock-styled.a
           classname="el-fade-in"
         >
-          <mock-styled.span
-            classname="el-intent-primary el-icon-new"
-            role="img"
+          <span
+            class="el-intent-primary el-icon-new el-icon"
             style="font-size: 0.75em;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 0.75em;"
+              title="Icon image with name chevronRight"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +31,7 @@ exports[`Carousel should match a snapshot with options 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
         </mock-styled.mock-styled.a>
         <mock-styled.div
           numbercols="1"
@@ -55,20 +58,23 @@ exports[`Carousel should match a snapshot with options 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <mock-styled.div>
       <mock-styled.mock-styled.a
         classname="el-fade-in"
       >
-        <mock-styled.span
-          classname="el-intent-primary el-icon-new"
-          role="img"
+        <span
+          class="el-intent-primary el-icon-new el-icon"
           style="font-size: 0.75em;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 0.75em;"
+            title="Icon image with name chevronRight"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +84,7 @@ exports[`Carousel should match a snapshot with options 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
+        </span>
       </mock-styled.mock-styled.a>
       <mock-styled.div
         numbercols="1"

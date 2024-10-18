@@ -5,20 +5,23 @@ exports[`AppFiltersCollection should match a snapshot for mobile desktop 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <mock-styled.div>
         <div
           class="el-flex-container el-flex-column"
         >
-          <mock-styled.span
-            classname="el-mb5"
-            role="img"
+          <span
+            class="el-mb5 el-icon"
             style="font-size: 80px;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 80px;"
+              title="Icon image with name webDeveloperInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -171,36 +174,39 @@ exports[`AppFiltersCollection should match a snapshot for mobile desktop 1`] = `
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
+          </span>
           <div
             class="el-flex-container el-flex-column el-flex-justify-center"
           >
-            <mock-styled.mock-styled.h2>
+            <mock-styled.div>
               Reapit Developed Apps
-            </mock-styled.mock-styled.h2>
-            <mock-styled.mock-styled.p>
+            </mock-styled.div>
+            <mock-styled.div>
               Lorem ipsum dolor sit amet, consectetur adip
-            </mock-styled.mock-styled.p>
+            </mock-styled.div>
           </div>
         </div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <mock-styled.div>
       <div
         class="el-flex-container el-flex-column"
       >
-        <mock-styled.span
-          classname="el-mb5"
-          role="img"
+        <span
+          class="el-mb5 el-icon"
           style="font-size: 80px;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 80px;"
+            title="Icon image with name webDeveloperInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -353,16 +359,16 @@ exports[`AppFiltersCollection should match a snapshot for mobile desktop 1`] = `
               </clippath>
             </defs>
           </svg>
-        </mock-styled.span>
+        </span>
         <div
           class="el-flex-container el-flex-column el-flex-justify-center"
         >
-          <mock-styled.mock-styled.h2>
+          <mock-styled.div>
             Reapit Developed Apps
-          </mock-styled.mock-styled.h2>
-          <mock-styled.mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div>
             Lorem ipsum dolor sit amet, consectetur adip
-          </mock-styled.mock-styled.p>
+          </mock-styled.div>
         </div>
       </div>
     </mock-styled.div>
@@ -426,20 +432,23 @@ exports[`AppFiltersCollection should match a snapshot for mobile mobile 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <mock-styled.div>
         <div
           class="el-flex-container el-flex-column"
         >
-          <mock-styled.span
-            classname="el-mb5"
-            role="img"
+          <span
+            class="el-mb5 el-icon"
             style="font-size: 60px;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 60px;"
+              title="Icon image with name webDeveloperInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -592,36 +601,39 @@ exports[`AppFiltersCollection should match a snapshot for mobile mobile 1`] = `
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
+          </span>
           <div
             class="el-flex-container el-flex-column el-flex-justify-center"
           >
-            <mock-styled.mock-styled.h2>
+            <mock-styled.div>
               Reapit Developed Apps
-            </mock-styled.mock-styled.h2>
-            <mock-styled.mock-styled.p>
+            </mock-styled.div>
+            <mock-styled.div>
               Lorem ipsum dolor sit amet, consectetur adip
-            </mock-styled.mock-styled.p>
+            </mock-styled.div>
           </div>
         </div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <mock-styled.div>
       <div
         class="el-flex-container el-flex-column"
       >
-        <mock-styled.span
-          classname="el-mb5"
-          role="img"
+        <span
+          class="el-mb5 el-icon"
           style="font-size: 60px;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 60px;"
+            title="Icon image with name webDeveloperInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -774,16 +786,16 @@ exports[`AppFiltersCollection should match a snapshot for mobile mobile 1`] = `
               </clippath>
             </defs>
           </svg>
-        </mock-styled.span>
+        </span>
         <div
           class="el-flex-container el-flex-column el-flex-justify-center"
         >
-          <mock-styled.mock-styled.h2>
+          <mock-styled.div>
             Reapit Developed Apps
-          </mock-styled.mock-styled.h2>
-          <mock-styled.mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div>
             Lorem ipsum dolor sit amet, consectetur adip
-          </mock-styled.mock-styled.p>
+          </mock-styled.div>
         </div>
       </div>
     </mock-styled.div>
@@ -847,20 +859,23 @@ exports[`AppFiltersCollection should match a snapshot for mobile superWidescreen
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <mock-styled.div>
         <div
           class="el-flex-container el-flex-column"
         >
-          <mock-styled.span
-            classname="el-mb5"
-            role="img"
+          <span
+            class="el-mb5 el-icon"
             style="font-size: 80px;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 80px;"
+              title="Icon image with name webDeveloperInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1013,36 +1028,39 @@ exports[`AppFiltersCollection should match a snapshot for mobile superWidescreen
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
+          </span>
           <div
             class="el-flex-container el-flex-column el-flex-justify-center"
           >
-            <mock-styled.mock-styled.h2>
+            <mock-styled.div>
               Reapit Developed Apps
-            </mock-styled.mock-styled.h2>
-            <mock-styled.mock-styled.p>
+            </mock-styled.div>
+            <mock-styled.div>
               Lorem ipsum dolor sit amet, consectetur adip
-            </mock-styled.mock-styled.p>
+            </mock-styled.div>
           </div>
         </div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <mock-styled.div>
       <div
         class="el-flex-container el-flex-column"
       >
-        <mock-styled.span
-          classname="el-mb5"
-          role="img"
+        <span
+          class="el-mb5 el-icon"
           style="font-size: 80px;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 80px;"
+            title="Icon image with name webDeveloperInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -1195,16 +1213,16 @@ exports[`AppFiltersCollection should match a snapshot for mobile superWidescreen
               </clippath>
             </defs>
           </svg>
-        </mock-styled.span>
+        </span>
         <div
           class="el-flex-container el-flex-column el-flex-justify-center"
         >
-          <mock-styled.mock-styled.h2>
+          <mock-styled.div>
             Reapit Developed Apps
-          </mock-styled.mock-styled.h2>
-          <mock-styled.mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div>
             Lorem ipsum dolor sit amet, consectetur adip
-          </mock-styled.mock-styled.p>
+          </mock-styled.div>
         </div>
       </div>
     </mock-styled.div>
@@ -1268,20 +1286,23 @@ exports[`AppFiltersCollection should match a snapshot for mobile tablet 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <mock-styled.div>
         <div
           class="el-flex-container el-flex-column"
         >
-          <mock-styled.span
-            classname="el-mb5"
-            role="img"
+          <span
+            class="el-mb5 el-icon"
             style="font-size: 80px;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 80px;"
+              title="Icon image with name webDeveloperInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1434,36 +1455,39 @@ exports[`AppFiltersCollection should match a snapshot for mobile tablet 1`] = `
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
+          </span>
           <div
             class="el-flex-container el-flex-column el-flex-justify-center"
           >
-            <mock-styled.mock-styled.h2>
+            <mock-styled.div>
               Reapit Developed Apps
-            </mock-styled.mock-styled.h2>
-            <mock-styled.mock-styled.p>
+            </mock-styled.div>
+            <mock-styled.div>
               Lorem ipsum dolor sit amet, consectetur adip
-            </mock-styled.mock-styled.p>
+            </mock-styled.div>
           </div>
         </div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <mock-styled.div>
       <div
         class="el-flex-container el-flex-column"
       >
-        <mock-styled.span
-          classname="el-mb5"
-          role="img"
+        <span
+          class="el-mb5 el-icon"
           style="font-size: 80px;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 80px;"
+            title="Icon image with name webDeveloperInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -1616,16 +1640,16 @@ exports[`AppFiltersCollection should match a snapshot for mobile tablet 1`] = `
               </clippath>
             </defs>
           </svg>
-        </mock-styled.span>
+        </span>
         <div
           class="el-flex-container el-flex-column el-flex-justify-center"
         >
-          <mock-styled.mock-styled.h2>
+          <mock-styled.div>
             Reapit Developed Apps
-          </mock-styled.mock-styled.h2>
-          <mock-styled.mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div>
             Lorem ipsum dolor sit amet, consectetur adip
-          </mock-styled.mock-styled.p>
+          </mock-styled.div>
         </div>
       </div>
     </mock-styled.div>
@@ -1689,20 +1713,23 @@ exports[`AppFiltersCollection should match a snapshot for mobile widescreen 1`] 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <mock-styled.div>
         <div
           class="el-flex-container el-flex-column"
         >
-          <mock-styled.span
-            classname="el-mb5"
-            role="img"
+          <span
+            class="el-mb5 el-icon"
             style="font-size: 80px;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 80px;"
+              title="Icon image with name webDeveloperInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1855,36 +1882,39 @@ exports[`AppFiltersCollection should match a snapshot for mobile widescreen 1`] 
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
+          </span>
           <div
             class="el-flex-container el-flex-column el-flex-justify-center"
           >
-            <mock-styled.mock-styled.h2>
+            <mock-styled.div>
               Reapit Developed Apps
-            </mock-styled.mock-styled.h2>
-            <mock-styled.mock-styled.p>
+            </mock-styled.div>
+            <mock-styled.div>
               Lorem ipsum dolor sit amet, consectetur adip
-            </mock-styled.mock-styled.p>
+            </mock-styled.div>
           </div>
         </div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <mock-styled.div>
       <div
         class="el-flex-container el-flex-column"
       >
-        <mock-styled.span
-          classname="el-mb5"
-          role="img"
+        <span
+          class="el-mb5 el-icon"
           style="font-size: 80px;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 80px;"
+            title="Icon image with name webDeveloperInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -2037,16 +2067,16 @@ exports[`AppFiltersCollection should match a snapshot for mobile widescreen 1`] 
               </clippath>
             </defs>
           </svg>
-        </mock-styled.span>
+        </span>
         <div
           class="el-flex-container el-flex-column el-flex-justify-center"
         >
-          <mock-styled.mock-styled.h2>
+          <mock-styled.div>
             Reapit Developed Apps
-          </mock-styled.mock-styled.h2>
-          <mock-styled.mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div>
             Lorem ipsum dolor sit amet, consectetur adip
-          </mock-styled.mock-styled.p>
+          </mock-styled.div>
         </div>
       </div>
     </mock-styled.div>

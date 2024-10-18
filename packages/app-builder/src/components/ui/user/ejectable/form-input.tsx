@@ -3,7 +3,7 @@ import {
   Button,
   ButtonGroup,
   CardWrap,
-  ElBodyText,
+  BodyText,
   elFlex,
   elFlex1,
   elFlexAlignCenter,
@@ -596,7 +596,7 @@ const ListInput = React.forwardRef(
               />
             </CardWrap>
           ))}
-          {listValue.length === 0 && <ElBodyText className={cx(elMy2, elHasGreyText)}>None yet</ElBodyText>}
+          {listValue.length === 0 && <BodyText className={cx(elMy2, elHasGreyText)}>None yet</BodyText>}
         </InputGroup>
         <Button
           type="button"

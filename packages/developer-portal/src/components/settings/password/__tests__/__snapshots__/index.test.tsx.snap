@@ -5,11 +5,14 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         Password
+<<<<<<< HEAD
       </mock-styled.h1>
       <mock-styled.div
         classname=""
@@ -19,25 +22,121 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
+=======
+      </h1>
+      <form>
+        <div
+          class="el-form-layout-has-margin el-form-layout"
+        >
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type password"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="password"
+                placeholder="Current Password"
+                type="password"
+              />
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                Current Password
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type password"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="newPassword"
+                placeholder="New Password"
+                type="password"
+              />
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                New Password
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type password"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="confirmPassword"
+                placeholder="Confirm New Password"
+                type="password"
+              />
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                Confirm New Password
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
+          >
+            <button
+              class="el-intent-primary el-button"
+              type="submit"
+            >
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
+              Save Changes
+            </button>
+          </div>
+        </div>
+      </form>
+      <div
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         aria-hidden="true"
-        classname=""
+        class="mocked-styled-146 el-mobile-controls-bg"
       />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-147 el-mobile-controls"
         id=":r0:"
       >
-        <mock-styled.button
+        <button
           aria-controls=":r0:"
-          classname="el-floating-button el-intent-primary"
+          class="el-floating-button el-intent-primary el-button"
         >
-          <mock-styled.div />
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name menu"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -47,17 +146,20 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+          </span>
+        </button>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       Password
+<<<<<<< HEAD
     </mock-styled.h1>
     <mock-styled.div
       classname=""
@@ -67,25 +169,121 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.div
+=======
+    </h1>
+    <form>
+      <div
+        class="el-form-layout-has-margin el-form-layout"
+      >
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type password"
+              class="mocked-styled-38 el-input"
+              id="test-static-id"
+              name="password"
+              placeholder="Current Password"
+              type="password"
+            />
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
+            >
+              Current Password
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type password"
+              class="mocked-styled-38 el-input"
+              id="test-static-id"
+              name="newPassword"
+              placeholder="New Password"
+              type="password"
+            />
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
+            >
+              New Password
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type password"
+              class="mocked-styled-38 el-input"
+              id="test-static-id"
+              name="confirmPassword"
+              placeholder="Confirm New Password"
+              type="password"
+            />
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
+            >
+              Confirm New Password
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
+        >
+          <button
+            class="el-intent-primary el-button"
+            type="submit"
+          >
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </form>
+    <div
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
       aria-hidden="true"
-      classname=""
+      class="mocked-styled-146 el-mobile-controls-bg"
     />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-147 el-mobile-controls"
       id=":r0:"
     >
-      <mock-styled.button
+      <button
         aria-controls=":r0:"
-        classname="el-floating-button el-intent-primary"
+        class="el-floating-button el-intent-primary el-button"
       >
-        <mock-styled.div />
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <div
+          class="mocked-styled-0 el-button-loader"
+        />
+        <span
+          class="el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name menu"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -95,9 +293,9 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
+        </span>
+      </button>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -163,11 +361,14 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
       <div />
     </div>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         Password
+<<<<<<< HEAD
       </mock-styled.h1>
       <mock-styled.div
         classname=""
@@ -177,25 +378,121 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
+=======
+      </h1>
+      <form>
+        <div
+          class="el-form-layout-has-margin el-form-layout"
+        >
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type password"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="password"
+                placeholder="Current Password"
+                type="password"
+              />
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                Current Password
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type password"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="newPassword"
+                placeholder="New Password"
+                type="password"
+              />
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                New Password
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type password"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="confirmPassword"
+                placeholder="Confirm New Password"
+                type="password"
+              />
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                Confirm New Password
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
+          >
+            <button
+              class="el-intent-primary el-button"
+              type="submit"
+            >
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
+              Save Changes
+            </button>
+          </div>
+        </div>
+      </form>
+      <div
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         aria-hidden="true"
-        classname=""
+        class="mocked-styled-146 el-mobile-controls-bg"
       />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-147 el-mobile-controls"
         id=":r2:"
       >
-        <mock-styled.button
+        <button
           aria-controls=":r2:"
-          classname="el-floating-button el-intent-primary"
+          class="el-floating-button el-intent-primary el-button"
         >
-          <mock-styled.div />
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name menu"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -205,17 +502,20 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+          </span>
+        </button>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       Password
+<<<<<<< HEAD
     </mock-styled.h1>
     <mock-styled.div
       classname=""
@@ -225,25 +525,121 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
       </mock-styled.div>
     </mock-styled.div>
     <mock-styled.div
+=======
+    </h1>
+    <form>
+      <div
+        class="el-form-layout-has-margin el-form-layout"
+      >
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type password"
+              class="mocked-styled-38 el-input"
+              id="test-static-id"
+              name="password"
+              placeholder="Current Password"
+              type="password"
+            />
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
+            >
+              Current Password
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type password"
+              class="mocked-styled-38 el-input"
+              id="test-static-id"
+              name="newPassword"
+              placeholder="New Password"
+              type="password"
+            />
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
+            >
+              New Password
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type password"
+              class="mocked-styled-38 el-input"
+              id="test-static-id"
+              name="confirmPassword"
+              placeholder="Confirm New Password"
+              type="password"
+            />
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
+            >
+              Confirm New Password
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
+        >
+          <button
+            class="el-intent-primary el-button"
+            type="submit"
+          >
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </form>
+    <div
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
       aria-hidden="true"
-      classname=""
+      class="mocked-styled-146 el-mobile-controls-bg"
     />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-147 el-mobile-controls"
       id=":r2:"
     >
-      <mock-styled.button
+      <button
         aria-controls=":r2:"
-        classname="el-floating-button el-intent-primary"
+        class="el-floating-button el-intent-primary el-button"
       >
-        <mock-styled.div />
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <div
+          class="mocked-styled-0 el-button-loader"
+        />
+        <span
+          class="el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name menu"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -253,9 +649,9 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
+        </span>
+      </button>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

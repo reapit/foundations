@@ -5,25 +5,37 @@ exports[`Payment should match a snapshot when loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="mocked-styled-44 el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+        <div
+          class="mocked-styled-46 el-loader"
+        >
+          <div
+            class="mocked-styled-47 el-loader-moving-bar"
+          />
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="mocked-styled-44 el-loader-container"
     >
-      <mock-styled.div>
-        <mock-styled.div />
-      </mock-styled.div>
-    </mock-styled.div>
+      <div
+        class="mocked-styled-46 el-loader"
+      >
+        <div
+          class="mocked-styled-47 el-loader-moving-bar"
+        />
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -84,24 +96,27 @@ exports[`Payment should match a snapshot when the payment does not return 1`] = 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname="el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-        role="alertdialog"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        role="status"
       >
         <div
           class="el-pn-icon"
           data-testid="close-icon"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1.25rem;"
+              title="Icon image with name info"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -111,35 +126,39 @@ exports[`Payment should match a snapshot when the payment does not return 1`] = 
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
         </div>
         <div
+          aria-live="polite"
           class="el-pn-content"
         >
           We do not have any information about this payment.
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-      role="alertdialog"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      role="status"
     >
       <div
         class="el-pn-icon"
         data-testid="close-icon"
       >
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <span
+          class="el-icon-new el-icon"
           style="font-size: 1.25rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 1.25rem;"
+            title="Icon image with name info"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -149,14 +168,15 @@ exports[`Payment should match a snapshot when the payment does not return 1`] = 
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
+        </span>
       </div>
       <div
+        aria-live="polite"
         class="el-pn-content"
       >
         We do not have any information about this payment.
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -217,18 +237,21 @@ exports[`Payment should match a snapshot with data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-fade-in"
       >
         <mock-styled.div>
-          <mock-styled.span
-            classname="el-intent-primary el-icon-new"
-            role="img"
+          <span
+            class="el-intent-primary el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name chevronLeft"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -238,39 +261,40 @@ exports[`Payment should match a snapshot with data 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
         </mock-styled.div>
         <div
           class="el-flex-container"
         >
-          <mock-styled.h1
-            classname="el-text-base"
+          <h1
+            class="el-text-base el-title"
           >
             Card Payment
-          </mock-styled.h1>
+          </h1>
         </div>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Payment Details
           , Ref: PAY20000001
-        </mock-styled.h2>
-        <mock-styled.div
-          classname="el-mb11"
+        </h2>
+        <div
+          class="el-mb11 el-grid"
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="mocked-styled-31 el-col"
           >
             <div
               class="el-flex-container"
             >
-              <mock-styled.span
-                classname="el-mr4 el-intent-default el-icon-new el-icon-size-medium"
-                role="img"
+              <span
+                class="el-mr4 el-intent-default el-icon-new el-icon-size-medium el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name pound"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -280,34 +304,35 @@ exports[`Payment should match a snapshot with data 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
               <div>
-                <mock-styled.h2
-                  classname="el-text-base el-has-no-margin"
+                <h2
+                  class="el-text-base el-subtitle el-has-no-margin"
                 >
                   Payment Amount
-                </mock-styled.h2>
-                <mock-styled.p
-                  classname="el-text-base el-has-grey-text"
+                </h2>
+                <p
+                  class="el-text-base el-body-text el-has-grey-text"
                 >
                   100.00
-                </mock-styled.p>
+                </p>
               </div>
             </div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-31 el-col"
           >
             <div
               class="el-flex-container"
             >
-              <mock-styled.span
-                classname="el-mr4 el-icon-size-medium"
-                role="img"
+              <span
+                class="el-mr4 el-icon-size-medium el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name listInfographic"
                   viewBox="0 0 20 20"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -339,34 +364,35 @@ exports[`Payment should match a snapshot with data 1`] = `
                     </clippath>
                   </defs>
                 </svg>
-              </mock-styled.span>
+              </span>
               <div>
-                <mock-styled.h2
-                  classname="el-text-base el-has-no-margin"
+                <h2
+                  class="el-text-base el-subtitle el-has-no-margin"
                 >
                   Reason For Payment
-                </mock-styled.h2>
-                <mock-styled.p
-                  classname="el-text-base el-has-grey-text"
+                </h2>
+                <p
+                  class="el-text-base el-body-text el-has-grey-text"
                 >
                   Tenancy Check Fee
-                </mock-styled.p>
+                </p>
               </div>
             </div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-31 el-col"
           >
             <div
               class="el-flex-container"
             >
-              <mock-styled.span
-                classname="el-mr4 el-icon-size-medium"
-                role="img"
+              <span
+                class="el-mr4 el-icon-size-medium el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name applicantInfographic"
                   viewBox="0 0 20 20"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -412,35 +438,36 @@ exports[`Payment should match a snapshot with data 1`] = `
                     </clippath>
                   </defs>
                 </svg>
-              </mock-styled.span>
+              </span>
               <div>
-                <mock-styled.h2
-                  classname="el-text-base el-has-no-margin"
+                <h2
+                  class="el-text-base el-subtitle el-has-no-margin"
                 >
                   Customer
                   , Ref: OXF12300101
-                </mock-styled.h2>
-                <mock-styled.p
-                  classname="el-text-base el-has-grey-text"
+                </h2>
+                <p
+                  class="el-text-base el-body-text el-has-grey-text"
                 >
                   Mr John Smith
-                </mock-styled.p>
+                </p>
               </div>
             </div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-31 el-col"
           >
             <div
               class="el-flex-container"
             >
-              <mock-styled.span
-                classname="el-mr4 el-icon-size-medium"
-                role="img"
+              <span
+                class="el-mr4 el-icon-size-medium el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name userHouseInfographic"
                   viewBox="0 0 40 40"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -478,34 +505,35 @@ exports[`Payment should match a snapshot with data 1`] = `
                     fill="#9faebc"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
               <div>
-                <mock-styled.h2
-                  classname="el-text-base el-has-no-margin"
+                <h2
+                  class="el-text-base el-subtitle el-has-no-margin"
                 >
                   Customer Address
-                </mock-styled.h2>
-                <mock-styled.p
-                  classname="el-text-base el-has-grey-text"
+                </h2>
+                <p
+                  class="el-text-base el-body-text el-has-grey-text"
                 >
                   1 Test House Test Lane County of Test Test City A11 2BB
-                </mock-styled.p>
+                </p>
               </div>
             </div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-31 el-col"
           >
             <div
               class="el-flex-container"
             >
-              <mock-styled.span
-                classname="el-mr4 el-icon-size-medium"
-                role="img"
+              <span
+                class="el-mr4 el-icon-size-medium el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name mailInfographic"
                   viewBox="0 0 20 20"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -519,38 +547,39 @@ exports[`Payment should match a snapshot with data 1`] = `
                     fill="#d8dee4"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
               <div>
-                <mock-styled.h2
-                  classname="el-text-base el-has-no-margin"
+                <h2
+                  class="el-text-base el-subtitle el-has-no-margin"
                 >
                   Customer Email
-                </mock-styled.h2>
-                <mock-styled.p
-                  classname="el-text-base el-has-grey-text"
+                </h2>
+                <p
+                  class="el-text-base el-body-text el-has-grey-text"
                 >
                   <a
                     href="mailto:example@email.com"
                   >
                     example@email.com
                   </a>
-                </mock-styled.p>
+                </p>
               </div>
             </div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-31 el-col"
           >
             <div
               class="el-flex-container"
             >
-              <mock-styled.span
-                classname="el-mr4 el-icon-size-medium"
-                role="img"
+              <span
+                class="el-mr4 el-icon-size-medium el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name houseInfographic"
                   viewBox="0 0 20 20"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -586,157 +615,197 @@ exports[`Payment should match a snapshot with data 1`] = `
                     </clippath>
                   </defs>
                 </svg>
-              </mock-styled.span>
+              </span>
               <div>
-                <mock-styled.h2
-                  classname="el-text-base el-has-no-margin"
+                <h2
+                  class="el-text-base el-subtitle el-has-no-margin"
                 >
                   Property
                   , Ref: OXF200008
-                </mock-styled.h2>
-                <mock-styled.p
-                  classname="el-text-base el-has-grey-text"
+                </h2>
+                <p
+                  class="el-text-base el-body-text el-has-grey-text"
                 >
                   15 Example street Solihull West Midlands B91 2XX
-                </mock-styled.p>
+                </p>
               </div>
             </div>
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
         <form
           class="el-fade-in"
         >
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Billing Details
-          </mock-styled.h2>
-          <mock-styled.div
-            classname="el-form-layout-has-margin"
+          </h2>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
           >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
-                  disabled="false"
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type text"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="customerFirstName"
                   placeholder="First name here"
                   type="text"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Customer First Name
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
-                  disabled="false"
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type text"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="customerLastName"
                   placeholder="Last name here"
                   type="text"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Customer Last Name
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
-                  disabled="false"
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type email"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="email"
                   placeholder="Email here"
                   type="email"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Customer Email
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
-                  disabled="false"
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type tel"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="customerPhone"
                   placeholder="Phone Number here"
                   type="tel"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Customer Phone Number
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
-                  disabled="false"
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type text"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="address1"
                   placeholder="Address First Line"
                   type="text"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Address Line 1
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
-                  disabled="false"
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type text"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="city"
                   placeholder="Town / City Name"
                   type="text"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Town / City
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
-                  disabled="false"
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type text"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="postalCode"
                   placeholder="Post Code"
                   type="text"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Post Code
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.select
-                  disabled="false"
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <select
+                  aria-label="Select an item from the dropdown list"
+                  class="mocked-styled-83 el-select"
                   name="country"
                 >
                   <option
@@ -1989,35 +2058,38 @@ exports[`Payment should match a snapshot with data 1`] = `
                   >
                     Zimbabwe
                   </option>
-                </mock-styled.select>
-                <mock-styled.label>
+                </select>
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Country
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base"
+                </label>
+              </div>
+            </div>
+          </div>
+          <h2
+            class="el-text-base el-subtitle"
           >
             Card Details
-          </mock-styled.h2>
-          <mock-styled.div
-            classname="el-mb7 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-            role="alertdialog"
+          </h2>
+          <div
+            class="el-mb7 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+            role="status"
           >
             <div
               class="el-pn-icon"
               data-testid="close-icon"
             >
-              <mock-styled.span
-                classname="el-icon-new"
-                role="img"
+              <span
+                class="el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name info"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -2027,64 +2099,78 @@ exports[`Payment should match a snapshot with data 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
             </div>
             <div
+              aria-live="polite"
               class="el-pn-content"
             >
               Please note, we only accept Visa and Mastercard debit cards. We do not accept credit cards or American Express.
             </div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-form-layout-has-margin"
+          </div>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
           >
-            <mock-styled.div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
               <div
                 class="el-mb2"
               >
-                <mock-styled.label>
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Card Type
-                </mock-styled.label>
+                </label>
               </div>
-              <mock-styled.div
-                classname="el-mb2"
+              <div
+                class="el-mb2 el-input-group"
               >
-                <mock-styled.input
-                  classname=""
+                <input
+                  aria-label="Input type radio"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="cardType"
                   type="radio"
                   value="visa"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Visa Debit
-                </mock-styled.label>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-mb2"
+                </label>
+              </div>
+              <div
+                class="el-mb2 el-input-group"
               >
-                <mock-styled.input
-                  classname=""
+                <input
+                  aria-label="Input type radio"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="cardType"
                   type="radio"
                   value="mastercard"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Mastercard Debit
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type text"
                   autocomplete="cardNumber"
-                  classname=""
-                  disabled="true"
+                  class="mocked-styled-38 el-input"
+                  disabled=""
                   id="cardNumber"
                   inputmode="numeric"
                   maxlength="19"
@@ -2093,7 +2179,9 @@ exports[`Payment should match a snapshot with data 1`] = `
                   type="text"
                   value=""
                 />
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-4 el-icon"
+                >
                   <svg
                     fill="currentColor"
                     height="1em"
@@ -2107,37 +2195,49 @@ exports[`Payment should match a snapshot with data 1`] = `
                       d="M0 432c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V256H0v176zm192-68c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-40zm-128 0c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM576 80v48H0V80c0-26.5 21.5-48 48-48h480c26.5 0 48 21.5 48 48z"
                     />
                   </svg>
-                </mock-styled.span>
-                <mock-styled.label
-                  htmlfor="cardNumber"
+                </span>
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="cardNumber"
                 >
                   Card Number
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
-                  disabled="true"
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type text"
+                  class="mocked-styled-38 el-input"
+                  disabled=""
                   id="test-static-id"
                   name="cardholderName"
                   placeholder="Name as appears on the card"
                   type="text"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Card Holder Name
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type text"
                   autocomplete="expiryDate"
-                  classname=""
-                  disabled="true"
+                  class="mocked-styled-38 el-input"
+                  disabled=""
                   id="expiryDate"
                   inputmode="numeric"
                   maxlength="7"
@@ -2146,63 +2246,77 @@ exports[`Payment should match a snapshot with data 1`] = `
                   type="text"
                   value=""
                 />
-                <mock-styled.label
-                  htmlfor="expiryDate"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="expiryDate"
                 >
                   Card Expires
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
-                  disabled="true"
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type text"
+                  class="mocked-styled-38 el-input"
+                  disabled=""
                   id="test-static-id"
                   maxlength="3"
                   name="securityCode"
                   placeholder="CSV on the back of card"
                   type="text"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Security Code
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-2 el-button-group"
+          >
+            <div
+              class="mocked-styled-3 el-button-group-inner"
             >
-              <mock-styled.button
-                classname="el-intent-primary"
-                disabled="true"
+              <button
+                class="el-intent-primary el-button"
+                disabled=""
                 type="submit"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Make Payment
-              </mock-styled.button>
-            </mock-styled.div>
-          </mock-styled.div>
+              </button>
+            </div>
+          </div>
         </form>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-fade-in"
     >
       <mock-styled.div>
-        <mock-styled.span
-          classname="el-intent-primary el-icon-new"
-          role="img"
+        <span
+          class="el-intent-primary el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name chevronLeft"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -2212,39 +2326,40 @@ exports[`Payment should match a snapshot with data 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
+        </span>
       </mock-styled.div>
       <div
         class="el-flex-container"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           Card Payment
-        </mock-styled.h1>
+        </h1>
       </div>
-      <mock-styled.h2
-        classname="el-text-base"
+      <h2
+        class="el-text-base el-subtitle"
       >
         Payment Details
         , Ref: PAY20000001
-      </mock-styled.h2>
-      <mock-styled.div
-        classname="el-mb11"
+      </h2>
+      <div
+        class="el-mb11 el-grid"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-31 el-col"
         >
           <div
             class="el-flex-container"
           >
-            <mock-styled.span
-              classname="el-mr4 el-intent-default el-icon-new el-icon-size-medium"
-              role="img"
+            <span
+              class="el-mr4 el-intent-default el-icon-new el-icon-size-medium el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name pound"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -2254,34 +2369,35 @@ exports[`Payment should match a snapshot with data 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
             <div>
-              <mock-styled.h2
-                classname="el-text-base el-has-no-margin"
+              <h2
+                class="el-text-base el-subtitle el-has-no-margin"
               >
                 Payment Amount
-              </mock-styled.h2>
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text"
+              </h2>
+              <p
+                class="el-text-base el-body-text el-has-grey-text"
               >
                 100.00
-              </mock-styled.p>
+              </p>
             </div>
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
           <div
             class="el-flex-container"
           >
-            <mock-styled.span
-              classname="el-mr4 el-icon-size-medium"
-              role="img"
+            <span
+              class="el-mr4 el-icon-size-medium el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name listInfographic"
                 viewBox="0 0 20 20"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -2313,34 +2429,35 @@ exports[`Payment should match a snapshot with data 1`] = `
                   </clippath>
                 </defs>
               </svg>
-            </mock-styled.span>
+            </span>
             <div>
-              <mock-styled.h2
-                classname="el-text-base el-has-no-margin"
+              <h2
+                class="el-text-base el-subtitle el-has-no-margin"
               >
                 Reason For Payment
-              </mock-styled.h2>
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text"
+              </h2>
+              <p
+                class="el-text-base el-body-text el-has-grey-text"
               >
                 Tenancy Check Fee
-              </mock-styled.p>
+              </p>
             </div>
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
           <div
             class="el-flex-container"
           >
-            <mock-styled.span
-              classname="el-mr4 el-icon-size-medium"
-              role="img"
+            <span
+              class="el-mr4 el-icon-size-medium el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name applicantInfographic"
                 viewBox="0 0 20 20"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -2386,35 +2503,36 @@ exports[`Payment should match a snapshot with data 1`] = `
                   </clippath>
                 </defs>
               </svg>
-            </mock-styled.span>
+            </span>
             <div>
-              <mock-styled.h2
-                classname="el-text-base el-has-no-margin"
+              <h2
+                class="el-text-base el-subtitle el-has-no-margin"
               >
                 Customer
                 , Ref: OXF12300101
-              </mock-styled.h2>
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text"
+              </h2>
+              <p
+                class="el-text-base el-body-text el-has-grey-text"
               >
                 Mr John Smith
-              </mock-styled.p>
+              </p>
             </div>
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
           <div
             class="el-flex-container"
           >
-            <mock-styled.span
-              classname="el-mr4 el-icon-size-medium"
-              role="img"
+            <span
+              class="el-mr4 el-icon-size-medium el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name userHouseInfographic"
                 viewBox="0 0 40 40"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -2452,34 +2570,35 @@ exports[`Payment should match a snapshot with data 1`] = `
                   fill="#9faebc"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
             <div>
-              <mock-styled.h2
-                classname="el-text-base el-has-no-margin"
+              <h2
+                class="el-text-base el-subtitle el-has-no-margin"
               >
                 Customer Address
-              </mock-styled.h2>
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text"
+              </h2>
+              <p
+                class="el-text-base el-body-text el-has-grey-text"
               >
                 1 Test House Test Lane County of Test Test City A11 2BB
-              </mock-styled.p>
+              </p>
             </div>
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
           <div
             class="el-flex-container"
           >
-            <mock-styled.span
-              classname="el-mr4 el-icon-size-medium"
-              role="img"
+            <span
+              class="el-mr4 el-icon-size-medium el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name mailInfographic"
                 viewBox="0 0 20 20"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -2493,38 +2612,39 @@ exports[`Payment should match a snapshot with data 1`] = `
                   fill="#d8dee4"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
             <div>
-              <mock-styled.h2
-                classname="el-text-base el-has-no-margin"
+              <h2
+                class="el-text-base el-subtitle el-has-no-margin"
               >
                 Customer Email
-              </mock-styled.h2>
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text"
+              </h2>
+              <p
+                class="el-text-base el-body-text el-has-grey-text"
               >
                 <a
                   href="mailto:example@email.com"
                 >
                   example@email.com
                 </a>
-              </mock-styled.p>
+              </p>
             </div>
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
           <div
             class="el-flex-container"
           >
-            <mock-styled.span
-              classname="el-mr4 el-icon-size-medium"
-              role="img"
+            <span
+              class="el-mr4 el-icon-size-medium el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name houseInfographic"
                 viewBox="0 0 20 20"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -2560,157 +2680,197 @@ exports[`Payment should match a snapshot with data 1`] = `
                   </clippath>
                 </defs>
               </svg>
-            </mock-styled.span>
+            </span>
             <div>
-              <mock-styled.h2
-                classname="el-text-base el-has-no-margin"
+              <h2
+                class="el-text-base el-subtitle el-has-no-margin"
               >
                 Property
                 , Ref: OXF200008
-              </mock-styled.h2>
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text"
+              </h2>
+              <p
+                class="el-text-base el-body-text el-has-grey-text"
               >
                 15 Example street Solihull West Midlands B91 2XX
-              </mock-styled.p>
+              </p>
             </div>
           </div>
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
       <form
         class="el-fade-in"
       >
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Billing Details
-        </mock-styled.h2>
-        <mock-styled.div
-          classname="el-form-layout-has-margin"
+        </h2>
+        <div
+          class="el-form-layout-has-margin el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
-                disabled="false"
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type text"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="customerFirstName"
                 placeholder="First name here"
                 type="text"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Customer First Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
-                disabled="false"
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type text"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="customerLastName"
                 placeholder="Last name here"
                 type="text"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Customer Last Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
-                disabled="false"
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type email"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="email"
                 placeholder="Email here"
                 type="email"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Customer Email
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
-                disabled="false"
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type tel"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="customerPhone"
                 placeholder="Phone Number here"
                 type="tel"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Customer Phone Number
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
-                disabled="false"
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type text"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="address1"
                 placeholder="Address First Line"
                 type="text"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Address Line 1
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
-                disabled="false"
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type text"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="city"
                 placeholder="Town / City Name"
                 type="text"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Town / City
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
-                disabled="false"
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type text"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="postalCode"
                 placeholder="Post Code"
                 type="text"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Post Code
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.select
-                disabled="false"
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="mocked-styled-83 el-select"
                 name="country"
               >
                 <option
@@ -3963,35 +4123,38 @@ exports[`Payment should match a snapshot with data 1`] = `
                 >
                   Zimbabwe
                 </option>
-              </mock-styled.select>
-              <mock-styled.label>
+              </select>
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Country
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.h2
-          classname="el-text-base"
+              </label>
+            </div>
+          </div>
+        </div>
+        <h2
+          class="el-text-base el-subtitle"
         >
           Card Details
-        </mock-styled.h2>
-        <mock-styled.div
-          classname="el-mb7 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-          role="alertdialog"
+        </h2>
+        <div
+          class="el-mb7 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          role="status"
         >
           <div
             class="el-pn-icon"
             data-testid="close-icon"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name info"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -4001,64 +4164,78 @@ exports[`Payment should match a snapshot with data 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
           </div>
           <div
+            aria-live="polite"
             class="el-pn-content"
           >
             Please note, we only accept Visa and Mastercard debit cards. We do not accept credit cards or American Express.
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-form-layout-has-margin"
+        </div>
+        <div
+          class="el-form-layout-has-margin el-form-layout"
         >
-          <mock-styled.div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
             <div
               class="el-mb2"
             >
-              <mock-styled.label>
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Card Type
-              </mock-styled.label>
+              </label>
             </div>
-            <mock-styled.div
-              classname="el-mb2"
+            <div
+              class="el-mb2 el-input-group"
             >
-              <mock-styled.input
-                classname=""
+              <input
+                aria-label="Input type radio"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="cardType"
                 type="radio"
                 value="visa"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Visa Debit
-              </mock-styled.label>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-mb2"
+              </label>
+            </div>
+            <div
+              class="el-mb2 el-input-group"
             >
-              <mock-styled.input
-                classname=""
+              <input
+                aria-label="Input type radio"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="cardType"
                 type="radio"
                 value="mastercard"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Mastercard Debit
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type text"
                 autocomplete="cardNumber"
-                classname=""
-                disabled="true"
+                class="mocked-styled-38 el-input"
+                disabled=""
                 id="cardNumber"
                 inputmode="numeric"
                 maxlength="19"
@@ -4067,7 +4244,9 @@ exports[`Payment should match a snapshot with data 1`] = `
                 type="text"
                 value=""
               />
-              <mock-styled.span>
+              <span
+                class="mocked-styled-4 el-icon"
+              >
                 <svg
                   fill="currentColor"
                   height="1em"
@@ -4081,37 +4260,49 @@ exports[`Payment should match a snapshot with data 1`] = `
                     d="M0 432c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V256H0v176zm192-68c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-40zm-128 0c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM576 80v48H0V80c0-26.5 21.5-48 48-48h480c26.5 0 48 21.5 48 48z"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.label
-                htmlfor="cardNumber"
+              </span>
+              <label
+                class="mocked-styled-41 el-label"
+                for="cardNumber"
               >
                 Card Number
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
-                disabled="true"
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type text"
+                class="mocked-styled-38 el-input"
+                disabled=""
                 id="test-static-id"
                 name="cardholderName"
                 placeholder="Name as appears on the card"
                 type="text"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Card Holder Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type text"
                 autocomplete="expiryDate"
-                classname=""
-                disabled="true"
+                class="mocked-styled-38 el-input"
+                disabled=""
                 id="expiryDate"
                 inputmode="numeric"
                 maxlength="7"
@@ -4120,46 +4311,57 @@ exports[`Payment should match a snapshot with data 1`] = `
                 type="text"
                 value=""
               />
-              <mock-styled.label
-                htmlfor="expiryDate"
+              <label
+                class="mocked-styled-41 el-label"
+                for="expiryDate"
               >
                 Card Expires
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
-                disabled="true"
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type text"
+                class="mocked-styled-38 el-input"
+                disabled=""
                 id="test-static-id"
                 maxlength="3"
                 name="securityCode"
                 placeholder="CSV on the back of card"
                 type="text"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Security Code
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-primary"
-              disabled="true"
+            <button
+              class="el-intent-primary el-button"
+              disabled=""
               type="submit"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Make Payment
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   </div>,
@@ -4222,24 +4424,27 @@ exports[`Payment should match a snapshot with no data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname="el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-        role="alertdialog"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        role="status"
       >
         <div
           class="el-pn-icon"
           data-testid="close-icon"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1.25rem;"
+              title="Icon image with name info"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -4249,35 +4454,39 @@ exports[`Payment should match a snapshot with no data 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
         </div>
         <div
+          aria-live="polite"
           class="el-pn-content"
         >
           We do not have any information about this payment.
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-      role="alertdialog"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-fade-in el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      role="status"
     >
       <div
         class="el-pn-icon"
         data-testid="close-icon"
       >
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <span
+          class="el-icon-new el-icon"
           style="font-size: 1.25rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 1.25rem;"
+            title="Icon image with name info"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -4287,14 +4496,15 @@ exports[`Payment should match a snapshot with no data 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
+        </span>
       </div>
       <div
+        aria-live="polite"
         class="el-pn-content"
       >
         We do not have any information about this payment.
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

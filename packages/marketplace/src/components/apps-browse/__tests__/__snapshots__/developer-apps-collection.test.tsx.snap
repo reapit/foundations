@@ -5,24 +5,27 @@ exports[`DeveloperAppsCollection should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.mock-styled.h2>
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <mock-styled.div>
         My Apps
-      </mock-styled.mock-styled.h2>
+      </mock-styled.div>
       <mock-styled.div>
         <mock-styled.div>
           <div
             class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.span
-              classname="el-mr3"
-              role="img"
+            <span
+              class="el-mr3 el-icon"
               style="font-size: 3.75rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 3.75rem;"
+                title="Icon image with name developerAppsInfographic"
                 viewBox="0 0 80 80"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -148,10 +151,10 @@ exports[`DeveloperAppsCollection should match a snapshot 1`] = `
                   </clippath>
                 </defs>
               </svg>
-            </mock-styled.span>
-            <mock-styled.mock-styled.p>
+            </span>
+            <mock-styled.div>
               Apps you are currently developing show here. These will not be visible to users until approved for public listing.
-            </mock-styled.mock-styled.p>
+            </mock-styled.div>
           </div>
         </mock-styled.div>
         <mock-styled.div
@@ -160,8 +163,9 @@ exports[`DeveloperAppsCollection should match a snapshot 1`] = `
           <div
             class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.div
-              classname="el-mr5"
+            <div
+              aria-label="A generic placeholder image"
+              class="el-mr5 el-placeholder-image"
               role="img"
               style="font-size: 1.25em; width: 32px; height: 32px;"
             >
@@ -177,10 +181,10 @@ exports[`DeveloperAppsCollection should match a snapshot 1`] = `
                   fill="#E3E3E3"
                 />
               </svg>
-            </mock-styled.div>
-            <mock-styled.mock-styled.p>
+            </div>
+            <mock-styled.div>
               MOCK_APP_NAME
-            </mock-styled.mock-styled.p>
+            </mock-styled.div>
           </div>
         </mock-styled.div>
         <mock-styled.div
@@ -189,8 +193,9 @@ exports[`DeveloperAppsCollection should match a snapshot 1`] = `
           <div
             class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.div
-              classname="el-mr5"
+            <div
+              aria-label="A generic placeholder image"
+              class="el-mr5 el-placeholder-image"
               role="img"
               style="font-size: 1.25em; width: 32px; height: 32px;"
             >
@@ -206,34 +211,37 @@ exports[`DeveloperAppsCollection should match a snapshot 1`] = `
                   fill="#E3E3E3"
                 />
               </svg>
-            </mock-styled.div>
-            <mock-styled.mock-styled.p>
+            </div>
+            <mock-styled.div>
               MOCK_APP_NAME_ANOTHER
-            </mock-styled.mock-styled.p>
+            </mock-styled.div>
           </div>
         </mock-styled.div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.mock-styled.h2>
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <mock-styled.div>
       My Apps
-    </mock-styled.mock-styled.h2>
+    </mock-styled.div>
     <mock-styled.div>
       <mock-styled.div>
         <div
           class="el-flex-container el-flex-align-center"
         >
-          <mock-styled.span
-            classname="el-mr3"
-            role="img"
+          <span
+            class="el-mr3 el-icon"
             style="font-size: 3.75rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 3.75rem;"
+              title="Icon image with name developerAppsInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -359,10 +367,10 @@ exports[`DeveloperAppsCollection should match a snapshot 1`] = `
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-          <mock-styled.mock-styled.p>
+          </span>
+          <mock-styled.div>
             Apps you are currently developing show here. These will not be visible to users until approved for public listing.
-          </mock-styled.mock-styled.p>
+          </mock-styled.div>
         </div>
       </mock-styled.div>
       <mock-styled.div
@@ -371,8 +379,9 @@ exports[`DeveloperAppsCollection should match a snapshot 1`] = `
         <div
           class="el-flex-container el-flex-align-center"
         >
-          <mock-styled.div
-            classname="el-mr5"
+          <div
+            aria-label="A generic placeholder image"
+            class="el-mr5 el-placeholder-image"
             role="img"
             style="font-size: 1.25em; width: 32px; height: 32px;"
           >
@@ -388,10 +397,10 @@ exports[`DeveloperAppsCollection should match a snapshot 1`] = `
                 fill="#E3E3E3"
               />
             </svg>
-          </mock-styled.div>
-          <mock-styled.mock-styled.p>
+          </div>
+          <mock-styled.div>
             MOCK_APP_NAME
-          </mock-styled.mock-styled.p>
+          </mock-styled.div>
         </div>
       </mock-styled.div>
       <mock-styled.div
@@ -400,8 +409,9 @@ exports[`DeveloperAppsCollection should match a snapshot 1`] = `
         <div
           class="el-flex-container el-flex-align-center"
         >
-          <mock-styled.div
-            classname="el-mr5"
+          <div
+            aria-label="A generic placeholder image"
+            class="el-mr5 el-placeholder-image"
             role="img"
             style="font-size: 1.25em; width: 32px; height: 32px;"
           >
@@ -417,10 +427,10 @@ exports[`DeveloperAppsCollection should match a snapshot 1`] = `
                 fill="#E3E3E3"
               />
             </svg>
-          </mock-styled.div>
-          <mock-styled.mock-styled.p>
+          </div>
+          <mock-styled.div>
             MOCK_APP_NAME_ANOTHER
-          </mock-styled.mock-styled.p>
+          </mock-styled.div>
         </div>
       </mock-styled.div>
     </mock-styled.div>
@@ -484,11 +494,15 @@ exports[`DeveloperAppsCollection should match a snapshot when loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

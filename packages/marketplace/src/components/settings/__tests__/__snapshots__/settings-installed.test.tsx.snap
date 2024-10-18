@@ -5,14 +5,16 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         Installations
-      </mock-styled.h1>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </h1>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
          
@@ -20,99 +22,116 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
           see here
         </a>
         .
-      </mock-styled.p>
+      </p>
       <form>
-        <mock-styled.div
-          classname="el-mb11"
+        <div
+          class="el-mb11 el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="appName"
                 placeholder="Filter by App Name"
                 type="search"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Filter by App Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+              </label>
+            </div>
+          </div>
+        </div>
       </form>
-      <mock-styled.div
-        classname="el-mb11"
+      <div
+        class="el-mb11 el-table"
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="6"
         role="table"
       >
-        <mock-styled.div
+        <div
+          class="mocked-styled-101 el-table-headers-row"
           role="row"
         >
-          <mock-styled.div
+          <div
             aria-label="App Name"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             App Name
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Customer Code"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Customer Code
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Date Installed"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Date Installed
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Installed By"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Installed By
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Date Uninstalled"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Date Uninstalled
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Uninstalled By"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Uninstalled By
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Uninstall
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </div>
+        </div>
+        <div
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-103 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name mobile"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -128,38 +147,42 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
                     fill-rule="evenodd"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.div
+              </span>
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="App Name"
               >
                 MOCK_APP_NAME
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Customer Code"
               >
                 RES
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Date Installed"
               >
                 23-03-2022
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Installed By"
               >
                 <a
@@ -169,39 +192,46 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
                 >
                   example@mail.com
                 </a>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Date Uninstalled"
               >
                 -
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Uninstalled By"
               >
                 -
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
+              </div>
+            </div>
+            <div
+              class="mocked-styled-104 el-table-cta-cell"
               role="cell"
+              tabindex="0"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-112 el-table-cta-icon-container"
+              >
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name trash"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -217,29 +247,32 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
                       fill-rule="evenodd"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-103 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name mobile"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -255,38 +288,42 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
                     fill-rule="evenodd"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.div
+              </span>
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="App Name"
               >
                 MOCK_APP_NAME_TWO
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Customer Code"
               >
                 MXX
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Date Installed"
               >
                 11-01-2022
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Installed By"
               >
                 <a
@@ -296,39 +333,46 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
                 >
                   example@mail.com
                 </a>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Date Uninstalled"
               >
                 -
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Uninstalled By"
               >
                 -
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
+              </div>
+            </div>
+            <div
+              class="mocked-styled-104 el-table-cta-cell"
               role="cell"
+              tabindex="0"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-112 el-table-cta-icon-container"
+              >
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name trash"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -344,26 +388,30 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
                       fill-rule="evenodd"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.button
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-71 el-pagination-wrap"
+      >
+        <button
           aria-label="Previous"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name chevronLeft"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -373,28 +421,35 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-        <mock-styled.div>
-          <mock-styled.input
+          </span>
+        </button>
+        <div
+          class="mocked-styled-72 el-pagination-text"
+        >
+          <input
+            aria-label="Current page number, edit to select page of 1 available"
+            class="mocked-styled-73 el-pagination-input"
             value="1"
           />
-           of 
+           
+          of 
           1
-        </mock-styled.div>
-        <mock-styled.button
+        </div>
+        <button
           aria-label="Next"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="forward-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name chevronRight"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -404,20 +459,22 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+          </span>
+        </button>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       Installations
-    </mock-styled.h1>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </h1>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
        
@@ -425,99 +482,116 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
         see here
       </a>
       .
-    </mock-styled.p>
+    </p>
     <form>
-      <mock-styled.div
-        classname="el-mb11"
+      <div
+        class="el-mb11 el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type search"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="appName"
               placeholder="Filter by App Name"
               type="search"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Filter by App Name
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </label>
+          </div>
+        </div>
+      </div>
     </form>
-    <mock-styled.div
-      classname="el-mb11"
+    <div
+      class="el-mb11 el-table"
       data-has-call-to-action="true"
       data-has-expandable-action="false"
       data-num-columns-excl-action-col="6"
       role="table"
     >
-      <mock-styled.div
+      <div
+        class="mocked-styled-101 el-table-headers-row"
         role="row"
       >
-        <mock-styled.div
+        <div
           aria-label="App Name"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           App Name
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Customer Code"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Customer Code
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Date Installed"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Date Installed
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Installed By"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Installed By
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Date Uninstalled"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Date Uninstalled
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Uninstalled By"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Uninstalled By
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Uninstall
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+        </div>
+      </div>
+      <div
+        class="mocked-styled-110 el-table-row-container"
         role="row"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+        <div
+          class="mocked-styled-103 el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name mobile"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -533,38 +607,42 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
                   fill-rule="evenodd"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.div
+            </span>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="App Name"
             >
               MOCK_APP_NAME
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Customer Code"
             >
               RES
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Date Installed"
             >
               23-03-2022
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Installed By"
             >
               <a
@@ -574,39 +652,46 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
               >
                 example@mail.com
               </a>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Date Uninstalled"
             >
               -
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Uninstalled By"
             >
               -
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
+            </div>
+          </div>
+          <div
+            class="mocked-styled-104 el-table-cta-cell"
             role="cell"
+            tabindex="0"
           >
-            <mock-styled.div>
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+            <div
+              class="mocked-styled-112 el-table-cta-icon-container"
+            >
+              <span
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name trash"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -622,29 +707,32 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
                     fill-rule="evenodd"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-110 el-table-row-container"
         role="row"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+        <div
+          class="mocked-styled-103 el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name mobile"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -660,38 +748,42 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
                   fill-rule="evenodd"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.div
+            </span>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="App Name"
             >
               MOCK_APP_NAME_TWO
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Customer Code"
             >
               MXX
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Date Installed"
             >
               11-01-2022
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Installed By"
             >
               <a
@@ -701,39 +793,46 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
               >
                 example@mail.com
               </a>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Date Uninstalled"
             >
               -
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Uninstalled By"
             >
               -
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
+            </div>
+          </div>
+          <div
+            class="mocked-styled-104 el-table-cta-cell"
             role="cell"
+            tabindex="0"
           >
-            <mock-styled.div>
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+            <div
+              class="mocked-styled-112 el-table-cta-icon-container"
+            >
+              <span
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name trash"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -749,26 +848,30 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
                     fill-rule="evenodd"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div>
-      <mock-styled.button
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="mocked-styled-71 el-pagination-wrap"
+    >
+      <button
         aria-label="Previous"
+        class="mocked-styled-74 el-pagination-button"
         data-testid="back-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <span
+          class="el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name chevronLeft"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -778,28 +881,35 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.button>
-      <mock-styled.div>
-        <mock-styled.input
+        </span>
+      </button>
+      <div
+        class="mocked-styled-72 el-pagination-text"
+      >
+        <input
+          aria-label="Current page number, edit to select page of 1 available"
+          class="mocked-styled-73 el-pagination-input"
           value="1"
         />
-         of 
+         
+        of 
         1
-      </mock-styled.div>
-      <mock-styled.button
+      </div>
+      <button
         aria-label="Next"
+        class="mocked-styled-74 el-pagination-button"
         data-testid="forward-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <span
+          class="el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name chevronRight"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -809,9 +919,9 @@ exports[`SettingsInstalled should match a snapshot 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
+        </span>
+      </button>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -872,14 +982,16 @@ exports[`SettingsInstalled should match a snapshot when loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         Installations
-      </mock-styled.h1>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </h1>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
          
@@ -887,47 +999,59 @@ exports[`SettingsInstalled should match a snapshot when loading 1`] = `
           see here
         </a>
         .
-      </mock-styled.p>
+      </p>
       <form>
-        <mock-styled.div
-          classname="el-mb11"
+        <div
+          class="el-mb11 el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="appName"
                 placeholder="Filter by App Name"
                 type="search"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Filter by App Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+              </label>
+            </div>
+          </div>
+        </div>
       </form>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-44 el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+        <div
+          class="mocked-styled-46 el-loader"
+        >
+          <div
+            class="mocked-styled-47 el-loader-moving-bar"
+          />
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       Installations
-    </mock-styled.h1>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </h1>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
        
@@ -935,36 +1059,46 @@ exports[`SettingsInstalled should match a snapshot when loading 1`] = `
         see here
       </a>
       .
-    </mock-styled.p>
+    </p>
     <form>
-      <mock-styled.div
-        classname="el-mb11"
+      <div
+        class="el-mb11 el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type search"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="appName"
               placeholder="Filter by App Name"
               type="search"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Filter by App Name
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </label>
+          </div>
+        </div>
+      </div>
     </form>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-44 el-loader-container"
     >
-      <mock-styled.div>
-        <mock-styled.div />
-      </mock-styled.div>
-    </mock-styled.div>
+      <div
+        class="mocked-styled-46 el-loader"
+      >
+        <div
+          class="mocked-styled-47 el-loader-moving-bar"
+        />
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1025,14 +1159,16 @@ exports[`SettingsInstalled should match a snapshot when no installations 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         Installations
-      </mock-styled.h1>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </h1>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
          
@@ -1040,46 +1176,53 @@ exports[`SettingsInstalled should match a snapshot when no installations 1`] = `
           see here
         </a>
         .
-      </mock-styled.p>
+      </p>
       <form>
-        <mock-styled.div
-          classname="el-mb11"
+        <div
+          class="el-mb11 el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="appName"
                 placeholder="Filter by App Name"
                 type="search"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Filter by App Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+              </label>
+            </div>
+          </div>
+        </div>
       </form>
-      <mock-styled.div
-        classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-        role="alertdialog"
+      <div
+        class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        role="status"
       >
         <div
           class="el-pn-icon"
           data-testid="close-icon"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1.25rem;"
+              title="Icon image with name info"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1089,25 +1232,28 @@ exports[`SettingsInstalled should match a snapshot when no installations 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
         </div>
         <div
+          aria-live="polite"
           class="el-pn-content"
         >
           No installations for the application.
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       Installations
-    </mock-styled.h1>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </h1>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
        
@@ -1115,46 +1261,53 @@ exports[`SettingsInstalled should match a snapshot when no installations 1`] = `
         see here
       </a>
       .
-    </mock-styled.p>
+    </p>
     <form>
-      <mock-styled.div
-        classname="el-mb11"
+      <div
+        class="el-mb11 el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type search"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="appName"
               placeholder="Filter by App Name"
               type="search"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Filter by App Name
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </label>
+          </div>
+        </div>
+      </div>
     </form>
-    <mock-styled.div
-      classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-      role="alertdialog"
+    <div
+      class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      role="status"
     >
       <div
         class="el-pn-icon"
         data-testid="close-icon"
       >
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <span
+          class="el-icon-new el-icon"
           style="font-size: 1.25rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 1.25rem;"
+            title="Icon image with name info"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -1164,14 +1317,15 @@ exports[`SettingsInstalled should match a snapshot when no installations 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
+        </span>
       </div>
       <div
+        aria-live="polite"
         class="el-pn-content"
       >
         No installations for the application.
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1232,14 +1386,16 @@ exports[`SettingsInstalled should match a snapshot when no response 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         Installations
-      </mock-styled.h1>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </h1>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
          
@@ -1247,40 +1403,48 @@ exports[`SettingsInstalled should match a snapshot when no response 1`] = `
           see here
         </a>
         .
-      </mock-styled.p>
+      </p>
       <form>
-        <mock-styled.div
-          classname="el-mb11"
+        <div
+          class="el-mb11 el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="appName"
                 placeholder="Filter by App Name"
                 type="search"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Filter by App Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+              </label>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       Installations
-    </mock-styled.h1>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </h1>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
        
@@ -1288,28 +1452,34 @@ exports[`SettingsInstalled should match a snapshot when no response 1`] = `
         see here
       </a>
       .
-    </mock-styled.p>
+    </p>
     <form>
-      <mock-styled.div
-        classname="el-mb11"
+      <div
+        class="el-mb11 el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type search"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="appName"
               placeholder="Filter by App Name"
               type="search"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Filter by App Name
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </label>
+          </div>
+        </div>
+      </div>
     </form>
   </div>,
   "debug": [Function],
@@ -1374,24 +1544,27 @@ exports[`SettingsInstalled should match a snapshot when not an admin 1`] = `
       id="root"
     />
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline"
-        role="alertdialog"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        role="status"
       >
         <div
           class="el-pn-icon"
           data-testid="close-icon"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1.25rem;"
+              title="Icon image with name info"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1401,35 +1574,39 @@ exports[`SettingsInstalled should match a snapshot when not an admin 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
         </div>
         <div
+          aria-live="polite"
           class="el-pn-content"
         >
           You do not have permission to view this page.
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline"
-      role="alertdialog"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      role="status"
     >
       <div
         class="el-pn-icon"
         data-testid="close-icon"
       >
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <span
+          class="el-icon-new el-icon"
           style="font-size: 1.25rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 1.25rem;"
+            title="Icon image with name info"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -1439,14 +1616,15 @@ exports[`SettingsInstalled should match a snapshot when not an admin 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
+        </span>
       </div>
       <div
+        aria-live="polite"
         class="el-pn-content"
       >
         You do not have permission to view this page.
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1512,14 +1690,16 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
       <div />
     </div>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         Installations
-      </mock-styled.h1>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </h1>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
          
@@ -1527,99 +1707,116 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
           see here
         </a>
         .
-      </mock-styled.p>
+      </p>
       <form>
-        <mock-styled.div
-          classname="el-mb11"
+        <div
+          class="el-mb11 el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="appName"
                 placeholder="Filter by App Name"
                 type="search"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Filter by App Name
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+              </label>
+            </div>
+          </div>
+        </div>
       </form>
-      <mock-styled.div
-        classname="el-mb11"
+      <div
+        class="el-mb11 el-table"
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="6"
         role="table"
       >
-        <mock-styled.div
+        <div
+          class="mocked-styled-101 el-table-headers-row"
           role="row"
         >
-          <mock-styled.div
+          <div
             aria-label="App Name"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             App Name
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Customer Code"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Customer Code
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Date Installed"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Date Installed
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Installed By"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Installed By
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Date Uninstalled"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Date Uninstalled
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Uninstalled By"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Uninstalled By
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Uninstall
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </div>
+        </div>
+        <div
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-103 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name mobile"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1635,38 +1832,42 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
                     fill-rule="evenodd"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.div
+              </span>
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="App Name"
               >
                 MOCK_APP_NAME
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Customer Code"
               >
                 RES
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Date Installed"
               >
                 23-03-2022
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Installed By"
               >
                 <a
@@ -1676,39 +1877,46 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
                 >
                   example@mail.com
                 </a>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Date Uninstalled"
               >
                 -
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Uninstalled By"
               >
                 -
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
+              </div>
+            </div>
+            <div
+              class="mocked-styled-104 el-table-cta-cell"
               role="cell"
+              tabindex="0"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-112 el-table-cta-icon-container"
+              >
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name trash"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1724,29 +1932,32 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
                       fill-rule="evenodd"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-103 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name mobile"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1762,38 +1973,42 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
                     fill-rule="evenodd"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.div
+              </span>
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="App Name"
               >
                 MOCK_APP_NAME_TWO
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Customer Code"
               >
                 MXX
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Date Installed"
               >
                 11-01-2022
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Installed By"
               >
                 <a
@@ -1803,39 +2018,46 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
                 >
                   example@mail.com
                 </a>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Date Uninstalled"
               >
                 -
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Uninstalled By"
               >
                 -
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
+              </div>
+            </div>
+            <div
+              class="mocked-styled-104 el-table-cta-cell"
               role="cell"
+              tabindex="0"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-112 el-table-cta-icon-container"
+              >
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name trash"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1851,26 +2073,30 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
                       fill-rule="evenodd"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.button
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-71 el-pagination-wrap"
+      >
+        <button
           aria-label="Previous"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name chevronLeft"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1880,28 +2106,35 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-        <mock-styled.div>
-          <mock-styled.input
+          </span>
+        </button>
+        <div
+          class="mocked-styled-72 el-pagination-text"
+        >
+          <input
+            aria-label="Current page number, edit to select page of 1 available"
+            class="mocked-styled-73 el-pagination-input"
             value="1"
           />
-           of 
+           
+          of 
           1
-        </mock-styled.div>
-        <mock-styled.button
+        </div>
+        <button
           aria-label="Next"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="forward-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name chevronRight"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1911,20 +2144,22 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+          </span>
+        </button>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       Installations
-    </mock-styled.h1>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </h1>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
        
@@ -1932,99 +2167,116 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
         see here
       </a>
       .
-    </mock-styled.p>
+    </p>
     <form>
-      <mock-styled.div
-        classname="el-mb11"
+      <div
+        class="el-mb11 el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type search"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="appName"
               placeholder="Filter by App Name"
               type="search"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Filter by App Name
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </label>
+          </div>
+        </div>
+      </div>
     </form>
-    <mock-styled.div
-      classname="el-mb11"
+    <div
+      class="el-mb11 el-table"
       data-has-call-to-action="true"
       data-has-expandable-action="false"
       data-num-columns-excl-action-col="6"
       role="table"
     >
-      <mock-styled.div
+      <div
+        class="mocked-styled-101 el-table-headers-row"
         role="row"
       >
-        <mock-styled.div
+        <div
           aria-label="App Name"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           App Name
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Customer Code"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Customer Code
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Date Installed"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Date Installed
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Installed By"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Installed By
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Date Uninstalled"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Date Uninstalled
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Uninstalled By"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Uninstalled By
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Uninstall
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+        </div>
+      </div>
+      <div
+        class="mocked-styled-110 el-table-row-container"
         role="row"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+        <div
+          class="mocked-styled-103 el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name mobile"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -2040,38 +2292,42 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
                   fill-rule="evenodd"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.div
+            </span>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="App Name"
             >
               MOCK_APP_NAME
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Customer Code"
             >
               RES
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Date Installed"
             >
               23-03-2022
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Installed By"
             >
               <a
@@ -2081,39 +2337,46 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
               >
                 example@mail.com
               </a>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Date Uninstalled"
             >
               -
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Uninstalled By"
             >
               -
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
+            </div>
+          </div>
+          <div
+            class="mocked-styled-104 el-table-cta-cell"
             role="cell"
+            tabindex="0"
           >
-            <mock-styled.div>
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+            <div
+              class="mocked-styled-112 el-table-cta-icon-container"
+            >
+              <span
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name trash"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -2129,29 +2392,32 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
                     fill-rule="evenodd"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-110 el-table-row-container"
         role="row"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+        <div
+          class="mocked-styled-103 el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name mobile"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -2167,38 +2433,42 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
                   fill-rule="evenodd"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.div
+            </span>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="App Name"
             >
               MOCK_APP_NAME_TWO
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Customer Code"
             >
               MXX
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Date Installed"
             >
               11-01-2022
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Installed By"
             >
               <a
@@ -2208,39 +2478,46 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
               >
                 example@mail.com
               </a>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Date Uninstalled"
             >
               -
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Uninstalled By"
             >
               -
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
+            </div>
+          </div>
+          <div
+            class="mocked-styled-104 el-table-cta-cell"
             role="cell"
+            tabindex="0"
           >
-            <mock-styled.div>
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+            <div
+              class="mocked-styled-112 el-table-cta-icon-container"
+            >
+              <span
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name trash"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -2256,26 +2533,30 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
                     fill-rule="evenodd"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div>
-      <mock-styled.button
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="mocked-styled-71 el-pagination-wrap"
+    >
+      <button
         aria-label="Previous"
+        class="mocked-styled-74 el-pagination-button"
         data-testid="back-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <span
+          class="el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name chevronLeft"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -2285,28 +2566,35 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.button>
-      <mock-styled.div>
-        <mock-styled.input
+        </span>
+      </button>
+      <div
+        class="mocked-styled-72 el-pagination-text"
+      >
+        <input
+          aria-label="Current page number, edit to select page of 1 available"
+          class="mocked-styled-73 el-pagination-input"
           value="1"
         />
-         of 
+         
+        of 
         1
-      </mock-styled.div>
-      <mock-styled.button
+      </div>
+      <button
         aria-label="Next"
+        class="mocked-styled-74 el-pagination-button"
         data-testid="forward-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <span
+          class="el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name chevronRight"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -2316,9 +2604,9 @@ exports[`SettingsInstalled should match snapshot for mobile view 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
+        </span>
+      </button>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

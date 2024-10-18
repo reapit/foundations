@@ -5,20 +5,28 @@ exports[`Installations should render component when loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <section
         class="el-page-container"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           Installations
-        </mock-styled.h1>
+        </h1>
         <form>
-          <mock-styled.div
-            classname="el-mb11"
+          <div
+            class="el-mb11 el-form-layout"
           >
+<<<<<<< HEAD
             <mock-styled.div>
+=======
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
               <div
                 class="mocked-styled-135 el-input-wrap-full"
               >
@@ -59,6 +67,7 @@ exports[`Installations should render component when loading 1`] = `
                   </label>
                 </div>
                 <div
+<<<<<<< HEAD
                   class="mocked-styled-44 el-loader-container"
                 >
                   <div
@@ -72,6 +81,10 @@ exports[`Installations should render component when loading 1`] = `
                 <div
                   class="mocked-styled-58 el-multi-select-input-wrapper"
                 >
+=======
+                  class="mocked-styled-58 el-multi-select-input-wrapper"
+                >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
                   <input
                     class="mocked-styled-57 el-multi-select-input"
                     id="app-ids-select"
@@ -106,6 +119,7 @@ exports[`Installations should render component when loading 1`] = `
                   </div>
                 </div>
               </div>
+<<<<<<< HEAD
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.label
@@ -115,9 +129,23 @@ exports[`Installations should render component when loading 1`] = `
                 Company
               </mock-styled.label>
               <mock-styled.div
+=======
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <label
+                class="el-flex el-mb3 el-label"
+                for="developer-search-box"
+              >
+                Company
+              </label>
+              <div
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
                 aria-controls=":r0:"
                 aria-expanded="false"
                 aria-haspopup="listbox"
+                class="mocked-styled-84 el-searchable-dropdown-container"
                 role="combobox"
               >
                 <input
@@ -126,16 +154,19 @@ exports[`Installations should render component when loading 1`] = `
                   style="display: none;"
                   value=""
                 />
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-default el-icon-new"
-                    role="img"
+                <span
+                  class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                >
+                  <span
+                    class="el-intent-default el-icon-new el-icon"
                     style="font-size: 1rem;"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
                       style="font-size: 1rem;"
+                      title="Icon image with name search"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -145,27 +176,37 @@ exports[`Installations should render component when loading 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div
+                  </span>
+                </span>
+                <input
+                  aria-label="Input type undefined"
+                  class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                   data-testid="search-input"
                   name="companyName"
                   placeholder="Search developer organisations"
                   value=""
                 />
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label
-                classname="el-flex el-mb3"
-                htmlfor="client-search-box"
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <label
+                class="el-flex el-mb3 el-label"
+                for="client-search-box"
               >
                 Client
+<<<<<<< HEAD
               </mock-styled.label>
               <mock-styled.div
+=======
+              </label>
+              <div
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
                 aria-controls=":r1:"
                 aria-expanded="false"
                 aria-haspopup="listbox"
+                class="mocked-styled-84 el-searchable-dropdown-container"
                 role="combobox"
               >
                 <input
@@ -174,16 +215,19 @@ exports[`Installations should render component when loading 1`] = `
                   style="display: none;"
                   value=""
                 />
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-default el-icon-new"
-                    role="img"
+                <span
+                  class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                >
+                  <span
+                    class="el-intent-default el-icon-new el-icon"
                     style="font-size: 1rem;"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
                       style="font-size: 1rem;"
+                      title="Icon image with name search"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -193,143 +237,195 @@ exports[`Installations should render component when loading 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div
+                  </span>
+                </span>
+                <input
+                  aria-label="Input type undefined"
+                  class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                   data-testid="search-input"
                   name="clientId"
                   placeholder="Search customers"
                   value=""
                 />
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type date format dd/mm/yyy"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="installedDateFrom"
                   type="date"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Installed Date From
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type date format dd/mm/yyy"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="installedDateTo"
                   type="date"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Installed Date To
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
-                  Is Charged Consumption
-                </mock-styled.label>
-                <mock-styled.div
-                  classname="el-has-grey-bg"
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
                 >
-                  <mock-styled.input
+                  Is Charged Consumption
+                </label>
+                <div
+                  class="el-has-grey-bg el-toggle-radio-wrap"
+                >
+                  <input
+                    checked=""
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-consumption-all"
                     name="isChargedConsumption"
                     type="radio"
                     value=""
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-bg"
-                    htmlfor="option-consumption-all"
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="option-consumption-all"
+                    role="button"
+                    tabindex="0"
                   >
-                    <mock-styled.span>
+                    <span
+                      class="mocked-styled-124 el-toggle-radio-item"
+                    >
                       All
-                    </mock-styled.span>
-                  </mock-styled.label>
-                  <mock-styled.input
+                    </span>
+                  </label>
+                  <input
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-consumption-true"
                     name="isChargedConsumption"
                     type="radio"
                     value="true"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-bg"
-                    htmlfor="option-consumption-true"
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="option-consumption-true"
+                    role="button"
+                    tabindex="0"
                   >
-                    <mock-styled.span>
+                    <span
+                      class="mocked-styled-124 el-toggle-radio-item"
+                    >
                       Charged
-                    </mock-styled.span>
-                  </mock-styled.label>
-                  <mock-styled.input
+                    </span>
+                  </label>
+                  <input
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-consumption-false"
                     name="isChargedConsumption"
                     type="radio"
                     value="false"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-bg"
-                    htmlfor="option-consumption-false"
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="option-consumption-false"
+                    role="button"
+                    tabindex="0"
                   >
-                    <mock-styled.span>
+                    <span
+                      class="mocked-styled-124 el-toggle-radio-item"
+                    >
                       Free
-                    </mock-styled.span>
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
         </form>
         <div
           class="el-mb11"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-2 el-button-group"
+          >
+            <div
+              class="mocked-styled-3 el-button-group-inner"
             >
-              <mock-styled.button
-                classname="el-intent-primary"
+              <button
+                class="el-intent-primary el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Download CSV
-              </mock-styled.button>
-            </mock-styled.div>
-          </mock-styled.div>
+              </button>
+            </div>
+          </div>
         </div>
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </section>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <section
       class="el-page-container"
     >
-      <mock-styled.h1
-        classname="el-text-base"
+      <h1
+        class="el-text-base el-title"
       >
         Installations
-      </mock-styled.h1>
+      </h1>
       <form>
-        <mock-styled.div
-          classname="el-mb11"
+        <div
+          class="el-mb11 el-form-layout"
         >
+<<<<<<< HEAD
           <mock-styled.div>
+=======
+          <div
+            class="mocked-styled-135 el-input-wrap-full"
+          >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
             <div
               class="mocked-styled-135 el-input-wrap-full"
             >
@@ -370,6 +466,7 @@ exports[`Installations should render component when loading 1`] = `
                 </label>
               </div>
               <div
+<<<<<<< HEAD
                 class="mocked-styled-44 el-loader-container"
               >
                 <div
@@ -383,6 +480,10 @@ exports[`Installations should render component when loading 1`] = `
               <div
                 class="mocked-styled-58 el-multi-select-input-wrapper"
               >
+=======
+                class="mocked-styled-58 el-multi-select-input-wrapper"
+              >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
                 <input
                   class="mocked-styled-57 el-multi-select-input"
                   id="app-ids-select"
@@ -417,6 +518,7 @@ exports[`Installations should render component when loading 1`] = `
                 </div>
               </div>
             </div>
+<<<<<<< HEAD
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.label
@@ -426,9 +528,23 @@ exports[`Installations should render component when loading 1`] = `
               Company
             </mock-styled.label>
             <mock-styled.div
+=======
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <label
+              class="el-flex el-mb3 el-label"
+              for="developer-search-box"
+            >
+              Company
+            </label>
+            <div
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
               aria-controls=":r0:"
               aria-expanded="false"
               aria-haspopup="listbox"
+              class="mocked-styled-84 el-searchable-dropdown-container"
               role="combobox"
             >
               <input
@@ -437,16 +553,19 @@ exports[`Installations should render component when loading 1`] = `
                 style="display: none;"
                 value=""
               />
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+              <span
+                class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
+              >
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
                     style="font-size: 1rem;"
+                    title="Icon image with name search"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -456,27 +575,37 @@ exports[`Installations should render component when loading 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div
+                </span>
+              </span>
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                 data-testid="search-input"
                 name="companyName"
                 placeholder="Search developer organisations"
                 value=""
               />
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label
-              classname="el-flex el-mb3"
-              htmlfor="client-search-box"
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <label
+              class="el-flex el-mb3 el-label"
+              for="client-search-box"
             >
               Client
+<<<<<<< HEAD
             </mock-styled.label>
             <mock-styled.div
+=======
+            </label>
+            <div
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
               aria-controls=":r1:"
               aria-expanded="false"
               aria-haspopup="listbox"
+              class="mocked-styled-84 el-searchable-dropdown-container"
               role="combobox"
             >
               <input
@@ -485,16 +614,19 @@ exports[`Installations should render component when loading 1`] = `
                 style="display: none;"
                 value=""
               />
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+              <span
+                class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
+              >
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
                     style="font-size: 1rem;"
+                    title="Icon image with name search"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -504,125 +636,169 @@ exports[`Installations should render component when loading 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div
+                </span>
+              </span>
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                 data-testid="search-input"
                 name="clientId"
                 placeholder="Search customers"
                 value=""
               />
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type date format dd/mm/yyy"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="installedDateFrom"
                 type="date"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Installed Date From
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type date format dd/mm/yyy"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="installedDateTo"
                 type="date"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Installed Date To
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
-                Is Charged Consumption
-              </mock-styled.label>
-              <mock-styled.div
-                classname="el-has-grey-bg"
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
               >
-                <mock-styled.input
+                Is Charged Consumption
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-consumption-all"
                   name="isChargedConsumption"
                   type="radio"
                   value=""
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-consumption-all"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-consumption-all"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-124 el-toggle-radio-item"
+                  >
                     All
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-consumption-true"
                   name="isChargedConsumption"
                   type="radio"
                   value="true"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-consumption-true"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-consumption-true"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-124 el-toggle-radio-item"
+                  >
                     Charged
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-consumption-false"
                   name="isChargedConsumption"
                   type="radio"
                   value="false"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-consumption-false"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-consumption-false"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-124 el-toggle-radio-item"
+                  >
                     Free
-                  </mock-styled.span>
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
       <div
         class="el-mb11"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Download CSV
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-44 el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+        <div
+          class="mocked-styled-46 el-loader"
+        >
+          <div
+            class="mocked-styled-47 el-loader-moving-bar"
+          />
+        </div>
+      </div>
     </section>
   </div>,
   "debug": [Function],
@@ -684,20 +860,28 @@ exports[`Installations should render component with data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <section
         class="el-page-container"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           Installations
-        </mock-styled.h1>
+        </h1>
         <form>
-          <mock-styled.div
-            classname="el-mb11"
+          <div
+            class="el-mb11 el-form-layout"
           >
+<<<<<<< HEAD
             <mock-styled.div>
+=======
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
               <div
                 class="mocked-styled-135 el-input-wrap-full"
               >
@@ -772,6 +956,7 @@ exports[`Installations should render component with data 1`] = `
                       No apps selected
                     </p>
                   </div>
+<<<<<<< HEAD
                   <div
                     aria-label="Multi unselected options"
                     class="el-mb5 el-multi-select-un-selected"
@@ -803,9 +988,25 @@ exports[`Installations should render component with data 1`] = `
                 Company
               </mock-styled.label>
               <mock-styled.div
+=======
+                </div>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <label
+                class="el-flex el-mb3 el-label"
+                for="developer-search-box"
+              >
+                Company
+              </label>
+              <div
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
                 aria-controls=":r3:"
                 aria-expanded="false"
                 aria-haspopup="listbox"
+                class="mocked-styled-84 el-searchable-dropdown-container"
                 role="combobox"
               >
                 <input
@@ -814,16 +1015,19 @@ exports[`Installations should render component with data 1`] = `
                   style="display: none;"
                   value=""
                 />
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-default el-icon-new"
-                    role="img"
+                <span
+                  class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                >
+                  <span
+                    class="el-intent-default el-icon-new el-icon"
                     style="font-size: 1rem;"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
                       style="font-size: 1rem;"
+                      title="Icon image with name search"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -833,27 +1037,37 @@ exports[`Installations should render component with data 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div
+                  </span>
+                </span>
+                <input
+                  aria-label="Input type undefined"
+                  class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                   data-testid="search-input"
                   name="companyName"
                   placeholder="Search developer organisations"
                   value=""
                 />
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label
-                classname="el-flex el-mb3"
-                htmlfor="client-search-box"
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <label
+                class="el-flex el-mb3 el-label"
+                for="client-search-box"
               >
                 Client
+<<<<<<< HEAD
               </mock-styled.label>
               <mock-styled.div
+=======
+              </label>
+              <div
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
                 aria-controls=":r4:"
                 aria-expanded="false"
                 aria-haspopup="listbox"
+                class="mocked-styled-84 el-searchable-dropdown-container"
                 role="combobox"
               >
                 <input
@@ -862,16 +1076,19 @@ exports[`Installations should render component with data 1`] = `
                   style="display: none;"
                   value=""
                 />
-                <mock-styled.div>
-                  <mock-styled.span
-                    classname="el-intent-default el-icon-new"
-                    role="img"
+                <span
+                  class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
+                >
+                  <span
+                    class="el-intent-default el-icon-new el-icon"
                     style="font-size: 1rem;"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
                       style="font-size: 1rem;"
+                      title="Icon image with name search"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -881,186 +1098,237 @@ exports[`Installations should render component with data 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
-                </mock-styled.div>
-                <mock-styled.div
+                  </span>
+                </span>
+                <input
+                  aria-label="Input type undefined"
+                  class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                   data-testid="search-input"
                   name="clientId"
                   placeholder="Search customers"
                   value=""
                 />
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type date format dd/mm/yyy"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="installedDateFrom"
                   type="date"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Installed Date From
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type date format dd/mm/yyy"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="installedDateTo"
                   type="date"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Installed Date To
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
-                  Is Charged Consumption
-                </mock-styled.label>
-                <mock-styled.div
-                  classname="el-has-grey-bg"
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
                 >
-                  <mock-styled.input
+                  Is Charged Consumption
+                </label>
+                <div
+                  class="el-has-grey-bg el-toggle-radio-wrap"
+                >
+                  <input
+                    checked=""
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-consumption-all"
                     name="isChargedConsumption"
                     type="radio"
                     value=""
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-bg"
-                    htmlfor="option-consumption-all"
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="option-consumption-all"
+                    role="button"
+                    tabindex="0"
                   >
-                    <mock-styled.span>
+                    <span
+                      class="mocked-styled-124 el-toggle-radio-item"
+                    >
                       All
-                    </mock-styled.span>
-                  </mock-styled.label>
-                  <mock-styled.input
+                    </span>
+                  </label>
+                  <input
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-consumption-true"
                     name="isChargedConsumption"
                     type="radio"
                     value="true"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-bg"
-                    htmlfor="option-consumption-true"
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="option-consumption-true"
+                    role="button"
+                    tabindex="0"
                   >
-                    <mock-styled.span>
+                    <span
+                      class="mocked-styled-124 el-toggle-radio-item"
+                    >
                       Charged
-                    </mock-styled.span>
-                  </mock-styled.label>
-                  <mock-styled.input
+                    </span>
+                  </label>
+                  <input
+                    class="mocked-styled-127 el-toggle-radio"
                     id="option-consumption-false"
                     name="isChargedConsumption"
                     type="radio"
                     value="false"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-bg"
-                    htmlfor="option-consumption-false"
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="option-consumption-false"
+                    role="button"
+                    tabindex="0"
                   >
-                    <mock-styled.span>
+                    <span
+                      class="mocked-styled-124 el-toggle-radio-item"
+                    >
                       Free
-                    </mock-styled.span>
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
         </form>
         <div
           class="el-mb11"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-2 el-button-group"
+          >
+            <div
+              class="mocked-styled-3 el-button-group-inner"
             >
-              <mock-styled.button
-                classname="el-intent-primary"
+              <button
+                class="el-intent-primary el-button"
                 type="button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Download CSV
-              </mock-styled.button>
-            </mock-styled.div>
-          </mock-styled.div>
+              </button>
+            </div>
+          </div>
         </div>
-        <mock-styled.div
-          classname="el-mb11"
+        <div
+          class="el-mb11 el-table"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
           data-num-columns-excl-action-col="8"
           role="table"
         >
-          <mock-styled.div
+          <div
+            class="mocked-styled-101 el-table-headers-row"
             role="row"
           >
-            <mock-styled.div
+            <div
               aria-label="Customer Name"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Customer Name
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="App Name"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               App Name
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Reapit Customer Code"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Reapit Customer Code
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Customer Address"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Customer Address
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Date Installed"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Date Installed
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Installed By"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Installed By
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Date Uninstalled"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Date Uninstalled
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
               aria-label="Uninstalled By"
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
               Uninstalled By
-            </mock-styled.div>
-            <mock-styled.div
+            </div>
+            <div
+              class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name settings"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1070,27 +1338,30 @@ exports[`Installations should render component with data 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+              </span>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-110 el-table-row-container"
             role="row"
           >
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+            <div
+              class="mocked-styled-103 el-table-row"
+            >
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1.25rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
                     style="font-size: 1.25rem;"
+                    title="Icon image with name property"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1100,26 +1371,28 @@ exports[`Installations should render component with data 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-                <mock-styled.div
+                </span>
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Customer Name"
                 >
                   Sandbox Estates
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1.25rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
                     style="font-size: 1.25rem;"
+                    title="Icon image with name insights"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1129,82 +1402,91 @@ exports[`Installations should render component with data 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-                <mock-styled.div
+                </span>
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="App Name"
                 >
                   App Test Name
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Reapit Customer Code"
                 >
                   SBOX
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Customer Address"
                 >
                   67-74 Third Floor Saffron Hill London EC1N 8QX
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Date Installed"
                 >
                   23-03-2022
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Installed By"
                 >
                   test@example.com
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Date Uninstalled"
                 >
                   -
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
                 role="cell"
               >
-                <mock-styled.div
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
                   data-narrow-label="Uninstalled By"
                 />
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+              </div>
+              <div
+                class="mocked-styled-109 el-table-expandable-row-trigger-cell"
                 role="cell"
+                tabindex="0"
               >
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name more"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1214,51 +1496,61 @@ exports[`Installations should render component with data 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              aria-hidden="false"
-              classname=""
+                </span>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-113 el-table-expandable-row"
             >
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-button-group-align-center"
+              <div
+                class="mocked-styled-114 el-table-expandable-container"
+              >
+                <div
+                  class="mocked-styled-2 el-button-group"
+                >
+                  <div
+                    class="el-button-group-align-center el-button-group-inner"
                   >
-                    <mock-styled.button
-                      classname="el-intent-primary"
+                    <button
+                      class="el-intent-primary el-button"
                     >
-                      <mock-styled.div />
+                      <div
+                        class="mocked-styled-0 el-button-loader"
+                      />
                       Togggle API Consumption
-                    </mock-styled.button>
-                    <mock-styled.button
-                      classname="el-intent-danger"
-                      disabled="false"
+                    </button>
+                    <button
+                      class="el-intent-danger el-button"
                     >
-                      <mock-styled.div />
+                      <div
+                        class="mocked-styled-0 el-button-loader"
+                      />
                       Uninstall
-                    </mock-styled.button>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.button
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-71 el-pagination-wrap"
+        >
+          <button
             aria-label="Previous"
+            class="mocked-styled-74 el-pagination-button"
             data-testid="back-button"
             role="button"
             type="button"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name chevronLeft"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1268,28 +1560,35 @@ exports[`Installations should render component with data 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.button>
-          <mock-styled.div>
-            <mock-styled.input
+            </span>
+          </button>
+          <div
+            class="mocked-styled-72 el-pagination-text"
+          >
+            <input
+              aria-label="Current page number, edit to select page of 1 available"
+              class="mocked-styled-73 el-pagination-input"
               value="1"
             />
-             of 
+             
+            of 
             1
-          </mock-styled.div>
-          <mock-styled.button
+          </div>
+          <button
             aria-label="Next"
+            class="mocked-styled-74 el-pagination-button"
             data-testid="forward-button"
             role="button"
             type="button"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name chevronRight"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1299,27 +1598,35 @@ exports[`Installations should render component with data 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.button>
-        </mock-styled.div>
+            </span>
+          </button>
+        </div>
       </section>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <section
       class="el-page-container"
     >
-      <mock-styled.h1
-        classname="el-text-base"
+      <h1
+        class="el-text-base el-title"
       >
         Installations
-      </mock-styled.h1>
+      </h1>
       <form>
-        <mock-styled.div
-          classname="el-mb11"
+        <div
+          class="el-mb11 el-form-layout"
         >
+<<<<<<< HEAD
           <mock-styled.div>
+=======
+          <div
+            class="mocked-styled-135 el-input-wrap-full"
+          >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
             <div
               class="mocked-styled-135 el-input-wrap-full"
             >
@@ -1394,6 +1701,7 @@ exports[`Installations should render component with data 1`] = `
                     No apps selected
                   </p>
                 </div>
+<<<<<<< HEAD
                 <div
                   aria-label="Multi unselected options"
                   class="el-mb5 el-multi-select-un-selected"
@@ -1425,9 +1733,25 @@ exports[`Installations should render component with data 1`] = `
               Company
             </mock-styled.label>
             <mock-styled.div
+=======
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <label
+              class="el-flex el-mb3 el-label"
+              for="developer-search-box"
+            >
+              Company
+            </label>
+            <div
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
               aria-controls=":r3:"
               aria-expanded="false"
               aria-haspopup="listbox"
+              class="mocked-styled-84 el-searchable-dropdown-container"
               role="combobox"
             >
               <input
@@ -1436,16 +1760,19 @@ exports[`Installations should render component with data 1`] = `
                 style="display: none;"
                 value=""
               />
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+              <span
+                class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
+              >
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
                     style="font-size: 1rem;"
+                    title="Icon image with name search"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1455,27 +1782,37 @@ exports[`Installations should render component with data 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div
+                </span>
+              </span>
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                 data-testid="search-input"
                 name="companyName"
                 placeholder="Search developer organisations"
                 value=""
               />
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label
-              classname="el-flex el-mb3"
-              htmlfor="client-search-box"
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <label
+              class="el-flex el-mb3 el-label"
+              for="client-search-box"
             >
               Client
+<<<<<<< HEAD
             </mock-styled.label>
             <mock-styled.div
+=======
+            </label>
+            <div
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
               aria-controls=":r4:"
               aria-expanded="false"
               aria-haspopup="listbox"
+              class="mocked-styled-84 el-searchable-dropdown-container"
               role="combobox"
             >
               <input
@@ -1484,16 +1821,19 @@ exports[`Installations should render component with data 1`] = `
                 style="display: none;"
                 value=""
               />
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+              <span
+                class="mocked-styled-87 el-searchable-dropdown-search-input-add-on el-input-add-on"
+              >
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                   style="font-size: 1rem;"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
                     style="font-size: 1rem;"
+                    title="Icon image with name search"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1503,186 +1843,237 @@ exports[`Installations should render component with data 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-              <mock-styled.div
+                </span>
+              </span>
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-89 el-searchable-dropdown-search-input el-input"
                 data-testid="search-input"
                 name="clientId"
                 placeholder="Search customers"
                 value=""
               />
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type date format dd/mm/yyy"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="installedDateFrom"
                 type="date"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Installed Date From
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type date format dd/mm/yyy"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="installedDateTo"
                 type="date"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Installed Date To
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
-                Is Charged Consumption
-              </mock-styled.label>
-              <mock-styled.div
-                classname="el-has-grey-bg"
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
               >
-                <mock-styled.input
+                Is Charged Consumption
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-consumption-all"
                   name="isChargedConsumption"
                   type="radio"
                   value=""
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-consumption-all"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-consumption-all"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-124 el-toggle-radio-item"
+                  >
                     All
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-consumption-true"
                   name="isChargedConsumption"
                   type="radio"
                   value="true"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-consumption-true"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-consumption-true"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-124 el-toggle-radio-item"
+                  >
                     Charged
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-consumption-false"
                   name="isChargedConsumption"
                   type="radio"
                   value="false"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-consumption-false"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-consumption-false"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-124 el-toggle-radio-item"
+                  >
                     Free
-                  </mock-styled.span>
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
       <div
         class="el-mb11"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Download CSV
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
-      <mock-styled.div
-        classname="el-mb11"
+      <div
+        class="el-mb11 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="8"
         role="table"
       >
-        <mock-styled.div
+        <div
+          class="mocked-styled-101 el-table-headers-row"
           role="row"
         >
-          <mock-styled.div
+          <div
             aria-label="Customer Name"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Customer Name
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="App Name"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             App Name
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Reapit Customer Code"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Reapit Customer Code
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Customer Address"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Customer Address
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Date Installed"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Date Installed
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Installed By"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Installed By
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Date Uninstalled"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Date Uninstalled
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Uninstalled By"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Uninstalled By
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name settings"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1692,27 +2083,30 @@ exports[`Installations should render component with data 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+            </span>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-103 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name property"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1722,26 +2116,28 @@ exports[`Installations should render component with data 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.div
+              </span>
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Customer Name"
               >
                 Sandbox Estates
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name insights"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1751,82 +2147,91 @@ exports[`Installations should render component with data 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.div
+              </span>
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="App Name"
               >
                 App Test Name
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Reapit Customer Code"
               >
                 SBOX
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Customer Address"
               >
                 67-74 Third Floor Saffron Hill London EC1N 8QX
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Date Installed"
               >
                 23-03-2022
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Installed By"
               >
                 test@example.com
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Date Uninstalled"
               >
                 -
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Uninstalled By"
               />
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-109 el-table-expandable-row-trigger-cell"
               role="cell"
+              tabindex="0"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name more"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1836,51 +2241,61 @@ exports[`Installations should render component with data 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            aria-hidden="false"
-            classname=""
+              </span>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-113 el-table-expandable-row"
           >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div
-                  classname="el-button-group-align-center"
+            <div
+              class="mocked-styled-114 el-table-expandable-container"
+            >
+              <div
+                class="mocked-styled-2 el-button-group"
+              >
+                <div
+                  class="el-button-group-align-center el-button-group-inner"
                 >
-                  <mock-styled.button
-                    classname="el-intent-primary"
+                  <button
+                    class="el-intent-primary el-button"
                   >
-                    <mock-styled.div />
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
                     Togggle API Consumption
-                  </mock-styled.button>
-                  <mock-styled.button
-                    classname="el-intent-danger"
-                    disabled="false"
+                  </button>
+                  <button
+                    class="el-intent-danger el-button"
                   >
-                    <mock-styled.div />
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
                     Uninstall
-                  </mock-styled.button>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.button
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-71 el-pagination-wrap"
+      >
+        <button
           aria-label="Previous"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name chevronLeft"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1890,28 +2305,35 @@ exports[`Installations should render component with data 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-        <mock-styled.div>
-          <mock-styled.input
+          </span>
+        </button>
+        <div
+          class="mocked-styled-72 el-pagination-text"
+        >
+          <input
+            aria-label="Current page number, edit to select page of 1 available"
+            class="mocked-styled-73 el-pagination-input"
             value="1"
           />
-           of 
+           
+          of 
           1
-        </mock-styled.div>
-        <mock-styled.button
+        </div>
+        <button
           aria-label="Next"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="forward-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name chevronRight"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1921,9 +2343,9 @@ exports[`Installations should render component with data 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+          </span>
+        </button>
+      </div>
     </section>
   </div>,
   "debug": [Function],

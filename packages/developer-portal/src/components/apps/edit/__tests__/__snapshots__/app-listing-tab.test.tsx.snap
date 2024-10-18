@@ -5,14 +5,16 @@ exports[`AppListingTab should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to submit your app for approval, it all needs to be completed.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text el-has-section-margin"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-has-section-margin"
       >
         For information on listing your app 
         <a>
@@ -23,232 +25,312 @@ exports[`AppListingTab should match a snapshot 1`] = `
         <a>
           here.
         </a>
-      </mock-styled.p>
-      <mock-styled.div
-        classname="el-form-layout-has-margin"
+      </p>
+      <div
+        class="el-form-layout-has-margin el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="name"
               placeholder="The name of your app as it will appear to users"
               type="text"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Name
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type email"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="supportEmail"
               placeholder="Email for customers to contact you"
               type="email"
               value="Mock field value"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Support email
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="telephone"
               placeholder="Number for customers to contact you"
               type="text"
               value="Mock field value"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Telephone
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="homePage"
               placeholder="Your company homepage. HTTP:// or HTTPS://"
               type="text"
               value="Mock field value"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Home page
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="launchUri"
               placeholder="HTTPS or HTTP only for localhost/dev.reapit"
               type="text"
               value="Mock field value"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Launch URI
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="termsAndConditionsUrl"
               placeholder="URL to link to your Terms and Conditions"
               type="text"
               value="Mock field value"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Terms and Conditions
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="privacyPolicyUrl"
               placeholder="URL to link to your Privacy Policy"
               type="text"
               value="Mock field value"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Privacy Policy
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="videoUrl1"
               placeholder="YouTube embed preferred or any https hosted video"
               type="text"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Getting Started Video URL
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="videoUrl2"
               placeholder="YouTube embed preferred or any https hosted video"
               type="text"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Why Use Us Video URL
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="pricingUrl"
               placeholder="URL to link to your Pricing Info"
               type="text"
               value="Mock field value"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Pricing Info
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type checkbox"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="isFree"
               type="checkbox"
               value="Mock field value"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               This application is free
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type checkbox"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="deletionProtection"
               type="checkbox"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Check to prevent app from being deleted
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
-              App Categories
-            </mock-styled.label>
-            <mock-styled.div
-              aria-controls=":r0:"
-              aria-haspopup="listbox"
-              role="combobox"
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
             >
-              <mock-styled.input
+              App Categories
+            </label>
+            <div
+              class="mocked-styled-58 el-multi-select-input-wrapper"
+            >
+              <input
+                class="mocked-styled-57 el-multi-select-input"
                 id="app-edit-categories-select"
                 value="Mock field value"
               />
-              <mock-styled.div
-                classname=""
+              <div
+                aria-label="Multi selected options"
+                class="mocked-styled-55 el-multi-select-selected"
+                role="listbox"
               >
-                <mock-styled.span
-                  classname="el-ml2 el-intent-default el-icon-new"
-                  role="img"
+                <span
+                  class="el-ml2 el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name task"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -258,51 +340,76 @@ exports[`AppListingTab should match a snapshot 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
+                </span>
                 <p>
                   Please select one or more categories that best describes your app. These will be used by customers to find your app in the AppMarket
                 </p>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+              </div>
+              <div
+                aria-label="Multi unselected options"
+                class="mocked-styled-56 el-multi-select-un-selected"
+                role="listbox"
               >
-                <mock-styled.input
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   MOCK_DESCRIPTION
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="summary"
               placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
               value="Mock field value"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Summary
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Description
-          </mock-styled.label>
+          </label>
           <div />
+<<<<<<< HEAD
         </mock-styled.div>
         <mock-styled.div>
+=======
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -339,8 +446,15 @@ exports[`AppListingTab should match a snapshot 1`] = `
               </small>
             </div>
           </div>
+<<<<<<< HEAD
         </mock-styled.div>
         <mock-styled.div>
+=======
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -377,8 +491,15 @@ exports[`AppListingTab should match a snapshot 1`] = `
               </small>
             </div>
           </div>
+<<<<<<< HEAD
         </mock-styled.div>
         <mock-styled.div>
+=======
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -415,8 +536,15 @@ exports[`AppListingTab should match a snapshot 1`] = `
               </small>
             </div>
           </div>
+<<<<<<< HEAD
         </mock-styled.div>
         <mock-styled.div>
+=======
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -453,8 +581,15 @@ exports[`AppListingTab should match a snapshot 1`] = `
               </small>
             </div>
           </div>
+<<<<<<< HEAD
         </mock-styled.div>
         <mock-styled.div>
+=======
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -491,8 +626,15 @@ exports[`AppListingTab should match a snapshot 1`] = `
               </small>
             </div>
           </div>
+<<<<<<< HEAD
         </mock-styled.div>
         <mock-styled.div>
+=======
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -529,19 +671,26 @@ exports[`AppListingTab should match a snapshot 1`] = `
               </small>
             </div>
           </div>
+<<<<<<< HEAD
         </mock-styled.div>
       </mock-styled.div>
+=======
+        </div>
+      </div>
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to submit your app for approval, it all needs to be completed.
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text el-has-section-margin"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text el-has-section-margin"
     >
       For information on listing your app 
       <a>
@@ -552,232 +701,312 @@ exports[`AppListingTab should match a snapshot 1`] = `
       <a>
         here.
       </a>
-    </mock-styled.p>
-    <mock-styled.div
-      classname="el-form-layout-has-margin"
+    </p>
+    <div
+      class="el-form-layout-has-margin el-form-layout"
     >
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="name"
             placeholder="The name of your app as it will appear to users"
             type="text"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Name
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type email"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="supportEmail"
             placeholder="Email for customers to contact you"
             type="email"
             value="Mock field value"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Support email
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="telephone"
             placeholder="Number for customers to contact you"
             type="text"
             value="Mock field value"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Telephone
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="homePage"
             placeholder="Your company homepage. HTTP:// or HTTPS://"
             type="text"
             value="Mock field value"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Home page
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="launchUri"
             placeholder="HTTPS or HTTP only for localhost/dev.reapit"
             type="text"
             value="Mock field value"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Launch URI
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="termsAndConditionsUrl"
             placeholder="URL to link to your Terms and Conditions"
             type="text"
             value="Mock field value"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Terms and Conditions
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="privacyPolicyUrl"
             placeholder="URL to link to your Privacy Policy"
             type="text"
             value="Mock field value"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Privacy Policy
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="videoUrl1"
             placeholder="YouTube embed preferred or any https hosted video"
             type="text"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Getting Started Video URL
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="videoUrl2"
             placeholder="YouTube embed preferred or any https hosted video"
             type="text"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Why Use Us Video URL
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="pricingUrl"
             placeholder="URL to link to your Pricing Info"
             type="text"
             value="Mock field value"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Pricing Info
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type checkbox"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="isFree"
             type="checkbox"
             value="Mock field value"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             This application is free
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type checkbox"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="deletionProtection"
             type="checkbox"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Check to prevent app from being deleted
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
-            App Categories
-          </mock-styled.label>
-          <mock-styled.div
-            aria-controls=":r0:"
-            aria-haspopup="listbox"
-            role="combobox"
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <label
+            class="mocked-styled-41 el-label"
           >
-            <mock-styled.input
+            App Categories
+          </label>
+          <div
+            class="mocked-styled-58 el-multi-select-input-wrapper"
+          >
+            <input
+              class="mocked-styled-57 el-multi-select-input"
               id="app-edit-categories-select"
               value="Mock field value"
             />
-            <mock-styled.div
-              classname=""
+            <div
+              aria-label="Multi selected options"
+              class="mocked-styled-55 el-multi-select-selected"
+              role="listbox"
             >
-              <mock-styled.span
-                classname="el-ml2 el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-ml2 el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name task"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -787,51 +1016,76 @@ exports[`AppListingTab should match a snapshot 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
               <p>
                 Please select one or more categories that best describes your app. These will be used by customers to find your app in the AppMarket
               </p>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              aria-label="Multi unselected options"
+              class="mocked-styled-56 el-multi-select-un-selected"
+              role="listbox"
             >
-              <mock-styled.input
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 MOCK_DESCRIPTION
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type undefined"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="summary"
             placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
             value="Mock field value"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Summary
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.label>
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <label
+          class="mocked-styled-41 el-label"
+        >
           Description
-        </mock-styled.label>
+        </label>
         <div />
+<<<<<<< HEAD
       </mock-styled.div>
       <mock-styled.div>
+=======
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -868,8 +1122,15 @@ exports[`AppListingTab should match a snapshot 1`] = `
             </small>
           </div>
         </div>
+<<<<<<< HEAD
       </mock-styled.div>
       <mock-styled.div>
+=======
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -906,8 +1167,15 @@ exports[`AppListingTab should match a snapshot 1`] = `
             </small>
           </div>
         </div>
+<<<<<<< HEAD
       </mock-styled.div>
       <mock-styled.div>
+=======
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -944,8 +1212,15 @@ exports[`AppListingTab should match a snapshot 1`] = `
             </small>
           </div>
         </div>
+<<<<<<< HEAD
       </mock-styled.div>
       <mock-styled.div>
+=======
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -982,8 +1257,15 @@ exports[`AppListingTab should match a snapshot 1`] = `
             </small>
           </div>
         </div>
+<<<<<<< HEAD
       </mock-styled.div>
       <mock-styled.div>
+=======
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -1020,8 +1302,15 @@ exports[`AppListingTab should match a snapshot 1`] = `
             </small>
           </div>
         </div>
+<<<<<<< HEAD
       </mock-styled.div>
       <mock-styled.div>
+=======
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -1058,8 +1347,13 @@ exports[`AppListingTab should match a snapshot 1`] = `
             </small>
           </div>
         </div>
+<<<<<<< HEAD
       </mock-styled.div>
     </mock-styled.div>
+=======
+      </div>
+    </div>
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1120,14 +1414,16 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to submit your app for approval, it all needs to be completed.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text el-has-section-margin"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-has-section-margin"
       >
         For information on listing your app 
         <a>
@@ -1138,44 +1434,56 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         <a>
           here.
         </a>
-      </mock-styled.p>
-      <mock-styled.div
-        classname="el-form-layout-has-margin"
+      </p>
+      <div
+        class="el-form-layout-has-margin el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="name"
               placeholder="The name of your app as it will appear to users"
               type="text"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Name
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname="el-has-input-error"
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type email"
+              class="el-has-input-error el-input"
               id="test-static-id"
               name="supportEmail"
               placeholder="Email for customers to contact you"
               type="email"
             />
-            <mock-styled.span
-              classname="el-intent-danger el-icon-new"
-              role="img"
+            <span
+              class="el-intent-danger el-icon-new el-icon"
               style="font-size: 1rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1rem;"
+                title="Icon image with name asterisk"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1185,35 +1493,44 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.label
-              htmlfor="test-static-id"
+            </span>
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Support email
-            </mock-styled.label>
-            <mock-styled.p>
+            </label>
+            <p
+              class="mocked-styled-42 el-input-error"
+            >
               An Error
-            </mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname="el-has-input-error"
+            </p>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="el-has-input-error el-input"
               id="test-static-id"
               name="telephone"
               placeholder="Number for customers to contact you"
               type="text"
             />
-            <mock-styled.span
-              classname="el-intent-danger el-icon-new"
-              role="img"
+            <span
+              class="el-intent-danger el-icon-new el-icon"
               style="font-size: 1rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1rem;"
+                title="Icon image with name asterisk"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1223,35 +1540,44 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.label
-              htmlfor="test-static-id"
+            </span>
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Telephone
-            </mock-styled.label>
-            <mock-styled.p>
+            </label>
+            <p
+              class="mocked-styled-42 el-input-error"
+            >
               An Error
-            </mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname="el-has-input-error"
+            </p>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="el-has-input-error el-input"
               id="test-static-id"
               name="homePage"
               placeholder="Your company homepage. HTTP:// or HTTPS://"
               type="text"
             />
-            <mock-styled.span
-              classname="el-intent-danger el-icon-new"
-              role="img"
+            <span
+              class="el-intent-danger el-icon-new el-icon"
               style="font-size: 1rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1rem;"
+                title="Icon image with name asterisk"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1261,35 +1587,44 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.label
-              htmlfor="test-static-id"
+            </span>
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Home page
-            </mock-styled.label>
-            <mock-styled.p>
+            </label>
+            <p
+              class="mocked-styled-42 el-input-error"
+            >
               An Error
-            </mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname="el-has-input-error"
+            </p>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="el-has-input-error el-input"
               id="test-static-id"
               name="launchUri"
               placeholder="HTTPS or HTTP only for localhost/dev.reapit"
               type="text"
             />
-            <mock-styled.span
-              classname="el-intent-danger el-icon-new"
-              role="img"
+            <span
+              class="el-intent-danger el-icon-new el-icon"
               style="font-size: 1rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1rem;"
+                title="Icon image with name asterisk"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1299,35 +1634,44 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.label
-              htmlfor="test-static-id"
+            </span>
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Launch URI
-            </mock-styled.label>
-            <mock-styled.p>
+            </label>
+            <p
+              class="mocked-styled-42 el-input-error"
+            >
               An Error
-            </mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname="el-has-input-error"
+            </p>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="el-has-input-error el-input"
               id="test-static-id"
               name="termsAndConditionsUrl"
               placeholder="URL to link to your Terms and Conditions"
               type="text"
             />
-            <mock-styled.span
-              classname="el-intent-danger el-icon-new"
-              role="img"
+            <span
+              class="el-intent-danger el-icon-new el-icon"
               style="font-size: 1rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1rem;"
+                title="Icon image with name asterisk"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1337,35 +1681,44 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.label
-              htmlfor="test-static-id"
+            </span>
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Terms and Conditions
-            </mock-styled.label>
-            <mock-styled.p>
+            </label>
+            <p
+              class="mocked-styled-42 el-input-error"
+            >
               An Error
-            </mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname="el-has-input-error"
+            </p>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="el-has-input-error el-input"
               id="test-static-id"
               name="privacyPolicyUrl"
               placeholder="URL to link to your Privacy Policy"
               type="text"
             />
-            <mock-styled.span
-              classname="el-intent-danger el-icon-new"
-              role="img"
+            <span
+              class="el-intent-danger el-icon-new el-icon"
               style="font-size: 1rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1rem;"
+                title="Icon image with name asterisk"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1375,67 +1728,88 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.label
-              htmlfor="test-static-id"
+            </span>
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Privacy Policy
-            </mock-styled.label>
-            <mock-styled.p>
+            </label>
+            <p
+              class="mocked-styled-42 el-input-error"
+            >
               An Error
-            </mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </p>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="videoUrl1"
               placeholder="YouTube embed preferred or any https hosted video"
               type="text"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Getting Started Video URL
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="videoUrl2"
               placeholder="YouTube embed preferred or any https hosted video"
               type="text"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Why Use Us Video URL
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname="el-has-input-error"
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="el-has-input-error el-input"
               id="test-static-id"
               name="pricingUrl"
               placeholder="URL to link to your Pricing Info"
               type="text"
             />
-            <mock-styled.span
-              classname="el-intent-danger el-icon-new"
-              role="img"
+            <span
+              class="el-intent-danger el-icon-new el-icon"
               style="font-size: 1rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1rem;"
+                title="Icon image with name asterisk"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1445,34 +1819,43 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.label
-              htmlfor="test-static-id"
+            </span>
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Pricing Info
-            </mock-styled.label>
-            <mock-styled.p>
+            </label>
+            <p
+              class="mocked-styled-42 el-input-error"
+            >
               An Error
-            </mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname="el-has-input-error"
+            </p>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type checkbox"
+              class="el-has-input-error el-input"
               id="test-static-id"
               name="isFree"
               type="checkbox"
             />
-            <mock-styled.span
-              classname="el-intent-danger el-icon-new"
-              role="img"
+            <span
+              class="el-intent-danger el-icon-new el-icon"
               style="font-size: 1rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1rem;"
+                title="Icon image with name asterisk"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1482,55 +1865,72 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.label
-              htmlfor="test-static-id"
+            </span>
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               This application is free
-            </mock-styled.label>
-            <mock-styled.p>
+            </label>
+            <p
+              class="mocked-styled-42 el-input-error"
+            >
               An Error
-            </mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </p>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type checkbox"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="deletionProtection"
               type="checkbox"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Check to prevent app from being deleted
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
-              App Categories
-            </mock-styled.label>
-            <mock-styled.div
-              aria-controls=":r2:"
-              aria-haspopup="listbox"
-              role="combobox"
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
             >
-              <mock-styled.input
+              App Categories
+            </label>
+            <div
+              class="mocked-styled-58 el-multi-select-input-wrapper"
+            >
+              <input
+                class="mocked-styled-57 el-multi-select-input"
                 id="app-edit-categories-select"
               />
-              <mock-styled.div
-                classname=""
+              <div
+                aria-label="Multi selected options"
+                class="mocked-styled-55 el-multi-select-selected"
+                role="listbox"
               >
-                <mock-styled.span
-                  classname="el-ml2 el-intent-default el-icon-new"
-                  role="img"
+                <span
+                  class="el-ml2 el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name task"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1540,48 +1940,64 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
+                </span>
                 <p>
                   Please select one or more categories that best describes your app. These will be used by customers to find your app in the AppMarket
                 </p>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
+              </div>
+              <div
+                aria-label="Multi unselected options"
+                class="mocked-styled-56 el-multi-select-un-selected"
+                role="listbox"
               >
-                <mock-styled.input
+                <input
+                  aria-checked="false"
+                  aria-hidden="true"
+                  class="mocked-styled-52 el-multi-select-checkbox"
                   id="test-static-id"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-chips"
-                  htmlfor="test-static-id"
+                <label
+                  class="el-has-grey-chips el-multi-select-label"
+                  for="test-static-id"
+                  role="option"
+                  tabindex="0"
                 >
                   MOCK_DESCRIPTION
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.p>
+                </label>
+              </div>
+            </div>
+            <p
+              class="mocked-styled-42 el-input-error"
+            >
               An Error
-            </mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname="el-has-input-error"
+            </p>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="el-has-input-error el-input"
               id="test-static-id"
               name="summary"
               placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
             />
-            <mock-styled.span
-              classname="el-intent-danger el-icon-new"
-              role="img"
+            <span
+              class="el-intent-danger el-icon-new el-icon"
               style="font-size: 1rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1rem;"
+                title="Icon image with name asterisk"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1591,27 +2007,44 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.label
-              htmlfor="test-static-id"
+            </span>
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Summary
-            </mock-styled.label>
-            <mock-styled.p>
+            </label>
+            <p
+              class="mocked-styled-42 el-input-error"
+            >
               An Error
-            </mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
+            </p>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Description
-          </mock-styled.label>
+          </label>
           <div />
-          <mock-styled.p>
+          <p
+            class="mocked-styled-42 el-input-error"
+          >
             An Error
+<<<<<<< HEAD
           </mock-styled.p>
         </mock-styled.div>
         <mock-styled.div>
+=======
+          </p>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -1648,11 +2081,23 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               </small>
             </div>
           </div>
+<<<<<<< HEAD
           <mock-styled.p>
             An Error
           </mock-styled.p>
         </mock-styled.div>
         <mock-styled.div>
+=======
+          <p
+            class="mocked-styled-42 el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -1689,11 +2134,23 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               </small>
             </div>
           </div>
+<<<<<<< HEAD
           <mock-styled.p>
             An Error
           </mock-styled.p>
         </mock-styled.div>
         <mock-styled.div>
+=======
+          <p
+            class="mocked-styled-42 el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -1730,11 +2187,23 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               </small>
             </div>
           </div>
+<<<<<<< HEAD
           <mock-styled.p>
             An Error
           </mock-styled.p>
         </mock-styled.div>
         <mock-styled.div>
+=======
+          <p
+            class="mocked-styled-42 el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -1771,11 +2240,23 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               </small>
             </div>
           </div>
+<<<<<<< HEAD
           <mock-styled.p>
             An Error
           </mock-styled.p>
         </mock-styled.div>
         <mock-styled.div>
+=======
+          <p
+            class="mocked-styled-42 el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -1812,11 +2293,23 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               </small>
             </div>
           </div>
+<<<<<<< HEAD
           <mock-styled.p>
             An Error
           </mock-styled.p>
         </mock-styled.div>
         <mock-styled.div>
+=======
+          <p
+            class="mocked-styled-42 el-input-error"
+          >
+            An Error
+          </p>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -1853,22 +2346,30 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               </small>
             </div>
           </div>
+<<<<<<< HEAD
           <mock-styled.p>
+=======
+          <p
+            class="mocked-styled-42 el-input-error"
+          >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
             An Error
-          </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
+          </p>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to submit your app for approval, it all needs to be completed.
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text el-has-section-margin"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text el-has-section-margin"
     >
       For information on listing your app 
       <a>
@@ -1879,44 +2380,56 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
       <a>
         here.
       </a>
-    </mock-styled.p>
-    <mock-styled.div
-      classname="el-form-layout-has-margin"
+    </p>
+    <div
+      class="el-form-layout-has-margin el-form-layout"
     >
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="name"
             placeholder="The name of your app as it will appear to users"
             type="text"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Name
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname="el-has-input-error"
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type email"
+            class="el-has-input-error el-input"
             id="test-static-id"
             name="supportEmail"
             placeholder="Email for customers to contact you"
             type="email"
           />
-          <mock-styled.span
-            classname="el-intent-danger el-icon-new"
-            role="img"
+          <span
+            class="el-intent-danger el-icon-new el-icon"
             style="font-size: 1rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1rem;"
+              title="Icon image with name asterisk"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1926,35 +2439,44 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.label
-            htmlfor="test-static-id"
+          </span>
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Support email
-          </mock-styled.label>
-          <mock-styled.p>
+          </label>
+          <p
+            class="mocked-styled-42 el-input-error"
+          >
             An Error
-          </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname="el-has-input-error"
+          </p>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="el-has-input-error el-input"
             id="test-static-id"
             name="telephone"
             placeholder="Number for customers to contact you"
             type="text"
           />
-          <mock-styled.span
-            classname="el-intent-danger el-icon-new"
-            role="img"
+          <span
+            class="el-intent-danger el-icon-new el-icon"
             style="font-size: 1rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1rem;"
+              title="Icon image with name asterisk"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1964,35 +2486,44 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.label
-            htmlfor="test-static-id"
+          </span>
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Telephone
-          </mock-styled.label>
-          <mock-styled.p>
+          </label>
+          <p
+            class="mocked-styled-42 el-input-error"
+          >
             An Error
-          </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname="el-has-input-error"
+          </p>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="el-has-input-error el-input"
             id="test-static-id"
             name="homePage"
             placeholder="Your company homepage. HTTP:// or HTTPS://"
             type="text"
           />
-          <mock-styled.span
-            classname="el-intent-danger el-icon-new"
-            role="img"
+          <span
+            class="el-intent-danger el-icon-new el-icon"
             style="font-size: 1rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1rem;"
+              title="Icon image with name asterisk"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -2002,35 +2533,44 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.label
-            htmlfor="test-static-id"
+          </span>
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Home page
-          </mock-styled.label>
-          <mock-styled.p>
+          </label>
+          <p
+            class="mocked-styled-42 el-input-error"
+          >
             An Error
-          </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname="el-has-input-error"
+          </p>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="el-has-input-error el-input"
             id="test-static-id"
             name="launchUri"
             placeholder="HTTPS or HTTP only for localhost/dev.reapit"
             type="text"
           />
-          <mock-styled.span
-            classname="el-intent-danger el-icon-new"
-            role="img"
+          <span
+            class="el-intent-danger el-icon-new el-icon"
             style="font-size: 1rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1rem;"
+              title="Icon image with name asterisk"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -2040,35 +2580,44 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.label
-            htmlfor="test-static-id"
+          </span>
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Launch URI
-          </mock-styled.label>
-          <mock-styled.p>
+          </label>
+          <p
+            class="mocked-styled-42 el-input-error"
+          >
             An Error
-          </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname="el-has-input-error"
+          </p>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="el-has-input-error el-input"
             id="test-static-id"
             name="termsAndConditionsUrl"
             placeholder="URL to link to your Terms and Conditions"
             type="text"
           />
-          <mock-styled.span
-            classname="el-intent-danger el-icon-new"
-            role="img"
+          <span
+            class="el-intent-danger el-icon-new el-icon"
             style="font-size: 1rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1rem;"
+              title="Icon image with name asterisk"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -2078,35 +2627,44 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.label
-            htmlfor="test-static-id"
+          </span>
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Terms and Conditions
-          </mock-styled.label>
-          <mock-styled.p>
+          </label>
+          <p
+            class="mocked-styled-42 el-input-error"
+          >
             An Error
-          </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname="el-has-input-error"
+          </p>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="el-has-input-error el-input"
             id="test-static-id"
             name="privacyPolicyUrl"
             placeholder="URL to link to your Privacy Policy"
             type="text"
           />
-          <mock-styled.span
-            classname="el-intent-danger el-icon-new"
-            role="img"
+          <span
+            class="el-intent-danger el-icon-new el-icon"
             style="font-size: 1rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1rem;"
+              title="Icon image with name asterisk"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -2116,67 +2674,88 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.label
-            htmlfor="test-static-id"
+          </span>
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Privacy Policy
-          </mock-styled.label>
-          <mock-styled.p>
+          </label>
+          <p
+            class="mocked-styled-42 el-input-error"
+          >
             An Error
-          </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </p>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="videoUrl1"
             placeholder="YouTube embed preferred or any https hosted video"
             type="text"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Getting Started Video URL
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="videoUrl2"
             placeholder="YouTube embed preferred or any https hosted video"
             type="text"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Why Use Us Video URL
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname="el-has-input-error"
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="el-has-input-error el-input"
             id="test-static-id"
             name="pricingUrl"
             placeholder="URL to link to your Pricing Info"
             type="text"
           />
-          <mock-styled.span
-            classname="el-intent-danger el-icon-new"
-            role="img"
+          <span
+            class="el-intent-danger el-icon-new el-icon"
             style="font-size: 1rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1rem;"
+              title="Icon image with name asterisk"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -2186,34 +2765,43 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.label
-            htmlfor="test-static-id"
+          </span>
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Pricing Info
-          </mock-styled.label>
-          <mock-styled.p>
+          </label>
+          <p
+            class="mocked-styled-42 el-input-error"
+          >
             An Error
-          </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname="el-has-input-error"
+          </p>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type checkbox"
+            class="el-has-input-error el-input"
             id="test-static-id"
             name="isFree"
             type="checkbox"
           />
-          <mock-styled.span
-            classname="el-intent-danger el-icon-new"
-            role="img"
+          <span
+            class="el-intent-danger el-icon-new el-icon"
             style="font-size: 1rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1rem;"
+              title="Icon image with name asterisk"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -2223,55 +2811,72 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.label
-            htmlfor="test-static-id"
+          </span>
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             This application is free
-          </mock-styled.label>
-          <mock-styled.p>
+          </label>
+          <p
+            class="mocked-styled-42 el-input-error"
+          >
             An Error
-          </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </p>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type checkbox"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="deletionProtection"
             type="checkbox"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Check to prevent app from being deleted
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.label>
-            App Categories
-          </mock-styled.label>
-          <mock-styled.div
-            aria-controls=":r2:"
-            aria-haspopup="listbox"
-            role="combobox"
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <label
+            class="mocked-styled-41 el-label"
           >
-            <mock-styled.input
+            App Categories
+          </label>
+          <div
+            class="mocked-styled-58 el-multi-select-input-wrapper"
+          >
+            <input
+              class="mocked-styled-57 el-multi-select-input"
               id="app-edit-categories-select"
             />
-            <mock-styled.div
-              classname=""
+            <div
+              aria-label="Multi selected options"
+              class="mocked-styled-55 el-multi-select-selected"
+              role="listbox"
             >
-              <mock-styled.span
-                classname="el-ml2 el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-ml2 el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name task"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -2281,48 +2886,64 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
               <p>
                 Please select one or more categories that best describes your app. These will be used by customers to find your app in the AppMarket
               </p>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              aria-label="Multi unselected options"
+              class="mocked-styled-56 el-multi-select-un-selected"
+              role="listbox"
             >
-              <mock-styled.input
+              <input
+                aria-checked="false"
+                aria-hidden="true"
+                class="mocked-styled-52 el-multi-select-checkbox"
                 id="test-static-id"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname="el-has-grey-chips"
-                htmlfor="test-static-id"
+              <label
+                class="el-has-grey-chips el-multi-select-label"
+                for="test-static-id"
+                role="option"
+                tabindex="0"
               >
                 MOCK_DESCRIPTION
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.p>
+              </label>
+            </div>
+          </div>
+          <p
+            class="mocked-styled-42 el-input-error"
+          >
             An Error
-          </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname="el-has-input-error"
+          </p>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type undefined"
+            class="el-has-input-error el-input"
             id="test-static-id"
             name="summary"
             placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
           />
-          <mock-styled.span
-            classname="el-intent-danger el-icon-new"
-            role="img"
+          <span
+            class="el-intent-danger el-icon-new el-icon"
             style="font-size: 1rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1rem;"
+              title="Icon image with name asterisk"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -2332,27 +2953,44 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.label
-            htmlfor="test-static-id"
+          </span>
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Summary
-          </mock-styled.label>
-          <mock-styled.p>
+          </label>
+          <p
+            class="mocked-styled-42 el-input-error"
+          >
             An Error
-          </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.label>
+          </p>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <label
+          class="mocked-styled-41 el-label"
+        >
           Description
-        </mock-styled.label>
+        </label>
         <div />
-        <mock-styled.p>
+        <p
+          class="mocked-styled-42 el-input-error"
+        >
           An Error
+<<<<<<< HEAD
         </mock-styled.p>
       </mock-styled.div>
       <mock-styled.div>
+=======
+        </p>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -2389,11 +3027,23 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             </small>
           </div>
         </div>
+<<<<<<< HEAD
         <mock-styled.p>
           An Error
         </mock-styled.p>
       </mock-styled.div>
       <mock-styled.div>
+=======
+        <p
+          class="mocked-styled-42 el-input-error"
+        >
+          An Error
+        </p>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -2430,11 +3080,23 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             </small>
           </div>
         </div>
+<<<<<<< HEAD
         <mock-styled.p>
           An Error
         </mock-styled.p>
       </mock-styled.div>
       <mock-styled.div>
+=======
+        <p
+          class="mocked-styled-42 el-input-error"
+        >
+          An Error
+        </p>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -2471,11 +3133,23 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             </small>
           </div>
         </div>
+<<<<<<< HEAD
         <mock-styled.p>
           An Error
         </mock-styled.p>
       </mock-styled.div>
       <mock-styled.div>
+=======
+        <p
+          class="mocked-styled-42 el-input-error"
+        >
+          An Error
+        </p>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -2512,11 +3186,23 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             </small>
           </div>
         </div>
+<<<<<<< HEAD
         <mock-styled.p>
           An Error
         </mock-styled.p>
       </mock-styled.div>
       <mock-styled.div>
+=======
+        <p
+          class="mocked-styled-42 el-input-error"
+        >
+          An Error
+        </p>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -2553,11 +3239,23 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             </small>
           </div>
         </div>
+<<<<<<< HEAD
         <mock-styled.p>
           An Error
         </mock-styled.p>
       </mock-styled.div>
       <mock-styled.div>
+=======
+        <p
+          class="mocked-styled-42 el-input-error"
+        >
+          An Error
+        </p>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -2594,11 +3292,17 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             </small>
           </div>
         </div>
+<<<<<<< HEAD
         <mock-styled.p>
+=======
+        <p
+          class="mocked-styled-42 el-input-error"
+        >
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           An Error
-        </mock-styled.p>
-      </mock-styled.div>
-    </mock-styled.div>
+        </p>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

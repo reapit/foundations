@@ -5,20 +5,23 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.span
-            classname="el-mb5 el-icon-size-large"
-            role="img"
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name lockedInfographic"
               viewBox="0 0 40 40"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -42,63 +45,68 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                 fill="#798da1"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </span>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             This form is required to get started with Reapit Payments.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </small>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
-          </mock-styled.p>
-          <mock-styled.button
-            classname="el-mb3 el-intent-neutral"
+          </small>
+          <button
+            class="el-mb3 el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-mb3 el-intent-primary"
-            disabled="false"
+          </button>
+          <button
+            class="el-mb3 el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Save Config
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-mb3 el-intent-danger"
-            disabled="false"
+          </button>
+          <button
+            class="el-mb3 el-intent-danger el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Delete Config
-          </mock-styled.button>
+          </button>
         </aside>
         <section
           class="el-page-container"
         >
-          <mock-styled.h1
-            classname="el-text-base"
+          <h1
+            class="el-text-base el-title"
           >
             Reapit Payments App Configuration
-          </mock-styled.h1>
-          <mock-styled.div
-            classname="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline"
-            role="alertdialog"
+          </h1>
+          <div
+            class="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+            role="status"
           >
             <div
               class="el-pn-icon"
               data-testid="close-icon"
             >
-              <mock-styled.span
-                classname="el-icon-new"
-                role="img"
+              <span
+                class="el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name info"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -108,77 +116,100 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
             </div>
             <div
+              aria-live="polite"
               class="el-pn-content"
             >
               Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
             </div>
-          </mock-styled.div>
+          </div>
           <form>
-            <mock-styled.h2
-              classname="el-text-base"
+            <h2
+              class="el-text-base el-subtitle"
             >
               Company Details
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               These details are required to personalise emails sent to your customers, both receipts and requests for payment.
-            </mock-styled.p>
-            <mock-styled.div
-              classname="el-form-layout-has-margin"
+            </p>
+            <div
+              class="el-form-layout-has-margin el-form-layout"
             >
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type email"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="companyName"
                     type="email"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Company Name
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.label>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
+                <div
+                  class="mocked-styled-140 el-file-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
                     Email Logo Url
-                  </mock-styled.label>
+                  </label>
                   <div
                     class="el-flex-container el-flex-align-center"
                   >
-                    <mock-styled.button
-                      classname="el-mr4 el-intent-neutral"
+                    <button
+                      class="el-mr4 el-intent-neutral el-button"
                       type="button"
                     >
-                      <mock-styled.div />
+                      <div
+                        class="mocked-styled-0 el-button-loader"
+                      />
                       Change
-                    </mock-styled.button>
-                    <mock-styled.input
+                    </button>
+                    <input
+                      aria-label="File upload input undefined"
+                      class="mocked-styled-139 el-file-input"
                       data-testid="el-file-input"
                       type="file"
                     />
-                    <mock-styled.input
+                    <input
                       aria-hidden="true"
+                      class="mocked-styled-142 el-file-input-hidden"
                       id="test-static-id"
                       name="logoUri"
+                      value="https://logo.png"
                     />
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname="el-mr4 el-intent-primary el-icon-new"
+                    <div
+                      class="mocked-styled-141 el-file-input-icon-container"
+                    >
+                      <span
+                        class="el-mr4 el-intent-primary el-icon-new el-icon"
                         role="button"
                         style="font-size: 1rem;"
                       >
                         <svg
                           fill="none"
                           height="1em"
+                          role="img"
                           style="font-size: 1rem;"
+                          title="Icon image with name view"
                           viewBox="0 0 24 24"
                           width="1em"
                           xmlns="http://www.w3.org/2000/svg"
@@ -188,16 +219,18 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                             fill="currentColor"
                           />
                         </svg>
-                      </mock-styled.span>
-                      <mock-styled.span
-                        classname="el-mr4 el-intent-primary el-icon-new"
+                      </span>
+                      <span
+                        class="el-mr4 el-intent-primary el-icon-new el-icon"
                         role="button"
                         style="font-size: 1rem;"
                       >
                         <svg
                           fill="none"
                           height="1em"
+                          role="img"
                           style="font-size: 1rem;"
+                          title="Icon image with name close"
                           viewBox="0 0 24 24"
                           width="1em"
                           xmlns="http://www.w3.org/2000/svg"
@@ -207,127 +240,164 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                             fill="currentColor"
                           />
                         </svg>
-                      </mock-styled.span>
-                    </mock-styled.div>
+                      </span>
+                    </div>
                   </div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.h2
-              classname="el-text-base"
+                </div>
+              </div>
+            </div>
+            <h2
+              class="el-text-base el-subtitle"
             >
               Opayo Credientials
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
-            </mock-styled.p>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-bold-text"
+            </p>
+            <p
+              class="el-text-base el-body-text el-has-grey-text el-has-bold-text"
             >
               Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
-            </mock-styled.p>
-            <mock-styled.div
-              classname="el-form-layout-has-margin"
+            </p>
+            <div
+              class="el-form-layout-has-margin el-form-layout"
             >
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type email"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="vendorName"
                     type="email"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Opayo Vendor Name
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.label>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
                     Live Opayo Environment or Test
-                  </mock-styled.label>
-                  <mock-styled.input
+                  </label>
+                  <input
+                    class="mocked-styled-125 el-toggle-checkbox"
                     id="is-live-env"
                     name="isLive"
                     type="checkbox"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-bg"
-                    htmlfor="is-live-env"
+                  <label
+                    class="el-has-grey-bg el-toggle-label"
+                    for="is-live-env"
+                    role="button"
+                    tabindex="0"
                   >
-                    <mock-styled.span>
+                    <span
+                      class="mocked-styled-123 el-toggle-item"
+                    >
                       Live
-                    </mock-styled.span>
-                    <mock-styled.span>
+                    </span>
+                    <span
+                      class="mocked-styled-123 el-toggle-item"
+                    >
                       Test
-                    </mock-styled.span>
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-134 el-input-wrap-med"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type email"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="integrationKey"
                     type="email"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Opayo Integration Key
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-134 el-input-wrap-med"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type email"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="passKey"
                     type="email"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Opayo Pass Key
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type hidden"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="configId"
                   type="hidden"
                 />
-              </mock-styled.div>
-            </mock-styled.div>
+              </div>
+            </div>
           </form>
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name lockedInfographic"
             viewBox="0 0 40 40"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -351,63 +421,68 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
               fill="#798da1"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </span>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           This form is required to get started with Reapit Payments.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </small>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
-        </mock-styled.p>
-        <mock-styled.button
-          classname="el-mb3 el-intent-neutral"
+        </small>
+        <button
+          class="el-mb3 el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           View Docs
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-mb3 el-intent-primary"
-          disabled="false"
+        </button>
+        <button
+          class="el-mb3 el-intent-primary el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Save Config
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-mb3 el-intent-danger"
-          disabled="false"
+        </button>
+        <button
+          class="el-mb3 el-intent-danger el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Delete Config
-        </mock-styled.button>
+        </button>
       </aside>
       <section
         class="el-page-container"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           Reapit Payments App Configuration
-        </mock-styled.h1>
-        <mock-styled.div
-          classname="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline"
-          role="alertdialog"
+        </h1>
+        <div
+          class="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          role="status"
         >
           <div
             class="el-pn-icon"
             data-testid="close-icon"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name info"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -417,77 +492,100 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
           </div>
           <div
+            aria-live="polite"
             class="el-pn-content"
           >
             Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
           </div>
-        </mock-styled.div>
+        </div>
         <form>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Company Details
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             These details are required to personalise emails sent to your customers, both receipts and requests for payment.
-          </mock-styled.p>
-          <mock-styled.div
-            classname="el-form-layout-has-margin"
+          </p>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
           >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type email"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="companyName"
                   type="email"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Company Name
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-140 el-file-input-wrap"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Email Logo Url
-                </mock-styled.label>
+                </label>
                 <div
                   class="el-flex-container el-flex-align-center"
                 >
-                  <mock-styled.button
-                    classname="el-mr4 el-intent-neutral"
+                  <button
+                    class="el-mr4 el-intent-neutral el-button"
                     type="button"
                   >
-                    <mock-styled.div />
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
                     Change
-                  </mock-styled.button>
-                  <mock-styled.input
+                  </button>
+                  <input
+                    aria-label="File upload input undefined"
+                    class="mocked-styled-139 el-file-input"
                     data-testid="el-file-input"
                     type="file"
                   />
-                  <mock-styled.input
+                  <input
                     aria-hidden="true"
+                    class="mocked-styled-142 el-file-input-hidden"
                     id="test-static-id"
                     name="logoUri"
+                    value="https://logo.png"
                   />
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-mr4 el-intent-primary el-icon-new"
+                  <div
+                    class="mocked-styled-141 el-file-input-icon-container"
+                  >
+                    <span
+                      class="el-mr4 el-intent-primary el-icon-new el-icon"
                       role="button"
                       style="font-size: 1rem;"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
                         style="font-size: 1rem;"
+                        title="Icon image with name view"
                         viewBox="0 0 24 24"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -497,16 +595,18 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                           fill="currentColor"
                         />
                       </svg>
-                    </mock-styled.span>
-                    <mock-styled.span
-                      classname="el-mr4 el-intent-primary el-icon-new"
+                    </span>
+                    <span
+                      class="el-mr4 el-intent-primary el-icon-new el-icon"
                       role="button"
                       style="font-size: 1rem;"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
                         style="font-size: 1rem;"
+                        title="Icon image with name close"
                         viewBox="0 0 24 24"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -516,107 +616,141 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
                           fill="currentColor"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
+                    </span>
+                  </div>
                 </div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base"
+              </div>
+            </div>
+          </div>
+          <h2
+            class="el-text-base el-subtitle"
           >
             Opayo Credientials
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-bold-text"
+          </p>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-bold-text"
           >
             Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
-          </mock-styled.p>
-          <mock-styled.div
-            classname="el-form-layout-has-margin"
+          </p>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
           >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type email"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="vendorName"
                   type="email"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Opayo Vendor Name
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Live Opayo Environment or Test
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  class="mocked-styled-125 el-toggle-checkbox"
                   id="is-live-env"
                   name="isLive"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="is-live-env"
+                <label
+                  class="el-has-grey-bg el-toggle-label"
+                  for="is-live-env"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-123 el-toggle-item"
+                  >
                     Live
-                  </mock-styled.span>
-                  <mock-styled.span>
+                  </span>
+                  <span
+                    class="mocked-styled-123 el-toggle-item"
+                  >
                     Test
-                  </mock-styled.span>
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-134 el-input-wrap-med"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type email"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="integrationKey"
                   type="email"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Opayo Integration Key
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-134 el-input-wrap-med"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type email"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="passKey"
                   type="email"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Opayo Pass Key
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type hidden"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="configId"
                 type="hidden"
               />
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </form>
       </section>
     </div>
@@ -680,20 +814,23 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.span
-            classname="el-mb5 el-icon-size-large"
-            role="img"
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name lockedInfographic"
               viewBox="0 0 40 40"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -717,63 +854,68 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                 fill="#798da1"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </span>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             This form is required to get started with Reapit Payments.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </small>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
-          </mock-styled.p>
-          <mock-styled.button
-            classname="el-mb3 el-intent-neutral"
+          </small>
+          <button
+            class="el-mb3 el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-mb3 el-intent-primary"
-            disabled="false"
+          </button>
+          <button
+            class="el-mb3 el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Save Config
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-mb3 el-intent-danger"
-            disabled="false"
+          </button>
+          <button
+            class="el-mb3 el-intent-danger el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Delete Config
-          </mock-styled.button>
+          </button>
         </aside>
         <section
           class="el-page-container"
         >
-          <mock-styled.h1
-            classname="el-text-base"
+          <h1
+            class="el-text-base el-title"
           >
             Reapit Payments App Configuration
-          </mock-styled.h1>
-          <mock-styled.div
-            classname="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline"
-            role="alertdialog"
+          </h1>
+          <div
+            class="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+            role="status"
           >
             <div
               class="el-pn-icon"
               data-testid="close-icon"
             >
-              <mock-styled.span
-                classname="el-icon-new"
-                role="img"
+              <span
+                class="el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name info"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -783,77 +925,100 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
             </div>
             <div
+              aria-live="polite"
               class="el-pn-content"
             >
               Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
             </div>
-          </mock-styled.div>
+          </div>
           <form>
-            <mock-styled.h2
-              classname="el-text-base"
+            <h2
+              class="el-text-base el-subtitle"
             >
               Company Details
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               These details are required to personalise emails sent to your customers, both receipts and requests for payment.
-            </mock-styled.p>
-            <mock-styled.div
-              classname="el-form-layout-has-margin"
+            </p>
+            <div
+              class="el-form-layout-has-margin el-form-layout"
             >
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type email"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="companyName"
                     type="email"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Company Name
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.label>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
+                <div
+                  class="mocked-styled-140 el-file-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
                     Email Logo Url
-                  </mock-styled.label>
+                  </label>
                   <div
                     class="el-flex-container el-flex-align-center"
                   >
-                    <mock-styled.button
-                      classname="el-mr4 el-intent-neutral"
+                    <button
+                      class="el-mr4 el-intent-neutral el-button"
                       type="button"
                     >
-                      <mock-styled.div />
+                      <div
+                        class="mocked-styled-0 el-button-loader"
+                      />
                       Change
-                    </mock-styled.button>
-                    <mock-styled.input
+                    </button>
+                    <input
+                      aria-label="File upload input undefined"
+                      class="mocked-styled-139 el-file-input"
                       data-testid="el-file-input"
                       type="file"
                     />
-                    <mock-styled.input
+                    <input
                       aria-hidden="true"
+                      class="mocked-styled-142 el-file-input-hidden"
                       id="test-static-id"
                       name="logoUri"
+                      value="https://logo.png"
                     />
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname="el-mr4 el-intent-primary el-icon-new"
+                    <div
+                      class="mocked-styled-141 el-file-input-icon-container"
+                    >
+                      <span
+                        class="el-mr4 el-intent-primary el-icon-new el-icon"
                         role="button"
                         style="font-size: 1rem;"
                       >
                         <svg
                           fill="none"
                           height="1em"
+                          role="img"
                           style="font-size: 1rem;"
+                          title="Icon image with name view"
                           viewBox="0 0 24 24"
                           width="1em"
                           xmlns="http://www.w3.org/2000/svg"
@@ -863,16 +1028,18 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                             fill="currentColor"
                           />
                         </svg>
-                      </mock-styled.span>
-                      <mock-styled.span
-                        classname="el-mr4 el-intent-primary el-icon-new"
+                      </span>
+                      <span
+                        class="el-mr4 el-intent-primary el-icon-new el-icon"
                         role="button"
                         style="font-size: 1rem;"
                       >
                         <svg
                           fill="none"
                           height="1em"
+                          role="img"
                           style="font-size: 1rem;"
+                          title="Icon image with name close"
                           viewBox="0 0 24 24"
                           width="1em"
                           xmlns="http://www.w3.org/2000/svg"
@@ -882,127 +1049,164 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                             fill="currentColor"
                           />
                         </svg>
-                      </mock-styled.span>
-                    </mock-styled.div>
+                      </span>
+                    </div>
                   </div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.h2
-              classname="el-text-base"
+                </div>
+              </div>
+            </div>
+            <h2
+              class="el-text-base el-subtitle"
             >
               Opayo Credientials
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
-            </mock-styled.p>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-bold-text"
+            </p>
+            <p
+              class="el-text-base el-body-text el-has-grey-text el-has-bold-text"
             >
               Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
-            </mock-styled.p>
-            <mock-styled.div
-              classname="el-form-layout-has-margin"
+            </p>
+            <div
+              class="el-form-layout-has-margin el-form-layout"
             >
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type email"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="vendorName"
                     type="email"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Opayo Vendor Name
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.label>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
                     Live Opayo Environment or Test
-                  </mock-styled.label>
-                  <mock-styled.input
+                  </label>
+                  <input
+                    class="mocked-styled-125 el-toggle-checkbox"
                     id="is-live-env"
                     name="isLive"
                     type="checkbox"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-bg"
-                    htmlfor="is-live-env"
+                  <label
+                    class="el-has-grey-bg el-toggle-label"
+                    for="is-live-env"
+                    role="button"
+                    tabindex="0"
                   >
-                    <mock-styled.span>
+                    <span
+                      class="mocked-styled-123 el-toggle-item"
+                    >
                       Live
-                    </mock-styled.span>
-                    <mock-styled.span>
+                    </span>
+                    <span
+                      class="mocked-styled-123 el-toggle-item"
+                    >
                       Test
-                    </mock-styled.span>
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-134 el-input-wrap-med"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type email"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="integrationKey"
                     type="email"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Opayo Integration Key
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-134 el-input-wrap-med"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type email"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="passKey"
                     type="email"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Opayo Pass Key
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type hidden"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="configId"
                   type="hidden"
                 />
-              </mock-styled.div>
-            </mock-styled.div>
+              </div>
+            </div>
           </form>
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name lockedInfographic"
             viewBox="0 0 40 40"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -1026,63 +1230,68 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
               fill="#798da1"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </span>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           This form is required to get started with Reapit Payments.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </small>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
-        </mock-styled.p>
-        <mock-styled.button
-          classname="el-mb3 el-intent-neutral"
+        </small>
+        <button
+          class="el-mb3 el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           View Docs
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-mb3 el-intent-primary"
-          disabled="false"
+        </button>
+        <button
+          class="el-mb3 el-intent-primary el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Save Config
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-mb3 el-intent-danger"
-          disabled="false"
+        </button>
+        <button
+          class="el-mb3 el-intent-danger el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Delete Config
-        </mock-styled.button>
+        </button>
       </aside>
       <section
         class="el-page-container"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           Reapit Payments App Configuration
-        </mock-styled.h1>
-        <mock-styled.div
-          classname="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline"
-          role="alertdialog"
+        </h1>
+        <div
+          class="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          role="status"
         >
           <div
             class="el-pn-icon"
             data-testid="close-icon"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name info"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1092,77 +1301,100 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
           </div>
           <div
+            aria-live="polite"
             class="el-pn-content"
           >
             Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
           </div>
-        </mock-styled.div>
+        </div>
         <form>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Company Details
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             These details are required to personalise emails sent to your customers, both receipts and requests for payment.
-          </mock-styled.p>
-          <mock-styled.div
-            classname="el-form-layout-has-margin"
+          </p>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
           >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type email"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="companyName"
                   type="email"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Company Name
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-140 el-file-input-wrap"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Email Logo Url
-                </mock-styled.label>
+                </label>
                 <div
                   class="el-flex-container el-flex-align-center"
                 >
-                  <mock-styled.button
-                    classname="el-mr4 el-intent-neutral"
+                  <button
+                    class="el-mr4 el-intent-neutral el-button"
                     type="button"
                   >
-                    <mock-styled.div />
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
                     Change
-                  </mock-styled.button>
-                  <mock-styled.input
+                  </button>
+                  <input
+                    aria-label="File upload input undefined"
+                    class="mocked-styled-139 el-file-input"
                     data-testid="el-file-input"
                     type="file"
                   />
-                  <mock-styled.input
+                  <input
                     aria-hidden="true"
+                    class="mocked-styled-142 el-file-input-hidden"
                     id="test-static-id"
                     name="logoUri"
+                    value="https://logo.png"
                   />
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-mr4 el-intent-primary el-icon-new"
+                  <div
+                    class="mocked-styled-141 el-file-input-icon-container"
+                  >
+                    <span
+                      class="el-mr4 el-intent-primary el-icon-new el-icon"
                       role="button"
                       style="font-size: 1rem;"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
                         style="font-size: 1rem;"
+                        title="Icon image with name view"
                         viewBox="0 0 24 24"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1172,16 +1404,18 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                           fill="currentColor"
                         />
                       </svg>
-                    </mock-styled.span>
-                    <mock-styled.span
-                      classname="el-mr4 el-intent-primary el-icon-new"
+                    </span>
+                    <span
+                      class="el-mr4 el-intent-primary el-icon-new el-icon"
                       role="button"
                       style="font-size: 1rem;"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
                         style="font-size: 1rem;"
+                        title="Icon image with name close"
                         viewBox="0 0 24 24"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1191,107 +1425,141 @@ exports[`AdminPage should match a snapshot with config data 1`] = `
                           fill="currentColor"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
+                    </span>
+                  </div>
                 </div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base"
+              </div>
+            </div>
+          </div>
+          <h2
+            class="el-text-base el-subtitle"
           >
             Opayo Credientials
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-bold-text"
+          </p>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-bold-text"
           >
             Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
-          </mock-styled.p>
-          <mock-styled.div
-            classname="el-form-layout-has-margin"
+          </p>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
           >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type email"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="vendorName"
                   type="email"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Opayo Vendor Name
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Live Opayo Environment or Test
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  class="mocked-styled-125 el-toggle-checkbox"
                   id="is-live-env"
                   name="isLive"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="is-live-env"
+                <label
+                  class="el-has-grey-bg el-toggle-label"
+                  for="is-live-env"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-123 el-toggle-item"
+                  >
                     Live
-                  </mock-styled.span>
-                  <mock-styled.span>
+                  </span>
+                  <span
+                    class="mocked-styled-123 el-toggle-item"
+                  >
                     Test
-                  </mock-styled.span>
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-134 el-input-wrap-med"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type email"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="integrationKey"
                   type="email"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Opayo Integration Key
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-134 el-input-wrap-med"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type email"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="passKey"
                   type="email"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Opayo Pass Key
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type hidden"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="configId"
                 type="hidden"
               />
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </form>
       </section>
     </div>
@@ -1355,20 +1623,23 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.span
-            classname="el-mb5 el-icon-size-large"
-            role="img"
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name lockedInfographic"
               viewBox="0 0 40 40"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1392,63 +1663,68 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                 fill="#798da1"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </span>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             This form is required to get started with Reapit Payments.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </small>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
-          </mock-styled.p>
-          <mock-styled.button
-            classname="el-mb3 el-intent-neutral"
+          </small>
+          <button
+            class="el-mb3 el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-mb3 el-intent-primary"
-            disabled="false"
+          </button>
+          <button
+            class="el-mb3 el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Save Config
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-mb3 el-intent-danger"
-            disabled="false"
+          </button>
+          <button
+            class="el-mb3 el-intent-danger el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Delete Config
-          </mock-styled.button>
+          </button>
         </aside>
         <section
           class="el-page-container"
         >
-          <mock-styled.h1
-            classname="el-text-base"
+          <h1
+            class="el-text-base el-title"
           >
             Reapit Payments App Configuration
-          </mock-styled.h1>
-          <mock-styled.div
-            classname="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline"
-            role="alertdialog"
+          </h1>
+          <div
+            class="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+            role="status"
           >
             <div
               class="el-pn-icon"
               data-testid="close-icon"
             >
-              <mock-styled.span
-                classname="el-icon-new"
-                role="img"
+              <span
+                class="el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name info"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1458,77 +1734,100 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
             </div>
             <div
+              aria-live="polite"
               class="el-pn-content"
             >
               Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
             </div>
-          </mock-styled.div>
+          </div>
           <form>
-            <mock-styled.h2
-              classname="el-text-base"
+            <h2
+              class="el-text-base el-subtitle"
             >
               Company Details
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               These details are required to personalise emails sent to your customers, both receipts and requests for payment.
-            </mock-styled.p>
-            <mock-styled.div
-              classname="el-form-layout-has-margin"
+            </p>
+            <div
+              class="el-form-layout-has-margin el-form-layout"
             >
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type email"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="companyName"
                     type="email"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Company Name
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.label>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
+                <div
+                  class="mocked-styled-140 el-file-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
                     Email Logo Url
-                  </mock-styled.label>
+                  </label>
                   <div
                     class="el-flex-container el-flex-align-center"
                   >
-                    <mock-styled.button
-                      classname="el-mr4 el-intent-neutral"
+                    <button
+                      class="el-mr4 el-intent-neutral el-button"
                       type="button"
                     >
-                      <mock-styled.div />
+                      <div
+                        class="mocked-styled-0 el-button-loader"
+                      />
                       Change
-                    </mock-styled.button>
-                    <mock-styled.input
+                    </button>
+                    <input
+                      aria-label="File upload input undefined"
+                      class="mocked-styled-139 el-file-input"
                       data-testid="el-file-input"
                       type="file"
                     />
-                    <mock-styled.input
+                    <input
                       aria-hidden="true"
+                      class="mocked-styled-142 el-file-input-hidden"
                       id="test-static-id"
                       name="logoUri"
+                      value="https://logo.png"
                     />
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname="el-mr4 el-intent-primary el-icon-new"
+                    <div
+                      class="mocked-styled-141 el-file-input-icon-container"
+                    >
+                      <span
+                        class="el-mr4 el-intent-primary el-icon-new el-icon"
                         role="button"
                         style="font-size: 1rem;"
                       >
                         <svg
                           fill="none"
                           height="1em"
+                          role="img"
                           style="font-size: 1rem;"
+                          title="Icon image with name view"
                           viewBox="0 0 24 24"
                           width="1em"
                           xmlns="http://www.w3.org/2000/svg"
@@ -1538,16 +1837,18 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                             fill="currentColor"
                           />
                         </svg>
-                      </mock-styled.span>
-                      <mock-styled.span
-                        classname="el-mr4 el-intent-primary el-icon-new"
+                      </span>
+                      <span
+                        class="el-mr4 el-intent-primary el-icon-new el-icon"
                         role="button"
                         style="font-size: 1rem;"
                       >
                         <svg
                           fill="none"
                           height="1em"
+                          role="img"
                           style="font-size: 1rem;"
+                          title="Icon image with name close"
                           viewBox="0 0 24 24"
                           width="1em"
                           xmlns="http://www.w3.org/2000/svg"
@@ -1557,127 +1858,164 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                             fill="currentColor"
                           />
                         </svg>
-                      </mock-styled.span>
-                    </mock-styled.div>
+                      </span>
+                    </div>
                   </div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.h2
-              classname="el-text-base"
+                </div>
+              </div>
+            </div>
+            <h2
+              class="el-text-base el-subtitle"
             >
               Opayo Credientials
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
-            </mock-styled.p>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-bold-text"
+            </p>
+            <p
+              class="el-text-base el-body-text el-has-grey-text el-has-bold-text"
             >
               Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
-            </mock-styled.p>
-            <mock-styled.div
-              classname="el-form-layout-has-margin"
+            </p>
+            <div
+              class="el-form-layout-has-margin el-form-layout"
             >
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type email"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="vendorName"
                     type="email"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Opayo Vendor Name
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.label>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
                     Live Opayo Environment or Test
-                  </mock-styled.label>
-                  <mock-styled.input
+                  </label>
+                  <input
+                    class="mocked-styled-125 el-toggle-checkbox"
                     id="is-live-env"
                     name="isLive"
                     type="checkbox"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-bg"
-                    htmlfor="is-live-env"
+                  <label
+                    class="el-has-grey-bg el-toggle-label"
+                    for="is-live-env"
+                    role="button"
+                    tabindex="0"
                   >
-                    <mock-styled.span>
+                    <span
+                      class="mocked-styled-123 el-toggle-item"
+                    >
                       Live
-                    </mock-styled.span>
-                    <mock-styled.span>
+                    </span>
+                    <span
+                      class="mocked-styled-123 el-toggle-item"
+                    >
                       Test
-                    </mock-styled.span>
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-134 el-input-wrap-med"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type email"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="integrationKey"
                     type="email"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Opayo Integration Key
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-134 el-input-wrap-med"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type email"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="passKey"
                     type="email"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Opayo Pass Key
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type hidden"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="configId"
                   type="hidden"
                 />
-              </mock-styled.div>
-            </mock-styled.div>
+              </div>
+            </div>
           </form>
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name lockedInfographic"
             viewBox="0 0 40 40"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -1701,63 +2039,68 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
               fill="#798da1"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </span>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           This form is required to get started with Reapit Payments.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </small>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
-        </mock-styled.p>
-        <mock-styled.button
-          classname="el-mb3 el-intent-neutral"
+        </small>
+        <button
+          class="el-mb3 el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           View Docs
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-mb3 el-intent-primary"
-          disabled="false"
+        </button>
+        <button
+          class="el-mb3 el-intent-primary el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Save Config
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-mb3 el-intent-danger"
-          disabled="false"
+        </button>
+        <button
+          class="el-mb3 el-intent-danger el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Delete Config
-        </mock-styled.button>
+        </button>
       </aside>
       <section
         class="el-page-container"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           Reapit Payments App Configuration
-        </mock-styled.h1>
-        <mock-styled.div
-          classname="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline"
-          role="alertdialog"
+        </h1>
+        <div
+          class="el-fade-in el-mb7 el-intent-success el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          role="status"
         >
           <div
             class="el-pn-icon"
             data-testid="close-icon"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name info"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1767,77 +2110,100 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
           </div>
           <div
+            aria-live="polite"
             class="el-pn-content"
           >
             Your app is currently configured to use Reapit Payments. You can update your details however, you will be editing production configuration so please ensure the fields are valid as failure to do so can lead to the app failing for all users.
           </div>
-        </mock-styled.div>
+        </div>
         <form>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Company Details
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             These details are required to personalise emails sent to your customers, both receipts and requests for payment.
-          </mock-styled.p>
-          <mock-styled.div
-            classname="el-form-layout-has-margin"
+          </p>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
           >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type email"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="companyName"
                   type="email"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Company Name
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-140 el-file-input-wrap"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Email Logo Url
-                </mock-styled.label>
+                </label>
                 <div
                   class="el-flex-container el-flex-align-center"
                 >
-                  <mock-styled.button
-                    classname="el-mr4 el-intent-neutral"
+                  <button
+                    class="el-mr4 el-intent-neutral el-button"
                     type="button"
                   >
-                    <mock-styled.div />
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
                     Change
-                  </mock-styled.button>
-                  <mock-styled.input
+                  </button>
+                  <input
+                    aria-label="File upload input undefined"
+                    class="mocked-styled-139 el-file-input"
                     data-testid="el-file-input"
                     type="file"
                   />
-                  <mock-styled.input
+                  <input
                     aria-hidden="true"
+                    class="mocked-styled-142 el-file-input-hidden"
                     id="test-static-id"
                     name="logoUri"
+                    value="https://logo.png"
                   />
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="el-mr4 el-intent-primary el-icon-new"
+                  <div
+                    class="mocked-styled-141 el-file-input-icon-container"
+                  >
+                    <span
+                      class="el-mr4 el-intent-primary el-icon-new el-icon"
                       role="button"
                       style="font-size: 1rem;"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
                         style="font-size: 1rem;"
+                        title="Icon image with name view"
                         viewBox="0 0 24 24"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1847,16 +2213,18 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                           fill="currentColor"
                         />
                       </svg>
-                    </mock-styled.span>
-                    <mock-styled.span
-                      classname="el-mr4 el-intent-primary el-icon-new"
+                    </span>
+                    <span
+                      class="el-mr4 el-intent-primary el-icon-new el-icon"
                       role="button"
                       style="font-size: 1rem;"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
                         style="font-size: 1rem;"
+                        title="Icon image with name close"
                         viewBox="0 0 24 24"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1866,107 +2234,141 @@ exports[`AdminPage should match a snapshot with no data 1`] = `
                           fill="currentColor"
                         />
                       </svg>
-                    </mock-styled.span>
-                  </mock-styled.div>
+                    </span>
+                  </div>
                 </div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base"
+              </div>
+            </div>
+          </div>
+          <h2
+            class="el-text-base el-subtitle"
           >
             Opayo Credientials
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             These details are required by Opayo to make payments in a live or test environment. You can update your credentials at any time by entering new keys in the form below.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-bold-text"
+          </p>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-bold-text"
           >
             Please note: for security reasons. after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the app.
-          </mock-styled.p>
-          <mock-styled.div
-            classname="el-form-layout-has-margin"
+          </p>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
           >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type email"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="vendorName"
                   type="email"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Opayo Vendor Name
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Live Opayo Environment or Test
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  class="mocked-styled-125 el-toggle-checkbox"
                   id="is-live-env"
                   name="isLive"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="is-live-env"
+                <label
+                  class="el-has-grey-bg el-toggle-label"
+                  for="is-live-env"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-123 el-toggle-item"
+                  >
                     Live
-                  </mock-styled.span>
-                  <mock-styled.span>
+                  </span>
+                  <span
+                    class="mocked-styled-123 el-toggle-item"
+                  >
                     Test
-                  </mock-styled.span>
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-134 el-input-wrap-med"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type email"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="integrationKey"
                   type="email"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Opayo Integration Key
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-134 el-input-wrap-med"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type email"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="passKey"
                   type="email"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Opayo Pass Key
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type hidden"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="configId"
                 type="hidden"
               />
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </form>
       </section>
     </div>

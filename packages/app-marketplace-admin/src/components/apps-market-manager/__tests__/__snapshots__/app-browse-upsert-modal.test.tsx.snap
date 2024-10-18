@@ -5,14 +5,16 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname="el-is-active"
+      <div
+        class="mocked-styled-93 el-snack-holder"
       />
-      <mock-styled.div
+      <div
+        class="el-is-active el-modal-bg"
+      />
+      <div
         aria-describedby=":r0:"
         aria-modal="true"
-        classname="mock-css.
+        class="mock-css.
   top: 0;
   right: 0;
   bottom: 0;
@@ -21,38 +23,41 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
   max-height: 90vh;
   overflow-y: auto;
   transform: inherit;
- el-is-active"
+ el-is-active el-modal"
         role="dialog"
       >
-        <mock-styled.div>
+        <div
+          class="mocked-styled-50 el-modal-header"
+        >
           AppMarket Item
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
+          class="mocked-styled-51 el-modal-body"
           id=":r0:"
         >
           <form>
-            <mock-styled.h2
-              classname="el-text-base"
+            <h2
+              class="el-text-base el-subtitle"
             >
               Filters
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               Featured and simple apps should be configured to include;
-            </mock-styled.p>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </p>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               - A set of filters eg categories, or named apps that you want to return when the See All link is clicked on. The simplest way to do this is to specify exactly the apps you want in the collection by name.
-            </mock-styled.p>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </p>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               - A title that describes the collection
-            </mock-styled.p>
-            <mock-styled.div
-              classname="el-form-layout-has-margin"
+            </p>
+            <div
+              class="el-form-layout-has-margin el-form-layout"
             >
               <div
                 class="mocked-styled-135 el-input-wrap-full"
@@ -129,6 +134,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   </div>
                 </div>
               </div>
+<<<<<<< HEAD
               <mock-styled.div>
                 <mock-styled.div>
                   <mock-styled.label>
@@ -138,21 +144,40 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                     aria-controls=":r1:"
                     aria-haspopup="listbox"
                     role="combobox"
+=======
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
                   >
-                    <mock-styled.input
+                    Categories
+                  </label>
+                  <div
+                    class="mocked-styled-58 el-multi-select-input-wrapper"
+                  >
+                    <input
+                      class="mocked-styled-57 el-multi-select-input"
                       id="filters.category"
                       name="filters.category"
                     />
-                    <mock-styled.div
-                      classname=""
+                    <div
+                      aria-label="Multi selected options"
+                      class="mocked-styled-55 el-multi-select-selected"
+                      role="listbox"
                     >
-                      <mock-styled.span
-                        classname="el-ml2 el-intent-default el-icon-new"
-                        role="img"
+                      <span
+                        class="el-ml2 el-intent-default el-icon-new el-icon"
                       >
                         <svg
                           fill="none"
                           height="1em"
+                          role="img"
+                          title="Icon image with name task"
                           viewBox="0 0 24 24"
                           width="1em"
                           xmlns="http://www.w3.org/2000/svg"
@@ -162,167 +187,238 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                             fill="currentColor"
                           />
                         </svg>
-                      </mock-styled.span>
+                      </span>
                       <p>
                         Please select from the options below
                       </p>
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.label>
-                    Is Free
-                  </mock-styled.label>
-                  <mock-styled.div
-                    classname="el-has-grey-bg"
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
                   >
-                    <mock-styled.input
+                    Is Free
+                  </label>
+                  <div
+                    class="el-has-grey-bg el-toggle-radio-wrap"
+                  >
+                    <input
+                      checked=""
+                      class="mocked-styled-127 el-toggle-radio"
                       id="not-applied-free"
                       name="filters.isFree"
                       type="radio"
                       value="notApplied"
                     />
-                    <mock-styled.label
-                      classname="el-has-grey-bg"
-                      htmlfor="not-applied-free"
+                    <label
+                      class="el-has-grey-bg el-toggle-radio-label"
+                      for="not-applied-free"
+                      role="button"
+                      tabindex="0"
                     >
-                      <mock-styled.span>
+                      <span
+                        class="mocked-styled-124 el-toggle-radio-item"
+                      >
                         Not Applied
-                      </mock-styled.span>
-                    </mock-styled.label>
-                    <mock-styled.input
+                      </span>
+                    </label>
+                    <input
+                      class="mocked-styled-127 el-toggle-radio"
                       id="free"
                       name="filters.isFree"
                       type="radio"
                       value="free"
                     />
-                    <mock-styled.label
-                      classname="el-has-grey-bg"
-                      htmlfor="free"
+                    <label
+                      class="el-has-grey-bg el-toggle-radio-label"
+                      for="free"
+                      role="button"
+                      tabindex="0"
                     >
-                      <mock-styled.span>
+                      <span
+                        class="mocked-styled-124 el-toggle-radio-item"
+                      >
                         Free
-                      </mock-styled.span>
-                    </mock-styled.label>
-                    <mock-styled.input
+                      </span>
+                    </label>
+                    <input
+                      class="mocked-styled-127 el-toggle-radio"
                       id="paid"
                       name="filters.isFree"
                       type="radio"
                       value="paid"
                     />
-                    <mock-styled.label
-                      classname="el-has-grey-bg"
-                      htmlfor="paid"
+                    <label
+                      class="el-has-grey-bg el-toggle-radio-label"
+                      for="paid"
+                      role="button"
+                      tabindex="0"
                     >
-                      <mock-styled.span>
+                      <span
+                        class="mocked-styled-124 el-toggle-radio-item"
+                      >
                         Paid
-                      </mock-styled.span>
-                    </mock-styled.label>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.label>
-                    Is Featured
-                  </mock-styled.label>
-                  <mock-styled.div
-                    classname="el-has-grey-bg"
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
                   >
-                    <mock-styled.input
+                    Is Featured
+                  </label>
+                  <div
+                    class="el-has-grey-bg el-toggle-radio-wrap"
+                  >
+                    <input
+                      checked=""
+                      class="mocked-styled-127 el-toggle-radio"
                       id="not-applied-featured"
                       name="filters.isFeatured"
                       type="radio"
                       value="notApplied"
                     />
-                    <mock-styled.label
-                      classname="el-has-grey-bg"
-                      htmlfor="not-applied-featured"
+                    <label
+                      class="el-has-grey-bg el-toggle-radio-label"
+                      for="not-applied-featured"
+                      role="button"
+                      tabindex="0"
                     >
-                      <mock-styled.span>
+                      <span
+                        class="mocked-styled-124 el-toggle-radio-item"
+                      >
                         Not Applied
-                      </mock-styled.span>
-                    </mock-styled.label>
-                    <mock-styled.input
+                      </span>
+                    </label>
+                    <input
+                      class="mocked-styled-127 el-toggle-radio"
                       id="is-featured"
                       name="filters.isFeatured"
                       type="radio"
                       value="isFeatured"
                     />
-                    <mock-styled.label
-                      classname="el-has-grey-bg"
-                      htmlfor="is-featured"
+                    <label
+                      class="el-has-grey-bg el-toggle-radio-label"
+                      for="is-featured"
+                      role="button"
+                      tabindex="0"
                     >
-                      <mock-styled.span>
+                      <span
+                        class="mocked-styled-124 el-toggle-radio-item"
+                      >
                         Is Featured
-                      </mock-styled.span>
-                    </mock-styled.label>
-                    <mock-styled.input
+                      </span>
+                    </label>
+                    <input
+                      class="mocked-styled-127 el-toggle-radio"
                       id="not-featured"
                       name="filters.isFeatured"
                       type="radio"
                       value="notFeatured"
                     />
-                    <mock-styled.label
-                      classname="el-has-grey-bg"
-                      htmlfor="not-featured"
+                    <label
+                      class="el-has-grey-bg el-toggle-radio-label"
+                      for="not-featured"
+                      role="button"
+                      tabindex="0"
                     >
-                      <mock-styled.span>
+                      <span
+                        class="mocked-styled-124 el-toggle-radio-item"
+                      >
                         Not Featured
-                      </mock-styled.span>
-                    </mock-styled.label>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.h2
-              classname="el-text-base"
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2
+              class="el-text-base el-subtitle"
             >
               Advertising Content
-            </mock-styled.h2>
-            <mock-styled.div
-              classname="el-form-layout-has-margin"
+            </h2>
+            <div
+              class="el-form-layout-has-margin el-form-layout"
             >
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.label>
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
                     Brand Colour
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.label>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
                     Title
-                  </mock-styled.label>
-                  <mock-styled.input
-                    classname=""
+                  </label>
+                  <input
+                    aria-label="Input type undefined"
+                    class="mocked-styled-38 el-input"
                     name="content.title"
                   />
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
                     Strapline
-                  </mock-styled.label>
-                  <mock-styled.input
-                    classname=""
+                  </label>
+                  <input
+                    aria-label="Input type undefined"
+                    class="mocked-styled-38 el-input"
                     name="content.strapline"
                   />
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
                     Icon
-                  </mock-styled.label>
-                  <mock-styled.select
-                    classname="mock-css.
+                  </label>
+                  <select
+                    aria-label="Select an item from the dropdown list"
+                    class="mock-css.
   text-transform: capitalize;
-"
+ el-select"
                     name="content.iconName"
                   >
                     <option
@@ -330,104 +426,139 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                     >
                       None Selected
                     </option>
-                  </mock-styled.select>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Icon Preview
-                </mock-styled.label>
-                <mock-styled.p
-                  classname="el-text-base el-has-grey-text"
+                </label>
+                <p
+                  class="el-text-base el-body-text el-has-grey-text"
                 >
                   No Icon Selected
-                </mock-styled.p>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.label>
+                </p>
+              </div>
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <div
+                    class="mocked-styled-140 el-file-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
                       Image
-                    </mock-styled.label>
+                    </label>
                     <div
                       class="el-flex-container el-flex-align-center"
                     >
-                      <mock-styled.button
-                        classname="el-mr4 el-intent-neutral"
+                      <button
+                        class="el-mr4 el-intent-neutral el-button"
                         type="button"
                       >
-                        <mock-styled.div />
+                        <div
+                          class="mocked-styled-0 el-button-loader"
+                        />
                         Upload
-                      </mock-styled.button>
-                      <mock-styled.input
+                      </button>
+                      <input
+                        aria-label="File upload input Upload Image"
+                        class="mocked-styled-139 el-file-input"
                         data-testid="el-file-input"
                         type="file"
                       />
-                      <mock-styled.input
+                      <input
                         aria-hidden="true"
+                        class="mocked-styled-142 el-file-input-hidden"
                         id="test-static-id"
                         name="content.imageUrl"
+                        value=""
                       />
-                      <mock-styled.p
-                        classname="el-text-base el-has-grey-text el-has-no-margin"
+                      <small
+                        class="el-text-base el-small-text el-has-grey-text el-has-no-margin el-ml3"
                       >
                         Upload Image
-                      </mock-styled.p>
+                      </small>
                     </div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.h2
-              classname="el-text-base"
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2
+              class="el-text-base el-subtitle"
             >
               Live
-            </mock-styled.h2>
-            <mock-styled.div
-              classname="el-form-layout-has-margin"
+            </h2>
+            <div
+              class="el-form-layout-has-margin el-form-layout"
             >
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.label>
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
                     Live From
-                  </mock-styled.label>
-                  <mock-styled.input
-                    classname=""
+                  </label>
+                  <input
+                    aria-label="Input type datetime-local"
+                    class="mocked-styled-38 el-input"
                     name="live.timeFrom"
                     type="datetime-local"
                   />
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
                     Live To
-                  </mock-styled.label>
-                  <mock-styled.input
-                    classname=""
+                  </label>
+                  <input
+                    aria-label="Input type datetime-local"
+                    class="mocked-styled-38 el-input"
                     name="live.timeTo"
                     type="datetime-local"
                   />
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div
-                  classname="el-mb5 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-                  role="alertdialog"
+                </div>
+              </div>
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <div
+                  class="el-mb5 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+                  role="status"
                 >
                   <div
                     class="el-pn-icon"
                     data-testid="close-icon"
                   >
-                    <mock-styled.span
-                      classname="el-icon-new"
-                      role="img"
+                    <span
+                      class="el-icon-new el-icon"
                       style="font-size: 1.25rem;"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
                         style="font-size: 1.25rem;"
+                        title="Icon image with name info"
                         viewBox="0 0 24 24"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -437,64 +568,81 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                           fill="currentColor"
                         />
                       </svg>
-                    </mock-styled.span>
+                    </span>
                   </div>
                   <div
+                    aria-live="polite"
                     class="el-pn-content"
                   >
                     If a ‘Live To’ or ‘Live From’ value is set, ‘Is Live’ will be ignored.
                   </div>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.label>
+                </div>
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
                     Is Live
-                  </mock-styled.label>
-                  <mock-styled.input
+                  </label>
+                  <input
+                    class="mocked-styled-125 el-toggle-checkbox"
                     id="toggle-live"
                     name="live.isLive"
                     type="checkbox"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-bg"
-                    htmlfor="toggle-live"
+                  <label
+                    class="el-has-grey-bg el-toggle-label"
+                    for="toggle-live"
+                    role="button"
+                    tabindex="0"
                   >
-                    <mock-styled.span>
+                    <span
+                      class="mocked-styled-123 el-toggle-item"
+                    >
                       Yes
-                    </mock-styled.span>
-                    <mock-styled.span>
+                    </span>
+                    <span
+                      class="mocked-styled-123 el-toggle-item"
+                    >
                       No
-                    </mock-styled.span>
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div
-                classname=""
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-2 el-button-group"
+            >
+              <div
+                class="mocked-styled-3 el-button-group-inner"
               >
-                <mock-styled.button
-                  classname="el-intent-primary"
-                  disabled="false"
+                <button
+                  class="el-intent-primary el-button"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Save
-                </mock-styled.button>
-              </mock-styled.div>
-            </mock-styled.div>
+                </button>
+              </div>
+            </div>
           </form>
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="el-is-active"
+    <div
+      class="mocked-styled-93 el-snack-holder"
     />
-    <mock-styled.div
+    <div
+      class="el-is-active el-modal-bg"
+    />
+    <div
       aria-describedby=":r0:"
       aria-modal="true"
-      classname="mock-css.
+      class="mock-css.
   top: 0;
   right: 0;
   bottom: 0;
@@ -503,38 +651,41 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
   max-height: 90vh;
   overflow-y: auto;
   transform: inherit;
- el-is-active"
+ el-is-active el-modal"
       role="dialog"
     >
-      <mock-styled.div>
+      <div
+        class="mocked-styled-50 el-modal-header"
+      >
         AppMarket Item
-      </mock-styled.div>
-      <mock-styled.div
+      </div>
+      <div
+        class="mocked-styled-51 el-modal-body"
         id=":r0:"
       >
         <form>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Filters
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             Featured and simple apps should be configured to include;
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </p>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             - A set of filters eg categories, or named apps that you want to return when the See All link is clicked on. The simplest way to do this is to specify exactly the apps you want in the collection by name.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </p>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             - A title that describes the collection
-          </mock-styled.p>
-          <mock-styled.div
-            classname="el-form-layout-has-margin"
+          </p>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
           >
             <div
               class="mocked-styled-135 el-input-wrap-full"
@@ -611,6 +762,7 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                 </div>
               </div>
             </div>
+<<<<<<< HEAD
             <mock-styled.div>
               <mock-styled.div>
                 <mock-styled.label>
@@ -620,21 +772,40 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   aria-controls=":r1:"
                   aria-haspopup="listbox"
                   role="combobox"
+=======
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+>>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
                 >
-                  <mock-styled.input
+                  Categories
+                </label>
+                <div
+                  class="mocked-styled-58 el-multi-select-input-wrapper"
+                >
+                  <input
+                    class="mocked-styled-57 el-multi-select-input"
                     id="filters.category"
                     name="filters.category"
                   />
-                  <mock-styled.div
-                    classname=""
+                  <div
+                    aria-label="Multi selected options"
+                    class="mocked-styled-55 el-multi-select-selected"
+                    role="listbox"
                   >
-                    <mock-styled.span
-                      classname="el-ml2 el-intent-default el-icon-new"
-                      role="img"
+                    <span
+                      class="el-ml2 el-intent-default el-icon-new el-icon"
                     >
                       <svg
                         fill="none"
                         height="1em"
+                        role="img"
+                        title="Icon image with name task"
                         viewBox="0 0 24 24"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -644,167 +815,238 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                           fill="currentColor"
                         />
                       </svg>
-                    </mock-styled.span>
+                    </span>
                     <p>
                       Please select from the options below
                     </p>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
-                  Is Free
-                </mock-styled.label>
-                <mock-styled.div
-                  classname="el-has-grey-bg"
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
                 >
-                  <mock-styled.input
+                  Is Free
+                </label>
+                <div
+                  class="el-has-grey-bg el-toggle-radio-wrap"
+                >
+                  <input
+                    checked=""
+                    class="mocked-styled-127 el-toggle-radio"
                     id="not-applied-free"
                     name="filters.isFree"
                     type="radio"
                     value="notApplied"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-bg"
-                    htmlfor="not-applied-free"
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="not-applied-free"
+                    role="button"
+                    tabindex="0"
                   >
-                    <mock-styled.span>
+                    <span
+                      class="mocked-styled-124 el-toggle-radio-item"
+                    >
                       Not Applied
-                    </mock-styled.span>
-                  </mock-styled.label>
-                  <mock-styled.input
+                    </span>
+                  </label>
+                  <input
+                    class="mocked-styled-127 el-toggle-radio"
                     id="free"
                     name="filters.isFree"
                     type="radio"
                     value="free"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-bg"
-                    htmlfor="free"
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="free"
+                    role="button"
+                    tabindex="0"
                   >
-                    <mock-styled.span>
+                    <span
+                      class="mocked-styled-124 el-toggle-radio-item"
+                    >
                       Free
-                    </mock-styled.span>
-                  </mock-styled.label>
-                  <mock-styled.input
+                    </span>
+                  </label>
+                  <input
+                    class="mocked-styled-127 el-toggle-radio"
                     id="paid"
                     name="filters.isFree"
                     type="radio"
                     value="paid"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-bg"
-                    htmlfor="paid"
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="paid"
+                    role="button"
+                    tabindex="0"
                   >
-                    <mock-styled.span>
+                    <span
+                      class="mocked-styled-124 el-toggle-radio-item"
+                    >
                       Paid
-                    </mock-styled.span>
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
-                  Is Featured
-                </mock-styled.label>
-                <mock-styled.div
-                  classname="el-has-grey-bg"
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
                 >
-                  <mock-styled.input
+                  Is Featured
+                </label>
+                <div
+                  class="el-has-grey-bg el-toggle-radio-wrap"
+                >
+                  <input
+                    checked=""
+                    class="mocked-styled-127 el-toggle-radio"
                     id="not-applied-featured"
                     name="filters.isFeatured"
                     type="radio"
                     value="notApplied"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-bg"
-                    htmlfor="not-applied-featured"
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="not-applied-featured"
+                    role="button"
+                    tabindex="0"
                   >
-                    <mock-styled.span>
+                    <span
+                      class="mocked-styled-124 el-toggle-radio-item"
+                    >
                       Not Applied
-                    </mock-styled.span>
-                  </mock-styled.label>
-                  <mock-styled.input
+                    </span>
+                  </label>
+                  <input
+                    class="mocked-styled-127 el-toggle-radio"
                     id="is-featured"
                     name="filters.isFeatured"
                     type="radio"
                     value="isFeatured"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-bg"
-                    htmlfor="is-featured"
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="is-featured"
+                    role="button"
+                    tabindex="0"
                   >
-                    <mock-styled.span>
+                    <span
+                      class="mocked-styled-124 el-toggle-radio-item"
+                    >
                       Is Featured
-                    </mock-styled.span>
-                  </mock-styled.label>
-                  <mock-styled.input
+                    </span>
+                  </label>
+                  <input
+                    class="mocked-styled-127 el-toggle-radio"
                     id="not-featured"
                     name="filters.isFeatured"
                     type="radio"
                     value="notFeatured"
                   />
-                  <mock-styled.label
-                    classname="el-has-grey-bg"
-                    htmlfor="not-featured"
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="not-featured"
+                    role="button"
+                    tabindex="0"
                   >
-                    <mock-styled.span>
+                    <span
+                      class="mocked-styled-124 el-toggle-radio-item"
+                    >
                       Not Featured
-                    </mock-styled.span>
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base"
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2
+            class="el-text-base el-subtitle"
           >
             Advertising Content
-          </mock-styled.h2>
-          <mock-styled.div
-            classname="el-form-layout-has-margin"
+          </h2>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
           >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Brand Colour
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Title
-                </mock-styled.label>
-                <mock-styled.input
-                  classname=""
+                </label>
+                <input
+                  aria-label="Input type undefined"
+                  class="mocked-styled-38 el-input"
                   name="content.title"
                 />
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Strapline
-                </mock-styled.label>
-                <mock-styled.input
-                  classname=""
+                </label>
+                <input
+                  aria-label="Input type undefined"
+                  class="mocked-styled-38 el-input"
                   name="content.strapline"
                 />
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Icon
-                </mock-styled.label>
-                <mock-styled.select
-                  classname="mock-css.
+                </label>
+                <select
+                  aria-label="Select an item from the dropdown list"
+                  class="mock-css.
   text-transform: capitalize;
-"
+ el-select"
                   name="content.iconName"
                 >
                   <option
@@ -812,104 +1054,139 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                   >
                     None Selected
                   </option>
-                </mock-styled.select>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+                </select>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Icon Preview
-              </mock-styled.label>
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text"
+              </label>
+              <p
+                class="el-text-base el-body-text el-has-grey-text"
               >
                 No Icon Selected
-              </mock-styled.p>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.label>
+              </p>
+            </div>
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <div
+                  class="mocked-styled-140 el-file-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
                     Image
-                  </mock-styled.label>
+                  </label>
                   <div
                     class="el-flex-container el-flex-align-center"
                   >
-                    <mock-styled.button
-                      classname="el-mr4 el-intent-neutral"
+                    <button
+                      class="el-mr4 el-intent-neutral el-button"
                       type="button"
                     >
-                      <mock-styled.div />
+                      <div
+                        class="mocked-styled-0 el-button-loader"
+                      />
                       Upload
-                    </mock-styled.button>
-                    <mock-styled.input
+                    </button>
+                    <input
+                      aria-label="File upload input Upload Image"
+                      class="mocked-styled-139 el-file-input"
                       data-testid="el-file-input"
                       type="file"
                     />
-                    <mock-styled.input
+                    <input
                       aria-hidden="true"
+                      class="mocked-styled-142 el-file-input-hidden"
                       id="test-static-id"
                       name="content.imageUrl"
+                      value=""
                     />
-                    <mock-styled.p
-                      classname="el-text-base el-has-grey-text el-has-no-margin"
+                    <small
+                      class="el-text-base el-small-text el-has-grey-text el-has-no-margin el-ml3"
                     >
                       Upload Image
-                    </mock-styled.p>
+                    </small>
                   </div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base"
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2
+            class="el-text-base el-subtitle"
           >
             Live
-          </mock-styled.h2>
-          <mock-styled.div
-            classname="el-form-layout-has-margin"
+          </h2>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
           >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Live From
-                </mock-styled.label>
-                <mock-styled.input
-                  classname=""
+                </label>
+                <input
+                  aria-label="Input type datetime-local"
+                  class="mocked-styled-38 el-input"
                   name="live.timeFrom"
                   type="datetime-local"
                 />
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Live To
-                </mock-styled.label>
-                <mock-styled.input
-                  classname=""
+                </label>
+                <input
+                  aria-label="Input type datetime-local"
+                  class="mocked-styled-38 el-input"
                   name="live.timeTo"
                   type="datetime-local"
                 />
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-mb5 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-                role="alertdialog"
+              </div>
+            </div>
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+              <div
+                class="el-mb5 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+                role="status"
               >
                 <div
                   class="el-pn-icon"
                   data-testid="close-icon"
                 >
-                  <mock-styled.span
-                    classname="el-icon-new"
-                    role="img"
+                  <span
+                    class="el-icon-new el-icon"
                     style="font-size: 1.25rem;"
                   >
                     <svg
                       fill="none"
                       height="1em"
+                      role="img"
                       style="font-size: 1.25rem;"
+                      title="Icon image with name info"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -919,53 +1196,68 @@ exports[`AppBrowseUpsertModal should match a snapshot 1`] = `
                         fill="currentColor"
                       />
                     </svg>
-                  </mock-styled.span>
+                  </span>
                 </div>
                 <div
+                  aria-live="polite"
                   class="el-pn-content"
                 >
                   If a ‘Live To’ or ‘Live From’ value is set, ‘Is Live’ will be ignored.
                 </div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.label>
+              </div>
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Is Live
-                </mock-styled.label>
-                <mock-styled.input
+                </label>
+                <input
+                  class="mocked-styled-125 el-toggle-checkbox"
                   id="toggle-live"
                   name="live.isLive"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="toggle-live"
+                <label
+                  class="el-has-grey-bg el-toggle-label"
+                  for="toggle-live"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-123 el-toggle-item"
+                  >
                     Yes
-                  </mock-styled.span>
-                  <mock-styled.span>
+                  </span>
+                  <span
+                    class="mocked-styled-123 el-toggle-item"
+                  >
                     No
-                  </mock-styled.span>
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-2 el-button-group"
+          >
+            <div
+              class="mocked-styled-3 el-button-group-inner"
             >
-              <mock-styled.button
-                classname="el-intent-primary"
-                disabled="false"
+              <button
+                class="el-intent-primary el-button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Save
-              </mock-styled.button>
-            </mock-styled.div>
-          </mock-styled.div>
+              </button>
+            </div>
+          </div>
         </form>
-      </mock-styled.div>
-    </mock-styled.div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

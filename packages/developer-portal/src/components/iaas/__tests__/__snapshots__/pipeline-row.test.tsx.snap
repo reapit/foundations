@@ -5,46 +5,59 @@ exports[`PipelineRow should match snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="mocked-styled-110 el-table-row-container"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+        <div
+          class="mocked-styled-103 el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
           >
-            <mock-styled.div />
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+            />
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
           >
-            <mock-styled.div>
-              <mock-styled.span
-                classname="el-intent-neutral"
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+            >
+              <span
+                class="el-intent-neutral el-status-indicator"
               />
               In Progress
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
           >
-            <mock-styled.div>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+            >
               <a
                 rel="noreferrer"
                 target="_blank"
               />
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+            </div>
+          </div>
+          <div
+            class="mocked-styled-109 el-table-expandable-row-trigger-cell"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name more"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -54,87 +67,110 @@ exports[`PipelineRow should match snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+            </span>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-113 el-table-expandable-row"
         >
-          <mock-styled.div>
+          <div
+            class="mocked-styled-114 el-table-expandable-container"
+          >
             <div
               class="el-flex-container el-flex-justify-center el-flex-align-center"
             >
-              <mock-styled.div>
-                <mock-styled.div
-                  classname=""
+              <div
+                class="mocked-styled-2 el-button-group"
+              >
+                <div
+                  class="mocked-styled-3 el-button-group-inner"
                 >
-                  <mock-styled.button
-                    classname="el-intent-primary"
+                  <button
+                    class="el-intent-primary el-button"
                   >
-                    <mock-styled.div />
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
                     Configure
-                  </mock-styled.button>
-                  <mock-styled.button
-                    classname="el-intent-primary"
+                  </button>
+                  <button
+                    class="el-intent-primary el-button"
                   >
-                    <mock-styled.div />
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
                     Deployments
-                  </mock-styled.button>
-                  <mock-styled.button
-                    classname="el-intent-neutral"
+                  </button>
+                  <button
+                    class="el-intent-neutral el-button"
                   >
-                    <mock-styled.div />
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
                     View App
-                  </mock-styled.button>
-                </mock-styled.div>
-              </mock-styled.div>
+                  </button>
+                </div>
+              </div>
             </div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="mocked-styled-110 el-table-row-container"
     >
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-table-cell-has-dark-text"
+      <div
+        class="mocked-styled-103 el-table-row"
+      >
+        <div
+          class="el-table-cell-has-dark-text el-table-cell"
         >
-          <mock-styled.div />
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-111 el-table-cell-content"
+          />
+        </div>
+        <div
+          class="el-table-cell-has-dark-text el-table-cell"
         >
-          <mock-styled.div>
-            <mock-styled.span
-              classname="el-intent-neutral"
+          <div
+            class="mocked-styled-111 el-table-cell-content"
+          >
+            <span
+              class="el-intent-neutral el-status-indicator"
             />
             In Progress
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-table-cell-has-dark-text"
+          </div>
+        </div>
+        <div
+          class="el-table-cell-has-dark-text el-table-cell"
         >
-          <mock-styled.div>
+          <div
+            class="mocked-styled-111 el-table-cell-content"
+          >
             <a
               rel="noreferrer"
               target="_blank"
             />
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </div>
+        </div>
+        <div
+          class="mocked-styled-109 el-table-expandable-row-trigger-cell"
+          role="button"
+          tabindex="0"
         >
-          <mock-styled.span
-            classname="el-intent-default el-icon-new"
-            role="img"
+          <span
+            class="el-intent-default el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name more"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -144,44 +180,54 @@ exports[`PipelineRow should match snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+          </span>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-113 el-table-expandable-row"
       >
-        <mock-styled.div>
+        <div
+          class="mocked-styled-114 el-table-expandable-container"
+        >
           <div
             class="el-flex-container el-flex-justify-center el-flex-align-center"
           >
-            <mock-styled.div>
-              <mock-styled.div
-                classname=""
+            <div
+              class="mocked-styled-2 el-button-group"
+            >
+              <div
+                class="mocked-styled-3 el-button-group-inner"
               >
-                <mock-styled.button
-                  classname="el-intent-primary"
+                <button
+                  class="el-intent-primary el-button"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Configure
-                </mock-styled.button>
-                <mock-styled.button
-                  classname="el-intent-primary"
+                </button>
+                <button
+                  class="el-intent-primary el-button"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Deployments
-                </mock-styled.button>
-                <mock-styled.button
-                  classname="el-intent-neutral"
+                </button>
+                <button
+                  class="el-intent-neutral el-button"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   View App
-                </mock-styled.button>
-              </mock-styled.div>
-            </mock-styled.div>
+                </button>
+              </div>
+            </div>
           </div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

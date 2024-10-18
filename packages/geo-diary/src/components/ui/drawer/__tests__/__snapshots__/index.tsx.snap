@@ -5,7 +5,9 @@ exports[`Drawer component should match a snapshot when closed 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
       <div
         class="mock-css.
@@ -56,7 +58,9 @@ exports[`Drawer component should match a snapshot when closed 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
     <div
       class="mock-css.
@@ -164,7 +168,9 @@ exports[`Drawer component should match a snapshot when open 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
       <div
         class="mock-css.
@@ -222,7 +228,9 @@ exports[`Drawer component should match a snapshot when open 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
     <div
       class="mock-css.

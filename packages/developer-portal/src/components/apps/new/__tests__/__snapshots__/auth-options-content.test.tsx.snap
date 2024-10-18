@@ -6,83 +6,99 @@ exports[`AuthOptionsContent should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div>
-        <mock-styled.div
-          classname="el-mb10"
+        <div
+          class="el-mb10 el-input-group"
         >
-          <mock-styled.input
-            classname=""
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Login Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </span>
+        </div>
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080/login"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Logout Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
+          </span>
+        </div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div>
-      <mock-styled.div
-        classname="el-mb10"
+      <div
+        class="el-mb10 el-input-group"
       >
-        <mock-styled.input
-          classname=""
+        <input
+          aria-label="Input type text"
+          class="mocked-styled-38 el-input"
           id="test-static-id"
           type="text"
+          value="http://localhost:8080"
         />
-        <mock-styled.label
-          htmlfor="test-static-id"
+        <label
+          class="mocked-styled-41 el-label"
+          for="test-static-id"
         >
           Login Redirect URI
-        </mock-styled.label>
-        <mock-styled.span
-          classname="el-intent-danger"
+        </label>
+        <span
+          class="el-intent-danger el-input-add-on"
         >
           Some error
-        </mock-styled.span>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.input
-          classname=""
+        </span>
+      </div>
+      <div
+        class="mocked-styled-40 el-input-group"
+      >
+        <input
+          aria-label="Input type text"
+          class="mocked-styled-38 el-input"
           id="test-static-id"
           type="text"
+          value="http://localhost:8080/login"
         />
-        <mock-styled.label
-          htmlfor="test-static-id"
+        <label
+          class="mocked-styled-41 el-label"
+          for="test-static-id"
         >
           Logout Redirect URI
-        </mock-styled.label>
-        <mock-styled.span
-          classname="el-intent-danger"
+        </label>
+        <span
+          class="el-intent-danger el-input-add-on"
         >
           Some error
-        </mock-styled.span>
-      </mock-styled.div>
+        </span>
+      </div>
     </mock-styled.div>
   </div>,
   "debug": [Function],

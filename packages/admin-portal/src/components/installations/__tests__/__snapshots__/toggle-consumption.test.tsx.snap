@@ -5,100 +5,138 @@ exports[`ToggleConsumption should match a snapshot with installations 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <form>
-        <mock-styled.div
-          classname="el-mt5"
+        <div
+          class="el-mt5 el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
-                API Consumption Charges
-              </mock-styled.label>
-              <mock-styled.div
-                classname="el-has-grey-bg"
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
               >
-                <mock-styled.input
+                API Consumption Charges
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-free-false"
                   name="fixedApiConsumptionCost"
                   type="radio"
                   value="NOT_FREE"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-free-false"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-free-false"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-124 el-toggle-radio-item"
+                  >
                     Pays for API consumption
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-free-true"
                   name="fixedApiConsumptionCost"
                   type="radio"
                   value="FREE"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-free-true"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-free-true"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-124 el-toggle-radio-item"
+                  >
                     API consumption free
-                  </mock-styled.span>
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <form>
-      <mock-styled.div
-        classname="el-mt5"
+      <div
+        class="el-mt5 el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
-              API Consumption Charges
-            </mock-styled.label>
-            <mock-styled.div
-              classname="el-has-grey-bg"
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
             >
-              <mock-styled.input
+              API Consumption Charges
+            </label>
+            <div
+              class="el-has-grey-bg el-toggle-radio-wrap"
+            >
+              <input
+                checked=""
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-free-false"
                 name="fixedApiConsumptionCost"
                 type="radio"
                 value="NOT_FREE"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-free-false"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-free-false"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-124 el-toggle-radio-item"
+                >
                   Pays for API consumption
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-free-true"
                 name="fixedApiConsumptionCost"
                 type="radio"
                 value="FREE"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-free-true"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-free-true"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-124 el-toggle-radio-item"
+                >
                   API consumption free
-                </mock-styled.span>
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
   </div>,
   "debug": [Function],
@@ -160,100 +198,138 @@ exports[`ToggleConsumption should match a snapshot with no installations 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <form>
-        <mock-styled.div
-          classname="el-mt5"
+        <div
+          class="el-mt5 el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
-                API Consumption Charges
-              </mock-styled.label>
-              <mock-styled.div
-                classname="el-has-grey-bg"
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
               >
-                <mock-styled.input
+                API Consumption Charges
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-free-false"
                   name="fixedApiConsumptionCost"
                   type="radio"
                   value="NOT_FREE"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-free-false"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-free-false"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-124 el-toggle-radio-item"
+                  >
                     Pays for API consumption
-                  </mock-styled.span>
-                </mock-styled.label>
-                <mock-styled.input
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-127 el-toggle-radio"
                   id="option-free-true"
                   name="fixedApiConsumptionCost"
                   type="radio"
                   value="FREE"
                 />
-                <mock-styled.label
-                  classname="el-has-grey-bg"
-                  htmlfor="option-free-true"
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-free-true"
+                  role="button"
+                  tabindex="0"
                 >
-                  <mock-styled.span>
+                  <span
+                    class="mocked-styled-124 el-toggle-radio-item"
+                  >
                     API consumption free
-                  </mock-styled.span>
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <form>
-      <mock-styled.div
-        classname="el-mt5"
+      <div
+        class="el-mt5 el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
-              API Consumption Charges
-            </mock-styled.label>
-            <mock-styled.div
-              classname="el-has-grey-bg"
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
             >
-              <mock-styled.input
+              API Consumption Charges
+            </label>
+            <div
+              class="el-has-grey-bg el-toggle-radio-wrap"
+            >
+              <input
+                checked=""
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-free-false"
                 name="fixedApiConsumptionCost"
                 type="radio"
                 value="NOT_FREE"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-free-false"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-free-false"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-124 el-toggle-radio-item"
+                >
                   Pays for API consumption
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-free-true"
                 name="fixedApiConsumptionCost"
                 type="radio"
                 value="FREE"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-free-true"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-free-true"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-124 el-toggle-radio-item"
+                >
                   API consumption free
-                </mock-styled.span>
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
   </div>,
   "debug": [Function],

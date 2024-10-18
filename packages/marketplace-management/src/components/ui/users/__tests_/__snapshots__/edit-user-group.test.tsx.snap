@@ -8,37 +8,41 @@ exports[`EditUserGroupForm should match a snapshot where there is data 1`] = `
       <form
         class="el-p8"
       >
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Edit User Group
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-section-margin"
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-section-margin"
         >
           The list below contains all available member groups for your organisation. You can manage users associated to each group by selecting them from the list below.
-        </mock-styled.p>
-        <mock-styled.div
-          classname="el-form-layout-has-margin el-fade-in"
+        </p>
+        <div
+          class="el-form-layout-has-margin el-fade-in el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-mb3"
+          <div
+            class="mocked-styled-135 el-input-wrap-full"
+          >
+            <div
+              class="el-mb3 el-input-group"
             >
-              <mock-styled.input
-                classname=""
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 placeholder="Search"
               />
-              <mock-styled.span
-                classname=""
-                role="img"
+              <span
+                class="mocked-styled-4 el-icon"
                 style="font-size: 1rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1rem;"
+                  title="Icon image with name searchSystem"
                   viewBox="0 0 20 20"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -48,73 +52,102 @@ exports[`EditUserGroupForm should match a snapshot where there is data 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.label
-                htmlfor="test-static-id"
+              </span>
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Users
-              </mock-styled.label>
-            </mock-styled.div>
-            <mock-styled.div
-              aria-controls=":r0:"
-              aria-haspopup="listbox"
-              role="combobox"
+              </label>
+            </div>
+            <div
+              class="mocked-styled-58 el-multi-select-input-wrapper"
             >
-              <mock-styled.input
+              <input
+                class="mocked-styled-57 el-multi-select-input"
                 id="user-groups-ids-MarketplaceAdmin"
                 name="userIds"
               />
-              <mock-styled.div
-                classname=""
+              <div
+                aria-label="Multi selected options"
+                class="mocked-styled-55 el-multi-select-selected"
+                role="listbox"
               >
-                <mock-styled.input
-                  id="test-static-id"
+                <input
+                  aria-checked="true"
+                  aria-hidden="true"
+                  checked=""
+                  class="mocked-styled-52 el-multi-select-checkbox"
+                  id="multi-select-chip-MarketplaceAdmin"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname=""
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-53 el-multi-select-label"
+                  for="multi-select-chip-MarketplaceAdmin"
+                  role="option"
+                  tabindex="0"
                 />
-                <mock-styled.input
-                  id="test-static-id"
+                <input
+                  aria-checked="true"
+                  aria-hidden="true"
+                  checked=""
+                  class="mocked-styled-52 el-multi-select-checkbox"
+                  id="multi-select-chip-OrganisationAdmin"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname=""
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-53 el-multi-select-label"
+                  for="multi-select-chip-OrganisationAdmin"
+                  role="option"
+                  tabindex="0"
                 />
-                <mock-styled.input
-                  id="test-static-id"
+                <input
+                  aria-checked="true"
+                  aria-hidden="true"
+                  checked=""
+                  class="mocked-styled-52 el-multi-select-checkbox"
+                  id="multi-select-chip-ReapitUserAdmin"
+                  role="option"
                   type="checkbox"
                 />
-                <mock-styled.label
-                  classname=""
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-53 el-multi-select-label"
+                  for="multi-select-chip-ReapitUserAdmin"
+                  role="option"
+                  tabindex="0"
                 />
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-button-group-align-right"
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="el-button-group-align-right el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-neutral"
+            <button
+              class="el-intent-neutral el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Cancel
-            </mock-styled.button>
-            <mock-styled.button
-              classname="el-intent-primary"
+            </button>
+            <button
+              class="el-intent-primary el-button"
               type="submit"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Submit
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   </body>,
@@ -122,37 +155,41 @@ exports[`EditUserGroupForm should match a snapshot where there is data 1`] = `
     <form
       class="el-p8"
     >
-      <mock-styled.h2
-        classname="el-text-base"
+      <h2
+        class="el-text-base el-subtitle"
       >
         Edit User Group
-      </mock-styled.h2>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text el-has-section-margin"
+      </h2>
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-has-section-margin"
       >
         The list below contains all available member groups for your organisation. You can manage users associated to each group by selecting them from the list below.
-      </mock-styled.p>
-      <mock-styled.div
-        classname="el-form-layout-has-margin el-fade-in"
+      </p>
+      <div
+        class="el-form-layout-has-margin el-fade-in el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-mb3"
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <div
+            class="el-mb3 el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               placeholder="Search"
             />
-            <mock-styled.span
-              classname=""
-              role="img"
+            <span
+              class="mocked-styled-4 el-icon"
               style="font-size: 1rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1rem;"
+                title="Icon image with name searchSystem"
                 viewBox="0 0 20 20"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -162,73 +199,102 @@ exports[`EditUserGroupForm should match a snapshot where there is data 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.label
-              htmlfor="test-static-id"
+            </span>
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Users
-            </mock-styled.label>
-          </mock-styled.div>
-          <mock-styled.div
-            aria-controls=":r0:"
-            aria-haspopup="listbox"
-            role="combobox"
+            </label>
+          </div>
+          <div
+            class="mocked-styled-58 el-multi-select-input-wrapper"
           >
-            <mock-styled.input
+            <input
+              class="mocked-styled-57 el-multi-select-input"
               id="user-groups-ids-MarketplaceAdmin"
               name="userIds"
             />
-            <mock-styled.div
-              classname=""
+            <div
+              aria-label="Multi selected options"
+              class="mocked-styled-55 el-multi-select-selected"
+              role="listbox"
             >
-              <mock-styled.input
-                id="test-static-id"
+              <input
+                aria-checked="true"
+                aria-hidden="true"
+                checked=""
+                class="mocked-styled-52 el-multi-select-checkbox"
+                id="multi-select-chip-MarketplaceAdmin"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname=""
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-53 el-multi-select-label"
+                for="multi-select-chip-MarketplaceAdmin"
+                role="option"
+                tabindex="0"
               />
-              <mock-styled.input
-                id="test-static-id"
+              <input
+                aria-checked="true"
+                aria-hidden="true"
+                checked=""
+                class="mocked-styled-52 el-multi-select-checkbox"
+                id="multi-select-chip-OrganisationAdmin"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname=""
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-53 el-multi-select-label"
+                for="multi-select-chip-OrganisationAdmin"
+                role="option"
+                tabindex="0"
               />
-              <mock-styled.input
-                id="test-static-id"
+              <input
+                aria-checked="true"
+                aria-hidden="true"
+                checked=""
+                class="mocked-styled-52 el-multi-select-checkbox"
+                id="multi-select-chip-ReapitUserAdmin"
+                role="option"
                 type="checkbox"
               />
-              <mock-styled.label
-                classname=""
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-53 el-multi-select-label"
+                for="multi-select-chip-ReapitUserAdmin"
+                role="option"
+                tabindex="0"
               />
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-button-group-align-right"
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="el-button-group-align-right el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Cancel
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-primary"
+          </button>
+          <button
+            class="el-intent-primary el-button"
             type="submit"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Submit
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </form>
   </div>,
   "debug": [Function],

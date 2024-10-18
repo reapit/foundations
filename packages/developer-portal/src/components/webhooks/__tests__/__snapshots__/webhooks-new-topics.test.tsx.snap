@@ -5,37 +5,43 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-mb11"
       >
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-no-margin"
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
-        </mock-styled.p>
+        </p>
       </div>
-      <mock-styled.div
-        classname="el-fade-in"
+      <div
+        class="el-fade-in el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-mb5"
+        <div
+          class="mocked-styled-134 el-input-wrap-med"
+        >
+          <div
+            class="el-mb5 el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               placeholder="Search"
             />
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
               style="font-size: 1rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1rem;"
+                title="Icon image with name search"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -45,66 +51,74 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.label
-              htmlfor="test-static-id"
+            </span>
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Subscription Topics
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-default"
+            </label>
+            <span
+              class="el-intent-default el-input-add-on"
             >
               Search to get started
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div
-            aria-controls=":r1:"
-            aria-haspopup="listbox"
-            role="combobox"
+            </span>
+          </div>
+          <div
+            class="mocked-styled-58 el-multi-select-input-wrapper"
           >
-            <mock-styled.input
+            <input
+              class="mocked-styled-57 el-multi-select-input"
               id="topic-ids"
             />
-            <mock-styled.div
-              classname=""
+            <div
+              aria-label="Multi selected options"
+              class="mocked-styled-55 el-multi-select-selected"
+              role="listbox"
             />
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-mb11"
     >
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text el-has-no-margin"
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
       >
         Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
-      </mock-styled.p>
+      </p>
     </div>
-    <mock-styled.div
-      classname="el-fade-in"
+    <div
+      class="el-fade-in el-form-layout"
     >
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-mb5"
+      <div
+        class="mocked-styled-134 el-input-wrap-med"
+      >
+        <div
+          class="el-mb5 el-input-group"
         >
-          <mock-styled.input
-            classname=""
+          <input
+            aria-label="Input type undefined"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             placeholder="Search"
           />
-          <mock-styled.span
-            classname="el-intent-default el-icon-new"
-            role="img"
+          <span
+            class="el-intent-default el-icon-new el-icon"
             style="font-size: 1rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1rem;"
+              title="Icon image with name search"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -114,32 +128,34 @@ exports[`WebhooksNewTopics should match a snapshot where there are errors 1`] = 
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.label
-            htmlfor="test-static-id"
+          </span>
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Subscription Topics
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-default"
+          </label>
+          <span
+            class="el-intent-default el-input-add-on"
           >
             Search to get started
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div
-          aria-controls=":r1:"
-          aria-haspopup="listbox"
-          role="combobox"
+          </span>
+        </div>
+        <div
+          class="mocked-styled-58 el-multi-select-input-wrapper"
         >
-          <mock-styled.input
+          <input
+            class="mocked-styled-57 el-multi-select-input"
             id="topic-ids"
           />
-          <mock-styled.div
-            classname=""
+          <div
+            aria-label="Multi selected options"
+            class="mocked-styled-55 el-multi-select-selected"
+            role="listbox"
           />
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -200,37 +216,43 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-mb11"
       >
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-no-margin"
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
         >
           Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
-        </mock-styled.p>
+        </p>
       </div>
-      <mock-styled.div
-        classname="el-fade-in"
+      <div
+        class="el-fade-in el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-mb5"
+        <div
+          class="mocked-styled-134 el-input-wrap-med"
+        >
+          <div
+            class="el-mb5 el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               placeholder="Search"
             />
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
               style="font-size: 1rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1rem;"
+                title="Icon image with name search"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -240,66 +262,74 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.label
-              htmlfor="test-static-id"
+            </span>
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Subscription Topics
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-default"
+            </label>
+            <span
+              class="el-intent-default el-input-add-on"
             >
               Search to get started
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div
-            aria-controls=":r0:"
-            aria-haspopup="listbox"
-            role="combobox"
+            </span>
+          </div>
+          <div
+            class="mocked-styled-58 el-multi-select-input-wrapper"
           >
-            <mock-styled.input
+            <input
+              class="mocked-styled-57 el-multi-select-input"
               id="topic-ids"
             />
-            <mock-styled.div
-              classname=""
+            <div
+              aria-label="Multi selected options"
+              class="mocked-styled-55 el-multi-select-selected"
+              role="listbox"
             />
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-mb11"
     >
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text el-has-no-margin"
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
       >
         Select topics for your webhook from the list below to allow your application to receive real-time notifications about the topics you choose to subscribe to. A single webhook subscription can receive notifications for multiple topics so long as your application has been granted the required permissions.
-      </mock-styled.p>
+      </p>
     </div>
-    <mock-styled.div
-      classname="el-fade-in"
+    <div
+      class="el-fade-in el-form-layout"
     >
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-mb5"
+      <div
+        class="mocked-styled-134 el-input-wrap-med"
+      >
+        <div
+          class="el-mb5 el-input-group"
         >
-          <mock-styled.input
-            classname=""
+          <input
+            aria-label="Input type undefined"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             placeholder="Search"
           />
-          <mock-styled.span
-            classname="el-intent-default el-icon-new"
-            role="img"
+          <span
+            class="el-intent-default el-icon-new el-icon"
             style="font-size: 1rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1rem;"
+              title="Icon image with name search"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -309,32 +339,34 @@ exports[`WebhooksNewTopics should match a snapshot where there are topics 1`] = 
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.label
-            htmlfor="test-static-id"
+          </span>
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Subscription Topics
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-default"
+          </label>
+          <span
+            class="el-intent-default el-input-add-on"
           >
             Search to get started
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div
-          aria-controls=":r0:"
-          aria-haspopup="listbox"
-          role="combobox"
+          </span>
+        </div>
+        <div
+          class="mocked-styled-58 el-multi-select-input-wrapper"
         >
-          <mock-styled.input
+          <input
+            class="mocked-styled-57 el-multi-select-input"
             id="topic-ids"
           />
-          <mock-styled.div
-            classname=""
+          <div
+            aria-label="Multi selected options"
+            class="mocked-styled-55 el-multi-select-selected"
+            role="listbox"
           />
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

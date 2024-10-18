@@ -27,8 +27,8 @@
     "@hookform/resolvers": "^2.9.11",
     "@linaria/core": "^5.0.2",
     "@linaria/react": "^5.0.3",
-    "@reapit/connect-session": "^6.1.1",
-    "@reapit/elements": "^4.1.2",
+    "@reapit/connect-session": "^6.1.2",
+    "@reapit/elements": "^4.3.1",
     "@reapit/foundations-ts-definitions": "2.0.0",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@reapit/utils-react": "workspace:packages/utils-react",
@@ -62,6 +62,6 @@
     "prettier": "^3.2.5",
     "ts-jest": "^29.1.2",
     "typescript": "^5.4.2",
-    "vite": "^5.1.6"
+    "vite": "^5.4.9"
   }
 }

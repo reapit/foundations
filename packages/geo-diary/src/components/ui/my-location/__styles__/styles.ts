@@ -47,7 +47,7 @@ export const MyLocationSection = styled.div`
     border-top-right-radius: 2px;
   }
 
-  ${ElInput}.${inputWithIcon} {
+  ${String(ElInput)}.${inputWithIcon} {
     border-right: none;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;

@@ -5,38 +5,42 @@ exports[`AppUninstallationSection should match a snapshot when theres no install
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-mb11"
       >
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Current Installations
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
         >
           This app is not currently installed. You can either install for your organisation or specific office groups in the section below.
-        </mock-styled.p>
+        </p>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-mb11"
     >
-      <mock-styled.h2
-        classname="el-text-base"
+      <h2
+        class="el-text-base el-subtitle"
       >
         Current Installations
-      </mock-styled.h2>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </h2>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         This app is not currently installed. You can either install for your organisation or specific office groups in the section below.
-      </mock-styled.p>
+      </p>
     </div>
   </div>,
   "debug": [Function],
@@ -98,68 +102,78 @@ exports[`AppUninstallationSection should match a snapshot, for a group installat
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-mb11"
       >
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Current Installations
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
         >
           This app is currently installed for 
           1 group
           . Please click ‘Uninstall’ to terminate the installation.
-        </mock-styled.p>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-button-group-align-right"
+        </p>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="el-button-group-align-right el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-primary"
-              disabled="false"
+            <button
+              class="el-intent-primary el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Uninstall
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-mb11"
     >
-      <mock-styled.h2
-        classname="el-text-base"
+      <h2
+        class="el-text-base el-subtitle"
       >
         Current Installations
-      </mock-styled.h2>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </h2>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         This app is currently installed for 
         1 group
         . Please click ‘Uninstall’ to terminate the installation.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-button-group-align-right"
+      </p>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="el-button-group-align-right el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-primary"
-            disabled="false"
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Uninstall
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -221,68 +235,78 @@ exports[`AppUninstallationSection should match a snapshot, for an all orgs insta
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-mb11"
       >
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Current Installations
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
         >
           This app is currently installed for 
           your whole orgainsation
           . Please click ‘Uninstall’ to terminate the installation.
-        </mock-styled.p>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-button-group-align-right"
+        </p>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="el-button-group-align-right el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-primary"
-              disabled="false"
+            <button
+              class="el-intent-primary el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Uninstall
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-mb11"
     >
-      <mock-styled.h2
-        classname="el-text-base"
+      <h2
+        class="el-text-base el-subtitle"
       >
         Current Installations
-      </mock-styled.h2>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </h2>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         This app is currently installed for 
         your whole orgainsation
         . Please click ‘Uninstall’ to terminate the installation.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-button-group-align-right"
+      </p>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="el-button-group-align-right el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-primary"
-            disabled="false"
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Uninstall
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -344,68 +368,78 @@ exports[`AppUninstallationSection should match a snapshot, for multiple group in
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-mb11"
       >
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Current Installations
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
         >
           This app is currently installed for 
           2 groups
           . Please click ‘Uninstall’ to terminate the installation.
-        </mock-styled.p>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-button-group-align-right"
+        </p>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="el-button-group-align-right el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-primary"
-              disabled="false"
+            <button
+              class="el-intent-primary el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Uninstall
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-mb11"
     >
-      <mock-styled.h2
-        classname="el-text-base"
+      <h2
+        class="el-text-base el-subtitle"
       >
         Current Installations
-      </mock-styled.h2>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </h2>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         This app is currently installed for 
         2 groups
         . Please click ‘Uninstall’ to terminate the installation.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-button-group-align-right"
+      </p>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="el-button-group-align-right el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-primary"
-            disabled="false"
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Uninstall
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],

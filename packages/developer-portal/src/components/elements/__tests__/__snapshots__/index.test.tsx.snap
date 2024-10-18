@@ -5,20 +5,23 @@ exports[`ElementsPage should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.span
-            classname="el-mb5 el-icon-size-large"
-            role="img"
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name elementsInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -80,38 +83,42 @@ exports[`ElementsPage should match a snapshot 1`] = `
                 fill="#7e9bfa"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.p
-            classname="el-text-base"
+          </span>
+          <p
+            class="el-text-base el-body-text"
           >
             Reapit Elements
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </p>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             Elements is a UI toolkit built in React JS, exporting a library of CSS classes to help you build clean, interactive user interfaces for the Reapit Foundations ecosystem. It is based on the Reapit Foundations Design System, our in house styleguide.
-          </mock-styled.p>
-          <mock-styled.button
-            classname="el-mb5 el-intent-neutral"
+          </small>
+          <button
+            class="el-mb5 el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-mb5 el-intent-primary"
+          </button>
+          <button
+            class="el-mb5 el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Storybook
-          </mock-styled.button>
+          </button>
         </aside>
         <section
           class="el-page-container el-hfull"
         >
-          <mock-styled.h1
-            classname="el-text-base"
+          <h1
+            class="el-text-base el-title"
           >
             Elements
-          </mock-styled.h1>
+          </h1>
           <iframe
             allow="clipboard-write"
             class="mock-css.
@@ -125,20 +132,23 @@ exports[`ElementsPage should match a snapshot 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name elementsInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -200,38 +210,42 @@ exports[`ElementsPage should match a snapshot 1`] = `
               fill="#7e9bfa"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base"
+        </span>
+        <p
+          class="el-text-base el-body-text"
         >
           Reapit Elements
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           Elements is a UI toolkit built in React JS, exporting a library of CSS classes to help you build clean, interactive user interfaces for the Reapit Foundations ecosystem. It is based on the Reapit Foundations Design System, our in house styleguide.
-        </mock-styled.p>
-        <mock-styled.button
-          classname="el-mb5 el-intent-neutral"
+        </small>
+        <button
+          class="el-mb5 el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           View Docs
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-mb5 el-intent-primary"
+        </button>
+        <button
+          class="el-mb5 el-intent-primary el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Storybook
-        </mock-styled.button>
+        </button>
       </aside>
       <section
         class="el-page-container el-hfull"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           Elements
-        </mock-styled.h1>
+        </h1>
         <iframe
           allow="clipboard-write"
           class="mock-css.

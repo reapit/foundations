@@ -5,17 +5,20 @@ exports[`Helper should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-fade-in el-mb7"
       >
-        <mock-styled.span
-          classname="el-mb3 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb3 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name myAppsInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -85,44 +88,51 @@ exports[`Helper should match a snapshot 1`] = `
               fill="#d8dee4"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base"
+        </span>
+        <p
+          class="el-text-base el-body-text"
         >
           Apps Documentation
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </mock-styled.p>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        </small>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-neutral"
+            <button
+              class="el-intent-neutral el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               View Docs
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-fade-in el-mb7"
     >
-      <mock-styled.span
-        classname="el-mb3 el-icon-size-large"
-        role="img"
+      <span
+        class="el-mb3 el-icon-size-large el-icon"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
+          title="Icon image with name myAppsInfographic"
           viewBox="0 0 80 80"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -192,29 +202,33 @@ exports[`Helper should match a snapshot 1`] = `
             fill="#d8dee4"
           />
         </svg>
-      </mock-styled.span>
-      <mock-styled.p
-        classname="el-text-base"
+      </span>
+      <p
+        class="el-text-base el-body-text"
       >
         Apps Documentation
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+      </small>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -276,17 +290,20 @@ exports[`Helper should match a snapshot for the appsDetail page 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-fade-in el-mb7"
       >
-        <mock-styled.span
-          classname="el-mb3 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb3 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name myAppsInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -356,44 +373,51 @@ exports[`Helper should match a snapshot for the appsDetail page 1`] = `
               fill="#d8dee4"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base"
+        </span>
+        <p
+          class="el-text-base el-body-text"
         >
           Apps Documentation
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </mock-styled.p>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        </small>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-neutral"
+            <button
+              class="el-intent-neutral el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               View Docs
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-fade-in el-mb7"
     >
-      <mock-styled.span
-        classname="el-mb3 el-icon-size-large"
-        role="img"
+      <span
+        class="el-mb3 el-icon-size-large el-icon"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
+          title="Icon image with name myAppsInfographic"
           viewBox="0 0 80 80"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -463,29 +487,33 @@ exports[`Helper should match a snapshot for the appsDetail page 1`] = `
             fill="#d8dee4"
           />
         </svg>
-      </mock-styled.span>
-      <mock-styled.p
-        classname="el-text-base"
+      </span>
+      <p
+        class="el-text-base el-body-text"
       >
         Apps Documentation
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+      </small>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -547,17 +575,20 @@ exports[`Helper should match a snapshot for the appsEdit page 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-fade-in el-mb7"
       >
-        <mock-styled.span
-          classname="el-mb3 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb3 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name myAppsInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -627,44 +658,51 @@ exports[`Helper should match a snapshot for the appsEdit page 1`] = `
               fill="#d8dee4"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base"
+        </span>
+        <p
+          class="el-text-base el-body-text"
         >
           Apps Documentation
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </mock-styled.p>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        </small>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-neutral"
+            <button
+              class="el-intent-neutral el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               View Docs
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-fade-in el-mb7"
     >
-      <mock-styled.span
-        classname="el-mb3 el-icon-size-large"
-        role="img"
+      <span
+        class="el-mb3 el-icon-size-large el-icon"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
+          title="Icon image with name myAppsInfographic"
           viewBox="0 0 80 80"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -734,29 +772,33 @@ exports[`Helper should match a snapshot for the appsEdit page 1`] = `
             fill="#d8dee4"
           />
         </svg>
-      </mock-styled.span>
-      <mock-styled.p
-        classname="el-text-base"
+      </span>
+      <p
+        class="el-text-base el-body-text"
       >
         Apps Documentation
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+      </small>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -818,17 +860,20 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-fade-in el-mb7"
       >
-        <mock-styled.span
-          classname="el-mb3 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb3 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name myAppsInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -898,44 +943,51 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
               fill="#d8dee4"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base"
+        </span>
+        <p
+          class="el-text-base el-body-text"
         >
           Apps Documentation
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </mock-styled.p>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        </small>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-neutral"
+            <button
+              class="el-intent-neutral el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               View Docs
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-fade-in el-mb7"
     >
-      <mock-styled.span
-        classname="el-mb3 el-icon-size-large"
-        role="img"
+      <span
+        class="el-mb3 el-icon-size-large el-icon"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
+          title="Icon image with name myAppsInfographic"
           viewBox="0 0 80 80"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -1005,29 +1057,33 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
             fill="#d8dee4"
           />
         </svg>
-      </mock-styled.span>
-      <mock-styled.p
-        classname="el-text-base"
+      </span>
+      <p
+        class="el-text-base el-body-text"
       >
         Apps Documentation
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+      </small>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -1089,17 +1145,20 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-fade-in el-mb7"
       >
-        <mock-styled.span
-          classname="el-mb3 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb3 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name myAppsInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -1169,44 +1228,51 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
               fill="#d8dee4"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base"
+        </span>
+        <p
+          class="el-text-base el-body-text"
         >
           Apps Documentation
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </mock-styled.p>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        </small>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-neutral"
+            <button
+              class="el-intent-neutral el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               View Docs
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-fade-in el-mb7"
     >
-      <mock-styled.span
-        classname="el-mb3 el-icon-size-large"
-        role="img"
+      <span
+        class="el-mb3 el-icon-size-large el-icon"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
+          title="Icon image with name myAppsInfographic"
           viewBox="0 0 80 80"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -1276,29 +1342,33 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
             fill="#d8dee4"
           />
         </svg>
-      </mock-styled.span>
-      <mock-styled.p
-        classname="el-text-base"
+      </span>
+      <p
+        class="el-text-base el-body-text"
       >
         Apps Documentation
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+      </small>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -1360,17 +1430,20 @@ exports[`Helper should match a snapshot for the appsEdit page where is completed
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-fade-in el-mb7"
       >
-        <mock-styled.span
-          classname="el-mb3 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb3 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name myAppsInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -1440,44 +1513,51 @@ exports[`Helper should match a snapshot for the appsEdit page where is completed
               fill="#d8dee4"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base"
+        </span>
+        <p
+          class="el-text-base el-body-text"
         >
           Apps Documentation
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </mock-styled.p>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        </small>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-neutral"
+            <button
+              class="el-intent-neutral el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               View Docs
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-fade-in el-mb7"
     >
-      <mock-styled.span
-        classname="el-mb3 el-icon-size-large"
-        role="img"
+      <span
+        class="el-mb3 el-icon-size-large el-icon"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
+          title="Icon image with name myAppsInfographic"
           viewBox="0 0 80 80"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -1547,29 +1627,33 @@ exports[`Helper should match a snapshot for the appsEdit page where is completed
             fill="#d8dee4"
           />
         </svg>
-      </mock-styled.span>
-      <mock-styled.p
-        classname="el-text-base"
+      </span>
+      <p
+        class="el-text-base el-body-text"
       >
         Apps Documentation
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+      </small>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -1631,17 +1715,20 @@ exports[`Helper should match a snapshot for the appsEdit page where isListed 1`]
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-fade-in el-mb7"
       >
-        <mock-styled.span
-          classname="el-mb3 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb3 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name myAppsInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -1711,44 +1798,51 @@ exports[`Helper should match a snapshot for the appsEdit page where isListed 1`]
               fill="#d8dee4"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base"
+        </span>
+        <p
+          class="el-text-base el-body-text"
         >
           Apps Documentation
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </mock-styled.p>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        </small>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-neutral"
+            <button
+              class="el-intent-neutral el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               View Docs
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-fade-in el-mb7"
     >
-      <mock-styled.span
-        classname="el-mb3 el-icon-size-large"
-        role="img"
+      <span
+        class="el-mb3 el-icon-size-large el-icon"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
+          title="Icon image with name myAppsInfographic"
           viewBox="0 0 80 80"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -1818,29 +1912,33 @@ exports[`Helper should match a snapshot for the appsEdit page where isListed 1`]
             fill="#d8dee4"
           />
         </svg>
-      </mock-styled.span>
-      <mock-styled.p
-        classname="el-text-base"
+      </span>
+      <p
+        class="el-text-base el-body-text"
       >
         Apps Documentation
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+      </small>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -1902,17 +2000,20 @@ exports[`Helper should match a snapshot for the appsEdit page where the app is l
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-fade-in el-mb7"
       >
-        <mock-styled.span
-          classname="el-mb3 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb3 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name myAppsInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -1982,44 +2083,51 @@ exports[`Helper should match a snapshot for the appsEdit page where the app is l
               fill="#d8dee4"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base"
+        </span>
+        <p
+          class="el-text-base el-body-text"
         >
           Apps Documentation
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </mock-styled.p>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        </small>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-neutral"
+            <button
+              class="el-intent-neutral el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               View Docs
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-fade-in el-mb7"
     >
-      <mock-styled.span
-        classname="el-mb3 el-icon-size-large"
-        role="img"
+      <span
+        class="el-mb3 el-icon-size-large el-icon"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
+          title="Icon image with name myAppsInfographic"
           viewBox="0 0 80 80"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -2089,29 +2197,33 @@ exports[`Helper should match a snapshot for the appsEdit page where the app is l
             fill="#d8dee4"
           />
         </svg>
-      </mock-styled.span>
-      <mock-styled.p
-        classname="el-text-base"
+      </span>
+      <p
+        class="el-text-base el-body-text"
       >
         Apps Documentation
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+      </small>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -2173,17 +2285,20 @@ exports[`Helper should match a snapshot for the consents page 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-fade-in el-mb7"
       >
-        <mock-styled.span
-          classname="el-mb3 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb3 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name myAppsInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -2253,44 +2368,51 @@ exports[`Helper should match a snapshot for the consents page 1`] = `
               fill="#d8dee4"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base"
+        </span>
+        <p
+          class="el-text-base el-body-text"
         >
           Apps Documentation
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </mock-styled.p>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        </small>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-neutral"
+            <button
+              class="el-intent-neutral el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               View Docs
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-fade-in el-mb7"
     >
-      <mock-styled.span
-        classname="el-mb3 el-icon-size-large"
-        role="img"
+      <span
+        class="el-mb3 el-icon-size-large el-icon"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
+          title="Icon image with name myAppsInfographic"
           viewBox="0 0 80 80"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -2360,29 +2482,33 @@ exports[`Helper should match a snapshot for the consents page 1`] = `
             fill="#d8dee4"
           />
         </svg>
-      </mock-styled.span>
-      <mock-styled.p
-        classname="el-text-base"
+      </span>
+      <p
+        class="el-text-base el-body-text"
       >
         Apps Documentation
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+      </small>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -2444,17 +2570,20 @@ exports[`Helper should match a snapshot for the pipelines page 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-fade-in el-mb7"
       >
-        <mock-styled.span
-          classname="el-mb3 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb3 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name myAppsInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -2524,44 +2653,51 @@ exports[`Helper should match a snapshot for the pipelines page 1`] = `
               fill="#d8dee4"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base"
+        </span>
+        <p
+          class="el-text-base el-body-text"
         >
           Apps Documentation
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </mock-styled.p>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        </small>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-neutral"
+            <button
+              class="el-intent-neutral el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               View Docs
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-fade-in el-mb7"
     >
-      <mock-styled.span
-        classname="el-mb3 el-icon-size-large"
-        role="img"
+      <span
+        class="el-mb3 el-icon-size-large el-icon"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
+          title="Icon image with name myAppsInfographic"
           viewBox="0 0 80 80"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -2631,29 +2767,33 @@ exports[`Helper should match a snapshot for the pipelines page 1`] = `
             fill="#d8dee4"
           />
         </svg>
-      </mock-styled.span>
-      <mock-styled.p
-        classname="el-text-base"
+      </span>
+      <p
+        class="el-text-base el-body-text"
       >
         Apps Documentation
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+      </small>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],

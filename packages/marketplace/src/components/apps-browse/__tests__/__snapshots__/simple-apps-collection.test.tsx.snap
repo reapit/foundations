@@ -5,7 +5,9 @@ exports[`SimpleAppsCollection should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <mock-styled.mock-styled.div>
         <div
           class="el-flex-container el-flex-justify-between"
@@ -16,7 +18,9 @@ exports[`SimpleAppsCollection should match a snapshot 1`] = `
             <div
               class="el-flex-container"
             >
-              <mock-styled.div
+              <div
+                aria-label="A generic placeholder image"
+                class="mocked-styled-144 el-placeholder-image"
                 role="img"
                 style="font-size: 1.25em; width: 32px; height: 32px;"
               >
@@ -32,14 +36,14 @@ exports[`SimpleAppsCollection should match a snapshot 1`] = `
                     fill="#E3E3E3"
                   />
                 </svg>
-              </mock-styled.div>
-              <mock-styled.mock-styled.p>
+              </div>
+              <mock-styled.div>
                 MOCK_APP_NAME
-              </mock-styled.mock-styled.p>
+              </mock-styled.div>
             </div>
-            <mock-styled.mock-styled.p>
+            <mock-styled.div>
               Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-            </mock-styled.mock-styled.p>
+            </mock-styled.div>
           </div>
         </div>
       </mock-styled.mock-styled.div>
@@ -53,7 +57,9 @@ exports[`SimpleAppsCollection should match a snapshot 1`] = `
             <div
               class="el-flex-container"
             >
-              <mock-styled.div
+              <div
+                aria-label="A generic placeholder image"
+                class="mocked-styled-144 el-placeholder-image"
                 role="img"
                 style="font-size: 1.25em; width: 32px; height: 32px;"
               >
@@ -69,21 +75,23 @@ exports[`SimpleAppsCollection should match a snapshot 1`] = `
                     fill="#E3E3E3"
                   />
                 </svg>
-              </mock-styled.div>
-              <mock-styled.mock-styled.p>
+              </div>
+              <mock-styled.div>
                 MOCK_APP_NAME_ANOTHER
-              </mock-styled.mock-styled.p>
+              </mock-styled.div>
             </div>
-            <mock-styled.mock-styled.p>
+            <mock-styled.div>
               Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-            </mock-styled.mock-styled.p>
+            </mock-styled.div>
           </div>
         </div>
       </mock-styled.mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <mock-styled.mock-styled.div>
       <div
         class="el-flex-container el-flex-justify-between"
@@ -94,7 +102,9 @@ exports[`SimpleAppsCollection should match a snapshot 1`] = `
           <div
             class="el-flex-container"
           >
-            <mock-styled.div
+            <div
+              aria-label="A generic placeholder image"
+              class="mocked-styled-144 el-placeholder-image"
               role="img"
               style="font-size: 1.25em; width: 32px; height: 32px;"
             >
@@ -110,14 +120,14 @@ exports[`SimpleAppsCollection should match a snapshot 1`] = `
                   fill="#E3E3E3"
                 />
               </svg>
-            </mock-styled.div>
-            <mock-styled.mock-styled.p>
+            </div>
+            <mock-styled.div>
               MOCK_APP_NAME
-            </mock-styled.mock-styled.p>
+            </mock-styled.div>
           </div>
-          <mock-styled.mock-styled.p>
+          <mock-styled.div>
             Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-          </mock-styled.mock-styled.p>
+          </mock-styled.div>
         </div>
       </div>
     </mock-styled.mock-styled.div>
@@ -131,7 +141,9 @@ exports[`SimpleAppsCollection should match a snapshot 1`] = `
           <div
             class="el-flex-container"
           >
-            <mock-styled.div
+            <div
+              aria-label="A generic placeholder image"
+              class="mocked-styled-144 el-placeholder-image"
               role="img"
               style="font-size: 1.25em; width: 32px; height: 32px;"
             >
@@ -147,14 +159,14 @@ exports[`SimpleAppsCollection should match a snapshot 1`] = `
                   fill="#E3E3E3"
                 />
               </svg>
-            </mock-styled.div>
-            <mock-styled.mock-styled.p>
+            </div>
+            <mock-styled.div>
               MOCK_APP_NAME_ANOTHER
-            </mock-styled.mock-styled.p>
+            </mock-styled.div>
           </div>
-          <mock-styled.mock-styled.p>
+          <mock-styled.div>
             Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-          </mock-styled.mock-styled.p>
+          </mock-styled.div>
         </div>
       </div>
     </mock-styled.mock-styled.div>
@@ -218,11 +230,15 @@ exports[`SimpleAppsCollection should match a snapshot when loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

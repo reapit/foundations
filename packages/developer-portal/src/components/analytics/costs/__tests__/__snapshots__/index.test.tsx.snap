@@ -10,97 +10,118 @@ exports[`AnalyticsCosts should match snapshot for mobile view 1`] = `
       <div />
     </div>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         Costs
-      </mock-styled.h1>
-      <mock-styled.h2
-        classname="el-text-base"
+      </h1>
+      <h2
+        class="el-text-base el-subtitle"
       >
         Total for period: £
         0
-      </mock-styled.h2>
+      </h2>
       <div
         class="el-flex-container el-flex-wrap"
       >
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Costs By Month
-          </mock-styled.h2>
-          <mock-styled.div
-            classname=""
+          </h2>
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Download Resources
-          </mock-styled.h2>
-          <mock-styled.div
-            classname=""
+          </h2>
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             API Calls
-          </mock-styled.h2>
-          <mock-styled.div
-            classname=""
+          </h2>
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Services and Subscriptions
-          </mock-styled.h2>
-          <mock-styled.div
-            classname=""
+          </h2>
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </mock-styled.div>
-        <mock-styled.div
+        <div
           aria-hidden="true"
-          classname=""
+          class="mocked-styled-146 el-mobile-controls-bg"
         />
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-147 el-mobile-controls"
           id=":r3:"
         >
-          <mock-styled.button
+          <button
             aria-controls=":r3:"
-            classname="el-floating-button el-intent-primary"
+            class="el-floating-button el-intent-primary el-button"
           >
-            <mock-styled.div />
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
+            <span
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name menu"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -110,104 +131,125 @@ exports[`AnalyticsCosts should match snapshot for mobile view 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.button>
-        </mock-styled.div>
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       Costs
-    </mock-styled.h1>
-    <mock-styled.h2
-      classname="el-text-base"
+    </h1>
+    <h2
+      class="el-text-base el-subtitle"
     >
       Total for period: £
       0
-    </mock-styled.h2>
+    </h2>
     <div
       class="el-flex-container el-flex-wrap"
     >
       <mock-styled.div>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Costs By Month
-        </mock-styled.h2>
-        <mock-styled.div
-          classname=""
+        </h2>
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Download Resources
-        </mock-styled.h2>
-        <mock-styled.div
-          classname=""
+        </h2>
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           API Calls
-        </mock-styled.h2>
-        <mock-styled.div
-          classname=""
+        </h2>
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Services and Subscriptions
-        </mock-styled.h2>
-        <mock-styled.div
-          classname=""
+        </h2>
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </mock-styled.div>
-      <mock-styled.div
+      <div
         aria-hidden="true"
-        classname=""
+        class="mocked-styled-146 el-mobile-controls-bg"
       />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-147 el-mobile-controls"
         id=":r3:"
       >
-        <mock-styled.button
+        <button
           aria-controls=":r3:"
-          classname="el-floating-button el-intent-primary"
+          class="el-floating-button el-intent-primary el-button"
         >
-          <mock-styled.div />
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name menu"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -217,9 +259,9 @@ exports[`AnalyticsCosts should match snapshot for mobile view 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+          </span>
+        </button>
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -281,97 +323,118 @@ exports[`AnalyticsCosts should match snapshot where billing is returned 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         Costs
-      </mock-styled.h1>
-      <mock-styled.h2
-        classname="el-text-base"
+      </h1>
+      <h2
+        class="el-text-base el-subtitle"
       >
         Total for period: £
         0
-      </mock-styled.h2>
+      </h2>
       <div
         class="el-flex-container el-flex-wrap"
       >
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Costs By Month
-          </mock-styled.h2>
-          <mock-styled.div
-            classname=""
+          </h2>
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Download Resources
-          </mock-styled.h2>
-          <mock-styled.div
-            classname=""
+          </h2>
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             API Calls
-          </mock-styled.h2>
-          <mock-styled.div
-            classname=""
+          </h2>
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Services and Subscriptions
-          </mock-styled.h2>
-          <mock-styled.div
-            classname=""
+          </h2>
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </mock-styled.div>
-        <mock-styled.div
+        <div
           aria-hidden="true"
-          classname=""
+          class="mocked-styled-146 el-mobile-controls-bg"
         />
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-147 el-mobile-controls"
           id=":r0:"
         >
-          <mock-styled.button
+          <button
             aria-controls=":r0:"
-            classname="el-floating-button el-intent-primary"
+            class="el-floating-button el-intent-primary el-button"
           >
-            <mock-styled.div />
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
+            <span
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name menu"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -381,104 +444,125 @@ exports[`AnalyticsCosts should match snapshot where billing is returned 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.button>
-        </mock-styled.div>
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       Costs
-    </mock-styled.h1>
-    <mock-styled.h2
-      classname="el-text-base"
+    </h1>
+    <h2
+      class="el-text-base el-subtitle"
     >
       Total for period: £
       0
-    </mock-styled.h2>
+    </h2>
     <div
       class="el-flex-container el-flex-wrap"
     >
       <mock-styled.div>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Costs By Month
-        </mock-styled.h2>
-        <mock-styled.div
-          classname=""
+        </h2>
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Download Resources
-        </mock-styled.h2>
-        <mock-styled.div
-          classname=""
+        </h2>
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           API Calls
-        </mock-styled.h2>
-        <mock-styled.div
-          classname=""
+        </h2>
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Services and Subscriptions
-        </mock-styled.h2>
-        <mock-styled.div
-          classname=""
+        </h2>
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </mock-styled.div>
-      <mock-styled.div
+      <div
         aria-hidden="true"
-        classname=""
+        class="mocked-styled-146 el-mobile-controls-bg"
       />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-147 el-mobile-controls"
         id=":r0:"
       >
-        <mock-styled.button
+        <button
           aria-controls=":r0:"
-          classname="el-floating-button el-intent-primary"
+          class="el-floating-button el-intent-primary el-button"
         >
-          <mock-styled.div />
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name menu"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -488,9 +572,9 @@ exports[`AnalyticsCosts should match snapshot where billing is returned 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+          </span>
+        </button>
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -552,97 +636,118 @@ exports[`AnalyticsCosts should match snapshot where no billing is returned 1`] =
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         Costs
-      </mock-styled.h1>
-      <mock-styled.h2
-        classname="el-text-base"
+      </h1>
+      <h2
+        class="el-text-base el-subtitle"
       >
         Total for period: £
         0
-      </mock-styled.h2>
+      </h2>
       <div
         class="el-flex-container el-flex-wrap"
       >
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Costs By Month
-          </mock-styled.h2>
-          <mock-styled.div
-            classname=""
+          </h2>
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Download Resources
-          </mock-styled.h2>
-          <mock-styled.div
-            classname=""
+          </h2>
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             API Calls
-          </mock-styled.h2>
-          <mock-styled.div
-            classname=""
+          </h2>
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Services and Subscriptions
-          </mock-styled.h2>
-          <mock-styled.div
-            classname=""
+          </h2>
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </mock-styled.div>
-        <mock-styled.div
+        <div
           aria-hidden="true"
-          classname=""
+          class="mocked-styled-146 el-mobile-controls-bg"
         />
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-147 el-mobile-controls"
           id=":r1:"
         >
-          <mock-styled.button
+          <button
             aria-controls=":r1:"
-            classname="el-floating-button el-intent-primary"
+            class="el-floating-button el-intent-primary el-button"
           >
-            <mock-styled.div />
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
+            <span
+              class="el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name menu"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -652,104 +757,125 @@ exports[`AnalyticsCosts should match snapshot where no billing is returned 1`] =
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.button>
-        </mock-styled.div>
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       Costs
-    </mock-styled.h1>
-    <mock-styled.h2
-      classname="el-text-base"
+    </h1>
+    <h2
+      class="el-text-base el-subtitle"
     >
       Total for period: £
       0
-    </mock-styled.h2>
+    </h2>
     <div
       class="el-flex-container el-flex-wrap"
     >
       <mock-styled.div>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Costs By Month
-        </mock-styled.h2>
-        <mock-styled.div
-          classname=""
+        </h2>
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Download Resources
-        </mock-styled.h2>
-        <mock-styled.div
-          classname=""
+        </h2>
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           API Calls
-        </mock-styled.h2>
-        <mock-styled.div
-          classname=""
+        </h2>
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </mock-styled.div>
       <mock-styled.div>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Services and Subscriptions
-        </mock-styled.h2>
-        <mock-styled.div
-          classname=""
+        </h2>
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </mock-styled.div>
-      <mock-styled.div
+      <div
         aria-hidden="true"
-        classname=""
+        class="mocked-styled-146 el-mobile-controls-bg"
       />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-147 el-mobile-controls"
         id=":r1:"
       >
-        <mock-styled.button
+        <button
           aria-controls=":r1:"
-          classname="el-floating-button el-intent-primary"
+          class="el-floating-button el-intent-primary el-button"
         >
-          <mock-styled.div />
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name menu"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -759,9 +885,9 @@ exports[`AnalyticsCosts should match snapshot where no billing is returned 1`] =
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+          </span>
+        </button>
+      </div>
     </div>
   </div>,
   "debug": [Function],

@@ -5,122 +5,165 @@ exports[`PipelineNew Should match snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         New Pipeline
-      </mock-styled.h1>
-      <mock-styled.div
-        classname="el-tabs-full-width"
-        role="tablist"
+      </h1>
+      <div
+        class="el-tabs-full-width el-tabs-wrap"
       >
-        <mock-styled.div>
-          <mock-styled.input
+        <div
+          class="mocked-styled-120 el-tabs-options-wrap"
+          role="tablist"
+        >
+          <input
             aria-selected="true"
+            checked=""
+            class="mocked-styled-117 el-tabs"
             id="deployments"
             name="pipeline-tabs"
-            role="tab"
             type="radio"
             value="deployments"
           />
-          <mock-styled.label
-            htmlfor="deployments"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="deployments"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Deployments
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="configure"
             name="pipeline-tabs"
-            role="tab"
             type="radio"
             value="configure"
           />
-          <mock-styled.label
-            htmlfor="configure"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="configure"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Configure
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="environment"
             name="pipeline-tabs"
-            role="tab"
             type="radio"
             value="environment"
           />
-          <mock-styled.label
-            htmlfor="environment"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="environment"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Environment Variables
             </span>
-          </mock-styled.label>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-tabs-full-width"
+          </label>
+        </div>
+        <div
+          class="el-tabs-full-width el-tabs-footer"
         />
-      </mock-styled.div>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </div>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Tell us about how we should build your application here. We assume that your application is a front end app and that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your application is bundled and that bundle is output to a local directory that we can deploy for you.
-      </mock-styled.p>
+      </p>
       <form>
-        <mock-styled.div
-          classname="el-form-layout-has-margin"
+        <div
+          class="el-form-layout-has-margin el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Name
-              </mock-styled.label>
-              <mock-styled.input
-                classname=""
+              </label>
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 name="name"
               />
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Deployment Branch
-              </mock-styled.label>
-              <mock-styled.input
-                classname=""
+              </label>
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 name="branch"
               />
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Github Repository
-              </mock-styled.label>
-              <mock-styled.input
-                classname=""
+              </label>
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 name="repository.repositoryUrl"
                 placeholder="https://github.com/org/repo"
               />
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Package Manager
-              </mock-styled.label>
-              <mock-styled.select
+              </label>
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="mocked-styled-83 el-select"
                 id="package-manager-select"
                 name="packageManager"
               >
@@ -139,53 +182,70 @@ exports[`PipelineNew Should match snapshot 1`] = `
                 >
                   YARN BERRY
                 </option>
-              </mock-styled.select>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+              </select>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Build Command
-              </mock-styled.label>
-              <mock-styled.input
-                classname=""
+              </label>
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 name="buildCommand"
               />
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Build Directory
-              </mock-styled.label>
-              <mock-styled.input
-                classname=""
+              </label>
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 name="outDir"
               />
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+            </div>
+          </div>
+        </div>
       </form>
-      <mock-styled.div
+      <div
         aria-hidden="true"
-        classname=""
+        class="mocked-styled-146 el-mobile-controls-bg"
       />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-147 el-mobile-controls"
         id=":r0:"
       >
-        <mock-styled.button
+        <button
           aria-controls=":r0:"
-          classname="el-floating-button el-intent-primary"
+          class="el-floating-button el-intent-primary el-button"
         >
-          <mock-styled.div />
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name menu"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -195,128 +255,171 @@ exports[`PipelineNew Should match snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+          </span>
+        </button>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       New Pipeline
-    </mock-styled.h1>
-    <mock-styled.div
-      classname="el-tabs-full-width"
-      role="tablist"
+    </h1>
+    <div
+      class="el-tabs-full-width el-tabs-wrap"
     >
-      <mock-styled.div>
-        <mock-styled.input
+      <div
+        class="mocked-styled-120 el-tabs-options-wrap"
+        role="tablist"
+      >
+        <input
           aria-selected="true"
+          checked=""
+          class="mocked-styled-117 el-tabs"
           id="deployments"
           name="pipeline-tabs"
-          role="tab"
           type="radio"
           value="deployments"
         />
-        <mock-styled.label
-          htmlfor="deployments"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="deployments"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Deployments
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="configure"
           name="pipeline-tabs"
-          role="tab"
           type="radio"
           value="configure"
         />
-        <mock-styled.label
-          htmlfor="configure"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="configure"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Configure
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="environment"
           name="pipeline-tabs"
-          role="tab"
           type="radio"
           value="environment"
         />
-        <mock-styled.label
-          htmlfor="environment"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="environment"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Environment Variables
           </span>
-        </mock-styled.label>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-tabs-full-width"
+        </label>
+      </div>
+      <div
+        class="el-tabs-full-width el-tabs-footer"
       />
-    </mock-styled.div>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </div>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Tell us about how we should build your application here. We assume that your application is a front end app and that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your application is bundled and that bundle is output to a local directory that we can deploy for you.
-    </mock-styled.p>
+    </p>
     <form>
-      <mock-styled.div
-        classname="el-form-layout-has-margin"
+      <div
+        class="el-form-layout-has-margin el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Name
-            </mock-styled.label>
-            <mock-styled.input
-              classname=""
+            </label>
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               name="name"
             />
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Deployment Branch
-            </mock-styled.label>
-            <mock-styled.input
-              classname=""
+            </label>
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               name="branch"
             />
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Github Repository
-            </mock-styled.label>
-            <mock-styled.input
-              classname=""
+            </label>
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               name="repository.repositoryUrl"
               placeholder="https://github.com/org/repo"
             />
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Package Manager
-            </mock-styled.label>
-            <mock-styled.select
+            </label>
+            <select
+              aria-label="Select an item from the dropdown list"
+              class="mocked-styled-83 el-select"
               id="package-manager-select"
               name="packageManager"
             >
@@ -335,53 +438,70 @@ exports[`PipelineNew Should match snapshot 1`] = `
               >
                 YARN BERRY
               </option>
-            </mock-styled.select>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+            </select>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Build Command
-            </mock-styled.label>
-            <mock-styled.input
-              classname=""
+            </label>
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               name="buildCommand"
             />
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Build Directory
-            </mock-styled.label>
-            <mock-styled.input
-              classname=""
+            </label>
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               name="outDir"
             />
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+          </div>
+        </div>
+      </div>
     </form>
-    <mock-styled.div
+    <div
       aria-hidden="true"
-      classname=""
+      class="mocked-styled-146 el-mobile-controls-bg"
     />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-147 el-mobile-controls"
       id=":r0:"
     >
-      <mock-styled.button
+      <button
         aria-controls=":r0:"
-        classname="el-floating-button el-intent-primary"
+        class="el-floating-button el-intent-primary el-button"
       >
-        <mock-styled.div />
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <div
+          class="mocked-styled-0 el-button-loader"
+        />
+        <span
+          class="el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name menu"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -391,9 +511,9 @@ exports[`PipelineNew Should match snapshot 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
+        </span>
+      </button>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -459,122 +579,165 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
       <div />
     </div>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         New Pipeline
-      </mock-styled.h1>
-      <mock-styled.div
-        classname="el-tabs-full-width"
-        role="tablist"
+      </h1>
+      <div
+        class="el-tabs-full-width el-tabs-wrap"
       >
-        <mock-styled.div>
-          <mock-styled.input
+        <div
+          class="mocked-styled-120 el-tabs-options-wrap"
+          role="tablist"
+        >
+          <input
             aria-selected="true"
+            checked=""
+            class="mocked-styled-117 el-tabs"
             id="deployments"
             name="pipeline-tabs"
-            role="tab"
             type="radio"
             value="deployments"
           />
-          <mock-styled.label
-            htmlfor="deployments"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="deployments"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Deployments
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="configure"
             name="pipeline-tabs"
-            role="tab"
             type="radio"
             value="configure"
           />
-          <mock-styled.label
-            htmlfor="configure"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="configure"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Configure
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="environment"
             name="pipeline-tabs"
-            role="tab"
             type="radio"
             value="environment"
           />
-          <mock-styled.label
-            htmlfor="environment"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="environment"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Environment Variables
             </span>
-          </mock-styled.label>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-tabs-full-width"
+          </label>
+        </div>
+        <div
+          class="el-tabs-full-width el-tabs-footer"
         />
-      </mock-styled.div>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </div>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Tell us about how we should build your application here. We assume that your application is a front end app and that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your application is bundled and that bundle is output to a local directory that we can deploy for you.
-      </mock-styled.p>
+      </p>
       <form>
-        <mock-styled.div
-          classname="el-form-layout-has-margin"
+        <div
+          class="el-form-layout-has-margin el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Name
-              </mock-styled.label>
-              <mock-styled.input
-                classname=""
+              </label>
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 name="name"
               />
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Deployment Branch
-              </mock-styled.label>
-              <mock-styled.input
-                classname=""
+              </label>
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 name="branch"
               />
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Github Repository
-              </mock-styled.label>
-              <mock-styled.input
-                classname=""
+              </label>
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 name="repository.repositoryUrl"
                 placeholder="https://github.com/org/repo"
               />
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Package Manager
-              </mock-styled.label>
-              <mock-styled.select
+              </label>
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="mocked-styled-83 el-select"
                 id="package-manager-select"
                 name="packageManager"
               >
@@ -593,53 +756,70 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
                 >
                   YARN BERRY
                 </option>
-              </mock-styled.select>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+              </select>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Build Command
-              </mock-styled.label>
-              <mock-styled.input
-                classname=""
+              </label>
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 name="buildCommand"
               />
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Build Directory
-              </mock-styled.label>
-              <mock-styled.input
-                classname=""
+              </label>
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 name="outDir"
               />
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+            </div>
+          </div>
+        </div>
       </form>
-      <mock-styled.div
+      <div
         aria-hidden="true"
-        classname=""
+        class="mocked-styled-146 el-mobile-controls-bg"
       />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-147 el-mobile-controls"
         id=":r2:"
       >
-        <mock-styled.button
+        <button
           aria-controls=":r2:"
-          classname="el-floating-button el-intent-primary"
+          class="el-floating-button el-intent-primary el-button"
         >
-          <mock-styled.div />
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name menu"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -649,128 +829,171 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+          </span>
+        </button>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       New Pipeline
-    </mock-styled.h1>
-    <mock-styled.div
-      classname="el-tabs-full-width"
-      role="tablist"
+    </h1>
+    <div
+      class="el-tabs-full-width el-tabs-wrap"
     >
-      <mock-styled.div>
-        <mock-styled.input
+      <div
+        class="mocked-styled-120 el-tabs-options-wrap"
+        role="tablist"
+      >
+        <input
           aria-selected="true"
+          checked=""
+          class="mocked-styled-117 el-tabs"
           id="deployments"
           name="pipeline-tabs"
-          role="tab"
           type="radio"
           value="deployments"
         />
-        <mock-styled.label
-          htmlfor="deployments"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="deployments"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Deployments
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="configure"
           name="pipeline-tabs"
-          role="tab"
           type="radio"
           value="configure"
         />
-        <mock-styled.label
-          htmlfor="configure"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="configure"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Configure
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="environment"
           name="pipeline-tabs"
-          role="tab"
           type="radio"
           value="environment"
         />
-        <mock-styled.label
-          htmlfor="environment"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="environment"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Environment Variables
           </span>
-        </mock-styled.label>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-tabs-full-width"
+        </label>
+      </div>
+      <div
+        class="el-tabs-full-width el-tabs-footer"
       />
-    </mock-styled.div>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </div>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Tell us about how we should build your application here. We assume that your application is a front end app and that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your application is bundled and that bundle is output to a local directory that we can deploy for you.
-    </mock-styled.p>
+    </p>
     <form>
-      <mock-styled.div
-        classname="el-form-layout-has-margin"
+      <div
+        class="el-form-layout-has-margin el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Name
-            </mock-styled.label>
-            <mock-styled.input
-              classname=""
+            </label>
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               name="name"
             />
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Deployment Branch
-            </mock-styled.label>
-            <mock-styled.input
-              classname=""
+            </label>
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               name="branch"
             />
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Github Repository
-            </mock-styled.label>
-            <mock-styled.input
-              classname=""
+            </label>
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               name="repository.repositoryUrl"
               placeholder="https://github.com/org/repo"
             />
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Package Manager
-            </mock-styled.label>
-            <mock-styled.select
+            </label>
+            <select
+              aria-label="Select an item from the dropdown list"
+              class="mocked-styled-83 el-select"
               id="package-manager-select"
               name="packageManager"
             >
@@ -789,53 +1012,70 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
               >
                 YARN BERRY
               </option>
-            </mock-styled.select>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+            </select>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Build Command
-            </mock-styled.label>
-            <mock-styled.input
-              classname=""
+            </label>
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               name="buildCommand"
             />
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Build Directory
-            </mock-styled.label>
-            <mock-styled.input
-              classname=""
+            </label>
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               name="outDir"
             />
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+          </div>
+        </div>
+      </div>
     </form>
-    <mock-styled.div
+    <div
       aria-hidden="true"
-      classname=""
+      class="mocked-styled-146 el-mobile-controls-bg"
     />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-147 el-mobile-controls"
       id=":r2:"
     >
-      <mock-styled.button
+      <button
         aria-controls=":r2:"
-        classname="el-floating-button el-intent-primary"
+        class="el-floating-button el-intent-primary el-button"
       >
-        <mock-styled.div />
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <div
+          class="mocked-styled-0 el-button-loader"
+        />
+        <span
+          class="el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name menu"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -845,9 +1085,9 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
+        </span>
+      </button>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
