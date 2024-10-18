@@ -4,7 +4,6 @@ const svgrPlugin = require('@svgr/rollup')
 const linaria = require('@linaria/vite').default
 const checker = require('vite-plugin-checker').default
 const { VitePWA } = require('vite-plugin-pwa')
-const { nodePolyfills } = require('vite-plugin-node-polyfills')
 const path = require('path')
 const topLevelAwait = require('vite-plugin-top-level-await').default
 const { sentryVitePlugin } = require('@sentry/vite-plugin')
@@ -33,9 +32,6 @@ module.exports = (config, appName) =>
         },
       }),
       splitVendorChunkPlugin(),
-      nodePolyfills({
-        protocolImports: true,
-      }),
       VitePWA({
         registerType: 'autoUpdate',
         includeAssets: ['assets/favicon.ico'],
