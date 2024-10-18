@@ -7408,7 +7408,6 @@ __metadata:
     "@linaria/react": "npm:^5.0.3"
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/connect-session": "npm:^6.1.3"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
@@ -14600,7 +14599,6 @@ __metadata:
     "@nestjs/typeorm": "npm:^8.1.4"
     "@octokit/app": "npm:^14.0.2"
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/connect-session": "npm:^6.1.3"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-authorizer": "workspace:^"
@@ -24670,26 +24668,6 @@ __metadata:
   checksum: 8650d851b52e0321aeea4384cd47a6983592a2c6903604761c514ae4e0a7261b1a5bdab89910ad83ae9bf31692ec33a30272c1254b995871498b8dff2db2b02a
   languageName: node
   linkType: hard
-
-"seed-data-workflow@workspace:packages/seed-data-workflow":
-  version: 0.0.0-use.local
-  resolution: "seed-data-workflow@workspace:packages/seed-data-workflow"
-  dependencies:
-    "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/connect-session": "npm:^6.1.3"
-    "@reapit/elements": "npm:^4.3.2"
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
-    "@typescript-eslint/parser": "npm:^6.21.0"
-    axios: "npm:^1.7.7"
-    dayjs: "npm:^1.11.10"
-    eslint: "npm:^8.57.0"
-    eslint-plugin-prettier: "npm:^5.1.3"
-    snyk: "npm:^1.1285.0"
-    ts-node: "npm:^10.9.2"
-    typescript: "npm:^5.4.2"
-  languageName: unknown
-  linkType: soft
 
 "seek-bzip@npm:^1.0.5":
   version: 1.0.6
