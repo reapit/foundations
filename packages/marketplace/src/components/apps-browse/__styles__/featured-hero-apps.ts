@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { ElBodyText, ElSubtitle } from '@reapit/elements'
+import { BodyText, Subtitle } from '@reapit/elements'
 import {
   forDesktopAndAbove,
   forMobileAndAbove,
@@ -8,7 +8,7 @@ import {
   forTabletAndAbove,
 } from '../../../core/__styles__/media'
 
-export const FeaturedHeroAppsSubtitle = styled(ElSubtitle)`
+export const FeaturedHeroAppsSubtitle = styled(Subtitle)`
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 0.25rem;
@@ -22,7 +22,7 @@ export const FeaturedHeroAppsSubtitle = styled(ElSubtitle)`
   }
 `
 
-export const FeaturedHeroAppsStrapline = styled(ElBodyText)`
+export const FeaturedHeroAppsStrapline = styled(BodyText)`
   font-size: 14px;
   color: var(--color-grey-dark);
   margin-bottom: 0.5rem;

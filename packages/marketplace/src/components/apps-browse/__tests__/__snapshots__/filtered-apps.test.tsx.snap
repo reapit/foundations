@@ -5,261 +5,309 @@ exports[`FilteredAppsCollection should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.mock-styled.h2>
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <mock-styled.div>
         New in AppMarket
-      </mock-styled.mock-styled.h2>
-      <mock-styled.div
-        classname=""
-      >
-        <mock-styled.div
-          classname=""
-        >
-          <mock-styled.div
-            classname="el-fade-in mock-css.
-  cursor: pointer;
-"
-          >
-            <mock-styled.div>
-              <mock-styled.div
-                classname=""
-                role="img"
-              >
-                <mock-styled.div
-                  role="img"
-                  style="font-size: 1.953125em; width: 50px; height: 50px;"
-                >
-                  <svg
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 60 35"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M50.9685 13.7768C50.1805 8.8795 45.8082 5.12069 40.5469 5.12069C38.5676 5.12069 36.6656 5.65245 35.016 6.64427C32.5063 2.54863 27.9881 0 22.9688 0C15.2148 0 8.90625 6.12582 8.90625 13.6552C8.90625 13.7018 8.90625 13.7502 8.90801 13.7968C3.92461 14.6119 0 18.8308 0 23.8966C0 29.544 4.84816 34.1379 10.6641 34.1379H49.3359C55.1518 34.1379 60 29.544 60 23.8966C60 18.7876 56.0119 14.542 50.9685 13.7768Z"
-                      fill="#E3E3E3"
-                    />
-                  </svg>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-sub-heading-wrap-avatar"
-              >
-                <mock-styled.h5>
-                  MOCK_APP_NAME
-                </mock-styled.h5>
-                <mock-styled.h6>
-                  <div
-                    class="el-flex-container el-flex-justify-between el-flex-align-center"
-                  >
-                     
-                    <mock-styled.span
-                      classname="el-ml5"
-                    >
-                      FREE
-                    </mock-styled.span>
-                  </div>
-                </mock-styled.h6>
-                <mock-styled.h6 />
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
-            >
-              Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
-        >
-          <mock-styled.div
-            classname="el-fade-in mock-css.
-  cursor: pointer;
-"
-          >
-            <mock-styled.div>
-              <mock-styled.div
-                classname=""
-                role="img"
-              >
-                <mock-styled.div
-                  role="img"
-                  style="font-size: 1.953125em; width: 50px; height: 50px;"
-                >
-                  <svg
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 60 35"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M50.9685 13.7768C50.1805 8.8795 45.8082 5.12069 40.5469 5.12069C38.5676 5.12069 36.6656 5.65245 35.016 6.64427C32.5063 2.54863 27.9881 0 22.9688 0C15.2148 0 8.90625 6.12582 8.90625 13.6552C8.90625 13.7018 8.90625 13.7502 8.90801 13.7968C3.92461 14.6119 0 18.8308 0 23.8966C0 29.544 4.84816 34.1379 10.6641 34.1379H49.3359C55.1518 34.1379 60 29.544 60 23.8966C60 18.7876 56.0119 14.542 50.9685 13.7768Z"
-                      fill="#E3E3E3"
-                    />
-                  </svg>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-sub-heading-wrap-avatar"
-              >
-                <mock-styled.h5>
-                  MOCK_APP_NAME_ANOTHER
-                </mock-styled.h5>
-                <mock-styled.h6>
-                  <div
-                    class="el-flex-container el-flex-justify-between el-flex-align-center"
-                  >
-                     
-                    <mock-styled.span
-                      classname="el-ml5"
-                    >
-                      FREE
-                    </mock-styled.span>
-                  </div>
-                </mock-styled.h6>
-                <mock-styled.h6 />
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
-            >
-              Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
       </mock-styled.div>
+      <div
+        class="mocked-styled-30 el-grid"
+      >
+        <div
+          class="mocked-styled-31 el-col"
+        >
+          <div
+            class="el-fade-in mock-css.
+  cursor: pointer;
+ el-card-wrap"
+          >
+            <div
+              class="mocked-styled-7 el-card-main-wrap"
+            >
+              <div
+                class="mocked-styled-28 el-avatar"
+                role="img"
+                title="A profile image"
+              >
+                <div
+                  aria-label="A generic placeholder image"
+                  class="mocked-styled-144 el-placeholder-image"
+                  role="img"
+                  style="font-size: 1.953125em; width: 50px; height: 50px;"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 60 35"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M50.9685 13.7768C50.1805 8.8795 45.8082 5.12069 40.5469 5.12069C38.5676 5.12069 36.6656 5.65245 35.016 6.64427C32.5063 2.54863 27.9881 0 22.9688 0C15.2148 0 8.90625 6.12582 8.90625 13.6552C8.90625 13.7018 8.90625 13.7502 8.90801 13.7968C3.92461 14.6119 0 18.8308 0 23.8966C0 29.544 4.84816 34.1379 10.6641 34.1379H49.3359C55.1518 34.1379 60 29.544 60 23.8966C60 18.7876 56.0119 14.542 50.9685 13.7768Z"
+                      fill="#E3E3E3"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div
+                class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
+              >
+                <h5
+                  class="mocked-styled-8 el-card-heading"
+                >
+                  MOCK_APP_NAME
+                </h5>
+                <h6
+                  class="mocked-styled-9 el-card-sub-heading"
+                >
+                  <div
+                    class="el-flex-container el-flex-justify-between el-flex-align-center"
+                  >
+                     
+                    <mock-styled.span
+                      classname="el-ml5"
+                    >
+                      FREE
+                    </mock-styled.span>
+                  </div>
+                </h6>
+                <h6
+                  class="mocked-styled-10 el-card-sub-heading-additional"
+                />
+              </div>
+            </div>
+            <div
+              class="mocked-styled-11 el-card-body-wrap"
+            >
+              Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
+        >
+          <div
+            class="el-fade-in mock-css.
+  cursor: pointer;
+ el-card-wrap"
+          >
+            <div
+              class="mocked-styled-7 el-card-main-wrap"
+            >
+              <div
+                class="mocked-styled-28 el-avatar"
+                role="img"
+                title="A profile image"
+              >
+                <div
+                  aria-label="A generic placeholder image"
+                  class="mocked-styled-144 el-placeholder-image"
+                  role="img"
+                  style="font-size: 1.953125em; width: 50px; height: 50px;"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 60 35"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M50.9685 13.7768C50.1805 8.8795 45.8082 5.12069 40.5469 5.12069C38.5676 5.12069 36.6656 5.65245 35.016 6.64427C32.5063 2.54863 27.9881 0 22.9688 0C15.2148 0 8.90625 6.12582 8.90625 13.6552C8.90625 13.7018 8.90625 13.7502 8.90801 13.7968C3.92461 14.6119 0 18.8308 0 23.8966C0 29.544 4.84816 34.1379 10.6641 34.1379H49.3359C55.1518 34.1379 60 29.544 60 23.8966C60 18.7876 56.0119 14.542 50.9685 13.7768Z"
+                      fill="#E3E3E3"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div
+                class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
+              >
+                <h5
+                  class="mocked-styled-8 el-card-heading"
+                >
+                  MOCK_APP_NAME_ANOTHER
+                </h5>
+                <h6
+                  class="mocked-styled-9 el-card-sub-heading"
+                >
+                  <div
+                    class="el-flex-container el-flex-justify-between el-flex-align-center"
+                  >
+                     
+                    <mock-styled.span
+                      classname="el-ml5"
+                    >
+                      FREE
+                    </mock-styled.span>
+                  </div>
+                </h6>
+                <h6
+                  class="mocked-styled-10 el-card-sub-heading-additional"
+                />
+              </div>
+            </div>
+            <div
+              class="mocked-styled-11 el-card-body-wrap"
+            >
+              Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.mock-styled.h2>
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <mock-styled.div>
       New in AppMarket
-    </mock-styled.mock-styled.h2>
-    <mock-styled.div
-      classname=""
-    >
-      <mock-styled.div
-        classname=""
-      >
-        <mock-styled.div
-          classname="el-fade-in mock-css.
-  cursor: pointer;
-"
-        >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
-              role="img"
-            >
-              <mock-styled.div
-                role="img"
-                style="font-size: 1.953125em; width: 50px; height: 50px;"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 60 35"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M50.9685 13.7768C50.1805 8.8795 45.8082 5.12069 40.5469 5.12069C38.5676 5.12069 36.6656 5.65245 35.016 6.64427C32.5063 2.54863 27.9881 0 22.9688 0C15.2148 0 8.90625 6.12582 8.90625 13.6552C8.90625 13.7018 8.90625 13.7502 8.90801 13.7968C3.92461 14.6119 0 18.8308 0 23.8966C0 29.544 4.84816 34.1379 10.6641 34.1379H49.3359C55.1518 34.1379 60 29.544 60 23.8966C60 18.7876 56.0119 14.542 50.9685 13.7768Z"
-                    fill="#E3E3E3"
-                  />
-                </svg>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-sub-heading-wrap-avatar"
-            >
-              <mock-styled.h5>
-                MOCK_APP_NAME
-              </mock-styled.h5>
-              <mock-styled.h6>
-                <div
-                  class="el-flex-container el-flex-justify-between el-flex-align-center"
-                >
-                   
-                  <mock-styled.span
-                    classname="el-ml5"
-                  >
-                    FREE
-                  </mock-styled.span>
-                </div>
-              </mock-styled.h6>
-              <mock-styled.h6 />
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
-          >
-            Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
-      >
-        <mock-styled.div
-          classname="el-fade-in mock-css.
-  cursor: pointer;
-"
-        >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
-              role="img"
-            >
-              <mock-styled.div
-                role="img"
-                style="font-size: 1.953125em; width: 50px; height: 50px;"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 60 35"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M50.9685 13.7768C50.1805 8.8795 45.8082 5.12069 40.5469 5.12069C38.5676 5.12069 36.6656 5.65245 35.016 6.64427C32.5063 2.54863 27.9881 0 22.9688 0C15.2148 0 8.90625 6.12582 8.90625 13.6552C8.90625 13.7018 8.90625 13.7502 8.90801 13.7968C3.92461 14.6119 0 18.8308 0 23.8966C0 29.544 4.84816 34.1379 10.6641 34.1379H49.3359C55.1518 34.1379 60 29.544 60 23.8966C60 18.7876 56.0119 14.542 50.9685 13.7768Z"
-                    fill="#E3E3E3"
-                  />
-                </svg>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-sub-heading-wrap-avatar"
-            >
-              <mock-styled.h5>
-                MOCK_APP_NAME_ANOTHER
-              </mock-styled.h5>
-              <mock-styled.h6>
-                <div
-                  class="el-flex-container el-flex-justify-between el-flex-align-center"
-                >
-                   
-                  <mock-styled.span
-                    classname="el-ml5"
-                  >
-                    FREE
-                  </mock-styled.span>
-                </div>
-              </mock-styled.h6>
-              <mock-styled.h6 />
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
-          >
-            Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
     </mock-styled.div>
+    <div
+      class="mocked-styled-30 el-grid"
+    >
+      <div
+        class="mocked-styled-31 el-col"
+      >
+        <div
+          class="el-fade-in mock-css.
+  cursor: pointer;
+ el-card-wrap"
+        >
+          <div
+            class="mocked-styled-7 el-card-main-wrap"
+          >
+            <div
+              class="mocked-styled-28 el-avatar"
+              role="img"
+              title="A profile image"
+            >
+              <div
+                aria-label="A generic placeholder image"
+                class="mocked-styled-144 el-placeholder-image"
+                role="img"
+                style="font-size: 1.953125em; width: 50px; height: 50px;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 60 35"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M50.9685 13.7768C50.1805 8.8795 45.8082 5.12069 40.5469 5.12069C38.5676 5.12069 36.6656 5.65245 35.016 6.64427C32.5063 2.54863 27.9881 0 22.9688 0C15.2148 0 8.90625 6.12582 8.90625 13.6552C8.90625 13.7018 8.90625 13.7502 8.90801 13.7968C3.92461 14.6119 0 18.8308 0 23.8966C0 29.544 4.84816 34.1379 10.6641 34.1379H49.3359C55.1518 34.1379 60 29.544 60 23.8966C60 18.7876 56.0119 14.542 50.9685 13.7768Z"
+                    fill="#E3E3E3"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
+            >
+              <h5
+                class="mocked-styled-8 el-card-heading"
+              >
+                MOCK_APP_NAME
+              </h5>
+              <h6
+                class="mocked-styled-9 el-card-sub-heading"
+              >
+                <div
+                  class="el-flex-container el-flex-justify-between el-flex-align-center"
+                >
+                   
+                  <mock-styled.span
+                    classname="el-ml5"
+                  >
+                    FREE
+                  </mock-styled.span>
+                </div>
+              </h6>
+              <h6
+                class="mocked-styled-10 el-card-sub-heading-additional"
+              />
+            </div>
+          </div>
+          <div
+            class="mocked-styled-11 el-card-body-wrap"
+          >
+            Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
+      >
+        <div
+          class="el-fade-in mock-css.
+  cursor: pointer;
+ el-card-wrap"
+        >
+          <div
+            class="mocked-styled-7 el-card-main-wrap"
+          >
+            <div
+              class="mocked-styled-28 el-avatar"
+              role="img"
+              title="A profile image"
+            >
+              <div
+                aria-label="A generic placeholder image"
+                class="mocked-styled-144 el-placeholder-image"
+                role="img"
+                style="font-size: 1.953125em; width: 50px; height: 50px;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 60 35"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M50.9685 13.7768C50.1805 8.8795 45.8082 5.12069 40.5469 5.12069C38.5676 5.12069 36.6656 5.65245 35.016 6.64427C32.5063 2.54863 27.9881 0 22.9688 0C15.2148 0 8.90625 6.12582 8.90625 13.6552C8.90625 13.7018 8.90625 13.7502 8.90801 13.7968C3.92461 14.6119 0 18.8308 0 23.8966C0 29.544 4.84816 34.1379 10.6641 34.1379H49.3359C55.1518 34.1379 60 29.544 60 23.8966C60 18.7876 56.0119 14.542 50.9685 13.7768Z"
+                    fill="#E3E3E3"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
+            >
+              <h5
+                class="mocked-styled-8 el-card-heading"
+              >
+                MOCK_APP_NAME_ANOTHER
+              </h5>
+              <h6
+                class="mocked-styled-9 el-card-sub-heading"
+              >
+                <div
+                  class="el-flex-container el-flex-justify-between el-flex-align-center"
+                >
+                   
+                  <mock-styled.span
+                    classname="el-ml5"
+                  >
+                    FREE
+                  </mock-styled.span>
+                </div>
+              </h6>
+              <h6
+                class="mocked-styled-10 el-card-sub-heading-additional"
+              />
+            </div>
+          </div>
+          <div
+            class="mocked-styled-11 el-card-body-wrap"
+          >
+            Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -320,25 +368,37 @@ exports[`FilteredAppsCollection should match a snapshot when loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="mocked-styled-44 el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+        <div
+          class="mocked-styled-46 el-loader"
+        >
+          <div
+            class="mocked-styled-47 el-loader-moving-bar"
+          />
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="mocked-styled-44 el-loader-container"
     >
-      <mock-styled.div>
-        <mock-styled.div />
-      </mock-styled.div>
-    </mock-styled.div>
+      <div
+        class="mocked-styled-46 el-loader"
+      >
+        <div
+          class="mocked-styled-47 el-loader-moving-bar"
+        />
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

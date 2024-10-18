@@ -5,29 +5,36 @@ exports[`AppsList should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         My Apps
-      </mock-styled.h1>
-      <mock-styled.div
-        classname="el-mb11"
+      </h1>
+      <div
+        class="el-mb11 el-grid"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.div
-            classname="el-fade-in mock-css.
+          <div
+            class="el-fade-in mock-css.
   cursor: pointer;
-"
+ el-card-wrap"
           >
-            <mock-styled.div>
-              <mock-styled.div
-                classname=""
+            <div
+              class="mocked-styled-7 el-card-main-wrap"
+            >
+              <div
+                class="mocked-styled-28 el-avatar"
                 role="img"
+                title="A profile image"
               >
-                <mock-styled.div
+                <div
+                  aria-label="A generic placeholder image"
+                  class="mocked-styled-144 el-placeholder-image"
                   role="img"
                   style="font-size: 1.953125em; width: 50px; height: 50px;"
                 >
@@ -43,34 +50,45 @@ exports[`AppsList should match a snapshot 1`] = `
                       fill="#E3E3E3"
                     />
                   </svg>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-sub-heading-wrap-avatar"
+                </div>
+              </div>
+              <div
+                class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-8 el-card-heading"
+                >
                   MOCK_APP_NAME
-                </mock-styled.h5>
-                <mock-styled.h6 />
-                <mock-styled.h6 />
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+                </h5>
+                <h6
+                  class="mocked-styled-9 el-card-sub-heading"
+                />
+                <h6
+                  class="mocked-styled-10 el-card-sub-heading-additional"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.div
-            classname="el-fade-in mock-css.
+          <div
+            class="el-fade-in mock-css.
   cursor: pointer;
-"
+ el-card-wrap"
           >
-            <mock-styled.div>
-              <mock-styled.div
-                classname=""
+            <div
+              class="mocked-styled-7 el-card-main-wrap"
+            >
+              <div
+                class="mocked-styled-28 el-avatar"
                 role="img"
+                title="A profile image"
               >
-                <mock-styled.div
+                <div
+                  aria-label="A generic placeholder image"
+                  class="mocked-styled-144 el-placeholder-image"
                   role="img"
                   style="font-size: 1.953125em; width: 50px; height: 50px;"
                 >
@@ -86,41 +104,50 @@ exports[`AppsList should match a snapshot 1`] = `
                       fill="#E3E3E3"
                     />
                   </svg>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-sub-heading-wrap-avatar"
+                </div>
+              </div>
+              <div
+                class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-8 el-card-heading"
+                >
                   MOCK_APP_NAME_ANOTHER
-                </mock-styled.h5>
-                <mock-styled.h6 />
-                <mock-styled.h6 />
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
+                </h5>
+                <h6
+                  class="mocked-styled-9 el-card-sub-heading"
+                />
+                <h6
+                  class="mocked-styled-10 el-card-sub-heading-additional"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         aria-hidden="true"
-        classname=""
+        class="mocked-styled-146 el-mobile-controls-bg"
       />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-147 el-mobile-controls"
         id=":r0:"
       >
-        <mock-styled.button
+        <button
           aria-controls=":r0:"
-          classname="el-floating-button el-intent-primary"
+          class="el-floating-button el-intent-primary el-button"
         >
-          <mock-styled.div />
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name menu"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -130,35 +157,42 @@ exports[`AppsList should match a snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+          </span>
+        </button>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       My Apps
-    </mock-styled.h1>
-    <mock-styled.div
-      classname="el-mb11"
+    </h1>
+    <div
+      class="el-mb11 el-grid"
     >
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.div
-          classname="el-fade-in mock-css.
+        <div
+          class="el-fade-in mock-css.
   cursor: pointer;
-"
+ el-card-wrap"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-7 el-card-main-wrap"
+          >
+            <div
+              class="mocked-styled-28 el-avatar"
               role="img"
+              title="A profile image"
             >
-              <mock-styled.div
+              <div
+                aria-label="A generic placeholder image"
+                class="mocked-styled-144 el-placeholder-image"
                 role="img"
                 style="font-size: 1.953125em; width: 50px; height: 50px;"
               >
@@ -174,34 +208,45 @@ exports[`AppsList should match a snapshot 1`] = `
                     fill="#E3E3E3"
                   />
                 </svg>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-sub-heading-wrap-avatar"
+              </div>
+            </div>
+            <div
+              class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
             >
-              <mock-styled.h5>
+              <h5
+                class="mocked-styled-8 el-card-heading"
+              >
                 MOCK_APP_NAME
-              </mock-styled.h5>
-              <mock-styled.h6 />
-              <mock-styled.h6 />
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+              </h5>
+              <h6
+                class="mocked-styled-9 el-card-sub-heading"
+              />
+              <h6
+                class="mocked-styled-10 el-card-sub-heading-additional"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.div
-          classname="el-fade-in mock-css.
+        <div
+          class="el-fade-in mock-css.
   cursor: pointer;
-"
+ el-card-wrap"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-7 el-card-main-wrap"
+          >
+            <div
+              class="mocked-styled-28 el-avatar"
               role="img"
+              title="A profile image"
             >
-              <mock-styled.div
+              <div
+                aria-label="A generic placeholder image"
+                class="mocked-styled-144 el-placeholder-image"
                 role="img"
                 style="font-size: 1.953125em; width: 50px; height: 50px;"
               >
@@ -217,41 +262,50 @@ exports[`AppsList should match a snapshot 1`] = `
                     fill="#E3E3E3"
                   />
                 </svg>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-sub-heading-wrap-avatar"
+              </div>
+            </div>
+            <div
+              class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
             >
-              <mock-styled.h5>
+              <h5
+                class="mocked-styled-8 el-card-heading"
+              >
                 MOCK_APP_NAME_ANOTHER
-              </mock-styled.h5>
-              <mock-styled.h6 />
-              <mock-styled.h6 />
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div
+              </h5>
+              <h6
+                class="mocked-styled-9 el-card-sub-heading"
+              />
+              <h6
+                class="mocked-styled-10 el-card-sub-heading-additional"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
       aria-hidden="true"
-      classname=""
+      class="mocked-styled-146 el-mobile-controls-bg"
     />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-147 el-mobile-controls"
       id=":r0:"
     >
-      <mock-styled.button
+      <button
         aria-controls=":r0:"
-        classname="el-floating-button el-intent-primary"
+        class="el-floating-button el-intent-primary el-button"
       >
-        <mock-styled.div />
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <div
+          class="mocked-styled-0 el-button-loader"
+        />
+        <span
+          class="el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name menu"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -261,9 +315,9 @@ exports[`AppsList should match a snapshot 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
+        </span>
+      </button>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -329,29 +383,36 @@ exports[`AppsList should match snapshot for mobile view 1`] = `
       <div />
     </div>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         My Apps
-      </mock-styled.h1>
-      <mock-styled.div
-        classname="el-mb11"
+      </h1>
+      <div
+        class="el-mb11 el-grid"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.div
-            classname="el-fade-in mock-css.
+          <div
+            class="el-fade-in mock-css.
   cursor: pointer;
-"
+ el-card-wrap"
           >
-            <mock-styled.div>
-              <mock-styled.div
-                classname=""
+            <div
+              class="mocked-styled-7 el-card-main-wrap"
+            >
+              <div
+                class="mocked-styled-28 el-avatar"
                 role="img"
+                title="A profile image"
               >
-                <mock-styled.div
+                <div
+                  aria-label="A generic placeholder image"
+                  class="mocked-styled-144 el-placeholder-image"
                   role="img"
                   style="font-size: 1.953125em; width: 50px; height: 50px;"
                 >
@@ -367,34 +428,45 @@ exports[`AppsList should match snapshot for mobile view 1`] = `
                       fill="#E3E3E3"
                     />
                   </svg>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-sub-heading-wrap-avatar"
+                </div>
+              </div>
+              <div
+                class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-8 el-card-heading"
+                >
                   MOCK_APP_NAME
-                </mock-styled.h5>
-                <mock-styled.h6 />
-                <mock-styled.h6 />
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+                </h5>
+                <h6
+                  class="mocked-styled-9 el-card-sub-heading"
+                />
+                <h6
+                  class="mocked-styled-10 el-card-sub-heading-additional"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.div
-            classname="el-fade-in mock-css.
+          <div
+            class="el-fade-in mock-css.
   cursor: pointer;
-"
+ el-card-wrap"
           >
-            <mock-styled.div>
-              <mock-styled.div
-                classname=""
+            <div
+              class="mocked-styled-7 el-card-main-wrap"
+            >
+              <div
+                class="mocked-styled-28 el-avatar"
                 role="img"
+                title="A profile image"
               >
-                <mock-styled.div
+                <div
+                  aria-label="A generic placeholder image"
+                  class="mocked-styled-144 el-placeholder-image"
                   role="img"
                   style="font-size: 1.953125em; width: 50px; height: 50px;"
                 >
@@ -410,41 +482,50 @@ exports[`AppsList should match snapshot for mobile view 1`] = `
                       fill="#E3E3E3"
                     />
                   </svg>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-card-sub-heading-wrap-avatar"
+                </div>
+              </div>
+              <div
+                class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
               >
-                <mock-styled.h5>
+                <h5
+                  class="mocked-styled-8 el-card-heading"
+                >
                   MOCK_APP_NAME_ANOTHER
-                </mock-styled.h5>
-                <mock-styled.h6 />
-                <mock-styled.h6 />
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
+                </h5>
+                <h6
+                  class="mocked-styled-9 el-card-sub-heading"
+                />
+                <h6
+                  class="mocked-styled-10 el-card-sub-heading-additional"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         aria-hidden="true"
-        classname=""
+        class="mocked-styled-146 el-mobile-controls-bg"
       />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-147 el-mobile-controls"
         id=":r2:"
       >
-        <mock-styled.button
+        <button
           aria-controls=":r2:"
-          classname="el-floating-button el-intent-primary"
+          class="el-floating-button el-intent-primary el-button"
         >
-          <mock-styled.div />
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name menu"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -454,35 +535,42 @@ exports[`AppsList should match snapshot for mobile view 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+          </span>
+        </button>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       My Apps
-    </mock-styled.h1>
-    <mock-styled.div
-      classname="el-mb11"
+    </h1>
+    <div
+      class="el-mb11 el-grid"
     >
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.div
-          classname="el-fade-in mock-css.
+        <div
+          class="el-fade-in mock-css.
   cursor: pointer;
-"
+ el-card-wrap"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-7 el-card-main-wrap"
+          >
+            <div
+              class="mocked-styled-28 el-avatar"
               role="img"
+              title="A profile image"
             >
-              <mock-styled.div
+              <div
+                aria-label="A generic placeholder image"
+                class="mocked-styled-144 el-placeholder-image"
                 role="img"
                 style="font-size: 1.953125em; width: 50px; height: 50px;"
               >
@@ -498,34 +586,45 @@ exports[`AppsList should match snapshot for mobile view 1`] = `
                     fill="#E3E3E3"
                   />
                 </svg>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-sub-heading-wrap-avatar"
+              </div>
+            </div>
+            <div
+              class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
             >
-              <mock-styled.h5>
+              <h5
+                class="mocked-styled-8 el-card-heading"
+              >
                 MOCK_APP_NAME
-              </mock-styled.h5>
-              <mock-styled.h6 />
-              <mock-styled.h6 />
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+              </h5>
+              <h6
+                class="mocked-styled-9 el-card-sub-heading"
+              />
+              <h6
+                class="mocked-styled-10 el-card-sub-heading-additional"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.div
-          classname="el-fade-in mock-css.
+        <div
+          class="el-fade-in mock-css.
   cursor: pointer;
-"
+ el-card-wrap"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-7 el-card-main-wrap"
+          >
+            <div
+              class="mocked-styled-28 el-avatar"
               role="img"
+              title="A profile image"
             >
-              <mock-styled.div
+              <div
+                aria-label="A generic placeholder image"
+                class="mocked-styled-144 el-placeholder-image"
                 role="img"
                 style="font-size: 1.953125em; width: 50px; height: 50px;"
               >
@@ -541,41 +640,50 @@ exports[`AppsList should match snapshot for mobile view 1`] = `
                     fill="#E3E3E3"
                   />
                 </svg>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-card-sub-heading-wrap-avatar"
+              </div>
+            </div>
+            <div
+              class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
             >
-              <mock-styled.h5>
+              <h5
+                class="mocked-styled-8 el-card-heading"
+              >
                 MOCK_APP_NAME_ANOTHER
-              </mock-styled.h5>
-              <mock-styled.h6 />
-              <mock-styled.h6 />
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div
+              </h5>
+              <h6
+                class="mocked-styled-9 el-card-sub-heading"
+              />
+              <h6
+                class="mocked-styled-10 el-card-sub-heading-additional"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
       aria-hidden="true"
-      classname=""
+      class="mocked-styled-146 el-mobile-controls-bg"
     />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-147 el-mobile-controls"
       id=":r2:"
     >
-      <mock-styled.button
+      <button
         aria-controls=":r2:"
-        classname="el-floating-button el-intent-primary"
+        class="el-floating-button el-intent-primary el-button"
       >
-        <mock-styled.div />
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <div
+          class="mocked-styled-0 el-button-loader"
+        />
+        <span
+          class="el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name menu"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -585,9 +693,9 @@ exports[`AppsList should match snapshot for mobile view 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
+        </span>
+      </button>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

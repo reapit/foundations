@@ -5,52 +5,59 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="el-mb7"
+      <div
+        class="el-mb7 el-table"
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="2"
         role="table"
       >
-        <mock-styled.div
+        <div
+          class="mocked-styled-101 el-table-headers-row"
           role="row"
         >
-          <mock-styled.div
+          <div
             aria-label="Type"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Type
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Period"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Period
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Download
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </div>
+        </div>
+        <div
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-103 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name cloud"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -60,34 +67,41 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.div
+              </span>
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Type"
               >
                 Cost and Usage
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Period"
               >
                 October 2019
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
+              </div>
+            </div>
+            <div
+              class="mocked-styled-104 el-table-cta-cell"
               role="cell"
+              tabindex="0"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-112 el-table-cta-icon-container"
+              >
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name fileDownload"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -97,29 +111,32 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-103 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name cloud"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -129,34 +146,41 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.div
+              </span>
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Type"
               >
                 Transaction History
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Period"
               >
                 October 2019
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
+              </div>
+            </div>
+            <div
+              class="mocked-styled-104 el-table-cta-cell"
               role="cell"
+              tabindex="0"
             >
-              <mock-styled.div>
-                <mock-styled.span
-                  classname="el-intent-default el-icon-new"
-                  role="img"
+              <div
+                class="mocked-styled-112 el-table-cta-icon-container"
+              >
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                 >
                   <svg
                     fill="none"
                     height="1em"
+                    role="img"
+                    title="Icon image with name close"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -166,29 +190,30 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
                       fill="currentColor"
                     />
                   </svg>
-                </mock-styled.span>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-        role="alertdialog"
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        role="status"
       >
         <div
           class="el-pn-icon"
           data-testid="close-icon"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1.25rem;"
+              title="Icon image with name info"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -198,63 +223,71 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
         </div>
         <div
+          aria-live="polite"
           class="el-pn-content"
         >
           Please select an app from the filters to download transaction history
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="el-mb7"
+    <div
+      class="el-mb7 el-table"
       data-has-call-to-action="true"
       data-has-expandable-action="false"
       data-num-columns-excl-action-col="2"
       role="table"
     >
-      <mock-styled.div
+      <div
+        class="mocked-styled-101 el-table-headers-row"
         role="row"
       >
-        <mock-styled.div
+        <div
           aria-label="Type"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Type
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Period"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Period
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Download
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+        </div>
+      </div>
+      <div
+        class="mocked-styled-110 el-table-row-container"
         role="row"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+        <div
+          class="mocked-styled-103 el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name cloud"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -264,34 +297,41 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.div
+            </span>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Type"
             >
               Cost and Usage
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Period"
             >
               October 2019
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
+            </div>
+          </div>
+          <div
+            class="mocked-styled-104 el-table-cta-cell"
             role="cell"
+            tabindex="0"
           >
-            <mock-styled.div>
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+            <div
+              class="mocked-styled-112 el-table-cta-icon-container"
+            >
+              <span
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name fileDownload"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -301,29 +341,32 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-110 el-table-row-container"
         role="row"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+        <div
+          class="mocked-styled-103 el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name cloud"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -333,34 +376,41 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.div
+            </span>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Type"
             >
               Transaction History
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Period"
             >
               October 2019
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
+            </div>
+          </div>
+          <div
+            class="mocked-styled-104 el-table-cta-cell"
             role="cell"
+            tabindex="0"
           >
-            <mock-styled.div>
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+            <div
+              class="mocked-styled-112 el-table-cta-icon-container"
+            >
+              <span
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name close"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -370,29 +420,30 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div
-      classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-      role="alertdialog"
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      role="status"
     >
       <div
         class="el-pn-icon"
         data-testid="close-icon"
       >
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <span
+          class="el-icon-new el-icon"
           style="font-size: 1.25rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 1.25rem;"
+            title="Icon image with name info"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -402,14 +453,15 @@ exports[`DownloadResourcesTable should match a snapshot with billing 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
+        </span>
       </div>
       <div
+        aria-live="polite"
         class="el-pn-content"
       >
         Please select an app from the filters to download transaction history
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

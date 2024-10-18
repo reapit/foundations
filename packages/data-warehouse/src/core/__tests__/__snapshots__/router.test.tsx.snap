@@ -5,39 +5,51 @@ exports[`RoutesComponent should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <main
         class="el-main-container"
       >
         <section
           class="el-page-container"
         >
-          <mock-styled.div
-            classname="el-is-full-page"
+          <div
+            class="el-is-full-page el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </section>
       </main>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <main
       class="el-main-container"
     >
       <section
         class="el-page-container"
       >
-        <mock-styled.div
-          classname="el-is-full-page"
+        <div
+          class="el-is-full-page el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </section>
     </main>
   </div>,

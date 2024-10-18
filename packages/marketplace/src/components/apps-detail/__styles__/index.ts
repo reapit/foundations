@@ -129,7 +129,7 @@ export const appDetailVideoModal = css`
     height: calc(100% - 5rem);
   }
 
-  ${ElModalBody} {
+  ${String(ElModalBody)} {
     width: 100%;
     height: calc(100% - 2.5rem);
   }

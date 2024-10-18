@@ -5,25 +5,37 @@ exports[`OrgGroupsTable should render component when loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="mocked-styled-44 el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+        <div
+          class="mocked-styled-46 el-loader"
+        >
+          <div
+            class="mocked-styled-47 el-loader-moving-bar"
+          />
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="mocked-styled-44 el-loader-container"
     >
-      <mock-styled.div>
-        <mock-styled.div />
-      </mock-styled.div>
-    </mock-styled.div>
+      <div
+        class="mocked-styled-46 el-loader"
+      >
+        <div
+          class="mocked-styled-47 el-loader-moving-bar"
+        />
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -84,82 +96,104 @@ exports[`OrgGroupsTable should render component with data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h2
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h2
+        class="el-text-base el-subtitle"
       >
         Office Groups
-      </mock-styled.h2>
-      <mock-styled.div
-        classname="el-mb11"
+      </h2>
+      <div
+        class="el-mb11 el-table"
       >
-        <mock-styled.div
-          classname="mock-css.
+        <div
+          class="mock-css.
   grid-template-columns: repeat(4, 1fr);
-"
+ el-table-headers-row"
         >
-          <mock-styled.div>
+          <div
+            class="mocked-styled-102 el-table-header"
+          >
             Customer Id
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-102 el-table-header"
+          >
             Group Name
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-102 el-table-header"
+          >
             Office Ids
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-102 el-table-header"
+          >
             Status
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
+          </div>
+        </div>
+        <div
+          class="mock-css.
   grid-template-columns: repeat(4, 1fr);
-"
+ el-table-row"
         >
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
           >
-            <mock-styled.div>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+            >
               RES-GGTN
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
           >
-            <mock-styled.div>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+            >
               Group 10
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
           >
-            <mock-styled.div>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+            >
               AAE,CSL,AAS
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
           >
-            <mock-styled.div>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+            >
               inactive
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.button
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-71 el-pagination-wrap"
+      >
+        <button
           aria-label="Previous"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name chevronLeft"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -169,28 +203,35 @@ exports[`OrgGroupsTable should render component with data 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-        <mock-styled.div>
-          <mock-styled.input
+          </span>
+        </button>
+        <div
+          class="mocked-styled-72 el-pagination-text"
+        >
+          <input
+            aria-label="Current page number, edit to select page of 1 available"
+            class="mocked-styled-73 el-pagination-input"
             value="1"
           />
-           of 
+           
+          of 
           1
-        </mock-styled.div>
-        <mock-styled.button
+        </div>
+        <button
           aria-label="Next"
+          class="mocked-styled-74 el-pagination-button"
           data-testid="forward-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name chevronRight"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -200,105 +241,131 @@ exports[`OrgGroupsTable should render component with data 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+          </span>
+        </button>
+      </div>
       <div
         class="el-mb11"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="mocked-styled-3 el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Download CSV
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h2
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h2
+      class="el-text-base el-subtitle"
     >
       Office Groups
-    </mock-styled.h2>
-    <mock-styled.div
-      classname="el-mb11"
+    </h2>
+    <div
+      class="el-mb11 el-table"
     >
-      <mock-styled.div
-        classname="mock-css.
+      <div
+        class="mock-css.
   grid-template-columns: repeat(4, 1fr);
-"
+ el-table-headers-row"
       >
-        <mock-styled.div>
+        <div
+          class="mocked-styled-102 el-table-header"
+        >
           Customer Id
-        </mock-styled.div>
-        <mock-styled.div>
+        </div>
+        <div
+          class="mocked-styled-102 el-table-header"
+        >
           Group Name
-        </mock-styled.div>
-        <mock-styled.div>
+        </div>
+        <div
+          class="mocked-styled-102 el-table-header"
+        >
           Office Ids
-        </mock-styled.div>
-        <mock-styled.div>
+        </div>
+        <div
+          class="mocked-styled-102 el-table-header"
+        >
           Status
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
+        </div>
+      </div>
+      <div
+        class="mock-css.
   grid-template-columns: repeat(4, 1fr);
-"
+ el-table-row"
       >
-        <mock-styled.div
-          classname="el-table-cell-has-dark-text"
+        <div
+          class="el-table-cell-has-dark-text el-table-cell"
         >
-          <mock-styled.div>
+          <div
+            class="mocked-styled-111 el-table-cell-content"
+          >
             RES-GGTN
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-table-cell-has-dark-text"
+          </div>
+        </div>
+        <div
+          class="el-table-cell-has-dark-text el-table-cell"
         >
-          <mock-styled.div>
+          <div
+            class="mocked-styled-111 el-table-cell-content"
+          >
             Group 10
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-table-cell-has-dark-text"
+          </div>
+        </div>
+        <div
+          class="el-table-cell-has-dark-text el-table-cell"
         >
-          <mock-styled.div>
+          <div
+            class="mocked-styled-111 el-table-cell-content"
+          >
             AAE,CSL,AAS
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-table-cell-has-dark-text"
+          </div>
+        </div>
+        <div
+          class="el-table-cell-has-dark-text el-table-cell"
         >
-          <mock-styled.div>
+          <div
+            class="mocked-styled-111 el-table-cell-content"
+          >
             inactive
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div>
-      <mock-styled.button
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="mocked-styled-71 el-pagination-wrap"
+    >
+      <button
         aria-label="Previous"
+        class="mocked-styled-74 el-pagination-button"
         data-testid="back-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <span
+          class="el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name chevronLeft"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -308,28 +375,35 @@ exports[`OrgGroupsTable should render component with data 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.button>
-      <mock-styled.div>
-        <mock-styled.input
+        </span>
+      </button>
+      <div
+        class="mocked-styled-72 el-pagination-text"
+      >
+        <input
+          aria-label="Current page number, edit to select page of 1 available"
+          class="mocked-styled-73 el-pagination-input"
           value="1"
         />
-         of 
+         
+        of 
         1
-      </mock-styled.div>
-      <mock-styled.button
+      </div>
+      <button
         aria-label="Next"
+        class="mocked-styled-74 el-pagination-button"
         data-testid="forward-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <span
+          class="el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name chevronRight"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -339,25 +413,29 @@ exports[`OrgGroupsTable should render component with data 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
+        </span>
+      </button>
+    </div>
     <div
       class="el-mb11"
     >
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Download CSV
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -419,24 +497,27 @@ exports[`OrgGroupsTable should render component with empty data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname="el-mt7 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-        role="alertdialog"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-mt7 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        role="status"
       >
         <div
           class="el-pn-icon"
           data-testid="close-icon"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1.25rem;"
+              title="Icon image with name info"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -446,35 +527,39 @@ exports[`OrgGroupsTable should render component with empty data 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
         </div>
         <div
+          aria-live="polite"
           class="el-pn-content"
         >
           No office groups found for this organisation
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="el-mt7 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-      role="alertdialog"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-mt7 el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      role="status"
     >
       <div
         class="el-pn-icon"
         data-testid="close-icon"
       >
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <span
+          class="el-icon-new el-icon"
           style="font-size: 1.25rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 1.25rem;"
+            title="Icon image with name info"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -484,14 +569,15 @@ exports[`OrgGroupsTable should render component with empty data 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
+        </span>
       </div>
       <div
+        aria-live="polite"
         class="el-pn-content"
       >
         No office groups found for this organisation
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

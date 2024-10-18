@@ -8,15 +8,16 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
       <mock-styled.div
         classname="mock-css."
       >
-        <mock-styled.span
-          classname="el-mr8"
-          role="img"
+        <span
+          class="el-mr8 el-icon"
           style="font-size: 2rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 2rem;"
+            title="Icon image with name logoSettingsInfographic"
             viewBox="0 0 40 40"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -52,17 +53,18 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
               fill="#9faebc"
             />
           </svg>
-        </mock-styled.span>
+        </span>
         <mock-styled.div>
           AgencyCloud Functionality
         </mock-styled.div>
-        <mock-styled.span
-          classname="el-intent-primary el-icon-new"
-          role="img"
+        <span
+          class="el-intent-primary el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name check"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -74,20 +76,21 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
               fill-rule="evenodd"
             />
           </svg>
-        </mock-styled.span>
+        </span>
       </mock-styled.div>
       <mock-styled.div
         classname=""
       >
-        <mock-styled.span
-          classname="el-mr8"
-          role="img"
+        <span
+          class="el-mr8 el-icon"
           style="font-size: 2rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 2rem;"
+            title="Icon image with name userHouseInfographic"
             viewBox="0 0 40 40"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +128,7 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
               fill="#9faebc"
             />
           </svg>
-        </mock-styled.span>
+        </span>
         <mock-styled.div>
           Create an External Web Application
         </mock-styled.div>
@@ -133,15 +136,16 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
       <mock-styled.div
         classname=""
       >
-        <mock-styled.span
-          classname="el-mr8"
-          role="img"
+        <span
+          class="el-mr8 el-icon"
           style="font-size: 2rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 2rem;"
+            title="Icon image with name feedInfographic"
             viewBox="0 0 40 40"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -175,7 +179,7 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
               fill="#9faebc"
             />
           </svg>
-        </mock-styled.span>
+        </span>
         <mock-styled.div>
           Data / Portal / Reporting Feed
         </mock-styled.div>
@@ -183,15 +187,16 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
       <mock-styled.div
         classname=""
       >
-        <mock-styled.span
-          classname="el-mr8"
-          role="img"
+        <span
+          class="el-mr8 el-icon"
           style="font-size: 2rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 2rem;"
+            title="Icon image with name feedAltInfographic"
             viewBox="0 0 40 40"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -225,7 +230,7 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
               fill="#9faebc"
             />
           </svg>
-        </mock-styled.span>
+        </span>
         <mock-styled.div>
           Website Feed
         </mock-styled.div>
@@ -233,15 +238,16 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
       <mock-styled.div
         classname=""
       >
-        <mock-styled.span
-          classname="el-mr8"
-          role="img"
+        <span
+          class="el-mr8 el-icon"
           style="font-size: 2rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 2rem;"
+            title="Icon image with name globeInfographic"
             viewBox="0 0 40 40"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -282,7 +288,7 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
               fill="#d8dee4"
             />
           </svg>
-        </mock-styled.span>
+        </span>
         <mock-styled.div>
           WebServices to Platform
         </mock-styled.div>
@@ -290,15 +296,16 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
       <mock-styled.div
         classname=""
       >
-        <mock-styled.span
-          classname="el-mr8"
-          role="img"
+        <span
+          class="el-mr8 el-icon"
           style="font-size: 2rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 2rem;"
+            title="Icon image with name doorLockInfographic"
             viewBox="0 0 40 40"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -326,7 +333,7 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
               r="2"
             />
           </svg>
-        </mock-styled.span>
+        </span>
         <mock-styled.div>
           Reapit Connect as ID Provider
         </mock-styled.div>
@@ -334,15 +341,16 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
       <mock-styled.div
         classname=""
       >
-        <mock-styled.span
-          classname="el-mr8"
-          role="img"
+        <span
+          class="el-mr8 el-icon"
           style="font-size: 2rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 2rem;"
+            title="Icon image with name devicesInfographic"
             viewBox="0 0 40 40"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -382,7 +390,7 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
               fill="#798da1"
             />
           </svg>
-        </mock-styled.span>
+        </span>
         <mock-styled.div>
           Client Side App
         </mock-styled.div>
@@ -390,15 +398,16 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
       <mock-styled.div
         classname=""
       >
-        <mock-styled.span
-          classname="el-mr8"
-          role="img"
+        <span
+          class="el-mr8 el-icon"
           style="font-size: 2rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 2rem;"
+            title="Icon image with name serverInfographic"
             viewBox="0 0 32 32"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -412,7 +421,7 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
               fill="#d8dee4"
             />
           </svg>
-        </mock-styled.span>
+        </span>
         <mock-styled.div>
           Server Side Integration
         </mock-styled.div>
@@ -423,15 +432,16 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
     <mock-styled.div
       classname="mock-css."
     >
-      <mock-styled.span
-        classname="el-mr8"
-        role="img"
+      <span
+        class="el-mr8 el-icon"
         style="font-size: 2rem;"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
           style="font-size: 2rem;"
+          title="Icon image with name logoSettingsInfographic"
           viewBox="0 0 40 40"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -467,17 +477,18 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
             fill="#9faebc"
           />
         </svg>
-      </mock-styled.span>
+      </span>
       <mock-styled.div>
         AgencyCloud Functionality
       </mock-styled.div>
-      <mock-styled.span
-        classname="el-intent-primary el-icon-new"
-        role="img"
+      <span
+        class="el-intent-primary el-icon-new el-icon"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
+          title="Icon image with name check"
           viewBox="0 0 24 24"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -489,20 +500,21 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
             fill-rule="evenodd"
           />
         </svg>
-      </mock-styled.span>
+      </span>
     </mock-styled.div>
     <mock-styled.div
       classname=""
     >
-      <mock-styled.span
-        classname="el-mr8"
-        role="img"
+      <span
+        class="el-mr8 el-icon"
         style="font-size: 2rem;"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
           style="font-size: 2rem;"
+          title="Icon image with name userHouseInfographic"
           viewBox="0 0 40 40"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -540,7 +552,7 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
             fill="#9faebc"
           />
         </svg>
-      </mock-styled.span>
+      </span>
       <mock-styled.div>
         Create an External Web Application
       </mock-styled.div>
@@ -548,15 +560,16 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
     <mock-styled.div
       classname=""
     >
-      <mock-styled.span
-        classname="el-mr8"
-        role="img"
+      <span
+        class="el-mr8 el-icon"
         style="font-size: 2rem;"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
           style="font-size: 2rem;"
+          title="Icon image with name feedInfographic"
           viewBox="0 0 40 40"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -590,7 +603,7 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
             fill="#9faebc"
           />
         </svg>
-      </mock-styled.span>
+      </span>
       <mock-styled.div>
         Data / Portal / Reporting Feed
       </mock-styled.div>
@@ -598,15 +611,16 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
     <mock-styled.div
       classname=""
     >
-      <mock-styled.span
-        classname="el-mr8"
-        role="img"
+      <span
+        class="el-mr8 el-icon"
         style="font-size: 2rem;"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
           style="font-size: 2rem;"
+          title="Icon image with name feedAltInfographic"
           viewBox="0 0 40 40"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -640,7 +654,7 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
             fill="#9faebc"
           />
         </svg>
-      </mock-styled.span>
+      </span>
       <mock-styled.div>
         Website Feed
       </mock-styled.div>
@@ -648,15 +662,16 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
     <mock-styled.div
       classname=""
     >
-      <mock-styled.span
-        classname="el-mr8"
-        role="img"
+      <span
+        class="el-mr8 el-icon"
         style="font-size: 2rem;"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
           style="font-size: 2rem;"
+          title="Icon image with name globeInfographic"
           viewBox="0 0 40 40"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -697,7 +712,7 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
             fill="#d8dee4"
           />
         </svg>
-      </mock-styled.span>
+      </span>
       <mock-styled.div>
         WebServices to Platform
       </mock-styled.div>
@@ -705,15 +720,16 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
     <mock-styled.div
       classname=""
     >
-      <mock-styled.span
-        classname="el-mr8"
-        role="img"
+      <span
+        class="el-mr8 el-icon"
         style="font-size: 2rem;"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
           style="font-size: 2rem;"
+          title="Icon image with name doorLockInfographic"
           viewBox="0 0 40 40"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -741,7 +757,7 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
             r="2"
           />
         </svg>
-      </mock-styled.span>
+      </span>
       <mock-styled.div>
         Reapit Connect as ID Provider
       </mock-styled.div>
@@ -749,15 +765,16 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
     <mock-styled.div
       classname=""
     >
-      <mock-styled.span
-        classname="el-mr8"
-        role="img"
+      <span
+        class="el-mr8 el-icon"
         style="font-size: 2rem;"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
           style="font-size: 2rem;"
+          title="Icon image with name devicesInfographic"
           viewBox="0 0 40 40"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -797,7 +814,7 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
             fill="#798da1"
           />
         </svg>
-      </mock-styled.span>
+      </span>
       <mock-styled.div>
         Client Side App
       </mock-styled.div>
@@ -805,15 +822,16 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
     <mock-styled.div
       classname=""
     >
-      <mock-styled.span
-        classname="el-mr8"
-        role="img"
+      <span
+        class="el-mr8 el-icon"
         style="font-size: 2rem;"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
           style="font-size: 2rem;"
+          title="Icon image with name serverInfographic"
           viewBox="0 0 32 32"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -827,7 +845,7 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
             fill="#d8dee4"
           />
         </svg>
-      </mock-styled.span>
+      </span>
       <mock-styled.div>
         Server Side Integration
       </mock-styled.div>

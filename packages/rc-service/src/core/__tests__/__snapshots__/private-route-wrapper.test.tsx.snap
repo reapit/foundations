@@ -6,7 +6,7 @@ exports[`PrivateRouter should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mocked-styled-86 el-snack-holder"
+        class="mocked-styled-93 el-snack-holder"
       />
       <main
         class="el-main-container"
@@ -18,10 +18,10 @@ exports[`PrivateRouter should match a snapshot 1`] = `
             class="el-is-full-page el-loader-container"
           >
             <div
-              class="mocked-styled-40 el-loader"
+              class="mocked-styled-46 el-loader"
             >
               <div
-                class="mocked-styled-41 el-loader-moving-bar"
+                class="mocked-styled-47 el-loader-moving-bar"
               />
             </div>
           </div>
@@ -31,7 +31,7 @@ exports[`PrivateRouter should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mocked-styled-86 el-snack-holder"
+      class="mocked-styled-93 el-snack-holder"
     />
     <main
       class="el-main-container"
@@ -43,10 +43,10 @@ exports[`PrivateRouter should match a snapshot 1`] = `
           class="el-is-full-page el-loader-container"
         >
           <div
-            class="mocked-styled-40 el-loader"
+            class="mocked-styled-46 el-loader"
           >
             <div
-              class="mocked-styled-41 el-loader-moving-bar"
+              class="mocked-styled-47 el-loader-moving-bar"
             />
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { ElBodyText, ElSubtitle } from '@reapit/elements'
+import { BodyText, Subtitle } from '@reapit/elements'
 import { forDesktopAndAbove, forMobileAndAbove, forWidescreenAndAbove } from '../../../core/__styles__/media'
 
 export const AppFilterCol = styled.div`
@@ -19,7 +19,7 @@ export const AppFilterCol = styled.div`
   }
 `
 
-export const AppFilterSubtitle = styled(ElSubtitle)`
+export const AppFilterSubtitle = styled(Subtitle)`
   font-size: 12px;
   line-height: 14px;
   font-weight: bold;
@@ -35,7 +35,7 @@ export const AppFilterSubtitle = styled(ElSubtitle)`
   }
 `
 
-export const AppFilterStrapline = styled(ElBodyText)`
+export const AppFilterStrapline = styled(BodyText)`
   font-size: 12px;
   line-height: 14px;
   color: var(--color-grey-dark);

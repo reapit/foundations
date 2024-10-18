@@ -5,19 +5,21 @@ exports[`Schedule One it matches a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h2
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h2
+        class="el-text-base el-subtitle"
       >
         Schedule 1 - Application User Terms Principles
-      </mock-styled.h2>
+      </h2>
       <mock-styled.ol>
         <mock-styled.li>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             General
-          </mock-styled.h2>
+          </h2>
           <mock-styled.ol>
             <mock-styled.li>
               <span>
@@ -54,11 +56,11 @@ exports[`Schedule One it matches a snapshot 1`] = `
           </mock-styled.ol>
         </mock-styled.li>
         <mock-styled.li>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Data Protection
-          </mock-styled.h2>
+          </h2>
           <mock-styled.ol>
             <mock-styled.li>
               <span>
@@ -93,19 +95,21 @@ exports[`Schedule One it matches a snapshot 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h2
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h2
+      class="el-text-base el-subtitle"
     >
       Schedule 1 - Application User Terms Principles
-    </mock-styled.h2>
+    </h2>
     <mock-styled.ol>
       <mock-styled.li>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           General
-        </mock-styled.h2>
+        </h2>
         <mock-styled.ol>
           <mock-styled.li>
             <span>
@@ -142,11 +146,11 @@ exports[`Schedule One it matches a snapshot 1`] = `
         </mock-styled.ol>
       </mock-styled.li>
       <mock-styled.li>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Data Protection
-        </mock-styled.h2>
+        </h2>
         <mock-styled.ol>
           <mock-styled.li>
             <span>

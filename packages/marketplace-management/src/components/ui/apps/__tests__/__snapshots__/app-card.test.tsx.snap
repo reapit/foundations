@@ -5,16 +5,23 @@ exports[`AppCard should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname="el-fade-in"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-fade-in el-card-wrap"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-7 el-card-main-wrap"
+        >
+          <div
+            class="mocked-styled-28 el-avatar"
             role="img"
+            title="A profile image"
           >
-            <mock-styled.div
+            <div
+              aria-label="A generic placeholder image"
+              class="mocked-styled-144 el-placeholder-image"
               role="img"
               style="font-size: 1.953125em; width: 50px; height: 50px;"
             >
@@ -30,42 +37,57 @@ exports[`AppCard should match a snapshot 1`] = `
                   fill="#E3E3E3"
                 />
               </svg>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-card-sub-heading-wrap-avatar"
+            </div>
+          </div>
+          <div
+            class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
           >
-            <mock-styled.h5>
+            <h5
+              class="mocked-styled-8 el-card-heading"
+            >
               Geo Diary
-            </mock-styled.h5>
-            <mock-styled.h6>
+            </h5>
+            <h6
+              class="mocked-styled-9 el-card-sub-heading"
+            >
               Reapit Ltd
-            </mock-styled.h6>
-            <mock-styled.h6 />
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-mb5"
+            </h6>
+            <h6
+              class="mocked-styled-10 el-card-sub-heading-additional"
+            />
+          </div>
+        </div>
+        <div
+          class="el-mb5 el-card-body-wrap"
         >
           GEO Diary is the App for the Negotiator on the go, instant access to your daily & weekly appointments.
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-mt5"
+        </div>
+        <div
+          class="el-mt5 el-card-list-main-wrap"
         >
-          <mock-styled.h5>
+          <h5
+            class="mocked-styled-17 el-card-list-heading"
+          >
             Installation and Visibility
-          </mock-styled.h5>
-          <mock-styled.h6 />
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="el-intent-primary"
-              role="img"
+          </h5>
+          <h6
+            class="mocked-styled-18 el-card-list-sub-heading"
+          />
+        </div>
+        <div
+          class="mocked-styled-19 el-card-list-item"
+        >
+          <div
+            class="mocked-styled-23 el-card-list-icon"
+          >
+            <span
+              class="el-intent-primary el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name customerInfographic"
                 viewBox="0 0 80 80"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -131,26 +153,37 @@ exports[`AppCard should match a snapshot 1`] = `
                   fill="#7e9bfa"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
+            </span>
+          </div>
+          <div
+            class="mocked-styled-20 el-card-list-item-text-wrap"
+          >
+            <div
+              class="mocked-styled-21 el-card-list-item-text-primary"
+            >
               Installation Status
-            </mock-styled.div>
-            <mock-styled.div>
+            </div>
+            <div
+              class="mocked-styled-22 el-card-list-item-text-secondary"
+            >
               Not installed
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="el-intent-primary"
-              role="img"
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-19 el-card-list-item"
+        >
+          <div
+            class="mocked-styled-23 el-card-list-icon"
+          >
+            <span
+              class="el-intent-primary el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name agencyCloudInfographic"
                 viewBox="0 0 80 80"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -188,31 +221,44 @@ exports[`AppCard should match a snapshot 1`] = `
                   fill="#fff"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
+            </span>
+          </div>
+          <div
+            class="mocked-styled-20 el-card-list-item-text-wrap"
+          >
+            <div
+              class="mocked-styled-21 el-card-list-item-text-primary"
+            >
               Marketplace Visibility
-            </mock-styled.div>
-            <mock-styled.div>
+            </div>
+            <div
+              class="mocked-styled-22 el-card-list-item-text-secondary"
+            >
               Marketplace visible
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="el-fade-in"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-fade-in el-card-wrap"
     >
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+      <div
+        class="mocked-styled-7 el-card-main-wrap"
+      >
+        <div
+          class="mocked-styled-28 el-avatar"
           role="img"
+          title="A profile image"
         >
-          <mock-styled.div
+          <div
+            aria-label="A generic placeholder image"
+            class="mocked-styled-144 el-placeholder-image"
             role="img"
             style="font-size: 1.953125em; width: 50px; height: 50px;"
           >
@@ -228,42 +274,57 @@ exports[`AppCard should match a snapshot 1`] = `
                 fill="#E3E3E3"
               />
             </svg>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-card-sub-heading-wrap-avatar"
+          </div>
+        </div>
+        <div
+          class="el-card-sub-heading-wrap-avatar el-card-heading-wrap"
         >
-          <mock-styled.h5>
+          <h5
+            class="mocked-styled-8 el-card-heading"
+          >
             Geo Diary
-          </mock-styled.h5>
-          <mock-styled.h6>
+          </h5>
+          <h6
+            class="mocked-styled-9 el-card-sub-heading"
+          >
             Reapit Ltd
-          </mock-styled.h6>
-          <mock-styled.h6 />
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-mb5"
+          </h6>
+          <h6
+            class="mocked-styled-10 el-card-sub-heading-additional"
+          />
+        </div>
+      </div>
+      <div
+        class="el-mb5 el-card-body-wrap"
       >
         GEO Diary is the App for the Negotiator on the go, instant access to your daily & weekly appointments.
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-mt5"
+      </div>
+      <div
+        class="el-mt5 el-card-list-main-wrap"
       >
-        <mock-styled.h5>
+        <h5
+          class="mocked-styled-17 el-card-list-heading"
+        >
           Installation and Visibility
-        </mock-styled.h5>
-        <mock-styled.h6 />
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.span
-            classname="el-intent-primary"
-            role="img"
+        </h5>
+        <h6
+          class="mocked-styled-18 el-card-list-sub-heading"
+        />
+      </div>
+      <div
+        class="mocked-styled-19 el-card-list-item"
+      >
+        <div
+          class="mocked-styled-23 el-card-list-icon"
+        >
+          <span
+            class="el-intent-primary el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name customerInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -329,26 +390,37 @@ exports[`AppCard should match a snapshot 1`] = `
                 fill="#7e9bfa"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
+          </span>
+        </div>
+        <div
+          class="mocked-styled-20 el-card-list-item-text-wrap"
+        >
+          <div
+            class="mocked-styled-21 el-card-list-item-text-primary"
+          >
             Installation Status
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-22 el-card-list-item-text-secondary"
+          >
             Not installed
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.span
-            classname="el-intent-primary"
-            role="img"
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-19 el-card-list-item"
+      >
+        <div
+          class="mocked-styled-23 el-card-list-icon"
+        >
+          <span
+            class="el-intent-primary el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name agencyCloudInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -386,18 +458,24 @@ exports[`AppCard should match a snapshot 1`] = `
                 fill="#fff"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
+          </span>
+        </div>
+        <div
+          class="mocked-styled-20 el-card-list-item-text-wrap"
+        >
+          <div
+            class="mocked-styled-21 el-card-list-item-text-primary"
+          >
             Marketplace Visibility
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-22 el-card-list-item-text-secondary"
+          >
             Marketplace visible
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

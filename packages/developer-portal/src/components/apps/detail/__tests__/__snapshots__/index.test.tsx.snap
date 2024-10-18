@@ -5,19 +5,21 @@ exports[`AppDetail should match snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         will-test-dev-co-voracious-person
-      </mock-styled.h1>
-      <mock-styled.h2
-        classname="el-text-base"
+      </h1>
+      <h2
+        class="el-text-base el-subtitle"
       >
         Authenticating Your App
-      </mock-styled.h2>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </h2>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Client-side Apps use our identity provider
          
@@ -30,9 +32,9 @@ exports[`AppDetail should match snapshot 1`] = `
           Authorization Code flow.
         </a>
          You will need the Client Id and Redirect Uris below to configure Reapit Connect.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text el-has-section-margin"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-has-section-margin"
       >
         To make this process easier, we provide you with an authentication module for client-side apps,
          
@@ -45,23 +47,24 @@ exports[`AppDetail should match snapshot 1`] = `
           Create React App Template
         </a>
          for quick start client-side development.
-      </mock-styled.p>
-      <mock-styled.div
-        classname=""
+      </p>
+      <div
+        class="mocked-styled-30 el-grid"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-31 el-col"
         >
           <div
             class="el-flex-container"
           >
-            <mock-styled.span
-              classname="el-mr4 el-icon-size-medium"
-              role="img"
+            <span
+              class="el-mr4 el-icon-size-medium el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name lockedInfographic"
                 viewBox="0 0 40 40"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -85,40 +88,43 @@ exports[`AppDetail should match snapshot 1`] = `
                   fill="#798da1"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
             <div>
-              <mock-styled.h2
-                classname="el-text-base el-has-no-margin"
+              <h2
+                class="el-text-base el-subtitle el-has-no-margin"
               >
                 Authentication Client Id
-              </mock-styled.h2>
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text"
+              </h2>
+              <p
+                class="el-text-base el-body-text el-has-grey-text"
               >
                 MOCK_EXTERNAL_ID
-              </mock-styled.p>
+              </p>
             </div>
           </div>
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Copy
-          </mock-styled.button>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </button>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
           <div
             class="el-flex-container"
           >
-            <mock-styled.span
-              classname="el-mr4 el-icon-size-medium"
-              role="img"
+            <span
+              class="el-mr4 el-icon-size-medium el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name myAppsInfographic"
                 viewBox="0 0 80 80"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -188,15 +194,15 @@ exports[`AppDetail should match snapshot 1`] = `
                   fill="#d8dee4"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
             <div>
-              <mock-styled.h2
-                classname="el-text-base el-has-no-margin"
+              <h2
+                class="el-text-base el-subtitle el-has-no-margin"
               >
                 App Id
-              </mock-styled.h2>
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text mock-css.
+              </h2>
+              <p
+                class="el-text-base el-body-text el-has-grey-text mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -204,26 +210,28 @@ exports[`AppDetail should match snapshot 1`] = `
 "
               >
                 MOCK_APP_ID
-              </mock-styled.p>
+              </p>
             </div>
           </div>
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Copy
-          </mock-styled.button>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </button>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-no-margin"
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
           >
             Redirect Uri(s)
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-no-margin mock-css.
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -231,18 +239,18 @@ exports[`AppDetail should match snapshot 1`] = `
 "
           >
             https://foo.bar
-          </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </p>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-no-margin"
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
           >
             Sign Out Uri(s)
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-no-margin mock-css.
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -250,76 +258,78 @@ exports[`AppDetail should match snapshot 1`] = `
 "
           >
             https://foo.bar
-          </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </p>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="mocked-styled-31 el-col"
           >
-            <mock-styled.h2
-              classname="el-text-base el-has-no-margin"
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin"
             >
               Integration Type
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-no-margin"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
             >
               You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
-            </mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+            </p>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="mocked-styled-31 el-col"
           >
-            <mock-styled.h2
-              classname="el-text-base el-has-no-margin"
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin"
             >
               App Status
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-no-margin"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
             >
               Your app is live and public in the AppMarket with a pending revision under review
-            </mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+            </p>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-no-margin"
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
           >
             Permissions
-          </mock-styled.h2>
+          </h2>
           <mock-styled.div>
             Read applicants
           </mock-styled.div>
           <mock-styled.div>
             Read properties
           </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       will-test-dev-co-voracious-person
-    </mock-styled.h1>
-    <mock-styled.h2
-      classname="el-text-base"
+    </h1>
+    <h2
+      class="el-text-base el-subtitle"
     >
       Authenticating Your App
-    </mock-styled.h2>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </h2>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Client-side Apps use our identity provider
        
@@ -332,9 +342,9 @@ exports[`AppDetail should match snapshot 1`] = `
         Authorization Code flow.
       </a>
        You will need the Client Id and Redirect Uris below to configure Reapit Connect.
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text el-has-section-margin"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text el-has-section-margin"
     >
       To make this process easier, we provide you with an authentication module for client-side apps,
        
@@ -347,23 +357,24 @@ exports[`AppDetail should match snapshot 1`] = `
         Create React App Template
       </a>
        for quick start client-side development.
-    </mock-styled.p>
-    <mock-styled.div
-      classname=""
+    </p>
+    <div
+      class="mocked-styled-30 el-grid"
     >
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-31 el-col"
       >
         <div
           class="el-flex-container"
         >
-          <mock-styled.span
-            classname="el-mr4 el-icon-size-medium"
-            role="img"
+          <span
+            class="el-mr4 el-icon-size-medium el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name lockedInfographic"
               viewBox="0 0 40 40"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -387,40 +398,43 @@ exports[`AppDetail should match snapshot 1`] = `
                 fill="#798da1"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <div>
-            <mock-styled.h2
-              classname="el-text-base el-has-no-margin"
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin"
             >
               Authentication Client Id
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               MOCK_EXTERNAL_ID
-            </mock-styled.p>
+            </p>
           </div>
         </div>
-        <mock-styled.button
-          classname="el-intent-neutral"
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Copy
-        </mock-styled.button>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+        </button>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
         <div
           class="el-flex-container"
         >
-          <mock-styled.span
-            classname="el-mr4 el-icon-size-medium"
-            role="img"
+          <span
+            class="el-mr4 el-icon-size-medium el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name myAppsInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -490,15 +504,15 @@ exports[`AppDetail should match snapshot 1`] = `
                 fill="#d8dee4"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <div>
-            <mock-styled.h2
-              classname="el-text-base el-has-no-margin"
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin"
             >
               App Id
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text mock-css.
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -506,26 +520,28 @@ exports[`AppDetail should match snapshot 1`] = `
 "
             >
               MOCK_APP_ID
-            </mock-styled.p>
+            </p>
           </div>
         </div>
-        <mock-styled.button
-          classname="el-intent-neutral"
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Copy
-        </mock-styled.button>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+        </button>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.h2
-          classname="el-text-base el-has-no-margin"
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
         >
           Redirect Uri(s)
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-no-margin mock-css.
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -533,18 +549,18 @@ exports[`AppDetail should match snapshot 1`] = `
 "
         >
           https://foo.bar
-        </mock-styled.p>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+        </p>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.h2
-          classname="el-text-base el-has-no-margin"
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
         >
           Sign Out Uri(s)
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-no-margin mock-css.
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -552,60 +568,60 @@ exports[`AppDetail should match snapshot 1`] = `
 "
         >
           https://foo.bar
-        </mock-styled.p>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+        </p>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-no-margin"
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
           >
             Integration Type
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-no-margin"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
           >
             You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
-          </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+          </p>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-no-margin"
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
           >
             App Status
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-no-margin"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
           >
             Your app is live and public in the AppMarket with a pending revision under review
-          </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+          </p>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.h2
-          classname="el-text-base el-has-no-margin"
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
         >
           Permissions
-        </mock-styled.h2>
+        </h2>
         <mock-styled.div>
           Read applicants
         </mock-styled.div>
         <mock-styled.div>
           Read properties
         </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -666,19 +682,21 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         will-test-dev-co-voracious-person
-      </mock-styled.h1>
-      <mock-styled.h2
-        classname="el-text-base"
+      </h1>
+      <h2
+        class="el-text-base el-subtitle"
       >
         Authenticating Your App
-      </mock-styled.h2>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </h2>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Client-side Apps use our identity provider
          
@@ -691,9 +709,9 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
           Authorization Code flow.
         </a>
          You will need the Client Id and Redirect Uris below to configure Reapit Connect.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text el-has-section-margin"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-has-section-margin"
       >
         To make this process easier, we provide you with an authentication module for client-side apps,
          
@@ -706,23 +724,24 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
           Create React App Template
         </a>
          for quick start client-side development.
-      </mock-styled.p>
-      <mock-styled.div
-        classname=""
+      </p>
+      <div
+        class="mocked-styled-30 el-grid"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-31 el-col"
         >
           <div
             class="el-flex-container"
           >
-            <mock-styled.span
-              classname="el-mr4 el-icon-size-medium"
-              role="img"
+            <span
+              class="el-mr4 el-icon-size-medium el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name lockedInfographic"
                 viewBox="0 0 40 40"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -746,40 +765,43 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
                   fill="#798da1"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
             <div>
-              <mock-styled.h2
-                classname="el-text-base el-has-no-margin"
+              <h2
+                class="el-text-base el-subtitle el-has-no-margin"
               >
                 Authentication Client Id
-              </mock-styled.h2>
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text"
+              </h2>
+              <p
+                class="el-text-base el-body-text el-has-grey-text"
               >
                 MOCK_EXTERNAL_ID
-              </mock-styled.p>
+              </p>
             </div>
           </div>
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Copy
-          </mock-styled.button>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </button>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
           <div
             class="el-flex-container"
           >
-            <mock-styled.span
-              classname="el-mr4 el-icon-size-medium"
-              role="img"
+            <span
+              class="el-mr4 el-icon-size-medium el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name myAppsInfographic"
                 viewBox="0 0 80 80"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -849,15 +871,15 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
                   fill="#d8dee4"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
             <div>
-              <mock-styled.h2
-                classname="el-text-base el-has-no-margin"
+              <h2
+                class="el-text-base el-subtitle el-has-no-margin"
               >
                 App Id
-              </mock-styled.h2>
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text mock-css.
+              </h2>
+              <p
+                class="el-text-base el-body-text el-has-grey-text mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -865,26 +887,28 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
 "
               >
                 MOCK_APP_ID
-              </mock-styled.p>
+              </p>
             </div>
           </div>
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Copy
-          </mock-styled.button>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </button>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-no-margin"
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
           >
             Redirect Uri(s)
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-no-margin mock-css.
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -892,18 +916,18 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
 "
           >
             https://foo.bar
-          </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </p>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-no-margin"
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
           >
             Sign Out Uri(s)
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-no-margin mock-css.
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -911,76 +935,78 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
 "
           >
             https://foo.bar
-          </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </p>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="mocked-styled-31 el-col"
           >
-            <mock-styled.h2
-              classname="el-text-base el-has-no-margin"
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin"
             >
               Integration Type
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-no-margin"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
             >
               You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
-            </mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+            </p>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="mocked-styled-31 el-col"
           >
-            <mock-styled.h2
-              classname="el-text-base el-has-no-margin"
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin"
             >
               App Status
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-no-margin"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
             >
               Your app is live and public in the AppMarket with a pending revision under review
-            </mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+            </p>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-no-margin"
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
           >
             Permissions
-          </mock-styled.h2>
+          </h2>
           <mock-styled.div>
             Read applicants
           </mock-styled.div>
           <mock-styled.div>
             Read properties
           </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       will-test-dev-co-voracious-person
-    </mock-styled.h1>
-    <mock-styled.h2
-      classname="el-text-base"
+    </h1>
+    <h2
+      class="el-text-base el-subtitle"
     >
       Authenticating Your App
-    </mock-styled.h2>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </h2>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Client-side Apps use our identity provider
        
@@ -993,9 +1019,9 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
         Authorization Code flow.
       </a>
        You will need the Client Id and Redirect Uris below to configure Reapit Connect.
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text el-has-section-margin"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text el-has-section-margin"
     >
       To make this process easier, we provide you with an authentication module for client-side apps,
        
@@ -1008,23 +1034,24 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
         Create React App Template
       </a>
        for quick start client-side development.
-    </mock-styled.p>
-    <mock-styled.div
-      classname=""
+    </p>
+    <div
+      class="mocked-styled-30 el-grid"
     >
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-31 el-col"
       >
         <div
           class="el-flex-container"
         >
-          <mock-styled.span
-            classname="el-mr4 el-icon-size-medium"
-            role="img"
+          <span
+            class="el-mr4 el-icon-size-medium el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name lockedInfographic"
               viewBox="0 0 40 40"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1048,40 +1075,43 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
                 fill="#798da1"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <div>
-            <mock-styled.h2
-              classname="el-text-base el-has-no-margin"
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin"
             >
               Authentication Client Id
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               MOCK_EXTERNAL_ID
-            </mock-styled.p>
+            </p>
           </div>
         </div>
-        <mock-styled.button
-          classname="el-intent-neutral"
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Copy
-        </mock-styled.button>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+        </button>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
         <div
           class="el-flex-container"
         >
-          <mock-styled.span
-            classname="el-mr4 el-icon-size-medium"
-            role="img"
+          <span
+            class="el-mr4 el-icon-size-medium el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name myAppsInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1151,15 +1181,15 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
                 fill="#d8dee4"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <div>
-            <mock-styled.h2
-              classname="el-text-base el-has-no-margin"
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin"
             >
               App Id
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text mock-css.
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -1167,26 +1197,28 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
 "
             >
               MOCK_APP_ID
-            </mock-styled.p>
+            </p>
           </div>
         </div>
-        <mock-styled.button
-          classname="el-intent-neutral"
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Copy
-        </mock-styled.button>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+        </button>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.h2
-          classname="el-text-base el-has-no-margin"
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
         >
           Redirect Uri(s)
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-no-margin mock-css.
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -1194,18 +1226,18 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
 "
         >
           https://foo.bar
-        </mock-styled.p>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+        </p>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.h2
-          classname="el-text-base el-has-no-margin"
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
         >
           Sign Out Uri(s)
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-no-margin mock-css.
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin mock-css.
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -1213,60 +1245,60 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
 "
         >
           https://foo.bar
-        </mock-styled.p>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+        </p>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-no-margin"
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
           >
             Integration Type
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-no-margin"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
           >
             You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
-          </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+          </p>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-no-margin"
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
           >
             App Status
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-no-margin"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
           >
             Your app is live and public in the AppMarket with a pending revision under review
-          </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+          </p>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.h2
-          classname="el-text-base el-has-no-margin"
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
         >
           Permissions
-        </mock-styled.h2>
+        </h2>
         <mock-styled.div>
           Read applicants
         </mock-styled.div>
         <mock-styled.div>
           Read properties
         </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1327,25 +1359,37 @@ exports[`AppDetail should match snapshot where loading apps 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="mocked-styled-44 el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+        <div
+          class="mocked-styled-46 el-loader"
+        >
+          <div
+            class="mocked-styled-47 el-loader-moving-bar"
+          />
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="mocked-styled-44 el-loader-container"
     >
-      <mock-styled.div>
-        <mock-styled.div />
-      </mock-styled.div>
-    </mock-styled.div>
+      <div
+        class="mocked-styled-46 el-loader"
+      >
+        <div
+          class="mocked-styled-47 el-loader-moving-bar"
+        />
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1406,24 +1450,27 @@ exports[`AppDetail should match snapshot where no app found 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-        role="alertdialog"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        role="status"
       >
         <div
           class="el-pn-icon"
           data-testid="close-icon"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1.25rem;"
+              title="Icon image with name info"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -1433,35 +1480,39 @@ exports[`AppDetail should match snapshot where no app found 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
         </div>
         <div
+          aria-live="polite"
           class="el-pn-content"
         >
           No record of this app found
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-      role="alertdialog"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      role="status"
     >
       <div
         class="el-pn-icon"
         data-testid="close-icon"
       >
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <span
+          class="el-icon-new el-icon"
           style="font-size: 1.25rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 1.25rem;"
+            title="Icon image with name info"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -1471,14 +1522,15 @@ exports[`AppDetail should match snapshot where no app found 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
+        </span>
       </div>
       <div
+        aria-live="polite"
         class="el-pn-content"
       >
         No record of this app found
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

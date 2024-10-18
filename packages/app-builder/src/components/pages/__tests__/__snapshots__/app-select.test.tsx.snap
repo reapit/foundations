@@ -11,18 +11,19 @@ exports[`AppSelect should match a snapshot 1`] = `
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           App Builder
-        </mock-styled.h1>
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+        </h1>
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name myAppsInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -92,55 +93,60 @@ exports[`AppSelect should match a snapshot 1`] = `
               fill="#d8dee4"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.h2
-          classname="el-text-base"
+        </span>
+        <h2
+          class="el-text-base el-subtitle"
         >
           Apps List
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </h2>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           Apps you are currently developing withing the app builder application are available here. The apps exist both as app builder projects and Reapit Developer Portal Apps.
-        </mock-styled.p>
-        <mock-styled.button
-          classname="el-mb5 el-intent-neutral"
+        </small>
+        <button
+          class="el-mb5 el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           View Docs
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-intent-primary"
+        </button>
+        <button
+          class="el-intent-primary el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Create New
-        </mock-styled.button>
+        </button>
       </aside>
       <section
         class="el-page-container el-hfull"
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           My Apps
-        </mock-styled.h1>
-        <mock-styled.div
-          classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-          role="alertdialog"
+        </h1>
+        <div
+          class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          role="status"
         >
           <div
             class="el-pn-icon"
             data-testid="close-icon"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name info"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -150,16 +156,17 @@ exports[`AppSelect should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
           </div>
           <div
+            aria-live="polite"
             class="el-pn-content"
           >
             No apps found. You can create a new app from the sidebar.
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-mb11"
+        </div>
+        <div
+          class="el-mb11 el-grid"
         />
       </section>
     </div>

@@ -2,7 +2,9 @@
 
 exports[`PageSelector should match a snapshot 1`] = `
 <DocumentFragment>
-  <mock-styled.div />
+  <div
+    class="mocked-styled-93 el-snack-holder"
+  />
   <div
     class="el-flex1 el-flex el-flex-align-center el-flex-justify-start"
   >

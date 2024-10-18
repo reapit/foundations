@@ -5,77 +5,101 @@ exports[`ReferralsConfirmationSelection should render component with props and l
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         This app has requested to 
         read
          ‘Referral’ data. Before installation please select the referral types that this app will have access to. This defaults to ‘All Referral Types’, unless selected below.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-mb5"
+      </p>
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="el-mb5 el-input-group"
         >
-          <mock-styled.input
-            checked="true"
-            classname=""
+          <input
+            aria-label="Input type checkbox"
+            checked=""
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="checkbox"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Install for selected referrals only
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       This app has requested to 
       read
        ‘Referral’ data. Before installation please select the referral types that this app will have access to. This defaults to ‘All Referral Types’, unless selected below.
-    </mock-styled.p>
-    <mock-styled.div>
-      <mock-styled.div
-        classname="el-mb5"
+    </p>
+    <div
+      class="mocked-styled-135 el-input-wrap-full"
+    >
+      <div
+        class="el-mb5 el-input-group"
       >
-        <mock-styled.input
-          checked="true"
-          classname=""
+        <input
+          aria-label="Input type checkbox"
+          checked=""
+          class="mocked-styled-38 el-input"
           id="test-static-id"
           type="checkbox"
         />
-        <mock-styled.label
-          htmlfor="test-static-id"
+        <label
+          class="mocked-styled-41 el-label"
+          for="test-static-id"
         >
           Install for selected referrals only
-        </mock-styled.label>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div>
-      <mock-styled.div
-        classname=""
+        </label>
+      </div>
+    </div>
+    <div
+      class="mocked-styled-135 el-input-wrap-full"
+    >
+      <div
+        class="mocked-styled-44 el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+        <div
+          class="mocked-styled-46 el-loader"
+        >
+          <div
+            class="mocked-styled-47 el-loader-moving-bar"
+          />
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -136,50 +160,60 @@ exports[`ReferralsConfirmationSelection should render component with props with 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         This app has requested to 
         read
          ‘Referral’ data. Before installation please select the referral types that this app will have access to. This defaults to ‘All Referral Types’, unless selected below.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-mb5"
+      </p>
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="el-mb5 el-input-group"
         >
-          <mock-styled.input
-            checked="true"
-            classname=""
+          <input
+            aria-label="Input type checkbox"
+            checked=""
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="checkbox"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Install for selected referrals only
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div
-          aria-controls=":r0:"
-          aria-haspopup="listbox"
-          role="combobox"
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="mocked-styled-58 el-multi-select-input-wrapper"
         >
-          <mock-styled.input
+          <input
+            class="mocked-styled-57 el-multi-select-input"
             id="select-referrals-to-install"
           />
-          <mock-styled.div
-            classname="el-mb7"
+          <div
+            aria-label="Multi selected options"
+            class="el-mb7 el-multi-select-selected"
+            role="listbox"
           >
-            <mock-styled.span
-              classname="el-ml2 el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-ml2 el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name task"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -189,84 +223,108 @@ exports[`ReferralsConfirmationSelection should render component with props with 
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
             <p>
               Select at least one referral or un-tick the above checkbox to select all
             </p>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-mb7"
+          </div>
+          <div
+            aria-label="Multi unselected options"
+            class="el-mb7 el-multi-select-un-selected"
+            role="listbox"
           >
-            <mock-styled.input
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               JTS - Testimonial
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               JRV - Removals
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       This app has requested to 
       read
        ‘Referral’ data. Before installation please select the referral types that this app will have access to. This defaults to ‘All Referral Types’, unless selected below.
-    </mock-styled.p>
-    <mock-styled.div>
-      <mock-styled.div
-        classname="el-mb5"
+    </p>
+    <div
+      class="mocked-styled-135 el-input-wrap-full"
+    >
+      <div
+        class="el-mb5 el-input-group"
       >
-        <mock-styled.input
-          checked="true"
-          classname=""
+        <input
+          aria-label="Input type checkbox"
+          checked=""
+          class="mocked-styled-38 el-input"
           id="test-static-id"
           type="checkbox"
         />
-        <mock-styled.label
-          htmlfor="test-static-id"
+        <label
+          class="mocked-styled-41 el-label"
+          for="test-static-id"
         >
           Install for selected referrals only
-        </mock-styled.label>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div>
-      <mock-styled.div
-        aria-controls=":r0:"
-        aria-haspopup="listbox"
-        role="combobox"
+        </label>
+      </div>
+    </div>
+    <div
+      class="mocked-styled-135 el-input-wrap-full"
+    >
+      <div
+        class="mocked-styled-58 el-multi-select-input-wrapper"
       >
-        <mock-styled.input
+        <input
+          class="mocked-styled-57 el-multi-select-input"
           id="select-referrals-to-install"
         />
-        <mock-styled.div
-          classname="el-mb7"
+        <div
+          aria-label="Multi selected options"
+          class="el-mb7 el-multi-select-selected"
+          role="listbox"
         >
-          <mock-styled.span
-            classname="el-ml2 el-intent-default el-icon-new"
-            role="img"
+          <span
+            class="el-ml2 el-intent-default el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name task"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -276,37 +334,51 @@ exports[`ReferralsConfirmationSelection should render component with props with 
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <p>
             Select at least one referral or un-tick the above checkbox to select all
           </p>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-mb7"
+        </div>
+        <div
+          aria-label="Multi unselected options"
+          class="el-mb7 el-multi-select-un-selected"
+          role="listbox"
         >
-          <mock-styled.input
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             JTS - Testimonial
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             JRV - Removals
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+          </label>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -367,50 +439,60 @@ exports[`ReferralsConfirmationSelection should render component with read and wr
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         This app has requested to 
         read and write
          ‘Referral’ data. Before installation please select the referral types that this app will have access to. This defaults to ‘All Referral Types’, unless selected below.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-mb5"
+      </p>
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="el-mb5 el-input-group"
         >
-          <mock-styled.input
-            checked="true"
-            classname=""
+          <input
+            aria-label="Input type checkbox"
+            checked=""
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="checkbox"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Install for selected referrals only
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div
-          aria-controls=":r1:"
-          aria-haspopup="listbox"
-          role="combobox"
+          </label>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <div
+          class="mocked-styled-58 el-multi-select-input-wrapper"
         >
-          <mock-styled.input
+          <input
+            class="mocked-styled-57 el-multi-select-input"
             id="select-referrals-to-install"
           />
-          <mock-styled.div
-            classname="el-mb7"
+          <div
+            aria-label="Multi selected options"
+            class="el-mb7 el-multi-select-selected"
+            role="listbox"
           >
-            <mock-styled.span
-              classname="el-ml2 el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-ml2 el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name task"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -420,84 +502,108 @@ exports[`ReferralsConfirmationSelection should render component with read and wr
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
             <p>
               Select at least one referral or un-tick the above checkbox to select all
             </p>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-mb7"
+          </div>
+          <div
+            aria-label="Multi unselected options"
+            class="el-mb7 el-multi-select-un-selected"
+            role="listbox"
           >
-            <mock-styled.input
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               JTS - Testimonial
-            </mock-styled.label>
-            <mock-styled.input
+            </label>
+            <input
+              aria-checked="false"
+              aria-hidden="true"
+              class="mocked-styled-52 el-multi-select-checkbox"
               id="test-static-id"
+              role="option"
               type="checkbox"
             />
-            <mock-styled.label
-              classname="el-has-grey-chips"
-              htmlfor="test-static-id"
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+              role="option"
+              tabindex="0"
             >
               JRV - Removals
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       This app has requested to 
       read and write
        ‘Referral’ data. Before installation please select the referral types that this app will have access to. This defaults to ‘All Referral Types’, unless selected below.
-    </mock-styled.p>
-    <mock-styled.div>
-      <mock-styled.div
-        classname="el-mb5"
+    </p>
+    <div
+      class="mocked-styled-135 el-input-wrap-full"
+    >
+      <div
+        class="el-mb5 el-input-group"
       >
-        <mock-styled.input
-          checked="true"
-          classname=""
+        <input
+          aria-label="Input type checkbox"
+          checked=""
+          class="mocked-styled-38 el-input"
           id="test-static-id"
           type="checkbox"
         />
-        <mock-styled.label
-          htmlfor="test-static-id"
+        <label
+          class="mocked-styled-41 el-label"
+          for="test-static-id"
         >
           Install for selected referrals only
-        </mock-styled.label>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div>
-      <mock-styled.div
-        aria-controls=":r1:"
-        aria-haspopup="listbox"
-        role="combobox"
+        </label>
+      </div>
+    </div>
+    <div
+      class="mocked-styled-135 el-input-wrap-full"
+    >
+      <div
+        class="mocked-styled-58 el-multi-select-input-wrapper"
       >
-        <mock-styled.input
+        <input
+          class="mocked-styled-57 el-multi-select-input"
           id="select-referrals-to-install"
         />
-        <mock-styled.div
-          classname="el-mb7"
+        <div
+          aria-label="Multi selected options"
+          class="el-mb7 el-multi-select-selected"
+          role="listbox"
         >
-          <mock-styled.span
-            classname="el-ml2 el-intent-default el-icon-new"
-            role="img"
+          <span
+            class="el-ml2 el-intent-default el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name task"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -507,37 +613,51 @@ exports[`ReferralsConfirmationSelection should render component with read and wr
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <p>
             Select at least one referral or un-tick the above checkbox to select all
           </p>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-mb7"
+        </div>
+        <div
+          aria-label="Multi unselected options"
+          class="el-mb7 el-multi-select-un-selected"
+          role="listbox"
         >
-          <mock-styled.input
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             JTS - Testimonial
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            aria-checked="false"
+            aria-hidden="true"
+            class="mocked-styled-52 el-multi-select-checkbox"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="el-has-grey-chips"
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+            role="option"
+            tabindex="0"
           >
             JRV - Removals
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+          </label>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

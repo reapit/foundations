@@ -5,9 +5,11 @@ exports[`AppInstallationConfirmationModal should match a snapshot when an uninst
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Are you sure you wish to uninstall 
         TEST APP
@@ -16,34 +18,41 @@ exports[`AppInstallationConfirmationModal should match a snapshot when an uninst
           all
         </b>
          members of your organisation, and for all office groups.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-button-group-align-right"
+      </p>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="el-button-group-align-right el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Cancel
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-primary"
-            disabled="false"
+          </button>
+          <button
+            class="el-intent-primary el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Confirm
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Are you sure you wish to uninstall 
       TEST APP
@@ -52,28 +61,33 @@ exports[`AppInstallationConfirmationModal should match a snapshot when an uninst
         all
       </b>
        members of your organisation, and for all office groups.
-    </mock-styled.p>
-    <mock-styled.div>
-      <mock-styled.div
-        classname="el-button-group-align-right"
+    </p>
+    <div
+      class="mocked-styled-2 el-button-group"
+    >
+      <div
+        class="el-button-group-align-right el-button-group-inner"
       >
-        <mock-styled.button
-          classname="el-intent-primary"
+        <button
+          class="el-intent-primary el-button"
           type="button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Cancel
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-intent-primary"
-          disabled="false"
+        </button>
+        <button
+          class="el-intent-primary el-button"
           type="button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Confirm
-        </mock-styled.button>
-      </mock-styled.div>
-    </mock-styled.div>
+        </button>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -134,111 +148,125 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Please confirm that you wish to action the following with this app:
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Installation for 
         1
          office group
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Uninstallation for 
         1
          office group
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Before you confirm, please check to ensure you have reviewed and agree with the Desktop Types (if applicable), Pricing Information and Data Permissions.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         If you are uncertain, please cancel and look at the information located on the app listing.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-button-group-align-right"
+      </p>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="el-button-group-align-right el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Cancel
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-primary"
-            disabled="false"
+          </button>
+          <button
+            class="el-intent-primary el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Confirm
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Please confirm that you wish to action the following with this app:
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Installation for 
       1
        office group
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Uninstallation for 
       1
        office group
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Before you confirm, please check to ensure you have reviewed and agree with the Desktop Types (if applicable), Pricing Information and Data Permissions.
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       If you are uncertain, please cancel and look at the information located on the app listing.
-    </mock-styled.p>
-    <mock-styled.div>
-      <mock-styled.div
-        classname="el-button-group-align-right"
+    </p>
+    <div
+      class="mocked-styled-2 el-button-group"
+    >
+      <div
+        class="el-button-group-align-right el-button-group-inner"
       >
-        <mock-styled.button
-          classname="el-intent-primary"
+        <button
+          class="el-intent-primary el-button"
           type="button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Cancel
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-intent-primary"
-          disabled="false"
+        </button>
+        <button
+          class="el-intent-primary el-button"
           type="button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Confirm
-        </mock-styled.button>
-      </mock-styled.div>
-    </mock-styled.div>
+        </button>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -299,83 +327,97 @@ exports[`AppInstallationConfirmationModal should match a snapshot when the insta
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         By confirming this installation, you are granting this app access to all data inside of your organisation and all users and offices will have access to this app inside of the AppMarket.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Before you confirm, please check to ensure you have reviewed and agree with the Desktop Types (if applicable), Pricing Information and Data Permissions.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         If you are uncertain, please cancel and look at the information located on the app listing.
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-button-group-align-right"
+      </p>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="el-button-group-align-right el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Cancel
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-primary"
-            disabled="false"
+          </button>
+          <button
+            class="el-intent-primary el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Confirm
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       By confirming this installation, you are granting this app access to all data inside of your organisation and all users and offices will have access to this app inside of the AppMarket.
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Before you confirm, please check to ensure you have reviewed and agree with the Desktop Types (if applicable), Pricing Information and Data Permissions.
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       If you are uncertain, please cancel and look at the information located on the app listing.
-    </mock-styled.p>
-    <mock-styled.div>
-      <mock-styled.div
-        classname="el-button-group-align-right"
+    </p>
+    <div
+      class="mocked-styled-2 el-button-group"
+    >
+      <div
+        class="el-button-group-align-right el-button-group-inner"
       >
-        <mock-styled.button
-          classname="el-intent-primary"
+        <button
+          class="el-intent-primary el-button"
           type="button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Cancel
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-intent-primary"
-          disabled="false"
+        </button>
+        <button
+          class="el-intent-primary el-button"
           type="button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Confirm
-        </mock-styled.button>
-      </mock-styled.div>
-    </mock-styled.div>
+        </button>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

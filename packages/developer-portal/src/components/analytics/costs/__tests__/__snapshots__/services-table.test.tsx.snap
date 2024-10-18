@@ -5,50 +5,57 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="el-mb7"
+      <div
+        class="el-mb7 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="4"
         role="table"
       >
-        <mock-styled.div
+        <div
+          class="mocked-styled-101 el-table-headers-row"
           role="row"
         >
-          <mock-styled.div
+          <div
             aria-label="Service Name"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Service Name
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Total Number Service Items"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Total Number Service Items
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Total Number Services"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Total Number Services
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Total Service Cost"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Total Service Cost
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name settings"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -58,27 +65,30 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+            </span>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-103 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name cloud"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -88,46 +98,50 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.div
+              </span>
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Service Name"
               >
                 Data Warehouse
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Total Number Service Items"
               >
                 638
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Total Number Services"
               >
                 7
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name pound"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -137,24 +151,27 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-              <mock-styled.div
+              </span>
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Total Service Cost"
               >
                 £7.97
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+              </div>
+            </div>
+            <div
+              class="mocked-styled-109 el-table-expandable-row-trigger-cell"
               role="cell"
+              tabindex="0"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name more"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -164,113 +181,135 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            aria-hidden="false"
-            classname=""
+              </span>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-113 el-table-expandable-row"
           >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div
-                  classname="mock-css.
+            <div
+              class="mocked-styled-114 el-table-expandable-container"
+            >
+              <div
+                class="mocked-styled-115 el-table"
+              >
+                <div
+                  class="mock-css.
   grid-template-columns: repeat(3, 1fr);
-"
+ el-table-headers-row"
                 >
-                  <mock-styled.div>
-                    Service Name
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    Service Quantity
-                  </mock-styled.div>
-                  <mock-styled.div>
-                    Service Cost
-                  </mock-styled.div>
-                </mock-styled.div>
-                <mock-styled.div
-                  classname=""
-                >
-                  <mock-styled.div
-                    classname="mock-css.
-  grid-template-columns: repeat(3, 1fr);
-"
+                  <div
+                    class="mocked-styled-102 el-table-header"
                   >
-                    <mock-styled.div
-                      classname="el-table-cell-has-dark-text"
+                    Service Name
+                  </div>
+                  <div
+                    class="mocked-styled-102 el-table-header"
+                  >
+                    Service Quantity
+                  </div>
+                  <div
+                    class="mocked-styled-102 el-table-header"
+                  >
+                    Service Cost
+                  </div>
+                </div>
+                <div
+                  class="mocked-styled-110 el-table-row-container"
+                >
+                  <div
+                    class="mock-css.
+  grid-template-columns: repeat(3, 1fr);
+ el-table-row"
+                  >
+                    <div
+                      class="el-table-cell-has-dark-text el-table-cell"
                     >
-                      <mock-styled.div>
+                      <div
+                        class="mocked-styled-111 el-table-cell-content"
+                      >
                         DW Usage
-                      </mock-styled.div>
-                    </mock-styled.div>
-                    <mock-styled.div
-                      classname="el-table-cell-has-dark-text"
+                      </div>
+                    </div>
+                    <div
+                      class="el-table-cell-has-dark-text el-table-cell"
                     >
-                      <mock-styled.div>
+                      <div
+                        class="mocked-styled-111 el-table-cell-content"
+                      >
                         157
-                      </mock-styled.div>
-                    </mock-styled.div>
-                    <mock-styled.div
-                      classname="el-table-cell-has-dark-text"
+                      </div>
+                    </div>
+                    <div
+                      class="el-table-cell-has-dark-text el-table-cell"
                     >
-                      <mock-styled.div>
+                      <div
+                        class="mocked-styled-111 el-table-cell-content"
+                      >
                         £1.96
-                      </mock-styled.div>
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="el-mb7"
+    <div
+      class="el-mb7 el-table"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="4"
       role="table"
     >
-      <mock-styled.div
+      <div
+        class="mocked-styled-101 el-table-headers-row"
         role="row"
       >
-        <mock-styled.div
+        <div
           aria-label="Service Name"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Service Name
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Total Number Service Items"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Total Number Service Items
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Total Number Services"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Total Number Services
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Total Service Cost"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Total Service Cost
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
-          <mock-styled.span
-            classname="el-intent-default el-icon-new"
-            role="img"
+          <span
+            class="el-intent-default el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name settings"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -280,27 +319,30 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+          </span>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-110 el-table-row-container"
         role="row"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+        <div
+          class="mocked-styled-103 el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name cloud"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -310,46 +352,50 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.div
+            </span>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Service Name"
             >
               Data Warehouse
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Total Number Service Items"
             >
               638
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Total Number Services"
             >
               7
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name pound"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -359,24 +405,27 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-            <mock-styled.div
+            </span>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Total Service Cost"
             >
               £7.97
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+            </div>
+          </div>
+          <div
+            class="mocked-styled-109 el-table-expandable-row-trigger-cell"
             role="cell"
+            tabindex="0"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name more"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -386,66 +435,81 @@ exports[`ServicesTable should match a snapshot with billing 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          aria-hidden="false"
-          classname=""
+            </span>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-113 el-table-expandable-row"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div
-                classname="mock-css.
+          <div
+            class="mocked-styled-114 el-table-expandable-container"
+          >
+            <div
+              class="mocked-styled-115 el-table"
+            >
+              <div
+                class="mock-css.
   grid-template-columns: repeat(3, 1fr);
-"
+ el-table-headers-row"
               >
-                <mock-styled.div>
-                  Service Name
-                </mock-styled.div>
-                <mock-styled.div>
-                  Service Quantity
-                </mock-styled.div>
-                <mock-styled.div>
-                  Service Cost
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname=""
-              >
-                <mock-styled.div
-                  classname="mock-css.
-  grid-template-columns: repeat(3, 1fr);
-"
+                <div
+                  class="mocked-styled-102 el-table-header"
                 >
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                  Service Name
+                </div>
+                <div
+                  class="mocked-styled-102 el-table-header"
+                >
+                  Service Quantity
+                </div>
+                <div
+                  class="mocked-styled-102 el-table-header"
+                >
+                  Service Cost
+                </div>
+              </div>
+              <div
+                class="mocked-styled-110 el-table-row-container"
+              >
+                <div
+                  class="mock-css.
+  grid-template-columns: repeat(3, 1fr);
+ el-table-row"
+                >
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                   >
-                    <mock-styled.div>
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
+                    >
                       DW Usage
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                   >
-                    <mock-styled.div>
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
+                    >
                       157
-                    </mock-styled.div>
-                  </mock-styled.div>
-                  <mock-styled.div
-                    classname="el-table-cell-has-dark-text"
+                    </div>
+                  </div>
+                  <div
+                    class="el-table-cell-has-dark-text el-table-cell"
                   >
-                    <mock-styled.div>
+                    <div
+                      class="mocked-styled-111 el-table-cell-content"
+                    >
                       £1.96
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -5,133 +5,161 @@ exports[`PipelineTabs should match snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname="el-tabs-full-width"
-        role="tablist"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-tabs-full-width el-tabs-wrap"
       >
-        <mock-styled.div>
-          <mock-styled.input
+        <div
+          class="mocked-styled-120 el-tabs-options-wrap"
+          role="tablist"
+        >
+          <input
             aria-selected="true"
+            checked=""
+            class="mocked-styled-117 el-tabs"
             id="deployments"
             name="pipeline-tabs"
-            role="tab"
             type="radio"
             value="deployments"
           />
-          <mock-styled.label
-            htmlfor="deployments"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="deployments"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Deployments
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="configure"
             name="pipeline-tabs"
-            role="tab"
             type="radio"
             value="configure"
           />
-          <mock-styled.label
-            htmlfor="configure"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="configure"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Configure
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="environment"
             name="pipeline-tabs"
-            role="tab"
             type="radio"
             value="environment"
           />
-          <mock-styled.label
-            htmlfor="environment"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="environment"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Environment Variables
             </span>
-          </mock-styled.label>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-tabs-full-width"
+          </label>
+        </div>
+        <div
+          class="el-tabs-full-width el-tabs-footer"
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="el-tabs-full-width"
-      role="tablist"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-tabs-full-width el-tabs-wrap"
     >
-      <mock-styled.div>
-        <mock-styled.input
+      <div
+        class="mocked-styled-120 el-tabs-options-wrap"
+        role="tablist"
+      >
+        <input
           aria-selected="true"
+          checked=""
+          class="mocked-styled-117 el-tabs"
           id="deployments"
           name="pipeline-tabs"
-          role="tab"
           type="radio"
           value="deployments"
         />
-        <mock-styled.label
-          htmlfor="deployments"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="deployments"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Deployments
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="configure"
           name="pipeline-tabs"
-          role="tab"
           type="radio"
           value="configure"
         />
-        <mock-styled.label
-          htmlfor="configure"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="configure"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Configure
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="environment"
           name="pipeline-tabs"
-          role="tab"
           type="radio"
           value="environment"
         />
-        <mock-styled.label
-          htmlfor="environment"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="environment"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Environment Variables
           </span>
-        </mock-styled.label>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-tabs-full-width"
+        </label>
+      </div>
+      <div
+        class="el-tabs-full-width el-tabs-footer"
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

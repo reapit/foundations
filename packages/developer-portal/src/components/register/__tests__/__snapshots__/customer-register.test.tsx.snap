@@ -5,18 +5,21 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.span
-            classname="el-mb7 el-icon-new"
-            role="img"
+          <span
+            class="el-mb7 el-icon-new el-icon"
             style="height: 40px; width: 200px;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="height: 40px; width: 200px;"
+              title="Icon image with name reapitLogo"
               viewBox="0 0 382 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -38,30 +41,30 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg 1`] = `
                 fill="#FD9E1D"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <div
             class="el-flex-container el-flex-column"
           >
-            <mock-styled.h2
-              classname="el-text-base el-has-no-margin el-has-centered-text"
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin el-has-centered-text"
             >
               Welcome
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-section-margin el-has-centered-text"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-section-margin el-has-centered-text"
             >
               to the Reapit Foundations DeveloperPortal
-            </mock-styled.p>
+            </p>
           </div>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-centered-text"
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-centered-text"
           >
             The organisation ‘
             Some Org
             ’ has already been setup within the DeveloperPortal. To access this organisation, you will need to be invited by the Admin who set the account up.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-section-margin el-has-centered-text"
+          </p>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-section-margin el-has-centered-text"
           >
             For more information on how an Admin can Invite Members to an organisation, please
              
@@ -72,39 +75,46 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg 1`] = `
               click here
             </a>
             .
-          </mock-styled.p>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-button-group-align-center"
+          </p>
+          <div
+            class="mocked-styled-2 el-button-group"
+          >
+            <div
+              class="el-button-group-align-center el-button-group-inner"
             >
-              <mock-styled.button
-                classname="el-intent-neutral"
+              <button
+                class="el-intent-neutral el-button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Visit AppMarket
-              </mock-styled.button>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-centered-text"
+              </button>
+            </div>
+          </div>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-centered-text"
           />
         </mock-styled.div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <mock-styled.div>
       <mock-styled.div>
-        <mock-styled.span
-          classname="el-mb7 el-icon-new"
-          role="img"
+        <span
+          class="el-mb7 el-icon-new el-icon"
           style="height: 40px; width: 200px;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="height: 40px; width: 200px;"
+            title="Icon image with name reapitLogo"
             viewBox="0 0 382 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -126,30 +136,30 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg 1`] = `
               fill="#FD9E1D"
             />
           </svg>
-        </mock-styled.span>
+        </span>
         <div
           class="el-flex-container el-flex-column"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-no-margin el-has-centered-text"
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin el-has-centered-text"
           >
             Welcome
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-section-margin el-has-centered-text"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-section-margin el-has-centered-text"
           >
             to the Reapit Foundations DeveloperPortal
-          </mock-styled.p>
+          </p>
         </div>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-centered-text"
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-centered-text"
         >
           The organisation ‘
           Some Org
           ’ has already been setup within the DeveloperPortal. To access this organisation, you will need to be invited by the Admin who set the account up.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-section-margin el-has-centered-text"
+        </p>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-section-margin el-has-centered-text"
         >
           For more information on how an Admin can Invite Members to an organisation, please
            
@@ -160,21 +170,25 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg 1`] = `
             click here
           </a>
           .
-        </mock-styled.p>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-button-group-align-center"
+        </p>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="el-button-group-align-center el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-neutral"
+            <button
+              class="el-intent-neutral el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Visit AppMarket
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-centered-text"
+            </button>
+          </div>
+        </div>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-centered-text"
         />
       </mock-styled.div>
     </mock-styled.div>
@@ -238,18 +252,21 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg is false
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.span
-            classname="el-mb7 el-icon-new"
-            role="img"
+          <span
+            class="el-mb7 el-icon-new el-icon"
             style="height: 40px; width: 200px;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="height: 40px; width: 200px;"
+              title="Icon image with name reapitLogo"
               viewBox="0 0 382 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -271,74 +288,83 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg is false
                 fill="#FD9E1D"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <div
             class="el-flex-container el-flex-column"
           >
-            <mock-styled.h2
-              classname="el-text-base el-has-no-margin el-has-centered-text"
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin el-has-centered-text"
             >
               Welcome
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-section-margin el-has-centered-text"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-section-margin el-has-centered-text"
             >
               to the Reapit Foundations DeveloperPortal
-            </mock-styled.p>
+            </p>
           </div>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-centered-text"
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-centered-text"
           >
             This portal is used for building apps and integrations on top of our Platform APIs.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-centered-text"
+          </p>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-centered-text"
           >
             Whilst using the DeveloperPortal to build against our Sandbox environment is free, API consumption charges apply when your app or integration is published (either privately or publicly) in the AppMarket.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-section-margin el-has-centered-text"
+          </p>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-section-margin el-has-centered-text"
           >
             To view our Terms and Conditions, please click ‘Proceed’ below.
-          </mock-styled.p>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-button-group-align-center"
+          </p>
+          <div
+            class="mocked-styled-2 el-button-group"
+          >
+            <div
+              class="el-button-group-align-center el-button-group-inner"
             >
-              <mock-styled.button
-                classname="el-intent-neutral"
+              <button
+                class="el-intent-neutral el-button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Visit AppMarket
-              </mock-styled.button>
-              <mock-styled.button
-                classname="el-intent-primary"
+              </button>
+              <button
+                class="el-intent-primary el-button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Proceed
-              </mock-styled.button>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-centered-text"
+              </button>
+            </div>
+          </div>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-centered-text"
           />
         </mock-styled.div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <mock-styled.div>
       <mock-styled.div>
-        <mock-styled.span
-          classname="el-mb7 el-icon-new"
-          role="img"
+        <span
+          class="el-mb7 el-icon-new el-icon"
           style="height: 40px; width: 200px;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="height: 40px; width: 200px;"
+            title="Icon image with name reapitLogo"
             viewBox="0 0 382 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -360,56 +386,62 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg is false
               fill="#FD9E1D"
             />
           </svg>
-        </mock-styled.span>
+        </span>
         <div
           class="el-flex-container el-flex-column"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-no-margin el-has-centered-text"
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin el-has-centered-text"
           >
             Welcome
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-section-margin el-has-centered-text"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-section-margin el-has-centered-text"
           >
             to the Reapit Foundations DeveloperPortal
-          </mock-styled.p>
+          </p>
         </div>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-centered-text"
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-centered-text"
         >
           This portal is used for building apps and integrations on top of our Platform APIs.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-centered-text"
+        </p>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-centered-text"
         >
           Whilst using the DeveloperPortal to build against our Sandbox environment is free, API consumption charges apply when your app or integration is published (either privately or publicly) in the AppMarket.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-section-margin el-has-centered-text"
+        </p>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-section-margin el-has-centered-text"
         >
           To view our Terms and Conditions, please click ‘Proceed’ below.
-        </mock-styled.p>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-button-group-align-center"
+        </p>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="el-button-group-align-center el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-neutral"
+            <button
+              class="el-intent-neutral el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Visit AppMarket
-            </mock-styled.button>
-            <mock-styled.button
-              classname="el-intent-primary"
+            </button>
+            <button
+              class="el-intent-primary el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Proceed
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-centered-text"
+            </button>
+          </div>
+        </div>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-centered-text"
         />
       </mock-styled.div>
     </mock-styled.div>
@@ -473,18 +505,21 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg is false
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.span
-            classname="el-mb7 el-icon-new"
-            role="img"
+          <span
+            class="el-mb7 el-icon-new el-icon"
             style="height: 40px; width: 200px;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="height: 40px; width: 200px;"
+              title="Icon image with name reapitLogo"
               viewBox="0 0 382 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -506,30 +541,30 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg is false
                 fill="#FD9E1D"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <div
             class="el-flex-container el-flex-column"
           >
-            <mock-styled.h2
-              classname="el-text-base el-has-no-margin el-has-centered-text"
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin el-has-centered-text"
             >
               Welcome
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-section-margin el-has-centered-text"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-section-margin el-has-centered-text"
             >
               to the Reapit Foundations DeveloperPortal
-            </mock-styled.p>
+            </p>
           </div>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-centered-text"
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-centered-text"
           >
             Unfortunately, only an Admin can setup your developer organisation ‘
             Some Org
             ’. Please contact an Admin to set up the account.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-centered-text"
+          </p>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-centered-text"
           >
             They can do this up from
              
@@ -541,44 +576,51 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg is false
               this page
             </a>
             .
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-section-margin el-has-centered-text"
+          </p>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-section-margin el-has-centered-text"
           >
             You will need to contact them directly to perform this task.
-          </mock-styled.p>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-button-group-align-center"
+          </p>
+          <div
+            class="mocked-styled-2 el-button-group"
+          >
+            <div
+              class="el-button-group-align-center el-button-group-inner"
             >
-              <mock-styled.button
-                classname="el-intent-neutral"
+              <button
+                class="el-intent-neutral el-button"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Visit AppMarket
-              </mock-styled.button>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-centered-text"
+              </button>
+            </div>
+          </div>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-centered-text"
           />
         </mock-styled.div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <mock-styled.div>
       <mock-styled.div>
-        <mock-styled.span
-          classname="el-mb7 el-icon-new"
-          role="img"
+        <span
+          class="el-mb7 el-icon-new el-icon"
           style="height: 40px; width: 200px;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="height: 40px; width: 200px;"
+            title="Icon image with name reapitLogo"
             viewBox="0 0 382 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -600,30 +642,30 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg is false
               fill="#FD9E1D"
             />
           </svg>
-        </mock-styled.span>
+        </span>
         <div
           class="el-flex-container el-flex-column"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-no-margin el-has-centered-text"
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin el-has-centered-text"
           >
             Welcome
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-section-margin el-has-centered-text"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-section-margin el-has-centered-text"
           >
             to the Reapit Foundations DeveloperPortal
-          </mock-styled.p>
+          </p>
         </div>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-centered-text"
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-centered-text"
         >
           Unfortunately, only an Admin can setup your developer organisation ‘
           Some Org
           ’. Please contact an Admin to set up the account.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-centered-text"
+        </p>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-centered-text"
         >
           They can do this up from
            
@@ -635,26 +677,30 @@ exports[`CustomerRegister should match a snapshot where hasDeveloperOrg is false
             this page
           </a>
           .
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-section-margin el-has-centered-text"
+        </p>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-section-margin el-has-centered-text"
         >
           You will need to contact them directly to perform this task.
-        </mock-styled.p>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-button-group-align-center"
+        </p>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="el-button-group-align-center el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-neutral"
+            <button
+              class="el-intent-neutral el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Visit AppMarket
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-centered-text"
+            </button>
+          </div>
+        </div>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-centered-text"
         />
       </mock-styled.div>
     </mock-styled.div>

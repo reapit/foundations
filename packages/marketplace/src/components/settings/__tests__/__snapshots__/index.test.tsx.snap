@@ -5,32 +5,41 @@ exports[`SettingsPage should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-81 el-secondary-nav"
+          >
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Profile
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Installations
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.span
-            classname="el-mb5 el-icon-size-large"
-            role="img"
+            </div>
+          </div>
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name reapitConnectInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -84,19 +93,19 @@ exports[`SettingsPage should match a snapshot 1`] = `
                 fill="#fff"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </span>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             Here you can 
             change your password and 
             find out about your current logged in profile. This can be useful if you are experiencing any permission related issues with your account.
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </small>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             In addition as an admin, you can view details of your app installations and uninstall any live apps for all users in your organisation.
-          </mock-styled.p>
+          </small>
         </aside>
         <section
           class="el-page-container el-hfull"
@@ -105,32 +114,41 @@ exports[`SettingsPage should match a snapshot 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-81 el-secondary-nav"
+        >
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Profile
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Installations
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+          </div>
+        </div>
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name reapitConnectInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -184,19 +202,19 @@ exports[`SettingsPage should match a snapshot 1`] = `
               fill="#fff"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </span>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           Here you can 
           change your password and 
           find out about your current logged in profile. This can be useful if you are experiencing any permission related issues with your account.
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </small>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           In addition as an admin, you can view details of your app installations and uninstall any live apps for all users in your organisation.
-        </mock-styled.p>
+        </small>
       </aside>
       <section
         class="el-page-container el-hfull"

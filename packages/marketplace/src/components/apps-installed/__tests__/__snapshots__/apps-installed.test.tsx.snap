@@ -5,31 +5,43 @@ exports[`AppsInstalled should match a snapshot when loading 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div
-            classname=""
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </mock-styled.div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <mock-styled.div>
       <mock-styled.div>
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </mock-styled.div>
     </mock-styled.div>
   </div>,
@@ -92,7 +104,9 @@ exports[`AppsInstalled should match a snapshot with data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <mock-styled.div>
         <mock-styled.div>
           <mock-styled.div>
@@ -100,7 +114,9 @@ exports[`AppsInstalled should match a snapshot with data 1`] = `
               classname="el-fade-in"
             >
               <mock-styled.div>
-                <mock-styled.div
+                <div
+                  aria-label="A generic placeholder image"
+                  class="mocked-styled-144 el-placeholder-image"
                   role="img"
                   style="font-size: 2.5em; width: 64px; height: 64px;"
                 >
@@ -116,7 +132,7 @@ exports[`AppsInstalled should match a snapshot with data 1`] = `
                       fill="#E3E3E3"
                     />
                   </svg>
-                </mock-styled.div>
+                </div>
               </mock-styled.div>
               <mock-styled.div>
                 MOCK_APP_NAME
@@ -126,7 +142,9 @@ exports[`AppsInstalled should match a snapshot with data 1`] = `
               classname="el-fade-in"
             >
               <mock-styled.div>
-                <mock-styled.div
+                <div
+                  aria-label="A generic placeholder image"
+                  class="mocked-styled-144 el-placeholder-image"
                   role="img"
                   style="font-size: 2.5em; width: 64px; height: 64px;"
                 >
@@ -142,7 +160,7 @@ exports[`AppsInstalled should match a snapshot with data 1`] = `
                       fill="#E3E3E3"
                     />
                   </svg>
-                </mock-styled.div>
+                </div>
               </mock-styled.div>
               <mock-styled.div>
                 MOCK_APP_NAME_ANOTHER
@@ -183,7 +201,9 @@ exports[`AppsInstalled should match a snapshot with data 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <mock-styled.div>
       <mock-styled.div>
         <mock-styled.div>
@@ -191,7 +211,9 @@ exports[`AppsInstalled should match a snapshot with data 1`] = `
             classname="el-fade-in"
           >
             <mock-styled.div>
-              <mock-styled.div
+              <div
+                aria-label="A generic placeholder image"
+                class="mocked-styled-144 el-placeholder-image"
                 role="img"
                 style="font-size: 2.5em; width: 64px; height: 64px;"
               >
@@ -207,7 +229,7 @@ exports[`AppsInstalled should match a snapshot with data 1`] = `
                     fill="#E3E3E3"
                   />
                 </svg>
-              </mock-styled.div>
+              </div>
             </mock-styled.div>
             <mock-styled.div>
               MOCK_APP_NAME
@@ -217,7 +239,9 @@ exports[`AppsInstalled should match a snapshot with data 1`] = `
             classname="el-fade-in"
           >
             <mock-styled.div>
-              <mock-styled.div
+              <div
+                aria-label="A generic placeholder image"
+                class="mocked-styled-144 el-placeholder-image"
                 role="img"
                 style="font-size: 2.5em; width: 64px; height: 64px;"
               >
@@ -233,7 +257,7 @@ exports[`AppsInstalled should match a snapshot with data 1`] = `
                     fill="#E3E3E3"
                   />
                 </svg>
-              </mock-styled.div>
+              </div>
             </mock-styled.div>
             <mock-styled.div>
               MOCK_APP_NAME_ANOTHER

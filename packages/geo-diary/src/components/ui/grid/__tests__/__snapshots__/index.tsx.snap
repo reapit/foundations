@@ -5,7 +5,9 @@ exports[`Col component should match a snapshot and render children 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
       <div
         class="mock-css. mock-css.
@@ -19,7 +21,9 @@ exports[`Col component should match a snapshot and render children 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
     <div
       class="mock-css. mock-css.
@@ -90,7 +94,9 @@ exports[`Col component should render with the correct classNames when supplied s
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
       <div
         class="mock-css. mock-css.
@@ -106,7 +112,9 @@ exports[`Col component should render with the correct classNames when supplied s
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
     <div
       class="mock-css. mock-css.
@@ -179,7 +187,9 @@ exports[`Grid component should match a snapshot and render children 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
       <div
         class="mock-css.
@@ -194,7 +204,9 @@ exports[`Grid component should match a snapshot and render children 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
     <div
       class="mock-css.

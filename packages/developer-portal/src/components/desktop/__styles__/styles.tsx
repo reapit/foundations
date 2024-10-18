@@ -51,7 +51,7 @@ export const videoModal = css`
   height: 70vh;
   max-width: 2000px;
 
-  ${ElModalBody} {
+  ${String(ElModalBody)} {
     width: 100%;
     height: 85%;
   }

@@ -2,7 +2,9 @@
 
 exports[`Table should match a snapshot 1`] = `
 <DocumentFragment>
-  <mock-styled.div />
+  <div
+    class="mocked-styled-93 el-snack-holder"
+  />
   <mock-styled.div>
     <div
       class="el-flex el-flex1, el-flex-column"

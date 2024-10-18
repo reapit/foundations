@@ -5,20 +5,23 @@ exports[`PaymentPage should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.span
-            classname="el-mb5 el-icon-size-large"
-            role="img"
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name newCustomerInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -158,46 +161,50 @@ exports[`PaymentPage should match a snapshot 1`] = `
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </span>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             From this page you can either send an email request for payment to the customer using the button below, or take a payment in person using our payment form.
-          </mock-styled.p>
-          <mock-styled.button
-            classname="el-mb3 el-intent-neutral"
+          </small>
+          <button
+            class="el-mb3 el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             View Docs
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-primary"
-            disabled="false"
+          </button>
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Email Request
-          </mock-styled.button>
+          </button>
         </aside>
         <section
           class="el-page-container"
         >
-          <mock-styled.div
-            classname="el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline"
-            role="alertdialog"
+          <div
+            class="el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+            role="status"
           >
             <div
               class="el-pn-icon"
               data-testid="close-icon"
             >
-              <mock-styled.span
-                classname="el-icon-new"
-                role="img"
+              <span
+                class="el-icon-new el-icon"
                 style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name info"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -207,33 +214,37 @@ exports[`PaymentPage should match a snapshot 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
+              </span>
             </div>
             <div
+              aria-live="polite"
               class="el-pn-content"
             >
               Your payment solution has not been properly configured, please contact your Reapit Administrator if this problem persists.
             </div>
-          </mock-styled.div>
+          </div>
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name newCustomerInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -373,46 +384,50 @@ exports[`PaymentPage should match a snapshot 1`] = `
               </clippath>
             </defs>
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </span>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           From this page you can either send an email request for payment to the customer using the button below, or take a payment in person using our payment form.
-        </mock-styled.p>
-        <mock-styled.button
-          classname="el-mb3 el-intent-neutral"
+        </small>
+        <button
+          class="el-mb3 el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           View Docs
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-intent-primary"
-          disabled="false"
+        </button>
+        <button
+          class="el-intent-primary el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Email Request
-        </mock-styled.button>
+        </button>
       </aside>
       <section
         class="el-page-container"
       >
-        <mock-styled.div
-          classname="el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline"
-          role="alertdialog"
+        <div
+          class="el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          role="status"
         >
           <div
             class="el-pn-icon"
             data-testid="close-icon"
           >
-            <mock-styled.span
-              classname="el-icon-new"
-              role="img"
+            <span
+              class="el-icon-new el-icon"
               style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name info"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -422,14 +437,15 @@ exports[`PaymentPage should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
           </div>
           <div
+            aria-live="polite"
             class="el-pn-content"
           >
             Your payment solution has not been properly configured, please contact your Reapit Administrator if this problem persists.
           </div>
-        </mock-styled.div>
+        </div>
       </section>
     </div>
   </div>,

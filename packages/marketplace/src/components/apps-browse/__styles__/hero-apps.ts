@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { ElBodyText, ElSubtitle } from '@reapit/elements'
+import { BodyText, Subtitle } from '@reapit/elements'
 import {
   forDesktopAndAbove,
   forMobileAndAbove,
@@ -58,7 +58,7 @@ export const HeroAppsChipPlaceholder = styled.div`
   opacity: 0;
 `
 
-export const HeroAppsSubtitle = styled(ElSubtitle)`
+export const HeroAppsSubtitle = styled(Subtitle)`
   font-size: 14px;
   font-weight: bold;
   line-height: 20px;
@@ -75,7 +75,7 @@ export const HeroAppsSubtitle = styled(ElSubtitle)`
   }
 `
 
-export const HeroAppsStrapline = styled(ElBodyText)`
+export const HeroAppsStrapline = styled(BodyText)`
   font-size: 12px;
   color: var(--color-grey-dark);
   margin-bottom: 0.5rem;

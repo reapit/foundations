@@ -5,84 +5,99 @@ exports[`Pipelineinfo Should match snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname="el-tabs-full-width"
-        role="tablist"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-tabs-full-width el-tabs-wrap"
       >
-        <mock-styled.div>
-          <mock-styled.input
+        <div
+          class="mocked-styled-120 el-tabs-options-wrap"
+          role="tablist"
+        >
+          <input
             aria-selected="true"
+            checked=""
+            class="mocked-styled-117 el-tabs"
             id="deployments"
             name="pipeline-tabs"
-            role="tab"
             type="radio"
             value="deployments"
           />
-          <mock-styled.label
-            htmlfor="deployments"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="deployments"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Deployments
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="configure"
             name="pipeline-tabs"
-            role="tab"
             type="radio"
             value="configure"
           />
-          <mock-styled.label
-            htmlfor="configure"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="configure"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Configure
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="environment"
             name="pipeline-tabs"
-            role="tab"
             type="radio"
             value="environment"
           />
-          <mock-styled.label
-            htmlfor="environment"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="environment"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Environment Variables
             </span>
-          </mock-styled.label>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-tabs-full-width"
+          </label>
+        </div>
+        <div
+          class="el-tabs-full-width el-tabs-footer"
         />
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-mb11"
+      </div>
+      <div
+        class="el-mb11 el-grid"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-31 el-col"
         >
           <div
             class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.span
-              classname="el-mr4 el-icon-size-medium"
-              role="img"
+            <span
+              class="el-mr4 el-icon-size-medium el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name refreshInfographic"
                 viewBox="0 0 40 40"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -104,38 +119,39 @@ exports[`Pipelineinfo Should match snapshot 1`] = `
                   fill="#9faebc"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
             <div>
-              <mock-styled.h2
-                classname="el-text-base el-has-no-margin"
+              <h2
+                class="el-text-base el-subtitle el-has-no-margin"
               >
                 Status
-              </mock-styled.h2>
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text el-has-no-margin"
+              </h2>
+              <p
+                class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
               >
-                <mock-styled.span
-                  classname="el-intent-danger"
+                <span
+                  class="el-intent-danger el-status-indicator"
                 />
                  
                 Failed
-              </mock-styled.p>
+              </p>
             </div>
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
           <div
             class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.span
-              classname="el-mr4 el-icon-size-medium"
-              role="img"
+            <span
+              class="el-mr4 el-icon-size-medium el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name apiDocsInfographic"
                 viewBox="0 0 80 80"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -181,18 +197,18 @@ exports[`Pipelineinfo Should match snapshot 1`] = `
                   fill="#798da1"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
             <div>
-              <mock-styled.h2
-                classname="el-text-base el-has-no-margin"
+              <h2
+                class="el-text-base el-subtitle el-has-no-margin"
               >
                 Repository
-              </mock-styled.h2>
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text el-has-no-margin"
+              </h2>
+              <p
+                class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
               >
-                <mock-styled.span
-                  classname="el-intent-success"
+                <span
+                  class="el-intent-success el-status-indicator"
                 />
                  
                 <a
@@ -202,23 +218,24 @@ exports[`Pipelineinfo Should match snapshot 1`] = `
                 >
                   https://github.com/bashleigh/reapit-react-test
                 </a>
-              </mock-styled.p>
+              </p>
             </div>
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
           <div
             class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.span
-              classname="el-mr4 el-icon-size-medium"
-              role="img"
+            <span
+              class="el-mr4 el-icon-size-medium el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name globeInfographic"
                 viewBox="0 0 40 40"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -259,15 +276,15 @@ exports[`Pipelineinfo Should match snapshot 1`] = `
                   fill="#d8dee4"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
             <div>
-              <mock-styled.h2
-                classname="el-text-base el-has-no-margin"
+              <h2
+                class="el-text-base el-subtitle el-has-no-margin"
               >
                 Location
-              </mock-styled.h2>
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text el-has-no-margin"
+              </h2>
+              <p
+                class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
               >
                 <a
                   href="https://beautiful-land.iaas.paas.reapit.cloud"
@@ -276,23 +293,24 @@ exports[`Pipelineinfo Should match snapshot 1`] = `
                 >
                   https://beautiful-land.iaas.paas.reapit.cloud
                 </a>
-              </mock-styled.p>
+              </p>
             </div>
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
           <div
             class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.span
-              classname="el-mr4 el-icon-size-medium"
-              role="img"
+            <span
+              class="el-mr4 el-icon-size-medium el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name webhooksInfographic"
                 viewBox="0 0 76 79"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -334,25 +352,25 @@ exports[`Pipelineinfo Should match snapshot 1`] = `
                   fill="#798da1"
                 />
               </svg>
-            </mock-styled.span>
+            </span>
             <div>
-              <mock-styled.h2
-                classname="el-text-base el-has-no-margin"
+              <h2
+                class="el-text-base el-subtitle el-has-no-margin"
               >
                 Github / Bitbucket App
-              </mock-styled.h2>
+              </h2>
               <div
                 class="el-flex-container"
               >
                 <div
                   class="el-mr2"
                 >
-                  <mock-styled.span
-                    classname="el-intent-default"
+                  <span
+                    class="el-intent-default el-status-indicator"
                   />
                 </div>
-                <mock-styled.p
-                  classname="el-text-base el-has-grey-text el-has-no-margin"
+                <p
+                  class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
                 >
                   To deploy from repos, configure either the Reapit
                    
@@ -375,96 +393,111 @@ exports[`Pipelineinfo Should match snapshot 1`] = `
                   </a>
                    
                   app.
-                </mock-styled.p>
+                </p>
               </div>
             </div>
           </div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-mb11"
+        </div>
+      </div>
+      <div
+        class="el-mb11 el-table"
       />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="el-tabs-full-width"
-      role="tablist"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-tabs-full-width el-tabs-wrap"
     >
-      <mock-styled.div>
-        <mock-styled.input
+      <div
+        class="mocked-styled-120 el-tabs-options-wrap"
+        role="tablist"
+      >
+        <input
           aria-selected="true"
+          checked=""
+          class="mocked-styled-117 el-tabs"
           id="deployments"
           name="pipeline-tabs"
-          role="tab"
           type="radio"
           value="deployments"
         />
-        <mock-styled.label
-          htmlfor="deployments"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="deployments"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Deployments
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="configure"
           name="pipeline-tabs"
-          role="tab"
           type="radio"
           value="configure"
         />
-        <mock-styled.label
-          htmlfor="configure"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="configure"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Configure
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="environment"
           name="pipeline-tabs"
-          role="tab"
           type="radio"
           value="environment"
         />
-        <mock-styled.label
-          htmlfor="environment"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="environment"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Environment Variables
           </span>
-        </mock-styled.label>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-tabs-full-width"
+        </label>
+      </div>
+      <div
+        class="el-tabs-full-width el-tabs-footer"
       />
-    </mock-styled.div>
-    <mock-styled.div
-      classname="el-mb11"
+    </div>
+    <div
+      class="el-mb11 el-grid"
     >
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-31 el-col"
       >
         <div
           class="el-flex-container el-flex-align-center"
         >
-          <mock-styled.span
-            classname="el-mr4 el-icon-size-medium"
-            role="img"
+          <span
+            class="el-mr4 el-icon-size-medium el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name refreshInfographic"
               viewBox="0 0 40 40"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -486,38 +519,39 @@ exports[`Pipelineinfo Should match snapshot 1`] = `
                 fill="#9faebc"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <div>
-            <mock-styled.h2
-              classname="el-text-base el-has-no-margin"
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin"
             >
               Status
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-no-margin"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
             >
-              <mock-styled.span
-                classname="el-intent-danger"
+              <span
+                class="el-intent-danger el-status-indicator"
               />
                
               Failed
-            </mock-styled.p>
+            </p>
           </div>
         </div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
         <div
           class="el-flex-container el-flex-align-center"
         >
-          <mock-styled.span
-            classname="el-mr4 el-icon-size-medium"
-            role="img"
+          <span
+            class="el-mr4 el-icon-size-medium el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name apiDocsInfographic"
               viewBox="0 0 80 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -563,18 +597,18 @@ exports[`Pipelineinfo Should match snapshot 1`] = `
                 fill="#798da1"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <div>
-            <mock-styled.h2
-              classname="el-text-base el-has-no-margin"
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin"
             >
               Repository
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-no-margin"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
             >
-              <mock-styled.span
-                classname="el-intent-success"
+              <span
+                class="el-intent-success el-status-indicator"
               />
                
               <a
@@ -584,23 +618,24 @@ exports[`Pipelineinfo Should match snapshot 1`] = `
               >
                 https://github.com/bashleigh/reapit-react-test
               </a>
-            </mock-styled.p>
+            </p>
           </div>
         </div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
         <div
           class="el-flex-container el-flex-align-center"
         >
-          <mock-styled.span
-            classname="el-mr4 el-icon-size-medium"
-            role="img"
+          <span
+            class="el-mr4 el-icon-size-medium el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name globeInfographic"
               viewBox="0 0 40 40"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -641,15 +676,15 @@ exports[`Pipelineinfo Should match snapshot 1`] = `
                 fill="#d8dee4"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <div>
-            <mock-styled.h2
-              classname="el-text-base el-has-no-margin"
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin"
             >
               Location
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-no-margin"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
             >
               <a
                 href="https://beautiful-land.iaas.paas.reapit.cloud"
@@ -658,23 +693,24 @@ exports[`Pipelineinfo Should match snapshot 1`] = `
               >
                 https://beautiful-land.iaas.paas.reapit.cloud
               </a>
-            </mock-styled.p>
+            </p>
           </div>
         </div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
         <div
           class="el-flex-container el-flex-align-center"
         >
-          <mock-styled.span
-            classname="el-mr4 el-icon-size-medium"
-            role="img"
+          <span
+            class="el-mr4 el-icon-size-medium el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name webhooksInfographic"
               viewBox="0 0 76 79"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -716,25 +752,25 @@ exports[`Pipelineinfo Should match snapshot 1`] = `
                 fill="#798da1"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <div>
-            <mock-styled.h2
-              classname="el-text-base el-has-no-margin"
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin"
             >
               Github / Bitbucket App
-            </mock-styled.h2>
+            </h2>
             <div
               class="el-flex-container"
             >
               <div
                 class="el-mr2"
               >
-                <mock-styled.span
-                  classname="el-intent-default"
+                <span
+                  class="el-intent-default el-status-indicator"
                 />
               </div>
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text el-has-no-margin"
+              <p
+                class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
               >
                 To deploy from repos, configure either the Reapit
                  
@@ -757,14 +793,14 @@ exports[`Pipelineinfo Should match snapshot 1`] = `
                 </a>
                  
                 app.
-              </mock-styled.p>
+              </p>
             </div>
           </div>
         </div>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div
-      classname="el-mb11"
+      </div>
+    </div>
+    <div
+      class="el-mb11 el-table"
     />
   </div>,
   "debug": [Function],

@@ -2,6 +2,8 @@
 
 exports[`App should match a snapshot 1`] = `
 <DocumentFragment>
-  <mock-styled.div />
+  <div
+    class="mocked-styled-93 el-snack-holder"
+  />
 </DocumentFragment>
 `;

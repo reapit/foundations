@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { ElBodyText } from '@reapit/elements'
+import { BodyText } from '@reapit/elements'
 import { forDesktopAndAbove, forMobileAndAbove, forTabletAndAbove } from '../../../core/__styles__/media'
 
 export const DeveloperAppsGrid = styled.div`
@@ -53,7 +53,7 @@ export const DeveloperAppsCol = styled.div`
   }
 `
 
-export const DeveloperMainStrapline = styled(ElBodyText)`
+export const DeveloperMainStrapline = styled(BodyText)`
   font-size: 12px;
   line-height: 14px;
   color: var(--color-grey-dark);
@@ -69,7 +69,7 @@ export const DeveloperMainStrapline = styled(ElBodyText)`
   }
 `
 
-export const DeveloperSubtitle = styled(ElBodyText)`
+export const DeveloperSubtitle = styled(BodyText)`
   font-size: 16px;
   font-weight: bold;
   line-height: 20px;

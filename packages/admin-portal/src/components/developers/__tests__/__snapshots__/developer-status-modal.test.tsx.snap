@@ -5,276 +5,376 @@ exports[`DeveloperStatusModal should render component with a developer 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <form>
-        <mock-styled.div
-          classname="el-mb11"
+        <div
+          class="el-mb11 el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.label>
-              Update Developer Status
-            </mock-styled.label>
-            <mock-styled.div
-              classname="el-has-grey-bg"
+          <div
+            class="mocked-styled-135 el-input-wrap-full"
+          >
+            <label
+              class="mocked-styled-41 el-label"
             >
-              <mock-styled.input
+              Update Developer Status
+            </label>
+            <div
+              class="el-has-grey-bg el-toggle-radio-wrap"
+            >
+              <input
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-status-incomplete"
                 name="status"
                 type="radio"
                 value="incomplete"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-status-incomplete"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-status-incomplete"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-124 el-toggle-radio-item"
+                >
                   Incomplete
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-status-pending"
                 name="status"
                 type="radio"
                 value="pending"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-status-pending"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-status-pending"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-124 el-toggle-radio-item"
+                >
                   Pending
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-status-confirmed"
                 name="status"
                 type="radio"
                 value="confirmed"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-status-confirmed"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-status-confirmed"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-124 el-toggle-radio-item"
+                >
                   Confirmed
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-status-underReview"
                 name="status"
                 type="radio"
                 value="underReview"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-status-underReview"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-status-underReview"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-124 el-toggle-radio-item"
+                >
                   Under Review
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
+                class="mocked-styled-127 el-toggle-radio"
                 id="option-status-removed"
                 name="status"
                 type="radio"
                 value="removed"
               />
-              <mock-styled.label
-                classname="el-has-grey-bg"
-                htmlfor="option-status-removed"
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-status-removed"
+                role="button"
+                tabindex="0"
               >
-                <mock-styled.span>
+                <span
+                  class="mocked-styled-124 el-toggle-radio-item"
+                >
                   Removed
-                </mock-styled.span>
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
-                disabled="true"
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-135 el-input-wrap-full"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
+                disabled=""
                 id="test-static-id"
                 name="reapitReference"
                 placeholder="Reapit Reference if account confirmed"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Reapit Reference
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.textarea
-                classname=""
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-135 el-input-wrap-full"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <textarea
+                aria-label="Text area input field"
+                class="mocked-styled-122 el-text-area"
                 name="notes"
                 placeholder="Notes on developer"
                 type="text"
               />
-              <mock-styled.label>
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Notes
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-button-group-align-right"
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="el-button-group-align-right el-button-group-inner"
           >
-            <mock-styled.button
-              classname="el-intent-neutral"
+            <button
+              class="el-intent-neutral el-button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Cancel
-            </mock-styled.button>
-            <mock-styled.button
-              classname="el-intent-primary"
+            </button>
+            <button
+              class="el-intent-primary el-button"
               type="submit"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Confirm
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <form>
-      <mock-styled.div
-        classname="el-mb11"
+      <div
+        class="el-mb11 el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.label>
-            Update Developer Status
-          </mock-styled.label>
-          <mock-styled.div
-            classname="el-has-grey-bg"
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <label
+            class="mocked-styled-41 el-label"
           >
-            <mock-styled.input
+            Update Developer Status
+          </label>
+          <div
+            class="el-has-grey-bg el-toggle-radio-wrap"
+          >
+            <input
+              class="mocked-styled-127 el-toggle-radio"
               id="option-status-incomplete"
               name="status"
               type="radio"
               value="incomplete"
             />
-            <mock-styled.label
-              classname="el-has-grey-bg"
-              htmlfor="option-status-incomplete"
+            <label
+              class="el-has-grey-bg el-toggle-radio-label"
+              for="option-status-incomplete"
+              role="button"
+              tabindex="0"
             >
-              <mock-styled.span>
+              <span
+                class="mocked-styled-124 el-toggle-radio-item"
+              >
                 Incomplete
-              </mock-styled.span>
-            </mock-styled.label>
-            <mock-styled.input
+              </span>
+            </label>
+            <input
+              class="mocked-styled-127 el-toggle-radio"
               id="option-status-pending"
               name="status"
               type="radio"
               value="pending"
             />
-            <mock-styled.label
-              classname="el-has-grey-bg"
-              htmlfor="option-status-pending"
+            <label
+              class="el-has-grey-bg el-toggle-radio-label"
+              for="option-status-pending"
+              role="button"
+              tabindex="0"
             >
-              <mock-styled.span>
+              <span
+                class="mocked-styled-124 el-toggle-radio-item"
+              >
                 Pending
-              </mock-styled.span>
-            </mock-styled.label>
-            <mock-styled.input
+              </span>
+            </label>
+            <input
+              class="mocked-styled-127 el-toggle-radio"
               id="option-status-confirmed"
               name="status"
               type="radio"
               value="confirmed"
             />
-            <mock-styled.label
-              classname="el-has-grey-bg"
-              htmlfor="option-status-confirmed"
+            <label
+              class="el-has-grey-bg el-toggle-radio-label"
+              for="option-status-confirmed"
+              role="button"
+              tabindex="0"
             >
-              <mock-styled.span>
+              <span
+                class="mocked-styled-124 el-toggle-radio-item"
+              >
                 Confirmed
-              </mock-styled.span>
-            </mock-styled.label>
-            <mock-styled.input
+              </span>
+            </label>
+            <input
+              class="mocked-styled-127 el-toggle-radio"
               id="option-status-underReview"
               name="status"
               type="radio"
               value="underReview"
             />
-            <mock-styled.label
-              classname="el-has-grey-bg"
-              htmlfor="option-status-underReview"
+            <label
+              class="el-has-grey-bg el-toggle-radio-label"
+              for="option-status-underReview"
+              role="button"
+              tabindex="0"
             >
-              <mock-styled.span>
+              <span
+                class="mocked-styled-124 el-toggle-radio-item"
+              >
                 Under Review
-              </mock-styled.span>
-            </mock-styled.label>
-            <mock-styled.input
+              </span>
+            </label>
+            <input
+              class="mocked-styled-127 el-toggle-radio"
               id="option-status-removed"
               name="status"
               type="radio"
               value="removed"
             />
-            <mock-styled.label
-              classname="el-has-grey-bg"
-              htmlfor="option-status-removed"
+            <label
+              class="el-has-grey-bg el-toggle-radio-label"
+              for="option-status-removed"
+              role="button"
+              tabindex="0"
             >
-              <mock-styled.span>
+              <span
+                class="mocked-styled-124 el-toggle-radio-item"
+              >
                 Removed
-              </mock-styled.span>
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
-              disabled="true"
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
+              disabled=""
               id="test-static-id"
               name="reapitReference"
               placeholder="Reapit Reference if account confirmed"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Reapit Reference
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.textarea
-              classname=""
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <textarea
+              aria-label="Text area input field"
+              class="mocked-styled-122 el-text-area"
               name="notes"
               placeholder="Notes on developer"
               type="text"
             />
-            <mock-styled.label>
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Notes
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-button-group-align-right"
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="el-button-group-align-right el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Cancel
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-primary"
+          </button>
+          <button
+            class="el-intent-primary el-button"
             type="submit"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Confirm
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </form>
   </div>,
   "debug": [Function],
@@ -336,11 +436,15 @@ exports[`DeveloperStatusModal should render component with no developer 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

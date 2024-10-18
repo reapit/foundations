@@ -5,57 +5,67 @@ exports[`SharesTable should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname="el-mb11"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-mb11 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="5"
         role="table"
       >
-        <mock-styled.div
+        <div
+          class="mocked-styled-101 el-table-headers-row"
           role="row"
         >
-          <mock-styled.div
+          <div
             aria-label="Data Set Name"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Data Set Name
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Database"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Database
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Schema"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Schema
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Warehouse"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Warehouse
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
             aria-label="Region"
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
             Region
-          </mock-styled.div>
-          <mock-styled.div
+          </div>
+          <div
+            class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name settings"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -65,75 +75,84 @@ exports[`SharesTable should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+            </span>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-110 el-table-row-container"
           role="row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-103 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Data Set Name"
               >
                 RPS Database
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Database"
               >
                 reapit
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Schema"
               >
                 customers_rps_DEV
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Warehouse"
               >
                 STANDARD_WH
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <mock-styled.div
+              <div
+                class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Region"
               >
                 eu-west-1
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+              </div>
+            </div>
+            <div
+              class="mocked-styled-109 el-table-expandable-row-trigger-cell"
               role="cell"
+              tabindex="0"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name more"
                   viewBox="0 0 24 24"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -143,104 +162,123 @@ exports[`SharesTable should match a snapshot 1`] = `
                     fill="currentColor"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            aria-hidden="false"
-            classname=""
+              </span>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-113 el-table-expandable-row"
           >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div
-                  classname="el-button-group-align-center"
+            <div
+              class="mocked-styled-114 el-table-expandable-container"
+            >
+              <div
+                class="mocked-styled-2 el-button-group"
+              >
+                <div
+                  class="el-button-group-align-center el-button-group-inner"
                 >
-                  <mock-styled.button
-                    classname="el-intent-neutral"
+                  <button
+                    class="el-intent-neutral el-button"
                   >
-                    <mock-styled.div />
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
                     Copy URL
-                  </mock-styled.button>
-                  <mock-styled.button
-                    classname="el-intent-neutral"
+                  </button>
+                  <button
+                    class="el-intent-neutral el-button"
                   >
-                    <mock-styled.div />
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
                     Copy DSN
-                  </mock-styled.button>
-                  <mock-styled.button
-                    classname="el-intent-primary"
-                    disabled="false"
+                  </button>
+                  <button
+                    class="el-intent-primary el-button"
                   >
-                    <mock-styled.div />
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
                     Refresh Share
-                  </mock-styled.button>
-                  <mock-styled.button
-                    classname="el-intent-danger"
-                    disabled="false"
+                  </button>
+                  <button
+                    class="el-intent-danger el-button"
                   >
-                    <mock-styled.div />
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
                     Delete Share
-                  </mock-styled.button>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="el-mb11"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-mb11 el-table"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="5"
       role="table"
     >
-      <mock-styled.div
+      <div
+        class="mocked-styled-101 el-table-headers-row"
         role="row"
       >
-        <mock-styled.div
+        <div
           aria-label="Data Set Name"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Data Set Name
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Database"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Database
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Schema"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Schema
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Warehouse"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Warehouse
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Region"
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
           Region
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
+          class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
-          <mock-styled.span
-            classname="el-intent-default el-icon-new"
-            role="img"
+          <span
+            class="el-intent-default el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name settings"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -250,75 +288,84 @@ exports[`SharesTable should match a snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+          </span>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-110 el-table-row-container"
         role="row"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+        <div
+          class="mocked-styled-103 el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Data Set Name"
             >
               RPS Database
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Database"
             >
               reapit
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Schema"
             >
               customers_rps_DEV
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Warehouse"
             >
               STANDARD_WH
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="el-table-cell-has-dark-text"
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <mock-styled.div
+            <div
+              class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Region"
             >
               eu-west-1
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+            </div>
+          </div>
+          <div
+            class="mocked-styled-109 el-table-expandable-row-trigger-cell"
             role="cell"
+            tabindex="0"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name more"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -328,50 +375,59 @@ exports[`SharesTable should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          aria-hidden="false"
-          classname=""
+            </span>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-113 el-table-expandable-row"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-button-group-align-center"
+          <div
+            class="mocked-styled-114 el-table-expandable-container"
+          >
+            <div
+              class="mocked-styled-2 el-button-group"
+            >
+              <div
+                class="el-button-group-align-center el-button-group-inner"
               >
-                <mock-styled.button
-                  classname="el-intent-neutral"
+                <button
+                  class="el-intent-neutral el-button"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Copy URL
-                </mock-styled.button>
-                <mock-styled.button
-                  classname="el-intent-neutral"
+                </button>
+                <button
+                  class="el-intent-neutral el-button"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Copy DSN
-                </mock-styled.button>
-                <mock-styled.button
-                  classname="el-intent-primary"
-                  disabled="false"
+                </button>
+                <button
+                  class="el-intent-primary el-button"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Refresh Share
-                </mock-styled.button>
-                <mock-styled.button
-                  classname="el-intent-danger"
-                  disabled="false"
+                </button>
+                <button
+                  class="el-intent-danger el-button"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Delete Share
-                </mock-styled.button>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

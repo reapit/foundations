@@ -5,185 +5,201 @@ exports[`FetchAuthenticators should render component with data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname="el-mb7"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-mb7 el-button-group"
       >
-        <mock-styled.div
-          classname="el-button-group-align-center"
+        <div
+          class="el-button-group-align-center el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-primary"
-            disabled="true"
+          <button
+            class="el-intent-primary el-button"
+            disabled=""
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Fetch Current Authenticators
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-primary"
+          </button>
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Reset Password
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-mb11 el-fade-in"
+          </button>
+        </div>
+      </div>
+      <div
+        class="el-mb11 el-fade-in el-grid"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-no-margin"
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
           >
             Authenticator Type
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-no-margin"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
           >
             Authenticator App
-          </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </p>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-no-margin"
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
           >
             Status
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-no-margin"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
           >
             Active
-          </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </p>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-no-margin"
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
           >
             Created
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-no-margin"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
           >
             11/11/2022 11:03
-          </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+          </p>
+        </div>
+        <div
+          class="mocked-styled-31 el-col"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-no-margin"
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin"
           >
             Last Updated
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-no-margin"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
           >
             11/11/2022 11:03
-          </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.button
-        classname="el-intent-primary"
+          </p>
+        </div>
+      </div>
+      <button
+        class="el-intent-primary el-button"
       >
-        <mock-styled.div />
+        <div
+          class="mocked-styled-0 el-button-loader"
+        />
         Reset Authenticator
-      </mock-styled.button>
+      </button>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="el-mb7"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-mb7 el-button-group"
     >
-      <mock-styled.div
-        classname="el-button-group-align-center"
+      <div
+        class="el-button-group-align-center el-button-group-inner"
       >
-        <mock-styled.button
-          classname="el-intent-primary"
-          disabled="true"
+        <button
+          class="el-intent-primary el-button"
+          disabled=""
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Fetch Current Authenticators
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-intent-primary"
+        </button>
+        <button
+          class="el-intent-primary el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Reset Password
-        </mock-styled.button>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div
-      classname="el-mb11 el-fade-in"
+        </button>
+      </div>
+    </div>
+    <div
+      class="el-mb11 el-fade-in el-grid"
     >
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.h2
-          classname="el-text-base el-has-no-margin"
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
         >
           Authenticator Type
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-no-margin"
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
         >
           Authenticator App
-        </mock-styled.p>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+        </p>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.h2
-          classname="el-text-base el-has-no-margin"
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
         >
           Status
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-no-margin"
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
         >
           Active
-        </mock-styled.p>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+        </p>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.h2
-          classname="el-text-base el-has-no-margin"
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
         >
           Created
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-no-margin"
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
         >
           11/11/2022 11:03
-        </mock-styled.p>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+        </p>
+      </div>
+      <div
+        class="mocked-styled-31 el-col"
       >
-        <mock-styled.h2
-          classname="el-text-base el-has-no-margin"
+        <h2
+          class="el-text-base el-subtitle el-has-no-margin"
         >
           Last Updated
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-no-margin"
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
         >
           11/11/2022 11:03
-        </mock-styled.p>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.button
-      classname="el-intent-primary"
+        </p>
+      </div>
+    </div>
+    <button
+      class="el-intent-primary el-button"
     >
-      <mock-styled.div />
+      <div
+        class="mocked-styled-0 el-button-loader"
+      />
       Reset Authenticator
-    </mock-styled.button>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -244,53 +260,65 @@ exports[`FetchAuthenticators should render component with no data 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname="el-mb7"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-mb7 el-button-group"
       >
-        <mock-styled.div
-          classname="el-button-group-align-center"
+        <div
+          class="el-button-group-align-center el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-primary"
-            disabled="true"
+          <button
+            class="el-intent-primary el-button"
+            disabled=""
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Fetch Current Authenticators
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-primary"
+          </button>
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Reset Password
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="el-mb7"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-mb7 el-button-group"
     >
-      <mock-styled.div
-        classname="el-button-group-align-center"
+      <div
+        class="el-button-group-align-center el-button-group-inner"
       >
-        <mock-styled.button
-          classname="el-intent-primary"
-          disabled="true"
+        <button
+          class="el-intent-primary el-button"
+          disabled=""
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Fetch Current Authenticators
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-intent-primary"
+        </button>
+        <button
+          class="el-intent-primary el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Reset Password
-        </mock-styled.button>
-      </mock-styled.div>
-    </mock-styled.div>
+        </button>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -351,67 +379,87 @@ exports[`FetchAuthenticators should render component with props and loading 1`] 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname="el-mb7"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-mb7 el-button-group"
       >
-        <mock-styled.div
-          classname="el-button-group-align-center"
+        <div
+          class="el-button-group-align-center el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-primary el-is-loading"
-            disabled="true"
+          <button
+            class="el-intent-primary el-is-loading el-button"
+            disabled=""
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Fetch Current Authenticators
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-primary"
+          </button>
+          <button
+            class="el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Reset Password
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+          </button>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-44 el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+        <div
+          class="mocked-styled-46 el-loader"
+        >
+          <div
+            class="mocked-styled-47 el-loader-moving-bar"
+          />
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="el-mb7"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-mb7 el-button-group"
     >
-      <mock-styled.div
-        classname="el-button-group-align-center"
+      <div
+        class="el-button-group-align-center el-button-group-inner"
       >
-        <mock-styled.button
-          classname="el-intent-primary el-is-loading"
-          disabled="true"
+        <button
+          class="el-intent-primary el-is-loading el-button"
+          disabled=""
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Fetch Current Authenticators
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-intent-primary"
+        </button>
+        <button
+          class="el-intent-primary el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Reset Password
-        </mock-styled.button>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div
-      classname=""
+        </button>
+      </div>
+    </div>
+    <div
+      class="mocked-styled-44 el-loader-container"
     >
-      <mock-styled.div>
-        <mock-styled.div />
-      </mock-styled.div>
-    </mock-styled.div>
+      <div
+        class="mocked-styled-46 el-loader"
+      >
+        <div
+          class="mocked-styled-47 el-loader-moving-bar"
+        />
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

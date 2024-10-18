@@ -5,108 +5,140 @@ exports[`OfficesTable should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-mt5"
       >
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Total Offices
-        </mock-styled.h2>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
         >
           1
-        </mock-styled.p>
-        <mock-styled.div
-          classname="el-mb11"
+        </p>
+        <div
+          class="el-mb11 el-table"
           data-has-expandable-action="false"
           data-num-columns-excl-action-col="2"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              Office Name
-            </mock-styled.div>
-            <mock-styled.div>
-              Office ID
-            </mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          <div
+            class="mocked-styled-101 el-table-headers-row"
           >
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+            <div
+              class="mocked-styled-102 el-table-header"
+            >
+              Office Name
+            </div>
+            <div
+              class="mocked-styled-102 el-table-header"
+            >
+              Office ID
+            </div>
+            <div
+              class="mocked-styled-102 el-table-header"
+            />
+          </div>
+          <div
+            class="mocked-styled-110 el-table-row-container"
+          >
+            <div
+              class="mocked-styled-103 el-table-row"
+            >
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
               >
-                <mock-styled.div>
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
+                >
                   BAR
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div
-                classname="el-table-cell-has-dark-text"
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
               >
-                <mock-styled.div>
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
+                >
                   FOO
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-mt5"
     >
-      <mock-styled.h2
-        classname="el-text-base"
+      <h2
+        class="el-text-base el-subtitle"
       >
         Total Offices
-      </mock-styled.h2>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </h2>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         1
-      </mock-styled.p>
-      <mock-styled.div
-        classname="el-mb11"
+      </p>
+      <div
+        class="el-mb11 el-table"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="2"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            Office Name
-          </mock-styled.div>
-          <mock-styled.div>
-            Office ID
-          </mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-101 el-table-headers-row"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+          <div
+            class="mocked-styled-102 el-table-header"
+          >
+            Office Name
+          </div>
+          <div
+            class="mocked-styled-102 el-table-header"
+          >
+            Office ID
+          </div>
+          <div
+            class="mocked-styled-102 el-table-header"
+          />
+        </div>
+        <div
+          class="mocked-styled-110 el-table-row-container"
+        >
+          <div
+            class="mocked-styled-103 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
             >
-              <mock-styled.div>
+              <div
+                class="mocked-styled-111 el-table-cell-content"
+              >
                 BAR
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="el-table-cell-has-dark-text"
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
             >
-              <mock-styled.div>
+              <div
+                class="mocked-styled-111 el-table-cell-content"
+              >
                 FOO
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],

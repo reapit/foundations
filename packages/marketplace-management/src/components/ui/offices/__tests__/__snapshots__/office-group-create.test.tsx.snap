@@ -5,110 +5,146 @@ exports[`OfficeGroupCreate should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <form>
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           SOME_NAME
            Create Office Group
-        </mock-styled.h1>
-        <mock-styled.div
-          classname=""
+        </h1>
+        <div
+          class="mocked-styled-97 el-steps-vertical"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-is-active"
+          <div
+            class="mocked-styled-98 el-step-vertical"
+          >
+            <div
+              class="mocked-styled-99 el-step-vertical-item"
+            >
+              <div
+                class="el-is-active el-step"
                 data-testid="step-0"
+                role="button"
+                tabindex="0"
               >
                 1
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-fade-in"
+              </div>
+            </div>
+            <div
+              class="mocked-styled-100 el-step-vertical-content"
+            >
+              <div
+                class="el-fade-in el-form-layout"
               >
-                <mock-styled.div>
-                  <mock-styled.p
-                    classname="el-text-base el-has-grey-text"
+                <div
+                  class="mocked-styled-135 el-input-wrap-full"
+                >
+                  <p
+                    class="el-text-base el-body-text el-has-grey-text"
                   >
                     Add a name for your office group.
-                  </mock-styled.p>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.input
-                      classname=""
+                  </p>
+                </div>
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <div
+                    class="mocked-styled-40 el-input-group"
+                  >
+                    <input
+                      aria-label="Input type undefined"
+                      class="mocked-styled-38 el-input"
                       id="test-static-id"
                       name="name"
                       placeholder="Enter an office group name"
                     />
-                    <mock-styled.label
-                      htmlfor="test-static-id"
+                    <label
+                      class="mocked-styled-41 el-label"
+                      for="test-static-id"
                     >
                       Office Group Name
-                    </mock-styled.label>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <form>
-      <mock-styled.h1
-        classname="el-text-base"
+      <h1
+        class="el-text-base el-title"
       >
         SOME_NAME
          Create Office Group
-      </mock-styled.h1>
-      <mock-styled.div
-        classname=""
+      </h1>
+      <div
+        class="mocked-styled-97 el-steps-vertical"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-is-active"
+        <div
+          class="mocked-styled-98 el-step-vertical"
+        >
+          <div
+            class="mocked-styled-99 el-step-vertical-item"
+          >
+            <div
+              class="el-is-active el-step"
               data-testid="step-0"
+              role="button"
+              tabindex="0"
             >
               1
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-fade-in"
+            </div>
+          </div>
+          <div
+            class="mocked-styled-100 el-step-vertical-content"
+          >
+            <div
+              class="el-fade-in el-form-layout"
             >
-              <mock-styled.div>
-                <mock-styled.p
-                  classname="el-text-base el-has-grey-text"
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <p
+                  class="el-text-base el-body-text el-has-grey-text"
                 >
                   Add a name for your office group.
-                </mock-styled.p>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+                </p>
+              </div>
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type undefined"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="name"
                     placeholder="Enter an office group name"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Office Group Name
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
   </div>,
   "debug": [Function],
@@ -170,110 +206,146 @@ exports[`OfficeGroupCreate should match a snapshot where there is no orgId 1`] =
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <form>
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           SOME_NAME
            Create Office Group
-        </mock-styled.h1>
-        <mock-styled.div
-          classname=""
+        </h1>
+        <div
+          class="mocked-styled-97 el-steps-vertical"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-is-active"
+          <div
+            class="mocked-styled-98 el-step-vertical"
+          >
+            <div
+              class="mocked-styled-99 el-step-vertical-item"
+            >
+              <div
+                class="el-is-active el-step"
                 data-testid="step-0"
+                role="button"
+                tabindex="0"
               >
                 1
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-fade-in"
+              </div>
+            </div>
+            <div
+              class="mocked-styled-100 el-step-vertical-content"
+            >
+              <div
+                class="el-fade-in el-form-layout"
               >
-                <mock-styled.div>
-                  <mock-styled.p
-                    classname="el-text-base el-has-grey-text"
+                <div
+                  class="mocked-styled-135 el-input-wrap-full"
+                >
+                  <p
+                    class="el-text-base el-body-text el-has-grey-text"
                   >
                     Add a name for your office group.
-                  </mock-styled.p>
-                </mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.div>
-                    <mock-styled.input
-                      classname=""
+                  </p>
+                </div>
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <div
+                    class="mocked-styled-40 el-input-group"
+                  >
+                    <input
+                      aria-label="Input type undefined"
+                      class="mocked-styled-38 el-input"
                       id="test-static-id"
                       name="name"
                       placeholder="Enter an office group name"
                     />
-                    <mock-styled.label
-                      htmlfor="test-static-id"
+                    <label
+                      class="mocked-styled-41 el-label"
+                      for="test-static-id"
                     >
                       Office Group Name
-                    </mock-styled.label>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <form>
-      <mock-styled.h1
-        classname="el-text-base"
+      <h1
+        class="el-text-base el-title"
       >
         SOME_NAME
          Create Office Group
-      </mock-styled.h1>
-      <mock-styled.div
-        classname=""
+      </h1>
+      <div
+        class="mocked-styled-97 el-steps-vertical"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-is-active"
+        <div
+          class="mocked-styled-98 el-step-vertical"
+        >
+          <div
+            class="mocked-styled-99 el-step-vertical-item"
+          >
+            <div
+              class="el-is-active el-step"
               data-testid="step-0"
+              role="button"
+              tabindex="0"
             >
               1
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-fade-in"
+            </div>
+          </div>
+          <div
+            class="mocked-styled-100 el-step-vertical-content"
+          >
+            <div
+              class="el-fade-in el-form-layout"
             >
-              <mock-styled.div>
-                <mock-styled.p
-                  classname="el-text-base el-has-grey-text"
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <p
+                  class="el-text-base el-body-text el-has-grey-text"
                 >
                   Add a name for your office group.
-                </mock-styled.p>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+                </p>
+              </div>
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type undefined"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="name"
                     placeholder="Enter an office group name"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Office Group Name
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
   </div>,
   "debug": [Function],

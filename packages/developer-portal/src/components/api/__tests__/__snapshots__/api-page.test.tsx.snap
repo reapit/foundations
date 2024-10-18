@@ -5,35 +5,47 @@ exports[`ApiPage should match a snapshot for the /desktop page 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-81 el-secondary-nav"
+          >
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               REST API
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Webhooks
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               GraphQL
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Desktop
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </aside>
         <section
           class="el-page-container el-hfull"
@@ -42,35 +54,47 @@ exports[`ApiPage should match a snapshot for the /desktop page 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-81 el-secondary-nav"
+        >
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             REST API
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Webhooks
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             GraphQL
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Desktop
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </aside>
       <section
         class="el-page-container el-hfull"
@@ -136,35 +160,47 @@ exports[`ApiPage should match a snapshot for the /graphql page 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-81 el-secondary-nav"
+          >
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               REST API
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Webhooks
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               GraphQL
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Desktop
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </aside>
         <section
           class="el-page-container el-hfull"
@@ -173,35 +209,47 @@ exports[`ApiPage should match a snapshot for the /graphql page 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-81 el-secondary-nav"
+        >
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             REST API
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Webhooks
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             GraphQL
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Desktop
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </aside>
       <section
         class="el-page-container el-hfull"
@@ -267,35 +315,47 @@ exports[`ApiPage should match a snapshot for the /swagger page 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-81 el-secondary-nav"
+          >
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               REST API
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Webhooks
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               GraphQL
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Desktop
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </aside>
         <section
           class="el-page-container el-hfull"
@@ -304,35 +364,47 @@ exports[`ApiPage should match a snapshot for the /swagger page 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-81 el-secondary-nav"
+        >
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             REST API
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Webhooks
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             GraphQL
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Desktop
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </aside>
       <section
         class="el-page-container el-hfull"
@@ -398,35 +470,47 @@ exports[`ApiPage should match a snapshot for the /webhooks page 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-81 el-secondary-nav"
+          >
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               REST API
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Webhooks
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               GraphQL
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Desktop
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </aside>
         <section
           class="el-page-container el-hfull"
@@ -435,35 +519,47 @@ exports[`ApiPage should match a snapshot for the /webhooks page 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-81 el-secondary-nav"
+        >
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             REST API
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Webhooks
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             GraphQL
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Desktop
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </aside>
       <section
         class="el-page-container el-hfull"
@@ -529,35 +625,47 @@ exports[`ApiPage should match a snapshot for the /webhooks/about page 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-81 el-secondary-nav"
+          >
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               REST API
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Webhooks
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               GraphQL
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Desktop
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </aside>
         <section
           class="el-page-container el-hfull"
@@ -566,35 +674,47 @@ exports[`ApiPage should match a snapshot for the /webhooks/about page 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-81 el-secondary-nav"
+        >
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             REST API
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Webhooks
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             GraphQL
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Desktop
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </aside>
       <section
         class="el-page-container el-hfull"
@@ -660,35 +780,47 @@ exports[`ApiPage should match a snapshot for the /webhooks/logs page 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-81 el-secondary-nav"
+          >
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               REST API
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Webhooks
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               GraphQL
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Desktop
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </aside>
         <section
           class="el-page-container el-hfull"
@@ -697,35 +829,47 @@ exports[`ApiPage should match a snapshot for the /webhooks/logs page 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-81 el-secondary-nav"
+        >
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             REST API
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Webhooks
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             GraphQL
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Desktop
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </aside>
       <section
         class="el-page-container el-hfull"
@@ -791,35 +935,47 @@ exports[`ApiPage should match a snapshot for the /webhooks/manage page 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-81 el-secondary-nav"
+          >
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               REST API
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Webhooks
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               GraphQL
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Desktop
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </aside>
         <section
           class="el-page-container el-hfull"
@@ -828,35 +984,47 @@ exports[`ApiPage should match a snapshot for the /webhooks/manage page 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-81 el-secondary-nav"
+        >
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             REST API
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Webhooks
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             GraphQL
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Desktop
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </aside>
       <section
         class="el-page-container el-hfull"
@@ -922,35 +1090,47 @@ exports[`ApiPage should match a snapshot for the /webhooks/new page 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-81 el-secondary-nav"
+          >
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               REST API
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Webhooks
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               GraphQL
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Desktop
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </aside>
         <section
           class="el-page-container el-hfull"
@@ -959,35 +1139,47 @@ exports[`ApiPage should match a snapshot for the /webhooks/new page 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-81 el-secondary-nav"
+        >
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             REST API
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Webhooks
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             GraphQL
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Desktop
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </aside>
       <section
         class="el-page-container el-hfull"

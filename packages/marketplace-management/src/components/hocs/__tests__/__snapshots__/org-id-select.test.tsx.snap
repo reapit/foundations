@@ -8,23 +8,25 @@ exports[`OrgIdSelect should match a snapshot 1`] = `
       <div
         class="el-mb5"
       >
-        <mock-styled.p
-          classname="el-text-base"
+        <p
+          class="el-text-base el-body-text"
         >
           Organisations
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-        </mock-styled.p>
+        </small>
         <mock-styled.div
           classname="el-border-radius"
         >
-          <mock-styled.div>
-            <mock-styled.select
-              classname="el-wfull"
-              value="SOME_ID"
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <select
+              aria-label="Select an item from the dropdown list"
+              class="el-wfull el-select"
             >
               <option
                 value=""
@@ -41,13 +43,14 @@ exports[`OrgIdSelect should match a snapshot 1`] = `
               >
                 name
               </option>
-            </mock-styled.select>
-            <mock-styled.label
-              htmlfor="myId"
+            </select>
+            <label
+              class="mocked-styled-41 el-label"
+              for="myId"
             >
               Select Organisation
-            </mock-styled.label>
-          </mock-styled.div>
+            </label>
+          </div>
         </mock-styled.div>
       </div>
     </div>
@@ -56,23 +59,25 @@ exports[`OrgIdSelect should match a snapshot 1`] = `
     <div
       class="el-mb5"
     >
-      <mock-styled.p
-        classname="el-text-base"
+      <p
+        class="el-text-base el-body-text"
       >
         Organisations
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-      </mock-styled.p>
+      </small>
       <mock-styled.div
         classname="el-border-radius"
       >
-        <mock-styled.div>
-          <mock-styled.select
-            classname="el-wfull"
-            value="SOME_ID"
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <select
+            aria-label="Select an item from the dropdown list"
+            class="el-wfull el-select"
           >
             <option
               value=""
@@ -89,13 +94,14 @@ exports[`OrgIdSelect should match a snapshot 1`] = `
             >
               name
             </option>
-          </mock-styled.select>
-          <mock-styled.label
-            htmlfor="myId"
+          </select>
+          <label
+            class="mocked-styled-41 el-label"
+            for="myId"
           >
             Select Organisation
-          </mock-styled.label>
-        </mock-styled.div>
+          </label>
+        </div>
       </mock-styled.div>
     </div>
   </div>,

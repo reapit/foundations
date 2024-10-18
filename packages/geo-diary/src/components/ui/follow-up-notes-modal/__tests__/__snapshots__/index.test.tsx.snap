@@ -5,36 +5,41 @@ exports[`FollowUpNotesModal should match snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
        
       <div
         class="el-mb8"
       >
-        <mock-styled.p
-          classname="el-text-base"
+        <p
+          class="el-text-base el-body-text"
         >
           Record follow up notes on your appointment here, along with an optional follow up date.
-        </mock-styled.p>
+        </p>
       </div>
       <form>
-        <mock-styled.div
-          classname="el-mb8"
+        <div
+          class="el-mb8 el-input-group"
         >
-          <mock-styled.input
-            classname=""
+          <input
+            aria-label="Input type date format dd/mm/yyy"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             name="due"
             type="date"
+            value="2020-07-09"
           />
-          <mock-styled.span
-            classname=""
-            role="img"
+          <span
+            class="mocked-styled-4 el-icon"
             style="font-size: 1rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1rem;"
+              title="Icon image with name calendarSystem"
               viewBox="0 0 20 20"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -50,79 +55,93 @@ exports[`FollowUpNotesModal should match snapshot 1`] = `
                 fill-rule="evenodd"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.label
-            htmlfor="test-static-id"
+          </span>
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Due date
-          </mock-styled.label>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-mb8"
+          </label>
+        </div>
+        <div
+          class="el-mb8 el-input-group"
         >
-          <mock-styled.textarea
-            classname=""
+          <textarea
+            aria-label="Text area input field"
+            class="mocked-styled-122 el-text-area"
             name="notes"
           />
-          <mock-styled.label>
-            Follow up notes
-          </mock-styled.label>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-button-group-align-right"
+          <label
+            class="mocked-styled-41 el-label"
           >
-            <mock-styled.button
-              classname="el-intent-neutral"
-              disabled="false"
+            Follow up notes
+          </label>
+        </div>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <div
+            class="el-button-group-align-right el-button-group-inner"
+          >
+            <button
+              class="el-intent-neutral el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Cancel
-            </mock-styled.button>
-            <mock-styled.button
-              classname="el-intent-primary"
+            </button>
+            <button
+              class="el-intent-primary el-button"
               type="submit"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Submit
-            </mock-styled.button>
-          </mock-styled.div>
-        </mock-styled.div>
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
      
     <div
       class="el-mb8"
     >
-      <mock-styled.p
-        classname="el-text-base"
+      <p
+        class="el-text-base el-body-text"
       >
         Record follow up notes on your appointment here, along with an optional follow up date.
-      </mock-styled.p>
+      </p>
     </div>
     <form>
-      <mock-styled.div
-        classname="el-mb8"
+      <div
+        class="el-mb8 el-input-group"
       >
-        <mock-styled.input
-          classname=""
+        <input
+          aria-label="Input type date format dd/mm/yyy"
+          class="mocked-styled-38 el-input"
           id="test-static-id"
           name="due"
           type="date"
+          value="2020-07-09"
         />
-        <mock-styled.span
-          classname=""
-          role="img"
+        <span
+          class="mocked-styled-4 el-icon"
           style="font-size: 1rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 1rem;"
+            title="Icon image with name calendarSystem"
             viewBox="0 0 20 20"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -138,45 +157,54 @@ exports[`FollowUpNotesModal should match snapshot 1`] = `
               fill-rule="evenodd"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.label
-          htmlfor="test-static-id"
+        </span>
+        <label
+          class="mocked-styled-41 el-label"
+          for="test-static-id"
         >
           Due date
-        </mock-styled.label>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-mb8"
+        </label>
+      </div>
+      <div
+        class="el-mb8 el-input-group"
       >
-        <mock-styled.textarea
-          classname=""
+        <textarea
+          aria-label="Text area input field"
+          class="mocked-styled-122 el-text-area"
           name="notes"
         />
-        <mock-styled.label>
-          Follow up notes
-        </mock-styled.label>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-button-group-align-right"
+        <label
+          class="mocked-styled-41 el-label"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
-            disabled="false"
+          Follow up notes
+        </label>
+      </div>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="el-button-group-align-right el-button-group-inner"
+        >
+          <button
+            class="el-intent-neutral el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Cancel
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-intent-primary"
+          </button>
+          <button
+            class="el-intent-primary el-button"
             type="submit"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Submit
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </form>
   </div>,
   "debug": [Function],

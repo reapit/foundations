@@ -5,25 +5,31 @@ exports[`DownloadUsersCSV should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.button
-        classname="el-mb5 el-intent-primary"
-        disabled="false"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <button
+        class="el-mb5 el-intent-primary el-button"
       >
-        <mock-styled.div />
+        <div
+          class="mocked-styled-0 el-button-loader"
+        />
         Download CSV
-      </mock-styled.button>
+      </button>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.button
-      classname="el-mb5 el-intent-primary"
-      disabled="false"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <button
+      class="el-mb5 el-intent-primary el-button"
     >
-      <mock-styled.div />
+      <div
+        class="mocked-styled-0 el-button-loader"
+      />
       Download CSV
-    </mock-styled.button>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

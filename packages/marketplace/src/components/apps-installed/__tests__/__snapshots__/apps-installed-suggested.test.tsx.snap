@@ -5,15 +5,17 @@ exports[`AppsInstalledSuggested should match a snapshot  1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-fade-in"
       >
-        <mock-styled.h2
-          classname="el-text-base el-has-bold-text"
+        <h2
+          class="el-text-base el-subtitle el-has-bold-text"
         >
           Suggested Apps
-        </mock-styled.h2>
+        </h2>
         <mock-styled.div>
           <mock-styled.div
             numbercols="2"
@@ -34,15 +36,17 @@ exports[`AppsInstalledSuggested should match a snapshot  1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-fade-in"
     >
-      <mock-styled.h2
-        classname="el-text-base el-has-bold-text"
+      <h2
+        class="el-text-base el-subtitle el-has-bold-text"
       >
         Suggested Apps
-      </mock-styled.h2>
+      </h2>
       <mock-styled.div>
         <mock-styled.div
           numbercols="2"

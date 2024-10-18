@@ -5,59 +5,63 @@ exports[`AppToggleVisibilitySection should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.h2
-        classname="el-text-base"
+      <h2
+        class="el-text-base el-subtitle"
       >
         Application Visibility
-      </mock-styled.h2>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </h2>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the Marketplace to any offices/users inside of your organisation.
-      </mock-styled.p>
-      <mock-styled.div
-        classname="el-mb11"
+      </p>
+      <div
+        class="el-mb11 el-input-group"
       >
-        <mock-styled.input
-          checked="true"
-          classname=""
+        <input
+          aria-label="Input type checkbox"
+          checked=""
+          class="mocked-styled-38 el-input"
           id="test-static-id"
           type="checkbox"
         />
-        <mock-styled.label
-          htmlfor="test-static-id"
+        <label
+          class="mocked-styled-41 el-label"
+          for="test-static-id"
         >
           Visible
-        </mock-styled.label>
-      </mock-styled.div>
+        </label>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.h2
-      classname="el-text-base"
+    <h2
+      class="el-text-base el-subtitle"
     >
       Application Visibility
-    </mock-styled.h2>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </h2>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       By default, all apps will be visible to all offices/users within your organisation. If you wish to hide an app from the Marketplace, please deselect. Hidden apps (apps that have been deselected) will not be visible in the Marketplace to any offices/users inside of your organisation.
-    </mock-styled.p>
-    <mock-styled.div
-      classname="el-mb11"
+    </p>
+    <div
+      class="el-mb11 el-input-group"
     >
-      <mock-styled.input
-        checked="true"
-        classname=""
+      <input
+        aria-label="Input type checkbox"
+        checked=""
+        class="mocked-styled-38 el-input"
         id="test-static-id"
         type="checkbox"
       />
-      <mock-styled.label
-        htmlfor="test-static-id"
+      <label
+        class="mocked-styled-41 el-label"
+        for="test-static-id"
       >
         Visible
-      </mock-styled.label>
-    </mock-styled.div>
+      </label>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

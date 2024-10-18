@@ -5,31 +5,35 @@ exports[`SubsHelperText should match a snapshot for appsFilters 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         App Filters are tiles that on the user clicking, set a pre-defined set of filters is applied to the page which will then render the filtered results as a related collection.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         You can have any number of Filter Collections live however, 6 is advised in line with the design.
-      </mock-styled.p>
+      </p>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       App Filters are tiles that on the user clicking, set a pre-defined set of filters is applied to the page which will then render the filtered results as a related collection.
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       You can have any number of Filter Collections live however, 6 is advised in line with the design.
-    </mock-styled.p>
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -90,74 +94,80 @@ exports[`SubsHelperText should match a snapshot for appsFilters 2`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         App Filters are tiles that on the user clicking, set a pre-defined set of filters is applied to the page which will then render the filtered results as a related collection.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         You can have any number of Filter Collections live however, 6 is advised in line with the design.
-      </mock-styled.p>
+      </p>
     </div>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         App Filters should be configured to include;
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         - A set of filters eg categories, or named apps that you want to return when the tile is clicked on. The simplest way to do this is to specify exactly the apps you want in the collection by name.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         - A title that describes the collection
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         - A marketing strapline
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         - A suitable icon from the dropdown list
-      </mock-styled.p>
+      </p>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       App Filters should be configured to include;
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       - A set of filters eg categories, or named apps that you want to return when the tile is clicked on. The simplest way to do this is to specify exactly the apps you want in the collection by name.
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       - A title that describes the collection
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       - A marketing strapline
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       - A suitable icon from the dropdown list
-    </mock-styled.p>
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -218,31 +228,35 @@ exports[`SubsHelperText should match a snapshot for featuredApps 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Featured apps are lists of apps, grouped as a collection that sit below the filter collections typically. They have slightly larger tiles and slightly greater prominence than Simple Apps.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         You can add as many to a collection as you like however, the list will be paginatied by the UI at some resolutions in line with the design. All apps selected will be returned when hitting the See All link.
-      </mock-styled.p>
+      </p>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Featured apps are lists of apps, grouped as a collection that sit below the filter collections typically. They have slightly larger tiles and slightly greater prominence than Simple Apps.
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       You can add as many to a collection as you like however, the list will be paginatied by the UI at some resolutions in line with the design. All apps selected will be returned when hitting the See All link.
-    </mock-styled.p>
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -303,54 +317,60 @@ exports[`SubsHelperText should match a snapshot for featuredApps 2`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Featured apps are lists of apps, grouped as a collection that sit below the filter collections typically. They have slightly larger tiles and slightly greater prominence than Simple Apps.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         You can add as many to a collection as you like however, the list will be paginatied by the UI at some resolutions in line with the design. All apps selected will be returned when hitting the See All link.
-      </mock-styled.p>
+      </p>
     </div>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Featured and simple apps should be configured to include;
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         - A set of filters eg categories, or named apps that you want to return when the See All link is clicked on. The simplest way to do this is to specify exactly the apps you want in the collection by name.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         - A title that describes the collection
-      </mock-styled.p>
+      </p>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Featured and simple apps should be configured to include;
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       - A set of filters eg categories, or named apps that you want to return when the See All link is clicked on. The simplest way to do this is to specify exactly the apps you want in the collection by name.
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       - A title that describes the collection
-    </mock-styled.p>
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -411,21 +431,25 @@ exports[`SubsHelperText should match a snapshot for featuredHeroApps 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Featured Hero apps are the first thing you will see in on the browse apps page and therefore the most prominant and important. There should be only 1 Featured Hero set to live at any given time.
-      </mock-styled.p>
+      </p>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Featured Hero apps are the first thing you will see in on the browse apps page and therefore the most prominant and important. There should be only 1 Featured Hero set to live at any given time.
-    </mock-styled.p>
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -486,79 +510,85 @@ exports[`SubsHelperText should match a snapshot for featuredHeroApps 2`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Featured Hero apps are the first thing you will see in on the browse apps page and therefore the most prominant and important. There should be only 1 Featured Hero set to live at any given time.
-      </mock-styled.p>
+      </p>
     </div>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Featured Hero and Hero apps, should be confgured to include;
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         - A title, to sit above the Hero Item
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         - An app specified from the apps search and select box
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         - A brand colour as a hex colour selected in the colour picker
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         - A marketing strapline to sit below the icon of the App
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         - An image uploaded that looks good at all resolutions. You should test this by re-sizing the browser from mobile to widescreen
-      </mock-styled.p>
+      </p>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Featured Hero and Hero apps, should be confgured to include;
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       - A title, to sit above the Hero Item
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       - An app specified from the apps search and select box
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       - A brand colour as a hex colour selected in the colour picker
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       - A marketing strapline to sit below the icon of the App
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       - An image uploaded that looks good at all resolutions. You should test this by re-sizing the browser from mobile to widescreen
-    </mock-styled.p>
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -619,21 +649,25 @@ exports[`SubsHelperText should match a snapshot for heroApps 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Hero apps are of secondary prominance to the Featured Hero. There should only be 2 Heros set to live at any given time
-      </mock-styled.p>
+      </p>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Hero apps are of secondary prominance to the Featured Hero. There should only be 2 Heros set to live at any given time
-    </mock-styled.p>
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -694,79 +728,85 @@ exports[`SubsHelperText should match a snapshot for heroApps 2`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Hero apps are of secondary prominance to the Featured Hero. There should only be 2 Heros set to live at any given time
-      </mock-styled.p>
+      </p>
     </div>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Featured Hero and Hero apps, should be confgured to include;
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         - A title, to sit above the Hero Item
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         - An app specified from the apps search and select box
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         - A brand colour as a hex colour selected in the colour picker
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         - A marketing strapline to sit below the icon of the App
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         - An image uploaded that looks good at all resolutions. You should test this by re-sizing the browser from mobile to widescreen
-      </mock-styled.p>
+      </p>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Featured Hero and Hero apps, should be confgured to include;
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       - A title, to sit above the Hero Item
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       - An app specified from the apps search and select box
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       - A brand colour as a hex colour selected in the colour picker
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       - A marketing strapline to sit below the icon of the App
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       - An image uploaded that looks good at all resolutions. You should test this by re-sizing the browser from mobile to widescreen
-    </mock-styled.p>
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -827,26 +867,30 @@ exports[`SubsHelperText should match a snapshot for simpleApps 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Simple apps behave almost identically to featured apps however, they are of slightly less prominence on the page.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Simple apps behave almost identically to featured apps however, they are of slightly less prominence on the page.
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     />
   </div>,
   "debug": [Function],
@@ -908,52 +952,58 @@ exports[`SubsHelperText should match a snapshot for simpleApps 2`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Simple apps behave almost identically to featured apps however, they are of slightly less prominence on the page.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       />
     </div>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Featured and simple apps should be configured to include;
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         - A set of filters eg categories, or named apps that you want to return when the See All link is clicked on. The simplest way to do this is to specify exactly the apps you want in the collection by name.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         - A title that describes the collection
-      </mock-styled.p>
+      </p>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       Featured and simple apps should be configured to include;
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       - A set of filters eg categories, or named apps that you want to return when the See All link is clicked on. The simplest way to do this is to specify exactly the apps you want in the collection by name.
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       - A title that describes the collection
-    </mock-styled.p>
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -5,14 +5,16 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <mock-styled.ol>
         <mock-styled.li>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Definitions and Interpretation
-          </mock-styled.h2>
+          </h2>
           <mock-styled.ol>
             <mock-styled.li>
               In this Agreement, the following words and expressions have the following meaning:
@@ -312,11 +314,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
           </mock-styled.li>
         </mock-styled.li>
         <mock-styled.li>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Foundations Platform and Applications
-          </mock-styled.h2>
+          </h2>
           <mock-styled.ol>
             <mock-styled.li>
               Reapit hereby grants the Developer access to the Foundations Platform for the purpose of:
@@ -433,11 +435,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
           </mock-styled.ol>
         </mock-styled.li>
         <mock-styled.li>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Fees and Payment
-          </mock-styled.h2>
+          </h2>
           <mock-styled.ol>
             <mock-styled.li>
               Developer shall pay Reapit the Fees as calculated in accordance with Schedule 2 and as invoiced by Reapit in accordance with this clause 3. The Fees do not include value added tax or any locally applicable equivalent sales tax which Developer shall pay, in addition to the Fees, at the prevailing rate, and in the manner prescribed by applicable law. Without prejudice to the foregoing, Reapit reserves the right to invoice the Developer for any API Calls in excess of the Monthly API Call limit set out in Schedule 2.
@@ -468,11 +470,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
           </mock-styled.ol>
         </mock-styled.li>
         <mock-styled.li>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Intellectual Property Rights and Indemnity
-          </mock-styled.h2>
+          </h2>
           <mock-styled.ol>
             <mock-styled.li>
               All Intellectual Property Rights belonging to a Party prior to the Commencement Date, including all enhancements and modifications to those Intellectual Property Rights, shall remain vested in that Party. Unless expressly agreed in writing in an Order form, the Parties do not intend that the ownership of any Intellectual Property Rights shall transfer from one Party to another as a result of entering into this Agreement.
@@ -560,11 +562,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
           </mock-styled.ol>
         </mock-styled.li>
         <mock-styled.li>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Developer Feedback
-          </mock-styled.h2>
+          </h2>
           <mock-styled.ol>
             <mock-styled.li>
               The Developer grants Reapit a perpetual royalty-free and non-exclusive licence to use any Developer Feedback on the terms and conditions of this Agreement for the purposes of
@@ -586,11 +588,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
           </mock-styled.ol>
         </mock-styled.li>
         <mock-styled.li>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Data and Data Protection
-          </mock-styled.h2>
+          </h2>
           <mock-styled.ol>
             <mock-styled.li>
               Data
@@ -668,11 +670,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
           </mock-styled.li>
         </mock-styled.li>
         <mock-styled.li>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Confidentiality
-          </mock-styled.h2>
+          </h2>
           <mock-styled.ol>
             <mock-styled.li>
               Each Party (a Recipient) undertakes to the other Party (each, a 
@@ -718,11 +720,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
           </mock-styled.ol>
         </mock-styled.li>
         <mock-styled.li>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Representations, Warranties and Undertakings
-          </mock-styled.h2>
+          </h2>
           <mock-styled.ol>
             <mock-styled.li>
               Each Party represents and warrants to the other Party that:
@@ -771,11 +773,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
           </mock-styled.li>
         </mock-styled.li>
         <mock-styled.li>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Force Majeure
-          </mock-styled.h2>
+          </h2>
           <mock-styled.ol>
             <mock-styled.li>
               Subject to clause 10.1, neither Party shall be liable to the other Party for any delay or non-performance of its obligations under this Agreement arising directly from a Force Majeure Event, provided that the affected Party:
@@ -797,11 +799,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
           </mock-styled.ol>
         </mock-styled.li>
         <mock-styled.li>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Limitation of Liability
-          </mock-styled.h2>
+          </h2>
           <mock-styled.ol>
             <mock-styled.li>
               Nothing in this Agreement excludes or limits either Party’s liability:
@@ -908,11 +910,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
           </mock-styled.ol>
         </mock-styled.li>
         <mock-styled.li>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Term and Termination
-          </mock-styled.h2>
+          </h2>
           <mock-styled.ol>
             <mock-styled.li>
               The Agreement comes into effect on the Commencement Date and, subject to early termination in accordance with the terms of clause 11.3, shall continue to be in force until the expiry of the Initial Term. 
@@ -964,11 +966,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
           </mock-styled.ol>
         </mock-styled.li>
         <mock-styled.li>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Consequences of Termination
-          </mock-styled.h2>
+          </h2>
           <mock-styled.ol>
             <mock-styled.li>
               The following clauses shall survive termination or expiry of this Agreement: 3, 4, 5, 6, 7, 10, 12, 13, 15 and 16.
@@ -990,11 +992,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
           </mock-styled.ol>
         </mock-styled.li>
         <mock-styled.li>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Notices
-          </mock-styled.h2>
+          </h2>
           <mock-styled.ol>
             <mock-styled.li>
               Any notice request instruction or other document to be given under this Agreement shall be in writing and shall be deemed to have been duly given if left at or sent by hand or by registered post or by e-mail to (i) a Party at its registered company address in England; or (ii) e-mail address set out below for such Party or such other address as one Party may from time to time designate by written notice to the other.
@@ -1030,11 +1032,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
           </mock-styled.ol>
         </mock-styled.li>
         <mock-styled.li>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Miscellaneous
-          </mock-styled.h2>
+          </h2>
           <mock-styled.ol>
             <mock-styled.li>
               Announcements: Neither Party shall:
@@ -1118,11 +1120,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
           </mock-styled.ol>
         </mock-styled.li>
         <mock-styled.li>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Disputes
-          </mock-styled.h2>
+          </h2>
           <mock-styled.ol>
             <mock-styled.li>
               Any Dispute shall be referred for resolution by either Party first to the Chief Commercial Officer (for Reapit) and Key Contact (for the Developer).
@@ -1146,11 +1148,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
           </mock-styled.ol>
         </mock-styled.li>
         <mock-styled.li>
-          <mock-styled.h2
-            classname="el-text-base"
+          <h2
+            class="el-text-base el-subtitle"
           >
             Governing Law and Jurisdiction
-          </mock-styled.h2>
+          </h2>
           <mock-styled.ol>
             <mock-styled.li>
               This Agreement shall be governed by, construed and interpreted in accordance with English law and the Parties hereby agree, for the purposes of this Agreement only and subject to the provisions of clause 15, to submit themselves and any claim or matter arising under or in connection with this Agreement to the exclusive jurisdiction of the English courts.
@@ -1161,14 +1163,16 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <mock-styled.ol>
       <mock-styled.li>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Definitions and Interpretation
-        </mock-styled.h2>
+        </h2>
         <mock-styled.ol>
           <mock-styled.li>
             In this Agreement, the following words and expressions have the following meaning:
@@ -1468,11 +1472,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.li>
       </mock-styled.li>
       <mock-styled.li>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Foundations Platform and Applications
-        </mock-styled.h2>
+        </h2>
         <mock-styled.ol>
           <mock-styled.li>
             Reapit hereby grants the Developer access to the Foundations Platform for the purpose of:
@@ -1589,11 +1593,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.ol>
       </mock-styled.li>
       <mock-styled.li>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Fees and Payment
-        </mock-styled.h2>
+        </h2>
         <mock-styled.ol>
           <mock-styled.li>
             Developer shall pay Reapit the Fees as calculated in accordance with Schedule 2 and as invoiced by Reapit in accordance with this clause 3. The Fees do not include value added tax or any locally applicable equivalent sales tax which Developer shall pay, in addition to the Fees, at the prevailing rate, and in the manner prescribed by applicable law. Without prejudice to the foregoing, Reapit reserves the right to invoice the Developer for any API Calls in excess of the Monthly API Call limit set out in Schedule 2.
@@ -1624,11 +1628,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.ol>
       </mock-styled.li>
       <mock-styled.li>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Intellectual Property Rights and Indemnity
-        </mock-styled.h2>
+        </h2>
         <mock-styled.ol>
           <mock-styled.li>
             All Intellectual Property Rights belonging to a Party prior to the Commencement Date, including all enhancements and modifications to those Intellectual Property Rights, shall remain vested in that Party. Unless expressly agreed in writing in an Order form, the Parties do not intend that the ownership of any Intellectual Property Rights shall transfer from one Party to another as a result of entering into this Agreement.
@@ -1716,11 +1720,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.ol>
       </mock-styled.li>
       <mock-styled.li>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Developer Feedback
-        </mock-styled.h2>
+        </h2>
         <mock-styled.ol>
           <mock-styled.li>
             The Developer grants Reapit a perpetual royalty-free and non-exclusive licence to use any Developer Feedback on the terms and conditions of this Agreement for the purposes of
@@ -1742,11 +1746,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.ol>
       </mock-styled.li>
       <mock-styled.li>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Data and Data Protection
-        </mock-styled.h2>
+        </h2>
         <mock-styled.ol>
           <mock-styled.li>
             Data
@@ -1824,11 +1828,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.li>
       </mock-styled.li>
       <mock-styled.li>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Confidentiality
-        </mock-styled.h2>
+        </h2>
         <mock-styled.ol>
           <mock-styled.li>
             Each Party (a Recipient) undertakes to the other Party (each, a 
@@ -1874,11 +1878,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.ol>
       </mock-styled.li>
       <mock-styled.li>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Representations, Warranties and Undertakings
-        </mock-styled.h2>
+        </h2>
         <mock-styled.ol>
           <mock-styled.li>
             Each Party represents and warrants to the other Party that:
@@ -1927,11 +1931,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.li>
       </mock-styled.li>
       <mock-styled.li>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Force Majeure
-        </mock-styled.h2>
+        </h2>
         <mock-styled.ol>
           <mock-styled.li>
             Subject to clause 10.1, neither Party shall be liable to the other Party for any delay or non-performance of its obligations under this Agreement arising directly from a Force Majeure Event, provided that the affected Party:
@@ -1953,11 +1957,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.ol>
       </mock-styled.li>
       <mock-styled.li>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Limitation of Liability
-        </mock-styled.h2>
+        </h2>
         <mock-styled.ol>
           <mock-styled.li>
             Nothing in this Agreement excludes or limits either Party’s liability:
@@ -2064,11 +2068,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.ol>
       </mock-styled.li>
       <mock-styled.li>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Term and Termination
-        </mock-styled.h2>
+        </h2>
         <mock-styled.ol>
           <mock-styled.li>
             The Agreement comes into effect on the Commencement Date and, subject to early termination in accordance with the terms of clause 11.3, shall continue to be in force until the expiry of the Initial Term. 
@@ -2120,11 +2124,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.ol>
       </mock-styled.li>
       <mock-styled.li>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Consequences of Termination
-        </mock-styled.h2>
+        </h2>
         <mock-styled.ol>
           <mock-styled.li>
             The following clauses shall survive termination or expiry of this Agreement: 3, 4, 5, 6, 7, 10, 12, 13, 15 and 16.
@@ -2146,11 +2150,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.ol>
       </mock-styled.li>
       <mock-styled.li>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Notices
-        </mock-styled.h2>
+        </h2>
         <mock-styled.ol>
           <mock-styled.li>
             Any notice request instruction or other document to be given under this Agreement shall be in writing and shall be deemed to have been duly given if left at or sent by hand or by registered post or by e-mail to (i) a Party at its registered company address in England; or (ii) e-mail address set out below for such Party or such other address as one Party may from time to time designate by written notice to the other.
@@ -2186,11 +2190,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.ol>
       </mock-styled.li>
       <mock-styled.li>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Miscellaneous
-        </mock-styled.h2>
+        </h2>
         <mock-styled.ol>
           <mock-styled.li>
             Announcements: Neither Party shall:
@@ -2274,11 +2278,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.ol>
       </mock-styled.li>
       <mock-styled.li>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Disputes
-        </mock-styled.h2>
+        </h2>
         <mock-styled.ol>
           <mock-styled.li>
             Any Dispute shall be referred for resolution by either Party first to the Chief Commercial Officer (for Reapit) and Key Contact (for the Developer).
@@ -2302,11 +2306,11 @@ exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
         </mock-styled.ol>
       </mock-styled.li>
       <mock-styled.li>
-        <mock-styled.h2
-          classname="el-text-base"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Governing Law and Jurisdiction
-        </mock-styled.h2>
+        </h2>
         <mock-styled.ol>
           <mock-styled.li>
             This Agreement shall be governed by, construed and interpreted in accordance with English law and the Parties hereby agree, for the purposes of this Agreement only and subject to the provisions of clause 15, to submit themselves and any claim or matter arising under or in connection with this Agreement to the exclusive jurisdiction of the English courts.

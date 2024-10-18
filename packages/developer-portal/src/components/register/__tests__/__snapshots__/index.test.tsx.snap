@@ -5,18 +5,21 @@ exports[`Register should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <mock-styled.div>
         <mock-styled.div>
-          <mock-styled.span
-            classname="el-mb7 el-icon-new"
-            role="img"
+          <span
+            class="el-mb7 el-icon-new el-icon"
             style="height: 40px; width: 200px;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="height: 40px; width: 200px;"
+              title="Icon image with name reapitLogo"
               viewBox="0 0 382 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -38,142 +41,179 @@ exports[`Register should match a snapshot 1`] = `
                 fill="#FD9E1D"
               />
             </svg>
-          </mock-styled.span>
+          </span>
           <div
             class="el-flex-container el-flex-column"
           >
-            <mock-styled.h2
-              classname="el-text-base el-has-no-margin el-has-centered-text"
+            <h2
+              class="el-text-base el-subtitle el-has-no-margin el-has-centered-text"
             >
               Register
-            </mock-styled.h2>
-            <mock-styled.p
-              classname="el-text-base el-has-centered-text"
+            </h2>
+            <p
+              class="el-text-base el-body-text el-has-centered-text"
             >
               for Reapit Foundations DeveloperPortal
-            </mock-styled.p>
+            </p>
           </div>
           <form>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text el-has-section-margin el-has-centered-text"
+            <p
+              class="el-text-base el-body-text el-has-grey-text el-has-section-margin el-has-centered-text"
             >
               By registering for the Foundations platform, you will get access to the Reapit DeveloperPortal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
-            </mock-styled.p>
-            <mock-styled.div
-              classname="el-form-layout-has-margin"
+            </p>
+            <div
+              class="el-form-layout-has-margin el-form-layout"
             >
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type text"
+                    class="mocked-styled-38 el-input"
                     id="name"
                     name="name"
                     placeholder="Joe Developer"
                     type="text"
                   />
-                  <mock-styled.label
-                    htmlfor="name"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="name"
                   >
                     Full name
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type text"
+                    class="mocked-styled-38 el-input"
                     id="companyName"
                     name="companyName"
                     placeholder="Acme Industries Ltd"
                     type="text"
                   />
-                  <mock-styled.label
-                    htmlfor="companyName"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="companyName"
                   >
                     Company name
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type email"
+                    class="mocked-styled-38 el-input"
                     id="email"
                     name="email"
                     placeholder="name@address.com"
                     type="email"
                   />
-                  <mock-styled.label
-                    htmlfor="email"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="email"
                   >
                     Email
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type tel"
+                    class="mocked-styled-38 el-input"
                     id="telephone"
                     name="telephone"
                     placeholder="0800 800 800"
                     type="tel"
                   />
-                  <mock-styled.label
-                    htmlfor="telephone"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="telephone"
                   >
                     Telephone
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-135 el-input-wrap-full"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type tel"
+                    class="mocked-styled-38 el-input"
                     id="gitHubUsername"
                     name="gitHubUsername"
                     placeholder="Gihub handle"
                     type="tel"
                   />
-                  <mock-styled.label
-                    htmlfor="gitHubUsername"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="gitHubUsername"
                   >
                     GitHub Username
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-button-group-align-center"
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-2 el-button-group"
+            >
+              <div
+                class="el-button-group-align-center el-button-group-inner"
               >
-                <mock-styled.button
-                  classname="el-intent-primary"
+                <button
+                  class="el-intent-primary el-button"
                   type="submit"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Register
-                </mock-styled.button>
-              </mock-styled.div>
-            </mock-styled.div>
+                </button>
+              </div>
+            </div>
           </form>
         </mock-styled.div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <mock-styled.div>
       <mock-styled.div>
-        <mock-styled.span
-          classname="el-mb7 el-icon-new"
-          role="img"
+        <span
+          class="el-mb7 el-icon-new el-icon"
           style="height: 40px; width: 200px;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="height: 40px; width: 200px;"
+            title="Icon image with name reapitLogo"
             viewBox="0 0 382 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -195,124 +235,158 @@ exports[`Register should match a snapshot 1`] = `
               fill="#FD9E1D"
             />
           </svg>
-        </mock-styled.span>
+        </span>
         <div
           class="el-flex-container el-flex-column"
         >
-          <mock-styled.h2
-            classname="el-text-base el-has-no-margin el-has-centered-text"
+          <h2
+            class="el-text-base el-subtitle el-has-no-margin el-has-centered-text"
           >
             Register
-          </mock-styled.h2>
-          <mock-styled.p
-            classname="el-text-base el-has-centered-text"
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-centered-text"
           >
             for Reapit Foundations DeveloperPortal
-          </mock-styled.p>
+          </p>
         </div>
         <form>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text el-has-section-margin el-has-centered-text"
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-has-section-margin el-has-centered-text"
           >
             By registering for the Foundations platform, you will get access to the Reapit DeveloperPortal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
-          </mock-styled.p>
-          <mock-styled.div
-            classname="el-form-layout-has-margin"
+          </p>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
           >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type text"
+                  class="mocked-styled-38 el-input"
                   id="name"
                   name="name"
                   placeholder="Joe Developer"
                   type="text"
                 />
-                <mock-styled.label
-                  htmlfor="name"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="name"
                 >
                   Full name
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type text"
+                  class="mocked-styled-38 el-input"
                   id="companyName"
                   name="companyName"
                   placeholder="Acme Industries Ltd"
                   type="text"
                 />
-                <mock-styled.label
-                  htmlfor="companyName"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="companyName"
                 >
                   Company name
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type email"
+                  class="mocked-styled-38 el-input"
                   id="email"
                   name="email"
                   placeholder="name@address.com"
                   type="email"
                 />
-                <mock-styled.label
-                  htmlfor="email"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="email"
                 >
                   Email
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type tel"
+                  class="mocked-styled-38 el-input"
                   id="telephone"
                   name="telephone"
                   placeholder="0800 800 800"
                   type="tel"
                 />
-                <mock-styled.label
-                  htmlfor="telephone"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="telephone"
                 >
                   Telephone
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-135 el-input-wrap-full"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type tel"
+                  class="mocked-styled-38 el-input"
                   id="gitHubUsername"
                   name="gitHubUsername"
                   placeholder="Gihub handle"
                   type="tel"
                 />
-                <mock-styled.label
-                  htmlfor="gitHubUsername"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="gitHubUsername"
                 >
                   GitHub Username
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-button-group-align-center"
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-2 el-button-group"
+          >
+            <div
+              class="el-button-group-align-center el-button-group-inner"
             >
-              <mock-styled.button
-                classname="el-intent-primary"
+              <button
+                class="el-intent-primary el-button"
                 type="submit"
               >
-                <mock-styled.div />
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
                 Register
-              </mock-styled.button>
-            </mock-styled.div>
-          </mock-styled.div>
+              </button>
+            </div>
+          </div>
         </form>
       </mock-styled.div>
     </mock-styled.div>

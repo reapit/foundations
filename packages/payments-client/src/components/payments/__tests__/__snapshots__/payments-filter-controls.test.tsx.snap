@@ -5,7 +5,9 @@ exports[`PaymentsFilterControls should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-border-radius mock-css.
   overflow: hidden;
@@ -13,55 +15,62 @@ exports[`PaymentsFilterControls should match a snapshot 1`] = `
       >
         <form>
           <mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
             >
-              <mock-styled.input
-                classname=""
+              <input
+                aria-label="Input type date format dd/mm/yyy max date of 2019-10-10 min date of 2017-10-10"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 max="2019-10-10"
                 min="2017-10-10"
                 name="createdFrom"
                 type="date"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Created From
-              </mock-styled.label>
-            </mock-styled.div>
+              </label>
+            </div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
             >
-              <mock-styled.input
-                classname=""
+              <input
+                aria-label="Input type date format dd/mm/yyy max date of 2019-10-11 min date of 2019-10-10"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 max="2019-10-11"
                 min="2019-10-10"
                 name="createdTo"
                 type="date"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Created To
-              </mock-styled.label>
-            </mock-styled.div>
+              </label>
+            </div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.select
-                classname="el-wfull"
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="el-wfull el-select"
                 name="status"
               >
                 <option
@@ -89,39 +98,45 @@ exports[`PaymentsFilterControls should match a snapshot 1`] = `
                 >
                   Failed
                 </option>
-              </mock-styled.select>
-              <mock-styled.label>
+              </select>
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Status
-              </mock-styled.label>
-            </mock-styled.div>
+              </label>
+            </div>
           </mock-styled.div>
           <mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
             >
-              <mock-styled.input
-                classname=""
+              <input
+                aria-label="Input type text"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="description"
                 type="text"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Description
-              </mock-styled.label>
-            </mock-styled.div>
+              </label>
+            </div>
           </mock-styled.div>
         </form>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-border-radius mock-css.
   overflow: hidden;
@@ -129,55 +144,62 @@ exports[`PaymentsFilterControls should match a snapshot 1`] = `
     >
       <form>
         <mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type date format dd/mm/yyy max date of 2019-10-10 min date of 2017-10-10"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               max="2019-10-10"
               min="2017-10-10"
               name="createdFrom"
               type="date"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Created From
-            </mock-styled.label>
-          </mock-styled.div>
+            </label>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type date format dd/mm/yyy max date of 2019-10-11 min date of 2019-10-10"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               max="2019-10-11"
               min="2019-10-10"
               name="createdTo"
               type="date"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Created To
-            </mock-styled.label>
-          </mock-styled.div>
+            </label>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.select
-              classname="el-wfull"
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <select
+              aria-label="Select an item from the dropdown list"
+              class="el-wfull el-select"
               name="status"
             >
               <option
@@ -205,32 +227,36 @@ exports[`PaymentsFilterControls should match a snapshot 1`] = `
               >
                 Failed
               </option>
-            </mock-styled.select>
-            <mock-styled.label>
+            </select>
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Status
-            </mock-styled.label>
-          </mock-styled.div>
+            </label>
+          </div>
         </mock-styled.div>
         <mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="description"
               type="text"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Description
-            </mock-styled.label>
-          </mock-styled.div>
+            </label>
+          </div>
         </mock-styled.div>
       </form>
     </div>

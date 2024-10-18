@@ -5,23 +5,25 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app is  dire
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         will-test-dev-co-voracious-person
          integration has been successfully enabled.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         For details on how to use the integration and, if there are any additional setup requirements, a member of
          
         MOCK_DEVELOPER_NAME
          will be in touch to help you through the process.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         If you wish to contact them directly, you can do this via telephone at 
         07777777777
@@ -35,39 +37,45 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app is  dire
           foo@bar.com
         </a>
         .
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-button-group-align-center"
+      </p>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="el-button-group-align-center el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Back To App
-          </mock-styled.button>
-        </mock-styled.div>
-      </mock-styled.div>
+          </button>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       will-test-dev-co-voracious-person
        integration has been successfully enabled.
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       For details on how to use the integration and, if there are any additional setup requirements, a member of
        
       MOCK_DEVELOPER_NAME
        will be in touch to help you through the process.
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base el-has-grey-text"
+    </p>
+    <p
+      class="el-text-base el-body-text el-has-grey-text"
     >
       If you wish to contact them directly, you can do this via telephone at 
       07777777777
@@ -81,19 +89,23 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app is  dire
         foo@bar.com
       </a>
       .
-    </mock-styled.p>
-    <mock-styled.div>
-      <mock-styled.div
-        classname="el-button-group-align-center"
+    </p>
+    <div
+      class="mocked-styled-2 el-button-group"
+    >
+      <div
+        class="el-button-group-align-center el-button-group-inner"
       >
-        <mock-styled.button
-          classname="el-intent-neutral"
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Back To App
-        </mock-styled.button>
-      </mock-styled.div>
-    </mock-styled.div>
+        </button>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -154,16 +166,18 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app not dire
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text"
       >
         The 
         will-test-dev-co-voracious-person
          app has been successfully installed. You can now launch the app from the ‘My Apps’ page or by clicking the button below.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base"
+      </p>
+      <p
+        class="el-text-base el-body-text"
       >
         If you wish to contact the developer about using the app, you can do this via telephone at 
         07777777777
@@ -177,45 +191,53 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app not dire
           foo@bar.com
         </a>
         .
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-button-group-align-center"
+      </p>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="el-button-group-align-center el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Back To App
-          </mock-styled.button>
+          </button>
           <a
             href="https://foo.bar"
             rel="noopener noreferrer"
             target="_blank"
           >
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Launch App
-            </mock-styled.button>
+            </button>
           </a>
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text"
     >
       The 
       will-test-dev-co-voracious-person
        app has been successfully installed. You can now launch the app from the ‘My Apps’ page or by clicking the button below.
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base"
+    </p>
+    <p
+      class="el-text-base el-body-text"
     >
       If you wish to contact the developer about using the app, you can do this via telephone at 
       07777777777
@@ -229,32 +251,38 @@ exports[`AppInstallSuccesModalContent should match a snapshot where app not dire
         foo@bar.com
       </a>
       .
-    </mock-styled.p>
-    <mock-styled.div>
-      <mock-styled.div
-        classname="el-button-group-align-center"
+    </p>
+    <div
+      class="mocked-styled-2 el-button-group"
+    >
+      <div
+        class="el-button-group-align-center el-button-group-inner"
       >
-        <mock-styled.button
-          classname="el-intent-neutral"
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Back To App
-        </mock-styled.button>
+        </button>
         <a
           href="https://foo.bar"
           rel="noopener noreferrer"
           target="_blank"
         >
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Launch App
-          </mock-styled.button>
+          </button>
         </a>
-      </mock-styled.div>
-    </mock-styled.div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -315,16 +343,18 @@ exports[`AppInstallSuccesModalContent should match a snapshot where in desktop m
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.p
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <p
+        class="el-text-base el-body-text"
       >
         The 
         will-test-dev-co-voracious-person
          app has been successfully installed. You can now launch the app from the ‘My Apps’ page or by clicking the button below.
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base"
+      </p>
+      <p
+        class="el-text-base el-body-text"
       >
         If you wish to contact the developer about using the app, you can do this via telephone at 
         07777777777
@@ -338,45 +368,53 @@ exports[`AppInstallSuccesModalContent should match a snapshot where in desktop m
           foo@bar.com
         </a>
         .
-      </mock-styled.p>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-button-group-align-center"
+      </p>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="el-button-group-align-center el-button-group-inner"
         >
-          <mock-styled.button
-            classname="el-intent-neutral"
+          <button
+            class="el-intent-neutral el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Back To App
-          </mock-styled.button>
+          </button>
           <a
             href="https://foo.bar"
             rel="noopener noreferrer"
             target="_blank"
           >
-            <mock-styled.button
-              classname="el-intent-primary"
+            <button
+              class="el-intent-primary el-button"
               type="button"
             >
-              <mock-styled.div />
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
               Launch App
-            </mock-styled.button>
+            </button>
           </a>
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.p
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <p
+      class="el-text-base el-body-text"
     >
       The 
       will-test-dev-co-voracious-person
        app has been successfully installed. You can now launch the app from the ‘My Apps’ page or by clicking the button below.
-    </mock-styled.p>
-    <mock-styled.p
-      classname="el-text-base"
+    </p>
+    <p
+      class="el-text-base el-body-text"
     >
       If you wish to contact the developer about using the app, you can do this via telephone at 
       07777777777
@@ -390,32 +428,38 @@ exports[`AppInstallSuccesModalContent should match a snapshot where in desktop m
         foo@bar.com
       </a>
       .
-    </mock-styled.p>
-    <mock-styled.div>
-      <mock-styled.div
-        classname="el-button-group-align-center"
+    </p>
+    <div
+      class="mocked-styled-2 el-button-group"
+    >
+      <div
+        class="el-button-group-align-center el-button-group-inner"
       >
-        <mock-styled.button
-          classname="el-intent-neutral"
+        <button
+          class="el-intent-neutral el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           Back To App
-        </mock-styled.button>
+        </button>
         <a
           href="https://foo.bar"
           rel="noopener noreferrer"
           target="_blank"
         >
-          <mock-styled.button
-            classname="el-intent-primary"
+          <button
+            class="el-intent-primary el-button"
             type="button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             Launch App
-          </mock-styled.button>
+          </button>
         </a>
-      </mock-styled.div>
-    </mock-styled.div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

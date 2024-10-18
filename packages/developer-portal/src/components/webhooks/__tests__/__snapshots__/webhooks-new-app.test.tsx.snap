@@ -5,23 +5,33 @@ exports[`WebhooksNewApp should match a snapshot where there are apps 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-mb11"
       >
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text el-has-no-margin"
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
         >
           First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
-        </mock-styled.p>
+        </p>
       </div>
-      <mock-styled.div
-        classname="el-fade-in"
+      <div
+        class="el-fade-in el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.select>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <select
+              aria-label="Select an item from the dropdown list"
+              class="mocked-styled-83 el-select"
+            >
               <option
+                selected=""
                 value=""
               >
                 None selected
@@ -36,33 +46,45 @@ exports[`WebhooksNewApp should match a snapshot where there are apps 1`] = `
               >
                 MOCK_APP_NAME_ANOTHER
               </option>
-            </mock-styled.select>
-            <mock-styled.label>
+            </select>
+            <label
+              class="mocked-styled-41 el-label"
+            >
               Please select an app
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-mb11"
     >
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text el-has-no-margin"
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
       >
         First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
-      </mock-styled.p>
+      </p>
     </div>
-    <mock-styled.div
-      classname="el-fade-in"
+    <div
+      class="el-fade-in el-form-layout"
     >
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.select>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <select
+            aria-label="Select an item from the dropdown list"
+            class="mocked-styled-83 el-select"
+          >
             <option
+              selected=""
               value=""
             >
               None selected
@@ -77,13 +99,15 @@ exports[`WebhooksNewApp should match a snapshot where there are apps 1`] = `
             >
               MOCK_APP_NAME_ANOTHER
             </option>
-          </mock-styled.select>
-          <mock-styled.label>
+          </select>
+          <label
+            class="mocked-styled-41 el-label"
+          >
             Please select an app
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+          </label>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

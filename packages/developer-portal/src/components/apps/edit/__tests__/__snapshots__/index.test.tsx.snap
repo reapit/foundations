@@ -5,128 +5,150 @@ exports[`AppEditPage should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         will-test-dev-co-voracious-person
-      </mock-styled.h1>
-      <mock-styled.div
-        classname="el-tabs-full-width"
-        role="tablist"
+      </h1>
+      <div
+        class="el-tabs-full-width el-tabs-wrap"
       >
-        <mock-styled.div>
-          <mock-styled.input
+        <div
+          class="mocked-styled-120 el-tabs-options-wrap"
+          role="tablist"
+        >
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="general"
             name="app-edit-tabs"
-            role="tab"
             type="radio"
             value="general"
           />
-          <mock-styled.label
-            htmlfor="general"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="general"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               About Listings
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="app-listing"
             name="app-edit-tabs"
-            role="tab"
             type="radio"
             value="app-listing"
           />
-          <mock-styled.label
-            htmlfor="app-listing"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="app-listing"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               AppMarket Listing
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="authentication"
             name="app-edit-tabs"
-            role="tab"
             type="radio"
             value="authentication"
           />
-          <mock-styled.label
-            htmlfor="authentication"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="authentication"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Authentication
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="permissions"
             name="app-edit-tabs"
-            role="tab"
             type="radio"
             value="permissions"
           />
-          <mock-styled.label
-            htmlfor="permissions"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="permissions"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               Permissions
             </span>
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-selected="false"
+            class="mocked-styled-117 el-tabs"
             id="ac-integration"
             name="app-edit-tabs"
-            role="tab"
             type="radio"
             value="ac-integration"
           />
-          <mock-styled.label
-            htmlfor="ac-integration"
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="ac-integration"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="el-tabs-item"
             >
               AgencyCloud Integration
             </span>
-          </mock-styled.label>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="el-tabs-full-width"
+          </label>
+        </div>
+        <div
+          class="el-tabs-full-width el-tabs-footer"
         />
-      </mock-styled.div>
+      </div>
       <form />
-      <mock-styled.div
+      <div
         aria-hidden="true"
-        classname=""
+        class="mocked-styled-146 el-mobile-controls-bg"
       />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-147 el-mobile-controls"
         id=":r1:"
       >
-        <mock-styled.button
+        <button
           aria-controls=":r1:"
-          classname="el-floating-button el-intent-primary"
+          class="el-floating-button el-intent-primary el-button"
         >
-          <mock-styled.div />
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          <span
+            class="el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name menu"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -136,134 +158,156 @@ exports[`AppEditPage should match a snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+          </span>
+        </button>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       will-test-dev-co-voracious-person
-    </mock-styled.h1>
-    <mock-styled.div
-      classname="el-tabs-full-width"
-      role="tablist"
+    </h1>
+    <div
+      class="el-tabs-full-width el-tabs-wrap"
     >
-      <mock-styled.div>
-        <mock-styled.input
+      <div
+        class="mocked-styled-120 el-tabs-options-wrap"
+        role="tablist"
+      >
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="general"
           name="app-edit-tabs"
-          role="tab"
           type="radio"
           value="general"
         />
-        <mock-styled.label
-          htmlfor="general"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="general"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             About Listings
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="app-listing"
           name="app-edit-tabs"
-          role="tab"
           type="radio"
           value="app-listing"
         />
-        <mock-styled.label
-          htmlfor="app-listing"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="app-listing"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             AppMarket Listing
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="authentication"
           name="app-edit-tabs"
-          role="tab"
           type="radio"
           value="authentication"
         />
-        <mock-styled.label
-          htmlfor="authentication"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="authentication"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Authentication
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="permissions"
           name="app-edit-tabs"
-          role="tab"
           type="radio"
           value="permissions"
         />
-        <mock-styled.label
-          htmlfor="permissions"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="permissions"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             Permissions
           </span>
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-selected="false"
+          class="mocked-styled-117 el-tabs"
           id="ac-integration"
           name="app-edit-tabs"
-          role="tab"
           type="radio"
           value="ac-integration"
         />
-        <mock-styled.label
-          htmlfor="ac-integration"
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="ac-integration"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="el-tabs-item"
           >
             AgencyCloud Integration
           </span>
-        </mock-styled.label>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-tabs-full-width"
+        </label>
+      </div>
+      <div
+        class="el-tabs-full-width el-tabs-footer"
       />
-    </mock-styled.div>
+    </div>
     <form />
-    <mock-styled.div
+    <div
       aria-hidden="true"
-      classname=""
+      class="mocked-styled-146 el-mobile-controls-bg"
     />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-147 el-mobile-controls"
       id=":r1:"
     >
-      <mock-styled.button
+      <button
         aria-controls=":r1:"
-        classname="el-floating-button el-intent-primary"
+        class="el-floating-button el-intent-primary el-button"
       >
-        <mock-styled.div />
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <div
+          class="mocked-styled-0 el-button-loader"
+        />
+        <span
+          class="el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name menu"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -273,9 +317,9 @@ exports[`AppEditPage should match a snapshot 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
+        </span>
+      </button>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -336,25 +380,37 @@ exports[`AppEditPage should match snapshot where loading apps 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="mocked-styled-44 el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+        <div
+          class="mocked-styled-46 el-loader"
+        >
+          <div
+            class="mocked-styled-47 el-loader-moving-bar"
+          />
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="mocked-styled-44 el-loader-container"
     >
-      <mock-styled.div>
-        <mock-styled.div />
-      </mock-styled.div>
-    </mock-styled.div>
+      <div
+        class="mocked-styled-46 el-loader"
+      >
+        <div
+          class="mocked-styled-47 el-loader-moving-bar"
+        />
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -415,24 +471,27 @@ exports[`AppEditPage should match snapshot where no app found 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-        role="alertdialog"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        role="status"
       >
         <div
           class="el-pn-icon"
           data-testid="close-icon"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1.25rem;"
+              title="Icon image with name info"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -442,35 +501,39 @@ exports[`AppEditPage should match snapshot where no app found 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
         </div>
         <div
+          aria-live="polite"
           class="el-pn-content"
         >
           No record of this app found
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline"
-      role="alertdialog"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      role="status"
     >
       <div
         class="el-pn-icon"
         data-testid="close-icon"
       >
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <span
+          class="el-icon-new el-icon"
           style="font-size: 1.25rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 1.25rem;"
+            title="Icon image with name info"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -480,14 +543,15 @@ exports[`AppEditPage should match snapshot where no app found 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
+        </span>
       </div>
       <div
+        aria-live="polite"
         class="el-pn-content"
       >
         No record of this app found
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -551,25 +615,37 @@ exports[`should match snapshot for mobile view 1`] = `
       id="root"
     />
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="mocked-styled-44 el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+        <div
+          class="mocked-styled-46 el-loader"
+        >
+          <div
+            class="mocked-styled-47 el-loader-moving-bar"
+          />
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="mocked-styled-44 el-loader-container"
     >
-      <mock-styled.div>
-        <mock-styled.div />
-      </mock-styled.div>
-    </mock-styled.div>
+      <div
+        class="mocked-styled-46 el-loader"
+      >
+        <div
+          class="mocked-styled-47 el-loader-moving-bar"
+        />
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

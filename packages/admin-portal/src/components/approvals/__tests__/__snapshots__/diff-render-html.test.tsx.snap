@@ -5,7 +5,9 @@ exports[`DiffRenderHTML should match snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="mock-css.
   background-color: var(--color-grey-lightest);
@@ -79,7 +81,9 @@ exports[`DiffRenderHTML should match snapshot 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="mock-css.
   background-color: var(--color-grey-lightest);

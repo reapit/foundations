@@ -5,32 +5,41 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-81 el-secondary-nav"
+          >
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Offices
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Office Groups
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.span
-            classname="el-mb5 el-icon-size-large"
-            role="img"
+            </div>
+          </div>
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name developmentInfographic"
               viewBox="0 0 20 20"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -66,32 +75,34 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </span>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             You can create an office group with this wizard. If you want to update the information later, refer to the office groups page.
-          </mock-styled.p>
+          </p>
           <div
             class="el-mb5"
           >
-            <mock-styled.p
-              classname="el-text-base"
+            <p
+              class="el-text-base el-body-text"
             >
               Organisations
-            </mock-styled.p>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </p>
+            <small
+              class="el-text-base el-small-text el-has-grey-text"
             >
               You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-            </mock-styled.p>
+            </small>
             <mock-styled.div
               classname="el-border-radius"
             >
-              <mock-styled.div>
-                <mock-styled.select
-                  classname="el-wfull"
-                  value="SOME_ID"
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <select
+                  aria-label="Select an item from the dropdown list"
+                  class="el-wfull el-select"
                 >
                   <option
                     value=""
@@ -108,13 +119,14 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
                   >
                     name
                   </option>
-                </mock-styled.select>
-                <mock-styled.label
-                  htmlfor="myId"
+                </select>
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="myId"
                 >
                   Select Organisation
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
           </div>
         </aside>
@@ -124,91 +136,116 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
           <div
             class="el-flex-container el-flex-justify-between"
           >
-            <mock-styled.h1
-              classname="el-text-base"
+            <h1
+              class="el-text-base el-title"
             >
               SOME_NAME
                Offices
-            </mock-styled.h1>
+            </h1>
           </div>
           <form>
-            <mock-styled.div
-              classname="el-form-layout-has-margin el-fade-in"
+            <div
+              class="el-form-layout-has-margin el-fade-in el-form-layout"
             >
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type undefined"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="name"
                     placeholder="Search for an office"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Search
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
                 <div
                   class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
                 >
-                  <mock-styled.div>
-                    <mock-styled.div
-                      classname="el-button-group-align-left"
+                  <div
+                    class="mocked-styled-2 el-button-group"
+                  >
+                    <div
+                      class="el-button-group-align-left el-button-group-inner"
                     >
-                      <mock-styled.button
-                        classname="el-intent-primary"
+                      <button
+                        class="el-intent-primary el-button"
                         type="submit"
                       >
-                        <mock-styled.div />
+                        <div
+                          class="mocked-styled-0 el-button-loader"
+                        />
                         Search
-                      </mock-styled.button>
-                    </mock-styled.div>
-                  </mock-styled.div>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </mock-styled.div>
-            </mock-styled.div>
+              </div>
+            </div>
           </form>
-          <mock-styled.div
-            classname=""
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-81 el-secondary-nav"
+        >
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Offices
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Office Groups
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+          </div>
+        </div>
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name developmentInfographic"
             viewBox="0 0 20 20"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -244,32 +281,34 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
               </clippath>
             </defs>
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </span>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
         >
           You can create an office group with this wizard. If you want to update the information later, refer to the office groups page.
-        </mock-styled.p>
+        </p>
         <div
           class="el-mb5"
         >
-          <mock-styled.p
-            classname="el-text-base"
+          <p
+            class="el-text-base el-body-text"
           >
             Organisations
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </p>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-          </mock-styled.p>
+          </small>
           <mock-styled.div
             classname="el-border-radius"
           >
-            <mock-styled.div>
-              <mock-styled.select
-                classname="el-wfull"
-                value="SOME_ID"
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="el-wfull el-select"
               >
                 <option
                   value=""
@@ -286,13 +325,14 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
                 >
                   name
                 </option>
-              </mock-styled.select>
-              <mock-styled.label
-                htmlfor="myId"
+              </select>
+              <label
+                class="mocked-styled-41 el-label"
+                for="myId"
               >
                 Select Organisation
-              </mock-styled.label>
-            </mock-styled.div>
+              </label>
+            </div>
           </mock-styled.div>
         </div>
       </aside>
@@ -302,60 +342,76 @@ exports[`OfficesPage should match a snapshot for the office groups tab 1`] = `
         <div
           class="el-flex-container el-flex-justify-between"
         >
-          <mock-styled.h1
-            classname="el-text-base"
+          <h1
+            class="el-text-base el-title"
           >
             SOME_NAME
              Offices
-          </mock-styled.h1>
+          </h1>
         </div>
         <form>
-          <mock-styled.div
-            classname="el-form-layout-has-margin el-fade-in"
+          <div
+            class="el-form-layout-has-margin el-fade-in el-form-layout"
           >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type undefined"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="name"
                   placeholder="Search for an office"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Search
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
               <div
                 class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-button-group-align-left"
+                <div
+                  class="mocked-styled-2 el-button-group"
+                >
+                  <div
+                    class="el-button-group-align-left el-button-group-inner"
                   >
-                    <mock-styled.button
-                      classname="el-intent-primary"
+                    <button
+                      class="el-intent-primary el-button"
                       type="submit"
                     >
-                      <mock-styled.div />
+                      <div
+                        class="mocked-styled-0 el-button-loader"
+                      />
                       Search
-                    </mock-styled.button>
-                  </mock-styled.div>
-                </mock-styled.div>
+                    </button>
+                  </div>
+                </div>
               </div>
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </form>
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </section>
     </div>
   </div>,
@@ -418,32 +474,41 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-81 el-secondary-nav"
+          >
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Offices
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Office Groups
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.span
-            classname="el-mb5 el-icon-size-large"
-            role="img"
+            </div>
+          </div>
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name developmentInfographic"
               viewBox="0 0 20 20"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -479,32 +544,34 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </span>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             You can create an office group with this wizard. If you want to update the information later, refer to the office groups page.
-          </mock-styled.p>
+          </p>
           <div
             class="el-mb5"
           >
-            <mock-styled.p
-              classname="el-text-base"
+            <p
+              class="el-text-base el-body-text"
             >
               Organisations
-            </mock-styled.p>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </p>
+            <small
+              class="el-text-base el-small-text el-has-grey-text"
             >
               You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-            </mock-styled.p>
+            </small>
             <mock-styled.div
               classname="el-border-radius"
             >
-              <mock-styled.div>
-                <mock-styled.select
-                  classname="el-wfull"
-                  value="SOME_ID"
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <select
+                  aria-label="Select an item from the dropdown list"
+                  class="el-wfull el-select"
                 >
                   <option
                     value=""
@@ -521,13 +588,14 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
                   >
                     name
                   </option>
-                </mock-styled.select>
-                <mock-styled.label
-                  htmlfor="myId"
+                </select>
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="myId"
                 >
                   Select Organisation
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
           </div>
         </aside>
@@ -537,91 +605,116 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
           <div
             class="el-flex-container el-flex-justify-between"
           >
-            <mock-styled.h1
-              classname="el-text-base"
+            <h1
+              class="el-text-base el-title"
             >
               SOME_NAME
                Offices
-            </mock-styled.h1>
+            </h1>
           </div>
           <form>
-            <mock-styled.div
-              classname="el-form-layout-has-margin el-fade-in"
+            <div
+              class="el-form-layout-has-margin el-fade-in el-form-layout"
             >
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type undefined"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="name"
                     placeholder="Search for an office"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Search
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
                 <div
                   class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
                 >
-                  <mock-styled.div>
-                    <mock-styled.div
-                      classname="el-button-group-align-left"
+                  <div
+                    class="mocked-styled-2 el-button-group"
+                  >
+                    <div
+                      class="el-button-group-align-left el-button-group-inner"
                     >
-                      <mock-styled.button
-                        classname="el-intent-primary"
+                      <button
+                        class="el-intent-primary el-button"
                         type="submit"
                       >
-                        <mock-styled.div />
+                        <div
+                          class="mocked-styled-0 el-button-loader"
+                        />
                         Search
-                      </mock-styled.button>
-                    </mock-styled.div>
-                  </mock-styled.div>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </mock-styled.div>
-            </mock-styled.div>
+              </div>
+            </div>
           </form>
-          <mock-styled.div
-            classname=""
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-81 el-secondary-nav"
+        >
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Offices
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Office Groups
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+          </div>
+        </div>
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name developmentInfographic"
             viewBox="0 0 20 20"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -657,32 +750,34 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
               </clippath>
             </defs>
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </span>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
         >
           You can create an office group with this wizard. If you want to update the information later, refer to the office groups page.
-        </mock-styled.p>
+        </p>
         <div
           class="el-mb5"
         >
-          <mock-styled.p
-            classname="el-text-base"
+          <p
+            class="el-text-base el-body-text"
           >
             Organisations
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </p>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-          </mock-styled.p>
+          </small>
           <mock-styled.div
             classname="el-border-radius"
           >
-            <mock-styled.div>
-              <mock-styled.select
-                classname="el-wfull"
-                value="SOME_ID"
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="el-wfull el-select"
               >
                 <option
                   value=""
@@ -699,13 +794,14 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
                 >
                   name
                 </option>
-              </mock-styled.select>
-              <mock-styled.label
-                htmlfor="myId"
+              </select>
+              <label
+                class="mocked-styled-41 el-label"
+                for="myId"
               >
                 Select Organisation
-              </mock-styled.label>
-            </mock-styled.div>
+              </label>
+            </div>
           </mock-styled.div>
         </div>
       </aside>
@@ -715,60 +811,76 @@ exports[`OfficesPage should match a snapshot for the office new tab 1`] = `
         <div
           class="el-flex-container el-flex-justify-between"
         >
-          <mock-styled.h1
-            classname="el-text-base"
+          <h1
+            class="el-text-base el-title"
           >
             SOME_NAME
              Offices
-          </mock-styled.h1>
+          </h1>
         </div>
         <form>
-          <mock-styled.div
-            classname="el-form-layout-has-margin el-fade-in"
+          <div
+            class="el-form-layout-has-margin el-fade-in el-form-layout"
           >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type undefined"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="name"
                   placeholder="Search for an office"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Search
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
               <div
                 class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-button-group-align-left"
+                <div
+                  class="mocked-styled-2 el-button-group"
+                >
+                  <div
+                    class="el-button-group-align-left el-button-group-inner"
                   >
-                    <mock-styled.button
-                      classname="el-intent-primary"
+                    <button
+                      class="el-intent-primary el-button"
                       type="submit"
                     >
-                      <mock-styled.div />
+                      <div
+                        class="mocked-styled-0 el-button-loader"
+                      />
                       Search
-                    </mock-styled.button>
-                  </mock-styled.div>
-                </mock-styled.div>
+                    </button>
+                  </div>
+                </div>
               </div>
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </form>
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </section>
     </div>
   </div>,
@@ -831,32 +943,41 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-flex-container el-flex-auto"
       >
         <aside
           class="el-secondary-nav-container"
         >
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-81 el-secondary-nav"
+          >
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Offices
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
             >
               Office Groups
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.span
-            classname="el-mb5 el-icon-size-large"
-            role="img"
+            </div>
+          </div>
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name developmentInfographic"
               viewBox="0 0 20 20"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -892,32 +1013,34 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
                 </clippath>
               </defs>
             </svg>
-          </mock-styled.span>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </span>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             You can create an office group with this wizard. If you want to update the information later, refer to the office groups page.
-          </mock-styled.p>
+          </p>
           <div
             class="el-mb5"
           >
-            <mock-styled.p
-              classname="el-text-base"
+            <p
+              class="el-text-base el-body-text"
             >
               Organisations
-            </mock-styled.p>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </p>
+            <small
+              class="el-text-base el-small-text el-has-grey-text"
             >
               You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-            </mock-styled.p>
+            </small>
             <mock-styled.div
               classname="el-border-radius"
             >
-              <mock-styled.div>
-                <mock-styled.select
-                  classname="el-wfull"
-                  value="SOME_ID"
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <select
+                  aria-label="Select an item from the dropdown list"
+                  class="el-wfull el-select"
                 >
                   <option
                     value=""
@@ -934,13 +1057,14 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
                   >
                     name
                   </option>
-                </mock-styled.select>
-                <mock-styled.label
-                  htmlfor="myId"
+                </select>
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="myId"
                 >
                   Select Organisation
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
           </div>
         </aside>
@@ -950,91 +1074,116 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
           <div
             class="el-flex-container el-flex-justify-between"
           >
-            <mock-styled.h1
-              classname="el-text-base"
+            <h1
+              class="el-text-base el-title"
             >
               SOME_NAME
                Offices
-            </mock-styled.h1>
+            </h1>
           </div>
           <form>
-            <mock-styled.div
-              classname="el-form-layout-has-margin el-fade-in"
+            <div
+              class="el-form-layout-has-margin el-fade-in el-form-layout"
             >
-              <mock-styled.div>
-                <mock-styled.div>
-                  <mock-styled.input
-                    classname=""
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
+                <div
+                  class="mocked-styled-40 el-input-group"
+                >
+                  <input
+                    aria-label="Input type undefined"
+                    class="mocked-styled-38 el-input"
                     id="test-static-id"
                     name="name"
                     placeholder="Search for an office"
                   />
-                  <mock-styled.label
-                    htmlfor="test-static-id"
+                  <label
+                    class="mocked-styled-41 el-label"
+                    for="test-static-id"
                   >
                     Search
-                  </mock-styled.label>
-                </mock-styled.div>
-              </mock-styled.div>
-              <mock-styled.div>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="mocked-styled-133 el-input-wrap"
+              >
                 <div
                   class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
                 >
-                  <mock-styled.div>
-                    <mock-styled.div
-                      classname="el-button-group-align-left"
+                  <div
+                    class="mocked-styled-2 el-button-group"
+                  >
+                    <div
+                      class="el-button-group-align-left el-button-group-inner"
                     >
-                      <mock-styled.button
-                        classname="el-intent-primary"
+                      <button
+                        class="el-intent-primary el-button"
                         type="submit"
                       >
-                        <mock-styled.div />
+                        <div
+                          class="mocked-styled-0 el-button-loader"
+                        />
                         Search
-                      </mock-styled.button>
-                    </mock-styled.div>
-                  </mock-styled.div>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </mock-styled.div>
-            </mock-styled.div>
+              </div>
+            </div>
           </form>
-          <mock-styled.div
-            classname=""
+          <div
+            class="mocked-styled-44 el-loader-container"
           >
-            <mock-styled.div>
-              <mock-styled.div />
-            </mock-styled.div>
-          </mock-styled.div>
+            <div
+              class="mocked-styled-46 el-loader"
+            >
+              <div
+                class="mocked-styled-47 el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </section>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-flex-container el-flex-auto"
     >
       <aside
         class="el-secondary-nav-container"
       >
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-81 el-secondary-nav"
+        >
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Offices
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
           >
             Office Groups
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.span
-          classname="el-mb5 el-icon-size-large"
-          role="img"
+          </div>
+        </div>
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name developmentInfographic"
             viewBox="0 0 20 20"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -1070,32 +1219,34 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
               </clippath>
             </defs>
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </span>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
         >
           You can create an office group with this wizard. If you want to update the information later, refer to the office groups page.
-        </mock-styled.p>
+        </p>
         <div
           class="el-mb5"
         >
-          <mock-styled.p
-            classname="el-text-base"
+          <p
+            class="el-text-base el-body-text"
           >
             Organisations
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </p>
+          <small
+            class="el-text-base el-small-text el-has-grey-text"
           >
             You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
-          </mock-styled.p>
+          </small>
           <mock-styled.div
             classname="el-border-radius"
           >
-            <mock-styled.div>
-              <mock-styled.select
-                classname="el-wfull"
-                value="SOME_ID"
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="el-wfull el-select"
               >
                 <option
                   value=""
@@ -1112,13 +1263,14 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
                 >
                   name
                 </option>
-              </mock-styled.select>
-              <mock-styled.label
-                htmlfor="myId"
+              </select>
+              <label
+                class="mocked-styled-41 el-label"
+                for="myId"
               >
                 Select Organisation
-              </mock-styled.label>
-            </mock-styled.div>
+              </label>
+            </div>
           </mock-styled.div>
         </div>
       </aside>
@@ -1128,60 +1280,76 @@ exports[`OfficesPage should match a snapshot for the offices tab 1`] = `
         <div
           class="el-flex-container el-flex-justify-between"
         >
-          <mock-styled.h1
-            classname="el-text-base"
+          <h1
+            class="el-text-base el-title"
           >
             SOME_NAME
              Offices
-          </mock-styled.h1>
+          </h1>
         </div>
         <form>
-          <mock-styled.div
-            classname="el-form-layout-has-margin el-fade-in"
+          <div
+            class="el-form-layout-has-margin el-fade-in el-form-layout"
           >
-            <mock-styled.div>
-              <mock-styled.div>
-                <mock-styled.input
-                  classname=""
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type undefined"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   name="name"
                   placeholder="Search for an office"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Search
-                </mock-styled.label>
-              </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div>
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
               <div
                 class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
               >
-                <mock-styled.div>
-                  <mock-styled.div
-                    classname="el-button-group-align-left"
+                <div
+                  class="mocked-styled-2 el-button-group"
+                >
+                  <div
+                    class="el-button-group-align-left el-button-group-inner"
                   >
-                    <mock-styled.button
-                      classname="el-intent-primary"
+                    <button
+                      class="el-intent-primary el-button"
                       type="submit"
                     >
-                      <mock-styled.div />
+                      <div
+                        class="mocked-styled-0 el-button-loader"
+                      />
                       Search
-                    </mock-styled.button>
-                  </mock-styled.div>
-                </mock-styled.div>
+                    </button>
+                  </div>
+                </div>
               </div>
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </form>
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-44 el-loader-container"
         >
-          <mock-styled.div>
-            <mock-styled.div />
-          </mock-styled.div>
-        </mock-styled.div>
+          <div
+            class="mocked-styled-46 el-loader"
+          >
+            <div
+              class="mocked-styled-47 el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </section>
     </div>
   </div>,

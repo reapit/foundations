@@ -5,30 +5,37 @@ exports[`Nav should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-93 el-snack-holder"
       />
-      <mock-styled.nav
-        classname=""
+      <div
+        class="mocked-styled-59 el-nav-bg"
+      />
+      <nav
+        class="mocked-styled-61 el-nav-container"
       >
-        <mock-styled.a
-          classname="el-nav-item-active"
+        <a
+          class="el-nav-item-active el-nav-item"
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="mocked-styled-60 el-nav-controls-bg"
           />
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
+          <div
+            class="mocked-styled-69 el-nav-responsive-app-switcher-wrap"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="mocked-styled-70 el-nav-responsive-app-switcher-icon-wrap"
             >
-              <mock-styled.span
-                classname="el-intent-default el-icon-new"
-                role="img"
+              <span
+                class="el-intent-default el-icon-new el-icon"
               >
                 <svg
                   fill="none"
                   height="1em"
+                  role="img"
+                  title="Icon image with name appLauncher"
                   viewBox="0 0 36 36"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -94,18 +101,21 @@ exports[`Nav should match a snapshot 1`] = `
                     r="2"
                   />
                 </svg>
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
-            style="height: 24px; width: 100px;"
+              </span>
+            </div>
+          </div>
+          <span
+            class="el-icon-new el-icon"
+            role="button"
+            style="width: 100px;"
+            tabindex="0"
           >
             <svg
               fill="none"
               height="1em"
-              style="height: 24px; width: 100px;"
+              role="img"
+              style="width: 100px;"
+              title="Icon image with name reapitLogo"
               viewBox="0 0 382 80"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -127,14 +137,17 @@ exports[`Nav should match a snapshot 1`] = `
                 fill="#FD9E1D"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.span
-            classname="el-ml-auto el-mr4 el-nav-item-hide-desktop el-intent-default el-icon-new"
-            role="img"
+          </span>
+          <span
+            class="el-ml-auto el-mr4 el-nav-item-hide-desktop el-intent-default el-icon-new el-icon"
+            role="button"
+            tabindex="0"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name more"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -144,24 +157,28 @@ exports[`Nav should match a snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-          <mock-styled.div
-            classname=""
+          </span>
+          <div
+            class="mocked-styled-60 el-nav-controls-bg"
           />
-          <mock-styled.div
-            classname="el-nav-is-hidden"
+          <div
+            class="el-nav-is-hidden el-nav-responsive-avatar-wrap"
+            role="button"
+            tabindex="0"
           >
-            <mock-styled.div
-              classname="el-mr2"
+            <div
+              class="el-mr2 el-avatar"
               role="img"
+              title="A profile image"
             />
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name chevronDown"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -171,31 +188,37 @@ exports[`Nav should match a snapshot 1`] = `
                   fill="currentColor"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.a>
-        <mock-styled.a
-          classname=""
+            </span>
+          </div>
+        </a>
+        <a
+          class="mocked-styled-63 el-nav-item"
+          role="button"
+          tabindex="0"
         >
           Payments
-        </mock-styled.a>
-        <mock-styled.div
-          classname=""
+        </a>
+        <div
+          class="mocked-styled-60 el-nav-controls-bg"
         />
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-68 el-nav-responsive-avatar-wrap"
+          role="button"
+          tabindex="0"
         >
-          <mock-styled.div
-            classname="el-mr2"
+          <div
+            class="el-mr2 el-avatar"
             role="img"
+            title="A profile image"
           />
-          <mock-styled.span
-            classname="el-intent-default el-icon-new"
-            role="img"
+          <span
+            class="el-intent-default el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name chevronDown"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -205,36 +228,43 @@ exports[`Nav should match a snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-      </mock-styled.nav>
+          </span>
+        </div>
+      </nav>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-93 el-snack-holder"
     />
-    <mock-styled.nav
-      classname=""
+    <div
+      class="mocked-styled-59 el-nav-bg"
+    />
+    <nav
+      class="mocked-styled-61 el-nav-container"
     >
-      <mock-styled.a
-        classname="el-nav-item-active"
+      <a
+        class="el-nav-item-active el-nav-item"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-60 el-nav-controls-bg"
         />
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-69 el-nav-responsive-app-switcher-wrap"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="mocked-styled-70 el-nav-responsive-app-switcher-icon-wrap"
           >
-            <mock-styled.span
-              classname="el-intent-default el-icon-new"
-              role="img"
+            <span
+              class="el-intent-default el-icon-new el-icon"
             >
               <svg
                 fill="none"
                 height="1em"
+                role="img"
+                title="Icon image with name appLauncher"
                 viewBox="0 0 36 36"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -300,18 +330,21 @@ exports[`Nav should match a snapshot 1`] = `
                   r="2"
                 />
               </svg>
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
-          style="height: 24px; width: 100px;"
+            </span>
+          </div>
+        </div>
+        <span
+          class="el-icon-new el-icon"
+          role="button"
+          style="width: 100px;"
+          tabindex="0"
         >
           <svg
             fill="none"
             height="1em"
-            style="height: 24px; width: 100px;"
+            role="img"
+            style="width: 100px;"
+            title="Icon image with name reapitLogo"
             viewBox="0 0 382 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -333,14 +366,17 @@ exports[`Nav should match a snapshot 1`] = `
               fill="#FD9E1D"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.span
-          classname="el-ml-auto el-mr4 el-nav-item-hide-desktop el-intent-default el-icon-new"
-          role="img"
+        </span>
+        <span
+          class="el-ml-auto el-mr4 el-nav-item-hide-desktop el-intent-default el-icon-new el-icon"
+          role="button"
+          tabindex="0"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name more"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -350,24 +386,28 @@ exports[`Nav should match a snapshot 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.div
-          classname=""
+        </span>
+        <div
+          class="mocked-styled-60 el-nav-controls-bg"
         />
-        <mock-styled.div
-          classname="el-nav-is-hidden"
+        <div
+          class="el-nav-is-hidden el-nav-responsive-avatar-wrap"
+          role="button"
+          tabindex="0"
         >
-          <mock-styled.div
-            classname="el-mr2"
+          <div
+            class="el-mr2 el-avatar"
             role="img"
+            title="A profile image"
           />
-          <mock-styled.span
-            classname="el-intent-default el-icon-new"
-            role="img"
+          <span
+            class="el-intent-default el-icon-new el-icon"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
+              title="Icon image with name chevronDown"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -377,31 +417,37 @@ exports[`Nav should match a snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
-        </mock-styled.div>
-      </mock-styled.a>
-      <mock-styled.a
-        classname=""
+          </span>
+        </div>
+      </a>
+      <a
+        class="mocked-styled-63 el-nav-item"
+        role="button"
+        tabindex="0"
       >
         Payments
-      </mock-styled.a>
-      <mock-styled.div
-        classname=""
+      </a>
+      <div
+        class="mocked-styled-60 el-nav-controls-bg"
       />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-68 el-nav-responsive-avatar-wrap"
+        role="button"
+        tabindex="0"
       >
-        <mock-styled.div
-          classname="el-mr2"
+        <div
+          class="el-mr2 el-avatar"
           role="img"
+          title="A profile image"
         />
-        <mock-styled.span
-          classname="el-intent-default el-icon-new"
-          role="img"
+        <span
+          class="el-intent-default el-icon-new el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name chevronDown"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -411,9 +457,9 @@ exports[`Nav should match a snapshot 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
-      </mock-styled.div>
-    </mock-styled.nav>
+        </span>
+      </div>
+    </nav>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

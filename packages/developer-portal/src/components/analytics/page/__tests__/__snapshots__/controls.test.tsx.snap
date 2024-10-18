@@ -5,17 +5,20 @@ exports[`Controls should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <div
         class="el-fade-in el-mb7"
       >
-        <mock-styled.span
-          classname="el-mb3 el-icon-size-large"
-          role="img"
+        <span
+          class="el-mb3 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
+            title="Icon image with name crmInfographic"
             viewBox="0 0 80 80"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -59,17 +62,17 @@ exports[`Controls should match a snapshot 1`] = `
               fill="#7e9bfa"
             />
           </svg>
-        </mock-styled.span>
-        <mock-styled.p
-          classname="el-text-base"
+        </span>
+        <p
+          class="el-text-base el-body-text"
         >
           Filter By
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <small
+          class="el-text-base el-small-text el-has-grey-text"
         >
           Please use the filters below to search. Please note, we only hold transactional records for the last 12 months.
-        </mock-styled.p>
+        </small>
         <div
           class="el-border-radius mock-css.
   overflow: hidden;
@@ -79,109 +82,120 @@ exports[`Controls should match a snapshot 1`] = `
             <mock-styled.div
               classname=""
             >
-              <mock-styled.div
-                classname="mock-css.
+              <div
+                class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
               >
-                <mock-styled.input
-                  classname=""
+                <input
+                  aria-label="Input type date format dd/mm/yyy max date of 2019-10-10 min date of 2018-10-10"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   max="2019-10-10"
                   min="2018-10-10"
                   name="dateFrom"
                   type="date"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Date From
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
             <mock-styled.div
               classname=""
             >
-              <mock-styled.div
-                classname="mock-css.
+              <div
+                class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
               >
-                <mock-styled.input
-                  classname=""
+                <input
+                  aria-label="Input type date format dd/mm/yyy max date of 2019-10-10 min date of 2019-10-03"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   max="2019-10-10"
                   min="2019-10-03"
                   name="dateTo"
                   type="date"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Date To
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
             <mock-styled.div
               classname=""
             >
-              <mock-styled.div
-                classname="mock-css.
+              <div
+                class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
               >
-                <mock-styled.input
-                  classname=""
+                <input
+                  aria-label="Input type month max date of 2019-10 min date of 2018-10"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   max="2019-10"
                   min="2018-10"
                   name="monthFrom"
                   type="month"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Month From
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
             <mock-styled.div
               classname=""
             >
-              <mock-styled.div
-                classname="mock-css.
+              <div
+                class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
               >
-                <mock-styled.input
-                  classname=""
+                <input
+                  aria-label="Input type month max date of 2019-10 min date of 2019-10"
+                  class="mocked-styled-38 el-input"
                   id="test-static-id"
                   max="2019-10"
                   min="2019-10"
                   name="monthTo"
                   type="month"
                 />
-                <mock-styled.label
-                  htmlfor="test-static-id"
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
                 >
                   Month To
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
             <mock-styled.div
               classname=""
             >
-              <mock-styled.div>
-                <mock-styled.select
-                  classname="el-wfull"
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <select
+                  aria-label="Select an item from the dropdown list"
+                  class="el-wfull el-select"
                   name="appId"
                 >
                   <option
@@ -199,18 +213,23 @@ exports[`Controls should match a snapshot 1`] = `
                   >
                     MOCK_APP_NAME_ANOTHER
                   </option>
-                </mock-styled.select>
-                <mock-styled.label>
+                </select>
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   App
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
             <mock-styled.div
               classname=""
             >
-              <mock-styled.div>
-                <mock-styled.select
-                  classname="el-wfull"
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <select
+                  aria-label="Select an item from the dropdown list"
+                  class="el-wfull el-select"
                   name="clientId"
                 >
                   <option
@@ -228,11 +247,13 @@ exports[`Controls should match a snapshot 1`] = `
                   >
                     Foo Bar  (MXX)
                   </option>
-                </mock-styled.select>
-                <mock-styled.label>
+                </select>
+                <label
+                  class="mocked-styled-41 el-label"
+                >
                   Client
-                </mock-styled.label>
-              </mock-styled.div>
+                </label>
+              </div>
             </mock-styled.div>
           </form>
         </div>
@@ -240,17 +261,20 @@ exports[`Controls should match a snapshot 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <div
       class="el-fade-in el-mb7"
     >
-      <mock-styled.span
-        classname="el-mb3 el-icon-size-large"
-        role="img"
+      <span
+        class="el-mb3 el-icon-size-large el-icon"
       >
         <svg
           fill="none"
           height="1em"
+          role="img"
+          title="Icon image with name crmInfographic"
           viewBox="0 0 80 80"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -294,17 +318,17 @@ exports[`Controls should match a snapshot 1`] = `
             fill="#7e9bfa"
           />
         </svg>
-      </mock-styled.span>
-      <mock-styled.p
-        classname="el-text-base"
+      </span>
+      <p
+        class="el-text-base el-body-text"
       >
         Filter By
-      </mock-styled.p>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </p>
+      <small
+        class="el-text-base el-small-text el-has-grey-text"
       >
         Please use the filters below to search. Please note, we only hold transactional records for the last 12 months.
-      </mock-styled.p>
+      </small>
       <div
         class="el-border-radius mock-css.
   overflow: hidden;
@@ -314,109 +338,120 @@ exports[`Controls should match a snapshot 1`] = `
           <mock-styled.div
             classname=""
           >
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
             >
-              <mock-styled.input
-                classname=""
+              <input
+                aria-label="Input type date format dd/mm/yyy max date of 2019-10-10 min date of 2018-10-10"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 max="2019-10-10"
                 min="2018-10-10"
                 name="dateFrom"
                 type="date"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Date From
-              </mock-styled.label>
-            </mock-styled.div>
+              </label>
+            </div>
           </mock-styled.div>
           <mock-styled.div
             classname=""
           >
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
             >
-              <mock-styled.input
-                classname=""
+              <input
+                aria-label="Input type date format dd/mm/yyy max date of 2019-10-10 min date of 2019-10-03"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 max="2019-10-10"
                 min="2019-10-03"
                 name="dateTo"
                 type="date"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Date To
-              </mock-styled.label>
-            </mock-styled.div>
+              </label>
+            </div>
           </mock-styled.div>
           <mock-styled.div
             classname=""
           >
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
             >
-              <mock-styled.input
-                classname=""
+              <input
+                aria-label="Input type month max date of 2019-10 min date of 2018-10"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 max="2019-10"
                 min="2018-10"
                 name="monthFrom"
                 type="month"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Month From
-              </mock-styled.label>
-            </mock-styled.div>
+              </label>
+            </div>
           </mock-styled.div>
           <mock-styled.div
             classname=""
           >
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
   input {
     width: 100%;
   }
-"
+ el-input-group"
             >
-              <mock-styled.input
-                classname=""
+              <input
+                aria-label="Input type month max date of 2019-10 min date of 2019-10"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 max="2019-10"
                 min="2019-10"
                 name="monthTo"
                 type="month"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Month To
-              </mock-styled.label>
-            </mock-styled.div>
+              </label>
+            </div>
           </mock-styled.div>
           <mock-styled.div
             classname=""
           >
-            <mock-styled.div>
-              <mock-styled.select
-                classname="el-wfull"
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="el-wfull el-select"
                 name="appId"
               >
                 <option
@@ -434,18 +469,23 @@ exports[`Controls should match a snapshot 1`] = `
                 >
                   MOCK_APP_NAME_ANOTHER
                 </option>
-              </mock-styled.select>
-              <mock-styled.label>
+              </select>
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 App
-              </mock-styled.label>
-            </mock-styled.div>
+              </label>
+            </div>
           </mock-styled.div>
           <mock-styled.div
             classname=""
           >
-            <mock-styled.div>
-              <mock-styled.select
-                classname="el-wfull"
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="el-wfull el-select"
                 name="clientId"
               >
                 <option
@@ -463,11 +503,13 @@ exports[`Controls should match a snapshot 1`] = `
                 >
                   Foo Bar  (MXX)
                 </option>
-              </mock-styled.select>
-              <mock-styled.label>
+              </select>
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Client
-              </mock-styled.label>
-            </mock-styled.div>
+              </label>
+            </div>
           </mock-styled.div>
         </form>
       </div>

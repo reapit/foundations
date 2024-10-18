@@ -5,7 +5,9 @@ exports[`WebhooksAnimatedDocsIcon should match a snapshot where animated 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <svg
         class="mock-css.
   #webhooks-docs-svg-element-one {
@@ -448,7 +450,9 @@ exports[`WebhooksAnimatedDocsIcon should match a snapshot where animated 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <svg
       class="mock-css.
   #webhooks-docs-svg-element-one {
@@ -948,7 +952,9 @@ exports[`WebhooksAnimatedDocsIcon should match a snapshot where not animated 1`]
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
       <svg
         class=""
         id="exzbnYXRMC51"
@@ -1225,7 +1231,9 @@ exports[`WebhooksAnimatedDocsIcon should match a snapshot where not animated 1`]
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
     <svg
       class=""
       id="exzbnYXRMC51"

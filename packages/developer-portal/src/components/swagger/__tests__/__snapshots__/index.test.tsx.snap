@@ -5,31 +5,38 @@ exports[`Swagger should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.div
-        classname="el-is-full-page"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-is-full-page el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="el-intent-primary el-is-active"
-        role="alertdialog"
+        <div
+          class="mocked-styled-46 el-loader"
+        >
+          <div
+            class="mocked-styled-47 el-loader-moving-bar"
+          />
+        </div>
+      </div>
+      <div
+        class="el-intent-primary el-is-active el-persistent-notification"
+        role="status"
       >
         <div
           class="el-pn-icon"
           data-testid="close-icon"
         >
-          <mock-styled.span
-            classname="el-icon-new"
-            role="img"
+          <span
+            class="el-icon-new el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
               fill="none"
               height="1em"
+              role="img"
               style="font-size: 1.25rem;"
+              title="Icon image with name info"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -39,14 +46,15 @@ exports[`Swagger should match a snapshot 1`] = `
                 fill="currentColor"
               />
             </svg>
-          </mock-styled.span>
+          </span>
         </div>
         <div
+          aria-live="polite"
           class="el-pn-content"
         >
           This is a sandbox environment, with anonymised test data and isolated from production
         </div>
-      </mock-styled.div>
+      </div>
       <div
         class="mock-css.
   // Can't reset the global scrollbar to default styles
@@ -208,45 +216,52 @@ exports[`Swagger should match a snapshot 1`] = `
   display: none;
 "
       >
-        <mock-styled.h1
-          classname="el-text-base"
+        <h1
+          class="el-text-base el-title"
         >
           Foundations API
-        </mock-styled.h1>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </h1>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
         >
           This tool is interactive and provides instant access to data hosted in our sandbox environment with authentication and versioning headers pre-populated. Example requests and responses are shown by default but you can switch to view a fully documented schema - look for the model link.
-        </mock-styled.p>
+        </p>
       </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.div
-      classname="el-is-full-page"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-is-full-page el-loader-container"
     >
-      <mock-styled.div>
-        <mock-styled.div />
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div
-      classname="el-intent-primary el-is-active"
-      role="alertdialog"
+      <div
+        class="mocked-styled-46 el-loader"
+      >
+        <div
+          class="mocked-styled-47 el-loader-moving-bar"
+        />
+      </div>
+    </div>
+    <div
+      class="el-intent-primary el-is-active el-persistent-notification"
+      role="status"
     >
       <div
         class="el-pn-icon"
         data-testid="close-icon"
       >
-        <mock-styled.span
-          classname="el-icon-new"
-          role="img"
+        <span
+          class="el-icon-new el-icon"
           style="font-size: 1.25rem;"
         >
           <svg
             fill="none"
             height="1em"
+            role="img"
             style="font-size: 1.25rem;"
+            title="Icon image with name info"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -256,14 +271,15 @@ exports[`Swagger should match a snapshot 1`] = `
               fill="currentColor"
             />
           </svg>
-        </mock-styled.span>
+        </span>
       </div>
       <div
+        aria-live="polite"
         class="el-pn-content"
       >
         This is a sandbox environment, with anonymised test data and isolated from production
       </div>
-    </mock-styled.div>
+    </div>
     <div
       class="mock-css.
   // Can't reset the global scrollbar to default styles
@@ -425,16 +441,16 @@ exports[`Swagger should match a snapshot 1`] = `
   display: none;
 "
     >
-      <mock-styled.h1
-        classname="el-text-base"
+      <h1
+        class="el-text-base el-title"
       >
         Foundations API
-      </mock-styled.h1>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+      </h1>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         This tool is interactive and provides instant access to data hosted in our sandbox environment with authentication and versioning headers pre-populated. Example requests and responses are shown by default but you can switch to view a fully documented schema - look for the model link.
-      </mock-styled.p>
+      </p>
     </div>
   </div>,
   "debug": [Function],

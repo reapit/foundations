@@ -6,87 +6,111 @@ exports[`OfficeTabFilterForm should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <form>
-        <mock-styled.div
-          classname="el-form-layout-has-margin el-fade-in"
+        <div
+          class="el-form-layout-has-margin el-fade-in el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.input
-                classname=""
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type undefined"
+                class="mocked-styled-38 el-input"
                 id="test-static-id"
                 name="name"
                 placeholder="Search for an office"
               />
-              <mock-styled.label
-                htmlfor="test-static-id"
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
               >
                 Search
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
             <div
               class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
             >
-              <mock-styled.div>
-                <mock-styled.div
-                  classname="el-button-group-align-left"
+              <div
+                class="mocked-styled-2 el-button-group"
+              >
+                <div
+                  class="el-button-group-align-left el-button-group-inner"
                 >
-                  <mock-styled.button
-                    classname="el-intent-primary"
+                  <button
+                    class="el-intent-primary el-button"
                     type="submit"
                   >
-                    <mock-styled.div />
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
                     Search
-                  </mock-styled.button>
-                </mock-styled.div>
-              </mock-styled.div>
+                  </button>
+                </div>
+              </div>
             </div>
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </form>
     </div>
   </body>,
   "container": <div>
     <form>
-      <mock-styled.div
-        classname="el-form-layout-has-margin el-fade-in"
+      <div
+        class="el-form-layout-has-margin el-fade-in el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type undefined"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               name="name"
               placeholder="Search for an office"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Search
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
           <div
             class="el-flex-container el-flex-grow el-flex-align-end el-hfull"
           >
-            <mock-styled.div>
-              <mock-styled.div
-                classname="el-button-group-align-left"
+            <div
+              class="mocked-styled-2 el-button-group"
+            >
+              <div
+                class="el-button-group-align-left el-button-group-inner"
               >
-                <mock-styled.button
-                  classname="el-intent-primary"
+                <button
+                  class="el-intent-primary el-button"
                   type="submit"
                 >
-                  <mock-styled.div />
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
                   Search
-                </mock-styled.button>
-              </mock-styled.div>
-            </mock-styled.div>
+                </button>
+              </div>
+            </div>
           </div>
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
     </form>
   </div>,
   "debug": [Function],

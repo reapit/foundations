@@ -5,12 +5,14 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
-      <mock-styled.h1
-        classname="el-text-base"
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <h1
+        class="el-text-base el-title"
       >
         Desktop
-      </mock-styled.h1>
+      </h1>
       <div
         class="mock-css.
   display: grid;
@@ -29,13 +31,13 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
           <div
             class="el-fade-in"
           >
-            <mock-styled.p
-              classname="el-text-base el-mb6 mock-css.
+            <p
+              class="el-text-base el-body-text el-mb6 mock-css.
   color: var(--color-grey-500);
 "
             >
               Reapit's Agency Cloud is a desktop application that offers estate agencies a comprehensive range of market leading agency products, including a Sales CRM, Lettings CRM, Client Accounts, Property Management and real-time Analytics.
-            </mock-styled.p>
+            </p>
             <div
               class="mock-css.
   display: grid;
@@ -90,27 +92,27 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
               <div
                 class="el-fade-in"
               >
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   About Foundations Desktop API
-                </mock-styled.h2>
-                <mock-styled.p
-                  classname="el-text-base el-mb6 mock-css.
+                </h2>
+                <p
+                  class="el-text-base el-body-text el-mb6 mock-css.
   color: var(--color-grey-500);
 "
                 >
                   Developers that would like to integrate with or extend the functionality of Agency Cloud can use the Foundations Desktop API to build web applications for Reapit's app Marketplace that trigger events in the Agency Cloud desktop application, as well as associating their apps with common actions in Agency Cloud to replace default behaviours and screens.
-                </mock-styled.p>
-                <mock-styled.p
-                  classname="el-text-base el-mb6 mock-css.
+                </p>
+                <p
+                  class="el-text-base el-body-text el-mb6 mock-css.
   color: var(--color-grey-500);
 "
                 >
                   For example, a developer building a Marketplace app that provides AML and ID checking, can use the Desktop API to associate their app with the default ID checking screen in Agency Cloud. When a customer clicks the default button to launch the ID check screen, the developer's associated app would be presented instead.
-                </mock-styled.p>
-                <mock-styled.p
-                  classname="el-text-base el-mb6 mock-css.
+                </p>
+                <p
+                  class="el-text-base el-body-text el-mb6 mock-css.
   color: var(--color-grey-500);
 "
                 >
@@ -123,7 +125,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                   >
                     documentation.
                   </a>
-                </mock-styled.p>
+                </p>
               </div>
             </div>
             <div
@@ -134,20 +136,20 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
               <div
                 class="el-fade-in"
               >
-                <mock-styled.h2
-                  classname="el-text-base"
+                <h2
+                  class="el-text-base el-subtitle"
                 >
                   How your app integrates with the Developer Edition of Agency Cloud
-                </mock-styled.h2>
+                </h2>
                 <mock-styled.div>
                   <svg />
-                  <mock-styled.p
-                    classname="el-text-base mock-css.
+                  <small
+                    class="el-text-base el-small-text mock-css.
   color: var(--color-grey-500);
 "
                   >
                     The Developer Edition of Agency Cloud allows developers using the Desktop API to test their apps within the desktop application using sandbox data.
-                  </mock-styled.p>
+                  </small>
                 </mock-styled.div>
               </div>
             </div>
@@ -163,11 +165,11 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
           >
             <mock-styled.div>
               <mock-styled.div>
-                <mock-styled.h1
-                  classname="el-text-base"
+                <h1
+                  class="el-text-base el-title"
                 >
                   Developer Edition
-                </mock-styled.h1>
+                </h1>
               </mock-styled.div>
               <div
                 class="mock-css.
@@ -216,12 +218,14 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                       >
                         per licence / per month
                       </div>
-                      <mock-styled.button
-                        classname="el-intent-primary"
+                      <button
+                        class="el-intent-primary el-button"
                       >
-                        <mock-styled.div />
+                        <div
+                          class="mocked-styled-0 el-button-loader"
+                        />
                         Subscribe Now
-                      </mock-styled.button>
+                      </button>
                     </mock-styled.div>
                   </mock-styled.div>
                 </div>
@@ -341,12 +345,14 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
-    <mock-styled.h1
-      classname="el-text-base"
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <h1
+      class="el-text-base el-title"
     >
       Desktop
-    </mock-styled.h1>
+    </h1>
     <div
       class="mock-css.
   display: grid;
@@ -365,13 +371,13 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
         <div
           class="el-fade-in"
         >
-          <mock-styled.p
-            classname="el-text-base el-mb6 mock-css.
+          <p
+            class="el-text-base el-body-text el-mb6 mock-css.
   color: var(--color-grey-500);
 "
           >
             Reapit's Agency Cloud is a desktop application that offers estate agencies a comprehensive range of market leading agency products, including a Sales CRM, Lettings CRM, Client Accounts, Property Management and real-time Analytics.
-          </mock-styled.p>
+          </p>
           <div
             class="mock-css.
   display: grid;
@@ -426,27 +432,27 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
             <div
               class="el-fade-in"
             >
-              <mock-styled.h2
-                classname="el-text-base"
+              <h2
+                class="el-text-base el-subtitle"
               >
                 About Foundations Desktop API
-              </mock-styled.h2>
-              <mock-styled.p
-                classname="el-text-base el-mb6 mock-css.
+              </h2>
+              <p
+                class="el-text-base el-body-text el-mb6 mock-css.
   color: var(--color-grey-500);
 "
               >
                 Developers that would like to integrate with or extend the functionality of Agency Cloud can use the Foundations Desktop API to build web applications for Reapit's app Marketplace that trigger events in the Agency Cloud desktop application, as well as associating their apps with common actions in Agency Cloud to replace default behaviours and screens.
-              </mock-styled.p>
-              <mock-styled.p
-                classname="el-text-base el-mb6 mock-css.
+              </p>
+              <p
+                class="el-text-base el-body-text el-mb6 mock-css.
   color: var(--color-grey-500);
 "
               >
                 For example, a developer building a Marketplace app that provides AML and ID checking, can use the Desktop API to associate their app with the default ID checking screen in Agency Cloud. When a customer clicks the default button to launch the ID check screen, the developer's associated app would be presented instead.
-              </mock-styled.p>
-              <mock-styled.p
-                classname="el-text-base el-mb6 mock-css.
+              </p>
+              <p
+                class="el-text-base el-body-text el-mb6 mock-css.
   color: var(--color-grey-500);
 "
               >
@@ -459,7 +465,7 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                 >
                   documentation.
                 </a>
-              </mock-styled.p>
+              </p>
             </div>
           </div>
           <div
@@ -470,20 +476,20 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
             <div
               class="el-fade-in"
             >
-              <mock-styled.h2
-                classname="el-text-base"
+              <h2
+                class="el-text-base el-subtitle"
               >
                 How your app integrates with the Developer Edition of Agency Cloud
-              </mock-styled.h2>
+              </h2>
               <mock-styled.div>
                 <svg />
-                <mock-styled.p
-                  classname="el-text-base mock-css.
+                <small
+                  class="el-text-base el-small-text mock-css.
   color: var(--color-grey-500);
 "
                 >
                   The Developer Edition of Agency Cloud allows developers using the Desktop API to test their apps within the desktop application using sandbox data.
-                </mock-styled.p>
+                </small>
               </mock-styled.div>
             </div>
           </div>
@@ -499,11 +505,11 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.div>
-              <mock-styled.h1
-                classname="el-text-base"
+              <h1
+                class="el-text-base el-title"
               >
                 Developer Edition
-              </mock-styled.h1>
+              </h1>
             </mock-styled.div>
             <div
               class="mock-css.
@@ -552,12 +558,14 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                     >
                       per licence / per month
                     </div>
-                    <mock-styled.button
-                      classname="el-intent-primary"
+                    <button
+                      class="el-intent-primary el-button"
                     >
-                      <mock-styled.div />
+                      <div
+                        class="mocked-styled-0 el-button-loader"
+                      />
                       Subscribe Now
-                    </mock-styled.button>
+                    </button>
                   </mock-styled.div>
                 </mock-styled.div>
               </div>

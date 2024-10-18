@@ -9,42 +9,50 @@ exports[`StepOptionsContent should match a snapshot 1`] = `
         class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-mb10"
+          <div
+            class="el-mb10 el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Login Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </span>
+          </div>
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080/login"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Logout Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
+            </span>
+          </div>
         </mock-styled.div>
       </div>
     </div>
@@ -54,42 +62,50 @@ exports[`StepOptionsContent should match a snapshot 1`] = `
       class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
-        <mock-styled.div
-          classname="el-mb10"
+        <div
+          class="el-mb10 el-input-group"
         >
-          <mock-styled.input
-            classname=""
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Login Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </span>
+        </div>
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080/login"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Logout Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
+          </span>
+        </div>
       </mock-styled.div>
     </div>
   </div>,
@@ -156,42 +172,50 @@ exports[`StepOptionsContent should match a snapshot 2`] = `
         class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-mb10"
+          <div
+            class="el-mb10 el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Login Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </span>
+          </div>
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080/login"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Logout Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
+            </span>
+          </div>
         </mock-styled.div>
       </div>
     </div>
@@ -201,42 +225,50 @@ exports[`StepOptionsContent should match a snapshot 2`] = `
       class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
-        <mock-styled.div
-          classname="el-mb10"
+        <div
+          class="el-mb10 el-input-group"
         >
-          <mock-styled.input
-            classname=""
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Login Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </span>
+        </div>
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080/login"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Logout Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
+          </span>
+        </div>
       </mock-styled.div>
     </div>
   </div>,
@@ -303,42 +335,50 @@ exports[`StepOptionsContent should match a snapshot 3`] = `
         class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-mb10"
+          <div
+            class="el-mb10 el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Login Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </span>
+          </div>
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080/login"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Logout Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
+            </span>
+          </div>
         </mock-styled.div>
       </div>
     </div>
@@ -348,42 +388,50 @@ exports[`StepOptionsContent should match a snapshot 3`] = `
       class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
-        <mock-styled.div
-          classname="el-mb10"
+        <div
+          class="el-mb10 el-input-group"
         >
-          <mock-styled.input
-            classname=""
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Login Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </span>
+        </div>
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080/login"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Logout Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
+          </span>
+        </div>
       </mock-styled.div>
     </div>
   </div>,
@@ -450,42 +498,50 @@ exports[`StepOptionsContent should match a snapshot 4`] = `
         class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-mb10"
+          <div
+            class="el-mb10 el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Login Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </span>
+          </div>
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080/login"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Logout Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
+            </span>
+          </div>
         </mock-styled.div>
       </div>
     </div>
@@ -495,42 +551,50 @@ exports[`StepOptionsContent should match a snapshot 4`] = `
       class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
-        <mock-styled.div
-          classname="el-mb10"
+        <div
+          class="el-mb10 el-input-group"
         >
-          <mock-styled.input
-            classname=""
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Login Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </span>
+        </div>
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080/login"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Logout Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
+          </span>
+        </div>
       </mock-styled.div>
     </div>
   </div>,
@@ -597,42 +661,50 @@ exports[`StepOptionsContent should match a snapshot 5`] = `
         class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-mb10"
+          <div
+            class="el-mb10 el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Login Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </span>
+          </div>
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080/login"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Logout Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
+            </span>
+          </div>
         </mock-styled.div>
       </div>
     </div>
@@ -642,42 +714,50 @@ exports[`StepOptionsContent should match a snapshot 5`] = `
       class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
-        <mock-styled.div
-          classname="el-mb10"
+        <div
+          class="el-mb10 el-input-group"
         >
-          <mock-styled.input
-            classname=""
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Login Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </span>
+        </div>
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080/login"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Logout Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
+          </span>
+        </div>
       </mock-styled.div>
     </div>
   </div>,
@@ -744,42 +824,50 @@ exports[`StepOptionsContent should match a snapshot 6`] = `
         class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-mb10"
+          <div
+            class="el-mb10 el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Login Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </span>
+          </div>
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080/login"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Logout Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
+            </span>
+          </div>
         </mock-styled.div>
       </div>
     </div>
@@ -789,42 +877,50 @@ exports[`StepOptionsContent should match a snapshot 6`] = `
       class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
-        <mock-styled.div
-          classname="el-mb10"
+        <div
+          class="el-mb10 el-input-group"
         >
-          <mock-styled.input
-            classname=""
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Login Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </span>
+        </div>
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080/login"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Logout Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
+          </span>
+        </div>
       </mock-styled.div>
     </div>
   </div>,
@@ -891,42 +987,50 @@ exports[`StepOptionsContent should match a snapshot 7`] = `
         class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-mb10"
+          <div
+            class="el-mb10 el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Login Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </span>
+          </div>
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080/login"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Logout Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
+            </span>
+          </div>
         </mock-styled.div>
       </div>
     </div>
@@ -936,42 +1040,50 @@ exports[`StepOptionsContent should match a snapshot 7`] = `
       class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
-        <mock-styled.div
-          classname="el-mb10"
+        <div
+          class="el-mb10 el-input-group"
         >
-          <mock-styled.input
-            classname=""
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Login Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </span>
+        </div>
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080/login"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Logout Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
+          </span>
+        </div>
       </mock-styled.div>
     </div>
   </div>,
@@ -1038,42 +1150,50 @@ exports[`StepOptionsContent should match a snapshot 8`] = `
         class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-mb10"
+          <div
+            class="el-mb10 el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Login Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </span>
+          </div>
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080/login"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Logout Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
+            </span>
+          </div>
         </mock-styled.div>
       </div>
     </div>
@@ -1083,42 +1203,50 @@ exports[`StepOptionsContent should match a snapshot 8`] = `
       class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
-        <mock-styled.div
-          classname="el-mb10"
+        <div
+          class="el-mb10 el-input-group"
         >
-          <mock-styled.input
-            classname=""
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Login Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </span>
+        </div>
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080/login"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Logout Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
+          </span>
+        </div>
       </mock-styled.div>
     </div>
   </div>,
@@ -1185,42 +1313,50 @@ exports[`StepOptionsContent should match a snapshot 9`] = `
         class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-mb10"
+          <div
+            class="el-mb10 el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Login Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </span>
+          </div>
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080/login"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Logout Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
+            </span>
+          </div>
         </mock-styled.div>
       </div>
     </div>
@@ -1230,42 +1366,50 @@ exports[`StepOptionsContent should match a snapshot 9`] = `
       class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
-        <mock-styled.div
-          classname="el-mb10"
+        <div
+          class="el-mb10 el-input-group"
         >
-          <mock-styled.input
-            classname=""
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Login Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </span>
+        </div>
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080/login"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Logout Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
+          </span>
+        </div>
       </mock-styled.div>
     </div>
   </div>,
@@ -1332,42 +1476,50 @@ exports[`StepOptionsContent should match a snapshot 10`] = `
         class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-mb10"
+          <div
+            class="el-mb10 el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Login Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </span>
+          </div>
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080/login"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Logout Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
+            </span>
+          </div>
         </mock-styled.div>
       </div>
     </div>
@@ -1377,42 +1529,50 @@ exports[`StepOptionsContent should match a snapshot 10`] = `
       class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
-        <mock-styled.div
-          classname="el-mb10"
+        <div
+          class="el-mb10 el-input-group"
         >
-          <mock-styled.input
-            classname=""
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Login Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </span>
+        </div>
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080/login"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Logout Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
+          </span>
+        </div>
       </mock-styled.div>
     </div>
   </div>,
@@ -1479,42 +1639,50 @@ exports[`StepOptionsContent should match a snapshot 11`] = `
         class="el-flex-container el-flex-column el-wfull el-fade-in"
       >
         <mock-styled.div>
-          <mock-styled.div
-            classname="el-mb10"
+          <div
+            class="el-mb10 el-input-group"
           >
-            <mock-styled.input
-              classname=""
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Login Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.input
-              classname=""
+            </span>
+          </div>
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type text"
+              class="mocked-styled-38 el-input"
               id="test-static-id"
               type="text"
+              value="http://localhost:8080/login"
             />
-            <mock-styled.label
-              htmlfor="test-static-id"
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
             >
               Logout Redirect URI
-            </mock-styled.label>
-            <mock-styled.span
-              classname="el-intent-danger"
+            </label>
+            <span
+              class="el-intent-danger el-input-add-on"
             >
               Some error
-            </mock-styled.span>
-          </mock-styled.div>
+            </span>
+          </div>
         </mock-styled.div>
       </div>
     </div>
@@ -1524,42 +1692,50 @@ exports[`StepOptionsContent should match a snapshot 11`] = `
       class="el-flex-container el-flex-column el-wfull el-fade-in"
     >
       <mock-styled.div>
-        <mock-styled.div
-          classname="el-mb10"
+        <div
+          class="el-mb10 el-input-group"
         >
-          <mock-styled.input
-            classname=""
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Login Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.input
-            classname=""
+          </span>
+        </div>
+        <div
+          class="mocked-styled-40 el-input-group"
+        >
+          <input
+            aria-label="Input type text"
+            class="mocked-styled-38 el-input"
             id="test-static-id"
             type="text"
+            value="http://localhost:8080/login"
           />
-          <mock-styled.label
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-41 el-label"
+            for="test-static-id"
           >
             Logout Redirect URI
-          </mock-styled.label>
-          <mock-styled.span
-            classname="el-intent-danger"
+          </label>
+          <span
+            class="el-intent-danger el-input-add-on"
           >
             Some error
-          </mock-styled.span>
-        </mock-styled.div>
+          </span>
+        </div>
       </mock-styled.div>
     </div>
   </div>,
