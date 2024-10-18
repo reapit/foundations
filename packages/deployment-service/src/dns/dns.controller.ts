@@ -43,7 +43,7 @@ export class DnsController {
     if (pipeline.verifyDnsValue !== undefined) throw new UnprocessableEntityException('Record already generated')
 
     await this.pipelineProvider.update(pipeline, {
-      verifyDnsName: body.recordName,
+      verifyDnsName: 'anything',
       customDomain: body.customDomain, // TODO should strip everything not a domain? query params example
       verifyDnsValue: uuid(),
     })
