@@ -115,4 +115,5 @@ export enum PathNames {
   groupIdMembersDelete = '/organisations/groups/{groupId}/members/{userId}',
   getOrgConfig = '/organisations/organisations/{orgId}/configuration/platform',
   installationsId = '/marketplace/installations/{installationId}',
+  createCustomPipelineDnsRecord = '/{pipelineId}/dns',
 }
