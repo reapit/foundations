@@ -12,6 +12,7 @@ export enum UpdateActionNames {
   createPipelineDeployment = 'createPipelineDeployment',
   createPipeline = 'createPipeline',
   createApp = 'createApp',
+  createCustomPipelineDnsRecord = 'createCustomPipelineDnsRecord',
   createApiKeyByMember = 'createApiKeyByMember',
   updateDeveloper = 'updateDeveloper',
   deleteDeveloper = 'deleteDeveloper',
@@ -500,4 +501,8 @@ export const updateActions = {
     successMessage: 'Successfully updated network rule',
     errorMessage: 'Failed to update network rule',
   },
+  [UpdateActionNames.createCustomPipelineDnsRecord]: {
+    api: ApiNames.pipeline,
+    path: PathNames.createCustomPipelineDnsRecord,
+  }
 }
