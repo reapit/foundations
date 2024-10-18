@@ -9,10 +9,8 @@
     "strict": true,
     "skipLibCheck": true,
     "baseUrl": "./",
-
     "paths": {
-      "@reapit/utils-common": ["../utils-common/src"],
-      "@reapit/connect-session": ["../connect-session/src"]
+      "@reapit/utils-common": ["../utils-common/src"]
     }
   },
   "include": ["src"],

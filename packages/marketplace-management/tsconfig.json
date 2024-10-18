@@ -4,7 +4,6 @@
     "module": "commonjs",
     "baseUrl": "./",
     "paths": {
-      "@reapit/connect-session": ["../connect-session/src"],
       "@reapit/utils-react": ["../utils-react/src"],
       "@reapit/utils-common": ["../utils-common/src"]
     }

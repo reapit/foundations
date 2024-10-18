@@ -1,6 +1,6 @@
 import { AppsBrowseConfigEnum, AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
 import React from 'react'
-import { ReapitConnectSession } from '../../../../../connect-session/src/types'
+import { ReapitConnectSession } from '@reapit/connect-session'
 import { render } from '../../../tests/react-testing'
 import { AppBrowseUpsertModal } from '../app-browse-upsert-modal'
 

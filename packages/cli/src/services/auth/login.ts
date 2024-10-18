@@ -6,7 +6,7 @@ import {
   DecodedToken,
   LoginIdentity,
   ReapitConnectSession,
-} from '@reapit/connect-session'
+} from '@reapit/connect-session/dist/cjs'
 import http from 'http'
 import open from 'open'
 import { writeFileSync, promises, existsSync } from 'fs'

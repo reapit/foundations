@@ -6,7 +6,6 @@
     "sourceRoot": "/",
     "paths": {
       "@reapit/utils-common": ["../utils-common"],
-      "@reapit/connect-session": ["../connect-session/src"],
       "@reapit/use-reapit-data": ["../use-reapit-data/src"]
     }
   },
