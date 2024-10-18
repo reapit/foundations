@@ -1,4 +1,7 @@
 import { defineConfig } from 'tsup'
+import { readFileSync } from 'fs'
+
+const pkgJson = JSON.parse(readFileSync('package.json', 'utf-8'))
 
 export default defineConfig([
   {
@@ -11,4 +14,14 @@ export default defineConfig([
     },
     noExternal: ['aws-lambda', 'jsonwebtoken', 'jwks-rsa', 'idtoken-verifier', 'uuid', 'jwt-decode'],
   },
+  {
+    entry: {'graphql-server/index': 'src/index.ts'},
+    target: 'node18',
+    clean: true,
+    // minify: true,
+    noExternal: Object.keys(pkgJson.dependencies),
+    esbuildOptions: (opts) => {
+      opts.resolveExtensions = ['.ts', '.mjs', '.js']
+    },
+  }
 ])
