@@ -19,6 +19,7 @@ import { PipelineConfigure } from './pipeline-configure'
 import { Helper } from '../page/helper'
 import { PipelineTabs } from './pipeline-tabs'
 import { PipelineEnvironment } from './pipeline-environment'
+import { PipelineDns } from './pipeline-dns'
 
 export const PipelinePage: FC = () => {
   const location = useLocation()
@@ -34,7 +35,9 @@ export const PipelinePage: FC = () => {
     ? 'configure'
     : pathname.includes('environment')
       ? 'environment'
-      : 'deployments'
+      : pathname.includes('dns')
+        ? 'DNS'
+        : 'deployments'
 
   return (
     <>
@@ -62,7 +65,7 @@ export const PipelinePage: FC = () => {
           ) : tab === 'environment' ? (
             <PipelineEnvironment />
           ) : (
-            <div>DNS here</div>
+            <PipelineDns />
           )}
         </>
       ) : (
