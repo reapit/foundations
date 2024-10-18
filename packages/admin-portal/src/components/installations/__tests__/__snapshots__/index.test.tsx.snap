@@ -20,13 +20,9 @@ exports[`Installations should render component when loading 1`] = `
           <div
             class="el-mb11 el-form-layout"
           >
-<<<<<<< HEAD
-            <mock-styled.div>
-=======
             <div
               class="mocked-styled-135 el-input-wrap-full"
             >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
               <div
                 class="mocked-styled-135 el-input-wrap-full"
               >
@@ -67,7 +63,6 @@ exports[`Installations should render component when loading 1`] = `
                   </label>
                 </div>
                 <div
-<<<<<<< HEAD
                   class="mocked-styled-44 el-loader-container"
                 >
                   <div
@@ -81,10 +76,6 @@ exports[`Installations should render component when loading 1`] = `
                 <div
                   class="mocked-styled-58 el-multi-select-input-wrapper"
                 >
-=======
-                  class="mocked-styled-58 el-multi-select-input-wrapper"
-                >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
                   <input
                     class="mocked-styled-57 el-multi-select-input"
                     id="app-ids-select"
@@ -119,17 +110,6 @@ exports[`Installations should render component when loading 1`] = `
                   </div>
                 </div>
               </div>
-<<<<<<< HEAD
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label
-                classname="el-flex el-mb3"
-                htmlfor="developer-search-box"
-              >
-                Company
-              </mock-styled.label>
-              <mock-styled.div
-=======
             </div>
             <div
               class="mocked-styled-133 el-input-wrap"
@@ -141,7 +121,6 @@ exports[`Installations should render component when loading 1`] = `
                 Company
               </label>
               <div
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
                 aria-controls=":r0:"
                 aria-expanded="false"
                 aria-haspopup="listbox"
@@ -196,13 +175,8 @@ exports[`Installations should render component when loading 1`] = `
                 for="client-search-box"
               >
                 Client
-<<<<<<< HEAD
-              </mock-styled.label>
-              <mock-styled.div
-=======
               </label>
               <div
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
                 aria-controls=":r1:"
                 aria-expanded="false"
                 aria-haspopup="listbox"
@@ -419,13 +393,9 @@ exports[`Installations should render component when loading 1`] = `
         <div
           class="el-mb11 el-form-layout"
         >
-<<<<<<< HEAD
-          <mock-styled.div>
-=======
           <div
             class="mocked-styled-135 el-input-wrap-full"
           >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
             <div
               class="mocked-styled-135 el-input-wrap-full"
             >
@@ -466,7 +436,6 @@ exports[`Installations should render component when loading 1`] = `
                 </label>
               </div>
               <div
-<<<<<<< HEAD
                 class="mocked-styled-44 el-loader-container"
               >
                 <div
@@ -480,10 +449,6 @@ exports[`Installations should render component when loading 1`] = `
               <div
                 class="mocked-styled-58 el-multi-select-input-wrapper"
               >
-=======
-                class="mocked-styled-58 el-multi-select-input-wrapper"
-              >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
                 <input
                   class="mocked-styled-57 el-multi-select-input"
                   id="app-ids-select"
@@ -518,17 +483,6 @@ exports[`Installations should render component when loading 1`] = `
                 </div>
               </div>
             </div>
-<<<<<<< HEAD
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label
-              classname="el-flex el-mb3"
-              htmlfor="developer-search-box"
-            >
-              Company
-            </mock-styled.label>
-            <mock-styled.div
-=======
           </div>
           <div
             class="mocked-styled-133 el-input-wrap"
@@ -540,7 +494,6 @@ exports[`Installations should render component when loading 1`] = `
               Company
             </label>
             <div
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
               aria-controls=":r0:"
               aria-expanded="false"
               aria-haspopup="listbox"
@@ -595,13 +548,8 @@ exports[`Installations should render component when loading 1`] = `
               for="client-search-box"
             >
               Client
-<<<<<<< HEAD
-            </mock-styled.label>
-            <mock-styled.div
-=======
             </label>
             <div
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
               aria-controls=":r1:"
               aria-expanded="false"
               aria-haspopup="listbox"
@@ -875,13 +823,9 @@ exports[`Installations should render component with data 1`] = `
           <div
             class="el-mb11 el-form-layout"
           >
-<<<<<<< HEAD
-            <mock-styled.div>
-=======
             <div
               class="mocked-styled-135 el-input-wrap-full"
             >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
               <div
                 class="mocked-styled-135 el-input-wrap-full"
               >
@@ -956,7 +900,6 @@ exports[`Installations should render component with data 1`] = `
                       No apps selected
                     </p>
                   </div>
-<<<<<<< HEAD
                   <div
                     aria-label="Multi unselected options"
                     class="el-mb5 el-multi-select-un-selected"
@@ -979,18 +922,6 @@ exports[`Installations should render component with data 1`] = `
                   </div>
                 </div>
               </div>
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.label
-                classname="el-flex el-mb3"
-                htmlfor="developer-search-box"
-              >
-                Company
-              </mock-styled.label>
-              <mock-styled.div
-=======
-                </div>
-              </div>
             </div>
             <div
               class="mocked-styled-133 el-input-wrap"
@@ -1002,7 +933,6 @@ exports[`Installations should render component with data 1`] = `
                 Company
               </label>
               <div
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
                 aria-controls=":r3:"
                 aria-expanded="false"
                 aria-haspopup="listbox"
@@ -1057,13 +987,8 @@ exports[`Installations should render component with data 1`] = `
                 for="client-search-box"
               >
                 Client
-<<<<<<< HEAD
-              </mock-styled.label>
-              <mock-styled.div
-=======
               </label>
               <div
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
                 aria-controls=":r4:"
                 aria-expanded="false"
                 aria-haspopup="listbox"
@@ -1620,13 +1545,9 @@ exports[`Installations should render component with data 1`] = `
         <div
           class="el-mb11 el-form-layout"
         >
-<<<<<<< HEAD
-          <mock-styled.div>
-=======
           <div
             class="mocked-styled-135 el-input-wrap-full"
           >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
             <div
               class="mocked-styled-135 el-input-wrap-full"
             >
@@ -1701,7 +1622,6 @@ exports[`Installations should render component with data 1`] = `
                     No apps selected
                   </p>
                 </div>
-<<<<<<< HEAD
                 <div
                   aria-label="Multi unselected options"
                   class="el-mb5 el-multi-select-un-selected"
@@ -1724,18 +1644,6 @@ exports[`Installations should render component with data 1`] = `
                 </div>
               </div>
             </div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.label
-              classname="el-flex el-mb3"
-              htmlfor="developer-search-box"
-            >
-              Company
-            </mock-styled.label>
-            <mock-styled.div
-=======
-              </div>
-            </div>
           </div>
           <div
             class="mocked-styled-133 el-input-wrap"
@@ -1747,7 +1655,6 @@ exports[`Installations should render component with data 1`] = `
               Company
             </label>
             <div
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
               aria-controls=":r3:"
               aria-expanded="false"
               aria-haspopup="listbox"
@@ -1802,13 +1709,8 @@ exports[`Installations should render component with data 1`] = `
               for="client-search-box"
             >
               Client
-<<<<<<< HEAD
-            </mock-styled.label>
-            <mock-styled.div
-=======
             </label>
             <div
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
               aria-controls=":r4:"
               aria-expanded="false"
               aria-haspopup="listbox"

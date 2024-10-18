@@ -36,22 +36,17 @@ exports[`Network should match a snapshot with no rules 1`] = `
               class="mocked-styled-0 el-button-loader"
             />
             New Network Rule
-<<<<<<< HEAD
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-mb5 el-intent-primary"
-            disabled="false"
+          </button>
+          <button
+            class="el-mb5 el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             I Use PowerBI
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-mb5 el-intent-neutral"
-=======
           </button>
           <button
             class="el-mb5 el-intent-neutral el-button"
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           >
             <div
               class="mocked-styled-0 el-button-loader"
@@ -172,22 +167,17 @@ exports[`Network should match a snapshot with no rules 1`] = `
             class="mocked-styled-0 el-button-loader"
           />
           New Network Rule
-<<<<<<< HEAD
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-mb5 el-intent-primary"
-          disabled="false"
+        </button>
+        <button
+          class="el-mb5 el-intent-primary el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           I Use PowerBI
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-mb5 el-intent-neutral"
-=======
         </button>
         <button
           class="el-mb5 el-intent-neutral el-button"
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         >
           <div
             class="mocked-styled-0 el-button-loader"
@@ -365,22 +355,17 @@ exports[`Network should match a snapshot with rules 1`] = `
               class="mocked-styled-0 el-button-loader"
             />
             New Network Rule
-<<<<<<< HEAD
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-mb5 el-intent-primary"
-            disabled="false"
+          </button>
+          <button
+            class="el-mb5 el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             I Use PowerBI
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-mb5 el-intent-neutral"
-=======
           </button>
           <button
             class="el-mb5 el-intent-neutral el-button"
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           >
             <div
               class="mocked-styled-0 el-button-loader"
@@ -630,21 +615,9 @@ exports[`Network should match a snapshot with rules 1`] = `
                       <button
                         class="el-intent-primary el-button"
                       >
-<<<<<<< HEAD
-                        <mock-styled.div />
-=======
                         <div
                           class="mocked-styled-0 el-button-loader"
                         />
-                        I Use PowerBI
-                      </button>
-                      <button
-                        class="el-intent-primary el-button"
-                      >
-                        <div
-                          class="mocked-styled-0 el-button-loader"
-                        />
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
                         Create Whitelisted IP
                       </button>
                     </div>
@@ -689,22 +662,17 @@ exports[`Network should match a snapshot with rules 1`] = `
             class="mocked-styled-0 el-button-loader"
           />
           New Network Rule
-<<<<<<< HEAD
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-mb5 el-intent-primary"
-          disabled="false"
+        </button>
+        <button
+          class="el-mb5 el-intent-primary el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           I Use PowerBI
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-mb5 el-intent-neutral"
-=======
         </button>
         <button
           class="el-mb5 el-intent-neutral el-button"
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         >
           <div
             class="mocked-styled-0 el-button-loader"
@@ -954,21 +922,9 @@ exports[`Network should match a snapshot with rules 1`] = `
                     <button
                       class="el-intent-primary el-button"
                     >
-<<<<<<< HEAD
-                      <mock-styled.div />
-=======
                       <div
                         class="mocked-styled-0 el-button-loader"
                       />
-                      I Use PowerBI
-                    </button>
-                    <button
-                      class="el-intent-primary el-button"
-                    >
-                      <div
-                        class="mocked-styled-0 el-button-loader"
-                      />
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
                       Create Whitelisted IP
                     </button>
                   </div>
@@ -1070,22 +1026,17 @@ exports[`Network should match a snapshot with rules loading 1`] = `
               class="mocked-styled-0 el-button-loader"
             />
             New Network Rule
-<<<<<<< HEAD
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-mb5 el-intent-primary"
-            disabled="false"
+          </button>
+          <button
+            class="el-mb5 el-intent-primary el-button"
           >
-            <mock-styled.div />
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
             I Use PowerBI
-          </mock-styled.button>
-          <mock-styled.button
-            classname="el-mb5 el-intent-neutral"
-=======
           </button>
           <button
             class="el-mb5 el-intent-neutral el-button"
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           >
             <div
               class="mocked-styled-0 el-button-loader"
@@ -1181,22 +1132,17 @@ exports[`Network should match a snapshot with rules loading 1`] = `
             class="mocked-styled-0 el-button-loader"
           />
           New Network Rule
-<<<<<<< HEAD
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-mb5 el-intent-primary"
-          disabled="false"
+        </button>
+        <button
+          class="el-mb5 el-intent-primary el-button"
         >
-          <mock-styled.div />
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
           I Use PowerBI
-        </mock-styled.button>
-        <mock-styled.button
-          classname="el-mb5 el-intent-neutral"
-=======
         </button>
         <button
           class="el-mb5 el-intent-neutral el-button"
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         >
           <div
             class="mocked-styled-0 el-button-loader"

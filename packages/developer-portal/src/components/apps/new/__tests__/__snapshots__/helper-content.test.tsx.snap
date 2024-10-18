@@ -114,10 +114,9 @@ exports[`HelperContent should match a snapshot 1`] = `
                 <a>
                   please click here.
                 </a>
-<<<<<<< HEAD
-              </mock-styled.p>
-              <mock-styled.p
-                classname="el-text-base el-has-grey-text"
+              </p>
+              <p
+                class="el-text-base el-body-text el-has-grey-text"
               >
                 From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
                  
@@ -125,10 +124,7 @@ exports[`HelperContent should match a snapshot 1`] = `
                   please click here.
                 </a>
                  Apps registered prior to this date are unaffected by this change.
-              </mock-styled.p>
-=======
               </p>
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
             </div>
           </div>
         </div>
@@ -151,10 +147,9 @@ exports[`HelperContent should match a snapshot 1`] = `
             class="el-text-base el-body-text el-has-grey-text"
           >
             Your application can be authenticated against our Platform either on the client-side or server-side. If you choose client-side authentication at the next step but later wish to upgrade to a full AgencyCloud integration in the future, you can do this. However, it is important to note, server-side integrations cannot be launched from within AgencyCloud.
-<<<<<<< HEAD
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </p>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
              
@@ -165,10 +160,7 @@ exports[`HelperContent should match a snapshot 1`] = `
             </a>
              
             Apps registered prior to this date are unaffected by this change.
-          </mock-styled.p>
-=======
           </p>
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         </div>
         <div
           class="mock-css.
@@ -289,10 +281,9 @@ exports[`HelperContent should match a snapshot 1`] = `
                
             </a>
             to investigate which data sets and permissions you will need before getting started.
-<<<<<<< HEAD
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </p>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
              
@@ -303,10 +294,7 @@ exports[`HelperContent should match a snapshot 1`] = `
             </a>
              
             Apps registered prior to this date are unaffected by this change.
-          </mock-styled.p>
-=======
           </p>
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         </div>
         <div
           class="mock-css.
@@ -336,10 +324,9 @@ exports[`HelperContent should match a snapshot 1`] = `
             <a>
               visit here
             </a>
-<<<<<<< HEAD
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </p>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
              
@@ -350,10 +337,7 @@ exports[`HelperContent should match a snapshot 1`] = `
             </a>
              
             Apps registered prior to this date are unaffected by this change.
-          </mock-styled.p>
-=======
           </p>
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         </div>
         <div
           class="mock-css.
@@ -394,10 +378,9 @@ exports[`HelperContent should match a snapshot 1`] = `
               Create React App Template
             </a>
              for quick start client-side development.
-<<<<<<< HEAD
-          </mock-styled.p>
-          <mock-styled.p
-            classname="el-text-base el-has-grey-text"
+          </p>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
           >
             From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
              
@@ -408,10 +391,7 @@ exports[`HelperContent should match a snapshot 1`] = `
             </a>
              
             Apps registered prior to this date are unaffected by this change.
-          </mock-styled.p>
-=======
           </p>
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         </div>
         <div
           class="mock-css.
@@ -483,13 +463,8 @@ exports[`HelperContent should match a snapshot 1`] = `
             <a>
               Create React App Template
             </a>
-<<<<<<< HEAD
              however, any localhost or dev.reapit (for local development), or https URI is acceptable. Please note, the URIs must match those in your app exactly, inclusive of white space and trailing slashes.
-          </mock-styled.p>
-=======
-             however, any localhost (for local development), or https URI is acceptable. Please note, the URIs must match those in your app exactly, inclusive of white space and trailing slashes.
           </p>
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         </div>
         <div
           class="mock-css.
@@ -627,10 +602,9 @@ exports[`HelperContent should match a snapshot 1`] = `
               <a>
                 please click here.
               </a>
-<<<<<<< HEAD
-            </mock-styled.p>
-            <mock-styled.p
-              classname="el-text-base el-has-grey-text"
+            </p>
+            <p
+              class="el-text-base el-body-text el-has-grey-text"
             >
               From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
                
@@ -638,10 +612,7 @@ exports[`HelperContent should match a snapshot 1`] = `
                 please click here.
               </a>
                Apps registered prior to this date are unaffected by this change.
-            </mock-styled.p>
-=======
             </p>
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           </div>
         </div>
       </div>
@@ -664,10 +635,9 @@ exports[`HelperContent should match a snapshot 1`] = `
           class="el-text-base el-body-text el-has-grey-text"
         >
           Your application can be authenticated against our Platform either on the client-side or server-side. If you choose client-side authentication at the next step but later wish to upgrade to a full AgencyCloud integration in the future, you can do this. However, it is important to note, server-side integrations cannot be launched from within AgencyCloud.
-<<<<<<< HEAD
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
         >
           From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
            
@@ -678,10 +648,7 @@ exports[`HelperContent should match a snapshot 1`] = `
           </a>
            
           Apps registered prior to this date are unaffected by this change.
-        </mock-styled.p>
-=======
         </p>
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
       </div>
       <div
         class="mock-css.
@@ -802,10 +769,9 @@ exports[`HelperContent should match a snapshot 1`] = `
              
           </a>
           to investigate which data sets and permissions you will need before getting started.
-<<<<<<< HEAD
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
         >
           From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
            
@@ -816,10 +782,7 @@ exports[`HelperContent should match a snapshot 1`] = `
           </a>
            
           Apps registered prior to this date are unaffected by this change.
-        </mock-styled.p>
-=======
         </p>
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
       </div>
       <div
         class="mock-css.
@@ -849,10 +812,9 @@ exports[`HelperContent should match a snapshot 1`] = `
           <a>
             visit here
           </a>
-<<<<<<< HEAD
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
         >
           From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
            
@@ -863,10 +825,7 @@ exports[`HelperContent should match a snapshot 1`] = `
           </a>
            
           Apps registered prior to this date are unaffected by this change.
-        </mock-styled.p>
-=======
         </p>
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
       </div>
       <div
         class="mock-css.
@@ -907,10 +866,9 @@ exports[`HelperContent should match a snapshot 1`] = `
             Create React App Template
           </a>
            for quick start client-side development.
-<<<<<<< HEAD
-        </mock-styled.p>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+        </p>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
         >
           From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
            
@@ -921,10 +879,7 @@ exports[`HelperContent should match a snapshot 1`] = `
           </a>
            
           Apps registered prior to this date are unaffected by this change.
-        </mock-styled.p>
-=======
         </p>
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
       </div>
       <div
         class="mock-css.
@@ -996,13 +951,8 @@ exports[`HelperContent should match a snapshot 1`] = `
           <a>
             Create React App Template
           </a>
-<<<<<<< HEAD
            however, any localhost or dev.reapit (for local development), or https URI is acceptable. Please note, the URIs must match those in your app exactly, inclusive of white space and trailing slashes.
-        </mock-styled.p>
-=======
-           however, any localhost (for local development), or https URI is acceptable. Please note, the URIs must match those in your app exactly, inclusive of white space and trailing slashes.
         </p>
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
       </div>
       <div
         class="mock-css.

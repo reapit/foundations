@@ -12,109 +12,19 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
         class="el-text-base el-title"
       >
         Password
-<<<<<<< HEAD
-      </mock-styled.h1>
-      <mock-styled.div
-        classname=""
-      >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-=======
       </h1>
-      <form>
-        <div
-          class="el-form-layout-has-margin el-form-layout"
-        >
-          <div
-            class="mocked-styled-133 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-40 el-input-group"
-            >
-              <input
-                aria-label="Input type password"
-                class="mocked-styled-38 el-input"
-                id="test-static-id"
-                name="password"
-                placeholder="Current Password"
-                type="password"
-              />
-              <label
-                class="mocked-styled-41 el-label"
-                for="test-static-id"
-              >
-                Current Password
-              </label>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-133 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-40 el-input-group"
-            >
-              <input
-                aria-label="Input type password"
-                class="mocked-styled-38 el-input"
-                id="test-static-id"
-                name="newPassword"
-                placeholder="New Password"
-                type="password"
-              />
-              <label
-                class="mocked-styled-41 el-label"
-                for="test-static-id"
-              >
-                New Password
-              </label>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-133 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-40 el-input-group"
-            >
-              <input
-                aria-label="Input type password"
-                class="mocked-styled-38 el-input"
-                id="test-static-id"
-                name="confirmPassword"
-                placeholder="Confirm New Password"
-                type="password"
-              />
-              <label
-                class="mocked-styled-41 el-label"
-                for="test-static-id"
-              >
-                Confirm New Password
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-2 el-button-group"
-        >
-          <div
-            class="mocked-styled-3 el-button-group-inner"
-          >
-            <button
-              class="el-intent-primary el-button"
-              type="submit"
-            >
-              <div
-                class="mocked-styled-0 el-button-loader"
-              />
-              Save Changes
-            </button>
-          </div>
-        </div>
-      </form>
       <div
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
+        class="mocked-styled-44 el-loader-container"
+      >
+        <div
+          class="mocked-styled-46 el-loader"
+        >
+          <div
+            class="mocked-styled-47 el-loader-moving-bar"
+          />
+        </div>
+      </div>
+      <div
         aria-hidden="true"
         class="mocked-styled-146 el-mobile-controls-bg"
       />
@@ -159,109 +69,19 @@ exports[`SettingsPasswordPage should match snapshot 1`] = `
       class="el-text-base el-title"
     >
       Password
-<<<<<<< HEAD
-    </mock-styled.h1>
-    <mock-styled.div
-      classname=""
-    >
-      <mock-styled.div>
-        <mock-styled.div />
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div
-=======
     </h1>
-    <form>
-      <div
-        class="el-form-layout-has-margin el-form-layout"
-      >
-        <div
-          class="mocked-styled-133 el-input-wrap"
-        >
-          <div
-            class="mocked-styled-40 el-input-group"
-          >
-            <input
-              aria-label="Input type password"
-              class="mocked-styled-38 el-input"
-              id="test-static-id"
-              name="password"
-              placeholder="Current Password"
-              type="password"
-            />
-            <label
-              class="mocked-styled-41 el-label"
-              for="test-static-id"
-            >
-              Current Password
-            </label>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-133 el-input-wrap"
-        >
-          <div
-            class="mocked-styled-40 el-input-group"
-          >
-            <input
-              aria-label="Input type password"
-              class="mocked-styled-38 el-input"
-              id="test-static-id"
-              name="newPassword"
-              placeholder="New Password"
-              type="password"
-            />
-            <label
-              class="mocked-styled-41 el-label"
-              for="test-static-id"
-            >
-              New Password
-            </label>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-133 el-input-wrap"
-        >
-          <div
-            class="mocked-styled-40 el-input-group"
-          >
-            <input
-              aria-label="Input type password"
-              class="mocked-styled-38 el-input"
-              id="test-static-id"
-              name="confirmPassword"
-              placeholder="Confirm New Password"
-              type="password"
-            />
-            <label
-              class="mocked-styled-41 el-label"
-              for="test-static-id"
-            >
-              Confirm New Password
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="mocked-styled-2 el-button-group"
-      >
-        <div
-          class="mocked-styled-3 el-button-group-inner"
-        >
-          <button
-            class="el-intent-primary el-button"
-            type="submit"
-          >
-            <div
-              class="mocked-styled-0 el-button-loader"
-            />
-            Save Changes
-          </button>
-        </div>
-      </div>
-    </form>
     <div
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
+      class="mocked-styled-44 el-loader-container"
+    >
+      <div
+        class="mocked-styled-46 el-loader"
+      >
+        <div
+          class="mocked-styled-47 el-loader-moving-bar"
+        />
+      </div>
+    </div>
+    <div
       aria-hidden="true"
       class="mocked-styled-146 el-mobile-controls-bg"
     />
@@ -368,109 +188,19 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
         class="el-text-base el-title"
       >
         Password
-<<<<<<< HEAD
-      </mock-styled.h1>
-      <mock-styled.div
-        classname=""
-      >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-=======
       </h1>
-      <form>
-        <div
-          class="el-form-layout-has-margin el-form-layout"
-        >
-          <div
-            class="mocked-styled-133 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-40 el-input-group"
-            >
-              <input
-                aria-label="Input type password"
-                class="mocked-styled-38 el-input"
-                id="test-static-id"
-                name="password"
-                placeholder="Current Password"
-                type="password"
-              />
-              <label
-                class="mocked-styled-41 el-label"
-                for="test-static-id"
-              >
-                Current Password
-              </label>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-133 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-40 el-input-group"
-            >
-              <input
-                aria-label="Input type password"
-                class="mocked-styled-38 el-input"
-                id="test-static-id"
-                name="newPassword"
-                placeholder="New Password"
-                type="password"
-              />
-              <label
-                class="mocked-styled-41 el-label"
-                for="test-static-id"
-              >
-                New Password
-              </label>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-133 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-40 el-input-group"
-            >
-              <input
-                aria-label="Input type password"
-                class="mocked-styled-38 el-input"
-                id="test-static-id"
-                name="confirmPassword"
-                placeholder="Confirm New Password"
-                type="password"
-              />
-              <label
-                class="mocked-styled-41 el-label"
-                for="test-static-id"
-              >
-                Confirm New Password
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-2 el-button-group"
-        >
-          <div
-            class="mocked-styled-3 el-button-group-inner"
-          >
-            <button
-              class="el-intent-primary el-button"
-              type="submit"
-            >
-              <div
-                class="mocked-styled-0 el-button-loader"
-              />
-              Save Changes
-            </button>
-          </div>
-        </div>
-      </form>
       <div
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
+        class="mocked-styled-44 el-loader-container"
+      >
+        <div
+          class="mocked-styled-46 el-loader"
+        >
+          <div
+            class="mocked-styled-47 el-loader-moving-bar"
+          />
+        </div>
+      </div>
+      <div
         aria-hidden="true"
         class="mocked-styled-146 el-mobile-controls-bg"
       />
@@ -515,109 +245,19 @@ exports[`SettingsPasswordPage should match snapshot for mobile view 1`] = `
       class="el-text-base el-title"
     >
       Password
-<<<<<<< HEAD
-    </mock-styled.h1>
-    <mock-styled.div
-      classname=""
-    >
-      <mock-styled.div>
-        <mock-styled.div />
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div
-=======
     </h1>
-    <form>
-      <div
-        class="el-form-layout-has-margin el-form-layout"
-      >
-        <div
-          class="mocked-styled-133 el-input-wrap"
-        >
-          <div
-            class="mocked-styled-40 el-input-group"
-          >
-            <input
-              aria-label="Input type password"
-              class="mocked-styled-38 el-input"
-              id="test-static-id"
-              name="password"
-              placeholder="Current Password"
-              type="password"
-            />
-            <label
-              class="mocked-styled-41 el-label"
-              for="test-static-id"
-            >
-              Current Password
-            </label>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-133 el-input-wrap"
-        >
-          <div
-            class="mocked-styled-40 el-input-group"
-          >
-            <input
-              aria-label="Input type password"
-              class="mocked-styled-38 el-input"
-              id="test-static-id"
-              name="newPassword"
-              placeholder="New Password"
-              type="password"
-            />
-            <label
-              class="mocked-styled-41 el-label"
-              for="test-static-id"
-            >
-              New Password
-            </label>
-          </div>
-        </div>
-        <div
-          class="mocked-styled-133 el-input-wrap"
-        >
-          <div
-            class="mocked-styled-40 el-input-group"
-          >
-            <input
-              aria-label="Input type password"
-              class="mocked-styled-38 el-input"
-              id="test-static-id"
-              name="confirmPassword"
-              placeholder="Confirm New Password"
-              type="password"
-            />
-            <label
-              class="mocked-styled-41 el-label"
-              for="test-static-id"
-            >
-              Confirm New Password
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="mocked-styled-2 el-button-group"
-      >
-        <div
-          class="mocked-styled-3 el-button-group-inner"
-        >
-          <button
-            class="el-intent-primary el-button"
-            type="submit"
-          >
-            <div
-              class="mocked-styled-0 el-button-loader"
-            />
-            Save Changes
-          </button>
-        </div>
-      </div>
-    </form>
     <div
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
+      class="mocked-styled-44 el-loader-container"
+    >
+      <div
+        class="mocked-styled-46 el-loader"
+      >
+        <div
+          class="mocked-styled-47 el-loader-moving-bar"
+        />
+      </div>
+    </div>
+    <div
       aria-hidden="true"
       class="mocked-styled-146 el-mobile-controls-bg"
     />

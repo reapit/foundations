@@ -13,7 +13,7 @@ exports[`RuleCreateModal should match a snapshot 1`] = `
           class="el-mb11 el-form-layout"
         >
           <div
-            class="mocked-styled-133 el-input-wrap"
+            class="mocked-styled-135 el-input-wrap-full"
           >
             <div
               class="mocked-styled-40 el-input-group"
@@ -34,7 +34,7 @@ exports[`RuleCreateModal should match a snapshot 1`] = `
             </div>
           </div>
           <div
-            class="mocked-styled-133 el-input-wrap"
+            class="mocked-styled-135 el-input-wrap-full"
           >
             <label
               class="mocked-styled-41 el-label"
@@ -104,7 +104,7 @@ exports[`RuleCreateModal should match a snapshot 1`] = `
         class="el-mb11 el-form-layout"
       >
         <div
-          class="mocked-styled-133 el-input-wrap"
+          class="mocked-styled-135 el-input-wrap-full"
         >
           <div
             class="mocked-styled-40 el-input-group"
@@ -125,7 +125,7 @@ exports[`RuleCreateModal should match a snapshot 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-133 el-input-wrap"
+          class="mocked-styled-135 el-input-wrap-full"
         >
           <label
             class="mocked-styled-41 el-label"

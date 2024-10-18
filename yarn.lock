@@ -7330,7 +7330,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/use-reapit-data@workspace:packages/use-reapit-data"
   dependencies:
-    "@reapit/connect-session": "npm:^6.1.1"
+    "@reapit/connect-session": "npm:^6.1.2"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
@@ -7469,7 +7469,7 @@ __metadata:
     "@linaria/react": "npm:^5.0.3"
     "@linaria/rollup": "npm:^5.0.4"
     "@linaria/shaker": "npm:^5.0.3"
-    "@reapit/connect-session": "npm:^6.1.1"
+    "@reapit/connect-session": "npm:^6.1.2"
     "@reapit/elements": "npm:^4.3.1"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:^"

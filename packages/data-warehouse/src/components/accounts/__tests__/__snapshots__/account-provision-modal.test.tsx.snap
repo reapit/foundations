@@ -17,24 +17,15 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
         <div
           class="el-mb11 el-form-layout"
         >
-<<<<<<< HEAD
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-w6"
-            >
-              <mock-styled.input
-                classname=""
-=======
           <div
-            class="mocked-styled-133 el-input-wrap"
+            class="mocked-styled-135 el-input-wrap-full"
           >
             <div
-              class="mocked-styled-40 el-input-group"
+              class="el-w6 el-input-group"
             >
               <input
                 aria-label="Input type text"
                 class="mocked-styled-38 el-input"
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
                 id="test-static-id"
                 name="username"
                 placeholder="Your username here"
@@ -45,30 +36,18 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
                 for="test-static-id"
               >
                 Username
-<<<<<<< HEAD
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-w6"
-            >
-              <mock-styled.input
-                classname=""
-=======
               </label>
             </div>
           </div>
           <div
-            class="mocked-styled-133 el-input-wrap"
+            class="mocked-styled-135 el-input-wrap-full"
           >
             <div
-              class="mocked-styled-40 el-input-group"
+              class="el-w6 el-input-group"
             >
               <input
                 aria-label="Input type password"
                 class="mocked-styled-38 el-input"
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
                 id="test-static-id"
                 name="password"
                 placeholder="*********"
@@ -79,30 +58,18 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
                 for="test-static-id"
               >
                 Password
-<<<<<<< HEAD
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="el-w6"
-            >
-              <mock-styled.input
-                classname=""
-=======
               </label>
             </div>
           </div>
           <div
-            class="mocked-styled-133 el-input-wrap"
+            class="mocked-styled-135 el-input-wrap-full"
           >
             <div
-              class="mocked-styled-40 el-input-group"
+              class="el-w6 el-input-group"
             >
               <input
                 aria-label="Input type password"
                 class="mocked-styled-38 el-input"
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
                 id="test-static-id"
                 name="passwordConfirm"
                 placeholder="*********"
@@ -113,34 +80,28 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
                 for="test-static-id"
               >
                 Confirm Password
-<<<<<<< HEAD
-              </mock-styled.label>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.p
-          classname="el-text-base el-has-grey-text"
+              </label>
+            </div>
+          </div>
+        </div>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
         >
           Please provide an email address so we know who to contact about this account
-        </mock-styled.p>
-        <mock-styled.div
-          classname="el-mb11"
+        </p>
+        <div
+          class="el-mb11 el-form-layout"
         >
-          <mock-styled.div>
-            <mock-styled.input
-              classname="el-w6"
+          <div
+            class="mocked-styled-135 el-input-wrap-full"
+          >
+            <input
+              aria-label="Input type text"
+              class="el-w6 el-input"
               name="email"
               placeholder="Your email address"
               type="text"
             />
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-button-group-align-center"
-=======
-              </label>
-            </div>
           </div>
         </div>
         <div
@@ -148,7 +109,6 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
         >
           <div
             class="el-button-group-align-center el-button-group-inner"
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           >
             <button
               class="el-intent-neutral el-button"
@@ -186,24 +146,15 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
       <div
         class="el-mb11 el-form-layout"
       >
-<<<<<<< HEAD
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-w6"
-          >
-            <mock-styled.input
-              classname=""
-=======
         <div
-          class="mocked-styled-133 el-input-wrap"
+          class="mocked-styled-135 el-input-wrap-full"
         >
           <div
-            class="mocked-styled-40 el-input-group"
+            class="el-w6 el-input-group"
           >
             <input
               aria-label="Input type text"
               class="mocked-styled-38 el-input"
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
               id="test-static-id"
               name="username"
               placeholder="Your username here"
@@ -214,30 +165,18 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
               for="test-static-id"
             >
               Username
-<<<<<<< HEAD
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-w6"
-          >
-            <mock-styled.input
-              classname=""
-=======
             </label>
           </div>
         </div>
         <div
-          class="mocked-styled-133 el-input-wrap"
+          class="mocked-styled-135 el-input-wrap-full"
         >
           <div
-            class="mocked-styled-40 el-input-group"
+            class="el-w6 el-input-group"
           >
             <input
               aria-label="Input type password"
               class="mocked-styled-38 el-input"
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
               id="test-static-id"
               name="password"
               placeholder="*********"
@@ -248,30 +187,18 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
               for="test-static-id"
             >
               Password
-<<<<<<< HEAD
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="el-w6"
-          >
-            <mock-styled.input
-              classname=""
-=======
             </label>
           </div>
         </div>
         <div
-          class="mocked-styled-133 el-input-wrap"
+          class="mocked-styled-135 el-input-wrap-full"
         >
           <div
-            class="mocked-styled-40 el-input-group"
+            class="el-w6 el-input-group"
           >
             <input
               aria-label="Input type password"
               class="mocked-styled-38 el-input"
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
               id="test-static-id"
               name="passwordConfirm"
               placeholder="*********"
@@ -282,34 +209,28 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
               for="test-static-id"
             >
               Confirm Password
-<<<<<<< HEAD
-            </mock-styled.label>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.p
-        classname="el-text-base el-has-grey-text"
+            </label>
+          </div>
+        </div>
+      </div>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
       >
         Please provide an email address so we know who to contact about this account
-      </mock-styled.p>
-      <mock-styled.div
-        classname="el-mb11"
+      </p>
+      <div
+        class="el-mb11 el-form-layout"
       >
-        <mock-styled.div>
-          <mock-styled.input
-            classname="el-w6"
+        <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <input
+            aria-label="Input type text"
+            class="el-w6 el-input"
             name="email"
             placeholder="Your email address"
             type="text"
           />
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div
-          classname="el-button-group-align-center"
-=======
-            </label>
-          </div>
         </div>
       </div>
       <div
@@ -317,7 +238,6 @@ exports[`AccountProvisionModal should match a snapshot 1`] = `
       >
         <div
           class="el-button-group-align-center el-button-group-inner"
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         >
           <button
             class="el-intent-neutral el-button"

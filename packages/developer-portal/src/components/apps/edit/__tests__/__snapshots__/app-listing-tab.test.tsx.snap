@@ -401,15 +401,10 @@ exports[`AppListingTab should match a snapshot 1`] = `
             Description
           </label>
           <div />
-<<<<<<< HEAD
-        </mock-styled.div>
-        <mock-styled.div>
-=======
         </div>
         <div
           class="mocked-styled-133 el-input-wrap"
         >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -446,15 +441,10 @@ exports[`AppListingTab should match a snapshot 1`] = `
               </small>
             </div>
           </div>
-<<<<<<< HEAD
-        </mock-styled.div>
-        <mock-styled.div>
-=======
         </div>
         <div
           class="mocked-styled-133 el-input-wrap"
         >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -491,15 +481,10 @@ exports[`AppListingTab should match a snapshot 1`] = `
               </small>
             </div>
           </div>
-<<<<<<< HEAD
-        </mock-styled.div>
-        <mock-styled.div>
-=======
         </div>
         <div
           class="mocked-styled-133 el-input-wrap"
         >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -536,15 +521,10 @@ exports[`AppListingTab should match a snapshot 1`] = `
               </small>
             </div>
           </div>
-<<<<<<< HEAD
-        </mock-styled.div>
-        <mock-styled.div>
-=======
         </div>
         <div
           class="mocked-styled-133 el-input-wrap"
         >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -581,15 +561,10 @@ exports[`AppListingTab should match a snapshot 1`] = `
               </small>
             </div>
           </div>
-<<<<<<< HEAD
-        </mock-styled.div>
-        <mock-styled.div>
-=======
         </div>
         <div
           class="mocked-styled-133 el-input-wrap"
         >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -626,15 +601,10 @@ exports[`AppListingTab should match a snapshot 1`] = `
               </small>
             </div>
           </div>
-<<<<<<< HEAD
-        </mock-styled.div>
-        <mock-styled.div>
-=======
         </div>
         <div
           class="mocked-styled-133 el-input-wrap"
         >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -671,13 +641,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
               </small>
             </div>
           </div>
-<<<<<<< HEAD
-        </mock-styled.div>
-      </mock-styled.div>
-=======
         </div>
       </div>
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
     </div>
   </body>,
   "container": <div>
@@ -1077,15 +1042,10 @@ exports[`AppListingTab should match a snapshot 1`] = `
           Description
         </label>
         <div />
-<<<<<<< HEAD
-      </mock-styled.div>
-      <mock-styled.div>
-=======
       </div>
       <div
         class="mocked-styled-133 el-input-wrap"
       >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -1122,15 +1082,10 @@ exports[`AppListingTab should match a snapshot 1`] = `
             </small>
           </div>
         </div>
-<<<<<<< HEAD
-      </mock-styled.div>
-      <mock-styled.div>
-=======
       </div>
       <div
         class="mocked-styled-133 el-input-wrap"
       >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -1167,15 +1122,10 @@ exports[`AppListingTab should match a snapshot 1`] = `
             </small>
           </div>
         </div>
-<<<<<<< HEAD
-      </mock-styled.div>
-      <mock-styled.div>
-=======
       </div>
       <div
         class="mocked-styled-133 el-input-wrap"
       >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -1212,15 +1162,10 @@ exports[`AppListingTab should match a snapshot 1`] = `
             </small>
           </div>
         </div>
-<<<<<<< HEAD
-      </mock-styled.div>
-      <mock-styled.div>
-=======
       </div>
       <div
         class="mocked-styled-133 el-input-wrap"
       >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -1257,15 +1202,10 @@ exports[`AppListingTab should match a snapshot 1`] = `
             </small>
           </div>
         </div>
-<<<<<<< HEAD
-      </mock-styled.div>
-      <mock-styled.div>
-=======
       </div>
       <div
         class="mocked-styled-133 el-input-wrap"
       >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -1302,15 +1242,10 @@ exports[`AppListingTab should match a snapshot 1`] = `
             </small>
           </div>
         </div>
-<<<<<<< HEAD
-      </mock-styled.div>
-      <mock-styled.div>
-=======
       </div>
       <div
         class="mocked-styled-133 el-input-wrap"
       >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -1347,13 +1282,8 @@ exports[`AppListingTab should match a snapshot 1`] = `
             </small>
           </div>
         </div>
-<<<<<<< HEAD
-      </mock-styled.div>
-    </mock-styled.div>
-=======
       </div>
     </div>
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -2034,17 +1964,11 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             class="mocked-styled-42 el-input-error"
           >
             An Error
-<<<<<<< HEAD
-          </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div>
-=======
           </p>
         </div>
         <div
           class="mocked-styled-133 el-input-wrap"
         >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -2081,13 +2005,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               </small>
             </div>
           </div>
-<<<<<<< HEAD
-          <mock-styled.p>
-            An Error
-          </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div>
-=======
           <p
             class="mocked-styled-42 el-input-error"
           >
@@ -2097,7 +2014,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         <div
           class="mocked-styled-133 el-input-wrap"
         >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -2134,13 +2050,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               </small>
             </div>
           </div>
-<<<<<<< HEAD
-          <mock-styled.p>
-            An Error
-          </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div>
-=======
           <p
             class="mocked-styled-42 el-input-error"
           >
@@ -2150,7 +2059,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         <div
           class="mocked-styled-133 el-input-wrap"
         >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -2187,13 +2095,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               </small>
             </div>
           </div>
-<<<<<<< HEAD
-          <mock-styled.p>
-            An Error
-          </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div>
-=======
           <p
             class="mocked-styled-42 el-input-error"
           >
@@ -2203,7 +2104,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         <div
           class="mocked-styled-133 el-input-wrap"
         >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -2240,13 +2140,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               </small>
             </div>
           </div>
-<<<<<<< HEAD
-          <mock-styled.p>
-            An Error
-          </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div>
-=======
           <p
             class="mocked-styled-42 el-input-error"
           >
@@ -2256,7 +2149,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         <div
           class="mocked-styled-133 el-input-wrap"
         >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -2293,13 +2185,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               </small>
             </div>
           </div>
-<<<<<<< HEAD
-          <mock-styled.p>
-            An Error
-          </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div>
-=======
           <p
             class="mocked-styled-42 el-input-error"
           >
@@ -2309,7 +2194,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
         <div
           class="mocked-styled-133 el-input-wrap"
         >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           <div
             class="mocked-styled-140 el-file-input-wrap"
           >
@@ -2346,13 +2230,9 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
               </small>
             </div>
           </div>
-<<<<<<< HEAD
-          <mock-styled.p>
-=======
           <p
             class="mocked-styled-42 el-input-error"
           >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
             An Error
           </p>
         </div>
@@ -2980,17 +2860,11 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
           class="mocked-styled-42 el-input-error"
         >
           An Error
-<<<<<<< HEAD
-        </mock-styled.p>
-      </mock-styled.div>
-      <mock-styled.div>
-=======
         </p>
       </div>
       <div
         class="mocked-styled-133 el-input-wrap"
       >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -3027,13 +2901,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             </small>
           </div>
         </div>
-<<<<<<< HEAD
-        <mock-styled.p>
-          An Error
-        </mock-styled.p>
-      </mock-styled.div>
-      <mock-styled.div>
-=======
         <p
           class="mocked-styled-42 el-input-error"
         >
@@ -3043,7 +2910,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
       <div
         class="mocked-styled-133 el-input-wrap"
       >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -3080,13 +2946,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             </small>
           </div>
         </div>
-<<<<<<< HEAD
-        <mock-styled.p>
-          An Error
-        </mock-styled.p>
-      </mock-styled.div>
-      <mock-styled.div>
-=======
         <p
           class="mocked-styled-42 el-input-error"
         >
@@ -3096,7 +2955,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
       <div
         class="mocked-styled-133 el-input-wrap"
       >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -3133,13 +2991,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             </small>
           </div>
         </div>
-<<<<<<< HEAD
-        <mock-styled.p>
-          An Error
-        </mock-styled.p>
-      </mock-styled.div>
-      <mock-styled.div>
-=======
         <p
           class="mocked-styled-42 el-input-error"
         >
@@ -3149,7 +3000,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
       <div
         class="mocked-styled-133 el-input-wrap"
       >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -3186,13 +3036,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             </small>
           </div>
         </div>
-<<<<<<< HEAD
-        <mock-styled.p>
-          An Error
-        </mock-styled.p>
-      </mock-styled.div>
-      <mock-styled.div>
-=======
         <p
           class="mocked-styled-42 el-input-error"
         >
@@ -3202,7 +3045,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
       <div
         class="mocked-styled-133 el-input-wrap"
       >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -3239,13 +3081,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             </small>
           </div>
         </div>
-<<<<<<< HEAD
-        <mock-styled.p>
-          An Error
-        </mock-styled.p>
-      </mock-styled.div>
-      <mock-styled.div>
-=======
         <p
           class="mocked-styled-42 el-input-error"
         >
@@ -3255,7 +3090,6 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
       <div
         class="mocked-styled-133 el-input-wrap"
       >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
         <div
           class="mocked-styled-140 el-file-input-wrap"
         >
@@ -3292,13 +3126,9 @@ exports[`AppListingTab should match a snapshot with errors and messages 1`] = `
             </small>
           </div>
         </div>
-<<<<<<< HEAD
-        <mock-styled.p>
-=======
         <p
           class="mocked-styled-42 el-input-error"
         >
->>>>>>> e83ceb437 (fix: RPLT-399 some housekeeping)
           An Error
         </p>
       </div>
