@@ -7250,8 +7250,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/utils-nest@workspace:packages/utils-nest"
   dependencies:
-    "@nestjs/common": "npm:^9.4.3"
-    "@nestjs/core": "npm:^9.4.3"
     "@nestjs/testing": "npm:^9.4.3"
     "@reapit/connect-session-server": "npm:^1.3.2"
     "@reapit/foundations-ts-definitions": "npm:^2.0.0"
