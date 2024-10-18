@@ -46,7 +46,7 @@ export const PipelineTabs: FC = () => {
           id: 'deployments',
           value: 'deployments',
           text: 'Deployments',
-          isChecked: !pathname.includes('configure') && !pathname.includes('environment'),
+          isChecked: !pathname.includes('configure') && !pathname.includes('environment') && !pathname.includes('dns'),
         },
         {
           id: 'configure',
@@ -64,7 +64,7 @@ export const PipelineTabs: FC = () => {
           id: 'DNS',
           value: 'DNS',
           text: 'Custom DNS',
-          isChecked: pathname.includes('DNS'),
+          isChecked: pathname.includes('dns'),
         },
       ]}
     />
