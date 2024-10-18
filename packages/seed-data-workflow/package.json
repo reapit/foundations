@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@reapit/connect-session": "^6.1.2",
-    "@reapit/elements": "^4.3.1",
+    "@reapit/elements": "^4.3.2",
     "axios": "^1.7.7",
     "dayjs": "^1.11.10",
     "eslint": "^8.57.0",

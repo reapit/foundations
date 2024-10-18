@@ -7010,7 +7010,7 @@ __metadata:
   resolution: "@reapit/cli@workspace:packages/cli"
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/connect-session": "npm:^6.1.1"
+    "@reapit/connect-session": "npm:^6.1.2"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@types/adm-zip": "npm:^0.5.5"
     "@types/inquirer": "npm:^7.3.3"
@@ -7095,25 +7095,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reapit/connect-session@npm:^6.1.1":
-  version: 6.1.1
-  resolution: "@reapit/connect-session@npm:6.1.1"
-  dependencies:
-    "@aws-crypto/sha256-browser": "npm:^5.2.0"
-    axios: "npm:^1.7.7"
-    base-64: "npm:^1.0.0"
-    idtoken-verifier: "npm:^2.2.4"
-    isomorphic-fetch: "npm:^3.0.0"
-    jwk-to-pem: "npm:^2.0.6"
-    jwt-decode: "npm:^3.1.2"
-    react: "npm:^18.2.0"
-    react-dom: "npm:^18.2.0"
-    text-encoding: "npm:^0.7.0"
-    uuid: "npm:^9.0.1"
-  checksum: 85461c58344215580beea16203823151460b88f6822a51bf7c8cb038a17a9897c87d725833623a94a129e5336fafdacdaeda1734e783c32d4c7dd74de1bcaa1c
-  languageName: node
-  linkType: hard
-
 "@reapit/connect-session@npm:^6.1.2":
   version: 6.1.2
   resolution: "@reapit/connect-session@npm:6.1.2"
@@ -7133,9 +7114,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reapit/elements@npm:4.3.1, @reapit/elements@npm:^4.3.1":
-  version: 4.3.1
-  resolution: "@reapit/elements@npm:4.3.1"
+"@reapit/elements@npm:4.3.2, @reapit/elements@npm:^4.3.2":
+  version: 4.3.2
+  resolution: "@reapit/elements@npm:4.3.2"
   dependencies:
     "@linaria/core": "npm:^6.1.0"
     "@linaria/react": "npm:^6.1.0"
@@ -7144,7 +7125,7 @@ __metadata:
     react-dom: ">=18.0.2"
   bin:
     elements-deploy: ./scripts/cdk/bin/rpt-cdk.js
-  checksum: 8ee523b1c6d3bc78d335644bd20ac7fb654304caea115174e6cfb0a1bb119cbac55f649a05611756e1496768a5c2748647b7ec690670d4e886e776dca203b3ae
+  checksum: 227c88d7524e599e0c640982a8a666f2fe76fc89791764926c5902d1b851170a8302ae33dc3d1827cbb8ec26953123d0ee075c78339c29e21e259def41f1da65
   languageName: node
   linkType: hard
 
@@ -7171,7 +7152,7 @@ __metadata:
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.2"
-    "@reapit/elements": "npm:^4.3.1"
+    "@reapit/elements": "npm:^4.3.2"
     "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
@@ -7428,7 +7409,7 @@ __metadata:
     "@linaria/react": "npm:^5.0.3"
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/connect-session": "npm:^6.1.1"
+    "@reapit/connect-session": "npm:^6.1.2"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
@@ -7470,7 +7451,7 @@ __metadata:
     "@linaria/rollup": "npm:^5.0.4"
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/connect-session": "npm:^6.1.2"
-    "@reapit/elements": "npm:^4.3.1"
+    "@reapit/elements": "npm:^4.3.2"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:^"
     "@reapit/use-reapit-data": "workspace:^"
@@ -11339,7 +11320,7 @@ __metadata:
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.2"
-    "@reapit/elements": "npm:4.3.1"
+    "@reapit/elements": "npm:4.3.2"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/use-reapit-data": "workspace:packages/use-reapit-data"
@@ -11712,7 +11693,7 @@ __metadata:
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.2"
-    "@reapit/elements": "npm:^4.3.1"
+    "@reapit/elements": "npm:^4.3.2"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
@@ -11765,7 +11746,7 @@ __metadata:
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.2"
-    "@reapit/elements": "npm:^4.3.1"
+    "@reapit/elements": "npm:^4.3.2"
     "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-scripts": "workspace:^"
     "@reapit/utils-common": "workspace:packages/utils-common"
@@ -14291,7 +14272,7 @@ __metadata:
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.2"
-    "@reapit/elements": "npm:^4.3.1"
+    "@reapit/elements": "npm:^4.3.2"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:^"
     "@sentry/browser": "npm:^7.107.0"
@@ -14646,7 +14627,7 @@ __metadata:
     "@nestjs/typeorm": "npm:^8.1.4"
     "@octokit/app": "npm:^14.0.2"
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/connect-session": "npm:^6.1.1"
+    "@reapit/connect-session": "npm:^6.1.2"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-authorizer": "workspace:^"
@@ -14771,7 +14752,7 @@ __metadata:
     "@linaria/vite": "npm:^5.0.4"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.2"
-    "@reapit/elements": "npm:^4.3.1"
+    "@reapit/elements": "npm:^4.3.2"
     "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/use-reapit-data": "workspace:packages/use-reapit-data"
@@ -16999,7 +16980,7 @@ __metadata:
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.2"
-    "@reapit/elements": "npm:^4.3.1"
+    "@reapit/elements": "npm:^4.3.2"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
@@ -20288,7 +20269,7 @@ __metadata:
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.2"
-    "@reapit/elements": "npm:^4.3.1"
+    "@reapit/elements": "npm:^4.3.2"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
@@ -20326,7 +20307,7 @@ __metadata:
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.2"
-    "@reapit/elements": "npm:^4.3.1"
+    "@reapit/elements": "npm:^4.3.2"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/use-reapit-data": "workspace:^"
@@ -22396,7 +22377,7 @@ __metadata:
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.2"
-    "@reapit/elements": "npm:^4.3.1"
+    "@reapit/elements": "npm:^4.3.2"
     "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/payments-ui": "workspace:packages/payments-ui"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
@@ -22441,7 +22422,7 @@ __metadata:
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.2"
-    "@reapit/elements": "npm:^4.3.1"
+    "@reapit/elements": "npm:^4.3.2"
     "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
@@ -23364,7 +23345,7 @@ __metadata:
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.2"
-    "@reapit/elements": "npm:^4.3.1"
+    "@reapit/elements": "npm:^4.3.2"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
@@ -23404,7 +23385,7 @@ __metadata:
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.2"
-    "@reapit/elements": "npm:^4.3.1"
+    "@reapit/elements": "npm:^4.3.2"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
@@ -23887,7 +23868,7 @@ __metadata:
     "@linaria/shaker": "npm:^5.0.3"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.2"
-    "@reapit/elements": "npm:^4.3.1"
+    "@reapit/elements": "npm:^4.3.2"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
@@ -24784,7 +24765,7 @@ __metadata:
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.2"
-    "@reapit/elements": "npm:^4.3.1"
+    "@reapit/elements": "npm:^4.3.2"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
     "@typescript-eslint/parser": "npm:^6.21.0"
