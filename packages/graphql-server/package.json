@@ -12,7 +12,7 @@
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
     "build:schema": "node ./scripts/build-schema.js && prettier src/schema.graphql --write",
     "build": "rm -rf dist && yarn build:schema && tsup && cp src/schema.graphql dist/graphql-server/schema.graphql",
-    "bundle": "zip bundle.zip dist/graphql-server",
+    "bundle": "zip bundle.zip dist/graphql-server/*",
     "lint": "concurrently \"prettier src/**/*.graphql --write \"  \"eslint --cache --ext=ts,tsx src\"",
     "check": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
