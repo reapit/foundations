@@ -1,3 +1,3 @@
-const { baseEslint } = require('@reapit/ts-scripts')
+const { baseEslint } = require('../ts-scripts')
 
 module.exports = baseEslint
