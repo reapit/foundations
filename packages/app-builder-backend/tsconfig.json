@@ -5,8 +5,7 @@
     "target": "ES2018",
     "baseUrl": "./",
     "sourceRoot": "/",
-    "paths": {
-    },
+    "paths": {},
     "declaration": true,
     "declarationDir": "dist",
     "experimentalDecorators": true,

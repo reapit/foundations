@@ -21,7 +21,6 @@ const jestGlobalConfig = {
   },
   moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx', 'graphql', 'gql', 'mjs'],
   verbose: false,
-  projects: ['<rootDir>/jest.config.js'],
   transform: {
     '\\.(gql|graphql)$': '@graphql-tools/jest-transform',
   },
@@ -36,7 +35,6 @@ const jestGlobalConfig = {
       statements: 90,
     },
   },
-  coverageReporters: ['json-summary', 'text', 'lcov'],
 }
 
 module.exports = { jestGlobalConfig }

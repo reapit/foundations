@@ -12,11 +12,9 @@
     "conf-all": "yarn workspaces foreach --all  --parallel --verbose run conf",
     "lint-all": "yarn workspaces foreach --all  --parallel --verbose run lint",
     "check-all": "yarn workspaces foreach --all  --parallel --verbose run check",
-    "upgrade-all": "yarn upgrade-interactive",
-    "postinstall": "husky install"
+    "upgrade-all": "yarn upgrade-interactive"
   },
   "devDependencies": {
-    "husky": "^7.0.4",
     "json": "^11.0.0"
   },
   "packageManager": "yarn@4.0.1"

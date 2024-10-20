@@ -9,15 +9,13 @@ env:
   AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
   AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
   AWS_REGION: ${{secrets.AWS_REGION}}
+  CODACY_PROJECT_TOKEN: ${{secrets.CODACY_PROJECT_TOKEN}}
   CI: true
 
 jobs:
   test-pr:
     name: Test
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        shard: [1/4, 2/4, 3/4, 4/4]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,4 +36,8 @@ jobs:
 
       - name: Test
         run: |
-          yarn workspaces foreach --parallel --verbose --interlaced --since --recursive run test --watch=false --ci --forceExit --detectOpenHandles --runInBand --passWithNoTests --shard=${{ matrix.shard }}
+          yarn workspaces foreach --parallel --verbose --interlaced --since --recursive run test --watch=false --ci --forceExit --detectOpenHandles --runInBand --passWithNoTests --coverage
+
+      - name: Codacy
+        run: |
+          bash <(curl -Ls https://coverage.codacy.com/get.sh)

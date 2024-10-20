@@ -83,7 +83,7 @@ export const AppCard: FC<AppCardProps> = ({ app, connectSession }: AppCardProps)
           listCardItemSubHeading:
             installationString && installationString !== 'Not installed'
               ? installationString
-              : installationString ?? '',
+              : (installationString ?? ''),
           listCardItemIcon: 'customerInfographic',
         },
         {

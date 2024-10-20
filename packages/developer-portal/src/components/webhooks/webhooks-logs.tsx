@@ -32,7 +32,7 @@ export const handleDownloadPayload = (payload: string, timestamp: string) => () 
 
 export const renderTopicName = (topics: TopicModel[], topicId?: string): string => {
   const subscriptionTopic = topics.find((topic) => topic.id === topicId)
-  return subscriptionTopic && subscriptionTopic.name ? subscriptionTopic.name : topicId ?? ''
+  return subscriptionTopic && subscriptionTopic.name ? subscriptionTopic.name : (topicId ?? '')
 }
 
 export const handleSortTableData = (logs: WebhookLogModel[], topics: TopicModel[]) => (): RowProps[] =>

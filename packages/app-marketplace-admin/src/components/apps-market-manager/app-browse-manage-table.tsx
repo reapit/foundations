@@ -13,11 +13,7 @@ import {
   Subtitle,
   Table,
 } from '@reapit/elements'
-import {
-  Marketplace,
-  AppsBrowseConfigEnum,
-  AppsBrowseConfigItemInterface,
-} from '@reapit/foundations-ts-definitions'
+import { Marketplace, AppsBrowseConfigEnum, AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
 import {
   SendFunction,
   UpdateReturnTypeEnum,

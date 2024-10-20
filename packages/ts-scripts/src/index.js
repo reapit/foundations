@@ -4,7 +4,6 @@ const { jestNodeGlobalConfig } = require('./jest/jest.config.node')
 const svgTransform = require('./jest/svg-transform')
 const baseEslint = require('./eslint/base-eslint')
 const baseBabel = require('./babel/base-babel')
-const baseVite = require('./vite/base-vite')
 
 module.exports = {
   cssStub,
@@ -13,5 +12,4 @@ module.exports = {
   jestNodeGlobalConfig,
   baseEslint,
   baseBabel,
-  baseVite,
 }

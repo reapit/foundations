@@ -1,9 +1,6 @@
 import { Command, Param } from '../../decorators'
 import { AbstractCommand } from '../../abstract.command'
-import {
-  PipelineModelInterface,
-  PipelineRunnerModelInterface,
-} from '@reapit/foundations-ts-definitions'
+import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
 import ora from 'ora'
 import { REAPIT_PIPELINE_CONFIG_FILE } from './constants'
 import inquirer from 'inquirer'
