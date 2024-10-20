@@ -8,9 +8,6 @@ dependencies:
 admin-portal:
   - packages/admin-portal/**
 
-aml-checklist:
-  - packages/aml-checklist/**
-
 app-builder:
   - packages/app-builder/**
 
@@ -26,20 +23,11 @@ app-marketplace-cms:
 cli:
   - packages/cli/**
 
-cloud-alert:
-  - packages/cloud-alert/**
-
 cognito-custom-mail-lambda:
   - packages/cognito-custom-mail-lambda/**
 
 config-manager:
   - packages/config-manager/**
-
-cra-template-foundations:
-  - packages/cra-template-foundations/**
-
-create-node-app-generator:
-  - packages/cra-template-foundations/**
 
 data-warehouse:
   - packages/data-warehouse/**
@@ -50,35 +38,11 @@ deployment-service:
 developer-portal:
   - packages/developer-portal/**
 
-elements:
-  - packages/elements/**
-
-elements-legacy:
-  - packages/elements-legacy/**
-
-events-service:
-  - packages/events-service/**
-
-foundations-ts-definitions:
-  - packages/foundations-ts-definitions/**
-
 geo-diary:
   - packages/geo-diary/**
 
-geo-diary-marketing:
-  - packages/geo-diary-marketing/**
-
 graphql-server:
   - packages/graphql-server/**
-
-insights:
-  - packages/insights/**
-
-login-with-reapit:
-  - packages/login-with-reapit/**
-
-mailer-service:
-  - packages/mailer-service/**
 
 marketplace:
   - packages/marketplace/**
@@ -92,17 +56,11 @@ payments-client:
 payments-service:
   - packages/payments-service/**
 
-react-app-scaffolder:
-  - packages/react-app-scaffolder/**
-
 reapit-connect:
   - packages/reapit-connect/**
 
 security-header-lambda:
   - packages/security-header-lambda/**
-
-seed-data-workflow:
-  - packages/seed-data-workflow/**
 
 ts-bundler:
   - packages/ts-bundler/**
@@ -119,5 +77,4 @@ utils-node:
 utils-react:
   - packages/utils-react/**
 
-utils-nest:
-  -packages/utils-nest/**
+utils-nest: -packages/utils-nest/**
