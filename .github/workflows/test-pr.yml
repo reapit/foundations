@@ -16,9 +16,6 @@ jobs:
   test-pr:
     name: Test
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        shard: [1/4, 2/4, 3/4, 4/4]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,7 +36,7 @@ jobs:
 
       - name: Test
         run: |
-          yarn workspaces foreach --parallel --verbose --interlaced --since --recursive run test --watch=false --ci --forceExit --detectOpenHandles --runInBand --passWithNoTests --shard=${{ matrix.shard }} --coverage
+          yarn workspaces foreach --parallel --verbose --interlaced --since --recursive run test --watch=false --ci --forceExit --detectOpenHandles --runInBand --passWithNoTests --coverage
 
       # - name: Codacy - Commenting out as coverage reporter not working currently - likely a workspaces issue
       #   run: |
