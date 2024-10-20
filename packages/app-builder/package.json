@@ -31,7 +31,7 @@
     "@reapit/elements": "^4.3.2",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@reapit/utils-react": "workspace:packages/utils-react",
-    "@sentry/browser": "^7.119.2",
+    "@sentry/browser": "^8.34.0",
     "date-fns": "^2.30.0",
     "dayjs": "^1.11.13",
     "debounce": "^1.2.1",
