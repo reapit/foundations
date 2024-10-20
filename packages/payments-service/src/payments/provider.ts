@@ -15,13 +15,16 @@ export class PaymentsProvider {
 
     if (!accessToken) throw new UnauthorizedException('No access token returned from Reapit Connect')
 
-    const payment = await axios.get<Platform.PaymentModel>(`${process.env.PLATFORM_API_BASE_URL}/payments/${paymentId}`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        'reapit-customer': clientCode,
-        'api-version': apiVersion ?? 'latest',
+    const payment = await axios.get<Platform.PaymentModel>(
+      `${process.env.PLATFORM_API_BASE_URL}/payments/${paymentId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'reapit-customer': clientCode,
+          'api-version': apiVersion ?? 'latest',
+        },
       },
-    })
+    )
 
     if (payment.status >= 400 || !payment.data)
       throw new BadRequestException(
@@ -32,13 +35,16 @@ export class PaymentsProvider {
 
     if (!propertyId) return payment.data
 
-    const property = await axios.get<Platform.PropertyModel>(`${process.env.PLATFORM_API_BASE_URL}/properties/${propertyId}`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        'reapit-customer': clientCode,
-        'api-version': apiVersion ?? 'latest',
+    const property = await axios.get<Platform.PropertyModel>(
+      `${process.env.PLATFORM_API_BASE_URL}/properties/${propertyId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'reapit-customer': clientCode,
+          'api-version': apiVersion ?? 'latest',
+        },
       },
-    })
+    )
 
     if (property.status >= 400 || !property.data)
       throw new BadRequestException(

@@ -61,9 +61,9 @@ export const handleFetchInitialState =
               value: organisationId ?? '',
             }))
             .filter(Boolean) as MultiSelectOption[]) ?? []
-        const orgId = !orgMembers.length ? userInfo.organisationId ?? null : null
-        const orgName = !orgMembers.length ? userInfo.organisationName ?? null : null
-        const orgClientId = !orgMembers.length ? userInfo.userCustomerId ?? null : null
+        const orgId = !orgMembers.length ? (userInfo.organisationId ?? null) : null
+        const orgName = !orgMembers.length ? (userInfo.organisationName ?? null) : null
+        const orgClientId = !orgMembers.length ? (userInfo.userCustomerId ?? null) : null
 
         setOrgIdState({ orgId, orgName, orgClientId, orgIdOptions, orgMembers })
       }

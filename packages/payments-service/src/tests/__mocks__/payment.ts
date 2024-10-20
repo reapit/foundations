@@ -3,7 +3,7 @@ import { PaymentWithPropertyModel } from '@reapit/payments-ui'
 import { PaymentsDto, PaymentsHeaders } from '../../payments/dto'
 import { mockPropertyModel } from './property'
 
-export const mockPaymentModel:Payments.PaymentModel = {
+export const mockPaymentModel: Payments.PaymentModel = {
   id: 'PAY20000001',
   created: '2018-12-12T12:30:23.0000000Z',
   modified: '2019-01-08T12:30:34.0000000Z',

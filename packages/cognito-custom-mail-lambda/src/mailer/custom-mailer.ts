@@ -45,7 +45,7 @@ const getConfirmRegistrationUrl = async (emailAddress: string) => {
     if (productId === 'agentbox') return agentboxUrl
     if (productId === 'consoleCloud') return consoleUrl
   }
-  
+
   return confirmRegistrationUrl
 }
 

@@ -33,8 +33,8 @@
   "devDependencies": {
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@types/react": "^18.3.11",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
+    "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@typescript-eslint/parser": "^8.10.0",
     "babel-jest": "^29.7.0",
     "concurrently": "^6.5.1",
     "cross-env": "^7.0.3",
