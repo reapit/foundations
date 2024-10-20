@@ -39,8 +39,8 @@ jobs:
 
       - name: Test
         run: |
-          yarn workspaces foreach --parallel --verbose --interlaced --since --recursive run test --watch=false --ci --forceExit --detectOpenHandles --runInBand --passWithNoTests --shard=${{ matrix.shard }}
+          yarn workspaces foreach --parallel --verbose --interlaced --since --recursive run test --watch=false --ci --forceExit --detectOpenHandles --runInBand --passWithNoTests --shard=${{ matrix.shard }} --coverage
 
-      - name: Codacy
-        run: |
-          bash <(curl -Ls https://coverage.codacy.com/get.sh)
+      # - name: Codacy - Commenting out as coverage reporter not working currently - likely a workspaces issue
+      #   run: |
+      #     bash <(curl -Ls https://coverage.codacy.com/get.sh)
