@@ -28,7 +28,7 @@
     "@reapit/use-reapit-data": "workspace:packages/use-reapit-data",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@reapit/utils-react": "workspace:packages/utils-react",
-    "@sentry/browser": "^7.119.2",
+    "@sentry/browser": "^8.34.0",
     "dayjs": "^1.11.13",
     "diff": "^4.0.2",
     "just-debounce-it": "^3.2.0",

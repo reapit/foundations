@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client'
 import { getMarketplaceGlobalsByKey } from '@reapit/utils-react'
 import App from './app'
 import mixpanel from 'mixpanel-browser'
+import { createRoutesFromChildren, matchRoutes, useLocation, useNavigationType } from 'react-router-dom'
 
 const rootElement = document.querySelector('#root') as Element
 const isDesktop = getMarketplaceGlobalsByKey()
@@ -12,7 +13,15 @@ const isLocal = process.env.appEnv !== 'production'
 
 if (!isLocal && process.env.sentryDsn) {
   Sentry.init({
-    integrations: [new Sentry.BrowserTracing()],
+    integrations: [
+      Sentry.reactRouterV6BrowserTracingIntegration({
+        useEffect: React.useEffect,
+        useLocation,
+        useNavigationType,
+        createRoutesFromChildren,
+        matchRoutes,
+      }),
+    ],
     release: process.env.APP_VERSION,
     dsn: process.env.sentryDsn,
     environment: process.env.appEnv,

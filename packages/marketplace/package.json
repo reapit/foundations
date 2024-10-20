@@ -29,7 +29,7 @@
     "@reapit/use-reapit-data": "workspace:^",
     "@reapit/utils-common": "workspace:^",
     "@reapit/utils-react": "workspace:packages/utils-react",
-    "@sentry/browser": "^7.119.2",
+    "@sentry/browser": "^8.34.0",
     "dayjs": "^1.11.13",
     "mixpanel-browser": "^2.55.1",
     "react": "^18.2.0",
