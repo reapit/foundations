@@ -239,23 +239,23 @@ export const createStack = async () => {
    * is to add the migration script to a second stack which required the first stack
    */
 
-  const migrationHandler = createLambda({
-    stack,
-    name: 'cloud-deployment-migration',
-    entrypoint: 'bundle/migration-run.zip',
-    handler: createFileLoc('migration-run', 'migrationRun'),
-    runtime: aws_lambda.Runtime.NODEJS_18_X,
-    env,
-    vpc,
-  })
+  // const migrationHandler = createLambda({
+  //   stack,
+  //   name: 'cloud-deployment-migration',
+  //   entrypoint: 'bundle/migration-run.zip',
+  //   handler: createFileLoc('migration-run', 'migrationRun'),
+  //   runtime: aws_lambda.Runtime.NODEJS_18_X,
+  //   env,
+  //   vpc,
+  // })
 
-  policies.commonBackendPolicies.forEach((policy) => migrationHandler.addToRolePolicy(policy))
+  // policies.commonBackendPolicies.forEach((policy) => migrationHandler.addToRolePolicy(policy))
 
-  Object.values(policies)
-    .filter((policy) => policy instanceof PolicyStatement)
-    .forEach((policy) => migrationHandler.addToRolePolicy(policy as PolicyStatement))
+  // Object.values(policies)
+  //   .filter((policy) => policy instanceof PolicyStatement)
+  //   .forEach((policy) => migrationHandler.addToRolePolicy(policy as PolicyStatement))
 
-  const numberOfMigrations = await getNumberOfMigrations()
+  // const numberOfMigrations = await getNumberOfMigrations()
 
-  createStackEventHandler(stack, 'migration-event', migrationHandler, `${numberOfMigrations}`)
+  // createStackEventHandler(stack, 'migration-event', migrationHandler, `${numberOfMigrations}`)
 }
