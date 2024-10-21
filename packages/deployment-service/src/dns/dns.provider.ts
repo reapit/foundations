@@ -14,7 +14,7 @@ export class DnsProvider {
     result: boolean
     reason?: string
   }> {
-    const response = await fetch(`https://dns.google/resolve?name=${pipeline.customDomain}&type=16`)
+    const response = await fetch(`https://dns.google/resolve?name=${pipeline.verifyDnsName}.${pipeline.customDomain}&type=16`)
 
     const data = await response.json()
 

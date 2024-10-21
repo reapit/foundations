@@ -38,6 +38,7 @@ export class DnsController {
 
     this.ownershipProvider.check(pipeline, creds.developerId as string)
 
+    const verifyDnsName = 'reapit-iaas'
     const verifyDnsValue = uuid()
 
     // prevent verify value overwrite
@@ -47,6 +48,7 @@ export class DnsController {
     await this.pipelineProvider.update(pipeline, {
       customDomain: body.customDomain, // TODO should strip everything not a domain? query params example
       verifyDnsValue,
+      verifyDnsName,
     })
 
     return { verifyDnsValue }
