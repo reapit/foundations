@@ -10,13 +10,21 @@ export const createDatabase = (
   vpc: ec2.Vpc,
 ): rds.DatabaseCluster => {
   const db = new rds.DatabaseCluster(stack, name, {
-    engine: rds.DatabaseClusterEngine.auroraMysql({ version: rds.AuroraMysqlEngineVersion.VER_3_03_1 }),
+    engine: rds.DatabaseClusterEngine.auroraMysql({ version: rds.AuroraMysqlEngineVersion.VER_3_05_2 }),
     defaultDatabaseName: databaseName,
-    instanceProps: {
-      vpc,
-      instanceType: cdk.aws_ec2.InstanceType.of(cdk.aws_ec2.InstanceClass.T3, cdk.aws_ec2.InstanceSize.MEDIUM),
-    },
+    vpc,
+    writer: rds.ClusterInstance.provisioned('writer', {
+      instanceType: ec2.InstanceType.of(ec2.InstanceClass.T3, ec2.InstanceSize.MEDIUM),
+      isFromLegacyInstanceProps: true,
+    }),
+    readers: [
+      rds.ClusterInstance.serverlessV2('reader1', {
+        scaleWithWriter: true,
+        isFromLegacyInstanceProps: true,
+       }),
+    ],
     cloudwatchLogsRetention: logs.RetentionDays.ONE_MONTH,
+    deletionProtection: true,
   })
 
   db.connections.allowFromAnyIpv4(ec2.Port.allTcp())
