@@ -10,9 +10,12 @@ export enum BucketNames {
 
 export const createBucket = (stack: Stack, bucketName: string, options?: BucketOptions): aws_s3.Bucket => {
   const bucket = new aws_s3.Bucket(options?.stack || stack, bucketName, {
-    publicReadAccess: options?.public,
+    publicReadAccess: false,
     websiteIndexDocument: options?.public ? 'index.html' : undefined,
     bucketName: bucketName || PhysicalName.GENERATE_IF_NEEDED,
+    blockPublicAccess: aws_s3.BlockPublicAccess.BLOCK_ALL,
+    accessControl: aws_s3.BucketAccessControl.PRIVATE,
+    objectOwnership: aws_s3.ObjectOwnership.BUCKET_OWNER_ENFORCED,
   })
   const actions: string[] = []
   if (options?.get) {
