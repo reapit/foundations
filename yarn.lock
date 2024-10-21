@@ -363,20 +363,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/asset-node-proxy-agent-v6@npm:^2.1.0":
+"@aws-cdk/asset-node-proxy-agent-v6@npm:^2.0.1":
   version: 2.1.0
   resolution: "@aws-cdk/asset-node-proxy-agent-v6@npm:2.1.0"
   checksum: b1718e702107a9f19dc869ba995738d04c7a6d1b03ec1f55ca23609d546b60277a85b552313546b43b228a5334d6fa6c55c101378d85c13a601800e367c686dc
-  languageName: node
-  linkType: hard
-
-"@aws-cdk/cloud-assembly-schema@npm:^38.0.0":
-  version: 38.0.1
-  resolution: "@aws-cdk/cloud-assembly-schema@npm:38.0.1"
-  dependencies:
-    jsonschema: "npm:^1.4.1"
-    semver: "npm:^7.6.3"
-  checksum: fff5afc74d6c1f0d8d09625f03138d26490b534d66ebb6bdef5bc6da71d4db66bb8a807ca0848bb0e1241d463a8d67c83a7ebd84ffda2aa00b3a592fd56da1ec
   languageName: node
   linkType: hard
 
@@ -6929,7 +6919,7 @@ __metadata:
     ajv: "npm:^8.17.1"
     autoprefixer: "npm:^10.4.20"
     aws-cdk: "npm:^2.162.1"
-    aws-cdk-lib: "npm:^2.162.1"
+    aws-cdk-lib: "npm:2.133.0"
     aws-jwt-verify: "npm:^4.0.1"
     aws-sdk: "npm:^2.1691.0"
     babel-jest: "npm:^29.7.0"
@@ -12003,28 +11993,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-cdk-lib@npm:^2.162.1":
-  version: 2.162.1
-  resolution: "aws-cdk-lib@npm:2.162.1"
+"aws-cdk-lib@npm:2.133.0":
+  version: 2.133.0
+  resolution: "aws-cdk-lib@npm:2.133.0"
   dependencies:
     "@aws-cdk/asset-awscli-v1": "npm:^2.2.202"
     "@aws-cdk/asset-kubectl-v20": "npm:^2.1.2"
-    "@aws-cdk/asset-node-proxy-agent-v6": "npm:^2.1.0"
-    "@aws-cdk/cloud-assembly-schema": "npm:^38.0.0"
+    "@aws-cdk/asset-node-proxy-agent-v6": "npm:^2.0.1"
     "@balena/dockerignore": "npm:^1.0.2"
     case: "npm:1.6.3"
     fs-extra: "npm:^11.2.0"
-    ignore: "npm:^5.3.2"
+    ignore: "npm:^5.3.1"
     jsonschema: "npm:^1.4.1"
     mime-types: "npm:^2.1.35"
     minimatch: "npm:^3.1.2"
     punycode: "npm:^2.3.1"
-    semver: "npm:^7.6.3"
-    table: "npm:^6.8.2"
+    semver: "npm:^7.6.0"
+    table: "npm:^6.8.1"
     yaml: "npm:1.10.2"
   peerDependencies:
     constructs: ^10.0.0
-  checksum: f560a47ca64baabf695a7b5f2c45b1f9a192a997b17c620c8864cf29a3f5ec187f1d5976ef6f4d6c1882b6015f36b282e99c1e4639762627eb5d82c1cfb2c483
+  checksum: 8912bd3b25b4b29888ca8ff7bd57d7f455cf88732651119220509861c5b3ec823457a8740743578a4427513c13d51101e5a9c22cf80fe14aab21942e6dedee27
   languageName: node
   linkType: hard
 
@@ -17606,7 +17595,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ignore@npm:^5.1.8, ignore@npm:^5.2.0, ignore@npm:^5.2.4, ignore@npm:^5.3.1, ignore@npm:^5.3.2":
+"ignore@npm:^5.1.8, ignore@npm:^5.2.0, ignore@npm:^5.2.4, ignore@npm:^5.3.1":
   version: 5.3.2
   resolution: "ignore@npm:5.3.2"
   checksum: cceb6a457000f8f6a50e1196429750d782afce5680dd878aa4221bd79972d68b3a55b4b1458fc682be978f4d3c6a249046aa0880637367216444ab7b014cfc98
@@ -25776,7 +25765,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"table@npm:^6.8.2":
+"table@npm:^6.8.1":
   version: 6.8.2
   resolution: "table@npm:6.8.2"
   dependencies:
