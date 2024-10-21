@@ -13,7 +13,7 @@ export const createBucket = (stack: Stack, bucketName: string, options?: BucketO
     publicReadAccess: false,
     websiteIndexDocument: options?.public ? 'index.html' : undefined,
     bucketName: bucketName || PhysicalName.GENERATE_IF_NEEDED,
-    blockPublicAccess: aws_s3.BlockPublicAccess.BLOCK_ALL,
+    // blockPublicAccess: aws_s3.BlockPublicAccess.BLOCK_ALL,
     accessControl: aws_s3.BucketAccessControl.PRIVATE,
     objectOwnership: aws_s3.ObjectOwnership.BUCKET_OWNER_ENFORCED,
   })
