@@ -15,6 +15,7 @@ import {
   Subtitle,
   elMb6,
   useModal,
+  useSnack,
 } from '@reapit/elements'
 import { useAppState } from '../state/use-app-state'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
@@ -24,9 +25,14 @@ import { yupResolver } from '@hookform/resolvers/yup'
 
 import * as Yup from 'yup'
 import { UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
+import { useReapitConnect } from '@reapit/connect-session'
+
+const domainRegex = new RegExp(
+  /^([a-z0-9])(([a-z0-9-]{1,61})?[a-z0-9]{1})?(\.[a-z0-9](([a-z0-9-]{1,61})?[a-z0-9]{1})?)?(\.[a-zA-Z]{2,4})+$/,
+)
 
 export const validationSchema = Yup.object().shape({
-  customDomain: Yup.string().url().trim().required(),
+  customDomain: Yup.string().matches(domainRegex, 'Should be a valid domain').trim().required(),
 })
 
 const PipelineDnsStepModal: FC<{ customDomain?: string; buttonText?: string; pipelineId: string }> = ({
@@ -35,6 +41,8 @@ const PipelineDnsStepModal: FC<{ customDomain?: string; buttonText?: string; pip
   pipelineId,
 }) => {
   const { modalIsOpen, closeModal, openModal } = useModal()
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { appPipelineState } = useAppState()
 
   const {
     register,
@@ -47,10 +55,12 @@ const PipelineDnsStepModal: FC<{ customDomain?: string; buttonText?: string; pip
     resolver: yupResolver(validationSchema),
   })
 
-  const {} = useReapitUpdate({
+  const [sendingDns, , sendDnsRequest] = useReapitUpdate({
     action: updateActions[UpdateActionNames.createCustomPipelineDnsRecord],
     method: 'POST',
-    headers: {},
+    headers: {
+      authorization: `Bearer ${connectSession?.idToken}`,
+    },
     reapitConnectBrowserSession,
     uriParams: { pipelineId },
   })
@@ -64,8 +74,15 @@ const PipelineDnsStepModal: FC<{ customDomain?: string; buttonText?: string; pip
       <Modal isOpen={modalIsOpen} onModalClose={closeModal}>
         <Subtitle>Setup DNS</Subtitle>
         <form
-          onSubmit={handleSubmit((values) => {
-            console.log('values', values)
+          onSubmit={handleSubmit(async (values) => {
+            const result = await sendDnsRequest(values)
+
+            if (result) {
+              console.log('result was successful')
+
+              appPipelineState.appPipelineRefresh()
+              closeModal()
+            }
           })}
         >
           <FormLayout>
@@ -78,7 +95,9 @@ const PipelineDnsStepModal: FC<{ customDomain?: string; buttonText?: string; pip
               )}
             </InputWrapFull>
             <InputWrapFull>
-              <Button intent="primary">Next</Button>
+              <Button loading={sendingDns} disabled={sendingDns} intent="primary">
+                Next
+              </Button>
             </InputWrapFull>
           </FormLayout>
         </form>
@@ -101,6 +120,40 @@ const PipelineDnsStepTwo: FC<{ customDomain: string; verifyDnsValue; pipelineId:
   verifyDnsValue,
   pipelineId,
 }) => {
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const [sendingVerify, verifyResult, sendVerifyRequest] = useReapitUpdate<
+    undefined,
+    { result: 'sucess' | 'failed'; reason?: string }
+  >({
+    action: updateActions[UpdateActionNames.verifyPipelineDnsRecord],
+    method: 'POST',
+    headers: {
+      authorization: `Bearer ${connectSession?.idToken}`,
+    },
+    reapitConnectBrowserSession,
+    uriParams: { pipelineId },
+  })
+  const { error, success } = useSnack()
+
+  const verifyTxtRecord = async () => {
+    await sendVerifyRequest(undefined)
+    const defaultError = 'Unknown error, check your TXT record is correctly set'
+
+    console.log('result', verifyResult)
+
+    if (!verifyResult) {
+      return
+    }
+
+    if (verifyResult.result === 'failed') {
+      error(verifyResult.reason || defaultError)
+    } else if (verifyResult.result === 'sucess') {
+      success('Verified TXT record')
+    } else {
+      error(defaultError)
+    }
+  }
+
   return (
     <>
       <Subtitle>Step 2</Subtitle>
@@ -121,7 +174,16 @@ const PipelineDnsStepTwo: FC<{ customDomain: string; verifyDnsValue; pipelineId:
           </InputWrapFull>
           <InputWrapFull>
             <ButtonGroup>
-              <Button intent="primary">Verify Record</Button>
+              <Button
+                loading={sendingVerify}
+                disabled={sendingVerify}
+                onClick={() => {
+                  verifyTxtRecord()
+                }}
+                intent="primary"
+              >
+                Verify Record
+              </Button>
               <PipelineDnsStepModal customDomain={customDomain} buttonText="Edit Domain" pipelineId={pipelineId} />
             </ButtonGroup>
           </InputWrapFull>
@@ -169,29 +231,9 @@ export const PipelineDns: FC<{}> = () => {
 
   console.log('test', { domainVerified, verifyDnsName, verifyDnsValue, customDomain })
 
-  const step = domainVerified
-    ? 'verified'
-    : (!verifyDnsName || !verifyDnsValue) && customDomain
-      ? 'setup'
-      : 'not-started'
+  const step = domainVerified ? 'verified' : verifyDnsValue && customDomain ? 'setup' : 'not-started'
 
   console.log('step', step)
-
-  // const [fetchedKeys, isFetching] = useReapitGet<string[]>({
-  //   reapitConnectBrowserSession,
-  //   action: getActions[GetActionNames.getPipelineEnvironment],
-  //   uriParams: {
-  //     pipelineId: appId,
-  //   },
-  //   headers: {
-  //     Authorization: connectSession?.idToken as string,
-  //   },
-  //   fetchWhenTrue: [connectSession?.idToken],
-  // })
-
-  // const setupCustomDns = async () => {
-
-  // }
 
   return (
     <>

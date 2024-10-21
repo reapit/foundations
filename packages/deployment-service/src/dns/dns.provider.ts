@@ -10,11 +10,21 @@ export class DnsProvider {
    *
    * @param pipeline
    */
-  async verifyTextRecordOnDomain(pipeline: PipelineEntity): Promise<boolean> {
+  async verifyTextRecordOnDomain(pipeline: PipelineEntity): Promise<{
+    result: boolean
+    reason?: string
+  }> {
     const response = await fetch(`https://dns.google/resolve?name=${pipeline.customDomain}&type=16`)
 
     const data = await response.json()
 
-    return data.Answer.some((record) => record.data === pipeline.verifyDnsValue)
+    console.log('dns data', data)
+
+    // TODO return error that no records found
+    if (!data.Answer) return { result: false, reason: 'No defined TXT records for domain' }
+
+    const txtRecord = data.Answer.some((record) => record.data === pipeline.verifyDnsValue)
+
+    return !txtRecord ? { result: false, reason: 'TXT record not defined' } : { result: true }
   }
 }

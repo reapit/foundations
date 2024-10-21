@@ -38,17 +38,18 @@ export class DnsController {
 
     this.ownershipProvider.check(pipeline, creds.developerId as string)
 
+    const verifyDnsValue = uuid()
+
     // prevent verify value overwrite
     // perhaps should be overwritable incase of mistake
-    if (pipeline.verifyDnsValue !== undefined) throw new UnprocessableEntityException('Record already generated')
+    // if (pipeline.verifyDnsValue !== undefined) throw new UnprocessableEntityException('Record already generated')
 
     await this.pipelineProvider.update(pipeline, {
-      verifyDnsName: 'anything',
       customDomain: body.customDomain, // TODO should strip everything not a domain? query params example
-      verifyDnsValue: uuid(),
+      verifyDnsValue,
     })
 
-    return pipeline.verifyDnsValue
+    return { verifyDnsValue }
   }
 
   @Post(':pipelineId/verify')
@@ -61,21 +62,24 @@ export class DnsController {
 
     if (pipeline.domainVerified) throw new UnprocessableEntityException('Domain already verified')
 
-    const domainVerified = await this.dnsProvider.verifyTextRecordOnDomain(pipeline)
+    const { result: domainVerified, reason } = await this.dnsProvider.verifyTextRecordOnDomain(pipeline)
 
-    if (domainVerified) {
+    console.log('domainVerified', domainVerified)
+
+    if (typeof domainVerified === 'boolean' && domainVerified) {
       await this.pipelineProvider.update(pipeline, {
         domainVerified: true,
         certificateArn: await this.certificateProvider.createCertificate(pipeline),
       })
 
       return {
-        success: true,
+        result: 'success',
       }
     }
 
     return {
-      failed: true,
+      result: domainVerified ? 'success' : 'failed',
+      reason,
     }
   }
 }
