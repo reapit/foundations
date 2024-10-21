@@ -1,5 +1,4 @@
 import { Stack, Bucket, createBucket, BucketOptions } from '@reapit/ts-scripts/src/cdk'
-import { aws_s3 } from 'aws-cdk-lib'
 
 export enum BucketNames {
   LIVE = 'cloud-deployment-live',
@@ -8,7 +7,7 @@ export enum BucketNames {
   REPO_CACHE = 'cloud-deployment-repo-cache',
 }
 
-export const createS3Buckets = (stack: Stack, usercodeStack: Stack, envStage: string): Record<BucketNames, aws_s3.IBucket> => {
+export const createS3Buckets = (stack: Stack, usercodeStack: Stack, envStage: string): Record<BucketNames, Bucket> => {
   const bucketOptions: {
     [k in BucketNames]: BucketOptions
   } = {
@@ -36,11 +35,9 @@ export const createS3Buckets = (stack: Stack, usercodeStack: Stack, envStage: st
     },
   }
 
-  return (Object.keys(bucketOptions) as Array<BucketNames>).reduce<{ [k in BucketNames]: aws_s3.IBucket }>(
+  return (Object.keys(bucketOptions) as Array<BucketNames>).reduce<{ [k in BucketNames]: Bucket }>(
     (buckets, bucketName) => {
-      const existingBucket = aws_s3.Bucket.fromBucketName(bucketOptions[bucketName].stack || stack, bucketName, bucketName)
-
-      if (existingBucket) buckets[bucketName] = existingBucket || createBucket(
+      buckets[bucketName] = createBucket(
         bucketOptions[bucketName].stack || stack,
         `${bucketName}-${envStage}`,
         bucketOptions[bucketName],

@@ -1,7 +1,7 @@
 import { Project, ISecret, Effect, PolicyStatement, Bucket, Stack, Topic } from '@reapit/ts-scripts/src/cdk'
 import { AccountPrincipal, ArnPrincipal, CompositePrincipal, Policy, Role } from 'aws-cdk-lib/aws-iam'
 import config from '../../config.json'
-import { aws_sqs as sqs, aws_s3 } from 'aws-cdk-lib'
+import { aws_sqs as sqs } from 'aws-cdk-lib'
 import { BucketNames } from './create-S3-bucket'
 
 export enum PolicyNames {
@@ -32,7 +32,7 @@ export const createPolicies = ({
   codebuildSnsTopic,
   githubPemSecretArn,
 }: {
-  buckets: { [s: string]: aws_s3.IBucket }
+  buckets: { [s: string]: Bucket }
   queues: { [s: string]: sqs.IQueue }
   secretManager: ISecret
   codeBuild: Project
