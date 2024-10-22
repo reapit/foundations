@@ -11,6 +11,7 @@ import { AuthModule } from '@reapit/utils-nest'
 import { TaskProvider } from './task-provider'
 import { DeploymentModule } from '../deployment'
 import { S3Module } from '../s3'
+import { SecretPipelineController } from './secret.pipeline.controller'
 
 @Module({
   imports: [
@@ -22,7 +23,7 @@ import { S3Module } from '../s3'
     S3Module,
   ],
   providers: [PipelineRunnerProvider, TaskProvider],
-  controllers: [PipelineRunnerController],
+  controllers: [PipelineRunnerController, SecretPipelineController],
   exports: [PipelineRunnerProvider, TaskProvider],
 })
 export class PipelineRunnerModule {}

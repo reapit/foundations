@@ -71,6 +71,22 @@ export class PipelineProvider {
     })
   }
 
+  async findBySubDomain(subDomain: string): Promise<PipelineEntity | null> {
+    return this.repository.findOne({
+      where: {
+        subDomain,
+      },
+    })
+  }
+
+  async findByDeveloperId(developerId: string): Promise<PipelineEntity[]> {
+    return this.repository.find({
+      where: {
+        developerId,
+      },
+    })
+  }
+
   async saveAll(pipelines: PipelineEntity[]): Promise<PipelineEntity[]> {
     return this.repository.save(pipelines)
   }
