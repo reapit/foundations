@@ -39,7 +39,7 @@ export class ReapitConnectServerSession {
     try {
       const base64Encoded = Buffer.from(`${this.connectClientId}:${this.connectClientSecret}`).toString('base64')
       const session = await axios.post(
-        `${this.connectOAuthUrl}/token?grant_type=client_credentials&client_id=${this.connectClientId}`,
+        `${this.connectOAuthUrl}/oauth/token?grant_type=client_credentials&client_id=${this.connectClientId}`,
         {},
         {
           headers: {
