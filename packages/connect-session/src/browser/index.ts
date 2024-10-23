@@ -200,7 +200,8 @@ export class ReapitConnectBrowserSession {
   public connectLoginRedirect(redirectUri?: string): void {
     const loginRedirectUri = redirectUri || this.connectLoginRedirectPath
     this.clearRefreshToken()
-    window.location.href = `${this.connectOAuthUrl}/login?response_type=code&client_id=${this.connectClientId}&redirect_uri=${loginRedirectUri}`
+    const stateNonce = uuid()
+    window.location.href = `${this.connectOAuthUrl}/oauth/authorize?response_type=code&scope=offline_access+openid+profile+email&client_id=${this.connectClientId}&state=${stateNonce}&redirect_uri=${loginRedirectUri}`
   }
 
   // Handles redirect to logout - defaults to constructor login uri but I can override if I like.
