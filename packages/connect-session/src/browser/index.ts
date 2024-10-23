@@ -94,12 +94,18 @@ export class ReapitConnectBrowserSession {
 
   // See below, used to refresh session if I have a refresh token in local storage
   private get tokenRefreshEndpoint() {
-    return `${this.connectOAuthUrl}/token?grant_type=refresh_token&client_id=${this.connectClientId}&refresh_token=${this.refreshToken}&redirect_uri=${this.connectLoginRedirectPath}`
+    return [
+      `${this.connectOAuthUrl}/oauth/token`,
+      `grant_type=refresh_token&client_id=${this.connectClientId}&refresh_token=${this.refreshToken}&redirect_uri=${this.connectLoginRedirectPath}`,
+    ]
   }
 
   // See below, used to refresh session if I have a code in the URL
-  private get tokenCodeEndpoint(): string {
-    return `${this.connectOAuthUrl}/token?grant_type=authorization_code&client_id=${this.connectClientId}&code=${this.authCode}&redirect_uri=${this.connectLoginRedirectPath}`
+  private get tokenCodeEndpoint() {
+    return [
+      `${this.connectOAuthUrl}/oauth/token`,
+      `grant_type=authorization_code&client_id=${this.connectClientId}&code=${this.authCode}&redirect_uri=${this.connectLoginRedirectPath}`,
+    ]
   }
 
   // Check on access token to see if has expired - they last 1hr only before I need to refresh
@@ -125,13 +131,14 @@ export class ReapitConnectBrowserSession {
   // Calls the token endpoint in Cognito with either a refresh token or a code, depending on what
   // I have available in local storage or in the URL.
   // See: https://docs.aws.amazon.com/cognito/latest/developerguide/token-endpoint.html
-  private async connectGetSession(url: string): Promise<ReapitConnectSession | void> {
+  private async connectGetSession(url: string, body: string): Promise<ReapitConnectSession | void> {
     try {
       const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
+        body,
       } as RequestInit)
       const session: CoginitoSession | undefined = await response.json()
 
@@ -227,19 +234,18 @@ export class ReapitConnectBrowserSession {
     this.fetching = true
 
     try {
+      // I don't have either a refresh token or a code so redirect to the authorization endpoint to get
+      // a code I can exchange for a token
+      if (!this.refreshToken && !this.authCode) {
+        return this.connectAuthorizeRedirect()
+      }
       // See comment in connectGetSession method. If I have a refresh token, I want to use this in the
       // first instance - get the refresh endpoint. Otherwise check to see if I have a code and get
       // the code endpoint so I can exchange for a token
-      const endpoint = this.refreshToken ? this.tokenRefreshEndpoint : this.authCode ? this.tokenCodeEndpoint : null
-
-      // I don't have either a refresh token or a code so redirect to the authorization endpoint to get
-      // a code I can exchange for a token
-      if (!endpoint) {
-        return this.connectAuthorizeRedirect()
-      }
+      const endpoint = this.refreshToken ? this.tokenRefreshEndpoint : this.tokenCodeEndpoint
 
       // Get a new session from the code or refresh token
-      const session = await this.connectGetSession(endpoint)
+      const session = await this.connectGetSession(endpoint[0], endpoint[1])
 
       this.fetching = false
 
