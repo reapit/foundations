@@ -214,7 +214,7 @@ export class ReapitConnectBrowserSession {
     params.delete('code')
     const search = params ? `?${params.toString()}` : ''
     const internalRedirectPath = encodeURIComponent(`${window.location.pathname}${search}`)
-    window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${authRedirectUri}&state=${internalRedirectPath}`
+    window.location.href = `${this.connectOAuthUrl}/oauth/authorize?response_type=code&scope=offline_access+openid+profile+email&client_id=${this.connectClientId}&redirect_uri=${authRedirectUri}&state=${internalRedirectPath}`
   }
 
   // Handles redirect to login - defaults to constructor redirect uri but I can override if I like.
@@ -222,7 +222,7 @@ export class ReapitConnectBrowserSession {
   public connectLoginRedirect(redirectUri?: string): void {
     const loginRedirectUri = redirectUri || this.connectLoginRedirectPath
     this.clearRefreshToken()
-    window.location.href = `${this.connectOAuthUrl}/login?response_type=code&client_id=${this.connectClientId}&redirect_uri=${loginRedirectUri}`
+    window.location.href = `${this.connectOAuthUrl}/oauth/authorize?response_type=code&scope=offline_access+openid+profile+email&client_id=${this.connectClientId}&state=${stateNonce}&redirect_uri=${loginRedirectUri}`
   }
 
   // Handles redirect to logout - defaults to constructor login uri but I can override if I like.
@@ -230,7 +230,7 @@ export class ReapitConnectBrowserSession {
   public connectLogoutRedirect(redirectUri?: string): void {
     const logoutRedirectUri = redirectUri || this.connectLogoutRedirectPath
     this.clearRefreshToken()
-    window.location.href = `${this.connectOAuthUrl}/logout?client_id=${this.connectClientId}&logout_uri=${logoutRedirectUri}`
+    window.location.href = `${this.connectOAuthUrl}/oidc/logout?client_id=${this.connectClientId}&post_logout_redirect_uri=${logoutRedirectUri}`
   }
 
   public connectClearSession(): void {
