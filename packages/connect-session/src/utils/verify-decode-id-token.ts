@@ -34,7 +34,7 @@ export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
     const aud: string | string[] = decodedToken.aud
 
     const verifier = new IdTokenVerifier({
-      issuer: decodedToken.issuer,
+      issuer: decodedToken.iss ?? decodedToken.issuer,
       audience: Array.isArray(aud) ? aud[0] : aud,
       leeway: 300,
     })
