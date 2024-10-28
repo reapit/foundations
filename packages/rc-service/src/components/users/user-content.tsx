@@ -42,6 +42,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { getIsAdmin } from '../../utils/is-admin'
 import { ActiveAuthenticator } from './active-authenticator'
 import { EditUserGroups } from './edit-user-groups'
+import { UpdateUserName } from './update-user-name'
 
 export interface UserContentProps {
   user: UserModel
@@ -294,6 +295,10 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, userGrou
               Load Group Management
             </Button>
           </ButtonGroup>
+        </Col>
+        <Col>
+          <Subtitle>Update Name</Subtitle>
+          <UpdateUserName user={user} />
         </Col>
       </Grid>
       {isLoading && <Loader />}
