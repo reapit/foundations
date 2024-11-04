@@ -1,5 +1,15 @@
 import React, { FC } from 'react'
-import { Button, FormLayout, InputGroup, InputWrapFull, Modal, Title, useModal } from '@reapit/elements'
+import {
+  BodyText,
+  Button,
+  ButtonGroup,
+  FormLayout,
+  InputGroup,
+  InputWrapFull,
+  Modal,
+  Title,
+  useModal,
+} from '@reapit/elements'
 import { UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { UserModel } from '@reapit/foundations-ts-definitions'
@@ -40,15 +50,15 @@ export const UpdateUserName: FC<{ user: UserModel }> = ({ user }) => {
         Update User&apos;s Name
       </Button>
       <Modal
+        title="Update Name"
         isOpen={modalIsOpen}
         onModalClose={() => {
           closeModal()
         }}
       >
+        <BodyText>Use this form to make changes to the name of the user in Reapit Connect</BodyText>
         <form
           onSubmit={handleSubmit(({ name }) => {
-            console.log('update name', name)
-
             updateUser({
               name,
             })
@@ -56,20 +66,21 @@ export const UpdateUserName: FC<{ user: UserModel }> = ({ user }) => {
         >
           <FormLayout>
             <InputWrapFull>
-              <Title>Update Name</Title>
-            </InputWrapFull>
-            <InputWrapFull>
               <InputGroup
-                label="Name"
                 {...register('name')}
                 errorMessage={formErrors?.name?.message}
                 icon={formErrors?.name?.message ? 'asterisk' : null}
               />
             </InputWrapFull>
             <InputWrapFull>
-              <Button loading={isLoading} disabled={isLoading} intent="primary">
-                Update
-              </Button>
+              <ButtonGroup alignment="center">
+                <Button loading={isLoading} disabled={isLoading} intent="primary">
+                  Update
+                </Button>
+                <Button intent="default" onClick={closeModal}>
+                  Cancel
+                </Button>
+              </ButtonGroup>
             </InputWrapFull>
           </FormLayout>
         </form>
