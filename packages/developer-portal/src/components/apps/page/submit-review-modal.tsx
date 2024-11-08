@@ -111,7 +111,7 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refe
         <BodyText>
           Please{' '}
           <a
-            href="mailto:jhennessy@reapit.com?subject=Submitting%20my%20app%20for%20approval%20/%20listing%20in%20the%20AppMarket"
+            href="mailto:partners@reapit.com?subject=Submitting%20my%20app%20for%20approval%20/%20listing%20in%20the%20AppMarket"
             target="_blank"
             rel="noopener noreferrer"
           >
