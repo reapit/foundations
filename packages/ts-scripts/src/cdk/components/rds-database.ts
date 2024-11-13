@@ -29,6 +29,7 @@ export const createDatabase = (
 
   db.connections.allowFromAnyIpv4(ec2.Port.allTcp())
 
+  // TODO delete once databases are resolved
   if (!bastion) {
     bastion = new ec2.BastionHostLinux(stack, 'bastion', {
       vpc,
