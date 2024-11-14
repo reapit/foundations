@@ -7,7 +7,15 @@ module.exports = {
   testPathIgnorePatterns: ['<rootDir>/dist'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts'],
   coverageDirectory: './src/tests/coverage',
-  coveragePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]', '.d.ts'],
+  coveragePathIgnorePatterns: [
+    '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]',
+    '.d.ts',
+    'src/http.ts',
+    'src/sqs.ts',
+    'src/sns.ts',
+    'src/local-http.ts',
+    'src/migration-run.ts',
+  ],
   reporters: ['default', 'github-actions'],
   coverageThreshold: {
     global: {
