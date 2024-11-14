@@ -20,7 +20,11 @@ export const createBucket = ({
   stack,
   bucketName,
   options,
-}: { stack: Stack, bucketName: string, options?: BucketOptions }): aws_s3.Bucket => {
+}: {
+  stack: Stack
+  bucketName: string
+  options?: BucketOptions
+}): aws_s3.Bucket => {
   const bucket = new aws_s3.Bucket(options?.stack || stack, bucketName, {
     websiteIndexDocument: options?.public ? 'index.html' : undefined,
     bucketName: bucketName || PhysicalName.GENERATE_IF_NEEDED,
@@ -54,19 +58,23 @@ export const createBucket = ({
   )
 
   // allows cloudfront to access this bucket
-  bucket.addToResourcePolicy(new aws_iam.PolicyStatement({
+  bucket.addToResourcePolicy(
+    new aws_iam.PolicyStatement({
       effect: aws_iam.Effect.ALLOW,
       actions: ['s3:Get*'],
       resources: [bucket.arnForObjects('*')],
       principals: [new ServicePrincipal('cloudfront.amazonaws.com')],
-  }))
+    }),
+  )
 
-  bucket.addToResourcePolicy(new aws_iam.PolicyStatement({
+  bucket.addToResourcePolicy(
+    new aws_iam.PolicyStatement({
       effect: aws_iam.Effect.ALLOW,
       actions: ['s3:Get*'],
       resources: [bucket.arnForObjects('*')],
       principals: [new ServicePrincipal('codebuild.amazonaws.com')],
-  }))
+    }),
+  )
 
   return bucket
 }
@@ -97,11 +105,11 @@ export const createS3Buckets = (usercodeStack: Stack, envStage: string): Record<
 
   return (Object.keys(bucketOptions) as Array<BucketNames>).reduce<{ [k in BucketNames]: aws_s3.IBucket }>(
     (buckets, bucketName) => {
-
-      // const existingBucket = Bucket.fromBucketName(usercodeStack, `lookup-${bucketName}`, `${bucketName}-${envStage}`)
+      // const existingBucket =
+      // Bucket.fromBucketName(usercodeStack, `lookup-${bucketName}`, `${bucketName}-${envStage}`)
 
       // buckets[bucketName] = existingBucket ?? createBucket({
-        buckets[bucketName] = createBucket({
+      buckets[bucketName] = createBucket({
         stack: usercodeStack,
         bucketName: `${bucketName}-${envStage}`,
         options: bucketOptions[bucketName],
