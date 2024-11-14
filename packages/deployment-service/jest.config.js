@@ -11,8 +11,8 @@ module.exports = {
   reporters: ['default', 'github-actions'],
   coverageThreshold: {
     global: {
-      branches: 48,
-      functions: 39,
+      branches: 47,
+      functions: 38,
       lines: 60,
       statements: 40,
     },

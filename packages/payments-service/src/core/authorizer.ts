@@ -1,7 +1,7 @@
-import { connectSessionVerifyDecodeIdTokenWithPublicKeys } from '@reapit/connect-session'
+import { JwtRsaVerifier, CognitoJwtVerifier } from 'aws-jwt-verify'
 import { APIGatewayTokenAuthorizerEvent } from 'aws-lambda'
-import { authorizerHandler } from './../../../ts-scripts/src/authorizer/index'
-import { Jwt } from 'jsonwebtoken'
+import { authorizerHandler } from '@reapit/utils-authorizer'
+import { Jwt, decode } from 'jsonwebtoken'
 
 const mandatoryScopes = ['agencyCloud/payments.write', 'agencyCloud/payments.read', 'agencyCloud/properties.read']
 
@@ -15,6 +15,7 @@ const customChallenge = async (event: APIGatewayTokenAuthorizerEvent, decodedTok
   const idToken = event['headers']['reapit-id-token']
   const reapitCustomer = event['headers']['reapit-customer']
   const scopes = decodedToken.payload['scope'].split(' ') as string[]
+  const issuers = process.env.ISSUERS?.split(',') || []
 
   if (scopes.filter((scope) => mandatoryScopes.includes(scope)).length !== mandatoryScopes.length) {
     // I don't want to try catch as authorizerHandler will handle errors upstream
@@ -25,16 +26,59 @@ const customChallenge = async (event: APIGatewayTokenAuthorizerEvent, decodedTok
     throw new Error('No idToken provided')
   }
 
-  const verified = await connectSessionVerifyDecodeIdTokenWithPublicKeys(idToken)
+  // I am repeating the checks I perform on the access token on the id token with the extra check of the reapit-customer
+  // against the clientId in the token
+  const issuer = idToken.payload.iss
+  const decodedIdToken = decode(idToken, { complete: true })
+  if (!decodedIdToken) throw new Error('Id Token failed to decode')
+  if (typeof decodedIdToken.payload === 'string') throw new Error('Decoded id token payload is a string')
+  if (!decodedIdToken.payload.sub) throw new Error('Id token does not contain a sub')
+  // TODO We can remove this check when we go live with Auth0
+  // Check against cognito if token provided is valid
+  // else check auth0
+  if (issuer?.includes('cognito') && issuers.includes(issuer)) {
+    const cognitoVerifier = CognitoJwtVerifier.create([
+      {
+        userPoolId: process.env.CONNECT_USER_POOL ?? '',
+        tokenUse: null, // null for both
+        // clientId: process.env.CLIENT_ID ?? '',
+        clientId: null,
+      },
+    ])
 
-  if (!verified) {
-    throw new Error('idToken failed to verify')
+    const verified = await cognitoVerifier.verify(idToken)
+
+    if (!verified) throw new Error('Token failed to verify')
+
+    // This is the crucial part of the check - I validate the idToken so I can trust it then check the reapit-customer
+    // header so my downstream services can trust it behind the gateway
+    if (reapitCustomer !== verified.clientId) {
+      throw new Error('Reapit Customer does not match the decoded idToken')
+    }
   }
+  // check the token issuer is within our accepted issuers list which will likely be auth0
+  else if (issuer && issuers.includes(issuer)) {
+    if (!decodedIdToken.payload.aud) throw new Error('Token does not contain an aud')
 
-  // This is the crucial part of the check - I validate the idToken so I can trust it then check the reapit-customer
-  // header so my downstream services can trust it behind the gateway
-  if (reapitCustomer !== verified.clientId) {
-    throw new Error('Reapit Customer does not match the decoded idToken')
+    const auth0Verifier = JwtRsaVerifier.create([
+      {
+        issuer: issuer,
+        audience: decodedIdToken?.payload.aud,
+        jwksUri: `${issuer.replace(/\/$/, '')}/.well-known/jwks.json`,
+      },
+    ])
+
+    const verified = await auth0Verifier.verify(idToken)
+
+    if (!verified) throw new Error('Token failed to verify')
+    // This is the crucial part of the check - I validate the idToken so I can trust it then check the reapit-customer
+    // header so my downstream services can trust it behind the gateway
+    if (reapitCustomer !== verified.clientId) {
+      throw new Error('Reapit Customer does not match the decoded idToken')
+    }
+  } else {
+    // Token does not contain a valid issuer
+    throw new Error(`Invalid issuer [${issuer}]`)
   }
 }
 
