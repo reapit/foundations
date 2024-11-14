@@ -3,18 +3,18 @@ import * as jwt from 'jsonwebtoken'
 import { JwtRsaVerifier, CognitoJwtVerifier } from 'aws-jwt-verify'
 
 /**
-   * A Custom function for checking against the token. Throwing will result in 401
-   * 
-   * @param event APIGatewayTokenAuthorizerEvent
-   * @param decodedToken JWT
-   * @returns void | Error
-   */
+ * A Custom function for checking against the token. Throwing will result in 401
+ *
+ * @param event APIGatewayTokenAuthorizerEvent
+ * @param decodedToken JWT
+ * @returns void | Error
+ */
 type CustomChallenge = (event: APIGatewayTokenAuthorizerEvent, decodedToken: jwt.Jwt) => Promise<void | Error>
 
 /**
  * Check provided token against cognito and auth0. This is a wrapper function to be called as `authorizerHandler()()`
- * 
- * @param customChallenge 
+ *
+ * @param customChallenge
  * @returns APIGatewayAuthorizerResult
  */
 export const authorizerHandler =
@@ -23,7 +23,7 @@ export const authorizerHandler =
     try {
       const headers = event['headers']
       const issuers = process.env.ISSUERS?.split(',') || []
-      
+
       // case insensitive
       const authorization = headers.authorization || headers.Authorization
 
