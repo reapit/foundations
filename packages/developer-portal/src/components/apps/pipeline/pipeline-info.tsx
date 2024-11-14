@@ -16,10 +16,9 @@ import { useAppState } from '../state/use-app-state'
 import { PipelineDeploymentTable } from './pipeline-deployments-table'
 import { PipelineTabs } from './pipeline-tabs'
 
-const isProd = process.env.appEnv === 'production'
-
 export const getAppFromPipeline = (isGithub: boolean) => {
   const isBitbucket = !isGithub
+  const isProd = process.env.appEnv === 'production'
 
   if (isBitbucket && isProd) return 'https://bitbucket.org/site/addons/authorize?addon_key=reapit'
   if (isBitbucket) return 'https://bitbucket.org/site/addons/authorize?addon_key=reapit-dev'
@@ -28,6 +27,7 @@ export const getAppFromPipeline = (isGithub: boolean) => {
 }
 
 export const PipelineInfo: FC = () => {
+  const isProd = process.env.appEnv === 'production'
   const { appPipelineState } = useAppState()
   const { appPipeline } = appPipelineState
   const pipelineUri = `https://${appPipeline?.subDomain}${isProd ? '' : '.dev'}.iaas.paas.reapit.cloud`
