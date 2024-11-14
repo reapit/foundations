@@ -24,7 +24,7 @@ import { createLambda } from './create-lambda'
 import { createS3Buckets } from './create-S3-bucket'
 import { createSqsQueues, QueueNames } from './create-sqs'
 import { createPolicies } from './create-policies'
-import { Role } from 'aws-cdk-lib/aws-iam'
+import { Effect, Role } from 'aws-cdk-lib/aws-iam'
 import config from '../../config.json'
 import * as cdk from 'aws-cdk-lib'
 
@@ -76,7 +76,7 @@ export const createStack = async () => {
   const database = createDatabase(stack, 'database', databaseName, vpc)
   const secretManager = database.secret
 
-  new cdk.aws_cloudfront.CfnOriginAccessControl(usercodeStack, 's3-origin', {
+  const AOC = new cdk.aws_cloudfront.CfnOriginAccessControl(usercodeStack, 's3-origin', {
     originAccessControlConfig: {
       name: 'distro-to-s3',
       originAccessControlOriginType: 's3',
@@ -111,7 +111,12 @@ export const createStack = async () => {
   const functionSetups: { [s: string]: FunctionSetup } = {
     sqs: {
       handler: createFileLoc('sqs', 'handle'),
-      policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy, policies.route53Policy],
+      policies: [
+        ...policies.commonBackendPolicies,
+        policies.cloudFrontPolicy,
+        policies.route53Policy,
+        policies.originAccessControlPolicy,
+      ],
       queues: [
         queues[QueueNames.CODEBUILD_EXECUTOR],
         queues[QueueNames.CODEBUILD_VERSION_DEPLOY],

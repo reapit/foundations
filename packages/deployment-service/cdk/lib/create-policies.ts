@@ -13,6 +13,7 @@ export enum PolicyNames {
   sqsPolices = 'sqsPolicies',
   secretManagerPolicy = 'secretManagerPolicy',
   S3BucketPolicy = 'S3BucketPolicy',
+  originAccessControlPolicy = 'originAccessControlPolicy',
 }
 
 type namedPolicyType = {
@@ -165,6 +166,12 @@ export const createPolicies = ({
     ],
   })
 
+  const originAccessControlPolicy = new PolicyStatement({
+    actions: ['cloudfront:ListOriginAccessControls'],
+    effect: Effect.ALLOW,
+    resources: ['*'],
+  })
+
   // create a policy that allows the lambda to do what it needs to do in the usercode stack
   const usercodePolicy = new Policy(usercodeStack, 'UsercodePolicy')
   usercodePolicy.addStatements(
@@ -174,6 +181,7 @@ export const createPolicies = ({
     codebuildSnssubscriptionPolicy,
     codebuildExecPolicy,
     parameterStorePolicy,
+    originAccessControlPolicy,
   )
   const usercodeStackRoleName = `${usercodeStack.stackName}-UsercodeStackRole`
   // create a role that lambdas can assume in the usercode stack, with the policy we just created
@@ -217,6 +225,7 @@ export const createPolicies = ({
     commonBackendPolicies,
     codebuildExecPolicy,
     cloudFrontPolicy,
+    originAccessControlPolicy,
     route53Policy,
     sqsPolicies,
     secretManagerPolicy,
