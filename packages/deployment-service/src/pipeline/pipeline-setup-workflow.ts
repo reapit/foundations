@@ -1,7 +1,11 @@
 import { AbstractWorkflow, PusherProvider, SqsProvider, Workflow } from '../events'
 import { S3Provider } from '../s3'
 import { PipelineProvider } from './pipeline-provider'
-import { CloudFrontClient, CreateDistributionCommand } from '@aws-sdk/client-cloudfront'
+import {
+  CloudFrontClient,
+  CreateDistributionCommand,
+  ListOriginAccessControlsCommand,
+} from '@aws-sdk/client-cloudfront'
 import { PipelineEntity } from '../entities/pipeline.entity'
 import { v4 as uuid } from 'uuid'
 import { ChangeResourceRecordSetsCommand, Route53Client } from '@aws-sdk/client-route-53'
@@ -64,8 +68,18 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
     }
   }
 
+  private async findOACId(): Promise<string | undefined> {
+    const result = await this.cloudfrontClient.send(new ListOriginAccessControlsCommand({}))
+
+    return result.OriginAccessControlList?.Items?.find((item) => item.Name === 'distro-to-s3')?.Id
+  }
+
   private async createDistro(pipeline: PipelineEntity) {
     const id = uuid()
+
+    const AOCId = await this.findOACId()
+
+    if (!AOCId) throw new Error('Could not resolve AOCId')
 
     const distroCommand = new CreateDistributionCommand({
       DistributionConfig: {
@@ -85,12 +99,13 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
               S3OriginConfig: {
                 OriginAccessIdentity: '',
               },
+              OriginAccessControlId: AOCId,
             },
           ],
         },
         Aliases: {
           Quantity: 1,
-          Items: [`${pipeline.subDomain}.iaas.paas.reapit.cloud`],
+          Items: [`${pipeline.subDomain}.iaas${process.env.NODE_ENV === 'production' ? '' : '.dev'}.paas.reapit.cloud`],
         },
         Comment: `Cloudfront distribution for pipeline [${pipeline.id}] [${
           process.env.NODE_ENV === 'production' ? 'prod' : 'dev'
@@ -143,7 +158,7 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
             Action: 'UPSERT',
             ResourceRecordSet: {
               Type: 'A',
-              Name: `${pipeline.subDomain}.iaas.paas.reapit.cloud`,
+              Name: `${pipeline.subDomain}.iaas${process.env.NODE_ENV === 'production' ? '' : '.dev'}.paas.reapit.cloud`,
               AliasTarget: {
                 DNSName: frontDomain,
                 EvaluateTargetHealth: false,

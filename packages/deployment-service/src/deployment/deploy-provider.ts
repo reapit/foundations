@@ -136,7 +136,7 @@ export class DeployProvider {
       Bucket: process.env.DEPLOYMENT_LIVE_BUCKET_NAME as string,
       Key: `${prefix}/${fileName}`,
       Body: buffer,
-      ACL: 'public-read',
+      // ACL: 'public-read',
       ContentType: mimeType,
       Metadata: {
         ['Content-Type']: mimeType,

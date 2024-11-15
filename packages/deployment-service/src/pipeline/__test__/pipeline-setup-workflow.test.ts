@@ -3,7 +3,7 @@ import { PipelineSetupWorkflow } from '../pipeline-setup-workflow'
 import { PusherProvider, SqsProvider } from '../../events'
 import { PipelineProvider } from '../pipeline-provider'
 import { SQS, S3 } from 'aws-sdk'
-import { CloudFrontClient } from '@aws-sdk/client-cloudfront'
+import { CloudFrontClient, ListOriginAccessControlsCommand } from '@aws-sdk/client-cloudfront'
 import { Route53Client } from '@aws-sdk/client-route-53'
 import { S3Provider } from '../../s3'
 import { v4 as uuid } from 'uuid'
@@ -84,12 +84,28 @@ describe('PipelineSetupWorkflow', () => {
     const pipelineId = uuid()
     const developerId = uuid()
 
-    mockCloudFrontClient.send.mockImplementationOnce(() => ({
-      Distribution: {
-        DomainName: 'domain',
-        Id: 'id',
-      },
-    }))
+    mockCloudFrontClient.send.mockImplementation((event) => {
+      console.log('event', event)
+      if (event instanceof ListOriginAccessControlsCommand) {
+        return {
+          OriginAccessControlList: {
+            Items: [
+              {
+                Name: 'distro-to-s3',
+                Id: 'AOCID',
+              },
+            ],
+          },
+        }
+      }
+
+      return {
+        Distribution: {
+          DomainName: 'domain',
+          Id: 'id',
+        },
+      }
+    })
 
     mockRoute53Client.send.mockImplementationOnce(() => ({
       ChangeInfo: {

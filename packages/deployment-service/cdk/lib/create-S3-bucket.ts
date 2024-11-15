@@ -1,5 +1,5 @@
-import { Stack, Bucket, BucketOptions, PolicyStatement } from '@reapit/ts-scripts/src/cdk'
-import { aws_s3, PhysicalName, aws_iam } from 'aws-cdk-lib'
+import { aws_s3, PhysicalName, aws_iam, Stack } from 'aws-cdk-lib'
+import { ServicePrincipal } from 'aws-cdk-lib/aws-iam'
 
 export enum BucketNames {
   LIVE = 'v2-cloud-deployment-live',
@@ -8,20 +8,33 @@ export enum BucketNames {
   REPO_CACHE = 'v2-cloud-deployment-repo-cache',
 }
 
-export const createBucket = (stack: Stack, bucketName: string, options?: BucketOptions): aws_s3.Bucket => {
+type BucketOptions = {
+  public?: boolean
+  get?: boolean
+  list?: boolean
+  put?: boolean
+  stack?: Stack
+}
+
+export const createBucket = ({
+  stack,
+  bucketName,
+  options,
+}: {
+  stack: Stack
+  bucketName: string
+  options?: BucketOptions
+}): aws_s3.Bucket => {
   const bucket = new aws_s3.Bucket(options?.stack || stack, bucketName, {
-    publicReadAccess: true,
     websiteIndexDocument: options?.public ? 'index.html' : undefined,
     bucketName: bucketName || PhysicalName.GENERATE_IF_NEEDED,
-    // blockPublicAccess: aws_s3.BlockPublicAccess.BLOCK_ALL,
-    // accessControl: aws_s3.BucketAccessControl.PRIVATE,
-    // objectOwnership: aws_s3.ObjectOwnership.OBJECT_WRITER,
-    blockPublicAccess: new aws_s3.BlockPublicAccess({
-      blockPublicAcls: false,
-      ignorePublicAcls: false,
+    blockPublicAccess: {
       blockPublicPolicy: false,
+      blockPublicAcls: false,
       restrictPublicBuckets: false,
-    }),
+      ignorePublicAcls: false,
+    },
+    publicReadAccess: false,
   })
 
   const actions: string[] = []
@@ -36,17 +49,37 @@ export const createBucket = (stack: Stack, bucketName: string, options?: BucketO
   }
 
   bucket.addToResourcePolicy(
-    new PolicyStatement({
+    new aws_iam.PolicyStatement({
       effect: aws_iam.Effect.ALLOW,
       actions,
       resources: [bucket.arnForObjects('*')],
       principals: [new aws_iam.ArnPrincipal('*')],
     }),
   )
+
+  // allows cloudfront to access this bucket
+  bucket.addToResourcePolicy(
+    new aws_iam.PolicyStatement({
+      effect: aws_iam.Effect.ALLOW,
+      actions: ['s3:Get*'],
+      resources: [bucket.arnForObjects('*')],
+      principals: [new ServicePrincipal('cloudfront.amazonaws.com')],
+    }),
+  )
+
+  bucket.addToResourcePolicy(
+    new aws_iam.PolicyStatement({
+      effect: aws_iam.Effect.ALLOW,
+      actions: ['s3:Get*'],
+      resources: [bucket.arnForObjects('*')],
+      principals: [new ServicePrincipal('codebuild.amazonaws.com')],
+    }),
+  )
+
   return bucket
 }
 
-export const createS3Buckets = (stack: Stack, usercodeStack: Stack, envStage: string): Record<BucketNames, Bucket> => {
+export const createS3Buckets = (usercodeStack: Stack, envStage: string): Record<BucketNames, aws_s3.IBucket> => {
   const bucketOptions: {
     [k in BucketNames]: BucketOptions
   } = {
@@ -55,32 +88,32 @@ export const createS3Buckets = (stack: Stack, usercodeStack: Stack, envStage: st
       get: true,
       list: true,
       put: true,
-      stack: usercodeStack,
     },
     [BucketNames.LOG]: {
       put: true,
-      stack: usercodeStack,
     },
     [BucketNames.REPO_CACHE]: {
       put: true,
       get: true,
-      stack: usercodeStack,
     },
     [BucketNames.VERSION]: {
       get: true,
       list: true,
       put: true,
-      stack: usercodeStack,
     },
   }
 
-  return (Object.keys(bucketOptions) as Array<BucketNames>).reduce<{ [k in BucketNames]: Bucket }>(
+  return (Object.keys(bucketOptions) as Array<BucketNames>).reduce<{ [k in BucketNames]: aws_s3.IBucket }>(
     (buckets, bucketName) => {
-      buckets[bucketName] = createBucket(
-        bucketOptions[bucketName].stack || stack,
-        `${bucketName}-${envStage}`,
-        bucketOptions[bucketName],
-      )
+      // const existingBucket =
+      // Bucket.fromBucketName(usercodeStack, `lookup-${bucketName}`, `${bucketName}-${envStage}`)
+
+      // buckets[bucketName] = existingBucket ?? createBucket({
+      buckets[bucketName] = createBucket({
+        stack: usercodeStack,
+        bucketName: `${bucketName}-${envStage}`,
+        options: bucketOptions[bucketName],
+      })
       return buckets
     },
     {} as any,
