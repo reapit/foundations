@@ -28,11 +28,14 @@ const customChallenge = async (event: APIGatewayTokenAuthorizerEvent, decodedTok
 
   // I am repeating the checks I perform on the access token on the id token with the extra check of the reapit-customer
   // against the clientId in the token
-  const issuer = idToken.payload.iss
   const decodedIdToken = decode(idToken, { complete: true })
+
   if (!decodedIdToken) throw new Error('Id Token failed to decode')
   if (typeof decodedIdToken.payload === 'string') throw new Error('Decoded id token payload is a string')
   if (!decodedIdToken.payload.sub) throw new Error('Id token does not contain a sub')
+
+  const issuer = decodedIdToken.payload.iss
+
   // TODO We can remove this check when we go live with Auth0
   // Check against cognito if token provided is valid
   // else check auth0
@@ -52,7 +55,7 @@ const customChallenge = async (event: APIGatewayTokenAuthorizerEvent, decodedTok
 
     // This is the crucial part of the check - I validate the idToken so I can trust it then check the reapit-customer
     // header so my downstream services can trust it behind the gateway
-    if (reapitCustomer !== verified.clientId) {
+    if (reapitCustomer !== verified['custom:reapit:clientCode']) {
       throw new Error('Reapit Customer does not match the decoded idToken')
     }
   }
@@ -73,7 +76,7 @@ const customChallenge = async (event: APIGatewayTokenAuthorizerEvent, decodedTok
     if (!verified) throw new Error('Token failed to verify')
     // This is the crucial part of the check - I validate the idToken so I can trust it then check the reapit-customer
     // header so my downstream services can trust it behind the gateway
-    if (reapitCustomer !== verified.clientId) {
+    if (reapitCustomer !== verified['custom:reapit:clientCode']) {
       throw new Error('Reapit Customer does not match the decoded idToken')
     }
   } else {
