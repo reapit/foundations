@@ -66,12 +66,11 @@ export class DnsController {
 
     const { result: domainVerified, reason } = await this.dnsProvider.verifyTextRecordOnDomain(pipeline)
 
-    console.log('domainVerified', domainVerified)
-
     if (typeof domainVerified === 'boolean' && domainVerified) {
       await this.pipelineProvider.update(pipeline, {
         domainVerified: true,
         certificateArn: await this.certificateProvider.createCertificate(pipeline),
+        certificateStatus: 'pending',
       })
 
       return {
@@ -83,5 +82,22 @@ export class DnsController {
       result: domainVerified ? 'success' : 'failed',
       reason,
     }
+  }
+
+  @Get(':pipelineId/certificate')
+  async describeCertificate(@Param('pipelineId') pipelineId: string, @Creds() creds: LoginIdentity) {
+    const pipeline = await this.pipelineProvider.findById(pipelineId)
+
+    if (!pipeline) throw NotFoundException
+
+    this.ownershipProvider.check(pipeline, creds.developerId as string)
+
+    if (!pipeline.domainVerified) throw new NotFoundException()
+
+    const certificate = await this.certificateProvider.obtainCertificate(pipeline)
+
+    if (!certificate) throw new NotFoundException()
+
+    return certificate
   }
 }

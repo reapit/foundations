@@ -98,7 +98,11 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   domainVerified: boolean = false
 
   @Column({ nullable: true })
+  @Exclude()
   certificateArn?: string
+
+  @Column({ default: 'unverified' })
+  certificateStatus?: string
 
   get hasDistro(): boolean {
     return this.cloudFrontId !== null && this.cloudFrontId !== undefined && this.cloudFrontId !== ''

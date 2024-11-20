@@ -14,11 +14,11 @@ export class DnsProvider {
     result: boolean
     reason?: string
   }> {
-    const response = await fetch(`https://dns.google/resolve?name=${pipeline.verifyDnsName}.${pipeline.customDomain}&type=16`)
+    const response = await fetch(
+      `https://dns.google/resolve?name=${pipeline.verifyDnsName}.${pipeline.customDomain}&type=16`,
+    )
 
     const data = await response.json()
-
-    console.log('dns data', data)
 
     // TODO return error that no records found
     if (!data.Answer) return { result: false, reason: 'No defined TXT records for domain' }
