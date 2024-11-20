@@ -19,7 +19,7 @@ import { PipelineConfigure } from './pipeline-configure'
 import { Helper } from '../page/helper'
 import { PipelineTabs } from './pipeline-tabs'
 import { PipelineEnvironment } from './pipeline-environment'
-import { PipelineDns } from './pipeline-dns'
+import { PipelineDns } from './dns'
 
 export const PipelinePage: FC = () => {
   const location = useLocation()

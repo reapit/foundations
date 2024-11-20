@@ -117,4 +117,5 @@ export enum PathNames {
   installationsId = '/marketplace/installations/{installationId}',
   createCustomPipelineDnsRecord = '/dns/{pipelineId}',
   verifyPipelineDnsRecord = '/dns/{pipelineId}/verify',
+  pipelineDnsCertificate = '/dns/{pipelineId}/certificate',
 }

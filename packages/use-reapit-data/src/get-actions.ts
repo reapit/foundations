@@ -67,6 +67,7 @@ export enum GetActionNames {
   getIps = 'getIps',
   getRules = 'getRules',
   getDwCustomers = 'getDwCustomers',
+  pipelineDnsCertificate = 'pipelineDnsCertificate',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -359,5 +360,10 @@ export const getActions = {
     api: ApiNames.platform,
     path: PathNames.dwCustomers,
     errorMessage: 'Failed to fetch customers, this has been logged.',
+  },
+  [GetActionNames.pipelineDnsCertificate]: {
+    api: ApiNames.pipeline,
+    path: PathNames.pipelineDnsCertificate,
+    errorMessages: 'Failed to obtain certificate details',
   },
 }
