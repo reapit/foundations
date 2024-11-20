@@ -172,6 +172,12 @@ export const createPolicies = ({
     resources: ['*'],
   })
 
+  const certificatePolicy = new PolicyStatement({
+    actions: ['acm:RequestCertificate', 'acm:AddTagsToCertificate', 'acm:DescribeCertificate'],
+    effect: Effect.ALLOW,
+    resources: ['*'],
+  })
+
   // create a policy that allows the lambda to do what it needs to do in the usercode stack
   const usercodePolicy = new Policy(usercodeStack, 'UsercodePolicy')
   usercodePolicy.addStatements(
@@ -182,6 +188,7 @@ export const createPolicies = ({
     codebuildExecPolicy,
     parameterStorePolicy,
     originAccessControlPolicy,
+    certificatePolicy,
   )
   const usercodeStackRoleName = `${usercodeStack.stackName}-UsercodeStackRole`
   // create a role that lambdas can assume in the usercode stack, with the policy we just created
