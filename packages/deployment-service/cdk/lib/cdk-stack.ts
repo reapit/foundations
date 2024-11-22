@@ -27,6 +27,7 @@ import { createPolicies } from './create-policies'
 import { Role } from 'aws-cdk-lib/aws-iam'
 import config from '../../config.json'
 import * as cdk from 'aws-cdk-lib'
+import { DnsCertificateUpdate } from './dns-certificate-update'
 
 export const databaseName = 'deployment_service'
 
@@ -245,6 +246,11 @@ export const createStack = async () => {
       addLambdaSNSTrigger(lambda, options.topic)
     }
   }
+
+  new DnsCertificateUpdate(stack, 'dns-certificate', {
+    vpc,
+    usercodeStack,
+  })
 
   /**
    * NOTE: In order to make a successful deployment, migrations must be removed for the first deloy

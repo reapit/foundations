@@ -73,6 +73,7 @@
     "@typescript-eslint/eslint-plugin": "^8.10.0",
     "@typescript-eslint/parser": "^8.10.0",
     "concurrently": "^6.5.1",
+    "constructs": "^10.4.2",
     "cross-env": "^7.0.3",
     "esbuild-plugins-node-modules-polyfill": "^1.6.7",
     "eslint": "^8.57.1",

@@ -14872,6 +14872,7 @@ __metadata:
     class-transformer: "npm:^0.5.1"
     class-validator: "npm:^0.14.1"
     concurrently: "npm:^6.5.1"
+    constructs: "npm:^10.4.2"
     cross-env: "npm:^7.0.3"
     esbuild-plugins-node-modules-polyfill: "npm:^1.6.7"
     eslint: "npm:^8.57.1"
