@@ -30,6 +30,7 @@ import * as cdk from 'aws-cdk-lib'
 import { ResolveProductionS3BucketPermissionsCustomResource } from './resolve-production-S3-bucket-permissions-custom-resource'
 import { ResolveProductionOACCustomResource } from './resolve-production-OAC-custom-resource'
 import { ResolveProductionS3BucketPoliciesCustomResource } from './resolve-production-S3-bucket-policies-custom-resource'
+import { DnsCertificateUpdate } from './dns-certificate-update'
 
 export const databaseName = 'deployment_service'
 
@@ -249,6 +250,11 @@ export const createStack = async () => {
       addLambdaSNSTrigger(lambda, options.topic)
     }
   }
+
+  new DnsCertificateUpdate(stack, 'dns-certificate', {
+    vpc,
+    usercodeStack,
+  })
 
   /**
    * NOTE: In order to make a successful deployment, migrations must be removed for the first deloy
