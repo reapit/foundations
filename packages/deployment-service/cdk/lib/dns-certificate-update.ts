@@ -1,13 +1,4 @@
-import {
-  aws_ec2,
-  aws_events,
-  aws_events_targets,
-  aws_iam,
-  aws_lambda,
-  Duration,
-  PhysicalName,
-  Stack,
-} from 'aws-cdk-lib'
+import { aws_ec2, aws_events, aws_events_targets, aws_iam, aws_lambda, Stack } from 'aws-cdk-lib'
 import { Construct } from 'constructs'
 
 interface DnsCertificateUpdateOptionsInterface {
@@ -16,62 +7,62 @@ interface DnsCertificateUpdateOptionsInterface {
 }
 
 export class DnsCertificateUpdate extends Construct {
-  constructor(scope: Stack, id: string, { usercodeStack, vpc }: DnsCertificateUpdateOptionsInterface) {
-    super(scope, id)
+  constructor(
+    paasEuWest2Stack: Stack,
+    id: string,
+    { usercodeStack: usercodeEuWest2Stack, vpc }: DnsCertificateUpdateOptionsInterface,
+  ) {
+    super(paasEuWest2Stack, id)
 
-    // lambda lives within same stack/account as database for connection
-    const certificateUpdateLambda = new aws_lambda.Function(scope, `${id}-certificate-trigger-lambda`, {
-      functionName: PhysicalName.GENERATE_IF_NEEDED,
-      runtime: aws_lambda.Runtime.NODEJS_18_X,
-      timeout: Duration.seconds(30),
-      handler: 'dns.eventbridge.handler',
-      vpc,
-      memorySize: 512,
-      code: aws_lambda.Code.fromAsset('bundle/dns-eventbridge.zip'),
+    const userCodeUsEast1Stack = new Stack(usercodeEuWest2Stack, 'event-bus-us-east-1-usercode-stack', {
+      env: { account: usercodeEuWest2Stack.account, region: 'us-east-1' },
     })
 
-    const paasEventBridge = new aws_events.EventBus(scope, `${id}-paas-default-bus`, {
-      eventBusName: PhysicalName.GENERATE_IF_NEEDED,
-    })
-    const iaasEventBridge = aws_events.EventBus.fromEventBusName(
-      usercodeStack,
-      `${id}-lookup-default-event-bus`,
+    const eventBusUsEast1 = aws_events.EventBus.fromEventBusName(
+      userCodeUsEast1Stack,
+      `${id}-lookup-default-bus`,
       'default',
     )
 
-    console.log('accountids', [usercodeStack.account, scope.account])
-
-    const paasEventRole = new aws_iam.Role(scope, `${id}-paas-event-role`, {
-      assumedBy: new aws_iam.CompositePrincipal(
-        new aws_iam.AccountPrincipal(scope.account),
-        new aws_iam.AccountPrincipal(usercodeStack.account),
-      ),
+    const paasEventBridgeEuWest2 = new aws_events.EventBus(paasEuWest2Stack, `${id}-paas-event-bridge-acm`, {
+      eventBusName: 'acm-bus',
     })
 
-    const iaasEventRole = new aws_iam.Role(usercodeStack, `${id}-iaas-event-rule`, {
-      assumedBy: new aws_iam.CompositePrincipal(
-        new aws_iam.AccountPrincipal(scope.account),
-        new aws_iam.AccountPrincipal(usercodeStack.account),
-      ),
-    })
-
-    const crossAccountIaasToPaasRule = new aws_events.Rule(usercodeStack, `${id}-cross-account-rule`, {
-      ruleName: 'cross-account-rule',
+    new aws_events.Rule(userCodeUsEast1Stack, `${id}-cross-account-rule`, {
+      targets: [new aws_events_targets.EventBus(paasEventBridgeEuWest2)],
+      eventBus: eventBusUsEast1,
       eventPattern: {
-        source: ['aws.amc'],
-        detailType: ['*'],
+        source: ['aws.acm'],
       },
-      targets: [new aws_events_targets.EventBus(paasEventBridge)],
     })
-    
-    // eventbridge rule lives within same account as certificate + eventbridge event
-    const paasCertificateActionRule = new aws_events.Rule(scope, `${id}-amc-eventbridge-certificate-lambda-rule`, {
-      ruleName: 'amc-certificate-eventbridge-rule',
+
+    paasEventBridgeEuWest2.addToResourcePolicy(
+      new aws_iam.PolicyStatement({
+        sid: 'AllowTrustedAccountToPutEvents',
+        effect: aws_iam.Effect.ALLOW,
+        actions: ['events:PutEvents'],
+        resources: [paasEventBridgeEuWest2.eventBusArn],
+        principals: [new aws_iam.AccountPrincipal(userCodeUsEast1Stack.account)],
+      }),
+    )
+
+    const testLambda = new aws_lambda.Function(paasEuWest2Stack, `${id}-eu-test-trigger`, {
+      runtime: aws_lambda.Runtime.NODEJS_18_X,
+      handler: 'index.handler',
+      code: aws_lambda.Code.fromInline(`
+        exports.handler = async (event) => {
+          console.log('Event received:', JSON.stringify(event));
+          return { statusCode: 200, body: 'Event processed' };
+        };
+      `),
+    })
+
+    const testRule = new aws_events.Rule(paasEuWest2Stack, `${id}-test-trigger-rule`, {
+      targets: [new aws_events_targets.LambdaFunction(testLambda)],
+      eventBus: paasEventBridgeEuWest2,
       eventPattern: {
-        source: ['aws.amc'],
-        detailType: ['*'],
+        source: ['aws.acm'],
       },
-      targets: [new aws_events_targets.LambdaFunction(certificateUpdateLambda)],
     })
   }
 }
