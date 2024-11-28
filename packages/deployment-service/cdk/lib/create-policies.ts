@@ -14,6 +14,7 @@ export enum PolicyNames {
   secretManagerPolicy = 'secretManagerPolicy',
   S3BucketPolicy = 'S3BucketPolicy',
   originAccessControlPolicy = 'originAccessControlPolicy',
+  certificatePolicy = 'certificatePolicy',
 }
 
 type namedPolicyType = {
@@ -173,7 +174,7 @@ export const createPolicies = ({
   })
 
   const certificatePolicy = new PolicyStatement({
-    actions: ['acm:RequestCertificate', 'acm:AddTagsToCertificate', 'acm:DescribeCertificate'],
+    actions: ['acm:RequestCertificate', 'acm:AddTagsToCertificate', 'acm:DescribeCertificate', 'acm:DeleteCertificate'],
     effect: Effect.ALLOW,
     resources: ['*'],
   })
@@ -238,5 +239,6 @@ export const createPolicies = ({
     secretManagerPolicy,
     S3BucketPolicy,
     usercodeStackRoleArn,
+    certificatePolicy,
   }
 }

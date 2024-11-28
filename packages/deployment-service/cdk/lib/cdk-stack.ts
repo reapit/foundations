@@ -131,7 +131,12 @@ export const createStack = async () => {
     },
     appEvents: {
       handler: createFileLoc('sqs', 'handle'),
-      policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy, policies.route53Policy],
+      policies: [
+        ...policies.commonBackendPolicies,
+        policies.cloudFrontPolicy,
+        policies.route53Policy,
+        policies.certificatePolicy,
+      ],
       queues: [queues[QueueNames.APP_EVENTS]],
       entrypoint: 'bundle/sqs.zip',
     },
