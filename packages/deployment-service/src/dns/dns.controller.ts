@@ -15,6 +15,7 @@ import { CreateDnsModel } from './dns.model'
 import { DnsProvider } from './dns.provider'
 import { CertificateProvider } from './certificate.provider'
 import { LoginIdentity } from '@reapit/connect-session-server'
+import { DnsCloudFrontProvider } from './dns.cloudfront.provider'
 
 @Controller('dns')
 @UseGuards(IdTokenGuard)
@@ -24,6 +25,7 @@ export class DnsController {
     private readonly ownershipProvider: OwnershipProvider,
     private readonly dnsProvider: DnsProvider,
     private readonly certificateProvider: CertificateProvider,
+    private readonly cloudFrontProvider: DnsCloudFrontProvider,
   ) {}
 
   @Post(':pipelineId')
@@ -92,12 +94,28 @@ export class DnsController {
 
     this.ownershipProvider.check(pipeline, creds.developerId as string)
 
-    if (!pipeline.domainVerified) throw new NotFoundException()
+    if (!pipeline.domainVerified) throw new UnprocessableEntityException()
 
     const certificate = await this.certificateProvider.obtainCertificate(pipeline)
 
     if (!certificate) throw new NotFoundException()
 
+    // TODO serialise
     return certificate
+  }
+
+  @Get(':pipelineId/cloudFrontCname')
+  async getCloudFrontCname(@Param('pipelineId') pipelineId: string, @Creds() creds: LoginIdentity) {
+    const pipeline = await this.pipelineProvider.findById(pipelineId)
+
+    if (!pipeline) throw NotFoundException
+
+    this.ownershipProvider.check(pipeline, creds.developerId as string)
+
+    if (!pipeline.domainVerified) throw new UnprocessableEntityException('Domain not verified')
+
+    if (pipeline.certificateStatus !== 'complete') throw new UnprocessableEntityException('Certificate not appoved')
+
+    return this.cloudFrontProvider.getCloudFrontDistro(pipeline)
   }
 }

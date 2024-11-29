@@ -259,6 +259,8 @@ export const createStack = async () => {
   new DnsCertificateUpdate(stack, 'dns-certificate', {
     vpc,
     usercodeStack,
+    environmentVars: env,
+    policies: [...policies.commonBackendPolicies, policies.certificatePolicy, policies.cloudFrontPolicy],
   })
 
   /**
