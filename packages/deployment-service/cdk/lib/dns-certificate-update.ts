@@ -1,16 +1,19 @@
-import { aws_ec2, aws_events, aws_events_targets, aws_iam, aws_lambda, Stack } from 'aws-cdk-lib'
+import { PolicyStatement } from '@reapit/ts-scripts/src/cdk'
+import { aws_ec2, aws_events, aws_events_targets, aws_iam, aws_lambda, Duration, Stack } from 'aws-cdk-lib'
 import { Construct } from 'constructs'
 
 interface DnsCertificateUpdateOptionsInterface {
   usercodeStack: Stack
   vpc: aws_ec2.Vpc
+  environmentVars: { [s: string]: string }
+  policies: PolicyStatement[]
 }
 
 export class DnsCertificateUpdate extends Construct {
   constructor(
     paasEuWest2Stack: Stack,
     id: string,
-    { usercodeStack: usercodeEuWest2Stack, vpc }: DnsCertificateUpdateOptionsInterface,
+    { usercodeStack: usercodeEuWest2Stack, vpc, environmentVars, policies }: DnsCertificateUpdateOptionsInterface,
   ) {
     super(paasEuWest2Stack, id)
 
@@ -46,19 +49,26 @@ export class DnsCertificateUpdate extends Construct {
       }),
     )
 
-    const testLambda = new aws_lambda.Function(paasEuWest2Stack, `${id}-eu-test-trigger`, {
+    const certificateUpdateLambda = new aws_lambda.Function(paasEuWest2Stack, `${id}-eventbridge-update-lambda`, {
       runtime: aws_lambda.Runtime.NODEJS_18_X,
-      handler: 'index.handler',
-      code: aws_lambda.Code.fromInline(`
-        exports.handler = async (event) => {
-          console.log('Event received:', JSON.stringify(event));
-          return { statusCode: 200, body: 'Event processed' };
-        };
-      `),
+      handler: 'packages/deployment-service/dist/dns-eventbridge.handle',
+      // code: aws_lambda.Code.fromInline(`
+      //   exports.handler = async (event) => {
+      //     console.log('Event received:', JSON.stringify(event));
+      //     return { statusCode: 200, body: 'Event processed' };
+      //   };
+      // `),
+      vpc,
+      code: aws_lambda.Code.fromAsset('bundle/dns-eventbridge.zip'),
+      timeout: Duration.seconds(30),
+      memorySize: 512,
+      environment: environmentVars,
     })
 
-    const testRule = new aws_events.Rule(paasEuWest2Stack, `${id}-test-trigger-rule`, {
-      targets: [new aws_events_targets.LambdaFunction(testLambda)],
+    policies.forEach((policy) => certificateUpdateLambda.addToRolePolicy(policy))
+
+    new aws_events.Rule(paasEuWest2Stack, `${id}-test-trigger-rule`, {
+      targets: [new aws_events_targets.LambdaFunction(certificateUpdateLambda)],
       eventBus: paasEventBridgeEuWest2,
       eventPattern: {
         source: ['aws.acm'],

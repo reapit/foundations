@@ -211,6 +211,7 @@ export const createPolicies = ({
     actions: ['sts:AssumeRole'],
   })
 
+  // TODO remove
   const lambdaInvoke = new PolicyStatement({
     effect: Effect.ALLOW,
     resources: [
