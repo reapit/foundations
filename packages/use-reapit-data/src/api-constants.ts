@@ -118,4 +118,5 @@ export enum PathNames {
   createCustomPipelineDnsRecord = '/dns/{pipelineId}',
   verifyPipelineDnsRecord = '/dns/{pipelineId}/verify',
   pipelineDnsCertificate = '/dns/{pipelineId}/certificate',
+  pipelineDnsFetchCname = '/dns/{pipelineId}/cloudFrontCname',
 }
