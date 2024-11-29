@@ -31,8 +31,8 @@ export const PipelineInfo: FC = () => {
   const { appPipelineState } = useAppState()
   const { appPipeline } = appPipelineState
   const pipelineUri =
-    appPipeline?.cerificateStatus === 'verified' && `https://${appPipeline?.customDomain}`
-      ? appPipeline.customDomain
+    appPipeline?.certificateStatus === 'complete'
+      ? `https://${appPipeline?.customDomain}`
       : `https://${appPipeline?.subDomain}${isProd ? '' : '.dev'}.iaas.paas.reapit.cloud`
   const isGithub = Boolean(appPipeline?.repository?.repositoryUrl?.includes('github'))
   const isBitbucket = Boolean(appPipeline?.repository?.repositoryUrl?.includes('bitbucket'))
