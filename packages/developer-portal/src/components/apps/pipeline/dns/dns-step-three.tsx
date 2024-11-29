@@ -1,6 +1,8 @@
 import { useReapitConnect } from '@reapit/connect-session'
 import {
   BodyText,
+  Button,
+  ButtonGroup,
   FormLayout,
   InputWrap,
   InputWrapFull,
@@ -22,7 +24,7 @@ export const PipelineDnsStepThree: FC<{
 }> = ({ verifyDnsValue, customDomain, pipelineId }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
-  const [certificate, loading, , fetchCertificate] = useReapitGet<{
+  const [certificate, loading, , fetchCertificate, refetching] = useReapitGet<{
     DomainValidationOptions: {
       DomainName: string
       ValidationStatus: string
@@ -40,24 +42,9 @@ export const PipelineDnsStepThree: FC<{
     fetchWhenTrue: [connectSession],
   })
 
-  // useEffect(() => {
-  //   connectSession?.idToken && fetchCertificate()
-  // }, [connectSession])
-
   return (
     <>
       <FormLayout>
-        {/* <InputWrap>
-          <Label>Text Record Value</Label>
-          <BodyText>{verifyDnsValue}</BodyText>
-        </InputWrap>
-        <InputWrap>
-          <Label>Domain Name</Label>
-          <BodyText>{customDomain}</BodyText>
-        </InputWrap>
-        <InputWrap>
-          <Button>Change</Button>
-        </InputWrap> */}
         <InputWrapFull>
           <Subtitle>Certificate Records</Subtitle>
           <BodyText>Text record approved.</BodyText>
@@ -73,41 +60,48 @@ export const PipelineDnsStepThree: FC<{
               </PersistantNotification>
             </>
           ) : (
-            <Table
-              rows={certificate?.DomainValidationOptions.map((domain) => ({
-                cells: [
-                  { label: 'Domain', value: domain.DomainName },
-                  { label: 'Type', value: domain.ResourceRecord.Type },
-                  { label: 'Name', value: domain.ResourceRecord.Name },
-                  { label: 'Value', value: domain.ResourceRecord.Value },
-                  { label: 'Status', value: domain.ValidationStatus },
-                ],
-                expandableContent: {
-                  content: (
-                    <>
-                      <FormLayout>
-                        <InputWrap>
-                          <Label>Domain</Label>
-                          <BodyText>{domain.DomainName}</BodyText>
-                        </InputWrap>
-                        <InputWrap>
-                          <Label>Type</Label>
-                          <BodyText>{domain.ResourceRecord.Type}</BodyText>
-                        </InputWrap>
-                        <InputWrapFull>
-                          <Label>Name</Label>
-                          <BodyText>{domain.ResourceRecord.Name}</BodyText>
-                        </InputWrapFull>
-                        <InputWrapFull>
-                          <Label>Value</Label>
-                          <BodyText>{domain.ResourceRecord.Value}</BodyText>
-                        </InputWrapFull>
-                      </FormLayout>
-                    </>
-                  ),
-                },
-              }))}
-            />
+            <>
+              <ButtonGroup>
+                <Button intent="primary" onClick={() => fetchCertificate()} loading={refetching} disabled={refetching}>
+                  Refresh
+                </Button>
+              </ButtonGroup>
+              <Table
+                rows={certificate?.DomainValidationOptions.map((domain) => ({
+                  cells: [
+                    { label: 'Domain', value: domain.DomainName },
+                    { label: 'Type', value: domain.ResourceRecord.Type },
+                    { label: 'Name', value: domain.ResourceRecord.Name },
+                    { label: 'Value', value: domain.ResourceRecord.Value },
+                    { label: 'Status', value: domain.ValidationStatus },
+                  ],
+                  expandableContent: {
+                    content: (
+                      <>
+                        <FormLayout>
+                          <InputWrap>
+                            <Label>Domain</Label>
+                            <BodyText>{domain.DomainName}</BodyText>
+                          </InputWrap>
+                          <InputWrap>
+                            <Label>Type</Label>
+                            <BodyText>{domain.ResourceRecord.Type}</BodyText>
+                          </InputWrap>
+                          <InputWrapFull>
+                            <Label>Name</Label>
+                            <BodyText>{domain.ResourceRecord.Name}</BodyText>
+                          </InputWrapFull>
+                          <InputWrapFull>
+                            <Label>Value</Label>
+                            <BodyText>{domain.ResourceRecord.Value}</BodyText>
+                          </InputWrapFull>
+                        </FormLayout>
+                      </>
+                    ),
+                  },
+                }))}
+              />
+            </>
           )}
         </InputWrapFull>
       </FormLayout>

@@ -6,31 +6,38 @@ import { PipelineDnsStepThree } from './dns-step-three'
 import { PipelineDnsStepOne } from './dns-step-one'
 import { Loader, Subtitle } from '@reapit/elements'
 import { PipelineDnsStepTwo } from './dns-step-two'
+import { PipelineDnsStepFour } from './dns-step-four'
 
 export const PipelineDns: FC<{}> = () => {
   const { appId } = useAppState()
   const { appPipelineState } = useAppState()
 
-  const { domainVerified, verifyDnsName, verifyDnsValue, customDomain } =
+  const { domainVerified, verifyDnsName, verifyDnsValue, customDomain, certificateStatus } =
     appPipelineState.appPipeline as PipelineModelInterface & {
       domainVerified: string
       verifyDnsName: string
       verifyDnsValue: string
       customDomain: string
+      certificateStatus: string
     }
 
-  console.log('test', { domainVerified, verifyDnsName, verifyDnsValue, customDomain })
-
-  const step = domainVerified ? 'verified' : verifyDnsValue && customDomain ? 'setup' : 'not-started'
-
-  console.log('step', step)
+  const step =
+    domainVerified && certificateStatus === 'complete'
+      ? 'complete'
+      : domainVerified
+        ? 'verified'
+        : verifyDnsValue && customDomain
+          ? 'start'
+          : 'not-started'
 
   return (
     <>
       <PipelineTabs />
       <Subtitle> Custom DNS Configuration</Subtitle>
       {appId ? (
-        step === 'verified' ? (
+        step === 'complete' ? (
+          <PipelineDnsStepFour pipelineId={appId} />
+        ) : step === 'verified' ? (
           <PipelineDnsStepThree
             pipelineId={appId}
             verifyDnsName={verifyDnsName}

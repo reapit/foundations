@@ -69,8 +69,6 @@ export const PipelineDnsStepModal: FC<{ customDomain?: string; buttonText?: stri
             const result = await sendDnsRequest(values)
 
             if (result) {
-              console.log('result was successful')
-
               appPipelineState.appPipelineRefresh()
               closeModal()
             }
