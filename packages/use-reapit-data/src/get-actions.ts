@@ -68,6 +68,7 @@ export enum GetActionNames {
   getRules = 'getRules',
   getDwCustomers = 'getDwCustomers',
   pipelineDnsCertificate = 'pipelineDnsCertificate',
+  pipelineDnsFetchCname = 'pipelineDnsFetchCname',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -364,6 +365,11 @@ export const getActions = {
   [GetActionNames.pipelineDnsCertificate]: {
     api: ApiNames.pipeline,
     path: PathNames.pipelineDnsCertificate,
+    errorMessages: 'Failed to obtain certificate details',
+  },
+  [GetActionNames.pipelineDnsFetchCname]: {
+    api: ApiNames.pipeline,
+    path: PathNames.pipelineDnsFetchCname,
     errorMessages: 'Failed to obtain certificate details',
   },
 }
