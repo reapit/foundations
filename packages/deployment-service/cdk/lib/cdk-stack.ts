@@ -76,7 +76,7 @@ export const createStack = async () => {
   const database = createDatabase(stack, 'database', databaseName, vpc)
   const secretManager = database.secret
 
-  const AOC = new cdk.aws_cloudfront.CfnOriginAccessControl(usercodeStack, 's3-origin', {
+  const OAC = new cdk.aws_cloudfront.CfnOriginAccessControl(usercodeStack, 's3-origin', {
     originAccessControlConfig: {
       name: 'distro-to-s3',
       originAccessControlOriginType: 's3',
