@@ -141,10 +141,9 @@ export const HelperContent: FC = () => {
               on the requirements, <a onClick={openNewPage(ExternalPages.acLaunchableDocs)}>please click here.</a>
             </BodyText>
             <BodyText hasGreyText>
-              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure
-              it can handle rotating refresh tokens. For more information about this change,{' '}
-              <a onClick={openNewPage(ExternalPages.refreshTokenDocs)}>please click here.</a> Apps registered prior to
-              this date are unaffected by this change.
+              When registering an app that uses the authorisation code authentication flow, it is important to
+              understand refresh token behaviour. For more information about refresh tokens,{' '}
+              <a onClick={openNewPage(ExternalPages.refreshTokenDocs)}>please click here.</a>
             </BodyText>
           </div>
         </FlexContainer>
@@ -162,12 +161,9 @@ export const HelperContent: FC = () => {
           from within AgencyCloud.
         </BodyText>
         <BodyText hasGreyText>
-          From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it
-          can handle rotating refresh tokens. For more information about this change,{' '}
-          <a onClick={openNewPage(ExternalPages.refreshTokenDocs)} role="link">
-            please click here.
-          </a>{' '}
-          Apps registered prior to this date are unaffected by this change.
+          When registering an app that uses the authorisation code authentication flow, it is important to understand
+          refresh token behaviour. For more information about refresh tokens,{' '}
+          <a onClick={openNewPage(ExternalPages.refreshTokenDocs)}>please click here.</a>
         </BodyText>
       </div>
       <div className={cx(shouldShowStep(AppNewStepId.dataFeedStep) ? elFadeIn : stepIsHidden)}>
@@ -233,12 +229,9 @@ export const HelperContent: FC = () => {
           to investigate which data sets and permissions you will need before getting started.
         </BodyText>
         <BodyText hasGreyText>
-          From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it
-          can handle rotating refresh tokens. For more information about this change,{' '}
-          <a onClick={openNewPage(ExternalPages.refreshTokenDocs)} role="link">
-            please click here.
-          </a>{' '}
-          Apps registered prior to this date are unaffected by this change.
+          When registering an app that uses the authorisation code authentication flow, it is important to understand
+          refresh token behaviour. For more information about refresh tokens,{' '}
+          <a onClick={openNewPage(ExternalPages.refreshTokenDocs)}>please click here.</a>
         </BodyText>
       </div>
       <div className={cx(shouldShowStep(AppNewStepId.reapitConnectStep) ? elFadeIn : stepIsHidden)}>
@@ -255,12 +248,9 @@ export const HelperContent: FC = () => {
           <a onClick={openNewPage(ExternalPages.loginWithReapitDocs)}>visit here</a>
         </BodyText>
         <BodyText hasGreyText>
-          From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it
-          can handle rotating refresh tokens. For more information about this change,{' '}
-          <a onClick={openNewPage(ExternalPages.refreshTokenDocs)} role="link">
-            please click here.
-          </a>{' '}
-          Apps registered prior to this date are unaffected by this change.
+          When registering an app that uses the authorisation code authentication flow, it is important to understand
+          refresh token behaviour. For more information about refresh tokens,{' '}
+          <a onClick={openNewPage(ExternalPages.refreshTokenDocs)}>please click here.</a>
         </BodyText>
       </div>
       <div className={cx(shouldShowStep(AppNewStepId.clientSideStep) ? elFadeIn : stepIsHidden)}>
@@ -281,12 +271,9 @@ export const HelperContent: FC = () => {
           development.
         </BodyText>
         <BodyText hasGreyText>
-          From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it
-          can handle rotating refresh tokens. For more information about this change,{' '}
-          <a onClick={openNewPage(ExternalPages.refreshTokenDocs)} role="link">
-            please click here.
-          </a>{' '}
-          Apps registered prior to this date are unaffected by this change.
+          When registering an app that uses the authorisation code authentication flow, it is important to understand
+          refresh token behaviour. For more information about refresh tokens,{' '}
+          <a onClick={openNewPage(ExternalPages.refreshTokenDocs)}>please click here.</a>
         </BodyText>
       </div>
       <div className={cx(shouldShowStep(AppNewStepId.serverSideStep) ? elFadeIn : stepIsHidden)}>
