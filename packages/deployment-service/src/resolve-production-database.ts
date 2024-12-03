@@ -74,19 +74,6 @@ const stackDatabaseConfig = async () => {
 }
 
 export const resolveProductionDatabase = async () => {
-  /**
-   * TODO
-   *
-   * Dump database out of temp cluster
-   *
-   * store dump
-   *
-   * dump into stack cluster
-   *
-   */
-
-  // OR use ORM on temp, select * from table and instert into table to stack cluster
-
   const tempConfig = await tempDatabaseConfig()
   const stackConfig = await stackDatabaseConfig()
 
