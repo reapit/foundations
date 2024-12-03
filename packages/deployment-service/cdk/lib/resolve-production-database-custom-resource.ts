@@ -3,7 +3,6 @@ import {
   aws_iam,
   aws_lambda,
   aws_logs,
-  aws_rds,
   aws_secretsmanager,
   custom_resources,
   CustomResource,
@@ -21,12 +20,15 @@ export class ResolveProductionDatabaseCustomResource extends Construct {
   ) {
     super(scope, id)
 
+    // TODO look at creating snapshot of temp cluster -> not sure if I can?
+    // TODO use snapshot of previous cluster to create new database?
+
     const resolveProductionDatabaseLambda = new aws_lambda.Function(
       scope,
       'resolve-production-database-custom-resource',
       {
         handler: 'resolve-production-database.resolveProductionDatabase',
-        code: aws_lambda.Code.fromAsset(''), // figure this out
+        code: aws_lambda.Code.fromAsset('bundle/resolve-production-database.zip'),
         memorySize: 1024,
         timeout: Duration.minutes(5),
         runtime: aws_lambda.Runtime.NODEJS_18_X,

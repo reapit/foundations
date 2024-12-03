@@ -11,7 +11,7 @@ export class ResolveProductionOACCustomResource extends Construct {
       'resolve-production-oac-custom-resource',
       {
         handler: 'resolve-production-apply-OAC-to-all-distros.resolveProductionApplyOACToAllDistros',
-        code: aws_lambda.Code.fromAsset(''), // figure this out
+        code: aws_lambda.Code.fromAsset('bundle/resolve-production-apply-OAC-to-all-distros.zip'),
         memorySize: 512,
         timeout: Duration.minutes(5),
         runtime: aws_lambda.Runtime.NODEJS_18_X,

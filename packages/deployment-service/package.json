@@ -49,7 +49,7 @@
     "deploy": "rpt-cdk deploy cdk/cdk.ts",
     "release": "echo '...skipping...'",
     "synth": "rpt-cdk synth cdk/cdk.ts",
-    "bundle": "tsup-zip deployment-service",
+    "bundle": "tsup-zip deployment-service && zip bundle/resolve-production-s3-buckets.zip dist/resolve-production-s3-buckets.js && zip bundle/resolve-production-database.zip dist/resolve-production-database.js && zip bundle/resolve-production-apply-OAC-to-all-distros.zip dist/resolve-production-apply-OAC-to-all-distros.js",
     "release:watch": "rpt-cdk watch cdk/cdk.ts",
     "release:destroy": "rpt-cdk destroy cdk/cdk.ts",
     "publish": "echo '...skipping...'",

@@ -11,7 +11,7 @@ export class ResolveProductionS3BucketCustomResource extends Construct {
 
     const resolveProductionS3Lambda = new aws_lambda.Function(scope, 'resolve-production-S3-custom-resource', {
       handler: 'resolve-production-s3-buckets.resolveProductionS3Buckets',
-      code: aws_lambda.Code.fromAsset(''), // figure this out
+      code: aws_lambda.Code.fromAsset('bundle/resolve-production-s3-buckets.zip'),
       memorySize: 1024,
       timeout: Duration.seconds(60),
       runtime: aws_lambda.Runtime.NODEJS_18_X,
