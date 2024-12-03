@@ -1,4 +1,9 @@
-import { GetBucketPolicyCommand, PutBucketPolicyCommand, S3Client } from '@aws-sdk/client-s3'
+import {
+  GetBucketPolicyCommand,
+  PutBucketPolicyCommand,
+  PutPublicAccessBlockCommand,
+  S3Client,
+} from '@aws-sdk/client-s3'
 
 type BucketPolicy = {
   effect: string
@@ -10,10 +15,11 @@ type BucketPolicy = {
 export const resolveProductionS3Buckets = async (event) => {
   const client = new S3Client({})
 
+  const bucketInputs = process.env.BUCKETS ? process.env.BUCKETS?.split(',') : []
+
+  // TODO need to resolve ACLs as well
   const bucketPolicies: ({ bucket: string; policy: BucketPolicy } | undefined)[] = await Promise.all(
-    [
-      // TODO arns of buckets from env
-    ].map(async (bucket) => {
+    bucketInputs.map(async (bucket) => {
       const result = await client.send(
         new GetBucketPolicyCommand({
           Bucket: bucket,
@@ -34,9 +40,11 @@ export const resolveProductionS3Buckets = async (event) => {
     throw new Error('A policy was undefined')
   }
 
+  // TODO update bucket ACL options
   await Promise.all(
     bucketPolicies.map((config) => {
       if (typeof config === 'undefined') throw new Error('Policy was undefined')
+
       if (config.policy?.actions.includes('Put*')) {
         // PaaS account Policy
         return client.send(
@@ -44,7 +52,9 @@ export const resolveProductionS3Buckets = async (event) => {
             Bucket: config?.bucket,
             Policy: JSON.stringify({
               ...config?.policy,
-              conditions: '', // Condition to lock to PaaS account actions
+              condition: {
+                Like: process.env.PAAS_ACCOUNT_ID,
+              },
             }),
           }),
         )
@@ -56,11 +66,32 @@ export const resolveProductionS3Buckets = async (event) => {
             Bucket: config?.bucket,
             Policy: JSON.stringify({
               ...config?.policy,
-              conditions: '', // Confition to lock to IaaS account distros
+              condition: {
+                Like: process.env.IAAS_ACCOUNT_ID,
+              },
             }),
           }),
         )
       }
+    }),
+  )
+
+  await Promise.all(
+    bucketPolicies.map((config) => {
+      if (typeof config === 'undefined') return Promise.resolve()
+
+      return client.send(
+        new PutPublicAccessBlockCommand({
+          Bucket: config.bucket,
+          PublicAccessBlockConfiguration: {
+            BlockPublicPolicy: false,
+            BlockPublicAcls: false,
+            RestrictPublicBuckets: false,
+            IgnorePublicAcls: false,
+          },
+          // PublicReadAccess: false,
+        }),
+      )
     }),
   )
 }
