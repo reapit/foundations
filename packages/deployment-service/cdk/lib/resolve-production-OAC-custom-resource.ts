@@ -1,4 +1,4 @@
-import { CustomResource, Duration, Stack, aws_cloudfront, aws_lambda, aws_logs, custom_resources } from 'aws-cdk-lib'
+import { CustomResource, Duration, Stack, aws_iam, aws_lambda, aws_logs, custom_resources } from 'aws-cdk-lib'
 import { Construct } from 'constructs'
 
 export class ResolveProductionOACCustomResource extends Construct {
@@ -16,6 +16,19 @@ export class ResolveProductionOACCustomResource extends Construct {
         timeout: Duration.minutes(5),
         runtime: aws_lambda.Runtime.NODEJS_18_X,
       },
+    )
+
+    resolveProductionApplyOACToAllDistrosLambda.addToRolePolicy(
+      new aws_iam.PolicyStatement({
+        effect: aws_iam.Effect.ALLOW,
+        actions: [
+          'cloudfront:ListDistributions',
+          'cloudfront:GetDistribution',
+          'cloudfront:ListOriginAccessControls',
+          'cloudfront:UpdateDistribution',
+        ],
+        // resources: [], // all within this account?
+      }),
     )
 
     const resourceProvider = new custom_resources.Provider(scope, 'resolve-production-OAC', {
