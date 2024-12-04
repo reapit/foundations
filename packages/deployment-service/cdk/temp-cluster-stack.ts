@@ -1,0 +1,94 @@
+import {
+  App,
+  aws_ec2,
+  aws_iam,
+  aws_lambda,
+  aws_logs,
+  aws_rds,
+  aws_secretsmanager,
+  custom_resources,
+  CustomResource,
+  Duration,
+  Stack,
+} from 'aws-cdk-lib'
+import { databaseName } from './lib/cdk-stack'
+import config from '../config.json'
+
+class TempCdkStack extends Stack {
+  constructor(scope: App, id: string) {
+    super(scope, id, {
+      env: {
+        account: config.AWS_ACCOUNT_ID,
+        region: 'eu-west-2',
+      },
+    })
+
+    const vpc = aws_ec2.Vpc.fromLookup(this, 'lookup-existing-vpc', {
+      vpcName: 'cloud-deployment-service/vpc',
+    })
+
+    const tempCluster = new aws_rds.DatabaseCluster(this, 'temp-database-cluster', {
+      engine: aws_rds.DatabaseClusterEngine.auroraMysql({ version: aws_rds.AuroraMysqlEngineVersion.VER_3_05_2 }),
+      defaultDatabaseName: databaseName,
+      vpc,
+      writer: aws_rds.ClusterInstance.provisioned('writer', {
+        instanceType: aws_ec2.InstanceType.of(aws_ec2.InstanceClass.T3, aws_ec2.InstanceSize.MEDIUM),
+        isFromLegacyInstanceProps: true,
+      }),
+      readers: [
+        aws_rds.ClusterInstance.serverlessV2('reader1', {
+          scaleWithWriter: true,
+          isFromLegacyInstanceProps: true,
+        }),
+      ],
+      cloudwatchLogsRetention: aws_logs.RetentionDays.ONE_MONTH,
+      deletionProtection: true,
+    })
+
+    tempCluster.connections.allowFromAnyIpv4(aws_ec2.Port.allTcp())
+
+    const tempMigrationHandler = new aws_lambda.Function(this, 'temp-migration-handler', {
+      runtime: aws_lambda.Runtime.NODEJS_18_X,
+      code: aws_lambda.Code.fromAsset('bundle/temp-migration.zip'),
+      handler: 'dist/temp-migration.handler',
+      vpc,
+      environment: {
+        DATABASE_SECRET_ARN: (tempCluster.secret as aws_secretsmanager.Secret).secretArn,
+        MYSQL_DATABASE: 'deployment_service',
+        REGION: 'eu-west-2',
+        NODE_ENV: process.env.NODE_ENV || 'development',
+      },
+      memorySize: 1024,
+      timeout: Duration.minutes(5),
+    })
+
+    tempMigrationHandler.addToRolePolicy(new aws_iam.PolicyStatement({
+      effect: aws_iam.Effect.ALLOW,
+      resources: [(tempCluster.secret as aws_secretsmanager.Secret).secretArn],
+      actions: ['secretsmanager:GetSecretValue', 'secretsmanager:DescribeSecret'],
+    }))
+
+    const bastion = new aws_ec2.BastionHostLinux(this, 'temp-cluster-bastion', {
+      vpc,
+    })
+
+    const resourceProvider = new custom_resources.Provider(this, `temp-cluster-resource-provider`, {
+      onEventHandler: tempMigrationHandler,
+      logRetention: aws_logs.RetentionDays.ONE_DAY,
+    })
+  
+    new CustomResource(this, 'temp-custom-resource', {
+      serviceToken: resourceProvider.serviceToken,
+      properties: {
+        changeThisToTrigger: 'no-trigger',
+      },
+    })
+  }
+}
+
+const bootstrap = () => {
+  const app = new App()
+  new TempCdkStack(app, 'temp-cdk-cluster')
+}
+
+bootstrap()
