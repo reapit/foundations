@@ -15,7 +15,7 @@ import {
   useMediaQuery,
   useModal,
 } from '@reapit/elements'
-import React, { Dispatch, FC, SetStateAction, MouseEvent, useEffect, KeyboardEvent, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, MouseEvent, useEffect, KeyboardEvent } from 'react'
 import { AppAuthFlow, AppNewStepId, getAppWizardStep } from './config'
 import { AppWizardState, useAppState } from '../state/use-app-state'
 import { ControlsContainer, StepContainer } from './__styles__'
@@ -43,7 +43,6 @@ import { NavigateFunction, useNavigate } from 'react-router-dom'
 import { HelperContent } from './helper-content'
 import { defaultAppWizardState } from '../state/defaults'
 import { Helper } from '../page/helper'
-import { ExternalPages, openNewPage } from '../../../utils/navigation'
 
 export interface CreateAppFormSchema {
   redirectUris?: string
@@ -230,32 +229,8 @@ export const AppsNewPage: FC = () => {
 
   const { headingText, headerText, iconName } = getAppWizardStep(currentStep)
 
-  const [refreshRotationModelIsOpen, setRefreshRotationModelIsOpen] = useState(true)
-
   return (
     <GridResponsive>
-      <Modal
-        isOpen={refreshRotationModelIsOpen}
-        title="Important changes to refresh tokens"
-        onModalClose={() => setRefreshRotationModelIsOpen(false)}
-      >
-        <BodyText hasGreyText>
-          From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it
-          can handle rotating refresh tokens. Apps registered prior to this date were given reusable refresh tokens from
-          Reapit Connect. New apps will only be given single use refresh tokens as part of enhanced security updates.
-        </BodyText>
-        <BodyText hasGreyText>
-          For more information about this change,{' '}
-          <a onClick={openNewPage(ExternalPages.refreshTokenDocs)}>please click here.</a> Any apps registered prior to
-          this date are unaffected by this change.
-        </BodyText>
-        <BodyText hasGreyText>
-          <Button intent="primary" onClick={() => setRefreshRotationModelIsOpen(false)}>
-            Close
-          </Button>
-        </BodyText>
-      </Modal>
-
       <ColResponsive
         spanMobile={4}
         spanTablet={4}

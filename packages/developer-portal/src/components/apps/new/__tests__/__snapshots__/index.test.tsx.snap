@@ -676,12 +676,11 @@ exports[`AppsNew should match a snapshot 1`] = `
                   <p
                     class="el-text-base el-body-text el-has-grey-text"
                   >
-                    From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                    When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                      
                     <a>
                       please click here.
                     </a>
-                     Apps registered prior to this date are unaffected by this change.
                   </p>
                 </div>
               </div>
@@ -709,15 +708,11 @@ exports[`AppsNew should match a snapshot 1`] = `
               <p
                 class="el-text-base el-body-text el-has-grey-text"
               >
-                From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                  
-                <a
-                  role="link"
-                >
+                <a>
                   please click here.
                 </a>
-                 
-                Apps registered prior to this date are unaffected by this change.
               </p>
             </div>
             <div
@@ -843,15 +838,11 @@ exports[`AppsNew should match a snapshot 1`] = `
               <p
                 class="el-text-base el-body-text el-has-grey-text"
               >
-                From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                  
-                <a
-                  role="link"
-                >
+                <a>
                   please click here.
                 </a>
-                 
-                Apps registered prior to this date are unaffected by this change.
               </p>
             </div>
             <div
@@ -886,15 +877,11 @@ exports[`AppsNew should match a snapshot 1`] = `
               <p
                 class="el-text-base el-body-text el-has-grey-text"
               >
-                From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                  
-                <a
-                  role="link"
-                >
+                <a>
                   please click here.
                 </a>
-                 
-                Apps registered prior to this date are unaffected by this change.
               </p>
             </div>
             <div
@@ -940,15 +927,11 @@ exports[`AppsNew should match a snapshot 1`] = `
               <p
                 class="el-text-base el-body-text el-has-grey-text"
               >
-                From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                  
-                <a
-                  role="link"
-                >
+                <a>
                   please click here.
                 </a>
-                 
-                Apps registered prior to this date are unaffected by this change.
               </p>
             </div>
             <div
@@ -1063,10 +1046,10 @@ exports[`AppsNew should match a snapshot 1`] = `
         />
         <div
           class="mocked-styled-147 el-mobile-controls"
-          id=":r5:"
+          id=":r4:"
         >
           <button
-            aria-controls=":r5:"
+            aria-controls=":r4:"
             class="el-floating-button el-intent-primary el-button"
           >
             <div
@@ -1767,12 +1750,11 @@ exports[`AppsNew should match a snapshot 1`] = `
                 <p
                   class="el-text-base el-body-text el-has-grey-text"
                 >
-                  From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                  When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                    
                   <a>
                     please click here.
                   </a>
-                   Apps registered prior to this date are unaffected by this change.
                 </p>
               </div>
             </div>
@@ -1800,15 +1782,11 @@ exports[`AppsNew should match a snapshot 1`] = `
             <p
               class="el-text-base el-body-text el-has-grey-text"
             >
-              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+              When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                
-              <a
-                role="link"
-              >
+              <a>
                 please click here.
               </a>
-               
-              Apps registered prior to this date are unaffected by this change.
             </p>
           </div>
           <div
@@ -1934,15 +1912,11 @@ exports[`AppsNew should match a snapshot 1`] = `
             <p
               class="el-text-base el-body-text el-has-grey-text"
             >
-              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+              When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                
-              <a
-                role="link"
-              >
+              <a>
                 please click here.
               </a>
-               
-              Apps registered prior to this date are unaffected by this change.
             </p>
           </div>
           <div
@@ -1977,15 +1951,11 @@ exports[`AppsNew should match a snapshot 1`] = `
             <p
               class="el-text-base el-body-text el-has-grey-text"
             >
-              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+              When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                
-              <a
-                role="link"
-              >
+              <a>
                 please click here.
               </a>
-               
-              Apps registered prior to this date are unaffected by this change.
             </p>
           </div>
           <div
@@ -2031,15 +2001,11 @@ exports[`AppsNew should match a snapshot 1`] = `
             <p
               class="el-text-base el-body-text el-has-grey-text"
             >
-              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+              When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                
-              <a
-                role="link"
-              >
+              <a>
                 please click here.
               </a>
-               
-              Apps registered prior to this date are unaffected by this change.
             </p>
           </div>
           <div
@@ -2154,10 +2120,10 @@ exports[`AppsNew should match a snapshot 1`] = `
       />
       <div
         class="mocked-styled-147 el-mobile-controls"
-        id=":r5:"
+        id=":r4:"
       >
         <button
-          aria-controls=":r5:"
+          aria-controls=":r4:"
           class="el-floating-button el-intent-primary el-button"
         >
           <div
@@ -2246,55 +2212,6 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
     <div
       id="root"
     >
-      <div>
-        <div
-          class="el-is-active el-modal-bg"
-        />
-        <div
-          aria-describedby=":r6:"
-          aria-modal="true"
-          class="el-is-active el-modal"
-          role="dialog"
-        >
-          <div
-            class="mocked-styled-50 el-modal-header"
-          >
-            Important changes to refresh tokens
-          </div>
-          <div
-            class="mocked-styled-51 el-modal-body"
-            id=":r6:"
-          >
-            <p
-              class="el-text-base el-body-text el-has-grey-text"
-            >
-              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. Apps registered prior to this date were given reusable refresh tokens from Reapit Connect. New apps will only be given single use refresh tokens as part of enhanced security updates.
-            </p>
-            <p
-              class="el-text-base el-body-text el-has-grey-text"
-            >
-              For more information about this change,
-               
-              <a>
-                please click here.
-              </a>
-               Any apps registered prior to this date are unaffected by this change.
-            </p>
-            <p
-              class="el-text-base el-body-text el-has-grey-text"
-            >
-              <button
-                class="el-intent-primary el-button"
-              >
-                <div
-                  class="mocked-styled-0 el-button-loader"
-                />
-                Close
-              </button>
-            </p>
-          </div>
-        </div>
-      </div>
       <div />
       <div />
       <div />
@@ -2973,12 +2890,11 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                   <p
                     class="el-text-base el-body-text el-has-grey-text"
                   >
-                    From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                    When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                      
                     <a>
                       please click here.
                     </a>
-                     Apps registered prior to this date are unaffected by this change.
                   </p>
                 </div>
               </div>
@@ -3006,15 +2922,11 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
               <p
                 class="el-text-base el-body-text el-has-grey-text"
               >
-                From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                  
-                <a
-                  role="link"
-                >
+                <a>
                   please click here.
                 </a>
-                 
-                Apps registered prior to this date are unaffected by this change.
               </p>
             </div>
             <div
@@ -3140,15 +3052,11 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
               <p
                 class="el-text-base el-body-text el-has-grey-text"
               >
-                From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                  
-                <a
-                  role="link"
-                >
+                <a>
                   please click here.
                 </a>
-                 
-                Apps registered prior to this date are unaffected by this change.
               </p>
             </div>
             <div
@@ -3183,15 +3091,11 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
               <p
                 class="el-text-base el-body-text el-has-grey-text"
               >
-                From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                  
-                <a
-                  role="link"
-                >
+                <a>
                   please click here.
                 </a>
-                 
-                Apps registered prior to this date are unaffected by this change.
               </p>
             </div>
             <div
@@ -3237,15 +3141,11 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
               <p
                 class="el-text-base el-body-text el-has-grey-text"
               >
-                From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                  
-                <a
-                  role="link"
-                >
+                <a>
                   please click here.
                 </a>
-                 
-                Apps registered prior to this date are unaffected by this change.
               </p>
             </div>
             <div
@@ -3360,10 +3260,10 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
         />
         <div
           class="mocked-styled-147 el-mobile-controls"
-          id=":rc:"
+          id=":ra:"
         >
           <button
-            aria-controls=":rc:"
+            aria-controls=":ra:"
             class="el-floating-button el-intent-primary el-button"
           >
             <div
@@ -4064,12 +3964,11 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
                 <p
                   class="el-text-base el-body-text el-has-grey-text"
                 >
-                  From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+                  When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                    
                   <a>
                     please click here.
                   </a>
-                   Apps registered prior to this date are unaffected by this change.
                 </p>
               </div>
             </div>
@@ -4097,15 +3996,11 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
             <p
               class="el-text-base el-body-text el-has-grey-text"
             >
-              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+              When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                
-              <a
-                role="link"
-              >
+              <a>
                 please click here.
               </a>
-               
-              Apps registered prior to this date are unaffected by this change.
             </p>
           </div>
           <div
@@ -4231,15 +4126,11 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
             <p
               class="el-text-base el-body-text el-has-grey-text"
             >
-              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+              When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                
-              <a
-                role="link"
-              >
+              <a>
                 please click here.
               </a>
-               
-              Apps registered prior to this date are unaffected by this change.
             </p>
           </div>
           <div
@@ -4274,15 +4165,11 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
             <p
               class="el-text-base el-body-text el-has-grey-text"
             >
-              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+              When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                
-              <a
-                role="link"
-              >
+              <a>
                 please click here.
               </a>
-               
-              Apps registered prior to this date are unaffected by this change.
             </p>
           </div>
           <div
@@ -4328,15 +4215,11 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
             <p
               class="el-text-base el-body-text el-has-grey-text"
             >
-              From November 2024, when registering an app that uses the authorisation code authentication flow, ensure it can handle rotating refresh tokens. For more information about this change,
+              When registering an app that uses the authorisation code authentication flow, it is important to understand refresh token behaviour. For more information about refresh tokens,
                
-              <a
-                role="link"
-              >
+              <a>
                 please click here.
               </a>
-               
-              Apps registered prior to this date are unaffected by this change.
             </p>
           </div>
           <div
@@ -4451,10 +4334,10 @@ exports[`AppsNew should match snapshot for mobile view 1`] = `
       />
       <div
         class="mocked-styled-147 el-mobile-controls"
-        id=":rc:"
+        id=":ra:"
       >
         <button
-          aria-controls=":rc:"
+          aria-controls=":ra:"
           class="el-floating-button el-intent-primary el-button"
         >
           <div
