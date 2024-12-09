@@ -95,6 +95,7 @@ class ProductionS3PolicyMatchStack extends Stack {
     super(scope, id, {
       env: {
         account: config.USERCODE_ACCOUNT_ID,
+        region: 'eu-west-2',
       },
     })
 
@@ -110,22 +111,27 @@ class ProductionS3PolicyMatchStack extends Stack {
       code: aws_lambda.Code.fromAsset('bundle/temp-s3-production-policy-match.zip'),
       handler: 'dist/temp-s3-production-policy-match.handler',
       environment: {
-        BUCKETS: [liveBucket.bucketArn, logBucket.bucketArn, repoBucket.bucketArn, versionBucket.bucketArn].join(','),
-        BUCKET_URLS: [liveBucket.bucketWebsiteUrl, logBucket.bucketWebsiteUrl, repoBucket.bucketWebsiteUrl, versionBucket.bucketWebsiteUrl].join(','),
+        BUCKETS: [liveBucket.bucketName, logBucket.bucketName, repoBucket.bucketName, versionBucket.bucketName].join(','),
+        BUCKET_Arns: [liveBucket.bucketArn, logBucket.bucketArn, repoBucket.bucketArn, versionBucket.bucketArn].join(','),
       },
       memorySize: 1024,
       timeout: Duration.minutes(5),
     })
 
-    // s3PolicyProductionMatchLambda.addToRolePolicy(
-    //   new aws_iam.PolicyStatement({
-    //     effect: aws_iam.Effect.ALLOW,
-    //     resources: [liveBucket.bucketArn, logBucket.bucketArn, repoBucket.bucketArn, versionBucket.bucketArn],
-    //     actions: [
-          
-    //     ],
-    //   }),
-    // )
+    s3PolicyProductionMatchLambda.addToRolePolicy(
+      new aws_iam.PolicyStatement({
+        effect: aws_iam.Effect.ALLOW,
+        resources: [liveBucket.bucketArn, logBucket.bucketArn, repoBucket.bucketArn, versionBucket.bucketArn],
+        actions: [
+          's3:DeleteBucketPolicy',
+          's3:PutBucketPolicy',
+          's3:PutBucketOwnershipControls',
+          's3:PutBucketACL',
+          's3:PutPublicAccessBlock',
+          's3:PutBucketPublicAccessBlock',
+        ],
+      }),
+    )
 
     const resourceProvider = new custom_resources.Provider(this, 's3-production-match-resource-provider', {
       onEventHandler: s3PolicyProductionMatchLambda,
@@ -135,7 +141,7 @@ class ProductionS3PolicyMatchStack extends Stack {
     new CustomResource(this, 's3-policy-production-match-custom-resource', {
       serviceToken: resourceProvider.serviceToken,
       properties: {
-        changeThisToTrigger: 'no-trigger',
+        // changeThisToTrigger: 'no-test',
       },
     })
   }

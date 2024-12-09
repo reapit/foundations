@@ -2,25 +2,26 @@ import {
   BucketCannedACL,
   DeleteBucketPolicyCommand,
   PutBucketAclCommand,
+  PutBucketOwnershipControlsCommand,
   PutBucketPolicyCommand,
   PutPublicAccessBlockCommand,
   S3Client,
 } from '@aws-sdk/client-s3'
 
 export const handler = async (event) => {
-  const bucketNames = process.env.BUCKET_NAMES?.split(',') || []
+  const bucketNames = process.env.BUCKETS?.split(',') || []
 
-  const client = new S3Client({})
+  const client = new S3Client({
+    region: 'eu-west-2',
+  })
 
-  const bucket = (bucketName: string, region: string = 'us-east-1'): string =>
-    `https://s3express-control.${region}.amazonaws.com/${bucketName}`
   const bucketArn = (bucketName: string): string => `arn:aws:s3:::${bucketName}`
 
   await Promise.all(
     bucketNames.map((bucketName) => {
       return client.send(
         new DeleteBucketPolicyCommand({
-          Bucket: bucket(bucketName),
+          Bucket: bucketName,
         }),
       )
     }),
@@ -30,7 +31,7 @@ export const handler = async (event) => {
     bucketNames.map((bucketName) => {
       return client.send(
         new PutBucketPolicyCommand({
-          Bucket: bucket(bucketName),
+          Bucket: bucketName,
           Policy: JSON.stringify({
             Version: '2012-10-17',
             Statement: [
@@ -41,7 +42,7 @@ export const handler = async (event) => {
                 },
                 Action: 's3:GetObject',
                 // Resource: `arn:aws:s3:::v2-cloud-deployment-live-prod/*`,
-                Resource: `${bucketArn}/*`,
+                Resource: `${bucketArn(bucketName)}/*`,
               },
               {
                 Effect: 'Allow',
@@ -50,7 +51,7 @@ export const handler = async (event) => {
                 },
                 Action: ['s3:Get*', 's3:List*', 's3:Put*'],
                 // Resource: `arn:aws:s3:::v2-cloud-deployment-live-prod/*`,
-                Resource: `${bucketArn}/*`,
+                Resource: `${bucketArn(bucketName)}/*`,
               },
             ],
           }),
@@ -62,11 +63,28 @@ export const handler = async (event) => {
   await Promise.all(
     bucketNames.map((bucketName) => {
       return client.send(
+        new PutBucketOwnershipControlsCommand({
+          Bucket: bucketName,
+          OwnershipControls: {
+            Rules: [
+              {
+                ObjectOwnership: 'BucketOwnerPreferred',
+              },
+            ],
+          },
+        }),
+      )
+    }),
+  )
+
+  await Promise.all(
+    bucketNames.map((bucketName) => {
+      return client.send(
         new PutBucketAclCommand({
-          Bucket: bucket(bucketName),
+          Bucket: bucketName,
           ACL: BucketCannedACL.public_read,
-          GrantRead: 'public',
-          GrantFullControl: 'read',
+          // GrantRead: 'public',
+          // GrantFullControl: 'read',
         }),
       )
     }),
@@ -76,7 +94,7 @@ export const handler = async (event) => {
     bucketNames.map((bucketName) => {
       return client.send(
         new PutPublicAccessBlockCommand({
-          Bucket: bucket(bucketName),
+          Bucket: bucketName,
           PublicAccessBlockConfiguration: {
             BlockPublicAcls: false,
             IgnorePublicAcls: false,
