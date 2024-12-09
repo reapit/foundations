@@ -1,11 +1,11 @@
-import { GetSecretValueCommand, SecretsManagerClient } from "@aws-sdk/client-secrets-manager"
-import { DataSource } from "typeorm"
-import { PipelineEntity } from "./entities/pipeline.entity"
-import { PipelineRunnerEntity } from "./entities/pipeline-runner.entity"
-import { TaskEntity } from "./entities/task.entity"
-import { BitbucketClientEntity } from "./entities/bitbucket-client.entity"
-import { RepositoryEntity } from "./entities/repository.entity"
-import { SubDomainSubscriber } from "./pipeline/sub-domain"
+import { GetSecretValueCommand, SecretsManagerClient } from '@aws-sdk/client-secrets-manager'
+import { DataSource } from 'typeorm'
+import { PipelineEntity } from './entities/pipeline.entity'
+import { PipelineRunnerEntity } from './entities/pipeline-runner.entity'
+import { TaskEntity } from './entities/task.entity'
+import { BitbucketClientEntity } from './entities/bitbucket-client.entity'
+import { RepositoryEntity } from './entities/repository.entity'
+import { SubDomainSubscriber } from './pipeline/sub-domain'
 import migrations from './../migrations'
 
 const defaultCredentials = {
@@ -18,16 +18,18 @@ const defaultCredentials = {
 }
 
 const fetchCredentialsFromSecret = async (): Promise<{
-    database: string
-    host: string
-    username: string
-    password: string
+  database: string
+  host: string
+  username: string
+  password: string
 }> => {
   const client = new SecretsManagerClient({})
 
-  const result = await client.send(new GetSecretValueCommand({
-    SecretId: process.env.DATABASE_SECRET_ARN,
-  }))
+  const result = await client.send(
+    new GetSecretValueCommand({
+      SecretId: process.env.DATABASE_SECRET_ARN,
+    }),
+  )
 
   if (!result.ARN || !result.SecretString) throw Error('Failed to fetch secret')
 

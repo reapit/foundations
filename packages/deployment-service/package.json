@@ -50,7 +50,7 @@
     "deploy-temp": "cdk deploy --require-approval never --all -a 'ts-node cdk/temp-cluster-stack.ts'",
     "release": "echo '...skipping...'",
     "synth": "rpt-cdk synth cdk/cdk.ts",
-    "bundle": "tsup-zip deployment-service && zip bundle/resolve-production-s3-buckets.zip dist/resolve-production-s3-buckets.js && zip bundle/resolve-production-database.zip dist/resolve-production-database.js && zip bundle/resolve-production-apply-OAC-to-all-distros.zip dist/resolve-production-apply-OAC-to-all-distros.js && zip bundle/temp-migration.zip dist/temp-migration.js",
+    "bundle": "tsup-zip deployment-service && zip bundle/resolve-production-s3-buckets.zip dist/resolve-production-s3-buckets.js && zip bundle/resolve-production-database.zip dist/resolve-production-database.js && zip bundle/resolve-production-apply-OAC-to-all-distros.zip dist/resolve-production-apply-OAC-to-all-distros.js && zip bundle/temp-migration.zip dist/temp-migration.js && zip bundle/temp-s3-production-policy-match.zip dist/temp-s3-production-policy-match.js",
     "release:watch": "rpt-cdk watch cdk/cdk.ts",
     "release:destroy": "rpt-cdk destroy cdk/cdk.ts",
     "publish": "echo '...skipping...'",

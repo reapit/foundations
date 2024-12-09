@@ -5,6 +5,7 @@ import {
   aws_lambda,
   aws_logs,
   aws_rds,
+  aws_s3,
   aws_secretsmanager,
   custom_resources,
   CustomResource,
@@ -13,6 +14,7 @@ import {
 } from 'aws-cdk-lib'
 import { databaseName } from './lib/cdk-stack'
 import config from '../config.json'
+import { BucketNames } from './lib/create-S3-bucket'
 
 class TempCdkStack extends Stack {
   constructor(scope: App, id: string) {
@@ -62,22 +64,75 @@ class TempCdkStack extends Stack {
       timeout: Duration.minutes(5),
     })
 
-    tempMigrationHandler.addToRolePolicy(new aws_iam.PolicyStatement({
-      effect: aws_iam.Effect.ALLOW,
-      resources: [(tempCluster.secret as aws_secretsmanager.Secret).secretArn],
-      actions: ['secretsmanager:GetSecretValue', 'secretsmanager:DescribeSecret'],
-    }))
+    tempMigrationHandler.addToRolePolicy(
+      new aws_iam.PolicyStatement({
+        effect: aws_iam.Effect.ALLOW,
+        resources: [(tempCluster.secret as aws_secretsmanager.Secret).secretArn],
+        actions: ['secretsmanager:GetSecretValue', 'secretsmanager:DescribeSecret'],
+      }),
+    )
 
     const bastion = new aws_ec2.BastionHostLinux(this, 'temp-cluster-bastion', {
       vpc,
     })
 
-    const resourceProvider = new custom_resources.Provider(this, `temp-cluster-resource-provider`, {
+    const resourceProvider = new custom_resources.Provider(this, 'temp-cluster-resource-provider', {
       onEventHandler: tempMigrationHandler,
       logRetention: aws_logs.RetentionDays.ONE_DAY,
     })
-  
+
     new CustomResource(this, 'temp-custom-resource', {
+      serviceToken: resourceProvider.serviceToken,
+      properties: {
+        changeThisToTrigger: 'no-trigger',
+      },
+    })
+  }
+}
+
+class ProductionS3PolicyMatchStack extends Stack {
+  constructor(scope: App, id: string) {
+    super(scope, id, {
+      env: {
+        account: config.USERCODE_ACCOUNT_ID,
+      },
+    })
+
+    const envStage = process.env.APP_STAGE === 'production' ? 'prod' : 'dev'
+
+    const liveBucket = aws_s3.Bucket.fromBucketName(this, 'lookup-live-bucket', `${BucketNames.LIVE}-${envStage}`)
+    const logBucket = aws_s3.Bucket.fromBucketName(this, 'lookup-log-bucket', `${BucketNames.LOG}-${envStage}`)
+    const repoBucket = aws_s3.Bucket.fromBucketName(this, 'lookup-repo-bucket', `${BucketNames.REPO_CACHE}-${envStage}`)
+    const versionBucket = aws_s3.Bucket.fromBucketName(this, 'lookup-version-bucket', `${BucketNames.VERSION}-${envStage}`)
+
+    const s3PolicyProductionMatchLambda = new aws_lambda.Function(this, 's3-policy-production-match', {
+      runtime: aws_lambda.Runtime.NODEJS_18_X,
+      code: aws_lambda.Code.fromAsset('bundle/temp-s3-production-policy-match.zip'),
+      handler: 'dist/temp-s3-production-policy-match.handler',
+      environment: {
+        BUCKETS: [liveBucket.bucketArn, logBucket.bucketArn, repoBucket.bucketArn, versionBucket.bucketArn].join(','),
+        BUCKET_URLS: [liveBucket.bucketWebsiteUrl, logBucket.bucketWebsiteUrl, repoBucket.bucketWebsiteUrl, versionBucket.bucketWebsiteUrl].join(','),
+      },
+      memorySize: 1024,
+      timeout: Duration.minutes(5),
+    })
+
+    // s3PolicyProductionMatchLambda.addToRolePolicy(
+    //   new aws_iam.PolicyStatement({
+    //     effect: aws_iam.Effect.ALLOW,
+    //     resources: [liveBucket.bucketArn, logBucket.bucketArn, repoBucket.bucketArn, versionBucket.bucketArn],
+    //     actions: [
+          
+    //     ],
+    //   }),
+    // )
+
+    const resourceProvider = new custom_resources.Provider(this, 's3-production-match-resource-provider', {
+      onEventHandler: s3PolicyProductionMatchLambda,
+      logRetention: aws_logs.RetentionDays.ONE_DAY,
+    })
+  
+    new CustomResource(this, 's3-policy-production-match-custom-resource', {
       serviceToken: resourceProvider.serviceToken,
       properties: {
         changeThisToTrigger: 'no-trigger',
@@ -89,6 +144,7 @@ class TempCdkStack extends Stack {
 const bootstrap = () => {
   const app = new App()
   new TempCdkStack(app, 'temp-cdk-cluster')
+  new ProductionS3PolicyMatchStack(app, 'production-s3-policy-match')
 }
 
 bootstrap()
