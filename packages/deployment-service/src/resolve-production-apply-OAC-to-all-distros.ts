@@ -5,8 +5,9 @@ import {
   ListOriginAccessControlsCommand,
   UpdateDistributionCommand,
 } from '@aws-sdk/client-cloudfront'
+import { OnEventHandler } from 'aws-cdk-lib/custom-resources/lib/provider-framework/types'
 
-export const resolveProductionApplyOACToAllDistros = async () => {
+export const resolveProductionApplyOACToAllDistros: OnEventHandler = async (event) => {
   const client = new CloudFrontClient({})
 
   const fetchDistros = await client.send(new ListDistributionsCommand())
@@ -14,7 +15,8 @@ export const resolveProductionApplyOACToAllDistros = async () => {
   const OACs = await client.send(new ListOriginAccessControlsCommand({}))
 
   const OAC = OACs.OriginAccessControlList?.Items ? OACs.OriginAccessControlList?.Items[0] : undefined
-  // TODO add check to make sure the correct OAC is selected
+
+  if (!OAC) throw new Error('OAC not found')
 
   const distros = fetchDistros.DistributionList?.Items || []
 
@@ -55,4 +57,8 @@ export const resolveProductionApplyOACToAllDistros = async () => {
       )
     }),
   )
+
+  return {
+    PhysicalResourceId: event.PhysicalResourceId,
+  }
 }

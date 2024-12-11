@@ -1,88 +1,135 @@
 import {
-  GetBucketPolicyCommand,
+  DeleteBucketPolicyCommand,
+  PutBucketOwnershipControlsCommand,
   PutBucketPolicyCommand,
   PutPublicAccessBlockCommand,
   S3Client,
+  BucketCannedACL,
+  PutBucketAclCommand,
 } from '@aws-sdk/client-s3'
+import { OnEventHandler } from 'aws-cdk-lib/custom-resources/lib/provider-framework/types'
 
-type BucketPolicy = {
-  effect: string
-  actions: string[]
-  conditions?: string[]
-  resources: string[]
+type BucketPolicyStatement = {
+  Effect: 'Allow' | 'Deny'
+  Action: string[]
+  Condition?: string[]
+  Resource: string
+  Principal: {
+    [s: string]: string
+  }
 }
 
-export const resolveProductionS3Buckets = async (event) => {
+const bucketArn = (bucketName: string): string => `arn:aws:s3:::${bucketName}`
+
+const resolveBucketPolicies = (client: S3Client) => async (bucketInputs: string[]) => {
+  await Promise.all(
+    bucketInputs.map((bucketName) => {
+      return client.send(
+        new DeleteBucketPolicyCommand({
+          Bucket: bucketName,
+        }),
+      )
+    }),
+  )
+
+  await Promise.all(
+    bucketInputs.map((bucketName) => {
+      const statements: BucketPolicyStatement[] = [
+        {
+          Effect: 'Allow',
+          Action: ['s3:Get*', 's3:List*', 's3:Put*'],
+          Resource: `${bucketArn(bucketName)}/*`,
+          Principal: {
+            AWS: '*',
+          },
+          // Condition?? TODO
+        },
+        {
+          Effect: 'Allow',
+          Action: ['s3:Get*'],
+          Resource: `${bucketArn(bucketName)}/*`,
+          Principal: {
+            AWS: '*',
+          },
+          // Condition?? TODO
+        },
+        {
+          Effect: 'Allow',
+          Action: ['s3:Get*'],
+          Resource: `${bucketArn(bucketName)}/*`,
+          Principal: {
+            Service: 'cloudfront.amazonaws.com',
+          },
+          // Condition?? TODO
+        },
+        {
+          Effect: 'Allow',
+          Action: ['s3:Get*'],
+          Resource: `${bucketArn(bucketName)}/*`,
+          Principal: {
+            Service: 'codebuild.amazonaws.com',
+          },
+          // Condition?? TODO
+        },
+      ]
+
+      return client.send(
+        new PutBucketPolicyCommand({
+          Bucket: bucketName,
+          Policy: JSON.stringify({
+            Version: '2012-10-17',
+            Statement: statements,
+          }),
+        }),
+      )
+    }),
+  )
+}
+
+export const resolveProductionS3Buckets: OnEventHandler = async (event) => {
   const client = new S3Client({})
 
   const bucketInputs = process.env.BUCKETS ? process.env.BUCKETS?.split(',') : []
 
-  // TODO need to resolve ACLs as well
-  const bucketPolicies: ({ bucket: string; policy: BucketPolicy } | undefined)[] = await Promise.all(
-    bucketInputs.map(async (bucket) => {
-      const result = await client.send(
-        new GetBucketPolicyCommand({
-          Bucket: bucket,
+  await resolveBucketPolicies(client)(bucketInputs)
+
+  // TODO need to work out ACL policies
+  // don't need ACL?
+  await Promise.all(
+    bucketInputs.map((bucketName) => {
+      return client.send(
+        new PutBucketAclCommand({
+          Bucket: bucketName,
+          ACL: BucketCannedACL.private,
         }),
       )
-
-      if (!result.Policy) return undefined
-
-      return {
-        bucket,
-        policy: JSON.parse(result.Policy),
-      }
-    }),
-  )
-
-  if (bucketPolicies.some((policy) => typeof policy === 'undefined')) {
-    console.log('policies', bucketPolicies)
-    throw new Error('A policy was undefined')
-  }
-
-  // TODO update bucket ACL options
-  await Promise.all(
-    bucketPolicies.map((config) => {
-      if (typeof config === 'undefined') throw new Error('Policy was undefined')
-
-      if (config.policy?.actions.includes('Put*')) {
-        // PaaS account Policy
-        return client.send(
-          new PutBucketPolicyCommand({
-            Bucket: config?.bucket,
-            Policy: JSON.stringify({
-              ...config?.policy,
-              condition: {
-                Like: process.env.PAAS_ACCOUNT_ID,
-              },
-            }),
-          }),
-        )
-      } else {
-        // IaaS account Policy
-
-        return client.send(
-          new PutBucketPolicyCommand({
-            Bucket: config?.bucket,
-            Policy: JSON.stringify({
-              ...config?.policy,
-              condition: {
-                Like: process.env.IAAS_ACCOUNT_ID,
-              },
-            }),
-          }),
-        )
-      }
     }),
   )
 
   await Promise.all(
-    bucketPolicies.map((config) => {
-      if (typeof config === 'undefined') return Promise.resolve()
+    bucketInputs.map((bucket) => {
+      return client.send(
+        new PutBucketOwnershipControlsCommand({
+          Bucket: bucket,
+          OwnershipControls: {
+            Rules: [
+              {
+                ObjectOwnership: 'BucketOwnerEnforced',
+              },
+            ],
+          },
+        }),
+      )
+    }),
+  )
+
+  await Promise.all(
+    bucketInputs.map((bucket) => {
+      if (typeof bucket === 'undefined') return Promise.resolve()
 
       return client.send(
         new PutPublicAccessBlockCommand({
-          Bucket: config.bucket,
+          Bucket: bucket,
           PublicAccessBlockConfiguration: {
             BlockPublicPolicy: false,
             BlockPublicAcls: false,
@@ -94,4 +141,11 @@ export const resolveProductionS3Buckets = async (event) => {
       )
     }),
   )
+
+  return {
+    PhysicalResourceId: event.PhysicalResourceId,
+    Data: {
+      skipped: true,
+    },
+  }
 }

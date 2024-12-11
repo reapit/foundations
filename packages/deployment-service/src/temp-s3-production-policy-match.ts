@@ -7,8 +7,9 @@ import {
   PutPublicAccessBlockCommand,
   S3Client,
 } from '@aws-sdk/client-s3'
+import { OnEventHandler } from 'aws-cdk-lib/custom-resources/lib/provider-framework/types'
 
-export const handler = async (event) => {
+export const handler: OnEventHandler = async (event) => {
   const bucketNames = process.env.BUCKETS?.split(',') || []
 
   const client = new S3Client({
@@ -105,4 +106,8 @@ export const handler = async (event) => {
       )
     }),
   )
+
+  return {
+    PhysicalResourceId: event.PhysicalResourceId,
+  }
 }

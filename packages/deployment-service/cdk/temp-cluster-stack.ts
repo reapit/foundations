@@ -140,9 +140,6 @@ class ProductionS3PolicyMatchStack extends Stack {
   
     new CustomResource(this, 's3-policy-production-match-custom-resource', {
       serviceToken: resourceProvider.serviceToken,
-      properties: {
-        // changeThisToTrigger: 'no-test',
-      },
     })
   }
 }

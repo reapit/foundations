@@ -8,9 +8,9 @@ export class ResolveProductionOACCustomResource extends Construct {
 
     const resolveProductionApplyOACToAllDistrosLambda = new aws_lambda.Function(
       scope,
-      'resolve-production-oac-custom-resource',
+      'resolve-production-oac-custom-resource-lambda',
       {
-        handler: 'resolve-production-apply-OAC-to-all-distros.resolveProductionApplyOACToAllDistros',
+        handler: 'dist/resolve-production-apply-OAC-to-all-distros.resolveProductionApplyOACToAllDistros',
         code: aws_lambda.Code.fromAsset('bundle/resolve-production-apply-OAC-to-all-distros.zip'),
         memorySize: 512,
         timeout: Duration.minutes(5),
@@ -27,19 +27,19 @@ export class ResolveProductionOACCustomResource extends Construct {
           'cloudfront:ListOriginAccessControls',
           'cloudfront:UpdateDistribution',
         ],
-        // resources: [], // all within this account?
+        resources: ['*'], // all within this account?
       }),
     )
 
-    const resourceProvider = new custom_resources.Provider(scope, 'resolve-production-OAC', {
+    const resourceProvider = new custom_resources.Provider(scope, 'resolve-production-OAC-resource-provider', {
       onEventHandler: resolveProductionApplyOACToAllDistrosLambda,
       logRetention: aws_logs.RetentionDays.TWO_WEEKS,
     })
 
-    new CustomResource(scope, 'resolve-production-OAC', {
+    new CustomResource(scope, 'resolve-production-OAC-custom-resource', {
       serviceToken: resourceProvider.serviceToken,
       properties: {
-        fistonly: true, // TODO needs to only run once
+        fistonly: true,
       },
     })
   }

@@ -1,5 +1,6 @@
 import { Construct } from 'constructs'
 import { aws_iam, aws_lambda, aws_logs, aws_s3, custom_resources, CustomResource, Duration, Stack } from 'aws-cdk-lib'
+import { BucketNames } from './create-S3-bucket'
 
 export class ResolveProductionS3BucketCustomResource extends Construct {
   constructor(
@@ -9,8 +10,19 @@ export class ResolveProductionS3BucketCustomResource extends Construct {
   ) {
     super(scope, id)
 
+    const envStage = process.env.APP_STAGE === 'production' ? 'prod' : 'dev'
+
+    const liveBucket = aws_s3.Bucket.fromBucketName(this, 'lookup-live-bucket', `${BucketNames.LIVE}-${envStage}`)
+    const logBucket = aws_s3.Bucket.fromBucketName(this, 'lookup-log-bucket', `${BucketNames.LOG}-${envStage}`)
+    const repoBucket = aws_s3.Bucket.fromBucketName(this, 'lookup-repo-bucket', `${BucketNames.REPO_CACHE}-${envStage}`)
+    const versionBucket = aws_s3.Bucket.fromBucketName(
+      this,
+      'lookup-version-bucket',
+      `${BucketNames.VERSION}-${envStage}`,
+    )
+
     const resolveProductionS3Lambda = new aws_lambda.Function(scope, 'resolve-production-S3-custom-resource', {
-      handler: 'resolve-production-s3-buckets.resolveProductionS3Buckets',
+      handler: 'dist/resolve-production-s3-buckets.resolveProductionS3Buckets',
       code: aws_lambda.Code.fromAsset('bundle/resolve-production-s3-buckets.zip'),
       memorySize: 1024,
       timeout: Duration.seconds(60),
@@ -18,6 +30,9 @@ export class ResolveProductionS3BucketCustomResource extends Construct {
       environment: {
         PAAS_ACCOUNT_ID: scope.account,
         IAAS_ACCOUNT_ID: iaasAccountId,
+        BUCKETS: [liveBucket.bucketName, logBucket.bucketName, repoBucket.bucketName, versionBucket.bucketName].join(
+          ',',
+        ),
       },
     })
 
@@ -26,8 +41,6 @@ export class ResolveProductionS3BucketCustomResource extends Construct {
         effect: aws_iam.Effect.ALLOW,
         resources: Object.values(buckets).map((bucket) => bucket.bucketArn),
         actions: [
-          's3:PutObject',
-          's3:GetObject',
           's3:ListBucket',
           's3:PutObjectAcl',
           's3:GetBucketAcl',
@@ -35,10 +48,13 @@ export class ResolveProductionS3BucketCustomResource extends Construct {
           's3:GetBucketLocation',
           's3:GetObjectRetention',
           's3:GetObjectVersionAcl',
-          's3:DeleteObject',
-          's3:DeleteObjectVersion',
           'S3:PutBucketPolicy',
           'S3:GetBucketPolicy',
+          's3:DeleteBucketPolicy',
+          's3:PutBucketPolicy',
+          's3:PutBucketOwnershipControls',
+          's3:PutBucketACL',
+          's3:PutBucketPublicAccessBlock',
         ],
       }),
     )
@@ -51,7 +67,7 @@ export class ResolveProductionS3BucketCustomResource extends Construct {
     new CustomResource(scope, 'resolve-production-s3', {
       serviceToken: resourceProvider.serviceToken,
       properties: {
-        fistonly: true, // TODO needs to only run once
+        fistonly: true,
       },
     })
   }

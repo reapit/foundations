@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import { DataSource } from 'typeorm'
 import { GetSecretValueCommand, SecretsManagerClient } from '@aws-sdk/client-secrets-manager'
 import { PipelineEntity } from './entities/pipeline.entity'
@@ -8,6 +9,7 @@ import { RepositoryEntity } from './entities/repository.entity'
 import { SubDomainSubscriber } from './pipeline/sub-domain'
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions'
 import migrations from './../migrations'
+import { OnEventHandler } from 'aws-cdk-lib/custom-resources/lib/provider-framework/types'
 
 const defaultDatabaseConfig: Partial<MysqlConnectionOptions> & { type: 'mysql' } = {
   logging: true,
@@ -22,8 +24,8 @@ const defaultDatabaseConfig: Partial<MysqlConnectionOptions> & { type: 'mysql' }
 const secretsManagerClient = new SecretsManagerClient({})
 
 const tempDatabaseConfig = async () => {
-  if (!process.env.DATABASE_SECRET_ARN) {
-    throw new Error('No db secret arn present')
+  if (!process.env.TEMPORARY_CLUSTER_SECRET_ARN) {
+    throw new Error('No temporary cluster secret arn present')
   }
 
   const secrets = await secretsManagerClient.send(
@@ -48,7 +50,7 @@ const tempDatabaseConfig = async () => {
 }
 
 const stackDatabaseConfig = async () => {
-  if (!process.env.DATABASE_SECRET_ARN) {
+  if (!process.env.STACK_CLUSTER_SECRET_ARN) {
     throw new Error('No db secret arn present')
   }
 
@@ -73,13 +75,16 @@ const stackDatabaseConfig = async () => {
   }
 }
 
-export const resolveProductionDatabase = async () => {
+export const resolveProductionDatabase: OnEventHandler = async (event) => {
   const tempConfig = await tempDatabaseConfig()
   const stackConfig = await stackDatabaseConfig()
 
   const tempConnection = new DataSource(tempConfig)
 
   const stackConnection = new DataSource(stackConfig)
+
+  await tempConnection.initialize()
+  await stackConnection.initialize()
 
   const tempPipelineRepo = tempConnection.getRepository(PipelineEntity)
   const tempRepoRepo = tempConnection.getRepository(RepositoryEntity)
@@ -105,4 +110,11 @@ export const resolveProductionDatabase = async () => {
   await stackRepoRepo.save(repositories)
   await stackTaskRepo.save(tasks)
   await stackBitBucketRepo.save(bitBucketRepos)
+
+  return {
+    PhysicalResourceId: event.PhysicalResourceId,
+    Data: {
+      skipped: true,
+    },
+  }
 }

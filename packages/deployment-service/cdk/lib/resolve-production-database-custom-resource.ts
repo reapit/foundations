@@ -20,20 +20,28 @@ export class ResolveProductionDatabaseCustomResource extends Construct {
   ) {
     super(scope, id)
 
+    const tempSecret = aws_secretsmanager.Secret.fromSecretCompleteArn(
+      scope,
+      'lookup-temp-secret',
+      config.TEMPORARY_CLUSTER_SECRET_ARN,
+    )
+
+    // TODO snapshot database
+
     // TODO look at creating snapshot of temp cluster -> not sure if I can?
     // TODO use snapshot of previous cluster to create new database?
 
     const resolveProductionDatabaseLambda = new aws_lambda.Function(
       scope,
-      'resolve-production-database-custom-resource',
+      'resolve-production-database-custom-resource-lambda',
       {
-        handler: 'resolve-production-database.resolveProductionDatabase',
+        handler: 'dist/resolve-production-database.resolveProductionDatabase',
         code: aws_lambda.Code.fromAsset('bundle/resolve-production-database.zip'),
-        memorySize: 1024,
-        timeout: Duration.minutes(5),
+        memorySize: 2048,
+        timeout: Duration.minutes(10),
         runtime: aws_lambda.Runtime.NODEJS_18_X,
         environment: {
-          TEMPORARY_CLUSTER_SECRET_ARN: config.TEMPORARY_CLUSTER_SECRET_ARN,
+          TEMPORARY_CLUSTER_SECRET_ARN: tempSecret.secretArn,
           STACK_CLUSTER_SECRET_ARN: secretManager.secretArn,
         },
         vpc,
@@ -51,20 +59,20 @@ export class ResolveProductionDatabaseCustomResource extends Construct {
     resolveProductionDatabaseLambda.addToRolePolicy(
       new aws_iam.PolicyStatement({
         effect: aws_iam.Effect.ALLOW,
-        actions: [],
-        resources: [],
+        actions: ['secretsmanager:GetSecretValue', 'secretsmanager:DescribeSecret'],
+        resources: [config.TEMPORARY_CLUSTER_SECRET_ARN],
       }),
     )
 
-    const resourceProvider = new custom_resources.Provider(scope, 'resolve-production-database', {
+    const resourceProvider = new custom_resources.Provider(scope, 'resolve-production-database-resource-provider', {
       onEventHandler: resolveProductionDatabaseLambda,
       logRetention: aws_logs.RetentionDays.TWO_WEEKS,
     })
 
-    new CustomResource(scope, 'resolve-production-database', {
+    new CustomResource(scope, 'resolve-production-database-custom-resource', {
       serviceToken: resourceProvider.serviceToken,
       properties: {
-        fistonly: true, // TODO needs to only run once
+        fistonly: true,
       },
     })
   }

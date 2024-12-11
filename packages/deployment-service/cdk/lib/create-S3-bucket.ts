@@ -66,6 +66,7 @@ export const createBucket = ({
       actions: ['s3:Get*'],
       resources: [bucket.arnForObjects('*')],
       principals: [new ServicePrincipal('cloudfront.amazonaws.com')],
+      // TODO add condition for Moomin
     }),
   )
 
@@ -75,6 +76,7 @@ export const createBucket = ({
       actions: ['s3:Get*'],
       resources: [bucket.arnForObjects('*')],
       principals: [new ServicePrincipal('codebuild.amazonaws.com')],
+      // TODO add condition for Moomin
     }),
   )
 
