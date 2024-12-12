@@ -10,6 +10,7 @@ import { SubDomainSubscriber } from './pipeline/sub-domain'
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions'
 import migrations from './../migrations'
 import { OnEventHandler } from 'aws-cdk-lib/custom-resources/lib/provider-framework/types'
+import { CreateDBClusterSnapshotCommand, RDSClient } from '@aws-sdk/client-rds'
 
 const defaultDatabaseConfig: Partial<MysqlConnectionOptions> & { type: 'mysql' } = {
   logging: true,
@@ -76,6 +77,16 @@ const stackDatabaseConfig = async () => {
 }
 
 export const resolveProductionDatabase: OnEventHandler = async (event) => {
+
+  const rdsClient = new RDSClient({})
+
+  await rdsClient.send(
+    new CreateDBClusterSnapshotCommand({
+      DBClusterSnapshotIdentifier: 'pre-deployment-service-fix',
+      DBClusterIdentifier: process.env.TEMPORARY_CLUSTER_ID,
+    }),
+  )
+
   const tempConfig = await tempDatabaseConfig()
   const stackConfig = await stackDatabaseConfig()
 
