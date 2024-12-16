@@ -8,6 +8,14 @@ import {
 import { OnEventHandler } from 'aws-cdk-lib/custom-resources/lib/provider-framework/types'
 
 export const resolveProductionApplyOACToAllDistros: OnEventHandler = async (event) => {
+  if (event.RequestType === 'Delete')
+    return {
+      PhysicalResourceId: event.PhysicalResourceId,
+      Data: {
+        skipped: true,
+      },
+    }
+
   const client = new CloudFrontClient({})
 
   const fetchDistros = await client.send(new ListDistributionsCommand())

@@ -26,7 +26,8 @@ class TempCdkStack extends Stack {
     })
 
     const vpc = aws_ec2.Vpc.fromLookup(this, 'lookup-existing-vpc', {
-      vpcName: 'cloud-deployment-service/vpc',
+      // vpcName: 'cloud-deployment-service/vpc',
+      vpcId: config.VPC_ID,
     })
 
     const tempCluster = new aws_rds.DatabaseCluster(this, 'temp-database-cluster', {
@@ -81,12 +82,14 @@ class TempCdkStack extends Stack {
       logRetention: aws_logs.RetentionDays.ONE_DAY,
     })
 
-    new CustomResource(this, 'temp-custom-resource', {
+    const customResource = new CustomResource(this, 'temp-custom-resource', {
       serviceToken: resourceProvider.serviceToken,
       properties: {
-        changeThisToTrigger: 'no-trigger',
+        // secret: tempCluster.secret,
       },
     })
+
+    customResource.node.addDependency(tempCluster)
   }
 }
 
@@ -137,7 +140,7 @@ class ProductionS3PolicyMatchStack extends Stack {
       onEventHandler: s3PolicyProductionMatchLambda,
       logRetention: aws_logs.RetentionDays.ONE_DAY,
     })
-  
+
     new CustomResource(this, 's3-policy-production-match-custom-resource', {
       serviceToken: resourceProvider.serviceToken,
     })

@@ -42,17 +42,17 @@ const resolveBucketPolicies = (client: S3Client) => async (bucketInputs: string[
           Principal: {
             AWS: '*',
           },
-          // Condition?? TODO
+          // Condition?? TODO for PaaS account
         },
-        {
-          Effect: 'Allow',
-          Action: ['s3:Get*'],
-          Resource: `${bucketArn(bucketName)}/*`,
-          Principal: {
-            AWS: '*',
-          },
-          // Condition?? TODO
-        },
+        // {
+        //   Effect: 'Allow',
+        //   Action: ['s3:Get*'],
+        //   Resource: `${bucketArn(bucketName)}/*`,
+        //   Principal: {
+        //     AWS: '*',
+        //   },
+        //   // Condition?? TODO
+        // },
         {
           Effect: 'Allow',
           Action: ['s3:Get*'],
@@ -60,7 +60,7 @@ const resolveBucketPolicies = (client: S3Client) => async (bucketInputs: string[
           Principal: {
             Service: 'cloudfront.amazonaws.com',
           },
-          // Condition?? TODO
+          // Condition?? TODO for IaaS account
         },
         {
           Effect: 'Allow',
@@ -69,7 +69,7 @@ const resolveBucketPolicies = (client: S3Client) => async (bucketInputs: string[
           Principal: {
             Service: 'codebuild.amazonaws.com',
           },
-          // Condition?? TODO
+          // Condition?? TODO for IaaS account
         },
       ]
 
@@ -87,6 +87,14 @@ const resolveBucketPolicies = (client: S3Client) => async (bucketInputs: string[
 }
 
 export const resolveProductionS3Buckets: OnEventHandler = async (event) => {
+  if (event.RequestType === 'Delete')
+    return {
+      PhysicalResourceId: event.PhysicalResourceId,
+      Data: {
+        skipped: true,
+      },
+    }
+
   const client = new S3Client({})
 
   const bucketInputs = process.env.BUCKETS ? process.env.BUCKETS?.split(',') : []
@@ -144,8 +152,6 @@ export const resolveProductionS3Buckets: OnEventHandler = async (event) => {
 
   return {
     PhysicalResourceId: event.PhysicalResourceId,
-    Data: {
-      skipped: true,
-    },
+    Data: {},
   }
 }

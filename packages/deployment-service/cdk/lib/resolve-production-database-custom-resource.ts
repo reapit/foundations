@@ -3,6 +3,7 @@ import {
   aws_iam,
   aws_lambda,
   aws_logs,
+  aws_rds,
   aws_secretsmanager,
   custom_resources,
   CustomResource,
@@ -26,8 +27,6 @@ export class ResolveProductionDatabaseCustomResource extends Construct {
       config.TEMPORARY_CLUSTER_SECRET_ARN,
     )
 
-    // TODO snapshot database
-
     // TODO look at creating snapshot of temp cluster -> not sure if I can?
     // TODO use snapshot of previous cluster to create new database?
 
@@ -43,10 +42,12 @@ export class ResolveProductionDatabaseCustomResource extends Construct {
         environment: {
           TEMPORARY_CLUSTER_SECRET_ARN: tempSecret.secretArn,
           STACK_CLUSTER_SECRET_ARN: secretManager.secretArn,
+          TEMPORARY_CLUSTER_ID: config.TEMPORARY_CLUSTER_ID,
         },
         vpc,
       },
     )
+
     resolveProductionDatabaseLambda.addToRolePolicy(
       new aws_iam.PolicyStatement({
         effect: aws_iam.Effect.ALLOW,
@@ -55,12 +56,24 @@ export class ResolveProductionDatabaseCustomResource extends Construct {
       }),
     )
 
-    // tempt secret
     resolveProductionDatabaseLambda.addToRolePolicy(
       new aws_iam.PolicyStatement({
         effect: aws_iam.Effect.ALLOW,
         actions: ['secretsmanager:GetSecretValue', 'secretsmanager:DescribeSecret'],
         resources: [config.TEMPORARY_CLUSTER_SECRET_ARN],
+      }),
+    )
+
+    resolveProductionDatabaseLambda.addToRolePolicy(
+      new aws_iam.PolicyStatement({
+        effect: aws_iam.Effect.ALLOW,
+        actions: [
+          'rds:ListTagsForResource',
+          'rds:CreateDBSnapshot',
+          'rds:DescribeDBSnapshots',
+          'rds:CreateDBClusterSnapshot',
+        ],
+        resources: ['*'],
       }),
     )
 

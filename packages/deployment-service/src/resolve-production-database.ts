@@ -11,6 +11,7 @@ import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOpti
 import migrations from './../migrations'
 import { OnEventHandler } from 'aws-cdk-lib/custom-resources/lib/provider-framework/types'
 import { CreateDBClusterSnapshotCommand, RDSClient } from '@aws-sdk/client-rds'
+import { v4 as uuid } from 'uuid'
 
 const defaultDatabaseConfig: Partial<MysqlConnectionOptions> & { type: 'mysql' } = {
   logging: true,
@@ -77,12 +78,21 @@ const stackDatabaseConfig = async () => {
 }
 
 export const resolveProductionDatabase: OnEventHandler = async (event) => {
+  if (event.RequestType === 'Delete')
+    return {
+      PhysicalResourceId: event.PhysicalResourceId,
+      Data: {
+        skipped: true,
+      },
+    }
 
-  const rdsClient = new RDSClient({})
+  const rdsClient = new RDSClient({
+    region: 'eu-west-2',
+  })
 
   await rdsClient.send(
     new CreateDBClusterSnapshotCommand({
-      DBClusterSnapshotIdentifier: 'pre-deployment-service-fix',
+      DBClusterSnapshotIdentifier: 'pre-deployment-service-fix-' + uuid(),
       DBClusterIdentifier: process.env.TEMPORARY_CLUSTER_ID,
     }),
   )
@@ -124,8 +134,6 @@ export const resolveProductionDatabase: OnEventHandler = async (event) => {
 
   return {
     PhysicalResourceId: event.PhysicalResourceId,
-    Data: {
-      skipped: true,
-    },
+    Data: {},
   }
 }
