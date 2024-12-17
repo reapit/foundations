@@ -22,6 +22,7 @@
     "check": "echo '...skipping...'",
     "release": "echo '...skipping...'",
     "deploy": "echo '...skipping...'",
+    "synth": "rpt-cdk synth",
     "publish": "yarn npm publish --access public",
     "conf": "echo '...skipping...'",
     "commit": "yarn lint"

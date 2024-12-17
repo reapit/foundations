@@ -61,6 +61,7 @@
     "test": "jest --watch --colors",
     "release": "echo '...skipping...'",
     "deploy": "echo '...skipping...'",
+    "synth": "rpt-cdk synth",
     "publish": "yarn npm publish --access public"
   }
 }
