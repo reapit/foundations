@@ -18,6 +18,7 @@
     "check": "tsc --noEmit --skipLibCheck",
     "release": "echo '...skipping...'",
     "deploy": "rpt-cdk deploy",
+    "synth": "rpt-cdk synth",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity marketplace-management --name local --mode fetch",
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
