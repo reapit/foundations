@@ -79,7 +79,28 @@ exports[`AppsPage should render a component when has data 1`] = `
                   class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
-                  App Id
+                  Internal App Id
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type search"
+                  class="mocked-styled-38 el-input"
+                  id="test-static-id"
+                  name="externalAppId"
+                  type="search"
+                />
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
+                >
+                  External App Id
                 </label>
               </div>
             </div>
@@ -1090,7 +1111,28 @@ exports[`AppsPage should render a component when has data 1`] = `
                 class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
-                App Id
+                Internal App Id
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="externalAppId"
+                type="search"
+              />
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                External App Id
               </label>
             </div>
           </div>
@@ -2158,7 +2200,28 @@ exports[`AppsPage should render a component when loading 1`] = `
                   class="mocked-styled-41 el-label"
                   for="test-static-id"
                 >
-                  App Id
+                  Internal App Id
+                </label>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <input
+                  aria-label="Input type search"
+                  class="mocked-styled-38 el-input"
+                  id="test-static-id"
+                  name="externalAppId"
+                  type="search"
+                />
+                <label
+                  class="mocked-styled-41 el-label"
+                  for="test-static-id"
+                >
+                  External App Id
                 </label>
               </div>
             </div>
@@ -2637,7 +2700,28 @@ exports[`AppsPage should render a component when loading 1`] = `
                 class="mocked-styled-41 el-label"
                 for="test-static-id"
               >
-                App Id
+                Internal App Id
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="externalAppId"
+                type="search"
+              />
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                External App Id
               </label>
             </div>
           </div>

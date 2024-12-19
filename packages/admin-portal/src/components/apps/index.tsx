@@ -20,6 +20,7 @@ export interface AppsFilters {
   isListed?: string
   category?: string
   isChargedConsumption?: string
+  externalAppId?: string
 }
 
 export const AppsPage: FC = () => {
