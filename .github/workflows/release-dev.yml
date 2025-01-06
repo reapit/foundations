@@ -58,10 +58,6 @@ jobs:
         run: |
           yarn workspaces foreach --parallel --verbose --since --recursive run release
 
-      - name: Synth
-        run: |
-          yarn workspaces foreach --parallel --verbose --since --recursive run synth
-
       - name: Deploy
         run: |
           yarn workspaces foreach --parallel --verbose --since --recursive run deploy

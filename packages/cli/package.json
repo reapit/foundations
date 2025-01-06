@@ -61,7 +61,6 @@
     "test": "jest --watch --colors",
     "release": "echo '...skipping...'",
     "deploy": "echo '...skipping...'",
-    "synth": "echo '...skipping...'",
     "publish": "yarn npm publish --access public"
   }
 }

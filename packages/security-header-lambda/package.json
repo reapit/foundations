@@ -34,7 +34,6 @@
     "check": "tsc --noEmit --skipLibCheck",
     "release": "serverless deploy",
     "deploy": "echo '...skipping...'",
-    "synth": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity security-header-lambda --name local --mode fetch",
     "commit": "yarn lint"

@@ -24,7 +24,6 @@
     "check": "tsc --noEmit --skipLibCheck",
     "release": "echo '...skipping...'",
     "deploy": "echo '...skipping...'",
-    "synth": "echo '...skipping...'",
     "publish": "yarn npm publish --access private",
     "conf": "echo '...skipping...'"
   }
