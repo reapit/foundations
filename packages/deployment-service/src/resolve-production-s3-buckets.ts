@@ -101,8 +101,6 @@ export const resolveProductionS3Buckets: OnEventHandler = async (event) => {
 
   await resolveBucketPolicies(client)(bucketInputs)
 
-  // TODO need to work out ACL policies
-  // don't need ACL?
   await Promise.all(
     bucketInputs.map((bucketName) => {
       return client.send(
