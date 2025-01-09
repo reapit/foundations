@@ -112,22 +112,22 @@ export const resolveProductionS3Buckets: OnEventHandler = async (event) => {
     }),
   )
 
-  await Promise.all(
-    bucketInputs.map((bucket) => {
-      return client.send(
-        new PutBucketOwnershipControlsCommand({
-          Bucket: bucket,
-          OwnershipControls: {
-            Rules: [
-              {
-                ObjectOwnership: 'BucketOwnerEnforced',
-              },
-            ],
-          },
-        }),
-      )
-    }),
-  )
+  // await Promise.all(
+  //   bucketInputs.map((bucket) => {
+  //     return client.send(
+  //       new PutBucketOwnershipControlsCommand({
+  //         Bucket: bucket,
+  //         OwnershipControls: {
+  //           Rules: [
+  //             {
+  //               ObjectOwnership: 'BucketOwnerEnforced',
+  //             },
+  //           ],
+  //         },
+  //       }),
+  //     )
+  //   }),
+  // )
 
   await Promise.all(
     bucketInputs.map((bucket) => {
