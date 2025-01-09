@@ -35,6 +35,9 @@ jobs:
       - name: Synth
         run: for package in github.event.pull_request.labels.*.name; do if [jq -r '.scripts.synth' packages/$package/package.json -e]; then yarn workspace $package synth; done
 
+      - name: Store changes
+        run: DIFF=$(git diff --exit-code)
+
       - name: comment
         uses: actions/github-script@v3
         if: ${{ git status --porcelain != '' }}
@@ -45,7 +48,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Synth changes have been committed'
+              body: 'Synth changes have been committed \n\n' + '```' + $DIFF + '```',
             })
 
       - name: commit
