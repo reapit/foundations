@@ -21,37 +21,57 @@ jobs:
           dir_names_max_depth: 2
           json: true
           quotepath: false
-      - name: test
-        run: echo github.event.pull_request.labels.*.name
 
       - name: Fetch config
         run: |
           yarn workspaces foreach --parallel --verbose --since --recursive run conf --name development
 
+      - name: Filter files in packages/ (direct children only)
+        id: filter-packages
+        run: |
+          CHANGED_FOLDERS=$(echo "${{ steps.changed-files.outputs.files }}" | jq -r 'split("\n") | map(select(test("^packages/[^/]+$"))) | join(" ")')
+          echo "Changed folders: $CHANGED_FOLDERS"
+          echo "::set-output name=changed_folders::$CHANGED_FOLDERS"
+
       - name: Build
         run: |
-          yarn workspaces foreach --parallel --verbose --since --recursive run build
+          for package in ${{ steps.filter-packages.outputs.changed_folders }}; do
+            yarn workspace "$package" run build;
+          done
 
       - name: Remove previous CDK output
-        run: for package in github.event.pull_request.labels.*.name; do if [jq -r '.scripts.synth' packages/$package/package.json -e]; then rm -rf packages/$package/cdk.out; done
+        run: |
+          for package in ${{ steps.filter-packages.outputs.changed_folders }}; do
+            if [jq -r '.scripts.synth' "packages/$package/package.json" -e]; then 
+              rm -rf packages/$package/cdk.out; 
+            fi 
+          done
 
       - name: Synth
-        run: for package in github.event.pull_request.labels.*.name; do if [jq -r '.scripts.synth' packages/$package/package.json -e]; then yarn workspace $package synth; done
+        run: |
+          for package in ${{ steps.filter-packages.outputs.changed_folders }}; do
+            if [jq -r '.scripts.synth' "packages/$package/package.json" -e]; then
+              yarn workspace "$package" synth; 
+            fi
+          done
 
       - name: Store changes
-        run: DIFF=$(git diff --exit-code)
+        run: |
+          DIFF=$(git diff --exit-code)
+          echo "DIFF=$DIFF" >> $GITHUB_ENV
 
       - name: comment
         uses: actions/github-script@v3
-        if: ${{ git status --porcelain != '' }}
+        if: ${{ env.DIFF != '' }}
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
+            const diff = process.env.DIFF;
             github.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Synth changes have been committed \n\n' + '```' + $DIFF + '```',
+              body: 'Synth changes have been committed \n\n' + '```' + diff + '```',
             })
 
       - name: commit
