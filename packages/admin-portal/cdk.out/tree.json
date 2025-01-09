@@ -1,0 +1,1075 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "cloud-developer-admin-site": {
+        "id": "cloud-developer-admin-site",
+        "path": "cloud-developer-admin-site",
+        "children": {
+          "cert": {
+            "id": "cert",
+            "path": "cloud-developer-admin-site/cert",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.Resource",
+              "version": "2.133.0"
+            }
+          },
+          "hosted-zone": {
+            "id": "hosted-zone",
+            "path": "cloud-developer-admin-site/hosted-zone",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.Resource",
+              "version": "2.133.0"
+            }
+          },
+          "bucket": {
+            "id": "bucket",
+            "path": "cloud-developer-admin-site/bucket",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "cloud-developer-admin-site/bucket/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+                  "aws:cdk:cloudformation:props": {
+                    "accessControl": "Private",
+                    "bucketEncryption": {
+                      "serverSideEncryptionConfiguration": [
+                        {
+                          "serverSideEncryptionByDefault": {
+                            "sseAlgorithm": "AES256"
+                          }
+                        }
+                      ]
+                    },
+                    "ownershipControls": {
+                      "rules": [
+                        {
+                          "objectOwnership": "BucketOwnerEnforced"
+                        }
+                      ]
+                    },
+                    "publicAccessBlockConfiguration": {
+                      "blockPublicAcls": true,
+                      "blockPublicPolicy": true,
+                      "ignorePublicAcls": true,
+                      "restrictPublicBuckets": true
+                    },
+                    "tags": [
+                      {
+                        "key": "aws-cdk:cr-owned:b656e40c",
+                        "value": "true"
+                      }
+                    ],
+                    "websiteConfiguration": {
+                      "indexDocument": "index.html",
+                      "errorDocument": "index.html"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3.CfnBucket",
+                  "version": "2.133.0"
+                }
+              },
+              "Policy": {
+                "id": "Policy",
+                "path": "cloud-developer-admin-site/bucket/Policy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "cloud-developer-admin-site/bucket/Policy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::S3::BucketPolicy",
+                      "aws:cdk:cloudformation:props": {
+                        "bucket": {
+                          "Ref": "bucket43879C71"
+                        },
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "s3:GetObject",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "CanonicalUser": {
+                                  "Fn::GetAtt": [
+                                    "CloudFrontOriginAccessIdentity04EB66DA",
+                                    "S3CanonicalUserId"
+                                  ]
+                                }
+                              },
+                              "Resource": {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    {
+                                      "Fn::GetAtt": [
+                                        "bucket43879C71",
+                                        "Arn"
+                                      ]
+                                    },
+                                    "/*"
+                                  ]
+                                ]
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.CfnBucketPolicy",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3.BucketPolicy",
+                  "version": "2.133.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_s3.Bucket",
+              "version": "2.133.0"
+            }
+          },
+          "CloudFrontOriginAccessIdentity": {
+            "id": "CloudFrontOriginAccessIdentity",
+            "path": "cloud-developer-admin-site/CloudFrontOriginAccessIdentity",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "cloud-developer-admin-site/CloudFrontOriginAccessIdentity/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+                  "aws:cdk:cloudformation:props": {
+                    "cloudFrontOriginAccessIdentityConfig": {
+                      "comment": "Allows CloudFront to reach the bucket"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_cloudfront.CfnCloudFrontOriginAccessIdentity",
+                  "version": "2.133.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_cloudfront.OriginAccessIdentity",
+              "version": "2.133.0"
+            }
+          },
+          "deployment": {
+            "id": "deployment",
+            "path": "cloud-developer-admin-site/deployment",
+            "children": {
+              "AwsCliLayer": {
+                "id": "AwsCliLayer",
+                "path": "cloud-developer-admin-site/deployment/AwsCliLayer",
+                "children": {
+                  "Code": {
+                    "id": "Code",
+                    "path": "cloud-developer-admin-site/deployment/AwsCliLayer/Code",
+                    "children": {
+                      "Stage": {
+                        "id": "Stage",
+                        "path": "cloud-developer-admin-site/deployment/AwsCliLayer/Code/Stage",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.AssetStaging",
+                          "version": "2.133.0"
+                        }
+                      },
+                      "AssetBucket": {
+                        "id": "AssetBucket",
+                        "path": "cloud-developer-admin-site/deployment/AwsCliLayer/Code/AssetBucket",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                          "version": "2.133.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "cloud-developer-admin-site/deployment/AwsCliLayer/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::LayerVersion",
+                      "aws:cdk:cloudformation:props": {
+                        "content": {
+                          "s3Bucket": "cdk-hnb659fds-assets-028446965111-eu-west-2",
+                          "s3Key": "3322b7049fb0ed2b7cbb644a2ada8d1116ff80c32dca89e6ada846b5de26f961.zip"
+                        },
+                        "description": "/opt/awscli/aws"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnLayerVersion",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.lambda_layer_awscli.AwsCliLayer",
+                  "version": "2.133.0"
+                }
+              },
+              "CustomResourceHandler": {
+                "id": "CustomResourceHandler",
+                "path": "cloud-developer-admin-site/deployment/CustomResourceHandler",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.SingletonFunction",
+                  "version": "2.133.0"
+                }
+              },
+              "Asset1": {
+                "id": "Asset1",
+                "path": "cloud-developer-admin-site/deployment/Asset1",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "cloud-developer-admin-site/deployment/Asset1/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "cloud-developer-admin-site/deployment/Asset1/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.133.0"
+                }
+              },
+              "CustomResource": {
+                "id": "CustomResource",
+                "path": "cloud-developer-admin-site/deployment/CustomResource",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "cloud-developer-admin-site/deployment/CustomResource/Default",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CustomResource",
+                  "version": "2.133.0"
+                }
+              },
+              "DestinationBucket": {
+                "id": "DestinationBucket",
+                "path": "cloud-developer-admin-site/deployment/DestinationBucket",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                  "version": "2.133.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_s3_deployment.BucketDeployment",
+              "version": "2.133.0"
+            }
+          },
+          "Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C": {
+            "id": "Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C",
+            "path": "cloud-developer-admin-site/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "cloud-developer-admin-site/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole",
+                "children": {
+                  "ImportServiceRole": {
+                    "id": "ImportServiceRole",
+                    "path": "cloud-developer-admin-site/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/ImportServiceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "cloud-developer-admin-site/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "cloud-developer-admin-site/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "cloud-developer-admin-site/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "s3:GetObject*",
+                                    "s3:GetBucket*",
+                                    "s3:List*"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": [
+                                    {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          "arn:",
+                                          {
+                                            "Ref": "AWS::Partition"
+                                          },
+                                          ":s3:::cdk-hnb659fds-assets-028446965111-eu-west-2"
+                                        ]
+                                      ]
+                                    },
+                                    {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          "arn:",
+                                          {
+                                            "Ref": "AWS::Partition"
+                                          },
+                                          ":s3:::cdk-hnb659fds-assets-028446965111-eu-west-2/*"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Action": [
+                                    "s3:GetObject*",
+                                    "s3:GetBucket*",
+                                    "s3:List*",
+                                    "s3:DeleteObject*",
+                                    "s3:PutObject",
+                                    "s3:PutObjectLegalHold",
+                                    "s3:PutObjectRetention",
+                                    "s3:PutObjectTagging",
+                                    "s3:PutObjectVersionTagging",
+                                    "s3:Abort*"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": [
+                                    {
+                                      "Fn::GetAtt": [
+                                        "bucket43879C71",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          {
+                                            "Fn::GetAtt": [
+                                              "bucket43879C71",
+                                              "Arn"
+                                            ]
+                                          },
+                                          "/*"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF",
+                            "roles": [
+                              {
+                                "Ref": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.133.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.133.0"
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "cloud-developer-admin-site/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "cloud-developer-admin-site/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "cloud-developer-admin-site/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.133.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "cloud-developer-admin-site/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": "cdk-hnb659fds-assets-028446965111-eu-west-2",
+                      "s3Key": "2d56e153cac88d3e0c2f842e8e6f6783b8725bf91f95e0673b4725448a56e96d.zip"
+                    },
+                    "environment": {
+                      "variables": {
+                        "AWS_CA_BUNDLE": "/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem"
+                      }
+                    },
+                    "handler": "index.handler",
+                    "layers": [
+                      {
+                        "Ref": "deploymentAwsCliLayer437C1CEF"
+                      }
+                    ],
+                    "role": {
+                      "Fn::GetAtt": [
+                        "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265",
+                        "Arn"
+                      ]
+                    },
+                    "runtime": "python3.9",
+                    "timeout": 900
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                  "version": "2.133.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
+              "version": "2.133.0"
+            }
+          },
+          "front-distro": {
+            "id": "front-distro",
+            "path": "cloud-developer-admin-site/front-distro",
+            "children": {
+              "CFDistribution": {
+                "id": "CFDistribution",
+                "path": "cloud-developer-admin-site/front-distro/CFDistribution",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::CloudFront::Distribution",
+                  "aws:cdk:cloudformation:props": {
+                    "distributionConfig": {
+                      "enabled": true,
+                      "defaultRootObject": "index.html",
+                      "httpVersion": "http2",
+                      "priceClass": "PriceClass_100",
+                      "ipv6Enabled": true,
+                      "customErrorResponses": [
+                        {
+                          "errorCode": 404,
+                          "responseCode": 200,
+                          "responsePagePath": "/index.html"
+                        },
+                        {
+                          "errorCode": 403,
+                          "responseCode": 200,
+                          "responsePagePath": "/index.html"
+                        },
+                        {
+                          "errorCode": 400,
+                          "responseCode": 200,
+                          "responsePagePath": "/index.html"
+                        }
+                      ],
+                      "origins": [
+                        {
+                          "id": "origin1",
+                          "domainName": {
+                            "Fn::GetAtt": [
+                              "bucket43879C71",
+                              "RegionalDomainName"
+                            ]
+                          },
+                          "s3OriginConfig": {
+                            "originAccessIdentity": {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "origin-access-identity/cloudfront/",
+                                  {
+                                    "Ref": "CloudFrontOriginAccessIdentity04EB66DA"
+                                  }
+                                ]
+                              ]
+                            }
+                          },
+                          "connectionAttempts": 3,
+                          "connectionTimeout": 10
+                        }
+                      ],
+                      "defaultCacheBehavior": {
+                        "allowedMethods": [
+                          "GET",
+                          "HEAD"
+                        ],
+                        "cachedMethods": [
+                          "GET",
+                          "HEAD"
+                        ],
+                        "compress": true,
+                        "forwardedValues": {
+                          "queryString": false,
+                          "cookies": {
+                            "forward": "none"
+                          }
+                        },
+                        "targetOriginId": "origin1",
+                        "viewerProtocolPolicy": "redirect-to-https"
+                      },
+                      "aliases": [
+                        "developer-admin.dev.paas.reapit.cloud"
+                      ],
+                      "viewerCertificate": {
+                        "acmCertificateArn": "arn:aws:acm:us-east-1:028446965111:certificate/3d2a47a0-e210-479d-a066-e2ab2a3897c0",
+                        "sslSupportMethod": "sni-only"
+                      }
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_cloudfront.CfnDistribution",
+                  "version": "2.133.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_cloudfront.CloudFrontWebDistribution",
+              "version": "2.133.0"
+            }
+          },
+          "route": {
+            "id": "route",
+            "path": "cloud-developer-admin-site/route",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "cloud-developer-admin-site/route/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Route53::RecordSet",
+                  "aws:cdk:cloudformation:props": {
+                    "aliasTarget": {
+                      "hostedZoneId": {
+                        "Fn::FindInMap": [
+                          "AWSCloudFrontPartitionHostedZoneIdMap",
+                          {
+                            "Ref": "AWS::Partition"
+                          },
+                          "zoneId"
+                        ]
+                      },
+                      "dnsName": {
+                        "Fn::GetAtt": [
+                          "frontdistroCFDistributionFA372A4D",
+                          "DomainName"
+                        ]
+                      }
+                    },
+                    "hostedZoneId": "Z02367201ZA0CZPSM3N2H",
+                    "name": "developer-admin.dev.paas.reapit.cloud.",
+                    "type": "A"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_route53.CfnRecordSet",
+                  "version": "2.133.0"
+                }
+              },
+              "DeleteExistingRecordSetCustomResource": {
+                "id": "DeleteExistingRecordSetCustomResource",
+                "path": "cloud-developer-admin-site/route/DeleteExistingRecordSetCustomResource",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "cloud-developer-admin-site/route/DeleteExistingRecordSetCustomResource/Default",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CustomResource",
+                  "version": "2.133.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_route53.ARecord",
+              "version": "2.133.0"
+            }
+          },
+          "AWSCloudFrontPartitionHostedZoneIdMap": {
+            "id": "AWSCloudFrontPartitionHostedZoneIdMap",
+            "path": "cloud-developer-admin-site/AWSCloudFrontPartitionHostedZoneIdMap",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnMapping",
+              "version": "2.133.0"
+            }
+          },
+          "Custom::DeleteExistingRecordSetCustomResourceProvider": {
+            "id": "Custom::DeleteExistingRecordSetCustomResourceProvider",
+            "path": "cloud-developer-admin-site/Custom::DeleteExistingRecordSetCustomResourceProvider",
+            "children": {
+              "Staging": {
+                "id": "Staging",
+                "path": "cloud-developer-admin-site/Custom::DeleteExistingRecordSetCustomResourceProvider/Staging",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.AssetStaging",
+                  "version": "2.133.0"
+                }
+              },
+              "Role": {
+                "id": "Role",
+                "path": "cloud-developer-admin-site/Custom::DeleteExistingRecordSetCustomResourceProvider/Role",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.133.0"
+                }
+              },
+              "Handler": {
+                "id": "Handler",
+                "path": "cloud-developer-admin-site/Custom::DeleteExistingRecordSetCustomResourceProvider/Handler",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.133.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CustomResourceProviderBase",
+              "version": "2.133.0"
+            }
+          },
+          "invalidation": {
+            "id": "invalidation",
+            "path": "cloud-developer-admin-site/invalidation",
+            "children": {
+              "CreateInvalidation": {
+                "id": "CreateInvalidation",
+                "path": "cloud-developer-admin-site/invalidation/CreateInvalidation",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions_tasks.CallAwsService",
+                  "version": "2.133.0"
+                }
+              },
+              "CreateInvalidationStateMachine": {
+                "id": "CreateInvalidationStateMachine",
+                "path": "cloud-developer-admin-site/invalidation/CreateInvalidationStateMachine",
+                "children": {
+                  "Role": {
+                    "id": "Role",
+                    "path": "cloud-developer-admin-site/invalidation/CreateInvalidationStateMachine/Role",
+                    "children": {
+                      "ImportRole": {
+                        "id": "ImportRole",
+                        "path": "cloud-developer-admin-site/invalidation/CreateInvalidationStateMachine/Role/ImportRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.133.0"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "cloud-developer-admin-site/invalidation/CreateInvalidationStateMachine/Role/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "states.eu-west-2.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.133.0"
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "cloud-developer-admin-site/invalidation/CreateInvalidationStateMachine/Role/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "cloud-developer-admin-site/invalidation/CreateInvalidationStateMachine/Role/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "cloudfront:createInvalidation",
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Fn::Join": [
+                                          "",
+                                          [
+                                            "arn:aws:cloudfront::028446965111:distribution/",
+                                            {
+                                              "Ref": "frontdistroCFDistributionFA372A4D"
+                                            }
+                                          ]
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "invalidationCreateInvalidationStateMachineRoleDefaultPolicy22FDD312",
+                                "roles": [
+                                  {
+                                    "Ref": "invalidationCreateInvalidationStateMachineRole53AD914E"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                              "version": "2.133.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Policy",
+                          "version": "2.133.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "cloud-developer-admin-site/invalidation/CreateInvalidationStateMachine/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::StepFunctions::StateMachine",
+                      "aws:cdk:cloudformation:props": {
+                        "definitionString": {
+                          "Fn::Join": [
+                            "",
+                            [
+                              "{\"StartAt\":\"CreateInvalidation\",\"States\":{\"CreateInvalidation\":{\"End\":true,\"Retry\":[{\"ErrorEquals\":[\"CloudFront.CloudFrontException\"],\"IntervalSeconds\":5,\"MaxAttempts\":10,\"BackoffRate\":2}],\"Type\":\"Task\",\"Resource\":\"arn:",
+                              {
+                                "Ref": "AWS::Partition"
+                              },
+                              ":states:::aws-sdk:cloudfront:createInvalidation\",\"Parameters\":{\"DistributionId\":\"",
+                              {
+                                "Ref": "frontdistroCFDistributionFA372A4D"
+                              },
+                              "\",\"InvalidationBatch\":{\"CallerReference.$\":\"$\",\"Paths\":{\"Items\":[\"/index.html\"],\"Quantity\":1}}}}}}"
+                            ]
+                          ]
+                        },
+                        "roleArn": {
+                          "Fn::GetAtt": [
+                            "invalidationCreateInvalidationStateMachineRole53AD914E",
+                            "Arn"
+                          ]
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_stepfunctions.CfnStateMachine",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "EventsRole": {
+                    "id": "EventsRole",
+                    "path": "cloud-developer-admin-site/invalidation/CreateInvalidationStateMachine/EventsRole",
+                    "children": {
+                      "ImportEventsRole": {
+                        "id": "ImportEventsRole",
+                        "path": "cloud-developer-admin-site/invalidation/CreateInvalidationStateMachine/EventsRole/ImportEventsRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.133.0"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "cloud-developer-admin-site/invalidation/CreateInvalidationStateMachine/EventsRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "events.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.133.0"
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "cloud-developer-admin-site/invalidation/CreateInvalidationStateMachine/EventsRole/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "cloud-developer-admin-site/invalidation/CreateInvalidationStateMachine/EventsRole/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "states:StartExecution",
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Ref": "invalidationCreateInvalidationStateMachine140A049E"
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "invalidationCreateInvalidationStateMachineEventsRoleDefaultPolicyB475C479",
+                                "roles": [
+                                  {
+                                    "Ref": "invalidationCreateInvalidationStateMachineEventsRoleA79E34A1"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                              "version": "2.133.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Policy",
+                          "version": "2.133.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions.StateMachine",
+                  "version": "2.133.0"
+                }
+              },
+              "DeploymentComplete": {
+                "id": "DeploymentComplete",
+                "path": "cloud-developer-admin-site/invalidation/DeploymentComplete",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "cloud-developer-admin-site/invalidation/DeploymentComplete/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Events::Rule",
+                      "aws:cdk:cloudformation:props": {
+                        "eventPattern": {
+                          "source": [
+                            "aws.cloudformation"
+                          ],
+                          "detail": {
+                            "stack-id": [
+                              {
+                                "Ref": "AWS::StackId"
+                              }
+                            ],
+                            "status-details": {
+                              "status": [
+                                "UPDATE_COMPLETE"
+                              ]
+                            }
+                          }
+                        },
+                        "state": "ENABLED",
+                        "targets": [
+                          {
+                            "id": "Target0",
+                            "arn": {
+                              "Ref": "invalidationCreateInvalidationStateMachine140A049E"
+                            },
+                            "roleArn": {
+                              "Fn::GetAtt": [
+                                "invalidationCreateInvalidationStateMachineEventsRoleA79E34A1",
+                                "Arn"
+                              ]
+                            },
+                            "inputPath": "$.id"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_events.CfnRule",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_events.Rule",
+                  "version": "2.133.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "cloud-developer-admin-site/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "cloud-developer-admin-site/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.133.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "cloud-developer-admin-site/BootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.133.0"
+            }
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "cloud-developer-admin-site/CheckBootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnRule",
+              "version": "2.133.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.133.0"
+        }
+      },
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.3.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.133.0"
+    }
+  }
+}

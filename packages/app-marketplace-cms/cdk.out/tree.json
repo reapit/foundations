@@ -1,0 +1,1434 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "cloud-app-marketplace-cms-service": {
+        "id": "cloud-app-marketplace-cms-service",
+        "path": "cloud-app-marketplace-cms-service",
+        "children": {
+          "cloud-app-marketplace-cms-service-apigateway": {
+            "id": "cloud-app-marketplace-cms-service-apigateway",
+            "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::RestApi",
+                  "aws:cdk:cloudformation:props": {
+                    "endpointConfiguration": {
+                      "types": [
+                        "REGIONAL"
+                      ]
+                    },
+                    "name": "cloud-app-marketplace-cms-service-apigateway"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.CfnRestApi",
+                  "version": "2.133.0"
+                }
+              },
+              "CloudWatchRole": {
+                "id": "CloudWatchRole",
+                "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/CloudWatchRole",
+                "children": {
+                  "ImportCloudWatchRole": {
+                    "id": "ImportCloudWatchRole",
+                    "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/CloudWatchRole/ImportCloudWatchRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/CloudWatchRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "apigateway.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.133.0"
+                }
+              },
+              "Account": {
+                "id": "Account",
+                "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Account",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Account",
+                  "aws:cdk:cloudformation:props": {
+                    "cloudWatchRoleArn": {
+                      "Fn::GetAtt": [
+                        "cloudappmarketplacecmsserviceapigatewayCloudWatchRoleCE98D8F1",
+                        "Arn"
+                      ]
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.CfnAccount",
+                  "version": "2.133.0"
+                }
+              },
+              "Deployment": {
+                "id": "Deployment",
+                "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Deployment",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Deployment/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::ApiGateway::Deployment",
+                      "aws:cdk:cloudformation:props": {
+                        "description": "Automatically created by the RestApi construct",
+                        "restApiId": {
+                          "Ref": "cloudappmarketplacecmsserviceapigatewayDC9DB1C3"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_apigateway.CfnDeployment",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.Deployment",
+                  "version": "2.133.0"
+                }
+              },
+              "DeploymentStage.prod": {
+                "id": "DeploymentStage.prod",
+                "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/DeploymentStage.prod",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/DeploymentStage.prod/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::ApiGateway::Stage",
+                      "aws:cdk:cloudformation:props": {
+                        "deploymentId": {
+                          "Ref": "cloudappmarketplacecmsserviceapigatewayDeploymentA7A3D230a5322a1e25de4bf55347a59cdd3be86c"
+                        },
+                        "restApiId": {
+                          "Ref": "cloudappmarketplacecmsserviceapigatewayDC9DB1C3"
+                        },
+                        "stageName": "prod"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_apigateway.CfnStage",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.Stage",
+                  "version": "2.133.0"
+                }
+              },
+              "Endpoint": {
+                "id": "Endpoint",
+                "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Endpoint",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.133.0"
+                }
+              },
+              "Default": {
+                "id": "Default",
+                "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Default",
+                "children": {
+                  "OPTIONS": {
+                    "id": "OPTIONS",
+                    "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Default/OPTIONS",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Default/OPTIONS/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                          "aws:cdk:cloudformation:props": {
+                            "apiKeyRequired": false,
+                            "authorizationType": "NONE",
+                            "httpMethod": "OPTIONS",
+                            "integration": {
+                              "type": "MOCK",
+                              "requestTemplates": {
+                                "application/json": "{ statusCode: 200 }"
+                              },
+                              "integrationResponses": [
+                                {
+                                  "statusCode": "204",
+                                  "responseParameters": {
+                                    "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,api-version,reapit-connect-token,reapit-customer,app-id'",
+                                    "method.response.header.Access-Control-Allow-Origin": "'*'",
+                                    "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+                                  }
+                                }
+                              ]
+                            },
+                            "methodResponses": [
+                              {
+                                "statusCode": "204",
+                                "responseParameters": {
+                                  "method.response.header.Access-Control-Allow-Headers": true,
+                                  "method.response.header.Access-Control-Allow-Origin": true,
+                                  "method.response.header.Access-Control-Allow-Methods": true
+                                }
+                              }
+                            ],
+                            "resourceId": {
+                              "Fn::GetAtt": [
+                                "cloudappmarketplacecmsserviceapigatewayDC9DB1C3",
+                                "RootResourceId"
+                              ]
+                            },
+                            "restApiId": {
+                              "Ref": "cloudappmarketplacecmsserviceapigatewayDC9DB1C3"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
+                          "version": "2.133.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_apigateway.Method",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "cms": {
+                    "id": "cms",
+                    "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Default/cms",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Default/cms/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                          "aws:cdk:cloudformation:props": {
+                            "parentId": {
+                              "Fn::GetAtt": [
+                                "cloudappmarketplacecmsserviceapigatewayDC9DB1C3",
+                                "RootResourceId"
+                              ]
+                            },
+                            "pathPart": "cms",
+                            "restApiId": {
+                              "Ref": "cloudappmarketplacecmsserviceapigatewayDC9DB1C3"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
+                          "version": "2.133.0"
+                        }
+                      },
+                      "OPTIONS": {
+                        "id": "OPTIONS",
+                        "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Default/cms/OPTIONS",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Default/cms/OPTIONS/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                              "aws:cdk:cloudformation:props": {
+                                "apiKeyRequired": false,
+                                "authorizationType": "NONE",
+                                "httpMethod": "OPTIONS",
+                                "integration": {
+                                  "type": "MOCK",
+                                  "requestTemplates": {
+                                    "application/json": "{ statusCode: 200 }"
+                                  },
+                                  "integrationResponses": [
+                                    {
+                                      "statusCode": "204",
+                                      "responseParameters": {
+                                        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,api-version,reapit-connect-token,reapit-customer,app-id'",
+                                        "method.response.header.Access-Control-Allow-Origin": "'*'",
+                                        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "methodResponses": [
+                                  {
+                                    "statusCode": "204",
+                                    "responseParameters": {
+                                      "method.response.header.Access-Control-Allow-Headers": true,
+                                      "method.response.header.Access-Control-Allow-Origin": true,
+                                      "method.response.header.Access-Control-Allow-Methods": true
+                                    }
+                                  }
+                                ],
+                                "resourceId": {
+                                  "Ref": "cloudappmarketplacecmsserviceapigatewaycms5EE263BE"
+                                },
+                                "restApiId": {
+                                  "Ref": "cloudappmarketplacecmsserviceapigatewayDC9DB1C3"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
+                              "version": "2.133.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.Method",
+                          "version": "2.133.0"
+                        }
+                      },
+                      "{proxy+}": {
+                        "id": "{proxy+}",
+                        "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Default/cms/{proxy+}",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Default/cms/{proxy+}/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                              "aws:cdk:cloudformation:props": {
+                                "parentId": {
+                                  "Ref": "cloudappmarketplacecmsserviceapigatewaycms5EE263BE"
+                                },
+                                "pathPart": "{proxy+}",
+                                "restApiId": {
+                                  "Ref": "cloudappmarketplacecmsserviceapigatewayDC9DB1C3"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
+                              "version": "2.133.0"
+                            }
+                          },
+                          "OPTIONS": {
+                            "id": "OPTIONS",
+                            "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Default/cms/{proxy+}/OPTIONS",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Default/cms/{proxy+}/OPTIONS/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                                  "aws:cdk:cloudformation:props": {
+                                    "apiKeyRequired": false,
+                                    "authorizationType": "NONE",
+                                    "httpMethod": "OPTIONS",
+                                    "integration": {
+                                      "type": "MOCK",
+                                      "requestTemplates": {
+                                        "application/json": "{ statusCode: 200 }"
+                                      },
+                                      "integrationResponses": [
+                                        {
+                                          "statusCode": "204",
+                                          "responseParameters": {
+                                            "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,api-version,reapit-connect-token,reapit-customer,app-id'",
+                                            "method.response.header.Access-Control-Allow-Origin": "'*'",
+                                            "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "methodResponses": [
+                                      {
+                                        "statusCode": "204",
+                                        "responseParameters": {
+                                          "method.response.header.Access-Control-Allow-Headers": true,
+                                          "method.response.header.Access-Control-Allow-Origin": true,
+                                          "method.response.header.Access-Control-Allow-Methods": true
+                                        }
+                                      }
+                                    ],
+                                    "resourceId": {
+                                      "Ref": "cloudappmarketplacecmsserviceapigatewaycmsproxyC9334524"
+                                    },
+                                    "restApiId": {
+                                      "Ref": "cloudappmarketplacecmsserviceapigatewayDC9DB1C3"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
+                                  "version": "2.133.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_apigateway.Method",
+                              "version": "2.133.0"
+                            }
+                          },
+                          "ANY": {
+                            "id": "ANY",
+                            "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Default/cms/{proxy+}/ANY",
+                            "children": {
+                              "ApiPermission.cloudappmarketplacecmsservicecloudappmarketplacecmsserviceapigatewayE3B8EC10.ANY..cms.{proxy+}": {
+                                "id": "ApiPermission.cloudappmarketplacecmsservicecloudappmarketplacecmsserviceapigatewayE3B8EC10.ANY..cms.{proxy+}",
+                                "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Default/cms/{proxy+}/ANY/ApiPermission.cloudappmarketplacecmsservicecloudappmarketplacecmsserviceapigatewayE3B8EC10.ANY..cms.{proxy+}",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                  "aws:cdk:cloudformation:props": {
+                                    "action": "lambda:InvokeFunction",
+                                    "functionName": {
+                                      "Fn::GetAtt": [
+                                        "marketplaceappcmshttpB2A23AA8",
+                                        "Arn"
+                                      ]
+                                    },
+                                    "principal": "apigateway.amazonaws.com",
+                                    "sourceArn": {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          "arn:",
+                                          {
+                                            "Ref": "AWS::Partition"
+                                          },
+                                          ":execute-api:eu-west-2:028446965111:",
+                                          {
+                                            "Ref": "cloudappmarketplacecmsserviceapigatewayDC9DB1C3"
+                                          },
+                                          "/",
+                                          {
+                                            "Ref": "cloudappmarketplacecmsserviceapigatewayDeploymentStageprodBA09846B"
+                                          },
+                                          "/*/cms/*"
+                                        ]
+                                      ]
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                                  "version": "2.133.0"
+                                }
+                              },
+                              "ApiPermission.Test.cloudappmarketplacecmsservicecloudappmarketplacecmsserviceapigatewayE3B8EC10.ANY..cms.{proxy+}": {
+                                "id": "ApiPermission.Test.cloudappmarketplacecmsservicecloudappmarketplacecmsserviceapigatewayE3B8EC10.ANY..cms.{proxy+}",
+                                "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Default/cms/{proxy+}/ANY/ApiPermission.Test.cloudappmarketplacecmsservicecloudappmarketplacecmsserviceapigatewayE3B8EC10.ANY..cms.{proxy+}",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                  "aws:cdk:cloudformation:props": {
+                                    "action": "lambda:InvokeFunction",
+                                    "functionName": {
+                                      "Fn::GetAtt": [
+                                        "marketplaceappcmshttpB2A23AA8",
+                                        "Arn"
+                                      ]
+                                    },
+                                    "principal": "apigateway.amazonaws.com",
+                                    "sourceArn": {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          "arn:",
+                                          {
+                                            "Ref": "AWS::Partition"
+                                          },
+                                          ":execute-api:eu-west-2:028446965111:",
+                                          {
+                                            "Ref": "cloudappmarketplacecmsserviceapigatewayDC9DB1C3"
+                                          },
+                                          "/test-invoke-stage/*/cms/*"
+                                        ]
+                                      ]
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                                  "version": "2.133.0"
+                                }
+                              },
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Default/cms/{proxy+}/ANY/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                                  "aws:cdk:cloudformation:props": {
+                                    "authorizationType": "CUSTOM",
+                                    "authorizerId": {
+                                      "Ref": "appmarketplaceauthorizer5B96AEE3"
+                                    },
+                                    "httpMethod": "ANY",
+                                    "integration": {
+                                      "type": "AWS_PROXY",
+                                      "uri": {
+                                        "Fn::Join": [
+                                          "",
+                                          [
+                                            "arn:",
+                                            {
+                                              "Ref": "AWS::Partition"
+                                            },
+                                            ":apigateway:eu-west-2:lambda:path/2015-03-31/functions/",
+                                            {
+                                              "Fn::GetAtt": [
+                                                "marketplaceappcmshttpB2A23AA8",
+                                                "Arn"
+                                              ]
+                                            },
+                                            "/invocations"
+                                          ]
+                                        ]
+                                      },
+                                      "integrationHttpMethod": "POST"
+                                    },
+                                    "resourceId": {
+                                      "Ref": "cloudappmarketplacecmsserviceapigatewaycmsproxyC9334524"
+                                    },
+                                    "restApiId": {
+                                      "Ref": "cloudappmarketplacecmsserviceapigatewayDC9DB1C3"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
+                                  "version": "2.133.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_apigateway.Method",
+                              "version": "2.133.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.Resource",
+                          "version": "2.133.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_apigateway.Resource",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "ANY": {
+                    "id": "ANY",
+                    "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Default/ANY",
+                    "children": {
+                      "ApiPermission.cloudappmarketplacecmsservicecloudappmarketplacecmsserviceapigatewayE3B8EC10.ANY..": {
+                        "id": "ApiPermission.cloudappmarketplacecmsservicecloudappmarketplacecmsserviceapigatewayE3B8EC10.ANY..",
+                        "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Default/ANY/ApiPermission.cloudappmarketplacecmsservicecloudappmarketplacecmsserviceapigatewayE3B8EC10.ANY..",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                          "aws:cdk:cloudformation:props": {
+                            "action": "lambda:InvokeFunction",
+                            "functionName": {
+                              "Fn::GetAtt": [
+                                "marketplaceappcmshttpB2A23AA8",
+                                "Arn"
+                              ]
+                            },
+                            "principal": "apigateway.amazonaws.com",
+                            "sourceArn": {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "arn:",
+                                  {
+                                    "Ref": "AWS::Partition"
+                                  },
+                                  ":execute-api:eu-west-2:028446965111:",
+                                  {
+                                    "Ref": "cloudappmarketplacecmsserviceapigatewayDC9DB1C3"
+                                  },
+                                  "/",
+                                  {
+                                    "Ref": "cloudappmarketplacecmsserviceapigatewayDeploymentStageprodBA09846B"
+                                  },
+                                  "/*/"
+                                ]
+                              ]
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                          "version": "2.133.0"
+                        }
+                      },
+                      "ApiPermission.Test.cloudappmarketplacecmsservicecloudappmarketplacecmsserviceapigatewayE3B8EC10.ANY..": {
+                        "id": "ApiPermission.Test.cloudappmarketplacecmsservicecloudappmarketplacecmsserviceapigatewayE3B8EC10.ANY..",
+                        "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Default/ANY/ApiPermission.Test.cloudappmarketplacecmsservicecloudappmarketplacecmsserviceapigatewayE3B8EC10.ANY..",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                          "aws:cdk:cloudformation:props": {
+                            "action": "lambda:InvokeFunction",
+                            "functionName": {
+                              "Fn::GetAtt": [
+                                "marketplaceappcmshttpB2A23AA8",
+                                "Arn"
+                              ]
+                            },
+                            "principal": "apigateway.amazonaws.com",
+                            "sourceArn": {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "arn:",
+                                  {
+                                    "Ref": "AWS::Partition"
+                                  },
+                                  ":execute-api:eu-west-2:028446965111:",
+                                  {
+                                    "Ref": "cloudappmarketplacecmsserviceapigatewayDC9DB1C3"
+                                  },
+                                  "/test-invoke-stage/*/"
+                                ]
+                              ]
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                          "version": "2.133.0"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "cloud-app-marketplace-cms-service/cloud-app-marketplace-cms-service-apigateway/Default/ANY/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                          "aws:cdk:cloudformation:props": {
+                            "authorizationType": "NONE",
+                            "httpMethod": "ANY",
+                            "integration": {
+                              "type": "AWS_PROXY",
+                              "uri": {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":apigateway:eu-west-2:lambda:path/2015-03-31/functions/",
+                                    {
+                                      "Fn::GetAtt": [
+                                        "marketplaceappcmshttpB2A23AA8",
+                                        "Arn"
+                                      ]
+                                    },
+                                    "/invocations"
+                                  ]
+                                ]
+                              },
+                              "integrationHttpMethod": "POST"
+                            },
+                            "resourceId": {
+                              "Fn::GetAtt": [
+                                "cloudappmarketplacecmsserviceapigatewayDC9DB1C3",
+                                "RootResourceId"
+                              ]
+                            },
+                            "restApiId": {
+                              "Ref": "cloudappmarketplacecmsserviceapigatewayDC9DB1C3"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
+                          "version": "2.133.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_apigateway.Method",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.ResourceBase",
+                  "version": "2.133.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_apigateway.RestApi",
+              "version": "2.133.0"
+            }
+          },
+          "App_Marketplace_Cms": {
+            "id": "App_Marketplace_Cms",
+            "path": "cloud-app-marketplace-cms-service/App_Marketplace_Cms",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "cloud-app-marketplace-cms-service/App_Marketplace_Cms/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::DynamoDB::Table",
+                  "aws:cdk:cloudformation:props": {
+                    "attributeDefinitions": [
+                      {
+                        "attributeName": "id",
+                        "attributeType": "S"
+                      }
+                    ],
+                    "billingMode": "PAY_PER_REQUEST",
+                    "keySchema": [
+                      {
+                        "attributeName": "id",
+                        "keyType": "HASH"
+                      }
+                    ]
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_dynamodb.CfnTable",
+                  "version": "2.133.0"
+                }
+              },
+              "ScalingRole": {
+                "id": "ScalingRole",
+                "path": "cloud-app-marketplace-cms-service/App_Marketplace_Cms/ScalingRole",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.133.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_dynamodb.Table",
+              "version": "2.133.0"
+            }
+          },
+          "marketplace-app-cms-http": {
+            "id": "marketplace-app-cms-http",
+            "path": "cloud-app-marketplace-cms-service/marketplace-app-cms-http",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "cloud-app-marketplace-cms-service/marketplace-app-cms-http/ServiceRole",
+                "children": {
+                  "ImportServiceRole": {
+                    "id": "ImportServiceRole",
+                    "path": "cloud-app-marketplace-cms-service/marketplace-app-cms-http/ServiceRole/ImportServiceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "cloud-app-marketplace-cms-service/marketplace-app-cms-http/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "cloud-app-marketplace-cms-service/marketplace-app-cms-http/ServiceRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "cloud-app-marketplace-cms-service/marketplace-app-cms-http/ServiceRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "dynamodb:BatchGetItem",
+                                    "dynamodb:GetRecords",
+                                    "dynamodb:GetShardIterator",
+                                    "dynamodb:Query",
+                                    "dynamodb:GetItem",
+                                    "dynamodb:Scan",
+                                    "dynamodb:ConditionCheckItem",
+                                    "dynamodb:BatchWriteItem",
+                                    "dynamodb:PutItem",
+                                    "dynamodb:UpdateItem",
+                                    "dynamodb:DeleteItem",
+                                    "dynamodb:DescribeTable"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": [
+                                    {
+                                      "Fn::GetAtt": [
+                                        "AppMarketplaceCms13CBE4ED",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Ref": "AWS::NoValue"
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "marketplaceappcmshttpServiceRoleDefaultPolicy79A9E811",
+                            "roles": [
+                              {
+                                "Ref": "marketplaceappcmshttpServiceRole003A23FA"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.133.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.133.0"
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "cloud-app-marketplace-cms-service/marketplace-app-cms-http/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "cloud-app-marketplace-cms-service/marketplace-app-cms-http/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "cloud-app-marketplace-cms-service/marketplace-app-cms-http/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.133.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "cloud-app-marketplace-cms-service/marketplace-app-cms-http/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": "cdk-hnb659fds-assets-028446965111-eu-west-2",
+                      "s3Key": "b4a01e2d4cf1cd0ec32ba3d69f02e3fdc915839f898003d39f98336f0915e8cf.zip"
+                    },
+                    "environment": {
+                      "variables": {
+                        "DYNAMO_MARKETPLACE_CMS_TABLE_NAME": {
+                          "Ref": "AppMarketplaceCms13CBE4ED"
+                        },
+                        "AWS_ACCOUNT_ID": "028446965111",
+                        "DYNAMO_DB_REGION": "eu-west-2",
+                        "TZ": "Europe/London",
+                        "COGNITO_CLIENT_ID": "16k6g95lql59ptchoseqdm5hdi",
+                        "ISSUERS": "https://connect.dev.paas.reapit.cloud/,https://auth0-pete.connect.dev.paas.reapit.cloud/,https://auth0-josh.connect.dev.paas.reapit.cloud,https://auth0-ashleigh.connect.dev.paas.reapit.cloud",
+                        "CONNECT_USER_POOL": "eu-west-2_kiftR4qFc"
+                      }
+                    },
+                    "handler": "http.handler",
+                    "memorySize": 1024,
+                    "role": {
+                      "Fn::GetAtt": [
+                        "marketplaceappcmshttpServiceRole003A23FA",
+                        "Arn"
+                      ]
+                    },
+                    "runtime": "nodejs18.x",
+                    "timeout": 30
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                  "version": "2.133.0"
+                }
+              },
+              "LogRetention": {
+                "id": "LogRetention",
+                "path": "cloud-app-marketplace-cms-service/marketplace-app-cms-http/LogRetention",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "cloud-app-marketplace-cms-service/marketplace-app-cms-http/LogRetention/Resource",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_logs.LogRetention",
+                  "version": "2.133.0"
+                }
+              },
+              "LogGroup": {
+                "id": "LogGroup",
+                "path": "cloud-app-marketplace-cms-service/marketplace-app-cms-http/LogGroup",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.133.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
+              "version": "2.133.0"
+            }
+          },
+          "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a": {
+            "id": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a",
+            "path": "cloud-app-marketplace-cms-service/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a",
+            "children": {
+              "Code": {
+                "id": "Code",
+                "path": "cloud-app-marketplace-cms-service/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "cloud-app-marketplace-cms-service/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "cloud-app-marketplace-cms-service/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.133.0"
+                }
+              },
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "cloud-app-marketplace-cms-service/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole",
+                "children": {
+                  "ImportServiceRole": {
+                    "id": "ImportServiceRole",
+                    "path": "cloud-app-marketplace-cms-service/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/ImportServiceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "cloud-app-marketplace-cms-service/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "cloud-app-marketplace-cms-service/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "cloud-app-marketplace-cms-service/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "logs:PutRetentionPolicy",
+                                    "logs:DeleteRetentionPolicy"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB",
+                            "roles": [
+                              {
+                                "Ref": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.133.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.133.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "cloud-app-marketplace-cms-service/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.133.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "app-marketplace-authorizer-lambda": {
+            "id": "app-marketplace-authorizer-lambda",
+            "path": "cloud-app-marketplace-cms-service/app-marketplace-authorizer-lambda",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "cloud-app-marketplace-cms-service/app-marketplace-authorizer-lambda/ServiceRole",
+                "children": {
+                  "ImportServiceRole": {
+                    "id": "ImportServiceRole",
+                    "path": "cloud-app-marketplace-cms-service/app-marketplace-authorizer-lambda/ServiceRole/ImportServiceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "cloud-app-marketplace-cms-service/app-marketplace-authorizer-lambda/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.133.0"
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "cloud-app-marketplace-cms-service/app-marketplace-authorizer-lambda/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "cloud-app-marketplace-cms-service/app-marketplace-authorizer-lambda/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "cloud-app-marketplace-cms-service/app-marketplace-authorizer-lambda/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.133.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "cloud-app-marketplace-cms-service/app-marketplace-authorizer-lambda/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": "cdk-hnb659fds-assets-028446965111-eu-west-2",
+                      "s3Key": "2c1819a95e3ee1c56ee3e0e604f7b621b39bee19bcf13bad6de3762371e3a08a.zip"
+                    },
+                    "environment": {
+                      "variables": {
+                        "ISSUERS": "https://connect.dev.paas.reapit.cloud/,https://auth0-pete.connect.dev.paas.reapit.cloud/,https://auth0-josh.connect.dev.paas.reapit.cloud,https://auth0-ashleigh.connect.dev.paas.reapit.cloud",
+                        "CONNECT_USER_POOL": "eu-west-2_kiftR4qFc"
+                      }
+                    },
+                    "handler": "authorizer/index.handler",
+                    "memorySize": 512,
+                    "role": {
+                      "Fn::GetAtt": [
+                        "appmarketplaceauthorizerlambdaServiceRole21D951AB",
+                        "Arn"
+                      ]
+                    },
+                    "runtime": "nodejs18.x",
+                    "timeout": 30
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                  "version": "2.133.0"
+                }
+              },
+              "LogRetention": {
+                "id": "LogRetention",
+                "path": "cloud-app-marketplace-cms-service/app-marketplace-authorizer-lambda/LogRetention",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "cloud-app-marketplace-cms-service/app-marketplace-authorizer-lambda/LogRetention/Resource",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_logs.LogRetention",
+                  "version": "2.133.0"
+                }
+              },
+              "LogGroup": {
+                "id": "LogGroup",
+                "path": "cloud-app-marketplace-cms-service/app-marketplace-authorizer-lambda/LogGroup",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.133.0"
+                }
+              },
+              "cloudappmarketplacecmsserviceappmarketplaceauthorizerF1772FC2:Permissions": {
+                "id": "cloudappmarketplacecmsserviceappmarketplaceauthorizerF1772FC2:Permissions",
+                "path": "cloud-app-marketplace-cms-service/app-marketplace-authorizer-lambda/cloudappmarketplacecmsserviceappmarketplaceauthorizerF1772FC2:Permissions",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                  "aws:cdk:cloudformation:props": {
+                    "action": "lambda:InvokeFunction",
+                    "functionName": {
+                      "Fn::GetAtt": [
+                        "appmarketplaceauthorizerlambdaF1FD66CE",
+                        "Arn"
+                      ]
+                    },
+                    "principal": "apigateway.amazonaws.com",
+                    "sourceArn": {
+                      "Fn::Join": [
+                        "",
+                        [
+                          "arn:",
+                          {
+                            "Ref": "AWS::Partition"
+                          },
+                          ":execute-api:eu-west-2:028446965111:",
+                          {
+                            "Ref": "cloudappmarketplacecmsserviceapigatewayDC9DB1C3"
+                          },
+                          "/authorizers/",
+                          {
+                            "Ref": "appmarketplaceauthorizer5B96AEE3"
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                  "version": "2.133.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
+              "version": "2.133.0"
+            }
+          },
+          "app-marketplace-authorizer": {
+            "id": "app-marketplace-authorizer",
+            "path": "cloud-app-marketplace-cms-service/app-marketplace-authorizer",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "cloud-app-marketplace-cms-service/app-marketplace-authorizer/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Authorizer",
+                  "aws:cdk:cloudformation:props": {
+                    "authorizerResultTtlInSeconds": 0,
+                    "authorizerUri": {
+                      "Fn::Join": [
+                        "",
+                        [
+                          "arn:",
+                          {
+                            "Fn::Select": [
+                              1,
+                              {
+                                "Fn::Split": [
+                                  ":",
+                                  {
+                                    "Fn::GetAtt": [
+                                      "appmarketplaceauthorizerlambdaF1FD66CE",
+                                      "Arn"
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          ":apigateway:",
+                          {
+                            "Fn::Select": [
+                              3,
+                              {
+                                "Fn::Split": [
+                                  ":",
+                                  {
+                                    "Fn::GetAtt": [
+                                      "appmarketplaceauthorizerlambdaF1FD66CE",
+                                      "Arn"
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          ":lambda:path/2015-03-31/functions/",
+                          {
+                            "Fn::GetAtt": [
+                              "appmarketplaceauthorizerlambdaF1FD66CE",
+                              "Arn"
+                            ]
+                          },
+                          "/invocations"
+                        ]
+                      ]
+                    },
+                    "identitySource": "method.request.header.authorization",
+                    "name": "cloudappmarketplacecmsserviceappmarketplaceauthorizerF1772FC2",
+                    "restApiId": {
+                      "Ref": "cloudappmarketplacecmsserviceapigatewayDC9DB1C3"
+                    },
+                    "type": "REQUEST"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.CfnAuthorizer",
+                  "version": "2.133.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_apigateway.RequestAuthorizer",
+              "version": "2.133.0"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "cloud-app-marketplace-cms-service/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "cloud-app-marketplace-cms-service/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.133.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "cloud-app-marketplace-cms-service/BootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.133.0"
+            }
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "cloud-app-marketplace-cms-service/CheckBootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnRule",
+              "version": "2.133.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.133.0"
+        }
+      },
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.3.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.133.0"
+    }
+  }
+}

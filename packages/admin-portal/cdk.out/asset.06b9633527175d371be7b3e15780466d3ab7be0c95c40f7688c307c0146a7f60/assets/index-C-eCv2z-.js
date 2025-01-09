@@ -1,0 +1,1 @@
+var p=v;function v(i,e,a){var n=null,u=null,l=function(){n&&(clearTimeout(n),u=null,n=null)},c=function(){var r=u;l(),r&&r()},t=function(){if(!e)return i.apply(this,arguments);var r=this,o=arguments,f=a&&!n;if(l(),u=function(){i.apply(r,o)},n=setTimeout(function(){if(n=null,!f){var s=u;return u=null,s()}},e),f)return u()};return t.cancel=l,t.flush=c,t}export{p as f};

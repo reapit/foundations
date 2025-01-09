@@ -1,0 +1,1 @@
+import{Q as n,j as e,as as r,F as s}from"./vendor-troV5kp-.js";class i extends n.Component{render(){return e.jsx(r,{fallback:()=>e.jsx(s,{isFullWidth:!0,isExpanded:!0,isInline:!0,intent:"danger",children:"Something went wrong here, try refreshing your page."}),children:this.props.children})}}export{i as E};

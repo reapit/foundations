@@ -1,0 +1,1 @@
+const r=n=>o=>{o==null||o.preventDefault(),o==null||o.stopPropagation(),window.open(n,"_blank","noopener, noreferrer")},p=(n,o)=>e=>{e==null||e.stopPropagation(),n(o),document.title!=="Developers"&&(document.title="Developers")};export{p as n,r as o};

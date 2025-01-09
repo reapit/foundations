@@ -1,0 +1,778 @@
+{
+ "Resources": {
+  "bucket43879C71": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "AccessControl": "Private",
+    "BucketEncryption": {
+     "ServerSideEncryptionConfiguration": [
+      {
+       "ServerSideEncryptionByDefault": {
+        "SSEAlgorithm": "AES256"
+       }
+      }
+     ]
+    },
+    "OwnershipControls": {
+     "Rules": [
+      {
+       "ObjectOwnership": "BucketOwnerEnforced"
+      }
+     ]
+    },
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": true,
+     "BlockPublicPolicy": true,
+     "IgnorePublicAcls": true,
+     "RestrictPublicBuckets": true
+    },
+    "Tags": [
+     {
+      "Key": "aws-cdk:cr-owned:8c8c2ca9",
+      "Value": "true"
+     }
+    ],
+    "WebsiteConfiguration": {
+     "ErrorDocument": "index.html",
+     "IndexDocument": "index.html"
+    }
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/bucket/Resource"
+   }
+  },
+  "bucketPolicy638F945D": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "bucket43879C71"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "s3:GetObject",
+       "Effect": "Allow",
+       "Principal": {
+        "CanonicalUser": {
+         "Fn::GetAtt": [
+          "CloudFrontOriginAccessIdentity04EB66DA",
+          "S3CanonicalUserId"
+         ]
+        }
+       },
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "bucket43879C71",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/bucket/Policy/Resource"
+   }
+  },
+  "CloudFrontOriginAccessIdentity04EB66DA": {
+   "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+   "Properties": {
+    "CloudFrontOriginAccessIdentityConfig": {
+     "Comment": "Allows CloudFront to reach the bucket"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/CloudFrontOriginAccessIdentity/Resource"
+   }
+  },
+  "deploymentAwsCliLayer437C1CEF": {
+   "Type": "AWS::Lambda::LayerVersion",
+   "Properties": {
+    "Content": {
+     "S3Bucket": "cdk-hnb659fds-assets-028446965111-eu-west-2",
+     "S3Key": "c9455aefa243f3cd7a810b3f6df8ed37e457d3e1d046353da27c4aa13551d4dc.zip"
+    },
+    "Description": "/opt/awscli/aws"
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/deployment/AwsCliLayer/Resource",
+    "aws:asset:path": "asset.c9455aefa243f3cd7a810b3f6df8ed37e457d3e1d046353da27c4aa13551d4dc.zip",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Content"
+   }
+  },
+  "deploymentCustomResourceEDB139B7": {
+   "Type": "Custom::CDKBucketDeployment",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536",
+      "Arn"
+     ]
+    },
+    "SourceBucketNames": [
+     "cdk-hnb659fds-assets-028446965111-eu-west-2"
+    ],
+    "SourceObjectKeys": [
+     "7ffdae702709fd2990fb23d1c7c7b66d6c6173c3323beedaa78f1294ce50425e.zip"
+    ],
+    "DestinationBucketName": {
+     "Ref": "bucket43879C71"
+    },
+    "Prune": true,
+    "DestinationBucketArn": {
+     "Fn::GetAtt": [
+      "bucket43879C71",
+      "Arn"
+     ]
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/deployment/CustomResource/Default"
+   }
+  },
+  "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource"
+   }
+  },
+  "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "s3:GetObject*",
+        "s3:GetBucket*",
+        "s3:List*"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::cdk-hnb659fds-assets-028446965111-eu-west-2"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::cdk-hnb659fds-assets-028446965111-eu-west-2/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "s3:GetObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:DeleteObject*",
+        "s3:PutObject",
+        "s3:PutObjectLegalHold",
+        "s3:PutObjectRetention",
+        "s3:PutObjectTagging",
+        "s3:PutObjectVersionTagging",
+        "s3:Abort*"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "bucket43879C71",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "bucket43879C71",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF",
+    "Roles": [
+     {
+      "Ref": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-028446965111-eu-west-2",
+     "S3Key": "2bc265c5e0569aeb24a6349c15bd54e76e845892376515e036627ab0cc70bb64.zip"
+    },
+    "Role": {
+     "Fn::GetAtt": [
+      "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265",
+      "Arn"
+     ]
+    },
+    "Handler": "index.handler",
+    "Layers": [
+     {
+      "Ref": "deploymentAwsCliLayer437C1CEF"
+     }
+    ],
+    "Runtime": "python3.9",
+    "Timeout": 900
+   },
+   "DependsOn": [
+    "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF",
+    "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource",
+    "aws:asset:path": "asset.2bc265c5e0569aeb24a6349c15bd54e76e845892376515e036627ab0cc70bb64",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "frontdistroCFDistributionFA372A4D": {
+   "Type": "AWS::CloudFront::Distribution",
+   "Properties": {
+    "DistributionConfig": {
+     "Aliases": [
+      "app-marketplace-admin.dev.paas.reapit.cloud"
+     ],
+     "CustomErrorResponses": [
+      {
+       "ErrorCode": 404,
+       "ResponseCode": 200,
+       "ResponsePagePath": "/index.html"
+      },
+      {
+       "ErrorCode": 403,
+       "ResponseCode": 200,
+       "ResponsePagePath": "/index.html"
+      },
+      {
+       "ErrorCode": 400,
+       "ResponseCode": 200,
+       "ResponsePagePath": "/index.html"
+      }
+     ],
+     "DefaultCacheBehavior": {
+      "AllowedMethods": [
+       "GET",
+       "HEAD"
+      ],
+      "CachedMethods": [
+       "GET",
+       "HEAD"
+      ],
+      "Compress": true,
+      "ForwardedValues": {
+       "Cookies": {
+        "Forward": "none"
+       },
+       "QueryString": false
+      },
+      "TargetOriginId": "origin1",
+      "ViewerProtocolPolicy": "redirect-to-https"
+     },
+     "DefaultRootObject": "index.html",
+     "Enabled": true,
+     "HttpVersion": "http2",
+     "IPV6Enabled": true,
+     "Origins": [
+      {
+       "ConnectionAttempts": 3,
+       "ConnectionTimeout": 10,
+       "DomainName": {
+        "Fn::GetAtt": [
+         "bucket43879C71",
+         "RegionalDomainName"
+        ]
+       },
+       "Id": "origin1",
+       "S3OriginConfig": {
+        "OriginAccessIdentity": {
+         "Fn::Join": [
+          "",
+          [
+           "origin-access-identity/cloudfront/",
+           {
+            "Ref": "CloudFrontOriginAccessIdentity04EB66DA"
+           }
+          ]
+         ]
+        }
+       }
+      }
+     ],
+     "PriceClass": "PriceClass_100",
+     "ViewerCertificate": {
+      "AcmCertificateArn": "arn:aws:acm:us-east-1:028446965111:certificate/3d2a47a0-e210-479d-a066-e2ab2a3897c0",
+      "SslSupportMethod": "sni-only"
+     }
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/front-distro/CFDistribution"
+   }
+  },
+  "route913841CD": {
+   "Type": "AWS::Route53::RecordSet",
+   "Properties": {
+    "Name": "app-marketplace-admin.dev.paas.reapit.cloud.",
+    "Type": "A",
+    "AliasTarget": {
+     "DNSName": {
+      "Fn::GetAtt": [
+       "frontdistroCFDistributionFA372A4D",
+       "DomainName"
+      ]
+     },
+     "HostedZoneId": {
+      "Fn::FindInMap": [
+       "AWSCloudFrontPartitionHostedZoneIdMap",
+       {
+        "Ref": "AWS::Partition"
+       },
+       "zoneId"
+      ]
+     }
+    },
+    "HostedZoneId": "Z02367201ZA0CZPSM3N2H"
+   },
+   "DependsOn": [
+    "routeDeleteExistingRecordSetCustomResource79EC9BC1"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/route/Resource"
+   }
+  },
+  "routeDeleteExistingRecordSetCustomResource79EC9BC1": {
+   "Type": "Custom::DeleteExistingRecordSet",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomDeleteExistingRecordSetCustomResourceProviderHandlerAD00231E",
+      "Arn"
+     ]
+    },
+    "HostedZoneId": "Z02367201ZA0CZPSM3N2H",
+    "RecordName": "app-marketplace-admin.dev.paas.reapit.cloud.",
+    "RecordType": "A"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/route/DeleteExistingRecordSetCustomResource/Default"
+   }
+  },
+  "CustomDeleteExistingRecordSetCustomResourceProviderRole03A7ED08": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ]
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Sub": "arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+     }
+    ],
+    "Policies": [
+     {
+      "PolicyName": "Inline",
+      "PolicyDocument": {
+       "Version": "2012-10-17",
+       "Statement": [
+        {
+         "Effect": "Allow",
+         "Action": "route53:GetChange",
+         "Resource": "*"
+        },
+        {
+         "Effect": "Allow",
+         "Action": "route53:ListResourceRecordSets",
+         "Resource": {
+          "Fn::Join": [
+           "",
+           [
+            "arn:",
+            {
+             "Ref": "AWS::Partition"
+            },
+            ":route53:::hostedzone/Z02367201ZA0CZPSM3N2H"
+           ]
+          ]
+         }
+        },
+        {
+         "Effect": "Allow",
+         "Action": "route53:ChangeResourceRecordSets",
+         "Resource": {
+          "Fn::Join": [
+           "",
+           [
+            "arn:",
+            {
+             "Ref": "AWS::Partition"
+            },
+            ":route53:::hostedzone/Z02367201ZA0CZPSM3N2H"
+           ]
+          ]
+         },
+         "Condition": {
+          "ForAllValues:StringEquals": {
+           "route53:ChangeResourceRecordSetsRecordTypes": [
+            "A"
+           ],
+           "route53:ChangeResourceRecordSetsActions": [
+            "DELETE"
+           ]
+          }
+         }
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/Custom::DeleteExistingRecordSetCustomResourceProvider/Role"
+   }
+  },
+  "CustomDeleteExistingRecordSetCustomResourceProviderHandlerAD00231E": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-028446965111-eu-west-2",
+     "S3Key": "ff40cb5b4f1764c7384d9ef5a30366dc45a1a43b8a569a787bd8c29d72ed629a.zip"
+    },
+    "Timeout": 900,
+    "MemorySize": 128,
+    "Handler": "__entrypoint__.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "CustomDeleteExistingRecordSetCustomResourceProviderRole03A7ED08",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs14.x"
+   },
+   "DependsOn": [
+    "CustomDeleteExistingRecordSetCustomResourceProviderRole03A7ED08"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/Custom::DeleteExistingRecordSetCustomResourceProvider/Handler",
+    "aws:asset:path": "asset.ff40cb5b4f1764c7384d9ef5a30366dc45a1a43b8a569a787bd8c29d72ed629a",
+    "aws:asset:property": "Code"
+   }
+  },
+  "invalidationCreateInvalidationStateMachineRole53AD914E": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "states.eu-west-2.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/invalidation/CreateInvalidationStateMachine/Role/Resource"
+   }
+  },
+  "invalidationCreateInvalidationStateMachineRoleDefaultPolicy22FDD312": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "cloudfront:createInvalidation",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:aws:cloudfront::028446965111:distribution/",
+          {
+           "Ref": "frontdistroCFDistributionFA372A4D"
+          }
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "invalidationCreateInvalidationStateMachineRoleDefaultPolicy22FDD312",
+    "Roles": [
+     {
+      "Ref": "invalidationCreateInvalidationStateMachineRole53AD914E"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/invalidation/CreateInvalidationStateMachine/Role/DefaultPolicy/Resource"
+   }
+  },
+  "invalidationCreateInvalidationStateMachine140A049E": {
+   "Type": "AWS::StepFunctions::StateMachine",
+   "Properties": {
+    "RoleArn": {
+     "Fn::GetAtt": [
+      "invalidationCreateInvalidationStateMachineRole53AD914E",
+      "Arn"
+     ]
+    },
+    "DefinitionString": {
+     "Fn::Join": [
+      "",
+      [
+       "{\"StartAt\":\"CreateInvalidation\",\"States\":{\"CreateInvalidation\":{\"End\":true,\"Retry\":[{\"ErrorEquals\":[\"CloudFront.CloudFrontException\"],\"IntervalSeconds\":5,\"MaxAttempts\":10,\"BackoffRate\":2}],\"Type\":\"Task\",\"Resource\":\"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":states:::aws-sdk:cloudfront:createInvalidation\",\"Parameters\":{\"DistributionId\":\"",
+       {
+        "Ref": "frontdistroCFDistributionFA372A4D"
+       },
+       "\",\"InvalidationBatch\":{\"CallerReference.$\":\"$\",\"Paths\":{\"Items\":[\"/index.html\"],\"Quantity\":1}}}}}}"
+      ]
+     ]
+    }
+   },
+   "DependsOn": [
+    "invalidationCreateInvalidationStateMachineRoleDefaultPolicy22FDD312",
+    "invalidationCreateInvalidationStateMachineRole53AD914E"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/invalidation/CreateInvalidationStateMachine/Resource"
+   }
+  },
+  "invalidationCreateInvalidationStateMachineEventsRoleA79E34A1": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/invalidation/CreateInvalidationStateMachine/EventsRole/Resource"
+   }
+  },
+  "invalidationCreateInvalidationStateMachineEventsRoleDefaultPolicyB475C479": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "invalidationCreateInvalidationStateMachine140A049E"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "invalidationCreateInvalidationStateMachineEventsRoleDefaultPolicyB475C479",
+    "Roles": [
+     {
+      "Ref": "invalidationCreateInvalidationStateMachineEventsRoleA79E34A1"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/invalidation/CreateInvalidationStateMachine/EventsRole/DefaultPolicy/Resource"
+   }
+  },
+  "invalidationDeploymentComplete2D966570": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "EventPattern": {
+     "source": [
+      "aws.cloudformation"
+     ],
+     "detail": {
+      "stack-id": [
+       {
+        "Ref": "AWS::StackId"
+       }
+      ],
+      "status-details": {
+       "status": [
+        "UPDATE_COMPLETE"
+       ]
+      }
+     }
+    },
+    "State": "ENABLED",
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "invalidationCreateInvalidationStateMachine140A049E"
+      },
+      "Id": "Target0",
+      "InputPath": "$.id",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "invalidationCreateInvalidationStateMachineEventsRoleA79E34A1",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/invalidation/DeploymentComplete/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/21SXWvCMBT9Lb7HbE4me60VYTCZVNgeS5pe3dU0kdxEkdL/viTVurE9nXNvzv3OE5/N+GQkzjSW9WGssOLtxgl5YAWQ8VYCC29lS1Pezr08gGP5Vl9ZD2ujUF7u7qvdG3NB0DGpjK+31mjH23eLO9SZlED0WoN26FJwHjXLqPlfMTx/QrVAchYr79DoGPvT7hhNy7aGozKXJgTzvpHF4GCCCBzxLELHlGiqWvA2pHkTF7AfYCmm3aDeKXBGL72WqdBAgvTGO4ai4W1hFER3wvtCetYxa7yD57DCrABpbJ2kiW1iC+TguL0mpNIJOhDPhVLZmTZgTxiO8EuSTuRgJeQX6lT3p90xOIUxg6rw164CdrdJSxWnLMNVpUIeSuQK0+AsLSRkCsvfsdyTM83wCVLDd74Sx+Nf1dqaE9ZgO6ZNDXxPD6fJC5/M+ONoT4hj68MtG+BFj9+iwMzofAIAAA=="
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-app-marketplace-admin-site/CDKMetadata/Default"
+   }
+  }
+ },
+ "Mappings": {
+  "AWSCloudFrontPartitionHostedZoneIdMap": {
+   "aws": {
+    "zoneId": "Z2FDTNDATAQYW2"
+   },
+   "aws-cn": {
+    "zoneId": "Z3RFFRIM2A3IF5"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

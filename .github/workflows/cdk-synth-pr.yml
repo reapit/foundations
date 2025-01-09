@@ -32,6 +32,9 @@ jobs:
         run: |
           yarn workspaces foreach --parallel --verbose --since --recursive run build
 
+      - name: Remove previous CDK output
+        run: for package in github.event.pull_request.labels.*.name; do if [jq -r '.scripts.synth' packages/$package/package.json -e]; then rm -rf packages/$package/cdk.out; done
+
       - name: Synth
         run: for package in github.event.pull_request.labels.*.name; do if [jq -r '.scripts.synth' packages/$package/package.json -e]; then yarn workspace $package synth; done
 
@@ -55,5 +58,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'chore: synth updates'
-          # branch: master
-        # comment changes to PR
+          # branch: master ref?

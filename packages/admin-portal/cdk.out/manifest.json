@@ -1,0 +1,185 @@
+{
+  "version": "36.0.0",
+  "artifacts": {
+    "cloud-developer-admin-site.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "cloud-developer-admin-site.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "cloud-developer-admin-site": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://028446965111/eu-west-2",
+      "properties": {
+        "templateFile": "cloud-developer-admin-site.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::028446965111:role/cdk-hnb659fds-deploy-role-028446965111-eu-west-2",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::028446965111:role/cdk-hnb659fds-cfn-exec-role-028446965111-eu-west-2",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-028446965111-eu-west-2/ac03f23542365ef01655dceaaacb85ded1af90fd74583c3b7a0b2b0023066bf8.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "cloud-developer-admin-site.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::028446965111:role/cdk-hnb659fds-lookup-role-028446965111-eu-west-2",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "cloud-developer-admin-site.assets"
+      ],
+      "metadata": {
+        "/cloud-developer-admin-site/bucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "bucket43879C71"
+          }
+        ],
+        "/cloud-developer-admin-site/bucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "bucketPolicy638F945D"
+          }
+        ],
+        "/cloud-developer-admin-site/CloudFrontOriginAccessIdentity/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudFrontOriginAccessIdentity04EB66DA"
+          }
+        ],
+        "/cloud-developer-admin-site/deployment/AwsCliLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "deploymentAwsCliLayer437C1CEF"
+          }
+        ],
+        "/cloud-developer-admin-site/deployment/CustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "deploymentCustomResourceEDB139B7"
+          }
+        ],
+        "/cloud-developer-admin-site/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265"
+          }
+        ],
+        "/cloud-developer-admin-site/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF"
+          }
+        ],
+        "/cloud-developer-admin-site/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536"
+          }
+        ],
+        "/cloud-developer-admin-site/front-distro/CFDistribution": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "frontdistroCFDistributionFA372A4D"
+          }
+        ],
+        "/cloud-developer-admin-site/route/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "route913841CD"
+          }
+        ],
+        "/cloud-developer-admin-site/route/DeleteExistingRecordSetCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "routeDeleteExistingRecordSetCustomResource79EC9BC1"
+          }
+        ],
+        "/cloud-developer-admin-site/AWSCloudFrontPartitionHostedZoneIdMap": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AWSCloudFrontPartitionHostedZoneIdMap"
+          }
+        ],
+        "/cloud-developer-admin-site/Custom::DeleteExistingRecordSetCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomDeleteExistingRecordSetCustomResourceProviderRole03A7ED08"
+          }
+        ],
+        "/cloud-developer-admin-site/Custom::DeleteExistingRecordSetCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomDeleteExistingRecordSetCustomResourceProviderHandlerAD00231E"
+          }
+        ],
+        "/cloud-developer-admin-site/invalidation/CreateInvalidationStateMachine/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "invalidationCreateInvalidationStateMachineRole53AD914E"
+          }
+        ],
+        "/cloud-developer-admin-site/invalidation/CreateInvalidationStateMachine/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "invalidationCreateInvalidationStateMachineRoleDefaultPolicy22FDD312"
+          }
+        ],
+        "/cloud-developer-admin-site/invalidation/CreateInvalidationStateMachine/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "invalidationCreateInvalidationStateMachine140A049E"
+          }
+        ],
+        "/cloud-developer-admin-site/invalidation/CreateInvalidationStateMachine/EventsRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "invalidationCreateInvalidationStateMachineEventsRoleA79E34A1"
+          }
+        ],
+        "/cloud-developer-admin-site/invalidation/CreateInvalidationStateMachine/EventsRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "invalidationCreateInvalidationStateMachineEventsRoleDefaultPolicyB475C479"
+          }
+        ],
+        "/cloud-developer-admin-site/invalidation/DeploymentComplete/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "invalidationDeploymentComplete2D966570"
+          }
+        ],
+        "/cloud-developer-admin-site/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/cloud-developer-admin-site/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/cloud-developer-admin-site/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "cloud-developer-admin-site"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}
