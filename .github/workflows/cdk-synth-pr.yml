@@ -1,0 +1,56 @@
+name: CDK Synth
+
+on:
+  pull_request:
+    types: ['opened']
+
+jobs:
+  check-synth:
+    name: CDK Synth
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v35
+        with:
+          dir_names: true
+          dir_names_max_depth: 2
+          json: true
+          quotepath: false
+      - name: test
+        run: echo github.event.pull_request.labels.*.name
+
+      - name: Fetch config
+        run: |
+          yarn workspaces foreach --parallel --verbose --since --recursive run conf --name development
+
+      - name: Build
+        run: |
+          yarn workspaces foreach --parallel --verbose --since --recursive run build
+
+      - name: Synth
+        run: for package in github.event.pull_request.labels.*.name; do if [jq -r '.scripts.synth' packages/$package/package.json -e]; then yarn workspace $package synth; done
+
+      - name: comment
+        uses: actions/github-script@v3
+        if: ${{ git status --porcelain != '' }}
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Synth changes have been committed'
+            })
+
+      - name: commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'chore: synth updates'
+          # branch: master
+        # comment changes to PR
