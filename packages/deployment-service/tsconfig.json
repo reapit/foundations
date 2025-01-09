@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "module": "commonjs",
+    "lib": ["ES2018"],
     "target": "ES2018",
     "typeRoots": ["./src/core/definitions.d.ts", "node_modules/@types", "../../node_modules/@types"],
     "baseUrl": "./",
