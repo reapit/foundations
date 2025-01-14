@@ -60,7 +60,7 @@ jobs:
           OUTPUT=()
           for package in $CHANGED_FOLDERS; do
             echo "package: $package"
-            if jq -e '.scripts.cdk-diff != null' "packages/$package/package.json" > /dev/null; then
+            if jq -e '.scripts and .scripts.cdk-diff != null' "packages/$package/package.json" > /dev/null 2>&1; then
               yarn workspace $package cdk-diff --output packages/$package/cdk.synth
               OUTPUT+=$(yarn workspace $package cdk-diff --output packages/$package/cdk.synth)
             fi
