@@ -62,8 +62,7 @@ jobs:
             echo "package: $package"
             if jq -e '.scripts."cdk-diff"' "packages/$package/package.json" > /dev/null; then
               echo "synthing: $package"
-              yarn workspace $package cdk-diff --output packages/$package/cdk.synth
-              OUTPUT+="$(yarn workspace $package cdk-diff --output packages/$package/cdk.synth)"
+              OUTPUT+="$(yarn workspace $package cdk-diff --output packages/$package/cdk.synth --no-color)"
             fi
           done
           OUTPUT_JSON=$(jq --compact-output --null-input '$ARGS.positional' --args "${OUTPUT[@]}")
@@ -79,12 +78,16 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const diff = process.env.DIFF;
-            github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'Synth changes have been committed \n\n' + '```' + diff + '```',
+            const diffs = JSON.parse(process.env.CDK_DIFF);
+            console.log('diff', diffs)
+
+            diffs.forEach((diff) => {
+              github.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: 'Synth changes have been committed \n\n' + '```' + diff + '```',
+              })
             })
 
       # - name: commit
