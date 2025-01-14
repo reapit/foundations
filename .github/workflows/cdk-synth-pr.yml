@@ -4,14 +4,27 @@ on:
   pull_request:
     types: ['opened', 'synchronize']
 
+env:
+  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+  AWS_REGION: ${{secrets.AWS_REGION}}
+  CI: true
+
 jobs:
   check-synth:
     name: CDK Synth
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Set Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
 
       - name: Get changed files
         id: changed-files
@@ -21,6 +34,9 @@ jobs:
           dir_names_max_depth: 2
           json: true
           quotepath: false
+
+      - name: Install
+        run: yarn
 
       - name: Fetch config
         run: |
@@ -36,7 +52,7 @@ jobs:
       - name: Build
         run: |
           for package in $FILTERED_FOLDERS; do
-            yarn workspace "$package" run build;
+            yarn workspace $package run build;
           done
 
       - name: CDK diff
