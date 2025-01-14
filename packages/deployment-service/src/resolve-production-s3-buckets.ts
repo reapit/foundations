@@ -137,12 +137,11 @@ export const resolveProductionS3Buckets: OnEventHandler = async (event) => {
         new PutPublicAccessBlockCommand({
           Bucket: bucket,
           PublicAccessBlockConfiguration: {
-            BlockPublicPolicy: false,
-            BlockPublicAcls: false,
-            RestrictPublicBuckets: false,
-            IgnorePublicAcls: false,
+            BlockPublicPolicy: true,
+            BlockPublicAcls: true,
+            RestrictPublicBuckets: true,
+            IgnorePublicAcls: true,
           },
-          // PublicReadAccess: false,
         }),
       )
     }),
