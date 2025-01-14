@@ -26,55 +26,48 @@ jobs:
         run: |
           yarn workspaces foreach --parallel --verbose --since --recursive run conf --name development
 
-      - name: Filter files in packages/ (direct children only)
+      - name: Filter files in packages
         id: filter-packages
         run: |
-          CHANGED_FOLDERS=$(echo "${{ steps.changed-files.outputs.files }}" | jq -r 'split("\n") | map(select(test("^packages/[^/]+$"))) | join(" ")')
-          echo "Changed folders: $CHANGED_FOLDERS"
-          echo "::set-output name=changed_folders::$CHANGED_FOLDERS"
+          FILTERED_FOLDERS=$(echo "${{ steps.changed-files.outputs.all_changed_files }}" | jq -r 'map(select(test("^packages/"))) | map(sub("^packages/"; "")) | unique | join(" ")')
+          echo "Changed folders: $FILTERED_FOLDERS"
+          echo "CHANGED_FOLDERS=$FILTERED_FOLDERS" >> $GITHUB_ENV
 
       - name: Build
         run: |
-          for package in ${{ steps.filter-packages.outputs.changed_folders }}; do
+          for package in $FILTERED_FOLDERS; do
             yarn workspace "$package" run build;
           done
 
-      - name: Remove previous CDK output
+      - name: CDK diff
         run: |
-          for package in ${{ steps.filter-packages.outputs.changed_folders }}; do
-            if [jq -r '.scripts.synth' "packages/$package/package.json" -e]; then 
-              rm -rf packages/$package/cdk.out; 
-            fi 
-          done
-
-      - name: Synth
-        run: |
-          for package in ${{ steps.filter-packages.outputs.changed_folders }}; do
-            if [jq -r '.scripts.synth' "packages/$package/package.json" -e]; then
-              yarn workspace "$package" synth; 
+          OUTPUT=()
+          for package in $FILTERED_FOLDERS; do
+            if jq -e '.scripts.synth != null' "packages/$package/package.json" > /dev/null; then
+              OUTPUT+=$(yarn workspace $package cdk diff --output packages/$package/cdk.synth)
             fi
           done
+          echo $OUTPUT
+          echo "CDK_DIFF=$OUTPUT" >> $GITHUB_ENV
 
-      - name: Store changes
+      - name: diff
         run: |
-          DIFF=$(git diff --exit-code)
-          echo "DIFF=$DIFF" >> $GITHUB_ENV
+          git diff
 
-      - name: comment
-        uses: actions/github-script@v3
-        if: ${{ env.DIFF != '' }}
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            const diff = process.env.DIFF;
-            github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'Synth changes have been committed \n\n' + '```' + diff + '```',
-            })
+      # - name: comment
+      #   uses: actions/github-script@v3
+      #   with:
+      #     github-token: ${{secrets.GITHUB_TOKEN}}
+      #     script: |
+      #       const diff = process.env.DIFF;
+      #       github.issues.createComment({
+      #         issue_number: context.issue.number,
+      #         owner: context.repo.owner,
+      #         repo: context.repo.repo,
+      #         body: 'Synth changes have been committed \n\n' + '```' + diff + '```',
+      #       })
 
-      - name: commit
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: 'chore: synth updates'
+      # - name: commit
+      #   uses: stefanzweifel/git-auto-commit-action@v4
+      #   with:
+      #     commit_message: 'chore: synth updates'
