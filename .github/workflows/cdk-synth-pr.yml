@@ -63,28 +63,29 @@ jobs:
             if jq -e '.scripts."cdk-diff"' "packages/$package/package.json" > /dev/null; then
               echo "synthing: $package"
               yarn workspace $package cdk-diff --output packages/$package/cdk.synth
-              OUTPUT+=$(yarn workspace $package cdk-diff --output packages/$package/cdk.synth)
+              OUTPUT+="$(yarn workspace $package cdk-diff --output packages/$package/cdk.synth)"
             fi
           done
-          echo "output: $OUTPUT"
-          echo "CDK_DIFF=$OUTPUT" >> $GITHUB_ENV
+          OUTPUT_JSON=$(jq --compact-output --null-input '$ARGS.positional' --args "${OUTPUT[@]}")
+          echo "CDK_DIFF=$OUTPUT_JSON" >> $GITHUB_ENV
 
       - name: diff
         run: |
           git diff
 
-      # - name: comment
-      #   uses: actions/github-script@v3
-      #   with:
-      #     github-token: ${{secrets.GITHUB_TOKEN}}
-      #     script: |
-      #       const diff = process.env.DIFF;
-      #       github.issues.createComment({
-      #         issue_number: context.issue.number,
-      #         owner: context.repo.owner,
-      #         repo: context.repo.repo,
-      #         body: 'Synth changes have been committed \n\n' + '```' + diff + '```',
-      #       })
+      - name: comment
+        uses: actions/github-script@v3
+        if: ${{ env.CDK_DIFF != '[]' }}
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const diff = process.env.DIFF;
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Synth changes have been committed \n\n' + '```' + diff + '```',
+            })
 
       # - name: commit
       #   uses: stefanzweifel/git-auto-commit-action@v4
