@@ -66,9 +66,11 @@ jobs:
               rm -rf packages/$package/cdk.synth
               TEMPLATES=$(ls packages/$package/cdk.synth.previous | grep template.json)
               echo "templates: $TEMPLATES"
-              for template in TEMPLATES; do
+              for template in $TEMPLATES; do
                 echo "template: $template";
                 TEMPLATE_NAME=$(sed -e "s/.template.json$//")
+                echo "templatename: $TEMPLATE_NAME"
+                echo "yarn workspace $package cdk-diff $TEMPLATE_NAME -o cdk.synth --no-color --template packages/$package/cdk.synth.previous/$template --change-set"
                 OUTPUT+="$(yarn workspace $package cdk-diff $TEMPLATE_NAME -o cdk.synth --no-color --template packages/$package/cdk.synth.previous/$template --change-set)";
               done
               rm -rf packages/$package/cdk.synth.previous
