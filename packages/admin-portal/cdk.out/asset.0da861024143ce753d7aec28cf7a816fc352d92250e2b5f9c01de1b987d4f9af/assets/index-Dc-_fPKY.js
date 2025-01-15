@@ -1,1 +1,0 @@
-import{Q as n,j as e,aG as r,X as s}from"./vendor-_Ftg20Hp.js";class i extends n.Component{render(){return e.jsx(r,{fallback:()=>e.jsx(s,{isFullWidth:!0,isExpanded:!0,isInline:!0,intent:"danger",children:"Something went wrong here, try refreshing your page."}),children:this.props.children})}}export{i as E};

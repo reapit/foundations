@@ -1,1 +1,0 @@
-{"version":3,"file":"iframe-urls-vMGN0ggv.js","sources":["../../src/constants/iframe-urls.ts"],"sourcesContent":["export const IFRAME_URLS = {\n  documentation: 'https://foundations-documentation.reapit.cloud',\n  desktopVideo: 'https://www.youtube.com/embed/E1df4fThSdw',\n}\n"],"names":["IFRAME_URLS"],"mappings":"AAAO,MAAMA,EAAc,CACzB,cAAe,iDACf,aAAc,2CAChB"}

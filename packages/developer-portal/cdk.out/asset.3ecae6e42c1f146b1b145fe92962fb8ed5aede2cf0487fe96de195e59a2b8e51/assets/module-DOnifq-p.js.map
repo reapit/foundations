@@ -1,1 +1,0 @@
-{"version":3,"file":"module-DOnifq-p.js","sources":["../../../../node_modules/github-username-regex/module.js"],"sourcesContent":["export default /^[a-z\\d](?:[a-z\\d]|-(?=[a-z\\d])){0,38}$/i;\n"],"names":["githubUsernameRegex"],"mappings":"AAAA,MAAAA,EAAe","x_google_ignoreList":[0]}
