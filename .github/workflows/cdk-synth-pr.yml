@@ -62,7 +62,7 @@ jobs:
             echo "package: $package"
             if jq -e '.scripts."cdk-diff"' "packages/$package/package.json" > /dev/null; then
               echo "synthing: $package"
-              OUTPUT+="$(yarn workspace $package cdk-diff --output packages/$package/cdk.synth --no-color)"
+              OUTPUT+="$(yarn workspace $package cdk-diff -o cdk.synth --no-color)"
             fi
           done
           OUTPUT_JSON=$(jq --compact-output --null-input '$ARGS.positional' --args "${OUTPUT[@]}")

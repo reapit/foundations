@@ -48,7 +48,7 @@
     "deploy": "rpt-cdk deploy cdk/cdk.ts",
     "release": "echo '...skipping...'",
     "synth": "rpt-cdk synth cdk/cdk.ts",
-    "cdk-diff": "rpt-cdk diff cdk/cdk.ts",
+    "cdk-diff": "cdk diff",
     "bundle": "tsup-zip deployment-service",
     "release:watch": "rpt-cdk watch cdk/cdk.ts",
     "release:destroy": "rpt-cdk destroy cdk/cdk.ts",
