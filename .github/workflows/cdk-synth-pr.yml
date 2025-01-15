@@ -68,7 +68,7 @@ jobs:
               echo "templates: $TEMPLATES"
               for template in $TEMPLATES; do
                 echo "template: $template";
-                TEMPLATE_NAME=$(sed -e "s/.template.json$//")
+                TEMPLATE_NAME=$(echo $template | sed -e "s/.template.json$//")
                 echo "templatename: $TEMPLATE_NAME"
                 echo "yarn workspace $package cdk-diff $TEMPLATE_NAME -o cdk.synth --no-color --template packages/$package/cdk.synth.previous/$template --change-set"
                 OUTPUT+="$(yarn workspace $package cdk-diff $TEMPLATE_NAME -o cdk.synth --no-color --template packages/$package/cdk.synth.previous/$template --change-set)";
