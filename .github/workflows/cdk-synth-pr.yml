@@ -73,9 +73,12 @@ jobs:
                 echo "yarn workspace $package cdk-diff $TEMPLATE_NAME -o cdk.synth --no-color --template packages/$package/cdk.synth.previous/$template --change-set"
                 OUTPUT+="$(yarn workspace $package cdk-diff $TEMPLATE_NAME -o cdk.synth --no-color --template packages/$package/cdk.synth.previous/$template --change-set)";
               done
+              echo "deleting cdk.synth.previous"
               rm -rf packages/$package/cdk.synth.previous
+              echo "after delete"
             fi
           done
+          echo "completely done"
           OUTPUT_JSON=$(jq --compact-output --null-input '$ARGS.positional' --args "${OUTPUT[@]}")
           echo "CDK_DIFF=$OUTPUT_JSON" >> $GITHUB_ENV
 
