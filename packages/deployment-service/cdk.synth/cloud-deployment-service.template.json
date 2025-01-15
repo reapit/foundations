@@ -1,0 +1,4762 @@
+{
+ "Resources": {
+  "clouddeploymentserviceapigateway54653E76": {
+   "Type": "AWS::ApiGateway::RestApi",
+   "Properties": {
+    "EndpointConfiguration": {
+     "Types": [
+      "REGIONAL"
+     ]
+    },
+    "Name": "cloud-deployment-service-apigateway"
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-service-apigateway/Resource"
+   }
+  },
+  "clouddeploymentserviceapigatewayCloudWatchRole3CDCCE00": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "apigateway.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
+       ]
+      ]
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-service-apigateway/CloudWatchRole/Resource"
+   }
+  },
+  "clouddeploymentserviceapigatewayAccountC0F7FCBE": {
+   "Type": "AWS::ApiGateway::Account",
+   "Properties": {
+    "CloudWatchRoleArn": {
+     "Fn::GetAtt": [
+      "clouddeploymentserviceapigatewayCloudWatchRole3CDCCE00",
+      "Arn"
+     ]
+    }
+   },
+   "DependsOn": [
+    "clouddeploymentserviceapigateway54653E76"
+   ],
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-service-apigateway/Account"
+   }
+  },
+  "clouddeploymentserviceapigatewayDeploymentBD1D6173f2e7e9e4460313245bda0f8a402ef6ef": {
+   "Type": "AWS::ApiGateway::Deployment",
+   "Properties": {
+    "Description": "Automatically created by the RestApi construct",
+    "RestApiId": {
+     "Ref": "clouddeploymentserviceapigateway54653E76"
+    }
+   },
+   "DependsOn": [
+    "clouddeploymentserviceapigatewayproxyANY3CD8C9C9",
+    "clouddeploymentserviceapigatewayproxyOPTIONS57AB08E9",
+    "clouddeploymentserviceapigatewayproxy91191E4F",
+    "clouddeploymentserviceapigatewayapiproxyANY8776B1DD",
+    "clouddeploymentserviceapigatewayapiproxyOPTIONSD48A55EA",
+    "clouddeploymentserviceapigatewayapiproxy021EE724",
+    "clouddeploymentserviceapigatewayapiOPTIONSF09FC307",
+    "clouddeploymentserviceapigatewayapi2C03417D",
+    "clouddeploymentserviceapigatewayOPTIONS2F43CCD2"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-service-apigateway/Deployment/Resource"
+   }
+  },
+  "clouddeploymentserviceapigatewayDeploymentStageprod545A3914": {
+   "Type": "AWS::ApiGateway::Stage",
+   "Properties": {
+    "DeploymentId": {
+     "Ref": "clouddeploymentserviceapigatewayDeploymentBD1D6173f2e7e9e4460313245bda0f8a402ef6ef"
+    },
+    "RestApiId": {
+     "Ref": "clouddeploymentserviceapigateway54653E76"
+    },
+    "StageName": "prod"
+   },
+   "DependsOn": [
+    "clouddeploymentserviceapigatewayAccountC0F7FCBE"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-service-apigateway/DeploymentStage.prod/Resource"
+   }
+  },
+  "clouddeploymentserviceapigatewayOPTIONS2F43CCD2": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "ApiKeyRequired": false,
+    "AuthorizationType": "NONE",
+    "HttpMethod": "OPTIONS",
+    "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseParameters": {
+        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Api-Key,api-version,reapit-connect-token,reapit-customer'",
+        "method.response.header.Access-Control-Allow-Origin": "'*'",
+        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+       },
+       "StatusCode": "204"
+      }
+     ],
+     "RequestTemplates": {
+      "application/json": "{ statusCode: 200 }"
+     },
+     "Type": "MOCK"
+    },
+    "MethodResponses": [
+     {
+      "ResponseParameters": {
+       "method.response.header.Access-Control-Allow-Headers": true,
+       "method.response.header.Access-Control-Allow-Origin": true,
+       "method.response.header.Access-Control-Allow-Methods": true
+      },
+      "StatusCode": "204"
+     }
+    ],
+    "ResourceId": {
+     "Fn::GetAtt": [
+      "clouddeploymentserviceapigateway54653E76",
+      "RootResourceId"
+     ]
+    },
+    "RestApiId": {
+     "Ref": "clouddeploymentserviceapigateway54653E76"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-service-apigateway/Default/OPTIONS/Resource"
+   }
+  },
+  "clouddeploymentserviceapigatewayapi2C03417D": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Fn::GetAtt": [
+      "clouddeploymentserviceapigateway54653E76",
+      "RootResourceId"
+     ]
+    },
+    "PathPart": "api",
+    "RestApiId": {
+     "Ref": "clouddeploymentserviceapigateway54653E76"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-service-apigateway/Default/api/Resource"
+   }
+  },
+  "clouddeploymentserviceapigatewayapiOPTIONSF09FC307": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "ApiKeyRequired": false,
+    "AuthorizationType": "NONE",
+    "HttpMethod": "OPTIONS",
+    "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseParameters": {
+        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Api-Key,api-version,reapit-connect-token,reapit-customer'",
+        "method.response.header.Access-Control-Allow-Origin": "'*'",
+        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+       },
+       "StatusCode": "204"
+      }
+     ],
+     "RequestTemplates": {
+      "application/json": "{ statusCode: 200 }"
+     },
+     "Type": "MOCK"
+    },
+    "MethodResponses": [
+     {
+      "ResponseParameters": {
+       "method.response.header.Access-Control-Allow-Headers": true,
+       "method.response.header.Access-Control-Allow-Origin": true,
+       "method.response.header.Access-Control-Allow-Methods": true
+      },
+      "StatusCode": "204"
+     }
+    ],
+    "ResourceId": {
+     "Ref": "clouddeploymentserviceapigatewayapi2C03417D"
+    },
+    "RestApiId": {
+     "Ref": "clouddeploymentserviceapigateway54653E76"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-service-apigateway/Default/api/OPTIONS/Resource"
+   }
+  },
+  "clouddeploymentserviceapigatewayapiproxy021EE724": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Ref": "clouddeploymentserviceapigatewayapi2C03417D"
+    },
+    "PathPart": "{proxy+}",
+    "RestApiId": {
+     "Ref": "clouddeploymentserviceapigateway54653E76"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-service-apigateway/Default/api/{proxy+}/Resource"
+   }
+  },
+  "clouddeploymentserviceapigatewayapiproxyOPTIONSD48A55EA": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "ApiKeyRequired": false,
+    "AuthorizationType": "NONE",
+    "HttpMethod": "OPTIONS",
+    "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseParameters": {
+        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Api-Key,api-version,reapit-connect-token,reapit-customer'",
+        "method.response.header.Access-Control-Allow-Origin": "'*'",
+        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+       },
+       "StatusCode": "204"
+      }
+     ],
+     "RequestTemplates": {
+      "application/json": "{ statusCode: 200 }"
+     },
+     "Type": "MOCK"
+    },
+    "MethodResponses": [
+     {
+      "ResponseParameters": {
+       "method.response.header.Access-Control-Allow-Headers": true,
+       "method.response.header.Access-Control-Allow-Origin": true,
+       "method.response.header.Access-Control-Allow-Methods": true
+      },
+      "StatusCode": "204"
+     }
+    ],
+    "ResourceId": {
+     "Ref": "clouddeploymentserviceapigatewayapiproxy021EE724"
+    },
+    "RestApiId": {
+     "Ref": "clouddeploymentserviceapigateway54653E76"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-service-apigateway/Default/api/{proxy+}/OPTIONS/Resource"
+   }
+  },
+  "clouddeploymentserviceapigatewayapiproxyANYApiPermissionclouddeploymentserviceclouddeploymentserviceapigateway052F22E0ANYapiproxyB05ED120": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "httpApiC9FAD708",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:eu-west-2:028446965111:",
+       {
+        "Ref": "clouddeploymentserviceapigateway54653E76"
+       },
+       "/",
+       {
+        "Ref": "clouddeploymentserviceapigatewayDeploymentStageprod545A3914"
+       },
+       "/*/api/*"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-service-apigateway/Default/api/{proxy+}/ANY/ApiPermission.clouddeploymentserviceclouddeploymentserviceapigateway052F22E0.ANY..api.{proxy+}"
+   }
+  },
+  "clouddeploymentserviceapigatewayapiproxyANYApiPermissionTestclouddeploymentserviceclouddeploymentserviceapigateway052F22E0ANYapiproxyA78CA1AA": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "httpApiC9FAD708",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:eu-west-2:028446965111:",
+       {
+        "Ref": "clouddeploymentserviceapigateway54653E76"
+       },
+       "/test-invoke-stage/*/api/*"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-service-apigateway/Default/api/{proxy+}/ANY/ApiPermission.Test.clouddeploymentserviceclouddeploymentserviceapigateway052F22E0.ANY..api.{proxy+}"
+   }
+  },
+  "clouddeploymentserviceapigatewayapiproxyANY8776B1DD": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "AuthorizationType": "NONE",
+    "HttpMethod": "ANY",
+    "Integration": {
+     "IntegrationHttpMethod": "POST",
+     "Type": "AWS_PROXY",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":apigateway:eu-west-2:lambda:path/2015-03-31/functions/",
+        {
+         "Fn::GetAtt": [
+          "httpApiC9FAD708",
+          "Arn"
+         ]
+        },
+        "/invocations"
+       ]
+      ]
+     }
+    },
+    "ResourceId": {
+     "Ref": "clouddeploymentserviceapigatewayapiproxy021EE724"
+    },
+    "RestApiId": {
+     "Ref": "clouddeploymentserviceapigateway54653E76"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-service-apigateway/Default/api/{proxy+}/ANY/Resource"
+   }
+  },
+  "clouddeploymentserviceapigatewayproxy91191E4F": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Fn::GetAtt": [
+      "clouddeploymentserviceapigateway54653E76",
+      "RootResourceId"
+     ]
+    },
+    "PathPart": "{proxy+}",
+    "RestApiId": {
+     "Ref": "clouddeploymentserviceapigateway54653E76"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-service-apigateway/Default/{proxy+}/Resource"
+   }
+  },
+  "clouddeploymentserviceapigatewayproxyOPTIONS57AB08E9": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "ApiKeyRequired": false,
+    "AuthorizationType": "NONE",
+    "HttpMethod": "OPTIONS",
+    "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseParameters": {
+        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Api-Key,api-version,reapit-connect-token,reapit-customer'",
+        "method.response.header.Access-Control-Allow-Origin": "'*'",
+        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+       },
+       "StatusCode": "204"
+      }
+     ],
+     "RequestTemplates": {
+      "application/json": "{ statusCode: 200 }"
+     },
+     "Type": "MOCK"
+    },
+    "MethodResponses": [
+     {
+      "ResponseParameters": {
+       "method.response.header.Access-Control-Allow-Headers": true,
+       "method.response.header.Access-Control-Allow-Origin": true,
+       "method.response.header.Access-Control-Allow-Methods": true
+      },
+      "StatusCode": "204"
+     }
+    ],
+    "ResourceId": {
+     "Ref": "clouddeploymentserviceapigatewayproxy91191E4F"
+    },
+    "RestApiId": {
+     "Ref": "clouddeploymentserviceapigateway54653E76"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-service-apigateway/Default/{proxy+}/OPTIONS/Resource"
+   }
+  },
+  "clouddeploymentserviceapigatewayproxyANYApiPermissionclouddeploymentserviceclouddeploymentserviceapigateway052F22E0ANYproxy419AC0C9": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "httpD8F39B44",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:eu-west-2:028446965111:",
+       {
+        "Ref": "clouddeploymentserviceapigateway54653E76"
+       },
+       "/",
+       {
+        "Ref": "clouddeploymentserviceapigatewayDeploymentStageprod545A3914"
+       },
+       "/*/*"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-service-apigateway/Default/{proxy+}/ANY/ApiPermission.clouddeploymentserviceclouddeploymentserviceapigateway052F22E0.ANY..{proxy+}"
+   }
+  },
+  "clouddeploymentserviceapigatewayproxyANYApiPermissionTestclouddeploymentserviceclouddeploymentserviceapigateway052F22E0ANYproxyC53763A7": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "httpD8F39B44",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:eu-west-2:028446965111:",
+       {
+        "Ref": "clouddeploymentserviceapigateway54653E76"
+       },
+       "/test-invoke-stage/*/*"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-service-apigateway/Default/{proxy+}/ANY/ApiPermission.Test.clouddeploymentserviceclouddeploymentserviceapigateway052F22E0.ANY..{proxy+}"
+   }
+  },
+  "clouddeploymentserviceapigatewayproxyANY3CD8C9C9": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "AuthorizationType": "CUSTOM",
+    "AuthorizerId": {
+     "Ref": "deploymentserviceauthorizer2170F48F"
+    },
+    "HttpMethod": "ANY",
+    "Integration": {
+     "IntegrationHttpMethod": "POST",
+     "Type": "AWS_PROXY",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":apigateway:eu-west-2:lambda:path/2015-03-31/functions/",
+        {
+         "Fn::GetAtt": [
+          "httpD8F39B44",
+          "Arn"
+         ]
+        },
+        "/invocations"
+       ]
+      ]
+     }
+    },
+    "ResourceId": {
+     "Ref": "clouddeploymentserviceapigatewayproxy91191E4F"
+    },
+    "RestApiId": {
+     "Ref": "clouddeploymentserviceapigateway54653E76"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-service-apigateway/Default/{proxy+}/ANY/Resource"
+   }
+  },
+  "vpcA2121C38": {
+   "Type": "AWS::EC2::VPC",
+   "Properties": {
+    "CidrBlock": "10.0.0.0/16",
+    "EnableDnsHostnames": true,
+    "EnableDnsSupport": true,
+    "InstanceTenancy": "default",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "cloud-deployment-service/vpc"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/Resource"
+   }
+  },
+  "vpcPublicSubnet1Subnet2E65531E": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "eu-west-2a",
+    "CidrBlock": "10.0.0.0/18",
+    "MapPublicIpOnLaunch": true,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Public"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Public"
+     },
+     {
+      "Key": "Name",
+      "Value": "cloud-deployment-service/vpc/PublicSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "vpcA2121C38"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PublicSubnet1/Subnet"
+   }
+  },
+  "vpcPublicSubnet1RouteTable48A2DF9B": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "cloud-deployment-service/vpc/PublicSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "vpcA2121C38"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PublicSubnet1/RouteTable"
+   }
+  },
+  "vpcPublicSubnet1RouteTableAssociation5D3F4579": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "vpcPublicSubnet1RouteTable48A2DF9B"
+    },
+    "SubnetId": {
+     "Ref": "vpcPublicSubnet1Subnet2E65531E"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PublicSubnet1/RouteTableAssociation"
+   }
+  },
+  "vpcPublicSubnet1DefaultRoute10708846": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "vpcIGWE57CBDCA"
+    },
+    "RouteTableId": {
+     "Ref": "vpcPublicSubnet1RouteTable48A2DF9B"
+    }
+   },
+   "DependsOn": [
+    "vpcVPCGW7984C166"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PublicSubnet1/DefaultRoute"
+   }
+  },
+  "vpcPublicSubnet1EIPDA49DCBE": {
+   "Type": "AWS::EC2::EIP",
+   "Properties": {
+    "Domain": "vpc",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "cloud-deployment-service/vpc/PublicSubnet1"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PublicSubnet1/EIP"
+   }
+  },
+  "vpcPublicSubnet1NATGateway9C16659E": {
+   "Type": "AWS::EC2::NatGateway",
+   "Properties": {
+    "AllocationId": {
+     "Fn::GetAtt": [
+      "vpcPublicSubnet1EIPDA49DCBE",
+      "AllocationId"
+     ]
+    },
+    "SubnetId": {
+     "Ref": "vpcPublicSubnet1Subnet2E65531E"
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "cloud-deployment-service/vpc/PublicSubnet1"
+     }
+    ]
+   },
+   "DependsOn": [
+    "vpcPublicSubnet1DefaultRoute10708846",
+    "vpcPublicSubnet1RouteTableAssociation5D3F4579"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PublicSubnet1/NATGateway"
+   }
+  },
+  "vpcPublicSubnet2Subnet009B674F": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "eu-west-2b",
+    "CidrBlock": "10.0.64.0/18",
+    "MapPublicIpOnLaunch": true,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Public"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Public"
+     },
+     {
+      "Key": "Name",
+      "Value": "cloud-deployment-service/vpc/PublicSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "vpcA2121C38"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PublicSubnet2/Subnet"
+   }
+  },
+  "vpcPublicSubnet2RouteTableEB40D4CB": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "cloud-deployment-service/vpc/PublicSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "vpcA2121C38"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PublicSubnet2/RouteTable"
+   }
+  },
+  "vpcPublicSubnet2RouteTableAssociation21F81B59": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "vpcPublicSubnet2RouteTableEB40D4CB"
+    },
+    "SubnetId": {
+     "Ref": "vpcPublicSubnet2Subnet009B674F"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PublicSubnet2/RouteTableAssociation"
+   }
+  },
+  "vpcPublicSubnet2DefaultRouteA1EC0F60": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "vpcIGWE57CBDCA"
+    },
+    "RouteTableId": {
+     "Ref": "vpcPublicSubnet2RouteTableEB40D4CB"
+    }
+   },
+   "DependsOn": [
+    "vpcVPCGW7984C166"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PublicSubnet2/DefaultRoute"
+   }
+  },
+  "vpcPublicSubnet2EIP9B3743B1": {
+   "Type": "AWS::EC2::EIP",
+   "Properties": {
+    "Domain": "vpc",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "cloud-deployment-service/vpc/PublicSubnet2"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PublicSubnet2/EIP"
+   }
+  },
+  "vpcPublicSubnet2NATGateway9B8AE11A": {
+   "Type": "AWS::EC2::NatGateway",
+   "Properties": {
+    "AllocationId": {
+     "Fn::GetAtt": [
+      "vpcPublicSubnet2EIP9B3743B1",
+      "AllocationId"
+     ]
+    },
+    "SubnetId": {
+     "Ref": "vpcPublicSubnet2Subnet009B674F"
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "cloud-deployment-service/vpc/PublicSubnet2"
+     }
+    ]
+   },
+   "DependsOn": [
+    "vpcPublicSubnet2DefaultRouteA1EC0F60",
+    "vpcPublicSubnet2RouteTableAssociation21F81B59"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PublicSubnet2/NATGateway"
+   }
+  },
+  "vpcPrivateSubnet1Subnet934893E8": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "eu-west-2a",
+    "CidrBlock": "10.0.128.0/18",
+    "MapPublicIpOnLaunch": false,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Private"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Private"
+     },
+     {
+      "Key": "Name",
+      "Value": "cloud-deployment-service/vpc/PrivateSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "vpcA2121C38"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PrivateSubnet1/Subnet"
+   }
+  },
+  "vpcPrivateSubnet1RouteTableB41A48CC": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "cloud-deployment-service/vpc/PrivateSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "vpcA2121C38"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PrivateSubnet1/RouteTable"
+   }
+  },
+  "vpcPrivateSubnet1RouteTableAssociation67945127": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "vpcPrivateSubnet1RouteTableB41A48CC"
+    },
+    "SubnetId": {
+     "Ref": "vpcPrivateSubnet1Subnet934893E8"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PrivateSubnet1/RouteTableAssociation"
+   }
+  },
+  "vpcPrivateSubnet1DefaultRoute1AA8E2E5": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "NatGatewayId": {
+     "Ref": "vpcPublicSubnet1NATGateway9C16659E"
+    },
+    "RouteTableId": {
+     "Ref": "vpcPrivateSubnet1RouteTableB41A48CC"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PrivateSubnet1/DefaultRoute"
+   }
+  },
+  "vpcPrivateSubnet2Subnet7031C2BA": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "eu-west-2b",
+    "CidrBlock": "10.0.192.0/18",
+    "MapPublicIpOnLaunch": false,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Private"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Private"
+     },
+     {
+      "Key": "Name",
+      "Value": "cloud-deployment-service/vpc/PrivateSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "vpcA2121C38"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PrivateSubnet2/Subnet"
+   }
+  },
+  "vpcPrivateSubnet2RouteTable7280F23E": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "cloud-deployment-service/vpc/PrivateSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "vpcA2121C38"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PrivateSubnet2/RouteTable"
+   }
+  },
+  "vpcPrivateSubnet2RouteTableAssociation007E94D3": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "vpcPrivateSubnet2RouteTable7280F23E"
+    },
+    "SubnetId": {
+     "Ref": "vpcPrivateSubnet2Subnet7031C2BA"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PrivateSubnet2/RouteTableAssociation"
+   }
+  },
+  "vpcPrivateSubnet2DefaultRouteB0E07F99": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "NatGatewayId": {
+     "Ref": "vpcPublicSubnet2NATGateway9B8AE11A"
+    },
+    "RouteTableId": {
+     "Ref": "vpcPrivateSubnet2RouteTable7280F23E"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/PrivateSubnet2/DefaultRoute"
+   }
+  },
+  "vpcIGWE57CBDCA": {
+   "Type": "AWS::EC2::InternetGateway",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "cloud-deployment-service/vpc"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/IGW"
+   }
+  },
+  "vpcVPCGW7984C166": {
+   "Type": "AWS::EC2::VPCGatewayAttachment",
+   "Properties": {
+    "InternetGatewayId": {
+     "Ref": "vpcIGWE57CBDCA"
+    },
+    "VpcId": {
+     "Ref": "vpcA2121C38"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/vpc/VPCGW"
+   }
+  },
+  "CODEBUILDEXECUTOR9BCAC42F": {
+   "Type": "AWS::SQS::Queue",
+   "Properties": {
+    "VisibilityTimeout": 900
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/CODEBUILD_EXECUTOR/Resource"
+   }
+  },
+  "CODEBUILDVERSIONDEPLOY8D378B70": {
+   "Type": "AWS::SQS::Queue",
+   "Properties": {
+    "VisibilityTimeout": 900
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/CODEBUILD_VERSION_DEPLOY/Resource"
+   }
+  },
+  "PIPELINESETUP109B69A2": {
+   "Type": "AWS::SQS::Queue",
+   "Properties": {
+    "VisibilityTimeout": 900
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/PIPELINE_SETUP/Resource"
+   }
+  },
+  "PIPELINETEARDOWNSTART0605CD29": {
+   "Type": "AWS::SQS::Queue",
+   "Properties": {
+    "VisibilityTimeout": 900
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/PIPELINE_TEAR_DOWN_START/Resource"
+   }
+  },
+  "PIPELINETEARDOWN0F1ABD70": {
+   "Type": "AWS::SQS::Queue",
+   "Properties": {
+    "DelaySeconds": 300,
+    "VisibilityTimeout": 900
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/PIPELINE_TEAR_DOWN/Resource"
+   }
+  },
+  "APPEVENTS0D826B57": {
+   "Type": "AWS::SQS::Queue",
+   "Properties": {
+    "VisibilityTimeout": 30
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/APP_EVENTS/Resource"
+   }
+  },
+  "databaseSubnetsFA8AAF25": {
+   "Type": "AWS::RDS::DBSubnetGroup",
+   "Properties": {
+    "DBSubnetGroupDescription": "Subnets for database database",
+    "SubnetIds": [
+     {
+      "Ref": "vpcPrivateSubnet1Subnet934893E8"
+     },
+     {
+      "Ref": "vpcPrivateSubnet2Subnet7031C2BA"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/database/Subnets/Default"
+   }
+  },
+  "databaseSecurityGroup984F86C4": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "RDS security group",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "SecurityGroupIngress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "from 0.0.0.0/0:ALL PORTS",
+      "FromPort": 0,
+      "IpProtocol": "tcp",
+      "ToPort": 65535
+     }
+    ],
+    "VpcId": {
+     "Ref": "vpcA2121C38"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/database/SecurityGroup/Resource"
+   }
+  },
+  "databaseSecret87F1207C": {
+   "Type": "AWS::SecretsManager::Secret",
+   "Properties": {
+    "Description": {
+     "Fn::Join": [
+      "",
+      [
+       "Generated by the CDK for stack: ",
+       {
+        "Ref": "AWS::StackName"
+       }
+      ]
+     ]
+    },
+    "GenerateSecretString": {
+     "ExcludeCharacters": " %+~`#$&*()|[]{}:;<>?!'/@\"\\",
+     "GenerateStringKey": "password",
+     "PasswordLength": 30,
+     "SecretStringTemplate": "{\"username\":\"admin\"}"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/database/Secret/Resource"
+   }
+  },
+  "databaseSecretAttachment5618DFB3": {
+   "Type": "AWS::SecretsManager::SecretTargetAttachment",
+   "Properties": {
+    "SecretId": {
+     "Ref": "databaseSecret87F1207C"
+    },
+    "TargetId": {
+     "Ref": "databaseEBDE4557"
+    },
+    "TargetType": "AWS::RDS::DBCluster"
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/database/Secret/Attachment/Resource"
+   }
+  },
+  "databaseEBDE4557": {
+   "Type": "AWS::RDS::DBCluster",
+   "Properties": {
+    "CopyTagsToSnapshot": true,
+    "DBClusterParameterGroupName": "default.aurora-mysql8.0",
+    "DBSubnetGroupName": {
+     "Ref": "databaseSubnetsFA8AAF25"
+    },
+    "DatabaseName": "deployment_service",
+    "DeletionProtection": true,
+    "Engine": "aurora-mysql",
+    "EngineVersion": "8.0.mysql_aurora.3.05.2",
+    "MasterUserPassword": {
+     "Fn::Join": [
+      "",
+      [
+       "{{resolve:secretsmanager:",
+       {
+        "Ref": "databaseSecret87F1207C"
+       },
+       ":SecretString:password::}}"
+      ]
+     ]
+    },
+    "MasterUsername": {
+     "Fn::Join": [
+      "",
+      [
+       "{{resolve:secretsmanager:",
+       {
+        "Ref": "databaseSecret87F1207C"
+       },
+       ":SecretString:username::}}"
+      ]
+     ]
+    },
+    "ServerlessV2ScalingConfiguration": {
+     "MaxCapacity": 2,
+     "MinCapacity": 0.5
+    },
+    "VpcSecurityGroupIds": [
+     {
+      "Fn::GetAtt": [
+       "databaseSecurityGroup984F86C4",
+       "GroupId"
+      ]
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Snapshot",
+   "DeletionPolicy": "Snapshot",
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/database/Resource"
+   }
+  },
+  "databasewriter36AD03F8": {
+   "Type": "AWS::RDS::DBInstance",
+   "Properties": {
+    "DBClusterIdentifier": {
+     "Ref": "databaseEBDE4557"
+    },
+    "DBInstanceClass": "db.t3.medium",
+    "DBSubnetGroupName": {
+     "Ref": "databaseSubnetsFA8AAF25"
+    },
+    "Engine": "aurora-mysql"
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/database/writer"
+   }
+  },
+  "databasereader13EC1A47C": {
+   "Type": "AWS::RDS::DBInstance",
+   "Properties": {
+    "DBClusterIdentifier": {
+     "Ref": "databaseEBDE4557"
+    },
+    "DBInstanceClass": "db.serverless",
+    "DBSubnetGroupName": {
+     "Ref": "databaseSubnetsFA8AAF25"
+    },
+    "Engine": "aurora-mysql"
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/database/reader1"
+   }
+  },
+  "githubpem": {
+   "Type": "AWS::SecretsManager::Secret",
+   "Properties": {
+    "SecretString": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQD4wc7YhVSkjymw\nwUj/8IEnaWV/KDHvHq1sQE1baaasbM12aYEiTWELSudEq1c2tP526ri3KV1rMM0i\nEUhGwWM5rcV8iH1xkig9acnSxLSxqd/gqH1mShojsW8Ye88ZeQ1iSJWjNzjoiasF\nSv31DpvJ5D03qPk/iktDzwLfRe64uVZMSi5KKrv6ExM1vitCbGB9JyGWFITdisyZ\nFTgzzTXKP7UoLzfpIy1HLUCTK6SipbJux/xFoylf7r0Km4rEobbrJKnL4qyPeq3M\nZs+nqTeJ1W7aDHp4KjzUdgR0CyrYw38gryMoA/jrIhMc2slpSMj4/QyD6sS5Qp1z\nUK/S6E05AgMBAAECggEBAJWylBbKzfAl01HyT0ruYdrk21aVSs96p6SgYa0kPFBB\nPbgHr9WDuWXBUsGJVveuHgBUKorXEsfh22CoA9XIpTzdrR3PSaZh7WNf2TvEcnUE\nJJ0e6C/5YheevJuATlYm+f3ublaFcfLGfiu2QHQLsYbimlB3mF87iyWoWzMf85Qn\njN9nbx3b+QsDR/IAIZKANdemS994ao8BuFAmojPx7UbSXmhXxGqAFCIywre1jfN0\nRJeKjMA8RWNpDNpZptITt0rq4UsX7srv4cY2GJ/o5y3K25M4+CO+yY+rhiEfg6FB\n2sshpKRtTTMaLosEtXgz29yq+NWYt5zO7EMVnGgVkwECgYEA/y72+0U7wMpBcn8t\nqanxnRYPgx5vHJZP93yz/9rP9LvDzcwpTwDLfmWbdUoiVyyAO4QFybLwTBv+cWWR\nkjib/mIxkeelJulwbww3ALDeuhLWWR+Qr4oGqPcG3I3fPyAQC7/K1DMs7A6IoWyx\nspuvcZewrv+qDaCQgoVPXlu8JuECgYEA+Y2UOR5y/x0sq9zoErYtbUYn5SgBdolL\nNQ/sfvkLXuXC9AGBIx+72u1xOqYisPTAqjeInRlNnPKhC3IbZEfMTiLiJn11s+Xo\nTiw+bw8VYGm1g1k7N67TbJ4A1Dm2qWxr8fKCSEHX9HWT4jIq9+MLEgNwYXxFkAsA\nrcHFAb6c6VkCgYEAm4ECLxL8m7pk8aIAsJCIVSK5ZzynlzMeHgHXKsYrzcaSRpnw\nXl1spGTEvE/l51uN9Ta51DT/7FFu16l+cS2gGf+6l2AjKzg8NN+rsPcXcyrBhmQO\n5nnlHxgSDVtDPROL060XrAJXkK42orA7BU2MN1up5qqT9WPwTClyuVyLpuECgYEA\nwoLSB3tuUt7glMzIrt0Ep2nJato12bjFwAQ7Z/SiIkOgIySRDVmMyOXOHdKks5zy\nFzrV5u10C2Mql4tHQnCcFEMoVqvvdFs9KMFfoJz3IoECk/CXMZ24+a5mIwUhFQmH\nUbyeQ8felZKXw/UqfLChTlcT30hHyDBrRQQFlIiIMXECgYAn9oYKNer1Eq1EPY2v\nzrH1zP9Tis0zR+UQaqkp4GT4/YP3DnXI+dwo/xJFwXXbIxg4ePURnNu8VKYnLmHD\nZtuLI48e/TLqFcphzz81+9KXcLMUDPnzghPZVw/5js/y3yynzqWIhQZOrg1kqpVj\n/l+Geo4rmatCLSmJsgpr18zMBQ==\n-----END PRIVATE KEY-----"
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/githubpem"
+   }
+  },
+  "deploymentserviceauthorizerlambdaServiceRole2C18A9F9": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/deployment-service-authorizer-lambda/ServiceRole/Resource"
+   }
+  },
+  "deploymentserviceauthorizerlambda01C9302B": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-028446965111-eu-west-2",
+     "S3Key": "55a24d9ce08a9525d5d1ff6747ac55c83aa216a00648190864612e6de4de430f.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "ISSUERS": "https://connect.dev.paas.reapit.cloud/,https://auth0-pete.connect.dev.paas.reapit.cloud/,https://auth0-josh.connect.dev.paas.reapit.cloud,https://auth0-ashleigh.connect.dev.paas.reapit.cloud",
+      "CLIENT_ID": "zzYIhCv7oPTII3ShXt5Ium6p4QHuoMp1",
+      "CONNECT_USER_POOL": "eu-west-2_kiftR4qFc"
+     }
+    },
+    "Handler": "authorizer/index.handler",
+    "MemorySize": 512,
+    "Role": {
+     "Fn::GetAtt": [
+      "deploymentserviceauthorizerlambdaServiceRole2C18A9F9",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 30
+   },
+   "DependsOn": [
+    "deploymentserviceauthorizerlambdaServiceRole2C18A9F9"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/deployment-service-authorizer-lambda/Resource",
+    "aws:asset:path": "asset.55a24d9ce08a9525d5d1ff6747ac55c83aa216a00648190864612e6de4de430f",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "deploymentserviceauthorizerlambdaLogRetentionDB99AAC3": {
+   "Type": "Custom::LogRetention",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+      "Arn"
+     ]
+    },
+    "LogGroupName": {
+     "Fn::Join": [
+      "",
+      [
+       "/aws/lambda/",
+       {
+        "Ref": "deploymentserviceauthorizerlambda01C9302B"
+       }
+      ]
+     ]
+    },
+    "RetentionInDays": 30
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/deployment-service-authorizer-lambda/LogRetention/Resource"
+   }
+  },
+  "deploymentserviceauthorizerlambdaclouddeploymentservicedeploymentserviceauthorizerDDDB0238PermissionsC648B600": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "deploymentserviceauthorizerlambda01C9302B",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:eu-west-2:028446965111:",
+       {
+        "Ref": "clouddeploymentserviceapigateway54653E76"
+       },
+       "/authorizers/",
+       {
+        "Ref": "deploymentserviceauthorizer2170F48F"
+       }
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/deployment-service-authorizer-lambda/clouddeploymentservicedeploymentserviceauthorizerDDDB0238:Permissions"
+   }
+  },
+  "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource"
+   }
+  },
+  "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "logs:PutRetentionPolicy",
+        "logs:DeleteRetentionPolicy"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB",
+    "Roles": [
+     {
+      "Ref": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Handler": "index.handler",
+    "Runtime": "nodejs18.x",
+    "Timeout": 900,
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-028446965111-eu-west-2",
+     "S3Key": "4e26bf2d0a26f2097fb2b261f22bb51e3f6b4b52635777b1e54edbd8e2d58c35.zip"
+    },
+    "Role": {
+     "Fn::GetAtt": [
+      "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB",
+      "Arn"
+     ]
+    }
+   },
+   "DependsOn": [
+    "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB",
+    "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource",
+    "aws:asset:path": "asset.4e26bf2d0a26f2097fb2b261f22bb51e3f6b4b52635777b1e54edbd8e2d58c35",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "deploymentserviceauthorizer2170F48F": {
+   "Type": "AWS::ApiGateway::Authorizer",
+   "Properties": {
+    "AuthorizerResultTtlInSeconds": 0,
+    "AuthorizerUri": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Fn::Select": [
+         1,
+         {
+          "Fn::Split": [
+           ":",
+           {
+            "Fn::GetAtt": [
+             "deploymentserviceauthorizerlambda01C9302B",
+             "Arn"
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       ":apigateway:",
+       {
+        "Fn::Select": [
+         3,
+         {
+          "Fn::Split": [
+           ":",
+           {
+            "Fn::GetAtt": [
+             "deploymentserviceauthorizerlambda01C9302B",
+             "Arn"
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       ":lambda:path/2015-03-31/functions/",
+       {
+        "Fn::GetAtt": [
+         "deploymentserviceauthorizerlambda01C9302B",
+         "Arn"
+        ]
+       },
+       "/invocations"
+      ]
+     ]
+    },
+    "IdentitySource": "method.request.header.authorization",
+    "Name": "clouddeploymentservicedeploymentserviceauthorizerDDDB0238",
+    "RestApiId": {
+     "Ref": "clouddeploymentserviceapigateway54653E76"
+    },
+    "Type": "REQUEST"
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/deployment-service-authorizer/Resource"
+   }
+  },
+  "sqsServiceRole07D53907": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/sqs/ServiceRole/Resource"
+   }
+  },
+  "sqsServiceRoleDefaultPolicy6C36BFC1": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": "arn:aws:lambda:eu-west-2:028446965111:function:cloud-api-key-service-apikeyinvokeBF3C3C3B-KafJCo7GSyYA"
+      },
+      {
+       "Action": [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "databaseSecretAttachment5618DFB3"
+       }
+      },
+      {
+       "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:ListBucket",
+        "s3:PutObjectAcl",
+        "s3:GetBucketAcl",
+        "s3:GetObjectAcl",
+        "s3:GetBucketLocation",
+        "s3:GetObjectRetention",
+        "s3:GetObjectVersionAcl",
+        "s3:DeleteObject",
+        "s3:DeleteObjectVersion"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-live-dev"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-log-dev"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-repo-cache-dev"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-version-dev"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "sqs:GetQueueAttributes",
+        "sqs:SendMessage",
+        "sqs:DeleteMessage"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CODEBUILDEXECUTOR9BCAC42F",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "CODEBUILDVERSIONDEPLOY8D378B70",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "PIPELINESETUP109B69A2",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "PIPELINETEARDOWNSTART0605CD29",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "PIPELINETEARDOWN0F1ABD70",
+          "Arn"
+         ]
+        },
+        "arn:aws:sqs:eu-west-2:028446965111:Platform_Marketplace_AppModifications"
+       ]
+      },
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Resource": "arn:aws:iam::727646485319:role/cloud-deployment-usercode-dev-UsercodeStackRole"
+      },
+      {
+       "Action": "secretsmanager:GetSecretValue",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "githubpem"
+       }
+      },
+      {
+       "Action": [
+        "cloudfront:CreateDistribution",
+        "cloudfront:DeleteDistribution",
+        "cloudfront:GetDistribution",
+        "cloudfront:UpdateDistribution",
+        "cloudfront:CreateInvalidation"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "route53:GetHostedZone",
+        "route53:ChangeResourceRecordSets",
+        "route53:GetChange",
+        "route53:ListResourceRecordSets"
+       ],
+       "Effect": "Allow",
+       "Resource": "arn:aws:route53:::hostedzone/Z0848069B8MAW5QKQS6H"
+      },
+      {
+       "Action": "cloudfront:ListOriginAccessControls",
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "sqs:ReceiveMessage",
+        "sqs:ChangeMessageVisibility",
+        "sqs:GetQueueUrl",
+        "sqs:DeleteMessage",
+        "sqs:GetQueueAttributes"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "CODEBUILDEXECUTOR9BCAC42F",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": [
+        "sqs:ReceiveMessage",
+        "sqs:ChangeMessageVisibility",
+        "sqs:GetQueueUrl",
+        "sqs:DeleteMessage",
+        "sqs:GetQueueAttributes"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "CODEBUILDVERSIONDEPLOY8D378B70",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": [
+        "sqs:ReceiveMessage",
+        "sqs:ChangeMessageVisibility",
+        "sqs:GetQueueUrl",
+        "sqs:DeleteMessage",
+        "sqs:GetQueueAttributes"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "PIPELINESETUP109B69A2",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": [
+        "sqs:ReceiveMessage",
+        "sqs:ChangeMessageVisibility",
+        "sqs:GetQueueUrl",
+        "sqs:DeleteMessage",
+        "sqs:GetQueueAttributes"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "PIPELINETEARDOWNSTART0605CD29",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": [
+        "sqs:ReceiveMessage",
+        "sqs:ChangeMessageVisibility",
+        "sqs:GetQueueUrl",
+        "sqs:DeleteMessage",
+        "sqs:GetQueueAttributes"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "PIPELINETEARDOWN0F1ABD70",
+         "Arn"
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "sqsServiceRoleDefaultPolicy6C36BFC1",
+    "Roles": [
+     {
+      "Ref": "sqsServiceRole07D53907"
+     }
+    ]
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/sqs/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "sqsSecurityGroup50E956DB": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Automatic security group for Lambda Function clouddeploymentservicesqsCFA5EFAD",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "vpcA2121C38"
+    }
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/sqs/SecurityGroup/Resource"
+   }
+  },
+  "sqs1386CA46": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-028446965111-eu-west-2",
+     "S3Key": "9489332db720acd31bbee75aeeda033a6034913dc5d65cc7e2da944ba18eed9c.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "CONNECT_USER_POOL": "eu-west-2_kiftR4qFc",
+      "AWS_ACCOUNT_ID": "028446965111",
+      "SENTRY_DSN": "",
+      "DATABASE": "dev",
+      "SUB_NET": "subnet-0a3663de6a5ddd252",
+      "SECURITY_GROUP": "sg-2f16d249",
+      "SQS_ENDPOINT": "https://sqs.eu-west-2.amazonaws.com",
+      "PUSHER_APPID": "1426484",
+      "PUSHER_KEY": "c48c04b607a9201f6054",
+      "PUSHER_SECRET": "a40c239e57742634f02a",
+      "HOSTED_ZONE_ID": "Z0848069B8MAW5QKQS6H",
+      "CERT_ARN": "arn:aws:acm:us-east-1:727646485319:certificate/f8914c81-9df0-417f-a95b-ae0a6a346454",
+      "GITHUB_APP_ID": "199243",
+      "GITHUB_SECRET": "TcqroV1HjjrY5hrZ7inrmzy9gQqWM35D",
+      "BITBUCKET_SHARED_SECRET": "ZqrKVUEq16plC2INtldk8aT0OIbtUY44ReIqlWEqiZM",
+      "USERCODE_ACCOUNT_ID": "727646485319",
+      "ROOT_DOMAIN": "dev.paas.reapit.cloud",
+      "IAAS_DOMAIN": "iaas.paas.reapit.cloud",
+      "COGNITO_CLIENT_ID": "zzYIhCv7oPTII3ShXt5Ium6p4QHuoMp1",
+      "TEMPORARY_CLUSTER_ID": "temp-cdk-cluster-tempdatabaseclustere514837f-huhoiipvabc9",
+      "VPC_ID": "vpc-038f8cfc83c1f7fcf",
+      "DATABASE_SECRET_ARN": {
+       "Ref": "databaseSecretAttachment5618DFB3"
+      },
+      "MYSQL_DATABASE": "deployment_service",
+      "DEPLOYMENT_LIVE_BUCKET_NAME": "v2-cloud-deployment-live-dev",
+      "DEPLOYMENT_VERSION_BUCKET_NAME": "v2-cloud-deployment-version-dev",
+      "DEPLOYMENT_LOG_BUCKET_NAME": "v2-cloud-deployment-log-dev",
+      "DEPLOYMENT_REPO_CACHE_BUCKET_NAME": "v2-cloud-deployment-repo-cache-dev",
+      "REGION": "eu-west-2",
+      "CODE_BUILD_PROJECT_NAME": "cloud-deployment-usercodeedevcodebuilddeve392e6a95eacb8ae1c93",
+      "USERCODE_ROLE_ARN": "arn:aws:iam::727646485319:role/cloud-deployment-usercode-dev-UsercodeStackRole",
+      "GITHUB_PEM_SECRET_ARN": {
+       "Ref": "githubpem"
+      },
+      "NODE_ENV": "development",
+      "CODEBUILD_EXECUTOR_URL": {
+       "Ref": "CODEBUILDEXECUTOR9BCAC42F"
+      },
+      "CODEBUILD_EXECUTOR_ARN": {
+       "Fn::GetAtt": [
+        "CODEBUILDEXECUTOR9BCAC42F",
+        "Arn"
+       ]
+      },
+      "CODEBUILD_VERSION_DEPLOY_URL": {
+       "Ref": "CODEBUILDVERSIONDEPLOY8D378B70"
+      },
+      "CODEBUILD_VERSION_DEPLOY_ARN": {
+       "Fn::GetAtt": [
+        "CODEBUILDVERSIONDEPLOY8D378B70",
+        "Arn"
+       ]
+      },
+      "PIPELINE_SETUP_URL": {
+       "Ref": "PIPELINESETUP109B69A2"
+      },
+      "PIPELINE_SETUP_ARN": {
+       "Fn::GetAtt": [
+        "PIPELINESETUP109B69A2",
+        "Arn"
+       ]
+      },
+      "PIPELINE_TEAR_DOWN_START_URL": {
+       "Ref": "PIPELINETEARDOWNSTART0605CD29"
+      },
+      "PIPELINE_TEAR_DOWN_START_ARN": {
+       "Fn::GetAtt": [
+        "PIPELINETEARDOWNSTART0605CD29",
+        "Arn"
+       ]
+      },
+      "PIPELINE_TEAR_DOWN_URL": {
+       "Ref": "PIPELINETEARDOWN0F1ABD70"
+      },
+      "PIPELINE_TEAR_DOWN_ARN": {
+       "Fn::GetAtt": [
+        "PIPELINETEARDOWN0F1ABD70",
+        "Arn"
+       ]
+      },
+      "APP_EVENTS_URL": {
+       "Fn::Join": [
+        "",
+        [
+         "https://sqs.eu-west-2.",
+         {
+          "Ref": "AWS::URLSuffix"
+         },
+         "/028446965111/Platform_Marketplace_AppModifications"
+        ]
+       ]
+      },
+      "APP_EVENTS_ARN": "arn:aws:sqs:eu-west-2:028446965111:Platform_Marketplace_AppModifications",
+      "CODEBUILD_PIPELINE_UPDATE_TOPIC_ARN": {
+       "Fn::Join": [
+        "",
+        [
+         "arn:",
+         {
+          "Ref": "AWS::Partition"
+         },
+         ":sns:eu-west-2:727646485319:cloud-deployment-usercodebuildsnstopicdevea93c2f5a2ee4c1b5c39"
+        ]
+       ]
+      }
+     }
+    },
+    "Handler": "packages/deployment-service/dist/sqs.handle",
+    "MemorySize": 2048,
+    "Role": {
+     "Fn::GetAtt": [
+      "sqsServiceRole07D53907",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 900,
+    "VpcConfig": {
+     "SecurityGroupIds": [
+      {
+       "Fn::GetAtt": [
+        "sqsSecurityGroup50E956DB",
+        "GroupId"
+       ]
+      }
+     ],
+     "SubnetIds": [
+      {
+       "Ref": "vpcPrivateSubnet1Subnet934893E8"
+      },
+      {
+       "Ref": "vpcPrivateSubnet2Subnet7031C2BA"
+      }
+     ]
+    }
+   },
+   "DependsOn": [
+    "sqsServiceRoleDefaultPolicy6C36BFC1",
+    "sqsServiceRole07D53907",
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/sqs/Resource",
+    "aws:asset:path": "asset.9489332db720acd31bbee75aeeda033a6034913dc5d65cc7e2da944ba18eed9c.zip",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "sqsLogRetention4D943857": {
+   "Type": "Custom::LogRetention",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+      "Arn"
+     ]
+    },
+    "LogGroupName": {
+     "Fn::Join": [
+      "",
+      [
+       "/aws/lambda/",
+       {
+        "Ref": "sqs1386CA46"
+       }
+      ]
+     ]
+    },
+    "RetentionInDays": 30
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/sqs/LogRetention/Resource"
+   }
+  },
+  "sqsSqsEventSourceclouddeploymentserviceCODEBUILDEXECUTOR4B17B093ECB66449": {
+   "Type": "AWS::Lambda::EventSourceMapping",
+   "Properties": {
+    "EventSourceArn": {
+     "Fn::GetAtt": [
+      "CODEBUILDEXECUTOR9BCAC42F",
+      "Arn"
+     ]
+    },
+    "FunctionName": {
+     "Ref": "sqs1386CA46"
+    }
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/sqs/SqsEventSource:clouddeploymentserviceCODEBUILDEXECUTOR4B17B093/Resource"
+   }
+  },
+  "sqsSqsEventSourceclouddeploymentserviceCODEBUILDVERSIONDEPLOY24DE60B8DD3754FB": {
+   "Type": "AWS::Lambda::EventSourceMapping",
+   "Properties": {
+    "EventSourceArn": {
+     "Fn::GetAtt": [
+      "CODEBUILDVERSIONDEPLOY8D378B70",
+      "Arn"
+     ]
+    },
+    "FunctionName": {
+     "Ref": "sqs1386CA46"
+    }
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/sqs/SqsEventSource:clouddeploymentserviceCODEBUILDVERSIONDEPLOY24DE60B8/Resource"
+   }
+  },
+  "sqsSqsEventSourceclouddeploymentservicePIPELINESETUPF8F1B9931FFEF83E": {
+   "Type": "AWS::Lambda::EventSourceMapping",
+   "Properties": {
+    "EventSourceArn": {
+     "Fn::GetAtt": [
+      "PIPELINESETUP109B69A2",
+      "Arn"
+     ]
+    },
+    "FunctionName": {
+     "Ref": "sqs1386CA46"
+    }
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/sqs/SqsEventSource:clouddeploymentservicePIPELINESETUPF8F1B993/Resource"
+   }
+  },
+  "sqsSqsEventSourceclouddeploymentservicePIPELINETEARDOWNSTART60F6B1BFB715E48F": {
+   "Type": "AWS::Lambda::EventSourceMapping",
+   "Properties": {
+    "EventSourceArn": {
+     "Fn::GetAtt": [
+      "PIPELINETEARDOWNSTART0605CD29",
+      "Arn"
+     ]
+    },
+    "FunctionName": {
+     "Ref": "sqs1386CA46"
+    }
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/sqs/SqsEventSource:clouddeploymentservicePIPELINETEARDOWNSTART60F6B1BF/Resource"
+   }
+  },
+  "sqsSqsEventSourceclouddeploymentservicePIPELINETEARDOWNB12FC841FD75CA72": {
+   "Type": "AWS::Lambda::EventSourceMapping",
+   "Properties": {
+    "EventSourceArn": {
+     "Fn::GetAtt": [
+      "PIPELINETEARDOWN0F1ABD70",
+      "Arn"
+     ]
+    },
+    "FunctionName": {
+     "Ref": "sqs1386CA46"
+    }
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/sqs/SqsEventSource:clouddeploymentservicePIPELINETEARDOWNB12FC841/Resource"
+   }
+  },
+  "appEventsServiceRole1D0639E0": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/appEvents/ServiceRole/Resource"
+   }
+  },
+  "appEventsServiceRoleDefaultPolicy8F8F9E18": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": "arn:aws:lambda:eu-west-2:028446965111:function:cloud-api-key-service-apikeyinvokeBF3C3C3B-KafJCo7GSyYA"
+      },
+      {
+       "Action": [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "databaseSecretAttachment5618DFB3"
+       }
+      },
+      {
+       "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:ListBucket",
+        "s3:PutObjectAcl",
+        "s3:GetBucketAcl",
+        "s3:GetObjectAcl",
+        "s3:GetBucketLocation",
+        "s3:GetObjectRetention",
+        "s3:GetObjectVersionAcl",
+        "s3:DeleteObject",
+        "s3:DeleteObjectVersion"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-live-dev"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-log-dev"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-repo-cache-dev"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-version-dev"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "sqs:GetQueueAttributes",
+        "sqs:SendMessage",
+        "sqs:DeleteMessage"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CODEBUILDEXECUTOR9BCAC42F",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "CODEBUILDVERSIONDEPLOY8D378B70",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "PIPELINESETUP109B69A2",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "PIPELINETEARDOWNSTART0605CD29",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "PIPELINETEARDOWN0F1ABD70",
+          "Arn"
+         ]
+        },
+        "arn:aws:sqs:eu-west-2:028446965111:Platform_Marketplace_AppModifications"
+       ]
+      },
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Resource": "arn:aws:iam::727646485319:role/cloud-deployment-usercode-dev-UsercodeStackRole"
+      },
+      {
+       "Action": "secretsmanager:GetSecretValue",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "githubpem"
+       }
+      },
+      {
+       "Action": [
+        "cloudfront:CreateDistribution",
+        "cloudfront:DeleteDistribution",
+        "cloudfront:GetDistribution",
+        "cloudfront:UpdateDistribution",
+        "cloudfront:CreateInvalidation"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "route53:GetHostedZone",
+        "route53:ChangeResourceRecordSets",
+        "route53:GetChange",
+        "route53:ListResourceRecordSets"
+       ],
+       "Effect": "Allow",
+       "Resource": "arn:aws:route53:::hostedzone/Z0848069B8MAW5QKQS6H"
+      },
+      {
+       "Action": [
+        "sqs:ReceiveMessage",
+        "sqs:ChangeMessageVisibility",
+        "sqs:GetQueueUrl",
+        "sqs:DeleteMessage",
+        "sqs:GetQueueAttributes"
+       ],
+       "Effect": "Allow",
+       "Resource": "arn:aws:sqs:eu-west-2:028446965111:Platform_Marketplace_AppModifications"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "appEventsServiceRoleDefaultPolicy8F8F9E18",
+    "Roles": [
+     {
+      "Ref": "appEventsServiceRole1D0639E0"
+     }
+    ]
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/appEvents/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "appEventsSecurityGroup011FB49D": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Automatic security group for Lambda Function clouddeploymentserviceappEventsAD933B61",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "vpcA2121C38"
+    }
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/appEvents/SecurityGroup/Resource"
+   }
+  },
+  "appEventsB07C8627": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-028446965111-eu-west-2",
+     "S3Key": "9489332db720acd31bbee75aeeda033a6034913dc5d65cc7e2da944ba18eed9c.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "CONNECT_USER_POOL": "eu-west-2_kiftR4qFc",
+      "AWS_ACCOUNT_ID": "028446965111",
+      "SENTRY_DSN": "",
+      "DATABASE": "dev",
+      "SUB_NET": "subnet-0a3663de6a5ddd252",
+      "SECURITY_GROUP": "sg-2f16d249",
+      "SQS_ENDPOINT": "https://sqs.eu-west-2.amazonaws.com",
+      "PUSHER_APPID": "1426484",
+      "PUSHER_KEY": "c48c04b607a9201f6054",
+      "PUSHER_SECRET": "a40c239e57742634f02a",
+      "HOSTED_ZONE_ID": "Z0848069B8MAW5QKQS6H",
+      "CERT_ARN": "arn:aws:acm:us-east-1:727646485319:certificate/f8914c81-9df0-417f-a95b-ae0a6a346454",
+      "GITHUB_APP_ID": "199243",
+      "GITHUB_SECRET": "TcqroV1HjjrY5hrZ7inrmzy9gQqWM35D",
+      "BITBUCKET_SHARED_SECRET": "ZqrKVUEq16plC2INtldk8aT0OIbtUY44ReIqlWEqiZM",
+      "USERCODE_ACCOUNT_ID": "727646485319",
+      "ROOT_DOMAIN": "dev.paas.reapit.cloud",
+      "IAAS_DOMAIN": "iaas.paas.reapit.cloud",
+      "COGNITO_CLIENT_ID": "zzYIhCv7oPTII3ShXt5Ium6p4QHuoMp1",
+      "TEMPORARY_CLUSTER_ID": "temp-cdk-cluster-tempdatabaseclustere514837f-huhoiipvabc9",
+      "VPC_ID": "vpc-038f8cfc83c1f7fcf",
+      "DATABASE_SECRET_ARN": {
+       "Ref": "databaseSecretAttachment5618DFB3"
+      },
+      "MYSQL_DATABASE": "deployment_service",
+      "DEPLOYMENT_LIVE_BUCKET_NAME": "v2-cloud-deployment-live-dev",
+      "DEPLOYMENT_VERSION_BUCKET_NAME": "v2-cloud-deployment-version-dev",
+      "DEPLOYMENT_LOG_BUCKET_NAME": "v2-cloud-deployment-log-dev",
+      "DEPLOYMENT_REPO_CACHE_BUCKET_NAME": "v2-cloud-deployment-repo-cache-dev",
+      "REGION": "eu-west-2",
+      "CODE_BUILD_PROJECT_NAME": "cloud-deployment-usercodeedevcodebuilddeve392e6a95eacb8ae1c93",
+      "USERCODE_ROLE_ARN": "arn:aws:iam::727646485319:role/cloud-deployment-usercode-dev-UsercodeStackRole",
+      "GITHUB_PEM_SECRET_ARN": {
+       "Ref": "githubpem"
+      },
+      "NODE_ENV": "development",
+      "CODEBUILD_EXECUTOR_URL": {
+       "Ref": "CODEBUILDEXECUTOR9BCAC42F"
+      },
+      "CODEBUILD_EXECUTOR_ARN": {
+       "Fn::GetAtt": [
+        "CODEBUILDEXECUTOR9BCAC42F",
+        "Arn"
+       ]
+      },
+      "CODEBUILD_VERSION_DEPLOY_URL": {
+       "Ref": "CODEBUILDVERSIONDEPLOY8D378B70"
+      },
+      "CODEBUILD_VERSION_DEPLOY_ARN": {
+       "Fn::GetAtt": [
+        "CODEBUILDVERSIONDEPLOY8D378B70",
+        "Arn"
+       ]
+      },
+      "PIPELINE_SETUP_URL": {
+       "Ref": "PIPELINESETUP109B69A2"
+      },
+      "PIPELINE_SETUP_ARN": {
+       "Fn::GetAtt": [
+        "PIPELINESETUP109B69A2",
+        "Arn"
+       ]
+      },
+      "PIPELINE_TEAR_DOWN_START_URL": {
+       "Ref": "PIPELINETEARDOWNSTART0605CD29"
+      },
+      "PIPELINE_TEAR_DOWN_START_ARN": {
+       "Fn::GetAtt": [
+        "PIPELINETEARDOWNSTART0605CD29",
+        "Arn"
+       ]
+      },
+      "PIPELINE_TEAR_DOWN_URL": {
+       "Ref": "PIPELINETEARDOWN0F1ABD70"
+      },
+      "PIPELINE_TEAR_DOWN_ARN": {
+       "Fn::GetAtt": [
+        "PIPELINETEARDOWN0F1ABD70",
+        "Arn"
+       ]
+      },
+      "APP_EVENTS_URL": {
+       "Fn::Join": [
+        "",
+        [
+         "https://sqs.eu-west-2.",
+         {
+          "Ref": "AWS::URLSuffix"
+         },
+         "/028446965111/Platform_Marketplace_AppModifications"
+        ]
+       ]
+      },
+      "APP_EVENTS_ARN": "arn:aws:sqs:eu-west-2:028446965111:Platform_Marketplace_AppModifications",
+      "CODEBUILD_PIPELINE_UPDATE_TOPIC_ARN": {
+       "Fn::Join": [
+        "",
+        [
+         "arn:",
+         {
+          "Ref": "AWS::Partition"
+         },
+         ":sns:eu-west-2:727646485319:cloud-deployment-usercodebuildsnstopicdevea93c2f5a2ee4c1b5c39"
+        ]
+       ]
+      }
+     }
+    },
+    "Handler": "packages/deployment-service/dist/sqs.handle",
+    "MemorySize": 1024,
+    "Role": {
+     "Fn::GetAtt": [
+      "appEventsServiceRole1D0639E0",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 30,
+    "VpcConfig": {
+     "SecurityGroupIds": [
+      {
+       "Fn::GetAtt": [
+        "appEventsSecurityGroup011FB49D",
+        "GroupId"
+       ]
+      }
+     ],
+     "SubnetIds": [
+      {
+       "Ref": "vpcPrivateSubnet1Subnet934893E8"
+      },
+      {
+       "Ref": "vpcPrivateSubnet2Subnet7031C2BA"
+      }
+     ]
+    }
+   },
+   "DependsOn": [
+    "appEventsServiceRoleDefaultPolicy8F8F9E18",
+    "appEventsServiceRole1D0639E0",
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/appEvents/Resource",
+    "aws:asset:path": "asset.9489332db720acd31bbee75aeeda033a6034913dc5d65cc7e2da944ba18eed9c.zip",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "appEventsLogRetention2810376D": {
+   "Type": "Custom::LogRetention",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+      "Arn"
+     ]
+    },
+    "LogGroupName": {
+     "Fn::Join": [
+      "",
+      [
+       "/aws/lambda/",
+       {
+        "Ref": "appEventsB07C8627"
+       }
+      ]
+     ]
+    },
+    "RetentionInDays": 30
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/appEvents/LogRetention/Resource"
+   }
+  },
+  "appEventsSqsEventSourceclouddeploymentserviceappevents84D97F8AEDA737ED": {
+   "Type": "AWS::Lambda::EventSourceMapping",
+   "Properties": {
+    "EventSourceArn": "arn:aws:sqs:eu-west-2:028446965111:Platform_Marketplace_AppModifications",
+    "FunctionName": {
+     "Ref": "appEventsB07C8627"
+    }
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/appEvents/SqsEventSource:clouddeploymentserviceappevents84D97F8A/Resource"
+   }
+  },
+  "snsServiceRole3FC529EB": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/sns/ServiceRole/Resource"
+   }
+  },
+  "snsServiceRoleDefaultPolicy369F17E6": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": "arn:aws:lambda:eu-west-2:028446965111:function:cloud-api-key-service-apikeyinvokeBF3C3C3B-KafJCo7GSyYA"
+      },
+      {
+       "Action": [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "databaseSecretAttachment5618DFB3"
+       }
+      },
+      {
+       "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:ListBucket",
+        "s3:PutObjectAcl",
+        "s3:GetBucketAcl",
+        "s3:GetObjectAcl",
+        "s3:GetBucketLocation",
+        "s3:GetObjectRetention",
+        "s3:GetObjectVersionAcl",
+        "s3:DeleteObject",
+        "s3:DeleteObjectVersion"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-live-dev"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-log-dev"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-repo-cache-dev"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-version-dev"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "sqs:GetQueueAttributes",
+        "sqs:SendMessage",
+        "sqs:DeleteMessage"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CODEBUILDEXECUTOR9BCAC42F",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "CODEBUILDVERSIONDEPLOY8D378B70",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "PIPELINESETUP109B69A2",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "PIPELINETEARDOWNSTART0605CD29",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "PIPELINETEARDOWN0F1ABD70",
+          "Arn"
+         ]
+        },
+        "arn:aws:sqs:eu-west-2:028446965111:Platform_Marketplace_AppModifications"
+       ]
+      },
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Resource": "arn:aws:iam::727646485319:role/cloud-deployment-usercode-dev-UsercodeStackRole"
+      },
+      {
+       "Action": "secretsmanager:GetSecretValue",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "githubpem"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "snsServiceRoleDefaultPolicy369F17E6",
+    "Roles": [
+     {
+      "Ref": "snsServiceRole3FC529EB"
+     }
+    ]
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/sns/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "snsSecurityGroup87FA42DC": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Automatic security group for Lambda Function clouddeploymentservicesns2219BBBD",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "vpcA2121C38"
+    }
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/sns/SecurityGroup/Resource"
+   }
+  },
+  "sns78FA588D": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-028446965111-eu-west-2",
+     "S3Key": "9489332db720acd31bbee75aeeda033a6034913dc5d65cc7e2da944ba18eed9c.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "CONNECT_USER_POOL": "eu-west-2_kiftR4qFc",
+      "AWS_ACCOUNT_ID": "028446965111",
+      "SENTRY_DSN": "",
+      "DATABASE": "dev",
+      "SUB_NET": "subnet-0a3663de6a5ddd252",
+      "SECURITY_GROUP": "sg-2f16d249",
+      "SQS_ENDPOINT": "https://sqs.eu-west-2.amazonaws.com",
+      "PUSHER_APPID": "1426484",
+      "PUSHER_KEY": "c48c04b607a9201f6054",
+      "PUSHER_SECRET": "a40c239e57742634f02a",
+      "HOSTED_ZONE_ID": "Z0848069B8MAW5QKQS6H",
+      "CERT_ARN": "arn:aws:acm:us-east-1:727646485319:certificate/f8914c81-9df0-417f-a95b-ae0a6a346454",
+      "GITHUB_APP_ID": "199243",
+      "GITHUB_SECRET": "TcqroV1HjjrY5hrZ7inrmzy9gQqWM35D",
+      "BITBUCKET_SHARED_SECRET": "ZqrKVUEq16plC2INtldk8aT0OIbtUY44ReIqlWEqiZM",
+      "USERCODE_ACCOUNT_ID": "727646485319",
+      "ROOT_DOMAIN": "dev.paas.reapit.cloud",
+      "IAAS_DOMAIN": "iaas.paas.reapit.cloud",
+      "COGNITO_CLIENT_ID": "zzYIhCv7oPTII3ShXt5Ium6p4QHuoMp1",
+      "TEMPORARY_CLUSTER_ID": "temp-cdk-cluster-tempdatabaseclustere514837f-huhoiipvabc9",
+      "VPC_ID": "vpc-038f8cfc83c1f7fcf",
+      "DATABASE_SECRET_ARN": {
+       "Ref": "databaseSecretAttachment5618DFB3"
+      },
+      "MYSQL_DATABASE": "deployment_service",
+      "DEPLOYMENT_LIVE_BUCKET_NAME": "v2-cloud-deployment-live-dev",
+      "DEPLOYMENT_VERSION_BUCKET_NAME": "v2-cloud-deployment-version-dev",
+      "DEPLOYMENT_LOG_BUCKET_NAME": "v2-cloud-deployment-log-dev",
+      "DEPLOYMENT_REPO_CACHE_BUCKET_NAME": "v2-cloud-deployment-repo-cache-dev",
+      "REGION": "eu-west-2",
+      "CODE_BUILD_PROJECT_NAME": "cloud-deployment-usercodeedevcodebuilddeve392e6a95eacb8ae1c93",
+      "USERCODE_ROLE_ARN": "arn:aws:iam::727646485319:role/cloud-deployment-usercode-dev-UsercodeStackRole",
+      "GITHUB_PEM_SECRET_ARN": {
+       "Ref": "githubpem"
+      },
+      "NODE_ENV": "development",
+      "CODEBUILD_EXECUTOR_URL": {
+       "Ref": "CODEBUILDEXECUTOR9BCAC42F"
+      },
+      "CODEBUILD_EXECUTOR_ARN": {
+       "Fn::GetAtt": [
+        "CODEBUILDEXECUTOR9BCAC42F",
+        "Arn"
+       ]
+      },
+      "CODEBUILD_VERSION_DEPLOY_URL": {
+       "Ref": "CODEBUILDVERSIONDEPLOY8D378B70"
+      },
+      "CODEBUILD_VERSION_DEPLOY_ARN": {
+       "Fn::GetAtt": [
+        "CODEBUILDVERSIONDEPLOY8D378B70",
+        "Arn"
+       ]
+      },
+      "PIPELINE_SETUP_URL": {
+       "Ref": "PIPELINESETUP109B69A2"
+      },
+      "PIPELINE_SETUP_ARN": {
+       "Fn::GetAtt": [
+        "PIPELINESETUP109B69A2",
+        "Arn"
+       ]
+      },
+      "PIPELINE_TEAR_DOWN_START_URL": {
+       "Ref": "PIPELINETEARDOWNSTART0605CD29"
+      },
+      "PIPELINE_TEAR_DOWN_START_ARN": {
+       "Fn::GetAtt": [
+        "PIPELINETEARDOWNSTART0605CD29",
+        "Arn"
+       ]
+      },
+      "PIPELINE_TEAR_DOWN_URL": {
+       "Ref": "PIPELINETEARDOWN0F1ABD70"
+      },
+      "PIPELINE_TEAR_DOWN_ARN": {
+       "Fn::GetAtt": [
+        "PIPELINETEARDOWN0F1ABD70",
+        "Arn"
+       ]
+      },
+      "APP_EVENTS_URL": {
+       "Fn::Join": [
+        "",
+        [
+         "https://sqs.eu-west-2.",
+         {
+          "Ref": "AWS::URLSuffix"
+         },
+         "/028446965111/Platform_Marketplace_AppModifications"
+        ]
+       ]
+      },
+      "APP_EVENTS_ARN": "arn:aws:sqs:eu-west-2:028446965111:Platform_Marketplace_AppModifications",
+      "CODEBUILD_PIPELINE_UPDATE_TOPIC_ARN": {
+       "Fn::Join": [
+        "",
+        [
+         "arn:",
+         {
+          "Ref": "AWS::Partition"
+         },
+         ":sns:eu-west-2:727646485319:cloud-deployment-usercodebuildsnstopicdevea93c2f5a2ee4c1b5c39"
+        ]
+       ]
+      }
+     }
+    },
+    "Handler": "packages/deployment-service/dist/sns.handle",
+    "MemorySize": 1024,
+    "Role": {
+     "Fn::GetAtt": [
+      "snsServiceRole3FC529EB",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 900,
+    "VpcConfig": {
+     "SecurityGroupIds": [
+      {
+       "Fn::GetAtt": [
+        "snsSecurityGroup87FA42DC",
+        "GroupId"
+       ]
+      }
+     ],
+     "SubnetIds": [
+      {
+       "Ref": "vpcPrivateSubnet1Subnet934893E8"
+      },
+      {
+       "Ref": "vpcPrivateSubnet2Subnet7031C2BA"
+      }
+     ]
+    }
+   },
+   "DependsOn": [
+    "snsServiceRoleDefaultPolicy369F17E6",
+    "snsServiceRole3FC529EB",
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/sns/Resource",
+    "aws:asset:path": "asset.9489332db720acd31bbee75aeeda033a6034913dc5d65cc7e2da944ba18eed9c.zip",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "snsLogRetention047008EF": {
+   "Type": "Custom::LogRetention",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+      "Arn"
+     ]
+    },
+    "LogGroupName": {
+     "Fn::Join": [
+      "",
+      [
+       "/aws/lambda/",
+       {
+        "Ref": "sns78FA588D"
+       }
+      ]
+     ]
+    },
+    "RetentionInDays": 30
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/sns/LogRetention/Resource"
+   }
+  },
+  "snsAllowInvokeclouddeploymentusercodedevcodebuildsnstopicdevEA93C2F5BD70496D": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "sns78FA588D",
+      "Arn"
+     ]
+    },
+    "Principal": "sns.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sns:eu-west-2:727646485319:cloud-deployment-usercodebuildsnstopicdevea93c2f5a2ee4c1b5c39"
+      ]
+     ]
+    }
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/sns/AllowInvoke:clouddeploymentusercodedevcodebuildsnstopicdevEA93C2F5"
+   }
+  },
+  "snscodebuildsnstopicdev38EBA9E4": {
+   "Type": "AWS::SNS::Subscription",
+   "Properties": {
+    "Endpoint": {
+     "Fn::GetAtt": [
+      "sns78FA588D",
+      "Arn"
+     ]
+    },
+    "Protocol": "lambda",
+    "TopicArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sns:eu-west-2:727646485319:cloud-deployment-usercodebuildsnstopicdevea93c2f5a2ee4c1b5c39"
+      ]
+     ]
+    }
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/sns/codebuild-sns-topic-dev/Resource"
+   }
+  },
+  "httpApiServiceRole4946B408": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/httpApi/ServiceRole/Resource"
+   }
+  },
+  "httpApiServiceRoleDefaultPolicy553EAA67": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": "arn:aws:lambda:eu-west-2:028446965111:function:cloud-api-key-service-apikeyinvokeBF3C3C3B-KafJCo7GSyYA"
+      },
+      {
+       "Action": [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "databaseSecretAttachment5618DFB3"
+       }
+      },
+      {
+       "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:ListBucket",
+        "s3:PutObjectAcl",
+        "s3:GetBucketAcl",
+        "s3:GetObjectAcl",
+        "s3:GetBucketLocation",
+        "s3:GetObjectRetention",
+        "s3:GetObjectVersionAcl",
+        "s3:DeleteObject",
+        "s3:DeleteObjectVersion"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-live-dev"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-log-dev"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-repo-cache-dev"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-version-dev"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "sqs:GetQueueAttributes",
+        "sqs:SendMessage",
+        "sqs:DeleteMessage"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CODEBUILDEXECUTOR9BCAC42F",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "CODEBUILDVERSIONDEPLOY8D378B70",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "PIPELINESETUP109B69A2",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "PIPELINETEARDOWNSTART0605CD29",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "PIPELINETEARDOWN0F1ABD70",
+          "Arn"
+         ]
+        },
+        "arn:aws:sqs:eu-west-2:028446965111:Platform_Marketplace_AppModifications"
+       ]
+      },
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Resource": "arn:aws:iam::727646485319:role/cloud-deployment-usercode-dev-UsercodeStackRole"
+      },
+      {
+       "Action": "secretsmanager:GetSecretValue",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "githubpem"
+       }
+      },
+      {
+       "Action": [
+        "cloudfront:CreateDistribution",
+        "cloudfront:DeleteDistribution",
+        "cloudfront:GetDistribution",
+        "cloudfront:UpdateDistribution",
+        "cloudfront:CreateInvalidation"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "route53:GetHostedZone",
+        "route53:ChangeResourceRecordSets",
+        "route53:GetChange",
+        "route53:ListResourceRecordSets"
+       ],
+       "Effect": "Allow",
+       "Resource": "arn:aws:route53:::hostedzone/Z0848069B8MAW5QKQS6H"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "httpApiServiceRoleDefaultPolicy553EAA67",
+    "Roles": [
+     {
+      "Ref": "httpApiServiceRole4946B408"
+     }
+    ]
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/httpApi/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "httpApiSecurityGroupC8633EB2": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Automatic security group for Lambda Function clouddeploymentservicehttpApiA3324C7C",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "vpcA2121C38"
+    }
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/httpApi/SecurityGroup/Resource"
+   }
+  },
+  "httpApiC9FAD708": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-028446965111-eu-west-2",
+     "S3Key": "9489332db720acd31bbee75aeeda033a6034913dc5d65cc7e2da944ba18eed9c.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "CONNECT_USER_POOL": "eu-west-2_kiftR4qFc",
+      "AWS_ACCOUNT_ID": "028446965111",
+      "SENTRY_DSN": "",
+      "DATABASE": "dev",
+      "SUB_NET": "subnet-0a3663de6a5ddd252",
+      "SECURITY_GROUP": "sg-2f16d249",
+      "SQS_ENDPOINT": "https://sqs.eu-west-2.amazonaws.com",
+      "PUSHER_APPID": "1426484",
+      "PUSHER_KEY": "c48c04b607a9201f6054",
+      "PUSHER_SECRET": "a40c239e57742634f02a",
+      "HOSTED_ZONE_ID": "Z0848069B8MAW5QKQS6H",
+      "CERT_ARN": "arn:aws:acm:us-east-1:727646485319:certificate/f8914c81-9df0-417f-a95b-ae0a6a346454",
+      "GITHUB_APP_ID": "199243",
+      "GITHUB_SECRET": "TcqroV1HjjrY5hrZ7inrmzy9gQqWM35D",
+      "BITBUCKET_SHARED_SECRET": "ZqrKVUEq16plC2INtldk8aT0OIbtUY44ReIqlWEqiZM",
+      "USERCODE_ACCOUNT_ID": "727646485319",
+      "ROOT_DOMAIN": "dev.paas.reapit.cloud",
+      "IAAS_DOMAIN": "iaas.paas.reapit.cloud",
+      "COGNITO_CLIENT_ID": "zzYIhCv7oPTII3ShXt5Ium6p4QHuoMp1",
+      "TEMPORARY_CLUSTER_ID": "temp-cdk-cluster-tempdatabaseclustere514837f-huhoiipvabc9",
+      "VPC_ID": "vpc-038f8cfc83c1f7fcf",
+      "DATABASE_SECRET_ARN": {
+       "Ref": "databaseSecretAttachment5618DFB3"
+      },
+      "MYSQL_DATABASE": "deployment_service",
+      "DEPLOYMENT_LIVE_BUCKET_NAME": "v2-cloud-deployment-live-dev",
+      "DEPLOYMENT_VERSION_BUCKET_NAME": "v2-cloud-deployment-version-dev",
+      "DEPLOYMENT_LOG_BUCKET_NAME": "v2-cloud-deployment-log-dev",
+      "DEPLOYMENT_REPO_CACHE_BUCKET_NAME": "v2-cloud-deployment-repo-cache-dev",
+      "REGION": "eu-west-2",
+      "CODE_BUILD_PROJECT_NAME": "cloud-deployment-usercodeedevcodebuilddeve392e6a95eacb8ae1c93",
+      "USERCODE_ROLE_ARN": "arn:aws:iam::727646485319:role/cloud-deployment-usercode-dev-UsercodeStackRole",
+      "GITHUB_PEM_SECRET_ARN": {
+       "Ref": "githubpem"
+      },
+      "NODE_ENV": "development",
+      "CODEBUILD_EXECUTOR_URL": {
+       "Ref": "CODEBUILDEXECUTOR9BCAC42F"
+      },
+      "CODEBUILD_EXECUTOR_ARN": {
+       "Fn::GetAtt": [
+        "CODEBUILDEXECUTOR9BCAC42F",
+        "Arn"
+       ]
+      },
+      "CODEBUILD_VERSION_DEPLOY_URL": {
+       "Ref": "CODEBUILDVERSIONDEPLOY8D378B70"
+      },
+      "CODEBUILD_VERSION_DEPLOY_ARN": {
+       "Fn::GetAtt": [
+        "CODEBUILDVERSIONDEPLOY8D378B70",
+        "Arn"
+       ]
+      },
+      "PIPELINE_SETUP_URL": {
+       "Ref": "PIPELINESETUP109B69A2"
+      },
+      "PIPELINE_SETUP_ARN": {
+       "Fn::GetAtt": [
+        "PIPELINESETUP109B69A2",
+        "Arn"
+       ]
+      },
+      "PIPELINE_TEAR_DOWN_START_URL": {
+       "Ref": "PIPELINETEARDOWNSTART0605CD29"
+      },
+      "PIPELINE_TEAR_DOWN_START_ARN": {
+       "Fn::GetAtt": [
+        "PIPELINETEARDOWNSTART0605CD29",
+        "Arn"
+       ]
+      },
+      "PIPELINE_TEAR_DOWN_URL": {
+       "Ref": "PIPELINETEARDOWN0F1ABD70"
+      },
+      "PIPELINE_TEAR_DOWN_ARN": {
+       "Fn::GetAtt": [
+        "PIPELINETEARDOWN0F1ABD70",
+        "Arn"
+       ]
+      },
+      "APP_EVENTS_URL": {
+       "Fn::Join": [
+        "",
+        [
+         "https://sqs.eu-west-2.",
+         {
+          "Ref": "AWS::URLSuffix"
+         },
+         "/028446965111/Platform_Marketplace_AppModifications"
+        ]
+       ]
+      },
+      "APP_EVENTS_ARN": "arn:aws:sqs:eu-west-2:028446965111:Platform_Marketplace_AppModifications",
+      "CODEBUILD_PIPELINE_UPDATE_TOPIC_ARN": {
+       "Fn::Join": [
+        "",
+        [
+         "arn:",
+         {
+          "Ref": "AWS::Partition"
+         },
+         ":sns:eu-west-2:727646485319:cloud-deployment-usercodebuildsnstopicdevea93c2f5a2ee4c1b5c39"
+        ]
+       ]
+      }
+     }
+    },
+    "Handler": "packages/deployment-service/dist/http.handler",
+    "MemorySize": 1024,
+    "Role": {
+     "Fn::GetAtt": [
+      "httpApiServiceRole4946B408",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 30,
+    "VpcConfig": {
+     "SecurityGroupIds": [
+      {
+       "Fn::GetAtt": [
+        "httpApiSecurityGroupC8633EB2",
+        "GroupId"
+       ]
+      }
+     ],
+     "SubnetIds": [
+      {
+       "Ref": "vpcPrivateSubnet1Subnet934893E8"
+      },
+      {
+       "Ref": "vpcPrivateSubnet2Subnet7031C2BA"
+      }
+     ]
+    }
+   },
+   "DependsOn": [
+    "httpApiServiceRoleDefaultPolicy553EAA67",
+    "httpApiServiceRole4946B408",
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/httpApi/Resource",
+    "aws:asset:path": "asset.9489332db720acd31bbee75aeeda033a6034913dc5d65cc7e2da944ba18eed9c.zip",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "httpApiLogRetention8F6632CC": {
+   "Type": "Custom::LogRetention",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+      "Arn"
+     ]
+    },
+    "LogGroupName": {
+     "Fn::Join": [
+      "",
+      [
+       "/aws/lambda/",
+       {
+        "Ref": "httpApiC9FAD708"
+       }
+      ]
+     ]
+    },
+    "RetentionInDays": 30
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/httpApi/LogRetention/Resource"
+   }
+  },
+  "httpServiceRole4EED7651": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/http/ServiceRole/Resource"
+   }
+  },
+  "httpServiceRoleDefaultPolicy27B3FF2D": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": "arn:aws:lambda:eu-west-2:028446965111:function:cloud-api-key-service-apikeyinvokeBF3C3C3B-KafJCo7GSyYA"
+      },
+      {
+       "Action": [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "databaseSecretAttachment5618DFB3"
+       }
+      },
+      {
+       "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:ListBucket",
+        "s3:PutObjectAcl",
+        "s3:GetBucketAcl",
+        "s3:GetObjectAcl",
+        "s3:GetBucketLocation",
+        "s3:GetObjectRetention",
+        "s3:GetObjectVersionAcl",
+        "s3:DeleteObject",
+        "s3:DeleteObjectVersion"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-live-dev"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-log-dev"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-repo-cache-dev"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-version-dev"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "sqs:GetQueueAttributes",
+        "sqs:SendMessage",
+        "sqs:DeleteMessage"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CODEBUILDEXECUTOR9BCAC42F",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "CODEBUILDVERSIONDEPLOY8D378B70",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "PIPELINESETUP109B69A2",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "PIPELINETEARDOWNSTART0605CD29",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "PIPELINETEARDOWN0F1ABD70",
+          "Arn"
+         ]
+        },
+        "arn:aws:sqs:eu-west-2:028446965111:Platform_Marketplace_AppModifications"
+       ]
+      },
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Resource": "arn:aws:iam::727646485319:role/cloud-deployment-usercode-dev-UsercodeStackRole"
+      },
+      {
+       "Action": "secretsmanager:GetSecretValue",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "githubpem"
+       }
+      },
+      {
+       "Action": [
+        "cloudfront:CreateDistribution",
+        "cloudfront:DeleteDistribution",
+        "cloudfront:GetDistribution",
+        "cloudfront:UpdateDistribution",
+        "cloudfront:CreateInvalidation"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "route53:GetHostedZone",
+        "route53:ChangeResourceRecordSets",
+        "route53:GetChange",
+        "route53:ListResourceRecordSets"
+       ],
+       "Effect": "Allow",
+       "Resource": "arn:aws:route53:::hostedzone/Z0848069B8MAW5QKQS6H"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "httpServiceRoleDefaultPolicy27B3FF2D",
+    "Roles": [
+     {
+      "Ref": "httpServiceRole4EED7651"
+     }
+    ]
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/http/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "httpSecurityGroup68AD6CFC": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Automatic security group for Lambda Function clouddeploymentservicehttp03579B79",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "vpcA2121C38"
+    }
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/http/SecurityGroup/Resource"
+   }
+  },
+  "httpD8F39B44": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-028446965111-eu-west-2",
+     "S3Key": "9489332db720acd31bbee75aeeda033a6034913dc5d65cc7e2da944ba18eed9c.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "CONNECT_USER_POOL": "eu-west-2_kiftR4qFc",
+      "AWS_ACCOUNT_ID": "028446965111",
+      "SENTRY_DSN": "",
+      "DATABASE": "dev",
+      "SUB_NET": "subnet-0a3663de6a5ddd252",
+      "SECURITY_GROUP": "sg-2f16d249",
+      "SQS_ENDPOINT": "https://sqs.eu-west-2.amazonaws.com",
+      "PUSHER_APPID": "1426484",
+      "PUSHER_KEY": "c48c04b607a9201f6054",
+      "PUSHER_SECRET": "a40c239e57742634f02a",
+      "HOSTED_ZONE_ID": "Z0848069B8MAW5QKQS6H",
+      "CERT_ARN": "arn:aws:acm:us-east-1:727646485319:certificate/f8914c81-9df0-417f-a95b-ae0a6a346454",
+      "GITHUB_APP_ID": "199243",
+      "GITHUB_SECRET": "TcqroV1HjjrY5hrZ7inrmzy9gQqWM35D",
+      "BITBUCKET_SHARED_SECRET": "ZqrKVUEq16plC2INtldk8aT0OIbtUY44ReIqlWEqiZM",
+      "USERCODE_ACCOUNT_ID": "727646485319",
+      "ROOT_DOMAIN": "dev.paas.reapit.cloud",
+      "IAAS_DOMAIN": "iaas.paas.reapit.cloud",
+      "COGNITO_CLIENT_ID": "zzYIhCv7oPTII3ShXt5Ium6p4QHuoMp1",
+      "TEMPORARY_CLUSTER_ID": "temp-cdk-cluster-tempdatabaseclustere514837f-huhoiipvabc9",
+      "VPC_ID": "vpc-038f8cfc83c1f7fcf",
+      "DATABASE_SECRET_ARN": {
+       "Ref": "databaseSecretAttachment5618DFB3"
+      },
+      "MYSQL_DATABASE": "deployment_service",
+      "DEPLOYMENT_LIVE_BUCKET_NAME": "v2-cloud-deployment-live-dev",
+      "DEPLOYMENT_VERSION_BUCKET_NAME": "v2-cloud-deployment-version-dev",
+      "DEPLOYMENT_LOG_BUCKET_NAME": "v2-cloud-deployment-log-dev",
+      "DEPLOYMENT_REPO_CACHE_BUCKET_NAME": "v2-cloud-deployment-repo-cache-dev",
+      "REGION": "eu-west-2",
+      "CODE_BUILD_PROJECT_NAME": "cloud-deployment-usercodeedevcodebuilddeve392e6a95eacb8ae1c93",
+      "USERCODE_ROLE_ARN": "arn:aws:iam::727646485319:role/cloud-deployment-usercode-dev-UsercodeStackRole",
+      "GITHUB_PEM_SECRET_ARN": {
+       "Ref": "githubpem"
+      },
+      "NODE_ENV": "development",
+      "CODEBUILD_EXECUTOR_URL": {
+       "Ref": "CODEBUILDEXECUTOR9BCAC42F"
+      },
+      "CODEBUILD_EXECUTOR_ARN": {
+       "Fn::GetAtt": [
+        "CODEBUILDEXECUTOR9BCAC42F",
+        "Arn"
+       ]
+      },
+      "CODEBUILD_VERSION_DEPLOY_URL": {
+       "Ref": "CODEBUILDVERSIONDEPLOY8D378B70"
+      },
+      "CODEBUILD_VERSION_DEPLOY_ARN": {
+       "Fn::GetAtt": [
+        "CODEBUILDVERSIONDEPLOY8D378B70",
+        "Arn"
+       ]
+      },
+      "PIPELINE_SETUP_URL": {
+       "Ref": "PIPELINESETUP109B69A2"
+      },
+      "PIPELINE_SETUP_ARN": {
+       "Fn::GetAtt": [
+        "PIPELINESETUP109B69A2",
+        "Arn"
+       ]
+      },
+      "PIPELINE_TEAR_DOWN_START_URL": {
+       "Ref": "PIPELINETEARDOWNSTART0605CD29"
+      },
+      "PIPELINE_TEAR_DOWN_START_ARN": {
+       "Fn::GetAtt": [
+        "PIPELINETEARDOWNSTART0605CD29",
+        "Arn"
+       ]
+      },
+      "PIPELINE_TEAR_DOWN_URL": {
+       "Ref": "PIPELINETEARDOWN0F1ABD70"
+      },
+      "PIPELINE_TEAR_DOWN_ARN": {
+       "Fn::GetAtt": [
+        "PIPELINETEARDOWN0F1ABD70",
+        "Arn"
+       ]
+      },
+      "APP_EVENTS_URL": {
+       "Fn::Join": [
+        "",
+        [
+         "https://sqs.eu-west-2.",
+         {
+          "Ref": "AWS::URLSuffix"
+         },
+         "/028446965111/Platform_Marketplace_AppModifications"
+        ]
+       ]
+      },
+      "APP_EVENTS_ARN": "arn:aws:sqs:eu-west-2:028446965111:Platform_Marketplace_AppModifications",
+      "CODEBUILD_PIPELINE_UPDATE_TOPIC_ARN": {
+       "Fn::Join": [
+        "",
+        [
+         "arn:",
+         {
+          "Ref": "AWS::Partition"
+         },
+         ":sns:eu-west-2:727646485319:cloud-deployment-usercodebuildsnstopicdevea93c2f5a2ee4c1b5c39"
+        ]
+       ]
+      }
+     }
+    },
+    "Handler": "packages/deployment-service/dist/http.handler",
+    "MemorySize": 1024,
+    "Role": {
+     "Fn::GetAtt": [
+      "httpServiceRole4EED7651",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 30,
+    "VpcConfig": {
+     "SecurityGroupIds": [
+      {
+       "Fn::GetAtt": [
+        "httpSecurityGroup68AD6CFC",
+        "GroupId"
+       ]
+      }
+     ],
+     "SubnetIds": [
+      {
+       "Ref": "vpcPrivateSubnet1Subnet934893E8"
+      },
+      {
+       "Ref": "vpcPrivateSubnet2Subnet7031C2BA"
+      }
+     ]
+    }
+   },
+   "DependsOn": [
+    "httpServiceRoleDefaultPolicy27B3FF2D",
+    "httpServiceRole4EED7651",
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/http/Resource",
+    "aws:asset:path": "asset.9489332db720acd31bbee75aeeda033a6034913dc5d65cc7e2da944ba18eed9c.zip",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "httpLogRetention23321F4F": {
+   "Type": "Custom::LogRetention",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+      "Arn"
+     ]
+    },
+    "LogGroupName": {
+     "Fn::Join": [
+      "",
+      [
+       "/aws/lambda/",
+       {
+        "Ref": "httpD8F39B44"
+       }
+      ]
+     ]
+    },
+    "RetentionInDays": 30
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/http/LogRetention/Resource"
+   }
+  },
+  "clouddeploymentmigrationServiceRoleB8F82A79": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-migration/ServiceRole/Resource"
+   }
+  },
+  "clouddeploymentmigrationServiceRoleDefaultPolicy145F9A22": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": "arn:aws:lambda:eu-west-2:028446965111:function:cloud-api-key-service-apikeyinvokeBF3C3C3B-KafJCo7GSyYA"
+      },
+      {
+       "Action": [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "databaseSecretAttachment5618DFB3"
+       }
+      },
+      {
+       "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:ListBucket",
+        "s3:PutObjectAcl",
+        "s3:GetBucketAcl",
+        "s3:GetObjectAcl",
+        "s3:GetBucketLocation",
+        "s3:GetObjectRetention",
+        "s3:GetObjectVersionAcl",
+        "s3:DeleteObject",
+        "s3:DeleteObjectVersion"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-live-dev"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-log-dev"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-repo-cache-dev"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::v2-cloud-deployment-version-dev"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "sqs:GetQueueAttributes",
+        "sqs:SendMessage",
+        "sqs:DeleteMessage"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CODEBUILDEXECUTOR9BCAC42F",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "CODEBUILDVERSIONDEPLOY8D378B70",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "PIPELINESETUP109B69A2",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "PIPELINETEARDOWNSTART0605CD29",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "PIPELINETEARDOWN0F1ABD70",
+          "Arn"
+         ]
+        },
+        "arn:aws:sqs:eu-west-2:028446965111:Platform_Marketplace_AppModifications"
+       ]
+      },
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Resource": "arn:aws:iam::727646485319:role/cloud-deployment-usercode-dev-UsercodeStackRole"
+      },
+      {
+       "Action": "secretsmanager:GetSecretValue",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "githubpem"
+       }
+      },
+      {
+       "Action": "codebuild:StartBuild",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":codebuild:eu-west-2:727646485319:project/cloud-deployment-usercodeedevcodebuilddeve392e6a95eacb8ae1c93"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": [
+        "cloudfront:CreateDistribution",
+        "cloudfront:DeleteDistribution",
+        "cloudfront:GetDistribution",
+        "cloudfront:UpdateDistribution",
+        "cloudfront:CreateInvalidation"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": "cloudfront:ListOriginAccessControls",
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "route53:GetHostedZone",
+        "route53:ChangeResourceRecordSets",
+        "route53:GetChange",
+        "route53:ListResourceRecordSets"
+       ],
+       "Effect": "Allow",
+       "Resource": "arn:aws:route53:::hostedzone/Z0848069B8MAW5QKQS6H"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "clouddeploymentmigrationServiceRoleDefaultPolicy145F9A22",
+    "Roles": [
+     {
+      "Ref": "clouddeploymentmigrationServiceRoleB8F82A79"
+     }
+    ]
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-migration/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "clouddeploymentmigrationSecurityGroup8F5359FD": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Automatic security group for Lambda Function clouddeploymentserviceclouddeploymentmigrationC35D9C47",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "vpcA2121C38"
+    }
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-migration/SecurityGroup/Resource"
+   }
+  },
+  "clouddeploymentmigration9A43D76C": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-028446965111-eu-west-2",
+     "S3Key": "9489332db720acd31bbee75aeeda033a6034913dc5d65cc7e2da944ba18eed9c.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "CONNECT_USER_POOL": "eu-west-2_kiftR4qFc",
+      "AWS_ACCOUNT_ID": "028446965111",
+      "SENTRY_DSN": "",
+      "DATABASE": "dev",
+      "SUB_NET": "subnet-0a3663de6a5ddd252",
+      "SECURITY_GROUP": "sg-2f16d249",
+      "SQS_ENDPOINT": "https://sqs.eu-west-2.amazonaws.com",
+      "PUSHER_APPID": "1426484",
+      "PUSHER_KEY": "c48c04b607a9201f6054",
+      "PUSHER_SECRET": "a40c239e57742634f02a",
+      "HOSTED_ZONE_ID": "Z0848069B8MAW5QKQS6H",
+      "CERT_ARN": "arn:aws:acm:us-east-1:727646485319:certificate/f8914c81-9df0-417f-a95b-ae0a6a346454",
+      "GITHUB_APP_ID": "199243",
+      "GITHUB_SECRET": "TcqroV1HjjrY5hrZ7inrmzy9gQqWM35D",
+      "BITBUCKET_SHARED_SECRET": "ZqrKVUEq16plC2INtldk8aT0OIbtUY44ReIqlWEqiZM",
+      "USERCODE_ACCOUNT_ID": "727646485319",
+      "ROOT_DOMAIN": "dev.paas.reapit.cloud",
+      "IAAS_DOMAIN": "iaas.paas.reapit.cloud",
+      "COGNITO_CLIENT_ID": "zzYIhCv7oPTII3ShXt5Ium6p4QHuoMp1",
+      "TEMPORARY_CLUSTER_ID": "temp-cdk-cluster-tempdatabaseclustere514837f-huhoiipvabc9",
+      "VPC_ID": "vpc-038f8cfc83c1f7fcf",
+      "DATABASE_SECRET_ARN": {
+       "Ref": "databaseSecretAttachment5618DFB3"
+      },
+      "MYSQL_DATABASE": "deployment_service",
+      "DEPLOYMENT_LIVE_BUCKET_NAME": "v2-cloud-deployment-live-dev",
+      "DEPLOYMENT_VERSION_BUCKET_NAME": "v2-cloud-deployment-version-dev",
+      "DEPLOYMENT_LOG_BUCKET_NAME": "v2-cloud-deployment-log-dev",
+      "DEPLOYMENT_REPO_CACHE_BUCKET_NAME": "v2-cloud-deployment-repo-cache-dev",
+      "REGION": "eu-west-2",
+      "CODE_BUILD_PROJECT_NAME": "cloud-deployment-usercodeedevcodebuilddeve392e6a95eacb8ae1c93",
+      "USERCODE_ROLE_ARN": "arn:aws:iam::727646485319:role/cloud-deployment-usercode-dev-UsercodeStackRole",
+      "GITHUB_PEM_SECRET_ARN": {
+       "Ref": "githubpem"
+      },
+      "NODE_ENV": "development",
+      "CODEBUILD_EXECUTOR_URL": {
+       "Ref": "CODEBUILDEXECUTOR9BCAC42F"
+      },
+      "CODEBUILD_EXECUTOR_ARN": {
+       "Fn::GetAtt": [
+        "CODEBUILDEXECUTOR9BCAC42F",
+        "Arn"
+       ]
+      },
+      "CODEBUILD_VERSION_DEPLOY_URL": {
+       "Ref": "CODEBUILDVERSIONDEPLOY8D378B70"
+      },
+      "CODEBUILD_VERSION_DEPLOY_ARN": {
+       "Fn::GetAtt": [
+        "CODEBUILDVERSIONDEPLOY8D378B70",
+        "Arn"
+       ]
+      },
+      "PIPELINE_SETUP_URL": {
+       "Ref": "PIPELINESETUP109B69A2"
+      },
+      "PIPELINE_SETUP_ARN": {
+       "Fn::GetAtt": [
+        "PIPELINESETUP109B69A2",
+        "Arn"
+       ]
+      },
+      "PIPELINE_TEAR_DOWN_START_URL": {
+       "Ref": "PIPELINETEARDOWNSTART0605CD29"
+      },
+      "PIPELINE_TEAR_DOWN_START_ARN": {
+       "Fn::GetAtt": [
+        "PIPELINETEARDOWNSTART0605CD29",
+        "Arn"
+       ]
+      },
+      "PIPELINE_TEAR_DOWN_URL": {
+       "Ref": "PIPELINETEARDOWN0F1ABD70"
+      },
+      "PIPELINE_TEAR_DOWN_ARN": {
+       "Fn::GetAtt": [
+        "PIPELINETEARDOWN0F1ABD70",
+        "Arn"
+       ]
+      },
+      "APP_EVENTS_URL": {
+       "Fn::Join": [
+        "",
+        [
+         "https://sqs.eu-west-2.",
+         {
+          "Ref": "AWS::URLSuffix"
+         },
+         "/028446965111/Platform_Marketplace_AppModifications"
+        ]
+       ]
+      },
+      "APP_EVENTS_ARN": "arn:aws:sqs:eu-west-2:028446965111:Platform_Marketplace_AppModifications",
+      "CODEBUILD_PIPELINE_UPDATE_TOPIC_ARN": {
+       "Fn::Join": [
+        "",
+        [
+         "arn:",
+         {
+          "Ref": "AWS::Partition"
+         },
+         ":sns:eu-west-2:727646485319:cloud-deployment-usercodebuildsnstopicdevea93c2f5a2ee4c1b5c39"
+        ]
+       ]
+      }
+     }
+    },
+    "Handler": "packages/deployment-service/dist/migration-run.migrationRun",
+    "MemorySize": 1024,
+    "Role": {
+     "Fn::GetAtt": [
+      "clouddeploymentmigrationServiceRoleB8F82A79",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 30,
+    "VpcConfig": {
+     "SecurityGroupIds": [
+      {
+       "Fn::GetAtt": [
+        "clouddeploymentmigrationSecurityGroup8F5359FD",
+        "GroupId"
+       ]
+      }
+     ],
+     "SubnetIds": [
+      {
+       "Ref": "vpcPrivateSubnet1Subnet934893E8"
+      },
+      {
+       "Ref": "vpcPrivateSubnet2Subnet7031C2BA"
+      }
+     ]
+    }
+   },
+   "DependsOn": [
+    "clouddeploymentmigrationServiceRoleDefaultPolicy145F9A22",
+    "clouddeploymentmigrationServiceRoleB8F82A79",
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-migration/Resource",
+    "aws:asset:path": "asset.9489332db720acd31bbee75aeeda033a6034913dc5d65cc7e2da944ba18eed9c.zip",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "clouddeploymentmigrationLogRetention2854A15B": {
+   "Type": "Custom::LogRetention",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+      "Arn"
+     ]
+    },
+    "LogGroupName": {
+     "Fn::Join": [
+      "",
+      [
+       "/aws/lambda/",
+       {
+        "Ref": "clouddeploymentmigration9A43D76C"
+       }
+      ]
+     ]
+    },
+    "RetentionInDays": 30
+   },
+   "DependsOn": [
+    "vpcPrivateSubnet1DefaultRoute1AA8E2E5",
+    "vpcPrivateSubnet1RouteTableAssociation67945127",
+    "vpcPrivateSubnet2DefaultRouteB0E07F99",
+    "vpcPrivateSubnet2RouteTableAssociation007E94D3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/cloud-deployment-migration/LogRetention/Resource"
+   }
+  },
+  "migrationeventrpframeworkonEventServiceRole5BEACD3B": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/migration-event-rp/framework-onEvent/ServiceRole/Resource"
+   }
+  },
+  "migrationeventrpframeworkonEventServiceRoleDefaultPolicy31778560": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "clouddeploymentmigration9A43D76C",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "clouddeploymentmigration9A43D76C",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "migrationeventrpframeworkonEventServiceRoleDefaultPolicy31778560",
+    "Roles": [
+     {
+      "Ref": "migrationeventrpframeworkonEventServiceRole5BEACD3B"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/migration-event-rp/framework-onEvent/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "migrationeventrpframeworkonEvent45F1F1BF": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-028446965111-eu-west-2",
+     "S3Key": "3542be390685e0c8353d92ccb5796d343cd93ca946b6b0de798004206a199adc.zip"
+    },
+    "Description": "AWS CDK resource provider framework - onEvent (cloud-deployment-service/migration-event-rp)",
+    "Environment": {
+     "Variables": {
+      "USER_ON_EVENT_FUNCTION_ARN": {
+       "Fn::GetAtt": [
+        "clouddeploymentmigration9A43D76C",
+        "Arn"
+       ]
+      }
+     }
+    },
+    "Handler": "framework.onEvent",
+    "Role": {
+     "Fn::GetAtt": [
+      "migrationeventrpframeworkonEventServiceRole5BEACD3B",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 900
+   },
+   "DependsOn": [
+    "migrationeventrpframeworkonEventServiceRoleDefaultPolicy31778560",
+    "migrationeventrpframeworkonEventServiceRole5BEACD3B"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/migration-event-rp/framework-onEvent/Resource",
+    "aws:asset:path": "asset.3542be390685e0c8353d92ccb5796d343cd93ca946b6b0de798004206a199adc",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "migrationeventrpframeworkonEventLogRetentionAE918186": {
+   "Type": "Custom::LogRetention",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+      "Arn"
+     ]
+    },
+    "LogGroupName": {
+     "Fn::Join": [
+      "",
+      [
+       "/aws/lambda/",
+       {
+        "Ref": "migrationeventrpframeworkonEvent45F1F1BF"
+       }
+      ]
+     ]
+    },
+    "RetentionInDays": 1
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/migration-event-rp/framework-onEvent/LogRetention/Resource"
+   }
+  },
+  "migrationevent": {
+   "Type": "AWS::CloudFormation::CustomResource",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "migrationeventrpframeworkonEvent45F1F1BF",
+      "Arn"
+     ]
+    },
+    "changeThisStringToTriggerFunction": "22"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/migration-event/Default"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/2VSS2/bMAz+Lb0rWpvssGseWxFg3Ty76LWgZdZRY0uuSCXIDP/3QZLjeNvF/B6USJlcyofVSt7fwZkWqjouGl3KvmBQRwFneu2h0zUwnuEi+xyJ150W2zczg2ulrDcsdtg19tKi4aDOWMFQY9ASyJGsdwo3QCiekA+2CuaIru5YJOEcP3wo6Plgnf6NLtad2CA0tLLPbZOOhZjZRqtLoAkNooG2rED2QULXaiJtjfjmjeIAtm9mwl9PaLiItZ+g67Spg/2/OghUS9m/dCr4L9lWZL5stCp8aTD+hhvKrWd8hjL1mPSbtiaySsO1k2jEmvsshB/Aj2kKInP6BIy3i/eG0RmcElInI1szgzqkMaDyTvPl0VnfxR7mwiDog2T/y6OPhROI3zCoQbiKZL8DhhIIt40nRidSF9ONu81cuCYXqFxqdbe5Hoxkb4jBKBwExRRqwUCNLs5oPJXCM7gaefaYKeFfZxC0egUiZJLrEASt5MarI3JcuMbWJL/bOkdGE383GZJ94UtSTnfXAcz5MPy1lT89d55FvDxs9LgdU4ryxLZ9dSMnmTl70lV4dHSuiYMwtkL5Tp9OD1/k8l5+vnsnrRfOG9YtyjzFP63VpKGhAwAA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-service/CDKMetadata/Default"
+   }
+  }
+ },
+ "Outputs": {
+  "clouddeploymentserviceapigatewayEndpointFF45F7AD": {
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "https://",
+      {
+       "Ref": "clouddeploymentserviceapigateway54653E76"
+      },
+      ".execute-api.eu-west-2.",
+      {
+       "Ref": "AWS::URLSuffix"
+      },
+      "/",
+      {
+       "Ref": "clouddeploymentserviceapigatewayDeploymentStageprod545A3914"
+      },
+      "/"
+     ]
+    ]
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

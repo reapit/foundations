@@ -1,0 +1,893 @@
+{
+ "Resources": {
+  "v2clouddeploymentlivedev087DF299": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketName": "v2-cloud-deployment-live-dev",
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": false,
+     "BlockPublicPolicy": false,
+     "IgnorePublicAcls": false,
+     "RestrictPublicBuckets": false
+    },
+    "WebsiteConfiguration": {
+     "IndexDocument": "index.html"
+    }
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-usercode-dev/v2-cloud-deployment-live-dev/Resource"
+   }
+  },
+  "v2clouddeploymentlivedevPolicy0BF1B47D": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "v2clouddeploymentlivedev087DF299"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "s3:Get*",
+        "s3:List*",
+        "s3:Put*"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": "*"
+       },
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "v2clouddeploymentlivedev087DF299",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": "s3:Get*",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "cloudfront.amazonaws.com"
+       },
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "v2clouddeploymentlivedev087DF299",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": "s3:Get*",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "codebuild.amazonaws.com"
+       },
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "v2clouddeploymentlivedev087DF299",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-usercode-dev/v2-cloud-deployment-live-dev/Policy/Resource"
+   }
+  },
+  "v2clouddeploymentlogdev6B52B6BD": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketName": "v2-cloud-deployment-log-dev",
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": false,
+     "BlockPublicPolicy": false,
+     "IgnorePublicAcls": false,
+     "RestrictPublicBuckets": false
+    }
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-usercode-dev/v2-cloud-deployment-log-dev/Resource"
+   }
+  },
+  "v2clouddeploymentlogdevPolicyEFAC9DC1": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "v2clouddeploymentlogdev6B52B6BD"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "s3:Put*",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": "*"
+       },
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "v2clouddeploymentlogdev6B52B6BD",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": "s3:Get*",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "cloudfront.amazonaws.com"
+       },
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "v2clouddeploymentlogdev6B52B6BD",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": "s3:Get*",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "codebuild.amazonaws.com"
+       },
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "v2clouddeploymentlogdev6B52B6BD",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-usercode-dev/v2-cloud-deployment-log-dev/Policy/Resource"
+   }
+  },
+  "v2clouddeploymentrepocachedev6F523868": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketName": "v2-cloud-deployment-repo-cache-dev",
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": false,
+     "BlockPublicPolicy": false,
+     "IgnorePublicAcls": false,
+     "RestrictPublicBuckets": false
+    }
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-usercode-dev/v2-cloud-deployment-repo-cache-dev/Resource"
+   }
+  },
+  "v2clouddeploymentrepocachedevPolicyB12C7ECB": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "v2clouddeploymentrepocachedev6F523868"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "s3:Get*",
+        "s3:Put*"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": "*"
+       },
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "v2clouddeploymentrepocachedev6F523868",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": "s3:Get*",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "cloudfront.amazonaws.com"
+       },
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "v2clouddeploymentrepocachedev6F523868",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": "s3:Get*",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "codebuild.amazonaws.com"
+       },
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "v2clouddeploymentrepocachedev6F523868",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-usercode-dev/v2-cloud-deployment-repo-cache-dev/Policy/Resource"
+   }
+  },
+  "v2clouddeploymentversiondevCDDC2B37": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketName": "v2-cloud-deployment-version-dev",
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": false,
+     "BlockPublicPolicy": false,
+     "IgnorePublicAcls": false,
+     "RestrictPublicBuckets": false
+    }
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-usercode-dev/v2-cloud-deployment-version-dev/Resource"
+   }
+  },
+  "v2clouddeploymentversiondevPolicy45297030": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "v2clouddeploymentversiondevCDDC2B37"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "s3:Get*",
+        "s3:List*",
+        "s3:Put*"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": "*"
+       },
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "v2clouddeploymentversiondevCDDC2B37",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": "s3:Get*",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "cloudfront.amazonaws.com"
+       },
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "v2clouddeploymentversiondevCDDC2B37",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": "s3:Get*",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "codebuild.amazonaws.com"
+       },
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "v2clouddeploymentversiondevCDDC2B37",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-usercode-dev/v2-cloud-deployment-version-dev/Policy/Resource"
+   }
+  },
+  "s3origin": {
+   "Type": "AWS::CloudFront::OriginAccessControl",
+   "Properties": {
+    "OriginAccessControlConfig": {
+     "Description": "Allow distros to access S3",
+     "Name": "distro-to-s3",
+     "OriginAccessControlOriginType": "s3",
+     "SigningBehavior": "always",
+     "SigningProtocol": "sigv4"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-usercode-dev/s3-origin"
+   }
+  },
+  "codebuilddevRole27222A75": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "codebuild.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-usercode-dev/codebuild-dev/Role/Resource"
+   }
+  },
+  "codebuilddevRoleDefaultPolicyBDB5BA5E": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":logs:eu-west-2:727646485319:log-group:/aws/codebuild/",
+           {
+            "Ref": "codebuilddev5662E660"
+           }
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":logs:eu-west-2:727646485319:log-group:/aws/codebuild/",
+           {
+            "Ref": "codebuilddev5662E660"
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "codebuild:CreateReportGroup",
+        "codebuild:CreateReport",
+        "codebuild:UpdateReport",
+        "codebuild:BatchPutTestCases",
+        "codebuild:BatchPutCodeCoverages"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":codebuild:eu-west-2:727646485319:report-group/",
+          {
+           "Ref": "codebuilddev5662E660"
+          },
+          "-*"
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "codebuilddevRoleDefaultPolicyBDB5BA5E",
+    "Roles": [
+     {
+      "Ref": "codebuilddevRole27222A75"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-usercode-dev/codebuild-dev/Role/DefaultPolicy/Resource"
+   }
+  },
+  "codebuilddev5662E660": {
+   "Type": "AWS::CodeBuild::Project",
+   "Properties": {
+    "Artifacts": {
+     "Type": "NO_ARTIFACTS"
+    },
+    "Cache": {
+     "Type": "NO_CACHE"
+    },
+    "EncryptionKey": "alias/aws/s3",
+    "Environment": {
+     "ComputeType": "BUILD_GENERAL1_MEDIUM",
+     "Image": "aws/codebuild/standard:6.0",
+     "ImagePullCredentialsType": "CODEBUILD",
+     "PrivilegedMode": false,
+     "Type": "LINUX_CONTAINER"
+    },
+    "Name": "cloud-deployment-usercodeedevcodebuilddeve392e6a95eacb8ae1c93",
+    "ServiceRole": {
+     "Fn::GetAtt": [
+      "codebuilddevRole27222A75",
+      "Arn"
+     ]
+    },
+    "Source": {
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"build\": {\n      \"commands\": [\n        \"echo \\\"No build specified\\\"\"\n      ]\n    }\n  }\n}",
+     "Type": "NO_SOURCE"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-usercode-dev/codebuild-dev/Resource"
+   }
+  },
+  "codebuildsnstopicdev55AC73B5": {
+   "Type": "AWS::SNS::Topic",
+   "Properties": {
+    "TopicName": "cloud-deployment-usercodebuildsnstopicdevea93c2f5a2ee4c1b5c39"
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-usercode-dev/codebuild-sns-topic-dev/Resource"
+   }
+  },
+  "codebuildsnstopicdevPolicy52009729": {
+   "Type": "AWS::SNS::TopicPolicy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sns:Publish",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       },
+       "Resource": {
+        "Ref": "codebuildsnstopicdev55AC73B5"
+       },
+       "Sid": "0"
+      },
+      {
+       "Action": "sns:Subscribe",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": "arn:aws:iam::028446965111:role/cdk-hnb659fds-cfn-exec-role-028446965111-eu-west-2"
+       },
+       "Resource": {
+        "Ref": "codebuildsnstopicdev55AC73B5"
+       },
+       "Sid": "1"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Topics": [
+     {
+      "Ref": "codebuildsnstopicdev55AC73B5"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-usercode-dev/codebuild-sns-topic-dev/Policy/Resource"
+   }
+  },
+  "codebuildsnstopicdevrule468B69D8": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "EventPattern": {
+     "source": [
+      "aws.codebuild"
+     ]
+    },
+    "State": "ENABLED",
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "codebuildsnstopicdev55AC73B5"
+      },
+      "Id": "Target0"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-usercode-dev/codebuild-sns-topic-dev-rule/Resource"
+   }
+  },
+  "UsercodePolicy590B208D": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:ListBucket",
+        "s3:PutObjectAcl",
+        "s3:GetBucketAcl",
+        "s3:GetObjectAcl",
+        "s3:GetBucketLocation",
+        "s3:GetObjectRetention",
+        "s3:GetObjectVersionAcl",
+        "s3:DeleteObject",
+        "s3:DeleteObjectVersion"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "v2clouddeploymentlivedev087DF299",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "v2clouddeploymentlogdev6B52B6BD",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "v2clouddeploymentrepocachedev6F523868",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "v2clouddeploymentversiondevCDDC2B37",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "v2clouddeploymentlivedev087DF299",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "v2clouddeploymentlogdev6B52B6BD",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "v2clouddeploymentrepocachedev6F523868",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "v2clouddeploymentversiondevCDDC2B37",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "route53:GetHostedZone",
+        "route53:ChangeResourceRecordSets",
+        "route53:GetChange",
+        "route53:ListResourceRecordSets"
+       ],
+       "Effect": "Allow",
+       "Resource": "arn:aws:route53:::hostedzone/Z0848069B8MAW5QKQS6H"
+      },
+      {
+       "Action": [
+        "cloudfront:CreateDistribution",
+        "cloudfront:DeleteDistribution",
+        "cloudfront:GetDistribution",
+        "cloudfront:UpdateDistribution",
+        "cloudfront:CreateInvalidation"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": "sns:Subscribe",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "codebuildsnstopicdev55AC73B5"
+       }
+      },
+      {
+       "Action": "codebuild:StartBuild",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "codebuilddev5662E660",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": [
+        "ssm:PutParameter",
+        "ssm:GetParameter",
+        "ssm:GetParameters",
+        "ssm:DeleteParameter",
+        "ssm:GetParameterHistory",
+        "ssm:DeleteParameters",
+        "ssm:GetParametersByPath"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": "cloudfront:ListOriginAccessControls",
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "UsercodePolicy590B208D",
+    "Roles": [
+     {
+      "Ref": "UsercodeStackRoleC1FD22AF"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-usercode-dev/UsercodePolicy/Resource"
+   }
+  },
+  "UsercodeStackRoleC1FD22AF": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":iam::028446965111:root"
+          ]
+         ]
+        }
+       }
+      },
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":iam::727646485319:root"
+          ]
+         ]
+        }
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "RoleName": "cloud-deployment-usercode-dev-UsercodeStackRole"
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-usercode-dev/UsercodeStackRole/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/02NwU7DMBBEv6V3Z2kbDlwhH0AVuKN0vUGbuN7Ka7dClv8dNQ4Kl52Zp9XMEQ5tC/vdcNcG7dw4PkP+iAPOZrjrV9YW8lvCmaLpRr+6KidxjD8brrkYdJLsGMRH6Eb/Hvib/SsiqXbiYxBnUCydEzsL+RRkIlzKV1sMDxfIvTh60EW3qb8R9Qr5U66MD1rNcrfXf7EYupGPCrlPa21yVIrpSSUFrGj1xXixBJM+3Q4vcNzD825S5iYkH/lC0Ff9Bcjy6gI6AQAA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "cloud-deployment-usercode-dev/CDKMetadata/Default"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}
