@@ -62,15 +62,19 @@ jobs:
             echo "package: $package"
             if jq -e '.scripts."cdk-diff"' "packages/$package/package.json" > /dev/null; then
               echo "synthing: $package"
-              OUTPUT+="$(yarn workspace $package cdk-diff -o cdk.synth --no-color)"
+              mv packages/$package/cdk.synth packages/$package/cdk.synth.previous
+              rm -rf packages/$package/cdk.synth
+              TEMPLATES=$(ls packages/$package/cdk.synth | grep template.json)
+              echo "templates: $TEMPLATES"
+              for template in TEMPLATES; do
+                echo "template: $template";
+                TEMPLATE_NAME=$(sed -e "s/.template.json$//")
+                OUTPUT+="$(yarn workspace $package cdk-diff $TEMPLATE_NAME -o cdk.synth --no-color --template packages/$package/cdk.synth.previous/$template --change-set)";
+              done
             fi
           done
           OUTPUT_JSON=$(jq --compact-output --null-input '$ARGS.positional' --args "${OUTPUT[@]}")
           echo "CDK_DIFF=$OUTPUT_JSON" >> $GITHUB_ENV
-
-      - name: diff
-        run: |
-          git diff
 
       - name: comment
         uses: actions/github-script@v3
@@ -90,7 +94,7 @@ jobs:
               })
             })
 
-      # - name: commit
-      #   uses: stefanzweifel/git-auto-commit-action@v4
-      #   with:
-      #     commit_message: 'chore: synth updates'
+      - name: Commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'chore: synth updates'
