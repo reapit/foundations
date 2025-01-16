@@ -17,7 +17,6 @@ import {
   Title,
   elMb5,
   FlexContainer,
-  PersistantNotification,
   PersistentNotification,
 } from '@reapit/elements'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
