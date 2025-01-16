@@ -22,7 +22,7 @@ import { useNetworkState } from './use-network-state'
 export const Network: FC = () => {
   const { Modal, openModal, closeModal } = useModal()
   const { Modal: ModalBi, openModal: openModalBi, closeModal: closeModalBi, modalIsOpen: modalIsOpenBi } = useModal()
-  const { customerId, rulesLoading, rules, customersLoading } = useNetworkState()
+  const { customerId, rulesLoading, rules, customersLoading, organisationId, organisationName } = useNetworkState()
 
   return (
     <FlexContainer isFlexAuto>
@@ -77,7 +77,7 @@ export const Network: FC = () => {
               Close
             </Button>
             <a
-              href={`mailto:dwh@reapitfoundations.zendesk.com?subject=Data%20Warehouse%20PowerBI%20Setup%20Request%20For%20CustomerId%20${customerId}`}
+              href={`mailto:dwh@reapitfoundations.zendesk.com?subject=Data%20Warehouse%20PowerBI%20setup%20request%20for%20${organisationName} (${organisationId})`}
               target="_blank"
               rel="noreferrer"
             >
