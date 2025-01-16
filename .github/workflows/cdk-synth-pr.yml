@@ -70,8 +70,8 @@ jobs:
                 echo "template: $template";
                 TEMPLATE_NAME=$(echo $template | sed -e "s/.template.json$//")
                 echo "templatename: $TEMPLATE_NAME"
-                echo "yarn workspace $package cdk-diff $TEMPLATE_NAME -o cdk.synth --no-color --template packages/$package/cdk.synth.previous/$template --change-set"
-                OUTPUT+="$(yarn workspace $package cdk-diff $TEMPLATE_NAME -o cdk.synth --no-color --template packages/$package/cdk.synth.previous/$template --change-set)";
+                echo "yarn workspace $package cdk-diff -o cdk.synth --no-color --template cdk.synth.previous/$template --change-set --exclusively $TEMPLATE_NAME"
+                OUTPUT+="$(yarn workspace $package cdk-diff -o cdk.synth --no-color --template cdk.synth.previous/$template --change-set --exclusively $TEMPLATE_NAME)";
               done
               echo "deleting cdk.synth.previous"
               rm -rf packages/$package/cdk.synth.previous
