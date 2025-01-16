@@ -27,7 +27,7 @@ export const TermsAndConditionsModal: FC<TermsAndConditionsModalProps> = ({
   const { Modal, openModal, closeModal } = useModal()
   useEffect(handleOpenCloseModal(openModal, closeModal, visible), [visible])
   return (
-    <Modal className={modalWidth} title="Terms and Conditions">
+    <Modal className={modalWidth} title="Terms and Conditions" onModalClose={() => null}>
       <>
         <BodyText hasGreyText>
           These Reapit Foundations User Terms and Conditions govern access to Reapit’s Foundations Platform and

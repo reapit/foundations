@@ -1,6 +1,6 @@
 {
   "name": "admin-portal",
-  "version": "4.0.6",
+  "version": "4.0.7",
   "description": "Admin portal",
   "main": "./src/index.ts",
   "repository": "git@github.com:reapit/foundations.git",
