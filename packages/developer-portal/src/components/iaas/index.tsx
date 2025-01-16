@@ -17,6 +17,8 @@ import {
   Title,
   elMb5,
   FlexContainer,
+  PersistantNotification,
+  PersistentNotification,
 } from '@reapit/elements'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/use-reapit-data'
@@ -87,6 +89,11 @@ export const IaaS: FC = () => {
             }}
           >
             <Title>Pipelines</Title>
+            <PersistentNotification intent="neutral" isExpanded isFullWidth isInline>
+              On Monday 20th January 2025, the IaaS platform will be undergoing scheduled maintenance. During this time
+              pipelines will not be available. The maintenance will begin at 11:00 AM UTC and should last approximately
+              3 hours.
+            </PersistentNotification>
             {loading || !currentDeveloper ? (
               <Loader />
             ) : (
