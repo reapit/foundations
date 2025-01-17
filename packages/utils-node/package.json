@@ -25,8 +25,8 @@
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
   },
   "dependencies": {
-    "@linaria/core": "^5.0.2",
-    "@linaria/react": "^5.0.3",
+    "@linaria/core": "^6.2.0",
+    "@linaria/react": "^6.2.1",
     "@reapit/foundations-ts-definitions": "^1.5.9",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@sentry/node": "^8.34.0",
@@ -35,7 +35,6 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@linaria/shaker": "^5.0.3",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@typescript-eslint/eslint-plugin": "^8.10.0",

@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import svgrPlugin from '@svgr/rollup'
-import linaria from '@linaria/vite'
+import wyw from '@wyw-in-js/vite'
 import checker from 'vite-plugin-checker'
 import { VitePWA } from 'vite-plugin-pwa'
 import { resolve as _resolve } from 'path'
@@ -17,7 +17,7 @@ export default (config, appName) =>
         icon: true,
       }),
       await import('vite-plugin-graphql-loader').then((module) => module.default()),
-      linaria({
+      wyw({
         babelOptions: {
           presets: ['@babel/preset-typescript', ['@babel/preset-react', { runtime: 'automatic' }]],
           plugins: [],
