@@ -4,7 +4,6 @@ import { Construct } from 'constructs'
 export class ResolveProductionOACCustomResource extends Construct {
   constructor(scope: Stack, id: string) {
     super(scope, id)
-    // TODO needs to be applied to IaaS stack
 
     const resolveProductionApplyOACToAllDistrosLambda = new aws_lambda.Function(
       scope,

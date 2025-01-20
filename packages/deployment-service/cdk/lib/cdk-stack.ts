@@ -28,18 +28,9 @@ import { Role } from 'aws-cdk-lib/aws-iam'
 import config from '../../config.json'
 import * as cdk from 'aws-cdk-lib'
 import { ResolveProductionS3BucketCustomResource } from './resolve-production-S3-bucket-custom-resource'
-import { ResolveProductionDatabaseCustomResource } from './resolve-production-database-custom-resource'
 import { ResolveProductionOACCustomResource } from './resolve-production-OAC-custom-resource'
 
 export const databaseName = 'deployment_service'
-
-enum DeploymentStageEnum {
-  INITIAL = 'INITIAL',
-  MIGRATION = 'MIGRATION',
-  PRODUCTION_RESOLUTION = 'PRODUCTION_RESOLUTION',
-}
-
-const deploymentMethod: DeploymentStageEnum = DeploymentStageEnum.PRODUCTION_RESOLUTION
 
 type FunctionSetup = {
   handler: string
@@ -80,25 +71,13 @@ export const createStack = async () => {
     accountId: config.USERCODE_ACCOUNT_ID,
   })
 
-  let secretManager: undefined | cdk.aws_secretsmanager.ISecret
-
-  if (deploymentMethod.toString() === DeploymentStageEnum.PRODUCTION_RESOLUTION) {
-    secretManager = new cdk.aws_secretsmanager.Secret(stack, 'cloud-deployment-service-database-secret', {
-      generateSecretString: {
-        secretStringTemplate: JSON.stringify({ username: 'admin' }),
-        generateStringKey: 'password',
-        excludePunctuation: true,
-      },
-    })
-  }
-
   const api = createApi(stack, 'apigateway', undefined)
   const vpc = createVpc(stack, 'vpc')
   const buckets = createS3Buckets(usercodeStack, envStage)
   const queues = createSqsQueues(stack)
-  const database = createDatabase(stack, 'database', databaseName, vpc, secretManager)
+  const database = createDatabase(stack, 'database', databaseName, vpc)
 
-  if (deploymentMethod.toString() !== DeploymentStageEnum.PRODUCTION_RESOLUTION) secretManager = database.secret
+  const secretManager = database.secret
 
   const OAC = new cdk.aws_cloudfront.CfnOriginAccessControl(usercodeStack, 's3-origin', {
     originAccessControlConfig: {
@@ -278,37 +257,29 @@ export const createStack = async () => {
    * is to add the migration script to a second stack which required the first stack
    */
 
-  if (deploymentMethod.toString() !== DeploymentStageEnum.INITIAL) {
-    const migrationHandler = createLambda({
-      stack,
-      name: 'cloud-deployment-migration',
-      entrypoint: 'bundle/migration-run.zip',
-      handler: createFileLoc('migration-run', 'migrationRun'),
-      runtime: aws_lambda.Runtime.NODEJS_18_X,
-      env,
-      vpc,
-    })
+  const migrationHandler = createLambda({
+    stack,
+    name: 'cloud-deployment-migration',
+    entrypoint: 'bundle/migration-run.zip',
+    handler: createFileLoc('migration-run', 'migrationRun'),
+    runtime: aws_lambda.Runtime.NODEJS_18_X,
+    env,
+    vpc,
+  })
 
-    policies.commonBackendPolicies.forEach((policy) => migrationHandler.addToRolePolicy(policy))
+  policies.commonBackendPolicies.forEach((policy) => migrationHandler.addToRolePolicy(policy))
 
-    Object.values(policies)
-      .filter((policy) => policy instanceof PolicyStatement)
-      .forEach((policy) => migrationHandler.addToRolePolicy(policy as PolicyStatement))
+  Object.values(policies)
+    .filter((policy) => policy instanceof PolicyStatement)
+    .forEach((policy) => migrationHandler.addToRolePolicy(policy as PolicyStatement))
 
-    const numberOfMigrations = await getNumberOfMigrations()
+  const numberOfMigrations = await getNumberOfMigrations()
 
-    createStackEventHandler(stack, 'migration-event', migrationHandler, `${numberOfMigrations}`)
-  }
+  createStackEventHandler(stack, 'migration-event', migrationHandler, `${numberOfMigrations}`)
 
-  if (deploymentMethod.toString() === DeploymentStageEnum.PRODUCTION_RESOLUTION) {
-    new ResolveProductionS3BucketCustomResource(usercodeStack, 'resolve-s3-bucket-policies', {
-      buckets,
-      iaasAccountId: usercodeStack.account,
-    })
-    new ResolveProductionDatabaseCustomResource(stack, 'resolve-database', {
-      vpc,
-      secretManager: database.secret as cdk.aws_secretsmanager.ISecret,
-    })
-    new ResolveProductionOACCustomResource(usercodeStack, 'resolve-oac')
-  }
+  new ResolveProductionS3BucketCustomResource(usercodeStack, 'resolve-s3-bucket-policies', {
+    buckets,
+    iaasAccountId: usercodeStack.account,
+  })
+  new ResolveProductionOACCustomResource(usercodeStack, 'resolve-oac')
 }
