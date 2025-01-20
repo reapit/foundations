@@ -59,29 +59,4 @@ export default defineConfig([
     clean: true,
     minify: config.NODE_ENV === 'production',
   },
-  {
-    entry: ['src/temp-migration.ts', 'src/temp-s3-production-policy-match.ts'],
-    target: 'node18',
-    clean: true,
-    minify: config.NODE_ENV === 'production',
-    noExternal: [
-      ...Object.keys(pkgJson.dependencies),
-      'crypto',
-    ],
-    external: [
-      '@nestjs/microservices',
-      '@nestjs/websockets',
-      'cache-manager',
-      'nats',
-      '@grpc/grpc-js',
-      '@grpc/proto-loader',
-      'kafkajs',
-      'amqplib',
-      'amqp-connection-manager',
-      'mqtt',
-      'amqplib',
-      'redis',
-      'crypto',
-    ],
-  }
 ])
