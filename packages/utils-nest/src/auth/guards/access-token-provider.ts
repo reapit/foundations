@@ -42,7 +42,7 @@ export class AccessTokenProvider {
 
     if (result.status !== 200) throw new UnauthorizedException()
 
-    const userInfo: UserInfoModel = await result.json()
+    const userInfo: UserInfoModel = (await result.json()) as UserInfoModel
 
     return {
       ...userInfo,
