@@ -2,7 +2,7 @@ import { CustomResource, Duration, Stack, aws_iam, aws_lambda, aws_logs, custom_
 import { Construct } from 'constructs'
 
 export class ResolveProductionOACCustomResource extends Construct {
-  constructor(scope: Stack, id: string) {
+  constructor(scope: Stack, id: string, OACcustomResource: CustomResource) {
     super(scope, id)
 
     const resolveProductionApplyOACToAllDistrosLambda = new aws_lambda.Function(
@@ -12,7 +12,7 @@ export class ResolveProductionOACCustomResource extends Construct {
         handler: 'dist/resolve-production-apply-OAC-to-all-distros.resolveProductionApplyOACToAllDistros',
         code: aws_lambda.Code.fromAsset('bundle/resolve-production-apply-OAC-to-all-distros.zip'),
         memorySize: 512,
-        timeout: Duration.minutes(5),
+        timeout: Duration.minutes(10),
         runtime: aws_lambda.Runtime.NODEJS_18_X,
       },
     )
@@ -35,11 +35,13 @@ export class ResolveProductionOACCustomResource extends Construct {
       logRetention: aws_logs.RetentionDays.TWO_WEEKS,
     })
 
-    new CustomResource(scope, 'resolve-production-OAC-custom-resource', {
+    const customResource = new CustomResource(scope, 'resolve-production-OAC-custom-resource', {
       serviceToken: resourceProvider.serviceToken,
       properties: {
         fistonly: true,
       },
     })
+
+    customResource.node.addDependency(OACcustomResource)
   }
 }

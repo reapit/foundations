@@ -3,6 +3,8 @@ import { aws_iam, aws_lambda, aws_logs, aws_s3, custom_resources, CustomResource
 import { BucketNames } from './create-S3-bucket'
 
 export class ResolveProductionS3BucketCustomResource extends Construct {
+  readonly customResource: CustomResource
+
   constructor(
     scope: Stack,
     id: string,
@@ -64,7 +66,7 @@ export class ResolveProductionS3BucketCustomResource extends Construct {
       logRetention: aws_logs.RetentionDays.TWO_WEEKS,
     })
 
-    new CustomResource(scope, 'resolve-production-s3', {
+    this.customResource = new CustomResource(scope, 'resolve-production-s3', {
       serviceToken: resourceProvider.serviceToken,
       properties: {
         fistonly: true,

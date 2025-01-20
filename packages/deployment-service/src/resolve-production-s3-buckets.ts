@@ -1,6 +1,5 @@
 import {
   DeleteBucketPolicyCommand,
-  PutBucketOwnershipControlsCommand,
   PutBucketPolicyCommand,
   PutPublicAccessBlockCommand,
   S3Client,
@@ -20,6 +19,98 @@ type BucketPolicyStatement = {
 }
 
 const bucketArn = (bucketName: string): string => `arn:aws:s3:::${bucketName}`
+
+const resolveBucket = async (client: S3Client, bucketName: string) => {
+  try {
+    await client.send(
+      new DeleteBucketPolicyCommand({
+        Bucket: bucketName,
+      }),
+    )
+  } catch (error) {
+    console.log(`bucket [${bucketName}] failed to delete bucket policy`)
+  }
+
+  try {
+    const statements: BucketPolicyStatement[] = [
+      {
+        Effect: 'Allow',
+        Action: ['s3:Get*', 's3:List*', 's3:Put*'],
+        Resource: `${bucketArn(bucketName)}/*`,
+        Principal: {
+          AWS: '*',
+        },
+        // Condition?? TODO for PaaS account
+      },
+      // {
+      //   Effect: 'Allow',
+      //   Action: ['s3:Get*'],
+      //   Resource: `${bucketArn(bucketName)}/*`,
+      //   Principal: {
+      //     AWS: '*',
+      //   },
+      //   // Condition?? TODO
+      // },
+      {
+        Effect: 'Allow',
+        Action: ['s3:Get*'],
+        Resource: `${bucketArn(bucketName)}/*`,
+        Principal: {
+          Service: 'cloudfront.amazonaws.com',
+        },
+        // Condition?? TODO for IaaS account
+      },
+      {
+        Effect: 'Allow',
+        Action: ['s3:Get*'],
+        Resource: `${bucketArn(bucketName)}/*`,
+        Principal: {
+          Service: 'codebuild.amazonaws.com',
+        },
+        // Condition?? TODO for IaaS account
+      },
+    ]
+
+    await client.send(
+      new PutBucketPolicyCommand({
+        Bucket: bucketName,
+        Policy: JSON.stringify({
+          Version: '2012-10-17',
+          Statement: statements,
+        }),
+      }),
+    )
+  } catch (error) {
+    console.log(`bucket [${bucketName}] failed to update bucket policy`)
+  }
+
+  try {
+    await client.send(
+      new PutBucketAclCommand({
+        Bucket: bucketName,
+        ACL: BucketCannedACL.private,
+      }),
+    )
+  } catch (error) {
+    console.log(`bucket [${bucketName}] failed to update ACL`)
+  }
+
+  try {
+    await client.send(
+      new PutPublicAccessBlockCommand({
+        Bucket: bucketName,
+        PublicAccessBlockConfiguration: {
+          BlockPublicPolicy: true,
+          BlockPublicAcls: true,
+          RestrictPublicBuckets: true,
+          IgnorePublicAcls: true,
+        },
+      }),
+    )
+  } catch (error) {
+    console.log(`bucket [${bucketName}] failed to update public access block`)
+  }
+}
 
 const resolveBucketPolicies = (client: S3Client) => async (bucketInputs: string[]) => {
   await Promise.all(

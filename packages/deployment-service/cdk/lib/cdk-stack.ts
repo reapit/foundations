@@ -277,9 +277,9 @@ export const createStack = async () => {
 
   createStackEventHandler(stack, 'migration-event', migrationHandler, `${numberOfMigrations}`)
 
-  new ResolveProductionS3BucketCustomResource(usercodeStack, 'resolve-s3-bucket-policies', {
+  const resolveProductionS3 = new ResolveProductionS3BucketCustomResource(usercodeStack, 'resolve-s3-bucket-policies', {
     buckets,
     iaasAccountId: usercodeStack.account,
   })
-  new ResolveProductionOACCustomResource(usercodeStack, 'resolve-oac')
+  new ResolveProductionOACCustomResource(usercodeStack, 'resolve-oac', resolveProductionS3.customResource)
 }
