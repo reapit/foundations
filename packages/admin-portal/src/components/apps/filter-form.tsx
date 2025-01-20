@@ -49,7 +49,10 @@ export const FilterForm: FC<FilterFormProps> = ({ setAppsFilters }) => {
           <InputGroup {...register('companyName')} label="Company Name" type="search" />
         </InputWrap>
         <InputWrap>
-          <InputGroup {...register('id')} label="App Id" type="search" />
+          <InputGroup {...register('id')} label="Internal App Id" type="search" />
+        </InputWrap>
+        <InputWrap>
+          <InputGroup {...register('externalAppId')} label="External App Id" type="search" />
         </InputWrap>
         <InputWrap>
           <InputGroup {...register('registeredFrom')} label="Registered From" type="date" />

@@ -20,6 +20,8 @@ export interface NetworkState {
   rulesLoading: boolean
   ipsLoading: boolean
   customerId: string | null
+  organisationId: string | null
+  organisationName: string | null
   networkSelected: NetworkSelected
   setNetworkSelected: Dispatch<SetStateAction<NetworkSelected>>
   ipsPageNumber: number
@@ -55,7 +57,8 @@ export const NetworkProvider: FC<PropsWithChildren> = ({ children }) => {
     ipId: null,
   })
 
-  const organisationId = connectSession?.loginIdentity?.orgId
+  const organisationId = connectSession?.loginIdentity?.orgId || null
+  const organisationName = connectSession?.loginIdentity?.orgName || null
 
   const [customers, customersLoading] = useReapitGet<PagedCustomersModel>({
     reapitConnectBrowserSession,
@@ -96,6 +99,8 @@ export const NetworkProvider: FC<PropsWithChildren> = ({ children }) => {
         rulesLoading,
         ipsLoading,
         customerId,
+        organisationId,
+        organisationName,
         networkSelected,
         setNetworkSelected,
         ipsPageNumber,
