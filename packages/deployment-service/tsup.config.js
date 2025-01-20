@@ -60,7 +60,7 @@ export default defineConfig([
     minify: config.NODE_ENV === 'production',
   },
   {
-    entry: ['src/temp-migration.ts', 'src/resolve-production-database.ts', 'src/temp-s3-production-policy-match.ts'],
+    entry: ['src/temp-migration.ts', 'src/temp-s3-production-policy-match.ts'],
     target: 'node18',
     clean: true,
     minify: config.NODE_ENV === 'production',
