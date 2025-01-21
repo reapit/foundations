@@ -74,7 +74,7 @@ const updateDistros = async (client: CloudFrontClient, OAC: OriginAccessControlS
         } catch (error) {
           console.error(error)
         }
-      })
+      }),
     )
 
     marker = fetchDistros.DistributionList.Marker

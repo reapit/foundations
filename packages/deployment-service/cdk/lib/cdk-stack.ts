@@ -27,8 +27,9 @@ import { createPolicies } from './create-policies'
 import { Role } from 'aws-cdk-lib/aws-iam'
 import config from '../../config.json'
 import * as cdk from 'aws-cdk-lib'
-import { ResolveProductionS3BucketCustomResource } from './resolve-production-S3-bucket-custom-resource'
+import { ResolveProductionS3BucketPermissionsCustomResource } from './resolve-production-S3-bucket-permissions-custom-resource'
 import { ResolveProductionOACCustomResource } from './resolve-production-OAC-custom-resource'
+import { ResolveProductionS3BucketPoliciesCustomResource } from './resolve-production-S3-bucket-policies-custom-resource'
 
 export const databaseName = 'deployment_service'
 
@@ -277,9 +278,20 @@ export const createStack = async () => {
 
   createStackEventHandler(stack, 'migration-event', migrationHandler, `${numberOfMigrations}`)
 
-  const resolveProductionS3 = new ResolveProductionS3BucketCustomResource(usercodeStack, 'resolve-s3-bucket-policies', {
+  // #2
+  new ResolveProductionS3BucketPermissionsCustomResource(
+    usercodeStack,
+    'resolve-s3-bucket-permissions',
+    {
+      buckets,
+      iaasAccountId: usercodeStack.account,
+    },
+  )
+  // #3
+  new ResolveProductionOACCustomResource(usercodeStack, 'resolve-oac')
+  // #4
+  new ResolveProductionS3BucketPoliciesCustomResource(usercodeStack, 'resolve-s3-bucket-policies', {
     buckets,
     iaasAccountId: usercodeStack.account,
   })
-  new ResolveProductionOACCustomResource(usercodeStack, 'resolve-oac', resolveProductionS3.customResource)
 }

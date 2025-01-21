@@ -2,7 +2,7 @@ import { CustomResource, Duration, Stack, aws_iam, aws_lambda, aws_logs, custom_
 import { Construct } from 'constructs'
 
 export class ResolveProductionOACCustomResource extends Construct {
-  constructor(scope: Stack, id: string, OACcustomResource: CustomResource) {
+  constructor(scope: Stack, id: string) {
     super(scope, id)
 
     const resolveProductionApplyOACToAllDistrosLambda = new aws_lambda.Function(

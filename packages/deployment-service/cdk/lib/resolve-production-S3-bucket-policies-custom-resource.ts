@@ -2,7 +2,7 @@ import { Construct } from 'constructs'
 import { aws_iam, aws_lambda, aws_logs, aws_s3, custom_resources, CustomResource, Duration, Stack } from 'aws-cdk-lib'
 import { BucketNames } from './create-S3-bucket'
 
-export class ResolveProductionS3BucketCustomResource extends Construct {
+export class ResolveProductionS3BucketPoliciesCustomResource extends Construct {
   readonly customResource: CustomResource
 
   constructor(
@@ -23,9 +23,9 @@ export class ResolveProductionS3BucketCustomResource extends Construct {
       `${BucketNames.VERSION}-${envStage}`,
     )
 
-    const resolveProductionS3Lambda = new aws_lambda.Function(scope, 'resolve-production-S3-custom-resource', {
+    const resolveProductionS3Lambda = new aws_lambda.Function(scope, 'resolve-production-S3-policies-custom-resource', {
       handler: 'dist/resolve-production-s3-buckets.resolveProductionS3Buckets',
-      code: aws_lambda.Code.fromAsset('bundle/resolve-production-s3-buckets.zip'),
+      code: aws_lambda.Code.fromAsset('bundle/resolve-production-s3-bucket-policies.zip'),
       memorySize: 1024,
       timeout: Duration.seconds(60),
       runtime: aws_lambda.Runtime.NODEJS_18_X,
@@ -61,12 +61,12 @@ export class ResolveProductionS3BucketCustomResource extends Construct {
       }),
     )
 
-    const resourceProvider = new custom_resources.Provider(scope, 'resolve-production-S3', {
+    const resourceProvider = new custom_resources.Provider(scope, 'resolve-production-S3-policies', {
       onEventHandler: resolveProductionS3Lambda,
       logRetention: aws_logs.RetentionDays.TWO_WEEKS,
     })
 
-    this.customResource = new CustomResource(scope, 'resolve-production-s3', {
+    this.customResource = new CustomResource(scope, 'resolve-production-s3-policies', {
       serviceToken: resourceProvider.serviceToken,
       properties: {
         fistonly: true,
