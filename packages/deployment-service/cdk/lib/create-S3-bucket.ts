@@ -48,6 +48,7 @@ export const createBucket = ({
     actions.push('s3:Put*')
   }
 
+  // TODO apply condition for this policy to be for the paas account only
   bucket.addToResourcePolicy(
     new aws_iam.PolicyStatement({
       effect: aws_iam.Effect.ALLOW,
@@ -58,12 +59,14 @@ export const createBucket = ({
   )
 
   // allows cloudfront to access this bucket
+  // TODO add condition to resource policies above to limit actions to iaas account
   bucket.addToResourcePolicy(
     new aws_iam.PolicyStatement({
       effect: aws_iam.Effect.ALLOW,
       actions: ['s3:Get*'],
       resources: [bucket.arnForObjects('*')],
       principals: [new ServicePrincipal('cloudfront.amazonaws.com')],
+      // TODO add condition for Moomin
     }),
   )
 
@@ -73,6 +76,7 @@ export const createBucket = ({
       actions: ['s3:Get*'],
       resources: [bucket.arnForObjects('*')],
       principals: [new ServicePrincipal('codebuild.amazonaws.com')],
+      // TODO add condition for Moomin
     }),
   )
 

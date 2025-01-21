@@ -24,9 +24,11 @@ import { createLambda } from './create-lambda'
 import { createS3Buckets } from './create-S3-bucket'
 import { createSqsQueues, QueueNames } from './create-sqs'
 import { createPolicies } from './create-policies'
-import { Effect, Role } from 'aws-cdk-lib/aws-iam'
+import { Role } from 'aws-cdk-lib/aws-iam'
 import config from '../../config.json'
 import * as cdk from 'aws-cdk-lib'
+import { ResolveProductionS3BucketCustomResource } from './resolve-production-S3-bucket-custom-resource'
+import { ResolveProductionOACCustomResource } from './resolve-production-OAC-custom-resource'
 
 export const databaseName = 'deployment_service'
 
@@ -74,9 +76,10 @@ export const createStack = async () => {
   const buckets = createS3Buckets(usercodeStack, envStage)
   const queues = createSqsQueues(stack)
   const database = createDatabase(stack, 'database', databaseName, vpc)
+
   const secretManager = database.secret
 
-  const AOC = new cdk.aws_cloudfront.CfnOriginAccessControl(usercodeStack, 's3-origin', {
+  const OAC = new cdk.aws_cloudfront.CfnOriginAccessControl(usercodeStack, 's3-origin', {
     originAccessControlConfig: {
       name: 'distro-to-s3',
       originAccessControlOriginType: 's3',
@@ -273,4 +276,10 @@ export const createStack = async () => {
   const numberOfMigrations = await getNumberOfMigrations()
 
   createStackEventHandler(stack, 'migration-event', migrationHandler, `${numberOfMigrations}`)
+
+  new ResolveProductionS3BucketCustomResource(usercodeStack, 'resolve-s3-bucket-policies', {
+    buckets,
+    iaasAccountId: usercodeStack.account,
+  })
+  new ResolveProductionOACCustomResource(usercodeStack, 'resolve-oac')
 }
