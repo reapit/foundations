@@ -345,6 +345,15 @@ exports[`MembersTable should render component with data 1`] = `
                     </button>
                     <button
                       class="el-intent-primary el-button"
+                      disabled=""
+                    >
+                      <div
+                        class="mocked-styled-0 el-button-loader"
+                      />
+                      Set As Main Contact
+                    </button>
+                    <button
+                      class="el-intent-primary el-button"
                     >
                       <div
                         class="mocked-styled-0 el-button-loader"
@@ -694,6 +703,15 @@ exports[`MembersTable should render component with data 1`] = `
                     />
                     Set As 
                     Admin
+                  </button>
+                  <button
+                    class="el-intent-primary el-button"
+                    disabled=""
+                  >
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
+                    Set As Main Contact
                   </button>
                   <button
                     class="el-intent-primary el-button"
