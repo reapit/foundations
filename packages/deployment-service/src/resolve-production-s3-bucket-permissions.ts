@@ -28,20 +28,12 @@ const resolveBucket = async (client: S3Client, bucketName: string) => {
     }),
   )
 
-  // try {
-  console.log('putBucketACL', bucketName)
   await client.send(
     new PutBucketAclCommand({
       Bucket: bucketName,
       ACL: BucketCannedACL.private,
     }),
   )
-  // } catch (error) {
-  //   console.error(error)
-  //   console.log(`bucket [${bucketName}] failed to update ACL`)
-  // }
-
-  console.log('after ACL call')
 
   await client.send(
     new PutBucketOwnershipControlsCommand({
@@ -104,8 +96,7 @@ const resolveBucket = async (client: S3Client, bucketName: string) => {
       }),
     }),
   )
-  // try {
-  console.log('putPublicAccessBlock', bucketName)
+
   await client.send(
     new PutPublicAccessBlockCommand({
       Bucket: bucketName,
@@ -117,14 +108,9 @@ const resolveBucket = async (client: S3Client, bucketName: string) => {
       },
     }),
   )
-  // } catch (error) {
-  //   console.error(error)
-  //   console.log(`bucket [${bucketName}] failed to update public access block`)
-  // }
 }
 
 export const resolveProductionS3BucketPermissions: OnEventHandler = async (event) => {
-  console.log('event', event)
   if (event.RequestType === 'Delete')
     return {
       PhysicalResourceId: event.PhysicalResourceId,
@@ -136,8 +122,6 @@ export const resolveProductionS3BucketPermissions: OnEventHandler = async (event
   const client = new S3Client({})
 
   const bucketInputs = process.env.BUCKETS ? process.env.BUCKETS?.split(',') : []
-
-  console.log('bucketInputs', bucketInputs)
 
   await Promise.all(bucketInputs.map(async (bucketName) => resolveBucket(client, bucketName)))
 
