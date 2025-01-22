@@ -77,9 +77,9 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
   private async createDistro(pipeline: PipelineEntity) {
     const id = uuid()
 
-    const AOCId = await this.findOACId()
+    // const AOCId = await this.findOACId()
 
-    if (!AOCId) throw new Error('Could not resolve AOCId')
+    // if (!AOCId) throw new Error('Could not resolve AOCId')
 
     const distroCommand = new CreateDistributionCommand({
       DistributionConfig: {
@@ -99,7 +99,7 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
               S3OriginConfig: {
                 OriginAccessIdentity: '',
               },
-              OriginAccessControlId: AOCId,
+              // OriginAccessControlId: AOCId,
             },
           ],
         },

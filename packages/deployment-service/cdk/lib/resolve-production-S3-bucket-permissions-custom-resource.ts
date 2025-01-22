@@ -3,8 +3,6 @@ import { aws_iam, aws_lambda, aws_logs, aws_s3, custom_resources, CustomResource
 import { BucketNames } from './create-S3-bucket'
 
 export class ResolveProductionS3BucketPermissionsCustomResource extends Construct {
-  readonly customResource: CustomResource
-
   constructor(
     scope: Stack,
     id: string,
@@ -27,7 +25,7 @@ export class ResolveProductionS3BucketPermissionsCustomResource extends Construc
       scope,
       'resolve-production-S3-permissions-custom-resource',
       {
-        handler: 'dist/resolve-production-s3-bucket-permissions.resolveProductionS3Buckets',
+        handler: 'dist/resolve-production-s3-bucket-permissions.resolveProductionS3BucketPermissions',
         code: aws_lambda.Code.fromAsset('bundle/resolve-production-s3-bucket-permissions.zip'),
         memorySize: 1024,
         timeout: Duration.seconds(60),
@@ -70,7 +68,7 @@ export class ResolveProductionS3BucketPermissionsCustomResource extends Construc
       logRetention: aws_logs.RetentionDays.TWO_WEEKS,
     })
 
-    this.customResource = new CustomResource(scope, 'resolve-production-s3-permissions', {
+    new CustomResource(scope, 'resolve-production-s3-permissions', {
       serviceToken: resourceProvider.serviceToken,
       properties: {
         fistonly: true,

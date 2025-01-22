@@ -35,13 +35,11 @@ export class ResolveProductionOACCustomResource extends Construct {
       logRetention: aws_logs.RetentionDays.TWO_WEEKS,
     })
 
-    const customResource = new CustomResource(scope, 'resolve-production-OAC-custom-resource', {
+    new CustomResource(scope, 'resolve-production-OAC-custom-resource', {
       serviceToken: resourceProvider.serviceToken,
       properties: {
         fistonly: true,
       },
     })
-
-    customResource.node.addDependency(OACcustomResource)
   }
 }

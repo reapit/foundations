@@ -279,6 +279,13 @@ export const createStack = async () => {
   createStackEventHandler(stack, 'migration-event', migrationHandler, `${numberOfMigrations}`)
 
   // #2
+  new ResolveProductionS3BucketPoliciesCustomResource(usercodeStack, 'resolve-s3-bucket-policies', {
+    buckets,
+    iaasAccountId: usercodeStack.account,
+  })
+  // // #3
+  new ResolveProductionOACCustomResource(usercodeStack, 'resolve-oac')
+  // // #4
   // new ResolveProductionS3BucketPermissionsCustomResource(
   //   usercodeStack,
   //   'resolve-s3-bucket-permissions',
@@ -287,11 +294,4 @@ export const createStack = async () => {
   //     iaasAccountId: usercodeStack.account,
   //   },
   // )
-  // // #3
-  // new ResolveProductionOACCustomResource(usercodeStack, 'resolve-oac')
-  // // #4
-  // new ResolveProductionS3BucketPoliciesCustomResource(usercodeStack, 'resolve-s3-bucket-policies', {
-  //   buckets,
-  //   iaasAccountId: usercodeStack.account,
-  // })
 }

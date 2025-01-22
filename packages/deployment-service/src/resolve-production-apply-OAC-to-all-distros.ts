@@ -20,7 +20,11 @@ const updateDistro = async (
     }),
   )
 
+  await new Promise<void>((resolve) => setTimeout(() => resolve(), 5000))
+
   const distribution = distributionResult.Distribution
+
+  console.log('distro', distribution)
 
   if (!distribution) {
     console.error(`Distribution not found [${distroId}]`)
@@ -54,6 +58,21 @@ const updateDistro = async (
   )
 }
 
+const retryableUpdateDistro = async (
+  client: CloudFrontClient,
+  OAC: OriginAccessControlSummary,
+  distroId: string,
+): Promise<void> => {
+  try {
+    await updateDistro(client, OAC, distroId)
+    await new Promise<void>((resolve) => setTimeout(() => resolve(), 10000))
+  } catch (error) {
+    console.error(error)
+    await new Promise<void>((resolve) => setTimeout(() => resolve(), 5000))
+    await retryableUpdateDistro(client, OAC, distroId)
+  }
+}
+
 const updateDistros = async (client: CloudFrontClient, OAC: OriginAccessControlSummary) => {
   let marker: string | undefined = undefined
 
@@ -67,17 +86,12 @@ const updateDistros = async (client: CloudFrontClient, OAC: OriginAccessControlS
 
     if (!fetchDistros.DistributionList.Items) return
 
-    await Promise.all(
-      fetchDistros.DistributionList?.Items.map(async (distro) => {
-        try {
-          await updateDistro(client, OAC, distro.Id)
-        } catch (error) {
-          console.error(error)
-        }
-      }),
-    )
+    // Await each call, avoids making 10 async calls to AWS to avoid rate limit
+    fetchDistros.DistributionList?.Items.forEach(async (distro) => {
+      await retryableUpdateDistro(client, OAC, distro.Id as string)
+    })
 
-    marker = fetchDistros.DistributionList.Marker
+    marker = fetchDistros.DistributionList.NextMarker
 
     await new Promise<void>((resolve) => setTimeout(() => resolve(), 10000))
   } while (typeof marker !== 'undefined')
@@ -99,6 +113,8 @@ export const resolveProductionApplyOACToAllDistros: OnEventHandler = async (even
   const OAC = OACs.OriginAccessControlList?.Items
     ? OACs.OriginAccessControlList?.Items.find((oac) => oac.Name === 'distro-to-s3')
     : undefined
+
+  console.log('OAC', OAC)
 
   if (!OAC) throw new Error('OAC not found')
 
