@@ -4,7 +4,7 @@ const { pathsToModuleNameMapper } = require('ts-jest')
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  testPathIgnorePatterns: ['<rootDir>/dist'],
+  testPathIgnorePatterns: ['<rootDir>/dist', '<rootDir>/cdk'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts'],
   coverageDirectory: './src/tests/coverage',
   coveragePathIgnorePatterns: [
