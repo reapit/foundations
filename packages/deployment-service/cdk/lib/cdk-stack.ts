@@ -286,12 +286,8 @@ export const createStack = async () => {
   // // #3
   new ResolveProductionOACCustomResource(usercodeStack, 'resolve-oac')
   // // #4
-  // new ResolveProductionS3BucketPermissionsCustomResource(
-  //   usercodeStack,
-  //   'resolve-s3-bucket-permissions',
-  //   {
-  //     buckets,
-  //     iaasAccountId: usercodeStack.account,
-  //   },
-  // )
+  new ResolveProductionS3BucketPermissionsCustomResource(usercodeStack, 'resolve-s3-bucket-permissions', {
+    buckets,
+    iaasAccountId: usercodeStack.account,
+  })
 }
