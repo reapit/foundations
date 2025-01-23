@@ -152,7 +152,7 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
       <Table
         className={elMb11}
         rows={members.data.map((member) => {
-          const { name, jobTitle, status, role, gitHubUsername, agreedTerms, created, email } = member
+          const { name, jobTitle, status, role, gitHubUsername, agreedTerms, created, email, isMainContact } = member
           return {
             cells: [
               {
@@ -227,6 +227,17 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
                       })}
                     >
                       Set As {role === 'admin' ? 'User' : 'Admin'}
+                    </Button>
+                    <Button
+                      intent="primary"
+                      disabled={hasReadAccess || memberUpdating || isMainContact}
+                      loading={memberUpdating}
+                      onClick={handleSetUpdateMember(setMemberUpdate, {
+                        ...member,
+                        isMainContact: true,
+                      })}
+                    >
+                      Set As Main Contact
                     </Button>
                     <Button
                       intent="primary"
