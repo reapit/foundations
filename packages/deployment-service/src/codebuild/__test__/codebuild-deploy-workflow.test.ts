@@ -8,6 +8,7 @@ import { v4 as uuid } from 'uuid'
 import { PusherProvider } from '../../events'
 import { CodebuildDeployWorkflow } from '../codebuild-deploy-workflow'
 import { DeployProvider } from '../../deployment'
+import { INestApplication } from '@nestjs/common'
 
 const mockSourceProvider = {
   downloadGithubSourceToS3: jest.fn(),
@@ -40,11 +41,11 @@ const mockPusherProvider = {
 }
 
 describe('CodebuildDeployWorkflow', () => {
-  let module: TestingModule
+  let app: INestApplication
   beforeAll(async () => {
     jest.useFakeTimers().setSystemTime(new Date('2020-01-01'))
 
-    module = await Test.createTestingModule({
+    const module = await Test.createTestingModule({
       providers: [
         {
           provide: SoruceProvider,
@@ -77,6 +78,7 @@ describe('CodebuildDeployWorkflow', () => {
         CodebuildDeployWorkflow,
       ],
     }).compile()
+    app = module.createNestApplication()
   })
 
   afterEach(() => {
@@ -87,7 +89,7 @@ describe('CodebuildDeployWorkflow', () => {
     const pipelineId = uuid()
     const pipelineRunnerId = uuid()
     const repository = 'https://github.com/reapit/foundations'
-    const codebuildDeployWorkflow = module.get<CodebuildDeployWorkflow>(CodebuildDeployWorkflow)
+    const codebuildDeployWorkflow = app.get<CodebuildDeployWorkflow>(CodebuildDeployWorkflow)
 
     mockPipelineRunnerProvider.save.mockImplementationOnce((pipelineRunner) => pipelineRunner)
     mockPipelineRunnerProvider.findById.mockImplementationOnce(() => ({
@@ -145,7 +147,7 @@ describe('CodebuildDeployWorkflow', () => {
     const pipelineId = uuid()
     const pipelineRunnerId = uuid()
     const repository = 'https://github.com/reapit/foundations'
-    const codebuildDeployWorkflow = module.get<CodebuildDeployWorkflow>(CodebuildDeployWorkflow)
+    const codebuildDeployWorkflow = app.get<CodebuildDeployWorkflow>(CodebuildDeployWorkflow)
     mockSourceProvider.downloadGithubSourceToS3.mockImplementationOnce(() => {
       throw new Error('failed to obtain github stuffs')
     })
@@ -207,7 +209,7 @@ describe('CodebuildDeployWorkflow', () => {
     const pipelineId = uuid()
     const pipelineRunnerId = uuid()
     const repository = 'https://github.com/reapit/foundations'
-    const codebuildDeployWorkflow = module.get<CodebuildDeployWorkflow>(CodebuildDeployWorkflow)
+    const codebuildDeployWorkflow = app.get<CodebuildDeployWorkflow>(CodebuildDeployWorkflow)
     mockSourceProvider.downloadGithubSourceToS3.mockImplementationOnce(() => {
       throw new Error('failed to obtain github stuffs')
     })
