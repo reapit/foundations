@@ -49,7 +49,7 @@ describe('DeploymentProvider', () => {
       .useClass(MockCloudFrontProvider)
       .compile()
 
-      app = module.createNestApplication()
+    app = module.createNestApplication()
   })
 
   it('deployFromStore', async () => {
