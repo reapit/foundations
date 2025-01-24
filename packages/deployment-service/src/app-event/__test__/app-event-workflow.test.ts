@@ -1,9 +1,10 @@
 import { EventDispatcher } from '../../events'
 import { PipelineProvider } from '../../pipeline'
-import { Test, TestingModule } from '@nestjs/testing'
+import { Test } from '@nestjs/testing'
 import { AppEventWorkflow } from '../app-event-workflow'
 import { SQSRecord } from 'aws-lambda'
 import { SqsProvider } from '../../events'
+import { INestApplication } from '@nestjs/common'
 
 const mockPipelineProvider = {
   create: jest.fn(),
@@ -16,9 +17,9 @@ const mockEventDispatcher = {
 }
 
 describe('AppEventWorkflow', () => {
-  let module: TestingModule
+  let app: INestApplication
   beforeAll(async () => {
-    module = await Test.createTestingModule({
+    const module = await Test.createTestingModule({
       providers: [
         {
           provide: PipelineProvider,
@@ -37,10 +38,12 @@ describe('AppEventWorkflow', () => {
         AppEventWorkflow,
       ],
     }).compile()
+
+    app = module.createNestApplication()
   })
 
   it('Can create pipeline', () => {
-    const appEventWorkflow = module.get<AppEventWorkflow>(AppEventWorkflow)
+    const appEventWorkflow = app.get<AppEventWorkflow>(AppEventWorkflow)
 
     appEventWorkflow.run({
       body: JSON.stringify({
@@ -56,7 +59,7 @@ describe('AppEventWorkflow', () => {
   })
 
   it('Can delete pipeline', async () => {
-    const appEventWorkflow = module.get<AppEventWorkflow>(AppEventWorkflow)
+    const appEventWorkflow = app.get<AppEventWorkflow>(AppEventWorkflow)
 
     await appEventWorkflow.run({
       body: JSON.stringify({

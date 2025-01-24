@@ -1,4 +1,4 @@
-import { Test, TestingModule } from '@nestjs/testing'
+import { Test } from '@nestjs/testing'
 import { PipelineController } from '../pipeline-controller'
 import { PipelineProvider } from '../pipeline-provider'
 import { OwnershipProvider, IdTokenGuard, CredsType } from '@reapit/utils-nest'
@@ -8,6 +8,7 @@ import { PackageManagerEnum, PipelineModelInterface } from '@reapit/foundations-
 import { plainToInstance } from 'class-transformer'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 import { RepositoryProvider } from '../repository.provider'
+import { INestApplication } from '@nestjs/common'
 
 process.env.NODE_ENV = 'local'
 
@@ -46,10 +47,10 @@ const mockRepositoryProvider = {
 const mockCredGuard = {}
 
 describe('PipelineController', () => {
-  let app: TestingModule
+  let app: INestApplication
 
   beforeAll(async () => {
-    app = await Test.createTestingModule({
+    const module = await Test.createTestingModule({
       controllers: [PipelineController],
       providers: [
         {
@@ -77,6 +78,8 @@ describe('PipelineController', () => {
       .overrideGuard(IdTokenGuard)
       .useValue(mockCredGuard)
       .compile()
+
+    app = module.createNestApplication()
   })
 
   describe('Create Pipeline', () => {

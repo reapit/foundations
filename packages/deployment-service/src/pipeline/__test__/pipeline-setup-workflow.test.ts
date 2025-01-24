@@ -8,6 +8,7 @@ import { Route53Client } from '@aws-sdk/client-route-53'
 import { S3Provider } from '../../s3'
 import { v4 as uuid } from 'uuid'
 import { SQSRecord } from 'aws-lambda'
+import { INestApplication } from '@nestjs/common'
 
 const mockS3Provider = {
   upload: jest.fn(),
@@ -34,9 +35,9 @@ const mockSqsProvider = {
 }
 
 describe('PipelineSetupWorkflow', () => {
-  let module: TestingModule
+  let app: INestApplication
   beforeAll(async () => {
-    module = await Test.createTestingModule({
+    const module = await Test.createTestingModule({
       providers: [
         PipelineSetupWorkflow,
         {
@@ -73,6 +74,8 @@ describe('PipelineSetupWorkflow', () => {
         },
       ],
     }).compile()
+
+    app = module.createNestApplication()
   })
 
   afterEach(() => {
@@ -80,7 +83,7 @@ describe('PipelineSetupWorkflow', () => {
   })
 
   it('Successfully provision', async () => {
-    const pipelineSetupWorkflow = module.get<PipelineSetupWorkflow>(PipelineSetupWorkflow)
+    const pipelineSetupWorkflow = app.get<PipelineSetupWorkflow>(PipelineSetupWorkflow)
     const pipelineId = uuid()
     const developerId = uuid()
 
@@ -143,7 +146,7 @@ describe('PipelineSetupWorkflow', () => {
   })
 
   it('Failed to provision result', async () => {
-    const pipelineSetupWorkflow = module.get<PipelineSetupWorkflow>(PipelineSetupWorkflow)
+    const pipelineSetupWorkflow = app.get<PipelineSetupWorkflow>(PipelineSetupWorkflow)
     const pipelineId = uuid()
     const developerId = uuid()
 

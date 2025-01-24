@@ -1,4 +1,4 @@
-import { Test, TestingModule } from '@nestjs/testing'
+import { Test } from '@nestjs/testing'
 import { EventDispatcher, PusherProvider, SqsProvider } from '../../events'
 import { PipelineProvider } from '../pipeline-provider'
 import { SQS, S3 } from 'aws-sdk'
@@ -10,6 +10,7 @@ import { v4 as uuid } from 'uuid'
 import { PipelineTearDownWorkflow } from '../pipeline-teardown-workflow'
 import { ParameterProvider } from '..'
 import { TaskProvider, PipelineRunnerProvider } from '../../pipeline-runner'
+import { INestApplication } from '@nestjs/common'
 
 const mockS3Provider = {
   upload: jest.fn(),
@@ -55,9 +56,9 @@ const mockTaskProvider = {
 }
 
 describe('PipelineTearDownWorkflow', () => {
-  let module: TestingModule
+  let app: INestApplication
   beforeAll(async () => {
-    module = await Test.createTestingModule({
+    const module = await Test.createTestingModule({
       providers: [
         PipelineTearDownWorkflow,
         {
@@ -110,10 +111,12 @@ describe('PipelineTearDownWorkflow', () => {
         },
       ],
     }).compile()
+
+    app = module.createNestApplication()
   })
 
   it('Can call pipeline teardown', async () => {
-    const pipelineTearDownStartWorkflow = module.get<PipelineTearDownWorkflow>(PipelineTearDownWorkflow)
+    const pipelineTearDownStartWorkflow = app.get<PipelineTearDownWorkflow>(PipelineTearDownWorkflow)
 
     mockCloudFrontClient.send.mockImplementation(() => ({
       Distribution: {
