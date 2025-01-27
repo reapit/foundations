@@ -14,19 +14,28 @@ import {
   useSnack,
   Icon,
   elMb7,
+  Select,
+  Label,
+  InputError,
 } from '@reapit/elements'
 import { Marketplace } from '@reapit/foundations-ts-definitions'
 import TermsAndConditionsModal from './terms-and-conditions-modal'
 import Routes from '../../constants/routes'
 import { formFields } from './form-fields'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { validationSchema } from './validation-schema'
-import { useForm, UseFormGetValues } from 'react-hook-form'
+import {
+  firstStepValidationSchema,
+  forthStepValidationSchema,
+  secondStepValidationSchema,
+  thirdStepValidationSchema,
+} from './validation-schema'
 import { LoginContainer, LoginContentWrapper } from '../login/__styles__'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { createDeveloperService } from '../../services/developer'
+import { FormWizard } from '../form-wizard'
+import { COUNTRY_OPTIONS } from '../settings/company/country-options-list'
 
-const { nameField, emailField, companyNameField, telephoneField, gitHubUsernameField } = formFields
+const { nameField, emailField, companyNameField, telephoneField, jobTitleField } = formFields
 
 export type DeveloperState = 'LOADING' | 'SUCCESS' | 'ERROR' | 'INITIAL'
 
@@ -34,9 +43,17 @@ export const registerFormInitialValues: Marketplace.CreateDeveloperModel = {
   name: '',
   companyName: '',
   email: '',
+  notificationsEmail: '',
+  companyAddress: {
+    line1: '',
+    line2: '',
+    postcode: '',
+  },
   telephone: '',
   agreedTerms: '',
-  gitHubUsername: '',
+  taxNumber: '',
+  website: '',
+  registrationNumber: '',
 }
 
 export const onSubmit =
@@ -72,42 +89,11 @@ export const formSubmit = (setAgreeModalVisable: (val: boolean) => void) => () =
   setAgreeModalVisable(true)
 }
 
-export const formChange =
-  ({
-    getValues,
-    errors,
-    formStep,
-    setFormStep,
-  }: {
-    getValues: UseFormGetValues<Marketplace.CreateDeveloperModel>
-    errors: { [s: string]: any }
-    setFormStep: (value: 1 | 2 | 3) => void
-    formStep: number
-  }) =>
-  () => {
-    const { name, telephone } = getValues()
-
-    if (name && !errors.name && formStep != 3) {
-      if (telephone && !errors.telephone) {
-        setFormStep(3)
-      } else setFormStep(2)
-    }
-  }
-
 export const Register: FC = () => {
   const [agreeModalVisable, setAgreeModalVisable] = useState<boolean>(false)
   const [developerState, setDeveloperState] = useState<DeveloperState>('INITIAL')
-  const [formStep, setFormStep] = useState<1 | 2 | 3>(1)
   const { error } = useSnack()
-  const {
-    handleSubmit,
-    formState: { errors },
-    register,
-    getValues,
-  } = useForm<Marketplace.CreateDeveloperModel>({
-    resolver: yupResolver(validationSchema),
-    defaultValues: registerFormInitialValues,
-  })
+  const [formSubmittedData, setFormSubmittedData] = useState<any>()
 
   useEffect(() => {
     if (developerState === 'SUCCESS' || developerState === 'ERROR') {
@@ -139,89 +125,216 @@ export const Register: FC = () => {
           </>
         ) : (
           <>
-            <form
-              onSubmit={handleSubmit(formSubmit(setAgreeModalVisable))}
-              onChange={formChange({
-                getValues,
-                errors,
-                formStep,
-                setFormStep,
-              })}
-            >
-              <BodyText hasGreyText hasCenteredText hasSectionMargin>
-                By registering for the Foundations platform, you will get access to the Reapit DeveloperPortal and
-                sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward
-                to seeing what you build!
-              </BodyText>
-              <FormLayout hasMargin>
-                <InputWrapFull>
-                  <InputGroup
-                    type="text"
-                    label={nameField.label as string}
-                    id={nameField.name}
-                    placeholder={nameField.placeHolder}
-                    {...register('name')}
-                    intent={errors?.name?.message ? 'danger' : undefined}
-                    inputAddOnText={errors?.name?.message}
-                  />
-                </InputWrapFull>
-                <InputWrapFull>
-                  <InputGroup
-                    type="text"
-                    label={companyNameField.label as string}
-                    id={companyNameField.name}
-                    placeholder={companyNameField.placeHolder}
-                    {...register('companyName')}
-                    intent={errors?.companyName?.message ? 'danger' : undefined}
-                    inputAddOnText={errors?.companyName?.message}
-                  />
-                </InputWrapFull>
-                <InputWrapFull>
-                  <InputGroup
-                    type="email"
-                    label={emailField.label as string}
-                    id={emailField.name}
-                    placeholder={emailField.placeHolder}
-                    {...register('email')}
-                    intent={errors?.email?.message ? 'danger' : undefined}
-                    inputAddOnText={errors?.email?.message}
-                  />
-                </InputWrapFull>
-                <InputWrapFull>
-                  <InputGroup
-                    type="tel"
-                    label={telephoneField.label as string}
-                    id={telephoneField.name}
-                    placeholder={telephoneField.placeHolder}
-                    {...register('telephone')}
-                    intent={errors?.telephone?.message ? 'danger' : undefined}
-                    inputAddOnText={errors?.telephone?.message}
-                  />
-                </InputWrapFull>
-                <InputWrapFull>
-                  <InputGroup
-                    type="tel"
-                    label={gitHubUsernameField.label as string}
-                    id={gitHubUsernameField.name}
-                    placeholder={gitHubUsernameField.placeHolder}
-                    {...register('gitHubUsername')}
-                    intent={errors?.gitHubUsername?.message ? 'danger' : undefined}
-                    inputAddOnText={errors?.gitHubUsername?.message}
-                  />
-                </InputWrapFull>
-              </FormLayout>
-              <TermsAndConditionsModal
-                visible={agreeModalVisable}
-                onAccept={onSubmit(getValues(), setDeveloperState, error)}
-                onDecline={onDeclineTermsAndConditions(setAgreeModalVisable)}
-                isSubmitting={developerState === 'LOADING'}
-              />
-              <ButtonGroup alignment="center">
-                <Button type="submit" loading={developerState === 'LOADING'} intent="primary">
-                  Register
-                </Button>
-              </ButtonGroup>
-            </form>
+            <FormWizard
+              onSubmit={({ values }) => {
+                setFormSubmittedData(values)
+                setAgreeModalVisable(true)
+              }}
+              isSubmitting={developerState === 'LOADING'}
+              steps={{
+                first: {
+                  formOptions: {
+                    resolver: yupResolver(firstStepValidationSchema),
+                    defaultValues: registerFormInitialValues,
+                  },
+                  name: '1',
+                  component: ({ register, errors }) => (
+                    <FormLayout hasMargin>
+                      <InputWrapFull>
+                        <InputGroup
+                          type="text"
+                          label={nameField.label as string}
+                          id={nameField.name}
+                          placeholder={nameField.placeHolder}
+                          {...register('name')}
+                          intent={errors?.name?.message ? 'danger' : undefined}
+                          inputAddOnText={errors?.name?.message}
+                        />
+                      </InputWrapFull>
+                      <InputWrapFull>
+                        <InputGroup
+                          type="text"
+                          label={jobTitleField.label as string}
+                          id={jobTitleField.name}
+                          placeholder={jobTitleField.placeHolder}
+                          {...register('jobtitle')}
+                          intent={errors?.jobtitle?.message ? 'danger' : undefined}
+                          inputAddOnText={errors?.jobtitle?.message}
+                        />
+                      </InputWrapFull>
+                      <InputWrapFull>
+                        <InputGroup
+                          type="email"
+                          label={emailField.label as string}
+                          id={emailField.name}
+                          placeholder={emailField.placeHolder}
+                          {...register('email')}
+                          intent={errors?.email?.message ? 'danger' : undefined}
+                          inputAddOnText={errors?.email?.message}
+                        />
+                      </InputWrapFull>
+                    </FormLayout>
+                  ),
+                },
+                second: {
+                  name: '2',
+                  formOptions: {
+                    resolver: yupResolver(secondStepValidationSchema),
+                    defaultValues: registerFormInitialValues,
+                  },
+                  component: ({ register, errors }) => (
+                    <FormLayout hasMargin>
+                      <InputWrapFull>
+                        <InputGroup
+                          type="text"
+                          label={companyNameField.label as string}
+                          id={companyNameField.name}
+                          placeholder={companyNameField.placeHolder}
+                          {...register('companyName')}
+                          intent={errors?.companyName?.message ? 'danger' : undefined}
+                          inputAddOnText={errors?.companyName?.message}
+                        />
+                      </InputWrapFull>
+                      <InputWrapFull>
+                        <InputGroup
+                          type="tel"
+                          label={telephoneField.label as string}
+                          id={telephoneField.name}
+                          placeholder={telephoneField.placeHolder}
+                          {...register('telephone')}
+                          intent={errors?.telephone?.message ? 'danger' : undefined}
+                          inputAddOnText={errors?.telephone?.message}
+                        />
+                      </InputWrapFull>
+                      <InputWrapFull>
+                        <InputGroup
+                          type="text"
+                          label="Website"
+                          id="website"
+                          placeholder="mycompany.co.uk"
+                          {...register('website')}
+                          intent={errors?.website?.message ? 'danger' : undefined}
+                          inputAddOnText={errors?.website?.message}
+                        />
+                      </InputWrapFull>
+                      <InputWrapFull>
+                        <InputGroup
+                          type="text"
+                          label="Registration Number"
+                          id="registration-number"
+                          placeholder=""
+                          {...register('registrationNumber')}
+                          intent={errors['registrationNumber']?.message ? 'danger' : undefined}
+                          inputAddOnText={errors['registrationNumber']?.message}
+                        />
+                      </InputWrapFull>
+                      <InputWrapFull>
+                        <InputGroup
+                          type="text"
+                          label="VAT Number"
+                          id="vat-number"
+                          placeholder=""
+                          {...register('taxNumber')}
+                          intent={errors['taxNumber']?.message ? 'danger' : undefined}
+                          inputAddOnText={errors['taxNumber']?.message}
+                        />
+                      </InputWrapFull>
+                    </FormLayout>
+                  ),
+                },
+                third: {
+                  name: '3',
+                  formOptions: {
+                    resolver: yupResolver(thirdStepValidationSchema),
+                    defaultValues: registerFormInitialValues,
+                  },
+                  component: ({ errors, register }) => (
+                    <FormLayout hasMargin>
+                      <InputWrapFull>
+                        <InputGroup
+                          type="text"
+                          label="Address Line 1"
+                          id="companyAddress.line1"
+                          placeholder=""
+                          {...register('companyAddress.line1')}
+                          intent={errors.companyAddress?.line1?.message ? 'danger' : undefined}
+                          inputAddOnText={errors.companyAddress?.line1?.message}
+                        />
+                      </InputWrapFull>
+                      <InputWrapFull>
+                        <InputGroup
+                          type="text"
+                          label="Address Line 2"
+                          id="companyAddress.line2"
+                          placeholder=""
+                          {...register('companyAddress.line2')}
+                          intent={errors.companyAddress?.line2?.message ? 'danger' : undefined}
+                          inputAddOnText={errors.companyAddress?.line2?.message}
+                        />
+                      </InputWrapFull>
+                      <InputWrapFull>
+                        <InputGroup>
+                          <Select {...register('companyAddress.country')}>
+                            {COUNTRY_OPTIONS.map(({ label, value }) => (
+                              <option key={value} value={value}>
+                                {label}
+                              </option>
+                            ))}
+                          </Select>
+                          <Label>Country</Label>
+                          {errors.companyAddress?.country && <InputError message={errors.companyAddress?.country} />}
+                        </InputGroup>
+                      </InputWrapFull>
+                      <InputWrapFull>
+                        <InputGroup
+                          type="text"
+                          label="Post Code"
+                          id="companyAddress.postcode"
+                          placeholder=""
+                          {...register('companyAddress.postcode')}
+                          intent={errors.companyAddress?.postcode?.message ? 'danger' : undefined}
+                          inputAddOnText={errors.companyAddress?.postcode?.message}
+                        />
+                      </InputWrapFull>
+                    </FormLayout>
+                  ),
+                },
+                forth: {
+                  name: '4',
+                  formOptions: {
+                    resolver: yupResolver(forthStepValidationSchema),
+                    defaultValues: registerFormInitialValues,
+                  },
+                  component: ({ register, errors, getValues }) => (
+                    <FormLayout hasMargin>
+                      <InputWrapFull>
+                        <BodyText hasGreyText>
+                          Holly to provide helper text, this is to be provided by Holly, Holly is the best and will
+                          provide us with helper text for notification email fields.
+                        </BodyText>
+                      </InputWrapFull>
+                      <InputWrapFull>
+                        <InputGroup
+                          type="email"
+                          label="Notification Email"
+                          id="notification-email"
+                          placeholder="notifications@mycompany.co.uk"
+                          {...register('notificationsEmail')}
+                          intent={errors['notificationsEmail']?.message ? 'danger' : undefined}
+                          inputAddOnText={errors['notificationsEmail']?.message}
+                        />
+                      </InputWrapFull>
+                    </FormLayout>
+                  ),
+                },
+              }}
+            />
+            <TermsAndConditionsModal
+              visible={agreeModalVisable}
+              onAccept={onSubmit(formSubmittedData, setDeveloperState, error)}
+              onDecline={onDeclineTermsAndConditions(setAgreeModalVisable)}
+              isSubmitting={developerState === 'LOADING'}
+            />
           </>
         )}
       </LoginContentWrapper>
