@@ -86,7 +86,7 @@ export const FormWizard = <TFieldValues extends FieldValues>({
     } else {
       setFormValues((previous) => ({
         ...previous,
-        values,
+        ...values,
       }))
       setCurrentStep(currentStep + 1)
       return Promise.resolve(formValues)

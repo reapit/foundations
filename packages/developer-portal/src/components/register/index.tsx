@@ -48,7 +48,7 @@ export const registerFormInitialValues: Marketplace.CreateDeveloperModel = {
     line1: '',
     line2: '',
     postcode: '',
-    countryId: '',
+    countryId: 'GB',
   },
   telephone: '',
   agreedTerms: '',
@@ -129,6 +129,7 @@ export const Register: FC = () => {
           <>
             <FormWizard
               onSubmit={(values) => {
+                console.log('values', values)
                 setFormSubmittedData(values)
                 setAgreeModalVisable(true)
               }}

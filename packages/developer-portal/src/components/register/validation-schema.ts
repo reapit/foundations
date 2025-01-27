@@ -43,7 +43,7 @@ export const thirdStepValidationSchema = Yup.object().shape({
   companyAddress: Yup.object().shape({
     line1: Yup.string().required('Required'),
     line2: Yup.string().required('Required'),
-    country: Yup.string().required('Required'),
+    countryId: Yup.string().required('Required'),
     postcode: Yup.string().required('Required'),
   }),
 })
