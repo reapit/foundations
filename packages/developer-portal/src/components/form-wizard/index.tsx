@@ -1,42 +1,26 @@
 import { Button, ButtonGroup, Steps } from '@reapit/elements'
-import React, { FC, useState } from 'react'
-import {
-  useForm,
-  UseFormRegister,
-  FieldValues,
-  FieldErrors,
-  UseFormGetValues,
-  UseFormSetValue,
-  UseFormWatch,
-  UseFormSetError,
-  UseFormProps,
-  UseFormHandleSubmit,
-} from 'react-hook-form'
+import React, { useState } from 'react'
+import { Step, StepComponent } from './interface'
+import { FieldValues, UseFormProps, useForm, SubmitHandler } from 'react-hook-form'
 
-type StepComponent<TFieldValues extends FieldValues> = FC<{
-  register: UseFormRegister<TFieldValues>
-  errors: FieldErrors<TFieldValues>
-  getValues: UseFormGetValues<TFieldValues>
-  setValue: UseFormSetValue<TFieldValues>
-  watch: UseFormWatch<TFieldValues>
-  setError: UseFormSetError<TFieldValues>
-}>
-
-type Step<TFieldValues extends FieldValues> = {
+const FormWizardStep = <TFieldValues extends FieldValues>({
+  formOptions,
+  component: Component,
+  previousStep,
+  canGoBack,
+  isLastStep,
+  onSubmit,
+  isSubmitting = false,
+}: {
+  onSubmit: SubmitHandler<TFieldValues>
+  previousStep: () => void
+  canGoBack: boolean
+  isLastStep: boolean
+  isSubmitting?: boolean
   name: string
   component: StepComponent<TFieldValues>
   formOptions?: UseFormProps<TFieldValues>
-}
-
-const FormWizardStep: FC<
-  Step<TFieldValues> & {
-    onSubmit: () => void
-    previousStep: () => void
-    canGoBack: boolean
-    isLastStep: boolean
-    isSubmitting?: boolean
-  }
-> = ({ formOptions, component: Component, previousStep, canGoBack, isLastStep, onSubmit, isSubmitting = false }) => {
+}) => {
   const {
     handleSubmit,
     register,
@@ -76,38 +60,42 @@ const FormWizardStep: FC<
   )
 }
 
-export const FormWizard: FC<{
-  steps: Record<string, Step<T>>
-  onSubmit: UseFormHandleSubmit<T>
+export const FormWizard = <TFieldValues extends FieldValues>({
+  steps,
+  onSubmit,
+  showStepNumbers = true,
+  isSubmitting = false,
+}: {
+  steps: Record<string, Step<TFieldValues>>
+  onSubmit: SubmitHandler<TFieldValues>
   showStepNumbers?: boolean
   isSubmitting?: boolean
-}> = ({ steps, onSubmit, showStepNumbers = true, isSubmitting = false }) => {
+}) => {
   const [currentStep, setCurrentStep] = useState<number>(0)
   const isSubmitStep = currentStep === Object.keys(steps).length - 1
-  const [formValues, setFormValues] = useState<undefined | T>()
+  const [formValues, setFormValues] = useState<TFieldValues>({} as TFieldValues)
 
   const previousStep = () => {
     setCurrentStep(currentStep - 1)
   }
 
-  const nextOrSubmit: UseFormHandleSubmit<T> = (values) => {
+  const nextOrSubmit: SubmitHandler<TFieldValues> = (values) => {
     if (isSubmitStep) {
       onSubmit(formValues)
+      return Promise.resolve(formValues)
     } else {
-      // TODO can errors be counted to move to the next step?
-      // validate step?
       setFormValues((previous) => ({
         ...previous,
         values,
       }))
       setCurrentStep(currentStep + 1)
+      return Promise.resolve(formValues)
     }
   }
 
   const selectedStep = Object.values(steps)[currentStep]
 
   return (
-    // <form onSubmit={nextOrSubmit}>
     <>
       {showStepNumbers && (
         <Steps

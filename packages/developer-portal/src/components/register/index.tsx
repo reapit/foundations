@@ -48,12 +48,14 @@ export const registerFormInitialValues: Marketplace.CreateDeveloperModel = {
     line1: '',
     line2: '',
     postcode: '',
+    countryId: '',
   },
   telephone: '',
   agreedTerms: '',
   taxNumber: '',
   website: '',
   registrationNumber: '',
+  jobTitle: '',
 }
 
 export const onSubmit =
@@ -126,7 +128,7 @@ export const Register: FC = () => {
         ) : (
           <>
             <FormWizard
-              onSubmit={({ values }) => {
+              onSubmit={(values) => {
                 setFormSubmittedData(values)
                 setAgreeModalVisable(true)
               }}
@@ -157,9 +159,9 @@ export const Register: FC = () => {
                           label={jobTitleField.label as string}
                           id={jobTitleField.name}
                           placeholder={jobTitleField.placeHolder}
-                          {...register('jobtitle')}
-                          intent={errors?.jobtitle?.message ? 'danger' : undefined}
-                          inputAddOnText={errors?.jobtitle?.message}
+                          {...register('jobTitle')}
+                          intent={errors?.jobTitle?.message ? 'danger' : undefined}
+                          inputAddOnText={errors?.jobTitle?.message}
                         />
                       </InputWrapFull>
                       <InputWrapFull>
@@ -274,7 +276,7 @@ export const Register: FC = () => {
                       </InputWrapFull>
                       <InputWrapFull>
                         <InputGroup>
-                          <Select {...register('companyAddress.country')}>
+                          <Select {...register('companyAddress.countryId')}>
                             {COUNTRY_OPTIONS.map(({ label, value }) => (
                               <option key={value} value={value}>
                                 {label}
@@ -282,7 +284,9 @@ export const Register: FC = () => {
                             ))}
                           </Select>
                           <Label>Country</Label>
-                          {errors.companyAddress?.country && <InputError message={errors.companyAddress?.country} />}
+                          {errors.companyAddress?.countryId && errors.companyAddress.countryId.message && (
+                            <InputError message={errors.companyAddress?.countryId.message} />
+                          )}
                         </InputGroup>
                       </InputWrapFull>
                       <InputWrapFull>
