@@ -29,11 +29,12 @@ import {
   secondStepValidationSchema,
   thirdStepValidationSchema,
 } from './validation-schema'
-import { LoginContainer, LoginContentWrapper } from '../login/__styles__'
+import { RegisterContainer, RegisterContentWrapper, registrationForm } from './__styles__'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { createDeveloperService } from '../../services/developer'
 import { FormWizard } from '../form-wizard'
 import { COUNTRY_OPTIONS } from '../settings/company/country-options-list'
+import { cx } from '@linaria/core'
 
 const { nameField, emailField, companyNameField, telephoneField, jobTitleField } = formFields
 
@@ -104,8 +105,8 @@ export const Register: FC = () => {
   }, [developerState])
 
   return (
-    <LoginContainer>
-      <LoginContentWrapper>
+    <RegisterContainer>
+      <RegisterContentWrapper>
         <Icon className={elMb7} height="40px" width="200px" icon="reapitLogo" />
         <FlexContainer isFlexColumn>
           <Subtitle hasNoMargin hasCenteredText>
@@ -132,6 +133,7 @@ export const Register: FC = () => {
                 setFormSubmittedData(values)
                 setAgreeModalVisable(true)
               }}
+              className={cx(registrationForm)}
               submitButtonText="Register"
               isSubmitting={developerState === 'LOADING'}
               steps={{
@@ -342,8 +344,8 @@ export const Register: FC = () => {
             />
           </>
         )}
-      </LoginContentWrapper>
-    </LoginContainer>
+      </RegisterContentWrapper>
+    </RegisterContainer>
   )
 }
 

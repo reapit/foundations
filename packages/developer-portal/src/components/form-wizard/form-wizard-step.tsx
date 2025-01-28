@@ -12,6 +12,7 @@ export const FormWizardStep = <TFieldValues extends FieldValues>({
   onSubmit,
   isSubmitting = false,
   submitButtonText = 'Submit',
+  ...rest
 }: FormWizardStepPropsInterface<TFieldValues>) => {
   const {
     handleSubmit,
@@ -24,7 +25,7 @@ export const FormWizardStep = <TFieldValues extends FieldValues>({
   } = useForm(formOptions)
 
   return (
-    <form style={{ marginTop: '1rem' }} onSubmit={handleSubmit(onSubmit)}>
+    <form {...rest} onSubmit={handleSubmit(onSubmit)}>
       <Component
         register={register}
         errors={errors}

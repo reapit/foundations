@@ -26,7 +26,8 @@ export type Step<TFieldValues extends FieldValues> = {
   formOptions?: UseFormProps<TFieldValues>
 }
 
-export interface FormWizardPropsInterface<TFieldValues extends FieldValues> {
+export interface FormWizardPropsInterface<TFieldValues extends FieldValues>
+  extends Omit<React.DetailedHTMLProps<React.FormHTMLAttributes<HTMLFormElement>, HTMLFormElement>, 'onSubmit'> {
   steps: Record<string, Step<TFieldValues>>
   onSubmit: SubmitHandler<TFieldValues>
   showStepNumbers?: boolean
@@ -34,7 +35,8 @@ export interface FormWizardPropsInterface<TFieldValues extends FieldValues> {
   submitButtonText?: string
 }
 
-export interface FormWizardStepPropsInterface<TFieldValues extends FieldValues> {
+export interface FormWizardStepPropsInterface<TFieldValues extends FieldValues>
+  extends Omit<React.DetailedHTMLProps<React.FormHTMLAttributes<HTMLFormElement>, HTMLFormElement>, 'onSubmit'> {
   onSubmit: SubmitHandler<TFieldValues>
   previousStep: () => void
   canGoBack: boolean

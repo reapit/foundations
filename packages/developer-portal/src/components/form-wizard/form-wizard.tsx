@@ -10,6 +10,7 @@ export const FormWizard = <TFieldValues extends FieldValues>({
   showStepNumbers = true,
   isSubmitting = false,
   submitButtonText = 'Submit',
+  ...rest
 }: FormWizardPropsInterface<TFieldValues>) => {
   const [currentStep, setCurrentStep] = useState<number>(0)
   const isSubmitStep = currentStep === Object.keys(steps).length - 1
@@ -51,6 +52,7 @@ export const FormWizard = <TFieldValues extends FieldValues>({
         {...selectedStep}
         isSubmitting={isSubmitting}
         submitButtonText={submitButtonText}
+        {...rest}
       />
     </>
   )
