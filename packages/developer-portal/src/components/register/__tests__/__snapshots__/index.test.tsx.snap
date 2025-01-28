@@ -93,7 +93,11 @@ exports[`Register should match a snapshot 1`] = `
             </div>
           </div>
           <form
-            style="margin-top: 1rem;"
+            class="mock-css.
+  margin-top: 1rem;
+  width: 100%;
+"
+            name="1"
           >
             <div
               class="el-form-layout-has-margin el-form-layout"
@@ -284,7 +288,11 @@ exports[`Register should match a snapshot 1`] = `
           </div>
         </div>
         <form
-          style="margin-top: 1rem;"
+          class="mock-css.
+  margin-top: 1rem;
+  width: 100%;
+"
+          name="1"
         >
           <div
             class="el-form-layout-has-margin el-form-layout"

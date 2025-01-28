@@ -21,7 +21,7 @@ exports[`FormWizard Matches snapshot 1`] = `
         </div>
       </div>
       <form
-        style="margin-top: 1rem;"
+        name="1"
       >
         <div
           class="el-form-layout-has-margin el-form-layout"
@@ -94,7 +94,7 @@ exports[`FormWizard Matches snapshot 1`] = `
       </div>
     </div>
     <form
-      style="margin-top: 1rem;"
+      name="1"
     >
       <div
         class="el-form-layout-has-margin el-form-layout"
