@@ -56,12 +56,45 @@ exports[`Register should match a snapshot 1`] = `
               for Reapit Foundations DeveloperPortal
             </p>
           </div>
-          <form>
-            <p
-              class="el-text-base el-body-text el-has-grey-text el-has-section-margin el-has-centered-text"
+          <div
+            class="mocked-styled-95 el-steps"
+          >
+            <div
+              class="el-is-active el-step"
+              data-testid="step-0"
+              role="button"
+              tabindex="0"
             >
-              By registering for the Foundations platform, you will get access to the Reapit DeveloperPortal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
-            </p>
+              1
+            </div>
+            <div
+              class="mocked-styled-96 el-step"
+              data-testid="step-1"
+              role="button"
+              tabindex="0"
+            >
+              2
+            </div>
+            <div
+              class="mocked-styled-96 el-step"
+              data-testid="step-2"
+              role="button"
+              tabindex="0"
+            >
+              3
+            </div>
+            <div
+              class="mocked-styled-96 el-step"
+              data-testid="step-3"
+              role="button"
+              tabindex="0"
+            >
+              4
+            </div>
+          </div>
+          <form
+            style="margin-top: 1rem;"
+          >
             <div
               class="el-form-layout-has-margin el-form-layout"
             >
@@ -96,16 +129,16 @@ exports[`Register should match a snapshot 1`] = `
                   <input
                     aria-label="Input type text"
                     class="mocked-styled-38 el-input"
-                    id="companyName"
-                    name="companyName"
-                    placeholder="Acme Industries Ltd"
+                    id="jobTitle"
+                    name="jobTitle"
+                    placeholder="Developer"
                     type="text"
                   />
                   <label
                     class="mocked-styled-41 el-label"
-                    for="companyName"
+                    for="jobTitle"
                   >
-                    Company name
+                    Job Title
                   </label>
                 </div>
               </div>
@@ -131,65 +164,29 @@ exports[`Register should match a snapshot 1`] = `
                   </label>
                 </div>
               </div>
-              <div
-                class="mocked-styled-135 el-input-wrap-full"
-              >
-                <div
-                  class="mocked-styled-40 el-input-group"
-                >
-                  <input
-                    aria-label="Input type tel"
-                    class="mocked-styled-38 el-input"
-                    id="telephone"
-                    name="telephone"
-                    placeholder="0800 800 800"
-                    type="tel"
-                  />
-                  <label
-                    class="mocked-styled-41 el-label"
-                    for="telephone"
-                  >
-                    Telephone
-                  </label>
-                </div>
-              </div>
-              <div
-                class="mocked-styled-135 el-input-wrap-full"
-              >
-                <div
-                  class="mocked-styled-40 el-input-group"
-                >
-                  <input
-                    aria-label="Input type tel"
-                    class="mocked-styled-38 el-input"
-                    id="gitHubUsername"
-                    name="gitHubUsername"
-                    placeholder="Gihub handle"
-                    type="tel"
-                  />
-                  <label
-                    class="mocked-styled-41 el-label"
-                    for="gitHubUsername"
-                  >
-                    GitHub Username
-                  </label>
-                </div>
-              </div>
             </div>
             <div
               class="mocked-styled-2 el-button-group"
             >
               <div
-                class="el-button-group-align-center el-button-group-inner"
+                class="mocked-styled-3 el-button-group-inner"
               >
                 <button
-                  class="el-intent-primary el-button"
-                  type="submit"
+                  class="el-intent-neutral el-button"
+                  disabled=""
                 >
                   <div
                     class="mocked-styled-0 el-button-loader"
                   />
-                  Register
+                  Previous
+                </button>
+                <button
+                  class="el-intent-primary el-button"
+                >
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
+                  Next
                 </button>
               </div>
             </div>
@@ -250,12 +247,45 @@ exports[`Register should match a snapshot 1`] = `
             for Reapit Foundations DeveloperPortal
           </p>
         </div>
-        <form>
-          <p
-            class="el-text-base el-body-text el-has-grey-text el-has-section-margin el-has-centered-text"
+        <div
+          class="mocked-styled-95 el-steps"
+        >
+          <div
+            class="el-is-active el-step"
+            data-testid="step-0"
+            role="button"
+            tabindex="0"
           >
-            By registering for the Foundations platform, you will get access to the Reapit DeveloperPortal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
-          </p>
+            1
+          </div>
+          <div
+            class="mocked-styled-96 el-step"
+            data-testid="step-1"
+            role="button"
+            tabindex="0"
+          >
+            2
+          </div>
+          <div
+            class="mocked-styled-96 el-step"
+            data-testid="step-2"
+            role="button"
+            tabindex="0"
+          >
+            3
+          </div>
+          <div
+            class="mocked-styled-96 el-step"
+            data-testid="step-3"
+            role="button"
+            tabindex="0"
+          >
+            4
+          </div>
+        </div>
+        <form
+          style="margin-top: 1rem;"
+        >
           <div
             class="el-form-layout-has-margin el-form-layout"
           >
@@ -290,16 +320,16 @@ exports[`Register should match a snapshot 1`] = `
                 <input
                   aria-label="Input type text"
                   class="mocked-styled-38 el-input"
-                  id="companyName"
-                  name="companyName"
-                  placeholder="Acme Industries Ltd"
+                  id="jobTitle"
+                  name="jobTitle"
+                  placeholder="Developer"
                   type="text"
                 />
                 <label
                   class="mocked-styled-41 el-label"
-                  for="companyName"
+                  for="jobTitle"
                 >
-                  Company name
+                  Job Title
                 </label>
               </div>
             </div>
@@ -325,65 +355,29 @@ exports[`Register should match a snapshot 1`] = `
                 </label>
               </div>
             </div>
-            <div
-              class="mocked-styled-135 el-input-wrap-full"
-            >
-              <div
-                class="mocked-styled-40 el-input-group"
-              >
-                <input
-                  aria-label="Input type tel"
-                  class="mocked-styled-38 el-input"
-                  id="telephone"
-                  name="telephone"
-                  placeholder="0800 800 800"
-                  type="tel"
-                />
-                <label
-                  class="mocked-styled-41 el-label"
-                  for="telephone"
-                >
-                  Telephone
-                </label>
-              </div>
-            </div>
-            <div
-              class="mocked-styled-135 el-input-wrap-full"
-            >
-              <div
-                class="mocked-styled-40 el-input-group"
-              >
-                <input
-                  aria-label="Input type tel"
-                  class="mocked-styled-38 el-input"
-                  id="gitHubUsername"
-                  name="gitHubUsername"
-                  placeholder="Gihub handle"
-                  type="tel"
-                />
-                <label
-                  class="mocked-styled-41 el-label"
-                  for="gitHubUsername"
-                >
-                  GitHub Username
-                </label>
-              </div>
-            </div>
           </div>
           <div
             class="mocked-styled-2 el-button-group"
           >
             <div
-              class="el-button-group-align-center el-button-group-inner"
+              class="mocked-styled-3 el-button-group-inner"
             >
               <button
-                class="el-intent-primary el-button"
-                type="submit"
+                class="el-intent-neutral el-button"
+                disabled=""
               >
                 <div
                   class="mocked-styled-0 el-button-loader"
                 />
-                Register
+                Previous
+              </button>
+              <button
+                class="el-intent-primary el-button"
+              >
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
+                Next
               </button>
             </div>
           </div>
