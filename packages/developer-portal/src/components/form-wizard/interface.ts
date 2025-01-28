@@ -31,6 +31,7 @@ export interface FormWizardPropsInterface<TFieldValues extends FieldValues> {
   onSubmit: SubmitHandler<TFieldValues>
   showStepNumbers?: boolean
   isSubmitting?: boolean
+  submitButtonText?: string
 }
 
 export interface FormWizardStepPropsInterface<TFieldValues extends FieldValues> {
@@ -42,4 +43,5 @@ export interface FormWizardStepPropsInterface<TFieldValues extends FieldValues> 
   component: StepComponent<TFieldValues>
   formOptions?: UseFormProps<TFieldValues>
   isSubmitting?: boolean
+  submitButtonText?: string
 }

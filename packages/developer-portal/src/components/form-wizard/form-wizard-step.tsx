@@ -11,6 +11,7 @@ export const FormWizardStep = <TFieldValues extends FieldValues>({
   isLastStep,
   onSubmit,
   isSubmitting = false,
+  submitButtonText = 'Submit',
 }: FormWizardStepPropsInterface<TFieldValues>) => {
   const {
     handleSubmit,
@@ -44,7 +45,7 @@ export const FormWizardStep = <TFieldValues extends FieldValues>({
           Previous
         </Button>
         <Button disabled={isSubmitting} loading={isSubmitting} intent="primary">
-          {isLastStep ? 'Submit' : 'Next'}
+          {isLastStep ? submitButtonText : 'Next'}
         </Button>
       </ButtonGroup>
     </form>

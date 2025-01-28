@@ -132,6 +132,7 @@ export const Register: FC = () => {
                 setFormSubmittedData(values)
                 setAgreeModalVisable(true)
               }}
+              submitButtonText="Register"
               isSubmitting={developerState === 'LOADING'}
               steps={{
                 first: {
