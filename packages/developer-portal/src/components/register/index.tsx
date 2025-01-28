@@ -129,7 +129,6 @@ export const Register: FC = () => {
           <>
             <FormWizard
               onSubmit={(values) => {
-                console.log('values', values)
                 setFormSubmittedData(values)
                 setAgreeModalVisable(true)
               }}

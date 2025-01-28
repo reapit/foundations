@@ -2,7 +2,7 @@
 import * as Yup from 'yup'
 import { formFields } from './form-fields'
 import errorMessages from '../../constants/error-messages'
-import { personNameRegex, telephoneRegex, emailRegex } from '@reapit/utils-common'
+import { personNameRegex, telephoneRegex, emailRegex, isValidHttpsUrl } from '@reapit/utils-common'
 import { specialCharsTest } from '../../utils/yup'
 
 const { nameField, companyNameField, emailField, telephoneField } = formFields
@@ -29,12 +29,14 @@ export const secondStepValidationSchema = Yup.object().shape({
   website: Yup.string()
     .trim()
     .required('Required')
-    .matches(
-      /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
-      {
-        message: 'Must be a valid website',
+    .test({
+      message: 'Invalid website address',
+      test: (value) => {
+        if (!value) return true
+        return isValidHttpsUrl(value)
       },
-    ),
+    })
+    .max(100, errorMessages.MAXIMUM_CHARACTER_LENGTH(100)),
   registrationNumber: Yup.string().required('Required'),
   taxNumber: Yup.string().required('Required'),
 })
