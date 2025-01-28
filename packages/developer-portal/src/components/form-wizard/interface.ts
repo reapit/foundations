@@ -38,8 +38,8 @@ export interface FormWizardStepPropsInterface<TFieldValues extends FieldValues> 
   previousStep: () => void
   canGoBack: boolean
   isLastStep: boolean
-  isSubmitting?: boolean
   name: string
   component: StepComponent<TFieldValues>
   formOptions?: UseFormProps<TFieldValues>
+  isSubmitting?: boolean
 }
