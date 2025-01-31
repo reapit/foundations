@@ -86,7 +86,6 @@ const updateDistros = async (client: CloudFrontClient, OAC: OriginAccessControlS
 
     if (!fetchDistros.DistributionList.Items) return
 
-    // Await each call, avoids making 10 async calls to AWS to avoid rate limit
     fetchDistros.DistributionList?.Items.forEach(async (distro) => {
       await retryableUpdateDistro(client, OAC, distro.Id as string)
     })
