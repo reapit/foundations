@@ -20,7 +20,7 @@ const updateDistro = async (
     }),
   )
 
-  await new Promise<void>((resolve) => setTimeout(() => resolve(), 5000))
+  await new Promise<void>((resolve) => setTimeout(() => resolve(), 2000))
 
   const distribution = distributionResult.Distribution
 
@@ -65,22 +65,22 @@ const retryableUpdateDistro = async (
 ): Promise<void> => {
   try {
     await updateDistro(client, OAC, distroId)
-    await new Promise<void>((resolve) => setTimeout(() => resolve(), 10000))
   } catch (error) {
     console.error(error)
-    await new Promise<void>((resolve) => setTimeout(() => resolve(), 5000))
+    await new Promise<void>((resolve) => setTimeout(() => resolve(), 2000))
     await retryableUpdateDistro(client, OAC, distroId)
   }
 }
 
 const updateDistros = async (client: CloudFrontClient, OAC: OriginAccessControlSummary) => {
   let marker: string | undefined = undefined
+  let counter: number = 1
 
   do {
     const fetchDistros = await client.send(
       new ListDistributionsCommand({
         Marker: marker,
-        MaxItems: 5,
+        MaxItems: 1,
       }),
     )
 
@@ -90,9 +90,12 @@ const updateDistros = async (client: CloudFrontClient, OAC: OriginAccessControlS
       await retryableUpdateDistro(client, OAC, distro.Id as string)
     })
 
-    marker = fetchDistros.DistributionList.NextMarker
+    console.log('prev marker', counter, marker)
 
-    await new Promise<void>((resolve) => setTimeout(() => resolve(), 10000))
+    marker = fetchDistros.DistributionList.NextMarker
+    counter++
+
+    await new Promise<void>((resolve) => setTimeout(() => resolve(), 5000))
   } while (typeof marker !== 'undefined')
 }
 
