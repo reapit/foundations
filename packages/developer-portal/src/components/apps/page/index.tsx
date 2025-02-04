@@ -56,7 +56,7 @@ export const AppsPage: FC = () => {
   //   appDetail?.authFlow !== 'clientCredentials'
 
   const hasPipelines = false
-  
+
   const shouldRenderConsents = checkShouldRenderConsents(appDetail, appLatestRevision, appHasInstallations)
 
   return (
