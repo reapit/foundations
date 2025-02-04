@@ -195,7 +195,7 @@ export const createStack = async () => {
     CODE_BUILD_PROJECT_NAME: codeBuild.projectName,
     USERCODE_ROLE_ARN: policies.usercodeStackRoleArn,
     GITHUB_PEM_SECRET_ARN: githubPemSecret.ref,
-    NODE_ENV: process.env.NODE_ENV || 'development',
+    NODE_ENV: process.env.APP_STAGE || 'development',
   }
 
   Object.values(QueueNames).forEach((queueKey) => {
