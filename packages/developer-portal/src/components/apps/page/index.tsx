@@ -50,11 +50,13 @@ export const AppsPage: FC = () => {
     isAppConsents,
   } = getCurrentPage(pathname)
 
-  const hasPipelines =
-    currentDeveloper?.id &&
-    process.env.pipelineWhitelist.includes(currentDeveloper.id) &&
-    appDetail?.authFlow !== 'clientCredentials'
+  // const hasPipelines =
+  //   currentDeveloper?.id &&
+  //   process.env.pipelineWhitelist.includes(currentDeveloper.id) &&
+  //   appDetail?.authFlow !== 'clientCredentials'
 
+  const hasPipelines = false
+  
   const shouldRenderConsents = checkShouldRenderConsents(appDetail, appLatestRevision, appHasInstallations)
 
   return (
