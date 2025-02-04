@@ -99,7 +99,7 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
               S3OriginConfig: {
                 OriginAccessIdentity: '',
               },
-              // OriginAccessControlId: AOCId,
+              OriginAccessControlId: AOCId,
             },
           ],
         },
