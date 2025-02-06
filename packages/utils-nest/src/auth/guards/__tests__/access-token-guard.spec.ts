@@ -18,9 +18,11 @@ describe('AccessTokenGuard', () => {
       .useValue(accessTokenProvider)
       .compile()
 
-    await module.init()
+    const app = module.createNestApplication()
 
-    guard = module.get<AccessTokenGuard>(AccessTokenGuard)
+    await app.init()
+
+    guard = app.get<AccessTokenGuard>(AccessTokenGuard)
   })
 
   afterEach(() => {

@@ -5,6 +5,7 @@ import { EventDispatcher, PusherProvider } from '../../events'
 import { CodebuildPipelineUpdaterEventHandler } from '../codebuild-pipeline-updater-event-handler'
 import { BuildPhaseChangeStatusEvent, BuildStateChangeEvent, CodebuildEventStateEnum } from '../event-types'
 import { SNSEventRecord } from 'aws-lambda'
+import { INestApplication } from '@nestjs/common'
 
 const mockPipelineRunnerProvider = {
   save: jest.fn(),
@@ -20,11 +21,11 @@ const mockEventDispatcher = {
 }
 
 describe('CodebuildPipelineUpdateEventHandler', () => {
-  let module: TestingModule
+  let app: INestApplication
   beforeAll(async () => {
     jest.useFakeTimers().setSystemTime(new Date('2020-01-01'))
 
-    module = await Test.createTestingModule({
+    const module = await Test.createTestingModule({
       providers: [
         {
           provide: PipelineRunnerProvider,
@@ -41,13 +42,15 @@ describe('CodebuildPipelineUpdateEventHandler', () => {
         CodebuildPipelineUpdaterEventHandler,
       ],
     }).compile()
+
+    app = module.createNestApplication()
   })
 
   describe('phaseChange', () => {
     afterEach(() => jest.resetAllMocks())
 
     it('Can update tasks from phase chage from QUEUED to IN_PROGRESS', async () => {
-      const codebuildPipelineUpdateEventHandler = module.get<CodebuildPipelineUpdaterEventHandler>(
+      const codebuildPipelineUpdateEventHandler = app.get<CodebuildPipelineUpdaterEventHandler>(
         CodebuildPipelineUpdaterEventHandler,
       )
 
@@ -101,7 +104,7 @@ describe('CodebuildPipelineUpdateEventHandler', () => {
     })
 
     it('Can update tasks from phase chage from IN_PROGRESS to SUCCEEDED', async () => {
-      const codebuildPipelineUpdateEventHandler = module.get<CodebuildPipelineUpdaterEventHandler>(
+      const codebuildPipelineUpdateEventHandler = app.get<CodebuildPipelineUpdaterEventHandler>(
         CodebuildPipelineUpdaterEventHandler,
       )
 
@@ -159,7 +162,7 @@ describe('CodebuildPipelineUpdateEventHandler', () => {
     afterEach(() => jest.resetAllMocks())
 
     it('Can save pipeline runner as successful', async () => {
-      const codebuildPipelineUpdateEventHandler = module.get<CodebuildPipelineUpdaterEventHandler>(
+      const codebuildPipelineUpdateEventHandler = app.get<CodebuildPipelineUpdaterEventHandler>(
         CodebuildPipelineUpdaterEventHandler,
       )
 
@@ -205,7 +208,7 @@ describe('CodebuildPipelineUpdateEventHandler', () => {
     })
 
     it('Can save pipeline runner as failed', async () => {
-      const codebuildPipelineUpdateEventHandler = module.get<CodebuildPipelineUpdaterEventHandler>(
+      const codebuildPipelineUpdateEventHandler = app.get<CodebuildPipelineUpdaterEventHandler>(
         CodebuildPipelineUpdaterEventHandler,
       )
 

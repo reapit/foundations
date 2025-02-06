@@ -1,9 +1,9 @@
 import { AuthProviderInterface } from '../../auth-provider-interface'
 import { IdTokenProvider } from '../../id-token-provider'
-import { Test, TestingModule } from '@nestjs/testing'
+import { Test } from '@nestjs/testing'
 import { IdTokenGuard } from '../id-token-guard'
 import { CredAuthTokenProvider } from '../../token.provider.decorator'
-import { Module } from '@nestjs/common'
+import { INestApplication, Module } from '@nestjs/common'
 
 describe('IdTokenGuard', () => {
   describe('Module Init', () => {
@@ -40,9 +40,11 @@ describe('IdTokenGuard', () => {
         providers: [TestProvider, AnotherTestProvider, TestCredGuard, IdTokenProvider],
       }).compile()
 
-      await module.init()
+      const app = module.createNestApplication()
 
-      const provider = module.get(TestCredGuard)
+      await app.init()
+
+      const provider = app.get(TestCredGuard)
 
       provider.getAuthProviders().forEach((inst) => {
         expect(['TestProvider', 'AnotherTestProvider', 'IdTokenProvider'].includes(inst.constructor.name)).toBeTruthy()
@@ -85,9 +87,11 @@ describe('IdTokenGuard', () => {
         imports: [ChildModule, AuthModule],
       }).compile()
 
-      await module.init()
+      const app = module.createNestApplication()
 
-      const provider = module.get(TestCredGuard)
+      await app.init()
+
+      const provider = app.get(TestCredGuard)
 
       expect(provider.getAuthProviders().map((inst) => inst.constructor.name)).toContain('TestProvider')
     })
@@ -95,7 +99,7 @@ describe('IdTokenGuard', () => {
 
   describe('Resolve login identity', () => {
     describe('Can resolve with priority', () => {
-      let module: TestingModule
+      let app: INestApplication
 
       class TestCredGuard extends IdTokenGuard {
         getAuthProviders() {
@@ -139,15 +143,16 @@ describe('IdTokenGuard', () => {
           }
         }
 
-        module = await Test.createTestingModule({
+        const module = await Test.createTestingModule({
           providers: [TestCredGuard, IdTokenProvider, TestProvider],
         }).compile()
+        app = module.createNestApplication()
 
-        await module.init()
+        await app.init()
       })
 
       it('Can resolve test provider', async () => {
-        const provider = module.get(TestCredGuard)
+        const provider = app.get(TestCredGuard)
 
         const request: { [s: string]: any } = {
           custom: true,
@@ -167,7 +172,7 @@ describe('IdTokenGuard', () => {
       })
 
       it('Can resolve default provider', async () => {
-        const provider = module.get(TestCredGuard)
+        const provider = app.get(TestCredGuard)
 
         const request: { [s: string]: any } = {
           custom: false,

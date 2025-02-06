@@ -1,7 +1,8 @@
-import { Test, TestingModule } from '@nestjs/testing'
+import { Test } from '@nestjs/testing'
 import { SSM } from 'aws-sdk'
 import { ParameterProvider } from '../parameter-provider'
 import { AwsModule } from '../../aws'
+import { INestApplication } from '@nestjs/common'
 
 process.env.NODE_ENV = 'local'
 
@@ -31,22 +32,23 @@ class MockSSM {
 }
 
 describe('ParameterProvider', () => {
-  let module: TestingModule
+  let app: INestApplication
 
   beforeAll(async () => {
-    module = await Test.createTestingModule({
+    const module = await Test.createTestingModule({
       imports: [AwsModule],
       providers: [ParameterProvider],
     })
       .overrideProvider(SSM)
       .useClass(MockSSM)
-
       .compile()
+
+    app = module.createNestApplication()
   })
 
   describe('GetParameters', () => {
     it('return empty object on param not found', async () => {
-      const parameterProvider = module.get<ParameterProvider>(ParameterProvider)
+      const parameterProvider = app.get<ParameterProvider>(ParameterProvider)
 
       const result = await parameterProvider.obtainParameters('throw-error')
 
@@ -55,7 +57,7 @@ describe('ParameterProvider', () => {
     })
 
     it('returns parameter value', async () => {
-      const parameterProvider = module.get<ParameterProvider>(ParameterProvider)
+      const parameterProvider = app.get<ParameterProvider>(ParameterProvider)
 
       const result = await parameterProvider.obtainParameters('not-error')
 
@@ -67,7 +69,7 @@ describe('ParameterProvider', () => {
 
   describe('updateParameters', () => {
     it('returns parameter value', async () => {
-      const parameterProvider = module.get<ParameterProvider>(ParameterProvider)
+      const parameterProvider = app.get<ParameterProvider>(ParameterProvider)
 
       try {
         await parameterProvider.saveParameters('existing-params', {

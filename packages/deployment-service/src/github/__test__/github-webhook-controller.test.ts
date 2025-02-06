@@ -1,12 +1,13 @@
 import { EventDispatcher, PusherProvider } from '../../events'
 import { PipelineProvider } from '../../pipeline'
 import { PipelineRunnerProvider } from '../../pipeline-runner'
-import { Test, TestingModule } from '@nestjs/testing'
+import { Test } from '@nestjs/testing'
 import { GithubWebhookController } from '../github-webhook-controller'
 import { App } from '@octokit/app'
 import { plainToInstance } from 'class-transformer'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 import { RepositoryProvider } from '../../pipeline/repository.provider'
+import { INestApplication } from '@nestjs/common'
 
 const mockEventDispatcher = {
   triggerCodebuildExecutor: jest.fn(),
@@ -46,10 +47,10 @@ const mockRepositoryProvider = {
 }
 
 describe('GithubWebhookController', () => {
-  let module: TestingModule
+  let app: INestApplication
 
   beforeAll(async () => {
-    module = await Test.createTestingModule({
+    const module = await Test.createTestingModule({
       providers: [
         {
           provide: App,
@@ -78,11 +79,13 @@ describe('GithubWebhookController', () => {
       ],
       controllers: [GithubWebhookController],
     }).compile()
+
+    app = module.createNestApplication()
   })
 
   describe('Handle commits', () => {
     it('Can make deployment from commit event', async () => {
-      const githubWebhookController = module.get<GithubWebhookController>(GithubWebhookController)
+      const githubWebhookController = app.get<GithubWebhookController>(GithubWebhookController)
       mockPipelineRunnerProvider.pipelineRunnerCountRunning.mockImplementationOnce(() => 0)
       mockPipelineProvider.findPipelinesByRepositoryId.mockImplementationOnce(() => [
         plainToInstance(PipelineEntity, {
@@ -112,7 +115,7 @@ describe('GithubWebhookController', () => {
 
   describe('Handle install', () => {
     it('Can install repo to pipeline', async () => {
-      const githubWebhookController = module.get<GithubWebhookController>(GithubWebhookController)
+      const githubWebhookController = app.get<GithubWebhookController>(GithubWebhookController)
       mockPipelineRunnerProvider.pipelineRunnerCountRunning.mockImplementationOnce(() => 0)
       mockPipelineProvider.findPipelinesByRepositoryId.mockImplementationOnce(() => [
         plainToInstance(PipelineEntity, {

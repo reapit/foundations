@@ -41,6 +41,7 @@ export default defineConfig([
       'amqplib',
       'redis',
       'crypto',
+      'ioredis',
     ],
   },
   {
