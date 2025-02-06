@@ -105,7 +105,9 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
         },
         Aliases: {
           Quantity: 1,
-          Items: [`${pipeline.subDomain}.iaas${process.env.NODE_ENV === 'production' ? '' : '.dev'}.paas.reapit.cloud`],
+          Items: [
+            `${pipeline.subDomain}.iaas${process.env.APP_STAGE === 'production' ? '' : '.dev'}.paas.reapit.cloud`,
+          ],
         },
         Comment: `Cloudfront distribution for pipeline [${pipeline.id}] [${
           process.env.NODE_ENV === 'production' ? 'prod' : 'dev'

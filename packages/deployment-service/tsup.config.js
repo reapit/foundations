@@ -55,7 +55,11 @@ export default defineConfig([
     noExternal: ['aws-lambda', 'jsonwebtoken', 'jwks-rsa', 'idtoken-verifier', 'uuid', 'jwt-decode'],
   },
   {
-    entry: ['src/resolve-production-s3-buckets.ts', 'src/resolve-production-apply-OAC-to-all-distros.ts'],
+    entry: [
+      'src/resolve-production-s3-bucket-permissions.ts',
+      'src/resolve-production-s3-bucket-policies.ts',
+      'src/resolve-production-apply-OAC-to-all-distros.ts',
+    ],
     target: 'node18',
     clean: true,
     minify: config.NODE_ENV === 'production',
