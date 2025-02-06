@@ -1,5 +1,4 @@
 import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
-import { passwordRegex } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { AccountCreateModel, AccountModel } from '../../types/accounts'
@@ -29,6 +28,8 @@ import {
 import { getAccountService } from '../../services/accounts'
 import { ReapitConnectSession } from '@reapit/connect-session'
 
+export const snowFlakePasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{14,}$/
+
 export interface AccountProvisionModalProps {
   setProvisionInProgress: Dispatch<SetStateAction<boolean>>
   setPercentageComplete: Dispatch<SetStateAction<number>>
@@ -41,7 +42,7 @@ const validationSchema = object({
     .matches(/^[A-Za-z0-9]{4,20}$/, 'Mixed case alphanumeric characters only. Min 4 chars. Max 20'),
   password: string()
     .required('Required')
-    .matches(passwordRegex, 'Password must be at least 8 characters, 1 number, mixed case'),
+    .matches(snowFlakePasswordRegex, 'Password must be at least 14 characters, 1 number, mixed case'),
   passwordConfirm: string()
     .oneOf([ref('password')], 'Passwords must match')
     .required('Required'),
