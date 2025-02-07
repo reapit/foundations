@@ -60,7 +60,7 @@ export class BitBucketWebhookController {
     }
   }
 
-  @Post('*')
+  @Post('*params')
   async handle(@Body() body, @Req() request: Request) {
     if (body.eventType) {
       await this.handleEventTypes(body)
