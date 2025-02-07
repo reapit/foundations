@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-import { passwordRegex } from '@reapit/utils-common'
 import { AccountCreateModel } from '../../types/accounts'
 import { object, ref, string } from 'yup'
 import { useForm } from 'react-hook-form'
@@ -9,6 +8,8 @@ import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from 
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { BodyText, Button, ButtonGroup, elMb11, FormLayout, InputError, InputGroup, InputWrap } from '@reapit/elements'
 
+export const snowFlakePasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{14,}$/
+
 export interface AccountUpdateModalProps {
   accountId: string | null
   closeModal: () => void
@@ -17,7 +18,7 @@ export interface AccountUpdateModalProps {
 const validationSchema = object({
   password: string()
     .required('Required')
-    .matches(passwordRegex, 'Password must be at least 8 characters, 1 number, mixed case'),
+    .matches(snowFlakePasswordRegex, 'Password must be at least 14 characters, 1 number, mixed case'),
   passwordConfirm: string()
     .oneOf([ref('password')], 'Passwords must match')
     .required('Required'),
