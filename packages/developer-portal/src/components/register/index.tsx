@@ -152,8 +152,7 @@ export const Register: FC = () => {
                           id={nameField.name}
                           placeholder={nameField.placeHolder}
                           {...register('name')}
-                          intent={errors?.name?.message ? 'danger' : undefined}
-                          inputAddOnText={errors?.name?.message}
+                          errorMessage={errors?.name?.message}
                         />
                       </InputWrapFull>
                       <InputWrapFull>
@@ -163,8 +162,7 @@ export const Register: FC = () => {
                           id={jobTitleField.name}
                           placeholder={jobTitleField.placeHolder}
                           {...register('jobTitle')}
-                          intent={errors?.jobTitle?.message ? 'danger' : undefined}
-                          inputAddOnText={errors?.jobTitle?.message}
+                          errorMessage={errors?.jobTitle?.message}
                         />
                       </InputWrapFull>
                       <InputWrapFull>
@@ -174,8 +172,7 @@ export const Register: FC = () => {
                           id={emailField.name}
                           placeholder={emailField.placeHolder}
                           {...register('email')}
-                          intent={errors?.email?.message ? 'danger' : undefined}
-                          inputAddOnText={errors?.email?.message}
+                          errorMessage={errors?.email?.message}
                         />
                       </InputWrapFull>
                     </FormLayout>
@@ -196,8 +193,7 @@ export const Register: FC = () => {
                           id={companyNameField.name}
                           placeholder={companyNameField.placeHolder}
                           {...register('companyName')}
-                          intent={errors?.companyName?.message ? 'danger' : undefined}
-                          inputAddOnText={errors?.companyName?.message}
+                          errorMessage={errors?.companyName?.message}
                         />
                       </InputWrapFull>
                       <InputWrapFull>
@@ -207,8 +203,7 @@ export const Register: FC = () => {
                           id={telephoneField.name}
                           placeholder={telephoneField.placeHolder}
                           {...register('telephone')}
-                          intent={errors?.telephone?.message ? 'danger' : undefined}
-                          inputAddOnText={errors?.telephone?.message}
+                          errorMessage={errors?.telephone?.message}
                         />
                       </InputWrapFull>
                       <InputWrapFull>
@@ -218,8 +213,7 @@ export const Register: FC = () => {
                           id="website"
                           placeholder="mycompany.co.uk"
                           {...register('website')}
-                          intent={errors?.website?.message ? 'danger' : undefined}
-                          inputAddOnText={errors?.website?.message}
+                          errorMessage={errors?.website?.message}
                         />
                       </InputWrapFull>
                       <InputWrapFull>
@@ -229,8 +223,7 @@ export const Register: FC = () => {
                           id="registration-number"
                           placeholder=""
                           {...register('registrationNumber')}
-                          intent={errors['registrationNumber']?.message ? 'danger' : undefined}
-                          inputAddOnText={errors['registrationNumber']?.message}
+                          errorMessage={errors['registrationNumber']?.message}
                         />
                       </InputWrapFull>
                       <InputWrapFull>
@@ -240,8 +233,7 @@ export const Register: FC = () => {
                           id="vat-number"
                           placeholder=""
                           {...register('taxNumber')}
-                          intent={errors['taxNumber']?.message ? 'danger' : undefined}
-                          inputAddOnText={errors['taxNumber']?.message}
+                          errorMessage={errors['taxNumber']?.message}
                         />
                       </InputWrapFull>
                     </FormLayout>
