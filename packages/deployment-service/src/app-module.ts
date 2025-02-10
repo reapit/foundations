@@ -25,7 +25,6 @@ process.env = {
   imports: [
     ConfigModule.forRoot({
       envFilePath: 'config.json',
-      encoding: 'json',
       load: [databaseConfig],
     }),
     TypeOrmModule.forRootAsync({

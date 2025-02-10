@@ -7,6 +7,7 @@ import { BitBucketWebhookController } from '../bitbucket-webhook-controller'
 import { plainToInstance } from 'class-transformer'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 import { PipelineRunnerEntity } from '../../entities/pipeline-runner.entity'
+import { INestApplication } from '@nestjs/common'
 
 const successfulClientKey = 'successful-client-key'
 
@@ -53,10 +54,10 @@ jest.mock('atlassian-jwt', () => ({
 }))
 
 describe('BitbucketWebhookController', () => {
-  let module: TestingModule
+  let app: INestApplication
 
   beforeAll(async () => {
-    module = await Test.createTestingModule({
+    const module = await Test.createTestingModule({
       providers: [
         {
           provide: BitbucketProvider,
@@ -81,11 +82,13 @@ describe('BitbucketWebhookController', () => {
       ],
       controllers: [BitBucketWebhookController],
     }).compile()
+
+    app = module.createNestApplication()
   })
 
   describe('handleEventTypes', () => {
     it('installClient', async () => {
-      const bitBucketWebhookController = module.get<BitBucketWebhookController>(BitBucketWebhookController)
+      const bitBucketWebhookController = app.get<BitBucketWebhookController>(BitBucketWebhookController)
       const clientKey = 'clientKey'
       mockBitbucketProvider.installClient.mockImplementationOnce(() => [{}, {}])
 
@@ -106,7 +109,7 @@ describe('BitbucketWebhookController', () => {
 
   describe('handlePushEvent', () => {
     it('Can start deployment from bitbucket push event', async () => {
-      const bitBucketWebhookController = module.get<BitBucketWebhookController>(BitBucketWebhookController)
+      const bitBucketWebhookController = app.get<BitBucketWebhookController>(BitBucketWebhookController)
       const clientKey = successfulClientKey
 
       mockPipelineProvider.findByRepo.mockImplementationOnce(() =>
