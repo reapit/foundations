@@ -1,4 +1,4 @@
-import { Test, TestingModule } from '@nestjs/testing'
+import { Test } from '@nestjs/testing'
 import { EventDispatcher, PusherProvider } from '../../events'
 import { S3 } from 'aws-sdk'
 import { S3Provider } from '../../s3'
@@ -10,7 +10,7 @@ import { DeployProvider } from '../../deployment'
 import { OwnershipProvider, IdTokenGuard, CredsType } from '@reapit/utils-nest'
 import { plainToInstance } from 'class-transformer'
 import { PipelineEntity } from '../../entities/pipeline.entity'
-import { UnprocessableEntityException } from '@nestjs/common'
+import { INestApplication, UnprocessableEntityException } from '@nestjs/common'
 
 const mockS3Provider = {
   upload: jest.fn(),
@@ -49,9 +49,9 @@ const mockDeployProvider = {
 const mockCredGuard = {}
 
 describe('PipelineRunnerController', () => {
-  let module: TestingModule
+  let app: INestApplication
   beforeAll(async () => {
-    module = await Test.createTestingModule({
+    const module = await Test.createTestingModule({
       providers: [
         PipelineRunnerController,
         {
@@ -91,6 +91,8 @@ describe('PipelineRunnerController', () => {
       .overrideGuard(IdTokenGuard)
       .useValue(mockCredGuard)
       .compile()
+
+    app = module.createNestApplication()
   })
 
   afterEach(() => {
@@ -103,7 +105,7 @@ describe('PipelineRunnerController', () => {
     })
 
     it('Successful creation', async () => {
-      const pipelineRunnerController = module.get<PipelineRunnerController>(PipelineRunnerController)
+      const pipelineRunnerController = app.get<PipelineRunnerController>(PipelineRunnerController)
       const pipelineRunnerId = uuid()
       const pipelineId = uuid()
       const developerId = uuid()
@@ -134,7 +136,7 @@ describe('PipelineRunnerController', () => {
     })
 
     it('Can fail with already running deployment', async () => {
-      const pipelineRunnerController = module.get<PipelineRunnerController>(PipelineRunnerController)
+      const pipelineRunnerController = app.get<PipelineRunnerController>(PipelineRunnerController)
       const pipelineRunnerId = uuid()
       const pipelineId = uuid()
       const developerId = uuid()
@@ -169,7 +171,7 @@ describe('PipelineRunnerController', () => {
 
   describe('Update PipelineRunner', () => {
     it('Fail to update on status not IN_PROGRESS', async () => {
-      const pipelineRunnerController = module.get<PipelineRunnerController>(PipelineRunnerController)
+      const pipelineRunnerController = app.get<PipelineRunnerController>(PipelineRunnerController)
       const pipelineRunnerId = uuid()
       const developerId = uuid()
 
@@ -189,7 +191,7 @@ describe('PipelineRunnerController', () => {
     })
 
     it('Update on status IN_PROGRESS', async () => {
-      const pipelineRunnerController = module.get<PipelineRunnerController>(PipelineRunnerController)
+      const pipelineRunnerController = app.get<PipelineRunnerController>(PipelineRunnerController)
       const pipelineRunnerId = uuid()
       const developerId = uuid()
 
@@ -211,7 +213,7 @@ describe('PipelineRunnerController', () => {
 
   describe('Release Version', () => {
     it('Manual Release success', async () => {
-      const pipelineRunnerController = module.get<PipelineRunnerController>(PipelineRunnerController)
+      const pipelineRunnerController = app.get<PipelineRunnerController>(PipelineRunnerController)
       const pipelineId = uuid()
       const pipelineRunnerId = uuid()
       const developerId = uuid()
@@ -261,7 +263,7 @@ describe('PipelineRunnerController', () => {
     })
 
     it('Failed to deploy', async () => {
-      const pipelineRunnerController = module.get<PipelineRunnerController>(PipelineRunnerController)
+      const pipelineRunnerController = app.get<PipelineRunnerController>(PipelineRunnerController)
       const pipelineId = uuid()
       const pipelineRunnerId = uuid()
       const developerId = uuid()
@@ -314,7 +316,7 @@ describe('PipelineRunnerController', () => {
 
   describe('Deploy Previous Version', () => {
     it('', async () => {
-      const pipelineRunnerController = module.get<PipelineRunnerController>(PipelineRunnerController)
+      const pipelineRunnerController = app.get<PipelineRunnerController>(PipelineRunnerController)
       const pipelineId = uuid()
       const pipelineRunnerId = uuid()
       const developerId = uuid()

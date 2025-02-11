@@ -1,5 +1,5 @@
 import { S3Module, S3Provider } from '../../s3'
-import { Test, TestingModule } from '@nestjs/testing'
+import { Test } from '@nestjs/testing'
 import { DeploymentModule } from '../module'
 import { DeployProvider } from '../deploy-provider'
 import { plainToClass } from 'class-transformer'
@@ -9,6 +9,7 @@ import { S3 } from 'aws-sdk'
 import { CloudFrontClient } from '@aws-sdk/client-cloudfront'
 import { InvalidPipelineResourcesException } from '../../exceptions'
 import AdmZip from 'adm-zip'
+import { INestApplication } from '@nestjs/common'
 
 process.env.NODE_ENV = 'local'
 
@@ -36,10 +37,10 @@ class MockCloudFrontProvider {
 }
 
 describe('DeploymentProvider', () => {
-  let module: TestingModule
+  let app: INestApplication
 
   beforeAll(async () => {
-    module = await Test.createTestingModule({
+    const module = await Test.createTestingModule({
       imports: [S3Module, DeploymentModule],
     })
       .overrideProvider(S3Provider)
@@ -47,10 +48,12 @@ describe('DeploymentProvider', () => {
       .overrideProvider(CloudFrontClient)
       .useClass(MockCloudFrontProvider)
       .compile()
+
+    app = module.createNestApplication()
   })
 
   it('deployFromStore', async () => {
-    const deployProvider = module.get<DeployProvider>(DeployProvider)
+    const deployProvider = app.get<DeployProvider>(DeployProvider)
 
     const pipeline = plainToClass(PipelineEntity, {
       repositoryId: 12345,
@@ -71,7 +74,7 @@ describe('DeploymentProvider', () => {
   })
 
   it('deployFromStore with pipeline exception', async () => {
-    const deployProvider = module.get<DeployProvider>(DeployProvider)
+    const deployProvider = app.get<DeployProvider>(DeployProvider)
 
     const pipeline = plainToClass(PipelineEntity, {
       repositoryId: 12345,

@@ -12,6 +12,7 @@ import { PusherProvider } from '../../events'
 import { plainToInstance } from 'class-transformer'
 import { PipelineRunnerEntity } from '../../entities/pipeline-runner.entity'
 import { TaskEntity } from '../../entities/task.entity'
+import { INestApplication } from '@nestjs/common'
 
 const mockSourceProvider = {
   downloadGithubSourceToS3: jest.fn(),
@@ -54,9 +55,9 @@ const mockPusherProvider = {
 }
 
 describe('CodebuildExecutorWorkflow', () => {
-  let module: TestingModule
+  let app: INestApplication
   beforeAll(async () => {
-    module = await Test.createTestingModule({
+    const module = await Test.createTestingModule({
       providers: [
         {
           provide: SoruceProvider,
@@ -89,13 +90,15 @@ describe('CodebuildExecutorWorkflow', () => {
         CodebuildExecutorWorkflow,
       ],
     }).compile()
+
+    app = module.createNestApplication()
   })
 
   it('Failed to fetch github source', async () => {
     const pipelineId = uuid()
     const pipelineRunnerId = uuid()
     const repository = 'https://github.com/reapit/foundations'
-    const codebuildExecutorWorkflow = module.get<CodebuildExecutorWorkflow>(CodebuildExecutorWorkflow)
+    const codebuildExecutorWorkflow = app.get<CodebuildExecutorWorkflow>(CodebuildExecutorWorkflow)
     mockSourceProvider.downloadGithubSourceToS3.mockImplementationOnce(() => {
       throw new Error('failed to obtain github stuffs')
     })
@@ -140,7 +143,7 @@ describe('CodebuildExecutorWorkflow', () => {
     const pipelineId = uuid()
     const pipelineRunnerId = uuid()
     const repository = 'https://github.com/reapit/foundations'
-    const codebuildExecutorWorkflow = module.get<CodebuildExecutorWorkflow>(CodebuildExecutorWorkflow)
+    const codebuildExecutorWorkflow = app.get<CodebuildExecutorWorkflow>(CodebuildExecutorWorkflow)
     mockSourceProvider.downloadGithubSourceToS3.mockImplementationOnce(() => 'repos/location')
     mockPipelineRunnerProvider.save.mockImplementationOnce((pipelineRunner) => pipelineRunner)
 

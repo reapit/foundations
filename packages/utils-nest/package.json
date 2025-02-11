@@ -22,7 +22,9 @@
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
   },
   "devDependencies": {
-    "@nestjs/testing": "^9.4.3",
+    "@nestjs/common": "^11.0.5",
+    "@nestjs/core": "^11.0.5",
+    "@nestjs/testing": "^11.0.5",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@types/jest": "^29.5.13",
     "eslint": "^8.57.1",
