@@ -1,5 +1,6 @@
 import { useReapitConnect } from '@reapit/connect-session'
 import {
+  BodyText,
   Button,
   elMb6,
   FormLayout,
@@ -76,7 +77,13 @@ export const PipelineDnsStepModal: FC<{ customDomain?: string; buttonText?: stri
         >
           <FormLayout>
             <InputWrapFull>
-              <InputGroup {...register('customDomain')} label="domain name" placeholder="https://mydomain.com" />
+              <BodyText>
+                Enter the domain name you wish to use, this domain will be used to verify you have access to the DNS
+                records.
+              </BodyText>
+            </InputWrapFull>
+            <InputWrapFull>
+              <InputGroup {...register('customDomain')} label="domain name" placeholder="my.domain.com" />
               {errors && errors.customDomain && (
                 <PersistentNotification className={elMb6} isFullWidth isExpanded intent="danger" isInline>
                   {errors.customDomain.message}

@@ -3,18 +3,25 @@ import {
   BodyText,
   Button,
   ButtonGroup,
+  elMb6,
+  elMr2,
+  FlexContainer,
   FormLayout,
   InputWrap,
   InputWrapFull,
   Label,
   Loader,
   PersistantNotification,
+  Steps,
   Subtitle,
   Table,
+  Title,
 } from '@reapit/elements'
 import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
 import React, { FC, useEffect } from 'react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
+import { cx } from '@linaria/core'
+import { DnsContainerElement, DnsContainerRow, DnsInputElement, DnsValue } from './__styles__'
 
 export const PipelineDnsStepThree: FC<{
   verifyDnsName: string
@@ -44,67 +51,57 @@ export const PipelineDnsStepThree: FC<{
 
   return (
     <>
-      <FormLayout>
-        <InputWrapFull>
-          <Subtitle>Certificate Records</Subtitle>
-          <BodyText>Text record approved.</BodyText>
-          <BodyText>
-            Next add these records to your DNS and the certificate will verify these values have been added.
-          </BodyText>
-          {loading ? (
-            <Loader />
-          ) : !loading && !certificate ? (
-            <>
-              <PersistantNotification isInline isExpanded intent="danger">
-                Unable to fetch certificate verification information
-              </PersistantNotification>
-            </>
-          ) : (
-            <>
-              <ButtonGroup>
-                <Button intent="primary" onClick={() => fetchCertificate()} loading={refetching} disabled={refetching}>
-                  Refresh
-                </Button>
-              </ButtonGroup>
-              <Table
-                rows={certificate?.DomainValidationOptions.map((domain) => ({
-                  cells: [
-                    { label: 'Domain', value: domain.DomainName },
-                    { label: 'Type', value: domain.ResourceRecord.Type },
-                    { label: 'Name', value: domain.ResourceRecord.Name },
-                    { label: 'Value', value: domain.ResourceRecord.Value },
-                    { label: 'Status', value: domain.ValidationStatus },
-                  ],
-                  expandableContent: {
-                    content: (
-                      <>
-                        <FormLayout>
-                          <InputWrap>
-                            <Label>Domain</Label>
-                            <BodyText>{domain.DomainName}</BodyText>
-                          </InputWrap>
-                          <InputWrap>
-                            <Label>Type</Label>
-                            <BodyText>{domain.ResourceRecord.Type}</BodyText>
-                          </InputWrap>
-                          <InputWrapFull>
-                            <Label>Name</Label>
-                            <BodyText>{domain.ResourceRecord.Name}</BodyText>
-                          </InputWrapFull>
-                          <InputWrapFull>
-                            <Label>Value</Label>
-                            <BodyText>{domain.ResourceRecord.Value}</BodyText>
-                          </InputWrapFull>
-                        </FormLayout>
-                      </>
-                    ),
-                  },
-                }))}
-              />
-            </>
-          )}
-        </InputWrapFull>
-      </FormLayout>
+      <FlexContainer>
+        <Steps className={cx(elMr2)} steps={['2']} />
+        <Title>Certificate Records</Title>
+      </FlexContainer>
+      <div className={cx(elMb6)}>
+        <BodyText>Domain ownership has been verified.</BodyText>
+        <BodyText>
+          Next add the below certificate record&apos;s values to your DNS and verify these values have been added. This
+          is so that your domain will use a &apos;https&apos; certificate hosted by IaaS. These records are verified
+          automatically, in order to verify they&apos;ve been added, please hit the refresh button.
+        </BodyText>
+      </div>
+      {loading ? (
+        <Loader />
+      ) : !loading && !certificate ? (
+        <>
+          <PersistantNotification isInline isExpanded intent="danger">
+            Unable to fetch certificate verification information
+          </PersistantNotification>
+        </>
+      ) : (
+        <>
+          <DnsContainerElement>
+            {certificate?.DomainValidationOptions.map((domain, index) => (
+              <DnsContainerRow key={`${domain.ResourceRecord.Name}.${domain.ResourceRecord.Value}.${index}`}>
+                <DnsInputElement>
+                  <Label>Domain</Label>
+                  <DnsValue>{domain.ResourceRecord.Name}</DnsValue>
+                </DnsInputElement>
+                <DnsInputElement>
+                  <Label>Type</Label>
+                  <DnsValue>{domain.ResourceRecord.Type}</DnsValue>
+                </DnsInputElement>
+                <DnsInputElement>
+                  <Label>Value</Label>
+                  <DnsValue>{domain.ResourceRecord.Value}</DnsValue>
+                </DnsInputElement>
+                <DnsInputElement>
+                  <Label>Status</Label>
+                  <DnsValue>{domain.ValidationStatus}</DnsValue>
+                </DnsInputElement>
+              </DnsContainerRow>
+            ))}
+          </DnsContainerElement>
+          <ButtonGroup>
+            <Button intent="primary" onClick={() => fetchCertificate()} loading={refetching} disabled={refetching}>
+              Refresh
+            </Button>
+          </ButtonGroup>
+        </>
+      )}
     </>
   )
 }

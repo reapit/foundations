@@ -36,7 +36,7 @@ export const PipelineDns: FC<{}> = () => {
       <Subtitle> Custom DNS Configuration</Subtitle>
       {appId ? (
         step === 'complete' ? (
-          <PipelineDnsStepFour pipelineId={appId} />
+          <PipelineDnsStepFour pipelineId={appId} customDomain={customDomain} />
         ) : step === 'verified' ? (
           <PipelineDnsStepThree
             pipelineId={appId}

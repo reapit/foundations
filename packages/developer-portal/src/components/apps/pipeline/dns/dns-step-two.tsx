@@ -1,10 +1,26 @@
 import { useReapitConnect } from '@reapit/connect-session'
-import { BodyText, Button, ButtonGroup, FormLayout, InputWrapFull, Label, Subtitle, useSnack } from '@reapit/elements'
+import {
+  BodyText,
+  Button,
+  ButtonGroup,
+  elMb6,
+  elMr2,
+  FlexContainer,
+  FormLayout,
+  InputWrapFull,
+  Label,
+  Steps,
+  Subtitle,
+  Title,
+  useSnack,
+} from '@reapit/elements'
 import { UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
 import React, { FC } from 'react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { PipelineDnsStepModal } from './setup-model'
 import { useAppState } from '../../state/use-app-state'
+import { cx } from '@linaria/core'
+import { DnsContainerElement, DnsContainerRow, DnsInputElement, DnsValue } from './__styles__'
 
 export const PipelineDnsStepTwo: FC<{
   customDomain: string
@@ -29,7 +45,7 @@ export const PipelineDnsStepTwo: FC<{
   const { appPipelineState } = useAppState()
 
   const verifyTxtRecord = async () => {
-    const result = await sendVerifyRequest(undefined)
+    await sendVerifyRequest(undefined)
     const defaultError = 'Unknown error, check your TXT record is correctly set'
 
     console.log('result', verifyResults)
@@ -51,42 +67,49 @@ export const PipelineDnsStepTwo: FC<{
 
   return (
     <>
-      <Subtitle>Step 2</Subtitle>
-      <BodyText>Use the Text Record Value below to create a TXT record against your configured domain name.</BodyText>
-      <BodyText>
-        Once you&apos;ve added that TXT record. Click the &ldquo;Verify Record&rdquo; button below to begin verifying
-        your domain.
-      </BodyText>
-      <>
-        <FormLayout>
-          <InputWrapFull>
+      <FlexContainer>
+        <Steps className={cx(elMr2)} steps={['1']} />
+        <Title>Verify Domain Ownership</Title>
+      </FlexContainer>
+      <div className={cx(elMb6)}>
+        <BodyText>Add the below TXT record to your DNS to start the verification process.</BodyText>
+        <BodyText>
+          Once you&apos;ve added that TXT record. Click the &ldquo;Verify Record&rdquo; button below to begin verifying
+          your domain. This may take a few attempts as the TTL runs on your domain
+        </BodyText>
+      </div>
+      <DnsContainerElement>
+        <DnsContainerRow>
+          <DnsInputElement>
             <Label>Domain</Label>
-            <BodyText>{customDomain}</BodyText>
-          </InputWrapFull>
-          <InputWrapFull>
-            <Label>Text Record Name</Label>
-            <BodyText>{verifyDnsName}</BodyText>
-          </InputWrapFull>
-          <InputWrapFull>
-            <Label>Text Record Value</Label>
-            <BodyText>{verifyDnsValue}</BodyText>
-          </InputWrapFull>
-          <InputWrapFull>
-            <ButtonGroup>
-              <Button
-                loading={sendingVerify}
-                disabled={sendingVerify}
-                onClick={() => {
-                  verifyTxtRecord()
-                }}
-                intent="primary"
-              >
-                Verify Record
-              </Button>
-              <PipelineDnsStepModal customDomain={customDomain} buttonText="Edit Domain" pipelineId={pipelineId} />
-            </ButtonGroup>
-          </InputWrapFull>
-        </FormLayout>
+            <DnsValue>
+              {verifyDnsName}.{customDomain}
+            </DnsValue>
+          </DnsInputElement>
+          <DnsInputElement>
+            <Label>Type</Label>
+            <DnsValue>TXT</DnsValue>
+          </DnsInputElement>
+          <DnsInputElement>
+            <Label>Value</Label>
+            <DnsValue>{verifyDnsValue}</DnsValue>
+          </DnsInputElement>
+        </DnsContainerRow>
+      </DnsContainerElement>
+      <>
+        <ButtonGroup>
+          <Button
+            loading={sendingVerify}
+            disabled={sendingVerify}
+            onClick={() => {
+              verifyTxtRecord()
+            }}
+            intent="primary"
+          >
+            Verify Record
+          </Button>
+          <PipelineDnsStepModal customDomain={customDomain} buttonText="Edit Domain" pipelineId={pipelineId} />
+        </ButtonGroup>
       </>
     </>
   )
