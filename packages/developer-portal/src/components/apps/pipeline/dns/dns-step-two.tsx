@@ -6,15 +6,12 @@ import {
   elMb6,
   elMr2,
   FlexContainer,
-  FormLayout,
-  InputWrapFull,
   Label,
   Steps,
-  Subtitle,
   Title,
   useSnack,
 } from '@reapit/elements'
-import { UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
+import { UpdateActionNames, updateActions, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/use-reapit-data'
 import React, { FC } from 'react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { PipelineDnsStepModal } from './setup-model'
@@ -40,24 +37,22 @@ export const PipelineDnsStepTwo: FC<{
     },
     reapitConnectBrowserSession,
     uriParams: { pipelineId },
+    returnType: UpdateReturnTypeEnum.RESPONSE,
   })
   const { error, success } = useSnack()
   const { appPipelineState } = useAppState()
 
   const verifyTxtRecord = async () => {
-    await sendVerifyRequest(undefined)
+    const result = await sendVerifyRequest(undefined)
     const defaultError = 'Unknown error, check your TXT record is correctly set'
 
-    console.log('result', verifyResults)
-
-    if (!verifyResults) {
+    if (typeof result === 'boolean') {
       return
     }
 
-    // TODO check for 422 already verified?
-    if (verifyResults.result === 'failed') {
-      error(verifyResults.reason || defaultError)
-    } else if (verifyResults.result === 'success') {
+    if (result.result === 'failed') {
+      error(result.reason || defaultError)
+    } else if (result.result === 'success') {
       success('Verified TXT record')
       appPipelineState.appPipelineRefresh()
     } else {
@@ -96,21 +91,19 @@ export const PipelineDnsStepTwo: FC<{
           </DnsInputElement>
         </DnsContainerRow>
       </DnsContainerElement>
-      <>
-        <ButtonGroup>
-          <Button
-            loading={sendingVerify}
-            disabled={sendingVerify}
-            onClick={() => {
-              verifyTxtRecord()
-            }}
-            intent="primary"
-          >
-            Verify Record
-          </Button>
-          <PipelineDnsStepModal customDomain={customDomain} buttonText="Edit Domain" pipelineId={pipelineId} />
-        </ButtonGroup>
-      </>
+      <ButtonGroup>
+        <Button
+          loading={sendingVerify}
+          disabled={sendingVerify}
+          onClick={() => {
+            verifyTxtRecord()
+          }}
+          intent="primary"
+        >
+          Verify Record
+        </Button>
+        <PipelineDnsStepModal customDomain={customDomain} buttonText="Edit Domain" pipelineId={pipelineId} />
+      </ButtonGroup>
     </>
   )
 }

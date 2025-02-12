@@ -8,6 +8,7 @@ export const DnsContainerElement = styled.div`
   border: var(--color-blue-100) 1px solid;
   background: var(--color-grey-lightest);
   margin-bottom: 1.25rem;
+  overflow-y: scroll;
 `
 export const DnsContainerRow = styled.div`
   display: flex;

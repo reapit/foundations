@@ -12,16 +12,18 @@ import {
   Label,
   Loader,
   PersistantNotification,
+  StatusIndicator,
   Steps,
   Subtitle,
   Table,
   Title,
 } from '@reapit/elements'
 import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
-import React, { FC, useEffect } from 'react'
+import React, { FC } from 'react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { cx } from '@linaria/core'
 import { DnsContainerElement, DnsContainerRow, DnsInputElement, DnsValue } from './__styles__'
+import { useAppState } from '../../state/use-app-state'
 
 export const PipelineDnsStepThree: FC<{
   verifyDnsName: string
@@ -30,13 +32,15 @@ export const PipelineDnsStepThree: FC<{
   pipelineId: string
 }> = ({ verifyDnsValue, customDomain, pipelineId }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { appPipelineState } = useAppState()
 
   const [certificate, loading, , fetchCertificate, refetching] = useReapitGet<{
     DomainValidationOptions: {
       DomainName: string
       ValidationStatus: string
-      ResourceRecord: { Name: string; Type: string; Value: string }
+      ResourceRecord?: { Name: string; Type: string; Value: string }
     }[]
+    Status: string
   }>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.pipelineDnsCertificate],
@@ -48,6 +52,12 @@ export const PipelineDnsStepThree: FC<{
     },
     fetchWhenTrue: [connectSession],
   })
+
+  console.log('data', certificate)
+
+  if (certificate?.Status === 'ISSUED') {
+    appPipelineState.appPipelineRefresh()
+  }
 
   return (
     <>
@@ -62,6 +72,17 @@ export const PipelineDnsStepThree: FC<{
           is so that your domain will use a &apos;https&apos; certificate hosted by IaaS. These records are verified
           automatically, in order to verify they&apos;ve been added, please hit the refresh button.
         </BodyText>
+        <BodyText hasGreyText>Certificate Status</BodyText>
+        <StatusIndicator
+          intent={
+            certificate?.Status === 'PENDING_VALIDATION'
+              ? 'warning'
+              : certificate?.Status === 'ISSUED'
+                ? 'success'
+                : 'info'
+          }
+        />
+        {certificate?.Status}
       </div>
       {loading ? (
         <Loader />
@@ -74,23 +95,27 @@ export const PipelineDnsStepThree: FC<{
       ) : (
         <>
           <DnsContainerElement>
-            {certificate?.DomainValidationOptions.map((domain, index) => (
-              <DnsContainerRow key={`${domain.ResourceRecord.Name}.${domain.ResourceRecord.Value}.${index}`}>
+            {certificate?.DomainValidationOptions?.map((domain, index) => (
+              <DnsContainerRow key={`${domain?.ResourceRecord?.Name}.${domain?.ResourceRecord?.Value}.${index}`}>
                 <DnsInputElement>
                   <Label>Domain</Label>
-                  <DnsValue>{domain.ResourceRecord.Name}</DnsValue>
+                  <DnsValue>{domain?.DomainName}</DnsValue>
+                </DnsInputElement>
+                <DnsInputElement>
+                  <Label>CNAME name</Label>
+                  <DnsValue>{domain?.ResourceRecord?.Name}</DnsValue>
                 </DnsInputElement>
                 <DnsInputElement>
                   <Label>Type</Label>
-                  <DnsValue>{domain.ResourceRecord.Type}</DnsValue>
+                  <DnsValue>{domain?.ResourceRecord?.Type}</DnsValue>
                 </DnsInputElement>
                 <DnsInputElement>
                   <Label>Value</Label>
-                  <DnsValue>{domain.ResourceRecord.Value}</DnsValue>
+                  <DnsValue>{domain?.ResourceRecord?.Value}</DnsValue>
                 </DnsInputElement>
                 <DnsInputElement>
                   <Label>Status</Label>
-                  <DnsValue>{domain.ValidationStatus}</DnsValue>
+                  <DnsValue>{domain?.ValidationStatus}</DnsValue>
                 </DnsInputElement>
               </DnsContainerRow>
             ))}
