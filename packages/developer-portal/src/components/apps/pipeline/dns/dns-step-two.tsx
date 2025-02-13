@@ -26,7 +26,7 @@ export const PipelineDnsStepTwo: FC<{
   verifyDnsName: string
 }> = ({ customDomain, verifyDnsValue, verifyDnsName, pipelineId }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [sendingVerify, verifyResults, sendVerifyRequest] = useReapitUpdate<
+  const [sendingVerify, , sendVerifyRequest] = useReapitUpdate<
     undefined,
     { result: 'success' | 'failed'; reason?: string }
   >({
