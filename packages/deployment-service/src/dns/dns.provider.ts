@@ -18,9 +18,8 @@ export class DnsProvider {
       `https://dns.google/resolve?name=${pipeline.verifyDnsName}.${pipeline.customDomain}&type=16`,
     )
 
-    const data = await response.json()
+    const data = (await response.json()) as { Answer?: { data: string }[] }
 
-    // TODO return error that no records found
     if (!data.Answer) return { result: false, reason: 'No defined TXT records for domain' }
 
     const txtRecord = data.Answer.some((record) => record.data === pipeline.verifyDnsValue)
