@@ -83,7 +83,12 @@ export const PipelineDnsStepModal: FC<{ customDomain?: string; buttonText?: stri
               </BodyText>
             </InputWrapFull>
             <InputWrapFull>
-              <InputGroup {...register('customDomain')} label="domain name" placeholder="my.domain.com" errorMessage={errors.customDomain?.message} />
+              <InputGroup
+                {...register('customDomain')}
+                label="domain name"
+                placeholder="my.domain.com"
+                errorMessage={errors.customDomain?.message}
+              />
             </InputWrapFull>
             <InputWrapFull>
               <Button loading={sendingDns} disabled={sendingDns} intent="primary">
