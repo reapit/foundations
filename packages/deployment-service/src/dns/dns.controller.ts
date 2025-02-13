@@ -43,10 +43,6 @@ export class DnsController {
     const verifyDnsName = 'reapit-iaas'
     const verifyDnsValue = uuid()
 
-    // prevent verify value overwrite
-    // perhaps should be overwritable incase of mistake
-    // if (pipeline.verifyDnsValue !== undefined) throw new UnprocessableEntityException('Record already generated')
-
     await this.pipelineProvider.update(pipeline, {
       customDomain: body.customDomain, // TODO should strip everything not a domain? query params example
       verifyDnsValue,
