@@ -1,0 +1,813 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DNS Steps should match snapshot for route four 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-flex-container"
+      >
+        <div
+          class="el-mr2 el-steps"
+        >
+          <div
+            class="mocked-styled-96 el-step"
+            data-testid="step-0"
+            role="button"
+            tabindex="0"
+          >
+            3
+          </div>
+        </div>
+        <h1
+          class="el-text-base el-title"
+        >
+          CNAME Record
+        </h1>
+      </div>
+      <div
+        class="el-mb6"
+      >
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
+        >
+          Last step. Add the below CNAME record to your DNS and your new custom domain will be working shortly
+        </p>
+      </div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <label
+              class="mocked-styled-41 el-label"
+            >
+              Domain
+            </label>
+            <mock-styled.p>
+              test
+            </mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div>
+            <label
+              class="mocked-styled-41 el-label"
+            >
+              Type
+            </label>
+            <mock-styled.p>
+              CNAME
+            </mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div>
+            <label
+              class="mocked-styled-41 el-label"
+            >
+              Value
+            </label>
+            <mock-styled.p />
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-flex-container"
+    >
+      <div
+        class="el-mr2 el-steps"
+      >
+        <div
+          class="mocked-styled-96 el-step"
+          data-testid="step-0"
+          role="button"
+          tabindex="0"
+        >
+          3
+        </div>
+      </div>
+      <h1
+        class="el-text-base el-title"
+      >
+        CNAME Record
+      </h1>
+    </div>
+    <div
+      class="el-mb6"
+    >
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
+      >
+        Last step. Add the below CNAME record to your DNS and your new custom domain will be working shortly
+      </p>
+    </div>
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <label
+            class="mocked-styled-41 el-label"
+          >
+            Domain
+          </label>
+          <mock-styled.p>
+            test
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div>
+          <label
+            class="mocked-styled-41 el-label"
+          >
+            Type
+          </label>
+          <mock-styled.p>
+            CNAME
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div>
+          <label
+            class="mocked-styled-41 el-label"
+          >
+            Value
+          </label>
+          <mock-styled.p />
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`DNS Steps should match snapshot for route one 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-mb6"
+      >
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
+        >
+          To use a custom domain, you'll need to start this process by using the button below. In order to use a custom domain you'll need to complete the following steps
+        </p>
+      </div>
+      <div
+        class="el-mb6"
+      >
+        <p
+          class="el-text-base el-body-text"
+        >
+          1. Verify the domain belongs to you by adding a text record to your DNS
+        </p>
+        <p
+          class="el-text-base el-body-text"
+        >
+          2. Once verified, we'll create a certificate which will provide you with CNAME record to apply to your DNS
+        </p>
+        <p
+          class="el-text-base el-body-text"
+        >
+          3. Once the certificate CNAME records are verified. The domain will be applied to your application.
+        </p>
+      </div>
+      <button
+        class="el-intent-primary el-button"
+      >
+        <div
+          class="mocked-styled-0 el-button-loader"
+        />
+        Setup Custom DNS
+      </button>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-mb6"
+    >
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
+      >
+        To use a custom domain, you'll need to start this process by using the button below. In order to use a custom domain you'll need to complete the following steps
+      </p>
+    </div>
+    <div
+      class="el-mb6"
+    >
+      <p
+        class="el-text-base el-body-text"
+      >
+        1. Verify the domain belongs to you by adding a text record to your DNS
+      </p>
+      <p
+        class="el-text-base el-body-text"
+      >
+        2. Once verified, we'll create a certificate which will provide you with CNAME record to apply to your DNS
+      </p>
+      <p
+        class="el-text-base el-body-text"
+      >
+        3. Once the certificate CNAME records are verified. The domain will be applied to your application.
+      </p>
+    </div>
+    <button
+      class="el-intent-primary el-button"
+    >
+      <div
+        class="mocked-styled-0 el-button-loader"
+      />
+      Setup Custom DNS
+    </button>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`DNS Steps should match snapshot for route three 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-flex-container"
+      >
+        <div
+          class="el-mr2 el-steps"
+        >
+          <div
+            class="mocked-styled-96 el-step"
+            data-testid="step-0"
+            role="button"
+            tabindex="0"
+          >
+            2
+          </div>
+        </div>
+        <h1
+          class="el-text-base el-title"
+        >
+          Certificate Records
+        </h1>
+      </div>
+      <div
+        class="el-mb6"
+      >
+        <p
+          class="el-text-base el-body-text"
+        >
+          Domain ownership has been verified.
+        </p>
+        <p
+          class="el-text-base el-body-text"
+        >
+          Next add the below certificate record's values to your DNS and verify these values have been added. This is so that your domain will use a 'https' certificate hosted by IaaS. These records are verified automatically, in order to verify they've been added, please hit the refresh button.
+        </p>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
+        >
+          Certificate Status
+        </p>
+        <span
+          class="el-intent-default el-status-indicator"
+        />
+      </div>
+      <div
+        class="el-intent-danger el-is-active el-pn-is-inline el-persistant-notification"
+      >
+        <div
+          class="el-pn-icon"
+          data-testid="close-icon"
+        >
+          <span
+            class="el-icon-new el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              role="img"
+              title="Icon image with name info"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="el-pn-content"
+        >
+          Unable to fetch certificate verification information
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-flex-container"
+    >
+      <div
+        class="el-mr2 el-steps"
+      >
+        <div
+          class="mocked-styled-96 el-step"
+          data-testid="step-0"
+          role="button"
+          tabindex="0"
+        >
+          2
+        </div>
+      </div>
+      <h1
+        class="el-text-base el-title"
+      >
+        Certificate Records
+      </h1>
+    </div>
+    <div
+      class="el-mb6"
+    >
+      <p
+        class="el-text-base el-body-text"
+      >
+        Domain ownership has been verified.
+      </p>
+      <p
+        class="el-text-base el-body-text"
+      >
+        Next add the below certificate record's values to your DNS and verify these values have been added. This is so that your domain will use a 'https' certificate hosted by IaaS. These records are verified automatically, in order to verify they've been added, please hit the refresh button.
+      </p>
+      <p
+        class="el-text-base el-body-text el-has-grey-text"
+      >
+        Certificate Status
+      </p>
+      <span
+        class="el-intent-default el-status-indicator"
+      />
+    </div>
+    <div
+      class="el-intent-danger el-is-active el-pn-is-inline el-persistant-notification"
+    >
+      <div
+        class="el-pn-icon"
+        data-testid="close-icon"
+      >
+        <span
+          class="el-icon-new el-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            role="img"
+            title="Icon image with name info"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="el-pn-content"
+      >
+        Unable to fetch certificate verification information
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`DNS Steps should match snapshot for route two 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mocked-styled-93 el-snack-holder"
+      />
+      <div
+        class="el-flex-container"
+      >
+        <div
+          class="el-mr2 el-steps"
+        >
+          <div
+            class="mocked-styled-96 el-step"
+            data-testid="step-0"
+            role="button"
+            tabindex="0"
+          >
+            1
+          </div>
+        </div>
+        <h1
+          class="el-text-base el-title"
+        >
+          Verify Domain Ownership
+        </h1>
+      </div>
+      <div
+        class="el-mb6"
+      >
+        <p
+          class="el-text-base el-body-text"
+        >
+          Add the below TXT record to your DNS to start the verification process.
+        </p>
+        <p
+          class="el-text-base el-body-text"
+        >
+          Once you've added that TXT record. Click the “Verify Record” button below to begin verifying your domain. This may take a few attempts as the TTL runs on your domain
+        </p>
+      </div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <mock-styled.div>
+            <label
+              class="mocked-styled-41 el-label"
+            >
+              Domain
+            </label>
+            <mock-styled.p>
+              test
+              .
+              test
+            </mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div>
+            <label
+              class="mocked-styled-41 el-label"
+            >
+              Type
+            </label>
+            <mock-styled.p>
+              TXT
+            </mock-styled.p>
+          </mock-styled.div>
+          <mock-styled.div>
+            <label
+              class="mocked-styled-41 el-label"
+            >
+              Value
+            </label>
+            <mock-styled.p>
+              test
+            </mock-styled.p>
+          </mock-styled.div>
+        </mock-styled.div>
+      </mock-styled.div>
+      <div
+        class="mocked-styled-2 el-button-group"
+      >
+        <div
+          class="mocked-styled-3 el-button-group-inner"
+        >
+          <button
+            class="el-intent-primary el-button"
+          >
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
+            Verify Record
+          </button>
+          <button
+            class="el-intent-primary el-button"
+          >
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
+            Edit Domain
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mocked-styled-93 el-snack-holder"
+    />
+    <div
+      class="el-flex-container"
+    >
+      <div
+        class="el-mr2 el-steps"
+      >
+        <div
+          class="mocked-styled-96 el-step"
+          data-testid="step-0"
+          role="button"
+          tabindex="0"
+        >
+          1
+        </div>
+      </div>
+      <h1
+        class="el-text-base el-title"
+      >
+        Verify Domain Ownership
+      </h1>
+    </div>
+    <div
+      class="el-mb6"
+    >
+      <p
+        class="el-text-base el-body-text"
+      >
+        Add the below TXT record to your DNS to start the verification process.
+      </p>
+      <p
+        class="el-text-base el-body-text"
+      >
+        Once you've added that TXT record. Click the “Verify Record” button below to begin verifying your domain. This may take a few attempts as the TTL runs on your domain
+      </p>
+    </div>
+    <mock-styled.div>
+      <mock-styled.div>
+        <mock-styled.div>
+          <label
+            class="mocked-styled-41 el-label"
+          >
+            Domain
+          </label>
+          <mock-styled.p>
+            test
+            .
+            test
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div>
+          <label
+            class="mocked-styled-41 el-label"
+          >
+            Type
+          </label>
+          <mock-styled.p>
+            TXT
+          </mock-styled.p>
+        </mock-styled.div>
+        <mock-styled.div>
+          <label
+            class="mocked-styled-41 el-label"
+          >
+            Value
+          </label>
+          <mock-styled.p>
+            test
+          </mock-styled.p>
+        </mock-styled.div>
+      </mock-styled.div>
+    </mock-styled.div>
+    <div
+      class="mocked-styled-2 el-button-group"
+    >
+      <div
+        class="mocked-styled-3 el-button-group-inner"
+      >
+        <button
+          class="el-intent-primary el-button"
+        >
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          Verify Record
+        </button>
+        <button
+          class="el-intent-primary el-button"
+        >
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          Edit Domain
+        </button>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

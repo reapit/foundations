@@ -6,16 +6,11 @@ import {
   elMb6,
   elMr2,
   FlexContainer,
-  FormLayout,
-  InputWrap,
-  InputWrapFull,
   Label,
   Loader,
   PersistantNotification,
   StatusIndicator,
   Steps,
-  Subtitle,
-  Table,
   Title,
 } from '@reapit/elements'
 import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
@@ -30,7 +25,7 @@ export const PipelineDnsStepThree: FC<{
   verifyDnsValue: string
   customDomain: string
   pipelineId: string
-}> = ({ verifyDnsValue, customDomain, pipelineId }) => {
+}> = ({ pipelineId }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appPipelineState } = useAppState()
 
@@ -79,7 +74,7 @@ export const PipelineDnsStepThree: FC<{
               ? 'warning'
               : certificate?.Status === 'ISSUED'
                 ? 'success'
-                : 'info'
+                : 'default'
           }
         />
         {certificate?.Status}
