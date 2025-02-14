@@ -1,6 +1,12 @@
 import { FormFieldInfo } from '@reapit/utils-common'
 
-export type FieldKey = 'nameField' | 'companyNameField' | 'emailField' | 'telephoneField' | 'gitHubUsernameField'
+export type FieldKey =
+  | 'nameField'
+  | 'companyNameField'
+  | 'emailField'
+  | 'telephoneField'
+  | 'gitHubUsernameField'
+  | 'jobTitleField'
 
 export const formFields: Record<FieldKey, FormFieldInfo> = {
   nameField: {
@@ -8,6 +14,12 @@ export const formFields: Record<FieldKey, FormFieldInfo> = {
     label: 'Full name',
     placeHolder: 'Joe Developer',
     errorMessage: 'Invalid full name',
+  },
+  jobTitleField: {
+    name: 'jobTitle',
+    label: 'Job Title',
+    placeHolder: 'Developer',
+    errorMessage: 'Invalid Job Title',
   },
   companyNameField: {
     label: 'Company name',
