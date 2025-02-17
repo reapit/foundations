@@ -10,12 +10,10 @@ describe('StepWizard', () => {
 
       return (
         <StepWizard activeStep={stepContext.currentStep} gotToStep={stepContext.goToStep}>
-      <div>
-        First Element
-      </div>
-      <div>Second Element</div>
-      <div>Third Element</div>
-    </StepWizard>
+          <div>First Element</div>
+          <div>Second Element</div>
+          <div>Third Element</div>
+        </StepWizard>
       )
     }
     expect(render(<Component />)).toMatchSnapshot()
