@@ -30,7 +30,7 @@ export const StepWizard: FC<
     <StepWizardContainer>
       <Steps
         className={cx(elMb6)}
-        steps={[...Array(Children.count(children) || 0).map((value) => (value + 1).toString())]}
+        steps={[...Array(Children.count(children) || 0)].map((value, index) => (index + 1).toString())}
         selectedStep={(activeStep + 1).toString()}
         onStepClick={(step) => {
           stepsClickable && gotToStep(parseInt(step) - 1)
