@@ -3,7 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { thirdStepValidationSchema } from '../validation-schema'
 import { useForm } from 'react-hook-form'
 import { Button, ButtonGroup, FormLayout, InputError, InputGroup, InputWrapFull, Label, Select } from '@reapit/elements'
-import { COUNTRY_OPTIONS } from 'src/components/settings/company/country-options-list'
+import { COUNTRY_OPTIONS } from '../../settings/company/country-options-list'
 
 export const ThirdStepForm: FC<{
   previousStep: () => void
