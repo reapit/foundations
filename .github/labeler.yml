@@ -14,9 +14,6 @@ app-builder:
 app-builder-backend:
   - packages/app-builder-backend/**
 
-app-market:
-  - packages/app-builder/**
-
 app-marketplace-cms:
   - packages/app-marketplace-cms/**
 
