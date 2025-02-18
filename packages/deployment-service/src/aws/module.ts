@@ -5,6 +5,7 @@ import { Module } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { CodeBuild, Credentials, S3, SSM, SQS } from 'aws-sdk'
 import { Route53Client } from '@aws-sdk/client-route-53'
+import { ACMClient } from '@aws-sdk/client-acm'
 
 export const ROLE_CREDENTIALS = 'ROLE_CREDENTIALS'
 
@@ -63,7 +64,16 @@ export const ROLE_CREDENTIALS = 'ROLE_CREDENTIALS'
       provide: SQS,
       useFactory: () => new SQS({ apiVersion: '2012-11-05', endpoint: process.env.SQS_ENDPOINT }),
     },
+    {
+      provide: ACMClient,
+      useFactory: (credentials) =>
+        new ACMClient({
+          region: 'us-east-1',
+          credentials,
+        }),
+      inject: [ROLE_CREDENTIALS],
+    },
   ],
-  exports: [S3, CodeBuild, SSM, ROLE_CREDENTIALS, CloudFrontClient, Route53Client, SQS],
+  exports: [S3, CodeBuild, SSM, ROLE_CREDENTIALS, CloudFrontClient, Route53Client, SQS, ACMClient],
 })
 export class AwsModule {}

@@ -11,6 +11,7 @@ import { PipelineTearDownWorkflow } from '../pipeline-teardown-workflow'
 import { ParameterProvider } from '..'
 import { TaskProvider, PipelineRunnerProvider } from '../../pipeline-runner'
 import { INestApplication } from '@nestjs/common'
+import { ACMClient } from '@aws-sdk/client-acm'
 
 const mockS3Provider = {
   upload: jest.fn(),
@@ -108,6 +109,10 @@ describe('PipelineTearDownWorkflow', () => {
         {
           provide: PipelineRunnerProvider,
           useValue: mockPipelineRunnerProvider,
+        },
+        {
+          provide: ACMClient,
+          useValue: jest.fn(),
         },
       ],
     }).compile()
