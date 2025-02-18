@@ -31,8 +31,8 @@ export const ForthStepForm: FC<{
       <FormLayout hasMargin>
         <InputWrapFull>
           <BodyText hasGreyText>
-            Holly to provide helper text, this is to be provided by Holly, Holly is the best and will provide us with
-            helper text for notification email fields.
+            Please provide an alternative email address (to your own) to receive notifications of app installations and
+            Reapit service updates. You can update this at anytime
           </BodyText>
         </InputWrapFull>
         <InputWrapFull>
@@ -40,7 +40,7 @@ export const ForthStepForm: FC<{
             type="email"
             label="Notification Email"
             id="notification-email"
-            placeholder="notifications@mycompany.co.uk"
+            placeholder="sales@partnerteam.com"
             {...register('notificationsEmail')}
             intent={errors['notificationsEmail']?.message ? 'danger' : undefined}
             errorMessage={errors['notificationsEmail']?.message}

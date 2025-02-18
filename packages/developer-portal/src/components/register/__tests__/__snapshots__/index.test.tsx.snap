@@ -1730,7 +1730,7 @@ exports[`Register should match a snapshot 1`] = `
                       <p
                         class="el-text-base el-body-text el-has-grey-text"
                       >
-                        Holly to provide helper text, this is to be provided by Holly, Holly is the best and will provide us with helper text for notification email fields.
+                        Please provide an alternative email address (to your own) to receive notifications of app installations and Reapit service updates. You can update this at anytime
                       </p>
                     </div>
                     <div
@@ -1744,7 +1744,7 @@ exports[`Register should match a snapshot 1`] = `
                           class="mocked-styled-38 el-input"
                           id="notification-email"
                           name="notificationsEmail"
-                          placeholder="notifications@mycompany.co.uk"
+                          placeholder="sales@partnerteam.com"
                           type="email"
                         />
                         <label
@@ -3518,7 +3518,7 @@ exports[`Register should match a snapshot 1`] = `
                     <p
                       class="el-text-base el-body-text el-has-grey-text"
                     >
-                      Holly to provide helper text, this is to be provided by Holly, Holly is the best and will provide us with helper text for notification email fields.
+                      Please provide an alternative email address (to your own) to receive notifications of app installations and Reapit service updates. You can update this at anytime
                     </p>
                   </div>
                   <div
@@ -3532,7 +3532,7 @@ exports[`Register should match a snapshot 1`] = `
                         class="mocked-styled-38 el-input"
                         id="notification-email"
                         name="notificationsEmail"
-                        placeholder="notifications@mycompany.co.uk"
+                        placeholder="sales@partnerteam.com"
                         type="email"
                       />
                       <label
