@@ -32,7 +32,7 @@ export const ForthStepForm: FC<{
         <InputWrapFull>
           <BodyText hasGreyText>
             Please provide an alternative email address (to your own) to receive notifications of app installations and
-            Reapit service updates. You can update this at anytime
+            Reapit service updates. You can update this at anytime.
           </BodyText>
         </InputWrapFull>
         <InputWrapFull>

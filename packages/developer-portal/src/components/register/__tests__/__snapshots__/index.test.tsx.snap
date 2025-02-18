@@ -1730,7 +1730,7 @@ exports[`Register should match a snapshot 1`] = `
                       <p
                         class="el-text-base el-body-text el-has-grey-text"
                       >
-                        Please provide an alternative email address (to your own) to receive notifications of app installations and Reapit service updates. You can update this at anytime
+                        Please provide an alternative email address (to your own) to receive notifications of app installations and Reapit service updates. You can update this at anytime.
                       </p>
                     </div>
                     <div
@@ -3518,7 +3518,7 @@ exports[`Register should match a snapshot 1`] = `
                     <p
                       class="el-text-base el-body-text el-has-grey-text"
                     >
-                      Please provide an alternative email address (to your own) to receive notifications of app installations and Reapit service updates. You can update this at anytime
+                      Please provide an alternative email address (to your own) to receive notifications of app installations and Reapit service updates. You can update this at anytime.
                     </p>
                   </div>
                   <div
