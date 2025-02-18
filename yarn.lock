@@ -7891,6 +7891,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@reapit/foundations-ts-definitions@npm:^2.1.20":
+  version: 2.1.20
+  resolution: "@reapit/foundations-ts-definitions@npm:2.1.20"
+  checksum: 76f2f0c60e617ffbade0226706d7163680cbb2b26f68cd3fe9f175388fe19e606c2156a00ed289231177ed6201990b426043afd2430e0ef2b3cdad46f6e46f5b
+  languageName: node
+  linkType: hard
+
 "@reapit/payments-ui@workspace:packages/payments-ui":
   version: 0.0.0-use.local
   resolution: "@reapit/payments-ui@workspace:packages/payments-ui"
@@ -16249,7 +16256,7 @@ __metadata:
     "@nestjs/typeorm": "npm:^8.1.4"
     "@octokit/app": "npm:^14.0.2"
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/foundations-ts-definitions": "npm:^1.5.9"
+    "@reapit/foundations-ts-definitions": "npm:^2.1.20"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-authorizer": "workspace:^"
     "@reapit/utils-nest": "workspace:packages/utils-nest"
@@ -16373,7 +16380,7 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.3"
     "@reapit/elements": "npm:^4.3.2"
-    "@reapit/foundations-ts-definitions": "npm:2.0.0"
+    "@reapit/foundations-ts-definitions": "npm:^2.1.20"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/use-reapit-data": "workspace:packages/use-reapit-data"
     "@reapit/utils-common": "workspace:packages/utils-common"

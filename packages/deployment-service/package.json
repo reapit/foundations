@@ -15,7 +15,7 @@
     "@nestjs/platform-express": "^11.0.5",
     "@nestjs/typeorm": "^8.1.4",
     "@octokit/app": "^14.0.2",
-    "@reapit/foundations-ts-definitions": "^1.5.9",
+    "@reapit/foundations-ts-definitions": "^2.1.20",
     "@reapit/utils-authorizer": "workspace:^",
     "@reapit/utils-nest": "workspace:packages/utils-nest",
     "@reapit/utils-node": "workspace:^",
