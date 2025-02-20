@@ -263,7 +263,7 @@ exports[`Register should match a snapshot 1`] = `
                           class="mocked-styled-38 el-input"
                           id="website"
                           name="website"
-                          placeholder="mycompany.co.uk"
+                          placeholder="https://mycompany.co.uk"
                           type="text"
                         />
                         <label
@@ -2051,7 +2051,7 @@ exports[`Register should match a snapshot 1`] = `
                         class="mocked-styled-38 el-input"
                         id="website"
                         name="website"
-                        placeholder="mycompany.co.uk"
+                        placeholder="https://mycompany.co.uk"
                         type="text"
                       />
                       <label
