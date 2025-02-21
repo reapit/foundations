@@ -68,7 +68,7 @@ export const SecondStepForm: FC<{
             type="text"
             label="Website"
             id="website"
-            placeholder="mycompany.co.uk"
+            placeholder="https://mycompany.co.uk"
             {...register('website')}
             errorMessage={errors?.website?.message}
           />
