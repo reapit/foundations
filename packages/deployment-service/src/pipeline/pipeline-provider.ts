@@ -16,6 +16,10 @@ export class PipelineProvider {
     return this.repository.findOne({ where: { id } })
   }
 
+  async findByCertificateArn(certificateArn: string): Promise<PipelineEntity | null> {
+    return this.repository.findOne({ where: { certificateArn } })
+  }
+
   async paginate(page: number, developerId?: string, appId?: string): Promise<Pagination<PipelineEntity>> {
     const qb = this.repository.createQueryBuilder('p')
     if (developerId) {

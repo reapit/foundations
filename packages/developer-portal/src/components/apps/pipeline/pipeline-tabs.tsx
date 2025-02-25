@@ -4,7 +4,7 @@ import { Tabs } from '@reapit/elements'
 import { NavigateFunction, useLocation, useNavigate } from 'react-router'
 import Routes from '../../../constants/routes'
 
-export type PipelineTabs = 'configure' | 'deployments' | 'environment'
+export type PipelineTabs = 'configure' | 'deployments' | 'environment' | 'DNS'
 
 const resolveRoute = (tab: PipelineTabs): string => {
   switch (tab) {
@@ -14,6 +14,8 @@ const resolveRoute = (tab: PipelineTabs): string => {
       return Routes.APP_PIPELINE
     case 'environment':
       return Routes.APP_PIPELINE_ENVIRONMENT
+    case 'DNS':
+      return Routes.APP_PIPELINE_DNS
   }
 }
 
@@ -44,7 +46,7 @@ export const PipelineTabs: FC = () => {
           id: 'deployments',
           value: 'deployments',
           text: 'Deployments',
-          isChecked: !pathname.includes('configure') && !pathname.includes('environment'),
+          isChecked: !pathname.includes('configure') && !pathname.includes('environment') && !pathname.includes('dns'),
         },
         {
           id: 'configure',
@@ -57,6 +59,12 @@ export const PipelineTabs: FC = () => {
           value: 'environment',
           text: 'Environment Variables',
           isChecked: pathname.includes('environment'),
+        },
+        {
+          id: 'DNS',
+          value: 'DNS',
+          text: 'Custom DNS',
+          isChecked: pathname.includes('dns'),
         },
       ]}
     />
