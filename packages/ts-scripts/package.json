@@ -101,7 +101,7 @@
     "vite": "^6.1.0",
     "vite-plugin-checker": "^0.8.0",
     "vite-plugin-graphql-loader": "^3.0.1",
-    "vite-plugin-pwa": "^0.20.5",
+    "vite-plugin-pwa": "^0.21.1",
     "vite-plugin-top-level-await": "^1.4.4"
   }
 }
