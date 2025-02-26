@@ -15,7 +15,6 @@ export class CertificateProvider {
   ) {}
 
   async createCertificate(pipeline: PipelineEntity): Promise<string> {
-    // TODO needs to be created in iaas account? Probably does
     const result = await this.client.send(
       new RequestCertificateCommand({
         DomainName: pipeline.customDomain,
@@ -23,12 +22,11 @@ export class CertificateProvider {
         SubjectAlternativeNames: [
           // `www.${pipeline.customDomain}`, // if www is required?
           pipeline.customDomain as string,
-          `*.${pipeline.customDomain}`,
         ],
         DomainValidationOptions: [
           {
-            DomainName: `*.${pipeline.customDomain}`,
-            ValidationDomain: pipeline.customDomain, // for sending email to about the cert, perhaps to reapit?
+            DomainName: pipeline.customDomain,
+            ValidationDomain: pipeline.customDomain,
           },
         ],
         Options: {

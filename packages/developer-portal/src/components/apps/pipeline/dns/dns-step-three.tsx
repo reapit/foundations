@@ -48,8 +48,6 @@ export const PipelineDnsStepThree: FC<{
     fetchWhenTrue: [connectSession],
   })
 
-  console.log('data', certificate)
-
   if (certificate?.Status === 'ISSUED') {
     appPipelineState.appPipelineRefresh()
   }
