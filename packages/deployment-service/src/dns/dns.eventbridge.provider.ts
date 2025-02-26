@@ -1,9 +1,16 @@
-import { CloudFrontClient, GetDistributionCommand, UpdateDistributionCommand } from '@aws-sdk/client-cloudfront'
+import {
+  CloudFrontClient,
+  Distribution,
+  GetDistributionCommand,
+  UpdateDistributionCommand,
+  UpdateDistributionCommandInput,
+} from '@aws-sdk/client-cloudfront'
 import { Injectable } from '@nestjs/common'
 import { PipelineProvider } from '../pipeline'
 import { EventBridgeEvent } from 'aws-lambda'
 import { CertificateDetail } from '../dns-eventbridge'
 import { PusherProvider } from '../events'
+import { PipelineEntity } from 'src/entities/pipeline.entity'
 
 @Injectable()
 export class DnsEventBridgeProvider {
@@ -13,47 +20,75 @@ export class DnsEventBridgeProvider {
     private readonly pusherProvider: PusherProvider,
   ) {}
 
-  async handle(event: EventBridgeEvent<'ACM Certificate Available', CertificateDetail>): Promise<void> {
+  private async getPipeline(certificateArn: string): Promise<PipelineEntity | never> {
+    const pipeline = await this.pipelineProvider.findByCertificateArn(certificateArn)
+
+    if (!pipeline) throw new Error(`Pipeline not found with certificate ARN [${certificateArn}]`)
+
+    return pipeline
+  }
+
+  private getCertifcateArn(event: EventBridgeEvent<'ACM Certificate Available', CertificateDetail>): string | never {
     if (!event.resources || event.resources.length === 0) throw new Error('Certificate had no ARN')
-    const pipeline = await this.pipelineProvider.findByCertificateArn(event.resources[0])
 
-    if (!pipeline) throw new Error(`Pipeline not found with certificate ARN [${event.resources.join(', ')}]`)
+    return event.resources[0]
+  }
 
-    if (pipeline?.certificateStatus === 'complete') return
+  private async getDistribution(pipeline: PipelineEntity): Promise<[Distribution, string | undefined] | never> {
+    const result = await this.cloudfrontClient.send(new GetDistributionCommand({ Id: pipeline.cloudFrontId }))
 
-    const distroResult = await this.cloudfrontClient.send(
-      new GetDistributionCommand({
-        Id: pipeline.cloudFrontId,
-      }),
-    )
+    if (!result.Distribution) throw new Error(`Distro not found [${pipeline.cloudFrontId}]`)
 
-    const distro = distroResult.Distribution
+    return [result.Distribution, result.ETag]
+  }
 
-    if (!distro) throw new Error(`Distro not found [${pipeline.cloudFrontId}]`)
-
+  private async updateDistribution(
+    distribution: UpdateDistributionCommandInput,
+    certificateArn: string,
+    commonName: string,
+  ): Promise<void> {
     await this.cloudfrontClient.send(
       new UpdateDistributionCommand({
-        ...distro,
+        ...distribution,
         DistributionConfig: {
-          ...distro.DistributionConfig,
-          PriceClass: distro.DistributionConfig?.PriceClass,
-          CallerReference: distro.DistributionConfig?.CallerReference,
+          ...distribution.DistributionConfig,
+          PriceClass: distribution.DistributionConfig?.PriceClass,
+          CallerReference: distribution.DistributionConfig?.CallerReference,
           Aliases: {
             Quantity: 2,
-            Items: [...(distro.DistributionConfig?.Aliases?.Items || []), event.detail.CommonName],
+            Items: [...(distribution.DistributionConfig?.Aliases?.Items || []), commonName],
           },
-          Origins: distro.DistributionConfig?.Origins,
-          Comment: distro.DistributionConfig?.Comment,
-          DefaultCacheBehavior: distro.DistributionConfig?.DefaultCacheBehavior,
-          Enabled: distro.DistributionConfig?.Enabled,
+          Origins: distribution.DistributionConfig?.Origins,
+          Comment: distribution.DistributionConfig?.Comment,
+          DefaultCacheBehavior: distribution.DistributionConfig?.DefaultCacheBehavior,
+          Enabled: distribution.DistributionConfig?.Enabled,
           ViewerCertificate: {
-            ACMCertificateArn: event.resources[0],
+            ACMCertificateArn: certificateArn,
             SSLSupportMethod: 'sni-only',
             MinimumProtocolVersion: 'TLSv1.2_2021',
           },
         },
-        IfMatch: distroResult.ETag,
       }),
+    )
+  }
+
+  async handle(event: EventBridgeEvent<'ACM Certificate Available', CertificateDetail>): Promise<void> {
+    const certificateArn = this.getCertifcateArn(event)
+    const commonName = event.detail.CommonName
+
+    const pipeline = await this.getPipeline(certificateArn)
+
+    if (pipeline?.certificateStatus === 'complete') return
+
+    const [distro, etag] = await this.getDistribution(pipeline)
+
+    await this.updateDistribution(
+      {
+        ...distro,
+        IfMatch: etag,
+      },
+      certificateArn,
+      commonName,
     )
 
     await this.pipelineProvider.update(pipeline, {
