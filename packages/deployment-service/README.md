@@ -27,7 +27,7 @@ $ yarn migration:run
 The below command will create a new migration for changes made to the entities
 
 ```bash
-$ yarn migration:generate -n MyNewMigration
+$ yarn migration:generate MyNewMigration
 ```
 > Don't forget to give a useful name for your migration!
 

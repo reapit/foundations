@@ -13,7 +13,7 @@ export type BucketOptions = {
 
 export const createBucket = (stack: cdk.Stack, bucketName: string, options?: BucketOptions): s3.Bucket => {
   const bucket = new s3.Bucket(options?.stack || stack, bucketName, {
-    publicReadAccess: options?.public,
+    // publicReadAccess: options?.public,
     websiteIndexDocument: options?.public ? 'index.html' : undefined,
     bucketName: PhysicalName.GENERATE_IF_NEEDED,
   })

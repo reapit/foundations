@@ -35,8 +35,8 @@ type PipelineModelSchema = Omit<
   | 'installationId'
   | 'repositoryId'
   | 'bitbucketClientId'
-  | 'customDomain'
   | 'certificateStatus'
+  | 'customDomain'
 > & {
   packageManager: string
 }

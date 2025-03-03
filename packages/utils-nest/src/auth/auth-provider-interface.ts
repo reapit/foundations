@@ -1,4 +1,4 @@
-import { LoginIdentity } from '@reapit/connect-session'
+import { LoginIdentity } from '@reapit/connect-session-server'
 import { Request } from 'express'
 
 export interface AuthProviderInterface<T extends any> {

@@ -14,6 +14,7 @@ export enum PolicyNames {
   secretManagerPolicy = 'secretManagerPolicy',
   S3BucketPolicy = 'S3BucketPolicy',
   originAccessControlPolicy = 'originAccessControlPolicy',
+  certificatePolicy = 'certificatePolicy',
 }
 
 type namedPolicyType = {
@@ -172,6 +173,12 @@ export const createPolicies = ({
     resources: ['*'],
   })
 
+  const certificatePolicy = new PolicyStatement({
+    actions: ['acm:RequestCertificate', 'acm:AddTagsToCertificate', 'acm:DescribeCertificate', 'acm:DeleteCertificate'],
+    effect: Effect.ALLOW,
+    resources: ['*'],
+  })
+
   // create a policy that allows the lambda to do what it needs to do in the usercode stack
   const usercodePolicy = new Policy(usercodeStack, 'UsercodePolicy')
   usercodePolicy.addStatements(
@@ -182,6 +189,7 @@ export const createPolicies = ({
     codebuildExecPolicy,
     parameterStorePolicy,
     originAccessControlPolicy,
+    certificatePolicy,
   )
   const usercodeStackRoleName = `${usercodeStack.stackName}-UsercodeStackRole`
   // create a role that lambdas can assume in the usercode stack, with the policy we just created
@@ -203,6 +211,7 @@ export const createPolicies = ({
     actions: ['sts:AssumeRole'],
   })
 
+  // TODO remove
   const lambdaInvoke = new PolicyStatement({
     effect: Effect.ALLOW,
     resources: [
@@ -231,5 +240,6 @@ export const createPolicies = ({
     secretManagerPolicy,
     S3BucketPolicy,
     usercodeStackRoleArn,
+    certificatePolicy,
   }
 }
