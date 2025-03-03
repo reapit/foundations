@@ -1,16 +1,5 @@
 import { useReapitConnect } from '@reapit/connect-session'
-import {
-  BodyText,
-  Button,
-  elMb6,
-  FormLayout,
-  InputGroup,
-  InputWrapFull,
-  Modal,
-  PersistentNotification,
-  Subtitle,
-  useModal,
-} from '@reapit/elements'
+import { BodyText, Button, FormLayout, InputGroup, InputWrapFull, Modal, Subtitle, useModal } from '@reapit/elements'
 import React, { FC } from 'react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { useAppState } from '../../state/use-app-state'
@@ -19,9 +8,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
 import * as Yup from 'yup'
 
-const domainRegex = new RegExp(
-  /^([a-z0-9])(([a-z0-9-]{1,61})?[a-z0-9]{1})?(\.[a-z0-9](([a-z0-9-]{1,61})?[a-z0-9]{1})?)?(\.[a-zA-Z]{2,4})+$/,
-)
+const domainRegex = new RegExp(/([a-z0-9|-]+\.)*[a-z0-9|-]+\.[a-z]+/)
 
 export const validationSchema = Yup.object().shape({
   customDomain: Yup.string().matches(domainRegex, 'Should be a valid domain').trim().required(),
