@@ -41,6 +41,7 @@ const mockPipelineProvider = {
     }),
   ),
   update: jest.fn((pipeline) => Promise.resolve(pipeline)),
+  findByDomain: jest.fn(() => Promise.resolve(null)),
 }
 
 const mockDnsProvider = {
