@@ -45,7 +45,7 @@ export const PipelineDns: FC<{}> = () => {
     <>
       <PipelineTabs />
       <Subtitle> Custom DNS Configuration</Subtitle>
-      {buildStatus && ['READY_FOR_DEPLOYMENT', 'FAILED', 'SUCCESS'].includes(buildStatus) ? (
+      {buildStatus && ['READY_FOR_DEPLOYMENT', 'FAILED', 'SUCCEEDED'].includes(buildStatus) ? (
         <>
           {appId ? (
             step === 'complete' ? (
