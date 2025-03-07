@@ -47,12 +47,12 @@ export class ResolveS3BucketPolicyConditions extends Construct {
       }),
     )
 
-    const resourceProvider = new custom_resources.Provider(scope, 'resolve-production-S3-policies', {
+    const resourceProvider = new custom_resources.Provider(scope, 'resolve-production-S3-policy-conditions', {
       onEventHandler: resolveProductionS3Lambda,
       logRetention: aws_logs.RetentionDays.TWO_WEEKS,
     })
 
-    new CustomResource(scope, 'resolve-production-s3-policies', {
+    new CustomResource(scope, 'resolve-production-s3-policy-conditions', {
       serviceToken: resourceProvider.serviceToken,
       properties: {
         fistonly: true,
