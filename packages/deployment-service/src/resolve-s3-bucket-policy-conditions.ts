@@ -19,30 +19,36 @@ type BucketPolicyStatement = {
 }
 
 const appendConditionPolicy = (policyJSON: string): string => {
-  const policies: BucketPolicyStatement[] = JSON.parse(policyJSON)
+  const policy: {Statement: BucketPolicyStatement[] } = JSON.parse(policyJSON)
 
-  return JSON.stringify(policies.map<BucketPolicyStatement>(policy => ({
+  return JSON.stringify({
     ...policy,
-    Condition: {
-      StringEquals: {
-        'aws:SourceAccount': [
-          process.env.IAAS_ACCOUNT_ID as string,
-          process.env.PAAS_ACCOUNT_ID as string,
-        ],
+    Statement: policy.Statement.map<BucketPolicyStatement>(statement => ({
+      ...statement,
+      Condition: {
+        StringEquals: {
+          'aws:SourceAccount': [
+            process.env.IAAS_ACCOUNT_ID as string,
+            process.env.PAAS_ACCOUNT_ID as string,
+          ],
+        },
       },
-    },
-  })))
+    })),
+  })
 }
 
 const removeConditionPolicy = (policyJSON: string): string => {
-  const policies: BucketPolicyStatement[] = JSON.parse(policyJSON)
+  const policy: {Statement: BucketPolicyStatement[] } = JSON.parse(policyJSON)
 
-  return JSON.stringify(policies.map<BucketPolicyStatement>((policy) => {
-    delete policy.Condition
-
-    return {
+  return JSON.stringify({
     ...policy,
-  }}))
+    Statement: policy.Statement.map<BucketPolicyStatement>((policy) => {
+      delete policy.Condition
+  
+      return {
+      ...policy,
+    }}),
+  })
 }
 
 export const handler: OnEventHandler = async (event) => {
@@ -60,6 +66,8 @@ export const handler: OnEventHandler = async (event) => {
       bucket,
     }
   }))
+
+  console.log('buvkets', JSON.stringify(bucketPolcies))
 
   if (event.RequestType === 'Create') {
     bucketPolcies.map(({ policy, bucket }) => ({

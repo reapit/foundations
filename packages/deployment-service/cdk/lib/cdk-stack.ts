@@ -308,5 +308,6 @@ export const createStack = async () => {
   new ResolveS3BucketPolicyConditions(usercodeStack, 'resolve-s3-bucket-policy-conditions', {
     buckets,
     iaasAccountId: usercodeStack.account,
+    paasAccountId: stack.account,
   })
 }

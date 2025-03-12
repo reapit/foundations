@@ -4,7 +4,7 @@ import { BucketNames } from './create-S3-bucket'
 
 export class ResolveS3BucketPolicyConditions extends Construct {
   constructor(scope: Stack, id: string,
-    { buckets, iaasAccountId }: { buckets: Record<string, aws_s3.IBucket>; iaasAccountId: string },
+    { buckets, iaasAccountId, paasAccountId }: { buckets: Record<string, aws_s3.IBucket>; iaasAccountId: string, paasAccountId: string },
   ) {
     super(scope, id)
 
@@ -20,13 +20,13 @@ export class ResolveS3BucketPolicyConditions extends Construct {
     )
 
     const resolveProductionS3Lambda = new aws_lambda.Function(scope, 'resolve-S3-policy-conditions-custom-resource', {
-      handler: 'dist/resolve-s3-policy-conditions.handler',
+      handler: 'dist/resolve-s3-bucket-policy-conditions.handler',
       code: aws_lambda.Code.fromAsset('bundle/resolve-s3-bucket-policy-conditions.zip'),
       memorySize: 1024,
       timeout: Duration.seconds(60),
       runtime: aws_lambda.Runtime.NODEJS_18_X,
       environment: {
-        PAAS_ACCOUNT_ID: scope.account,
+        PAAS_ACCOUNT_ID: paasAccountId,
         IAAS_ACCOUNT_ID: iaasAccountId,
         BUCKETS: [liveBucket.bucketName, logBucket.bucketName, repoBucket.bucketName, versionBucket.bucketName].join(
           ',',
