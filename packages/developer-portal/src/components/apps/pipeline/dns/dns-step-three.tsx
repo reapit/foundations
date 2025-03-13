@@ -14,7 +14,7 @@ import {
   Title,
 } from '@reapit/elements'
 import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
-import React, { FC } from 'react'
+import React, { FC, useEffect, useRef } from 'react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { cx } from '@linaria/core'
 import { DnsContainerElement, DnsContainerRow, DnsInputElement, DnsValue } from './__styles__'
@@ -28,6 +28,7 @@ export const PipelineDnsStepThree: FC<{
 }> = ({ pipelineId }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appPipelineState } = useAppState()
+  const pollingRef = useRef<NodeJS.Timeout>()
 
   const [certificate, loading, , fetchCertificate, refetching] = useReapitGet<{
     DomainValidationOptions: {
@@ -47,6 +48,24 @@ export const PipelineDnsStepThree: FC<{
     },
     fetchWhenTrue: [connectSession],
   })
+
+  const pollFetchCertificate = async () => {
+    await fetchCertificate()
+  }
+
+  useEffect(() => {
+    pollingRef.current = setInterval(pollFetchCertificate, 10000)
+
+    return () => {
+      clearInterval(pollingRef.current)
+    }
+  }, [])
+
+  const clearPollAndCall = async () => {
+    clearInterval(pollingRef.current)
+    await fetchCertificate()
+    pollingRef.current = setInterval(pollFetchCertificate, 10000)
+  }
 
   if (certificate?.Status === 'ISSUED') {
     appPipelineState.appPipelineRefresh()
@@ -114,7 +133,7 @@ export const PipelineDnsStepThree: FC<{
             ))}
           </DnsContainerElement>
           <ButtonGroup>
-            <Button intent="primary" onClick={() => fetchCertificate()} loading={refetching} disabled={refetching}>
+            <Button intent="primary" onClick={() => clearPollAndCall()} loading={refetching} disabled={refetching}>
               Refresh
             </Button>
           </ButtonGroup>
