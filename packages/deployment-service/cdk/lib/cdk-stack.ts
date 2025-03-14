@@ -202,6 +202,8 @@ export const createStack = async () => {
     USERCODE_ROLE_ARN: policies.usercodeStackRoleArn,
     GITHUB_PEM_SECRET_ARN: githubPemSecret.ref,
     NODE_ENV: process.env.APP_STAGE || 'development',
+    MARKETPLACE_API_KEY: config.MARKETPLACE_API_KEY,
+    MARKETPLACE_URL: config.MARKETPLACE_URL,
   }
 
   Object.values(QueueNames).forEach((queueKey) => {

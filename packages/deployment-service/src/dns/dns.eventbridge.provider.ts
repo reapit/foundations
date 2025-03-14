@@ -13,6 +13,7 @@ import { CertificateDetail } from '../dns-eventbridge'
 import { PusherProvider } from '../events'
 import { PipelineEntity } from '../entities/pipeline.entity'
 import { CertificateProvider } from './certificate.provider'
+import { MarketplaceProvider } from '../marketplace'
 
 @Injectable()
 export class DnsEventBridgeProvider {
@@ -21,6 +22,7 @@ export class DnsEventBridgeProvider {
     private readonly cloudfrontClient: CloudFrontClient,
     private readonly pusherProvider: PusherProvider,
     private readonly certificateProvider: CertificateProvider,
+    private readonly marketplaceProvider: MarketplaceProvider,
   ) {}
 
   private async getPipeline(certificateArn: string): Promise<PipelineEntity | never> {
@@ -98,6 +100,15 @@ export class DnsEventBridgeProvider {
       await this.pipelineProvider.update(pipeline, {
         certificateStatus: 'complete',
       })
+
+      const appDetails = await this.marketplaceProvider.getAppDetails(pipeline.appId as string)
+
+      await this.marketplaceProvider.updateAppUrls(
+        pipeline.appId as string,
+        `https://${commonName}`,
+        pipeline.developerId as string,
+        appDetails.name as string,
+      )
 
       await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
         ...pipeline,
