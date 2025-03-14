@@ -8,9 +8,10 @@ import { AwsModule } from '../aws'
 import { DnsEventBridgeProvider } from './dns.eventbridge.provider'
 import { EventModule } from '../events'
 import { DnsCloudFrontProvider } from './dns.cloudfront.provider'
+import { MarketplaceModule } from '../marketplace'
 
 @Module({
-  imports: [PipelineModule, AwsModule, EventModule],
+  imports: [PipelineModule, AwsModule, EventModule, MarketplaceModule],
   providers: [
     {
       provide: Route53Client,

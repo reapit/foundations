@@ -5,6 +5,7 @@ import { AppEventWorkflow } from '../app-event-workflow'
 import { SQSRecord } from 'aws-lambda'
 import { SqsProvider } from '../../events'
 import { INestApplication } from '@nestjs/common'
+import { MarketplaceProvider } from 'src/marketplace'
 
 const mockPipelineProvider = {
   create: jest.fn(),
@@ -14,6 +15,10 @@ const mockPipelineProvider = {
 
 const mockEventDispatcher = {
   triggerPipelineTearDownStart: jest.fn(),
+}
+
+const mockMarketplaceProvider = {
+  updateAppUrls: jest.fn(),
 }
 
 describe('AppEventWorkflow', () => {
@@ -28,6 +33,10 @@ describe('AppEventWorkflow', () => {
         {
           provide: EventDispatcher,
           useValue: mockEventDispatcher,
+        },
+        {
+          provide: MarketplaceProvider,
+          useValue: mockMarketplaceProvider,
         },
         {
           provide: SqsProvider,
@@ -55,6 +64,7 @@ describe('AppEventWorkflow', () => {
       }),
     } as SQSRecord)
 
+    expect(mockMarketplaceProvider.updateAppUrls).toHaveBeenCalled()
     expect(mockPipelineProvider.create).toHaveBeenCalled()
   })
 
