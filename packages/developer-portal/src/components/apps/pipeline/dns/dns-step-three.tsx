@@ -20,6 +20,14 @@ import { cx } from '@linaria/core'
 import { DnsContainerElement, DnsContainerRow, DnsInputElement, DnsValue } from './__styles__'
 import { useAppState } from '../../state/use-app-state'
 
+const humanReadable = (s?: string): string => {
+  if (!s) return ''
+
+  const value = s.split('_').join(' ').toLowerCase()
+
+  return [value.charAt(0).toUpperCase(), value.slice(1, value.length)].join('')
+}
+
 export const PipelineDnsStepThree: FC<{
   verifyDnsName: string
   verifyDnsValue: string
@@ -94,7 +102,7 @@ export const PipelineDnsStepThree: FC<{
                 : 'default'
           }
         />
-        {certificate?.Status}
+        {humanReadable(certificate?.Status)}
       </div>
       {loading ? (
         <Loader />
@@ -127,7 +135,7 @@ export const PipelineDnsStepThree: FC<{
                 </DnsInputElement>
                 <DnsInputElement>
                   <Label>Status</Label>
-                  <DnsValue>{domain?.ValidationStatus}</DnsValue>
+                  <DnsValue>{humanReadable(domain?.ValidationStatus)}</DnsValue>
                 </DnsInputElement>
               </DnsContainerRow>
             ))}
