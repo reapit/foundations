@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction, useContext, useEffect } from 'react'
+import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
 import { FormLayout, Input, InputError, InputGroup, InputWrap, Label, Select } from '@reapit/elements'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -10,15 +10,14 @@ import {
   PipelineModelInterface,
 } from '@reapit/foundations-ts-definitions'
 import { specialCharsTest } from '../../../../utils/yup'
-import { NavigateFunction, useLocation, useNavigate } from 'react-router'
+import { NavigateFunction, useNavigate } from 'react-router'
 import Routes from '../../../../constants/routes'
 import { UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
 import { object, SchemaOf, string } from 'yup'
-import { GithubContext } from '../github'
 import { useAppState } from '../../state/use-app-state'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
-import { RepositoryList } from './repository-list'
+import { GithubRepositorySelectionElement } from './github-repository-selection-element'
 
 type PipelineModelSchema = Omit<
   PipelineModelInterface,
@@ -33,8 +32,6 @@ type PipelineModelSchema = Omit<
   | 'subDomain'
   | 'packageManager'
   | 'testCommand'
-  | 'installationId'
-  | 'repositoryId'
   | 'bitbucketClientId'
   | 'certificateStatus'
   | 'customDomain'
@@ -59,7 +56,7 @@ export const handlePipelineUpdate =
             ? PackageManagerEnum.YARN
             : PackageManagerEnum.NPM,
       appId: appId ?? '',
-      appType: AppTypeEnum.REACT, // TODO make this an option
+      appType: AppTypeEnum.REACT,
     }
 
     if (!updateModel.repository) {
@@ -196,7 +193,7 @@ export const PipelineConfigureForm: FC = () => {
         <InputWrap>
           <InputGroup>
             <Label>Github Repository</Label>
-            <RepositoryList
+            <GithubRepositorySelectionElement
               onChange={({ repository, installation }) => {
                 setValue('repository.installationId', installation.id)
                 setValue('repository.repositoryId', repository.id)
@@ -213,10 +210,9 @@ export const PipelineConfigureForm: FC = () => {
                   : undefined
               }
             />
-            {/* <Input {...register('repository.repositoryUrl')} placeholder="https://github.com/org/repo" />
-              {errors.repository?.repositoryUrl?.message && (
-                <InputError message={errors.repository?.repositoryUrl.message} />
-              )} */}
+            {errors.repository?.repositoryUrl?.message && (
+              <InputError message={errors.repository?.repositoryUrl.message} />
+            )}
           </InputGroup>
         </InputWrap>
         <InputWrap>

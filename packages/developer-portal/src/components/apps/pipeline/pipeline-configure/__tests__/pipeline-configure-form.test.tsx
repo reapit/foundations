@@ -1,15 +1,15 @@
 import React from 'react'
 import {
   handlePipelineUpdate,
-  PipelineConfigure,
+  PipelineConfigureForm,
   handleSavePipeline,
   handleUpdateSuccess,
   getDefaultValues,
-} from '../pipeline-configure'
-import { render } from '../../../../tests/react-testing'
-import Routes from '../../../../constants/routes'
-import { mockPipelineModelInterface } from '../../../../tests/__stubs__/pipeline'
-import { mockAppDetailModel } from '../../../../tests/__stubs__/apps'
+} from '../pipeline-configure-form'
+import { render } from '../../../../../tests/react-testing'
+import Routes from '../../../../../constants/routes'
+import { mockPipelineModelInterface } from '../../../../../tests/__stubs__/pipeline'
+import { mockAppDetailModel } from '../../../../../tests/__stubs__/apps'
 import { PackageManagerEnum } from '@reapit/foundations-ts-definitions'
 
 jest.mock('../../state/use-app-state')
@@ -25,7 +25,7 @@ jest.mock('@reapit/connect-session', () => ({
 
 describe('PipelineConfigure', () => {
   it('Should match snapshot', () => {
-    expect(render(<PipelineConfigure />)).toMatchSnapshot()
+    expect(render(<PipelineConfigureForm />)).toMatchSnapshot()
   })
 })
 
