@@ -1,13 +1,15 @@
 import React, { Dispatch, FC, useContext, useEffect, useState } from 'react'
 import { GithubAccessToken, GithubContext } from '../github'
-import { BodyText, Button, Loader, Modal, Title } from '@reapit/elements'
+import { BodyText, Button, elMb6, Loader, Modal, Title } from '@reapit/elements'
 import {
   InstallationSelectionEl,
   LevelEl,
   RepositoryEl,
+  RepositorySelectionActive,
   RepositorySelectionEl,
   SelectedRepositoryEl,
 } from './__styles__'
+import { cx } from '@linaria/core'
 
 type Installation = {
   id: number
@@ -128,12 +130,18 @@ const RepositorySelection: FC<{
         <p className="repository-name">{installation.account.login}</p>
       </RepositoryEl>
       {loading && <Loader />}
-      {repositories &&
-        repositories.map((repo) => (
-          <RepositorySelectionEl onClick={() => setRepository(repo)} key={repo.id}>
-            {repo.full_name}
-          </RepositorySelectionEl>
-        ))}
+      <div className={cx(elMb6)}>
+        {repositories &&
+          repositories.map((repo) => (
+            <RepositorySelectionEl
+              className={cx(selectedRepository?.id === repo.id && RepositorySelectionActive)}
+              onClick={() => setRepository(repo)}
+              key={repo.id}
+            >
+              {repo.full_name}
+            </RepositorySelectionEl>
+          ))}
+      </div>
       <Button
         onClick={(event) => {
           event.preventDefault()
@@ -142,31 +150,59 @@ const RepositorySelection: FC<{
         disabled={!selectedRepository}
         intent="primary"
       >
-        Selected
+        Done
       </Button>
     </div>
   )
 }
 
+const resolveValue = ({
+  repositoryUrl,
+  defaultValue,
+  placeholder,
+}: {
+  repositoryUrl?: string
+  defaultValue?: string
+  placeholder?: string
+}): string => {
+  return repositoryUrl || defaultValue || placeholder || 'Not Selected'
+}
+
 export const RepositoryList: FC<{
-  selected?: { installationId: number; appId: number; repositoryUr: string }
-  onChange: (value: {}) => void
-}> = ({ selected, onChange }) => {
+  value?: { installationId: number; repositoryUrl: string; repositoryId: number }
+  placeholder?: string
+  onChange?: (value: { repository: Repository; installation: Installation }) => void
+}> = ({ value, onChange, placeholder }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
   const [selectedInstallation, setSelectedInstallation] = useState<Installation | undefined>()
   const [selectedRepository, setSelectedRepository] = useState<Repository | undefined>()
+  const { githubAccessToken, loginWithGithub } = useContext(GithubContext)
 
   const completeAction = () => {
     setIsModalOpen(false)
-    onChange({
-      // TODO add repositoryId, appId and repo url
-    })
+    onChange &&
+      onChange({
+        repository: selectedRepository as Repository,
+        installation: selectedInstallation as Installation,
+      })
   }
 
   return (
     <>
       <Modal isOpen={isModalOpen} onModalClose={() => setIsModalOpen(false)}>
-        {!selectedInstallation ? (
+        {!githubAccessToken ? (
+          <>
+            <Title>Repository Selection</Title>
+            <Button
+              onClick={(event) => {
+                event.preventDefault()
+                loginWithGithub(window.location.pathname)
+              }}
+            >
+              Login with Github to continue
+            </Button>
+          </>
+        ) : !selectedInstallation ? (
           <InstallationSelection setInstallation={setSelectedInstallation} />
         ) : (
           <RepositorySelection
@@ -184,7 +220,13 @@ export const RepositoryList: FC<{
           setIsModalOpen(true)
         }}
       >
-        {selectedRepository?.full_name || 'not selected'}
+        {resolveValue({
+          repositoryUrl: selectedRepository?.full_name
+            ? `https://github.com/${selectedRepository.full_name}`
+            : undefined,
+          defaultValue: value?.repositoryUrl,
+          placeholder,
+        })}
       </SelectedRepositoryEl>
     </>
   )
