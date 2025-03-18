@@ -1,3 +1,4 @@
+import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
 export const InstallationSelectionEl = styled.div`
@@ -27,16 +28,11 @@ export const RepositorySelectionEl = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 1px solid var(--color-grey-200);
-  border-radius: 0.25rem;
+  border-bottom: 1px solid var(--color-grey-200);
   padding: 0.25rem;
   cursor: pointer;
   &:hover {
     background: var(--color-grey-50);
-  }
-
-  &:not(:last-child) {
-    margin-bottom: 1rem;
   }
 
   img {
@@ -44,6 +40,10 @@ export const RepositorySelectionEl = styled.div`
     height: auto;
     margin-right: 1rem;
   }
+`
+
+export const RepositorySelectionActive = css`
+  background: var(--color-grey-100);
 `
 
 export const RepositoryEl = styled.div`

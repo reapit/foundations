@@ -138,7 +138,6 @@ export const getDefaultValues = (
 
 export const PipelineConfigureForm: FC = () => {
   const navigate = useNavigate()
-  const location = useLocation()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appPipelineState, appId, appsDataState } = useAppState()
   const { appPipelineRefresh, appPipelineSaving, appPipeline, setAppPipelineSaving } = appPipelineState
@@ -147,6 +146,7 @@ export const PipelineConfigureForm: FC = () => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<PipelineModelSchema>({
     resolver: yupResolver(schema),
@@ -196,7 +196,23 @@ export const PipelineConfigureForm: FC = () => {
         <InputWrap>
           <InputGroup>
             <Label>Github Repository</Label>
-            <RepositoryList />
+            <RepositoryList
+              onChange={({ repository, installation }) => {
+                setValue('repository.installationId', installation.id)
+                setValue('repository.repositoryId', repository.id)
+                setValue('repository.repositoryUrl', `https://github.com/${repository.full_name}`)
+              }}
+              placeholder="https://github.com/org/repo"
+              value={
+                appPipeline?.repository
+                  ? {
+                      repositoryUrl: appPipeline?.repository?.repositoryUrl as string,
+                      repositoryId: appPipeline?.repository?.repositoryId as number,
+                      installationId: appPipeline?.repository?.installationId as number,
+                    }
+                  : undefined
+              }
+            />
             {/* <Input {...register('repository.repositoryUrl')} placeholder="https://github.com/org/repo" />
               {errors.repository?.repositoryUrl?.message && (
                 <InputError message={errors.repository?.repositoryUrl.message} />
