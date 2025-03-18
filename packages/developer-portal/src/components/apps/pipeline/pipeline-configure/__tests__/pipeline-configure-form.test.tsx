@@ -12,7 +12,7 @@ import { mockPipelineModelInterface } from '../../../../../tests/__stubs__/pipel
 import { mockAppDetailModel } from '../../../../../tests/__stubs__/apps'
 import { PackageManagerEnum } from '@reapit/foundations-ts-definitions'
 
-jest.mock('../../state/use-app-state')
+jest.mock('../../../state/use-app-state')
 
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
