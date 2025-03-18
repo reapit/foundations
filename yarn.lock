@@ -16394,6 +16394,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^8.10.0"
     "@wyw-in-js/vite": "npm:^0.5.5"
     amazon-cognito-identity-js: "npm:^6.3.14"
+    buffer: "npm:^6.0.3"
     chart.js: "npm:^3.9.1"
     concurrently: "npm:^6.5.1"
     cross-env: "npm:^6.0.3"
