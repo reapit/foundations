@@ -53,6 +53,7 @@ const Routes = {
   SELECT_ROLE: '/select-role',
   IAAS: '/iaas',
   HOME: '/',
+  GITHUB_REDIRECT: '/github',
 }
 
 export default Routes
