@@ -103,3 +103,9 @@ export const LoadingContentEl = styled.div`
   align-items: center;
   backdrop-filter: blur(2px);
 `
+
+export const paginationFix = css`
+  .el-pagination-button .el-icon {
+    border: none;
+  }
+`

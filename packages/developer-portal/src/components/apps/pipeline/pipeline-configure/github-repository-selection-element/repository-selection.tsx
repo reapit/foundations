@@ -5,6 +5,7 @@ import {
   LevelEl,
   LoadingContentEl,
   PaginatedListEl,
+  paginationFix,
   RepositoryEl,
   RepositorySelectionActive,
   RepositorySelectionEl,
@@ -121,6 +122,7 @@ export const RepositorySelection: FC<{
       </PaginatedListEl>
       {pageData.total_pages > 1 && (
         <Pagination
+          className={cx(paginationFix)}
           currentPage={pageData.current_page}
           numberPages={pageData.total_pages}
           callback={async (current_page) => {
