@@ -40,11 +40,15 @@ export class DnsController {
 
     this.ownershipProvider.check(pipeline, creds.developerId as string)
 
+    const domainExists = await this.pipelineProvider.findByDomain(body.customDomain)
+
+    if (domainExists) throw new UnprocessableEntityException()
+
     const verifyDnsName = 'reapit-iaas'
     const verifyDnsValue = uuid()
 
     await this.pipelineProvider.update(pipeline, {
-      customDomain: body.customDomain, // TODO should strip everything not a domain? query params example
+      customDomain: body.customDomain,
       verifyDnsValue,
       verifyDnsName,
     })
