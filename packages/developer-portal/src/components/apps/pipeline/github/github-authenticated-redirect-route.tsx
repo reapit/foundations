@@ -54,8 +54,6 @@ export const GithubAuthenticatedRedirectRoute: FC = () => {
     if (!singletonRef.current) fetchGithubToken()
   }, [singletonRef])
 
-  console.log('loading', loading)
-
   return (
     <>
       Github redirect

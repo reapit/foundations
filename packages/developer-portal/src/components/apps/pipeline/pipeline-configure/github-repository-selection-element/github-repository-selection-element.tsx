@@ -23,7 +23,9 @@ export const GithubRepositorySelectionElement: FC<{
   placeholder?: string
   onChange?: (value: { repository: Repository; installation: Installation }) => void
 }> = ({ value, onChange, placeholder }) => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+  const params = new URLSearchParams(window.location.search)
+  const githubModalOpen = params.get('githubModalOpen')
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(githubModalOpen === 'true')
   const [selectedInstallation, setSelectedInstallation] = useState<Installation | undefined>()
   const [selectedRepository, setSelectedRepository] = useState<Repository | undefined>()
   const { githubAccessToken, loginWithGithub } = useContext(GithubContext)
@@ -46,7 +48,7 @@ export const GithubRepositorySelectionElement: FC<{
             <Button
               onClick={(event) => {
                 event.preventDefault()
-                loginWithGithub(window.location.pathname)
+                loginWithGithub(`${window.location.pathname}?githubModalOpen=true`)
               }}
             >
               Login with Github to continue
