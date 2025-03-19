@@ -31,6 +31,7 @@ export const RepositorySelectionEl = styled.div`
   border-bottom: 1px solid var(--color-grey-200);
   padding: 0.25rem;
   cursor: pointer;
+
   &:hover {
     background: var(--color-grey-50);
   }
@@ -85,4 +86,20 @@ export const SelectedRepositoryEl = styled.div`
   font-family: var(--font-sans-serif);
   font-size: var(--font-size-small);
   display: flex;
+`
+
+export const PaginatedListEl = styled.div`
+  position: relative;
+`
+
+export const LoadingContentEl = styled.div`
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px);
 `

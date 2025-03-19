@@ -1,7 +1,14 @@
 import React, { Dispatch, FC, useContext, useEffect, useState } from 'react'
 import { Installation, Repository } from './types'
 import { GithubAccessToken, GithubContext } from '../../github'
-import { LevelEl, RepositoryEl, RepositorySelectionActive, RepositorySelectionEl } from './__styles__'
+import {
+  LevelEl,
+  LoadingContentEl,
+  PaginatedListEl,
+  RepositoryEl,
+  RepositorySelectionActive,
+  RepositorySelectionEl,
+} from './__styles__'
 import { Button, elMb6, Loader, Pagination, Title } from '@reapit/elements'
 import { cx } from '@linaria/core'
 
@@ -92,38 +99,42 @@ export const RepositorySelection: FC<{
         <img src={installation.account.avatar_url} />
         <p className="repository-name">{installation.account.login}</p>
       </RepositoryEl>
-      {loading && <Loader />}
-      <div className={cx(elMb6)}>
-        {repositories && (
-          <>
-            <div key={pageData.current_page}>
-              {repositories.map((repo) => (
-                <RepositorySelectionEl
-                  className={cx(selectedRepository?.id === repo.id && RepositorySelectionActive)}
-                  onClick={() => setRepository(repo)}
-                  key={repo.id}
-                >
-                  {repo.full_name}
-                </RepositorySelectionEl>
-              ))}
-            </div>
-            <Pagination
-              currentPage={pageData.current_page}
-              numberPages={pageData.total_pages}
-              callback={async (current_page) => {
-                await fetchRepositories({
-                  githubAccessToken: githubAccessToken as GithubAccessToken,
-                  setRepositories,
-                  setLoading,
-                  installation,
-                  pageData: { ...pageData, current_page },
-                  setPageData,
-                })
-              }}
-            />
-          </>
+      <PaginatedListEl className={cx(elMb6)}>
+        {loading && (
+          <LoadingContentEl>
+            <Loader />
+          </LoadingContentEl>
         )}
-      </div>
+        {repositories && (
+          <div key={pageData.current_page}>
+            {repositories.map((repo) => (
+              <RepositorySelectionEl
+                className={cx(selectedRepository?.id === repo.id && RepositorySelectionActive)}
+                onClick={() => setRepository(repo)}
+                key={repo.id}
+              >
+                {repo.full_name}
+              </RepositorySelectionEl>
+            ))}
+          </div>
+        )}
+      </PaginatedListEl>
+      {pageData.total_pages > 1 && (
+        <Pagination
+          currentPage={pageData.current_page}
+          numberPages={pageData.total_pages}
+          callback={async (current_page) => {
+            await fetchRepositories({
+              githubAccessToken: githubAccessToken as GithubAccessToken,
+              setRepositories,
+              setLoading,
+              installation,
+              pageData: { ...pageData, current_page },
+              setPageData,
+            })
+          }}
+        />
+      )}
       <Button
         onClick={(event) => {
           event.preventDefault()
