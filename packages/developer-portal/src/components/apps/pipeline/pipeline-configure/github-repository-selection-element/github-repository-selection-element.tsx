@@ -33,8 +33,9 @@ export const GithubRepositorySelectionElement: FC<{
   const { authenticatedWithGithub, loginWithGithub, githubAuthenticating } = useContext(GithubContext)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
-  const completeAction = () => {
+  const completeAction = (selected) => {
     setIsModalOpen(false)
+    setSelectedRepository(selected)
     onChange &&
       onChange({
         repository: selectedRepository as Repository,
@@ -68,10 +69,8 @@ export const GithubRepositorySelectionElement: FC<{
         ) : (
           <RepositorySelection
             complete={completeAction}
-            selectedRepository={selectedRepository}
             back={setSelectedInstallation}
             installation={selectedInstallation}
-            setRepository={setSelectedRepository}
           />
         )}
       </Modal>
