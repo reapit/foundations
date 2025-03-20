@@ -58,11 +58,9 @@ const fetchRepositories = async ({
 
 export const RepositorySelection: FC<{
   installation: Installation
-  selectedRepository?: Repository
-  setRepository: Dispatch<Repository | undefined>
   back: Dispatch<undefined>
-  complete: () => void
-}> = ({ back, installation, setRepository, selectedRepository, complete }) => {
+  complete: (selectedRepo: Repository) => void
+}> = ({ back, installation, complete }) => {
   const [repositories, setRepositories] = useState<Repository[] | undefined>()
   const { githubSession } = useContext(GithubContext)
   const [loading, setLoading] = useState<boolean>(false)
@@ -71,6 +69,7 @@ export const RepositorySelection: FC<{
     per_page: 20,
     current_page: 1,
   })
+  const [selectedRepository, setSelectedRepository] = useState<undefined | Repository>()
 
   useEffect(() => {
     fetchRepositories({
@@ -88,7 +87,7 @@ export const RepositorySelection: FC<{
       <LevelEl>
         <Button
           onClick={() => {
-            setRepository(undefined)
+            setSelectedRepository(undefined)
             back(undefined)
           }}
         >
@@ -111,7 +110,7 @@ export const RepositorySelection: FC<{
             {repositories.map((repo) => (
               <RepositorySelectionEl
                 className={cx(selectedRepository?.id === repo.id && RepositorySelectionActive)}
-                onClick={() => setRepository(repo)}
+                onClick={() => setSelectedRepository(repo)}
                 key={repo.id}
               >
                 {repo.full_name}
@@ -140,12 +139,12 @@ export const RepositorySelection: FC<{
       <Button
         onClick={(event) => {
           event.preventDefault()
-          complete()
+          selectedRepository && complete(selectedRepository)
         }}
         disabled={!selectedRepository}
         intent="primary"
       >
-        Done
+        {selectedRepository ? `Use ${selectedRepository.full_name}` : 'Done'}
       </Button>
     </div>
   )
