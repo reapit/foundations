@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect, useRef, useState } from 'react'
+import React, { FC, useContext, useEffect, useRef } from 'react'
 import { GithubContext } from './github-provider'
 import { Loader } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -21,7 +21,7 @@ export const GithubAuthenticatedRedirectRoute: FC = () => {
 
   return (
     <>
-      Github redirect
+      <p>Github authenticating...</p>
       {githubAuthenticating && <Loader />}
     </>
   )

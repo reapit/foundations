@@ -100,7 +100,6 @@ export const GithubProvider: FC<PropsWithChildren> = ({ children }) => {
       const state = params.get('state')
 
       setGithubAuthenticating(false)
-      console.log('response', response)
 
       if (typeof response === 'object' && response?.access_token) {
         storeTokenSession(response)
@@ -109,7 +108,6 @@ export const GithubProvider: FC<PropsWithChildren> = ({ children }) => {
           const decoded = Buffer.from(state, 'base64')
           const data = JSON.parse(decoded.toString())
 
-          console.log('navigate to ', data)
           data.route && navigate(data.route)
         }
       }
@@ -122,6 +120,8 @@ export const GithubProvider: FC<PropsWithChildren> = ({ children }) => {
     if (!storedToken) {
       redirectToGithub(route)
     } else if (storedToken) {
+      // TODO add method to determine if the existing access_token has expired
+      // add condition here to prevent calls for refresh_token if access_token is not expired
       setGithubAuthenticating(true)
       const response = await authenticate(
         {
