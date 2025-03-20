@@ -1,20 +1,27 @@
-import { Body, Controller, Get, Headers, Param, Post, Query } from "@nestjs/common"
-import { GithubAuthProvider } from "./github-auth-provider"
+import { Body, Controller, Post } from '@nestjs/common'
+import { GithubAuthProvider } from './github-auth-provider'
+import { IsNotEmpty } from 'class-validator'
 
-class GithubAuthModel {
+class GithubOAuthTokenRequestCodeModel {
   code: string
 
+  @IsNotEmpty()
+  redirect_uri: string
+}
+
+class GithubOAuthRefreshTokenRequestModel {
+  refresh_token: string
+
+  @IsNotEmpty()
   redirect_uri: string
 }
 
 @Controller('/github')
 export class GithubAuthController {
-  constructor(
-    private readonly githubAuthProvider: GithubAuthProvider,
-  ) {}
+  constructor(private readonly githubAuthProvider: GithubAuthProvider) {}
 
   @Post('auth')
-  async auth(@Body() { code, redirect_uri }: GithubAuthModel) {
-    return this.githubAuthProvider.obtainAccessToken(code, redirect_uri)
+  async auth(@Body() body: GithubOAuthRefreshTokenRequestModel | GithubOAuthTokenRequestCodeModel) {
+    return this.githubAuthProvider.obtainAccessToken(body)
   }
 }

@@ -1,4 +1,4 @@
-import { registerAs } from "@nestjs/config";
+import { registerAs } from '@nestjs/config'
 
 export default registerAs('gitub-auth', () => ({
   client_id: process.env.GITHUB_CLIENT_ID as string,

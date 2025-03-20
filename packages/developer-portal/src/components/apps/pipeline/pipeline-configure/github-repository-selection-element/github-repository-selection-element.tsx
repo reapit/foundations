@@ -5,6 +5,8 @@ import { SelectedRepositoryEl } from './__styles__'
 import { Installation, Repository } from './types'
 import { InstallationSelection } from './installation-selection'
 import { RepositorySelection } from './repository-selection'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../../../../core/connect-session'
 
 export const resolveDisplayValue = ({
   repositoryUrl,
@@ -28,7 +30,8 @@ export const GithubRepositorySelectionElement: FC<{
   const [isModalOpen, setIsModalOpen] = useState<boolean>(githubModalOpen === 'true')
   const [selectedInstallation, setSelectedInstallation] = useState<Installation | undefined>()
   const [selectedRepository, setSelectedRepository] = useState<Repository | undefined>()
-  const { githubAccessToken, loginWithGithub } = useContext(GithubContext)
+  const { authenticatedWithGithub, loginWithGithub, githubAuthenticating } = useContext(GithubContext)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
   const completeAction = () => {
     setIsModalOpen(false)
@@ -42,17 +45,23 @@ export const GithubRepositorySelectionElement: FC<{
   return (
     <>
       <Modal isOpen={isModalOpen} onModalClose={() => setIsModalOpen(false)}>
-        {!githubAccessToken ? (
+        {!authenticatedWithGithub ? (
           <>
             <Title>Repository Selection</Title>
-            <Button
-              onClick={(event) => {
-                event.preventDefault()
-                loginWithGithub(`${window.location.pathname}?githubModalOpen=true`)
-              }}
-            >
-              Login with Github to continue
-            </Button>
+            {connectSession && (
+              <Button
+                disabled={githubAuthenticating}
+                loading={githubAuthenticating}
+                onClick={(event) => {
+                  event.preventDefault()
+                  console.log('clicked')
+                  loginWithGithub(connectSession, `${window.location.pathname}?githubModalOpen=true`)
+                  console.log('called login withi gituhb function')
+                }}
+              >
+                Login with Github to continue
+              </Button>
+            )}
           </>
         ) : !selectedInstallation ? (
           <InstallationSelection setInstallation={setSelectedInstallation} />

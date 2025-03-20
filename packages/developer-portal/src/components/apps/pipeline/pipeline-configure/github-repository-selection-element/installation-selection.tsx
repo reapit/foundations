@@ -25,11 +25,11 @@ const fetchInstallations = async (
 
 export const InstallationSelection: FC<{ setInstallation: Dispatch<Installation> }> = ({ setInstallation }) => {
   const [installations, setInstallations] = useState<Installation[] | undefined>()
-  const { githubAccessToken } = useContext(GithubContext)
+  const { githubSession } = useContext(GithubContext)
   const [loading, setLoading] = useState<boolean>(false)
 
   useEffect(() => {
-    fetchInstallations(githubAccessToken as GithubAccessToken, setInstallations, setLoading)
+    fetchInstallations(githubSession as GithubAccessToken, setInstallations, setLoading)
   }, [])
 
   return (

@@ -12,7 +12,14 @@ import { HttpModule } from '@nestjs/axios'
 import githubAuth from '../config/github-auth'
 
 @Module({
-  imports: [ConfigModule.forFeature(GithubConfig), ConfigModule.forFeature(githubAuth), PipelineModule, PipelineRunnerModule, EventModule, HttpModule],
+  imports: [
+    ConfigModule.forFeature(GithubConfig),
+    ConfigModule.forFeature(githubAuth),
+    PipelineModule,
+    PipelineRunnerModule,
+    EventModule,
+    HttpModule,
+  ],
   providers: [
     {
       provide: App,

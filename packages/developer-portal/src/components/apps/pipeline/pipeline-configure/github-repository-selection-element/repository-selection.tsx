@@ -64,7 +64,7 @@ export const RepositorySelection: FC<{
   complete: () => void
 }> = ({ back, installation, setRepository, selectedRepository, complete }) => {
   const [repositories, setRepositories] = useState<Repository[] | undefined>()
-  const { githubAccessToken } = useContext(GithubContext)
+  const { githubSession } = useContext(GithubContext)
   const [loading, setLoading] = useState<boolean>(false)
   const [pageData, setPageData] = useState<PageData>({
     total_pages: 0,
@@ -74,7 +74,7 @@ export const RepositorySelection: FC<{
 
   useEffect(() => {
     fetchRepositories({
-      githubAccessToken: githubAccessToken as GithubAccessToken,
+      githubAccessToken: githubSession as GithubAccessToken,
       setRepositories,
       setLoading,
       installation,
@@ -127,7 +127,7 @@ export const RepositorySelection: FC<{
           numberPages={pageData.total_pages}
           callback={async (current_page) => {
             await fetchRepositories({
-              githubAccessToken: githubAccessToken as GithubAccessToken,
+              githubAccessToken: githubSession as GithubAccessToken,
               setRepositories,
               setLoading,
               installation,
