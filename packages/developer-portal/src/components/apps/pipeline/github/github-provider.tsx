@@ -3,6 +3,7 @@ import { createContext, FC, useState } from 'react'
 import { Buffer } from 'buffer'
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { NavigateFunction } from 'react-router'
+import { authenticateWithGithub, redirectToGithub, storageMethod } from './utils'
 
 export type GithubAccessToken = {
   access_token: string
@@ -12,18 +13,6 @@ export type GithubAccessToken = {
   scope: string
   token_type: string
 }
-
-export type GithubCodeRequest = {
-  code: string
-  redirect_uri: string
-}
-
-export type GithubRefreshRequest = {
-  redirect_uri: string
-  refresh_token: string
-}
-
-export type GithubAuthorizationBody = GithubCodeRequest | GithubRefreshRequest
 
 export const GithubContext = createContext<{
   loginWithGithub: (connectSession: ReapitConnectSession, route?: string) => void
@@ -42,29 +31,12 @@ export const GithubContext = createContext<{
   returnedFromGithubAndObtainAccessToken: () => {},
 })
 
-const connectIsDesktop = Boolean(window['__REAPIT_MARKETPLACE_GLOBALS__'])
-
 export const GithubProvider: FC<PropsWithChildren> = ({ children }) => {
   const [githubSession, setGithubSession] = useState<GithubAccessToken | undefined>()
   const [githubAuthenticating, setGithubAuthenticating] = useState<boolean>(false)
 
-  const githubClientId = process.env.githubClientId
-  const storageMethod = connectIsDesktop ? window.localStorage : window.sessionStorage
   const redirect_uri = window.location.origin + '/github'
   const sessionKey = 'githubSession'
-
-  const authenticate = async (data: GithubAuthorizationBody, connectSession: ReapitConnectSession) => {
-    const response = await fetch('https://deployments.dev.paas.reapit.cloud/github/auth', {
-      method: 'post',
-      body: JSON.stringify(data),
-      headers: {
-        authorization: `Bearer ${connectSession?.idToken}`,
-        'content-type': 'application/json',
-      },
-    })
-
-    return response.json()
-  }
 
   const storeTokenSession = (githubAuthState: GithubAccessToken) => {
     setGithubSession(githubAuthState)
@@ -77,20 +49,16 @@ export const GithubProvider: FC<PropsWithChildren> = ({ children }) => {
     return stored ? JSON.parse(stored) : undefined
   }
 
-  const redirectToGithub = (route?: string) => {
-    const state = Buffer.from(JSON.stringify({ route })).toString('base64')
-    window.location.href = `https://github.com/login/oauth/authorize?client_id=${githubClientId}&redirect_uri=${redirect_uri}&state=${state}`
-  }
-
   const returnedFromGithubAndObtainAccessToken = async (
     connectSession: ReapitConnectSession,
     navigate: NavigateFunction,
   ) => {
     const params = new URLSearchParams(window.location.search)
     const code = params.get('code')
+    // TODO handle errors
     if (code) {
       setGithubAuthenticating(true)
-      const response = await authenticate(
+      const response = await authenticateWithGithub(
         {
           code,
           redirect_uri,
@@ -117,13 +85,15 @@ export const GithubProvider: FC<PropsWithChildren> = ({ children }) => {
   const loginWithGithub = async (connectSession: ReapitConnectSession, route?: string) => {
     const storedToken = getStoredSession()
 
+    console.log('storedToken', storedToken)
+
     if (!storedToken) {
-      redirectToGithub(route)
+      redirectToGithub(redirect_uri, route)
     } else if (storedToken) {
       // TODO add method to determine if the existing access_token has expired
       // add condition here to prevent calls for refresh_token if access_token is not expired
       setGithubAuthenticating(true)
-      const response = await authenticate(
+      const response = await authenticateWithGithub(
         {
           refresh_token: storedToken.refresh_token,
           redirect_uri,
@@ -134,10 +104,10 @@ export const GithubProvider: FC<PropsWithChildren> = ({ children }) => {
       if (typeof response === 'object' && response?.access_token) {
         storeTokenSession(response)
       } else {
-        redirectToGithub(route)
+        redirectToGithub(redirect_uri, route)
       }
     } else {
-      redirectToGithub(route)
+      redirectToGithub(redirect_uri, route)
     }
   }
 
