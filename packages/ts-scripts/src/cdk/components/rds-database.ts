@@ -36,7 +36,7 @@ export const createDatabase = (
       instanceType: ec2.InstanceType.of(ec2.InstanceClass.T4G, ec2.InstanceSize.NANO),
       blockDevices: [
         {
-          deviceName: 'gp3',
+          deviceName: '/dev/sdh',
           volume: ec2.BlockDeviceVolume.ebs(20, {
             volumeType: ec2.EbsDeviceVolumeType.GP3,
           }),
