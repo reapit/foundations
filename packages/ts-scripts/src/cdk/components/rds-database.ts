@@ -33,7 +33,15 @@ export const createDatabase = (
   if (bastion) {
     const bastionInstance = new ec2.BastionHostLinux(stack, 'bastion', {
       vpc,
-      instanceType: ec2.InstanceType.of(ec2.InstanceClass.T2, ec2.InstanceSize.MICRO),
+      instanceType: ec2.InstanceType.of(ec2.InstanceClass.T4G, ec2.InstanceSize.NANO),
+      blockDevices: [
+        {
+          deviceName: 'gp3',
+          volume: ec2.BlockDeviceVolume.ebs(20, {
+            volumeType: ec2.EbsDeviceVolumeType.GP3,
+          }),
+        },
+      ],
     })
   }
 
