@@ -7,7 +7,7 @@ export const createDatabase = (
   databaseName: string,
   vpc: ec2.Vpc,
   secret?: cdk.aws_secretsmanager.ISecret,
-  bastion: boolean = false
+  bastion: boolean = false,
 ): rds.DatabaseCluster => {
   const db = new rds.DatabaseCluster(stack, name, {
     engine: rds.DatabaseClusterEngine.auroraMysql({ version: rds.AuroraMysqlEngineVersion.VER_3_05_2 }),
