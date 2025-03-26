@@ -1,4 +1,5 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
+import { Buffer } from 'buffer'
 
 export type GithubCodeRequest = {
   code: string

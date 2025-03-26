@@ -85,8 +85,6 @@ export const GithubProvider: FC<PropsWithChildren> = ({ children }) => {
   const loginWithGithub = async (connectSession: ReapitConnectSession, route?: string) => {
     const storedToken = getStoredSession()
 
-    console.log('storedToken', storedToken)
-
     if (!storedToken) {
       redirectToGithub(redirect_uri, route)
     } else if (storedToken) {

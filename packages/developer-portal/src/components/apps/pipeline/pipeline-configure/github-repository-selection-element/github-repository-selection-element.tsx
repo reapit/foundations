@@ -57,7 +57,6 @@ export const GithubRepositorySelectionElement: FC<{
                   event.preventDefault()
                   console.log('clicked')
                   loginWithGithub(connectSession, `${window.location.pathname}?githubModalOpen=true`)
-                  console.log('called login withi gituhb function')
                 }}
               >
                 Login with Github to continue
