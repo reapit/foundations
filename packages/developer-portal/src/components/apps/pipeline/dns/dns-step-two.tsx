@@ -12,7 +12,7 @@ import {
   useSnack,
 } from '@reapit/elements'
 import { UpdateActionNames, updateActions, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/use-reapit-data'
-import React, { FC } from 'react'
+import React, { FC, useEffect, useRef } from 'react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { PipelineDnsStepModal } from './setup-model'
 import { useAppState } from '../../state/use-app-state'
@@ -41,6 +41,7 @@ export const PipelineDnsStepTwo: FC<{
   })
   const { error, success } = useSnack()
   const { appPipelineState } = useAppState()
+  const pollingRef = useRef<NodeJS.Timeout>()
 
   const verifyTxtRecord = async () => {
     const result = await sendVerifyRequest(undefined)
@@ -58,6 +59,24 @@ export const PipelineDnsStepTwo: FC<{
     } else {
       error(defaultError)
     }
+  }
+
+  const pollVerifyTxtRecord = async () => {
+    await verifyTxtRecord()
+  }
+
+  useEffect(() => {
+    pollingRef.current = setInterval(pollVerifyTxtRecord, 10000)
+
+    return () => {
+      clearInterval(pollingRef.current)
+    }
+  }, [])
+
+  const clearPollAndCall = async () => {
+    clearInterval(pollingRef.current)
+    await verifyTxtRecord()
+    pollingRef.current = setInterval(pollVerifyTxtRecord, 10000)
   }
 
   return (
@@ -96,7 +115,7 @@ export const PipelineDnsStepTwo: FC<{
           loading={sendingVerify}
           disabled={sendingVerify}
           onClick={() => {
-            verifyTxtRecord()
+            clearPollAndCall()
           }}
           intent="primary"
         >

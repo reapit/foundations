@@ -14,11 +14,19 @@ import {
   Title,
 } from '@reapit/elements'
 import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
-import React, { FC } from 'react'
+import React, { FC, useEffect, useRef } from 'react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { cx } from '@linaria/core'
 import { DnsContainerElement, DnsContainerRow, DnsInputElement, DnsValue } from './__styles__'
 import { useAppState } from '../../state/use-app-state'
+
+const humanReadable = (s?: string): string => {
+  if (!s) return ''
+
+  const value = s.split('_').join(' ').toLowerCase()
+
+  return [value.charAt(0).toUpperCase(), value.slice(1, value.length)].join('')
+}
 
 export const PipelineDnsStepThree: FC<{
   verifyDnsName: string
@@ -28,6 +36,7 @@ export const PipelineDnsStepThree: FC<{
 }> = ({ pipelineId }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appPipelineState } = useAppState()
+  const pollingRef = useRef<NodeJS.Timeout>()
 
   const [certificate, loading, , fetchCertificate, refetching] = useReapitGet<{
     DomainValidationOptions: {
@@ -47,6 +56,24 @@ export const PipelineDnsStepThree: FC<{
     },
     fetchWhenTrue: [connectSession],
   })
+
+  const pollFetchCertificate = async () => {
+    await fetchCertificate()
+  }
+
+  useEffect(() => {
+    pollingRef.current = setInterval(pollFetchCertificate, 10000)
+
+    return () => {
+      clearInterval(pollingRef.current)
+    }
+  }, [])
+
+  const clearPollAndCall = async () => {
+    clearInterval(pollingRef.current)
+    await fetchCertificate()
+    pollingRef.current = setInterval(pollFetchCertificate, 10000)
+  }
 
   if (certificate?.Status === 'ISSUED') {
     appPipelineState.appPipelineRefresh()
@@ -75,7 +102,7 @@ export const PipelineDnsStepThree: FC<{
                 : 'default'
           }
         />
-        {certificate?.Status}
+        {humanReadable(certificate?.Status)}
       </div>
       {loading ? (
         <Loader />
@@ -108,13 +135,13 @@ export const PipelineDnsStepThree: FC<{
                 </DnsInputElement>
                 <DnsInputElement>
                   <Label>Status</Label>
-                  <DnsValue>{domain?.ValidationStatus}</DnsValue>
+                  <DnsValue>{humanReadable(domain?.ValidationStatus)}</DnsValue>
                 </DnsInputElement>
               </DnsContainerRow>
             ))}
           </DnsContainerElement>
           <ButtonGroup>
-            <Button intent="primary" onClick={() => fetchCertificate()} loading={refetching} disabled={refetching}>
+            <Button intent="primary" onClick={() => clearPollAndCall()} loading={refetching} disabled={refetching}>
               Refresh
             </Button>
           </ButtonGroup>

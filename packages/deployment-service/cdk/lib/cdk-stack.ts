@@ -77,7 +77,7 @@ export const createStack = async () => {
   const vpc = createVpc(stack, 'vpc')
   const buckets = createS3Buckets(usercodeStack, envStage)
   const queues = createSqsQueues(stack)
-  const database = createDatabase(stack, 'database', databaseName, vpc)
+  const database = createDatabase(stack, 'database', databaseName, vpc, undefined, true)
 
   const secretManager = database.secret
 
