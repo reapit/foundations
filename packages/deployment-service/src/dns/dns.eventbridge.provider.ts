@@ -10,7 +10,8 @@ import { PipelineProvider } from '../pipeline'
 import { EventBridgeEvent } from 'aws-lambda'
 import { CertificateDetail } from '../dns-eventbridge'
 import { PusherProvider } from '../events'
-import { PipelineEntity } from 'src/entities/pipeline.entity'
+import { PipelineEntity } from '../entities/pipeline.entity'
+import { CertificateProvider } from './certificate.provider'
 
 @Injectable()
 export class DnsEventBridgeProvider {
@@ -18,6 +19,7 @@ export class DnsEventBridgeProvider {
     private readonly pipelineProvider: PipelineProvider,
     private readonly cloudfrontClient: CloudFrontClient,
     private readonly pusherProvider: PusherProvider,
+    private readonly certificateProvider: CertificateProvider,
   ) {}
 
   private async getPipeline(certificateArn: string): Promise<PipelineEntity | never> {
@@ -82,22 +84,39 @@ export class DnsEventBridgeProvider {
 
     const [distro, etag] = await this.getDistribution(pipeline)
 
-    await this.updateDistribution(
-      {
-        ...distro,
-        IfMatch: etag,
-      },
-      certificateArn,
-      commonName,
-    )
+    try {
+      await this.updateDistribution(
+        {
+          ...distro,
+          IfMatch: etag,
+        },
+        certificateArn,
+        commonName,
+      )
 
-    await this.pipelineProvider.update(pipeline, {
-      certificateStatus: 'complete',
-    })
+      await this.pipelineProvider.update(pipeline, {
+        certificateStatus: 'complete',
+      })
 
-    await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
-      ...pipeline,
-      message: 'DNS updated',
-    })
+      await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
+        ...pipeline,
+        message: 'DNS updated',
+      })
+    } catch (error: any) {
+      await this.certificateProvider.deleteCertificate(pipeline)
+      await this.pipelineProvider.update(pipeline, {
+        certificateArn: undefined,
+        customDomain: undefined,
+        domainVerified: false,
+        verifyDnsValue: undefined,
+        certificateStatus: 'unverified',
+        certificateError: 'Domain was found to be duplicated',
+      })
+
+      await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
+        ...pipeline,
+        message: 'DNS updated',
+      })
+    }
   }
 }
