@@ -1,12 +1,13 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { useAppState } from '../../state/use-app-state'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { PipelineTabs } from '../pipeline-tabs'
 import { PipelineDnsStepThree } from './dns-step-three'
 import { PipelineDnsStepOne } from './dns-step-one'
-import { Loader, PersistentNotification, Subtitle } from '@reapit/elements'
+import { Button, elMb6, Loader, PersistentNotification, Subtitle } from '@reapit/elements'
 import { PipelineDnsStepTwo } from './dns-step-two'
 import { PipelineDnsStepFour } from './dns-step-four'
+import { cx } from '@linaria/core'
 
 const resolveStep = ({
   domainVerified,
@@ -27,27 +28,66 @@ const resolveStep = ({
 }
 
 export const PipelineDns: FC<{}> = () => {
-  const { appId } = useAppState()
-  const { appPipelineState } = useAppState()
+  const { appId, appPipelineState } = useAppState()
+  const [errorAcknowledged, setErrorAcknowledged] = useState<boolean>(false)
 
-  const { domainVerified, verifyDnsName, verifyDnsValue, customDomain, certificateStatus, buildStatus } =
-    appPipelineState.appPipeline as PipelineModelInterface & {
-      domainVerified: string
-      verifyDnsName: string
-      verifyDnsValue: string
-      customDomain: string
-      certificateStatus: string
-    }
+  const {
+    domainVerified,
+    verifyDnsName,
+    verifyDnsValue,
+    customDomain,
+    certificateStatus,
+    buildStatus,
+    certificateError,
+  } = appPipelineState.appPipeline as PipelineModelInterface & {
+    domainVerified: string
+    verifyDnsName: string
+    verifyDnsValue: string
+    customDomain: string
+    certificateStatus: string
+    certificateError: string
+  }
 
   const step = resolveStep({ domainVerified, verifyDnsValue, customDomain, certificateStatus })
+
+  console.log('pipelineDNS')
+  console.table({
+    step,
+    domainVerified,
+    verifyDnsValue,
+    customDomain,
+    certificateStatus,
+  })
 
   return (
     <>
       <PipelineTabs />
+      {errorAcknowledged && (
+        <PersistentNotification className={cx(elMb6)} isExpanded intent="danger" isInline>
+          {certificateError}
+        </PersistentNotification>
+      )}
       <Subtitle> Custom DNS Configuration</Subtitle>
       {buildStatus && ['READY_FOR_DEPLOYMENT', 'FAILED', 'SUCCEEDED'].includes(buildStatus) ? (
         <>
-          {appId ? (
+          {certificateError && !errorAcknowledged ? (
+            <>
+              <PersistentNotification className={cx(elMb6)} isExpanded intent="danger" isInline>
+                {certificateError}
+              </PersistentNotification>
+              <Button
+                intent="primary"
+                loading={appPipelineState.appPipelineLoading}
+                disabled={appPipelineState.appPipelineLoading}
+                onClick={() => {
+                  appPipelineState.appPipelineRefresh()
+                  setErrorAcknowledged(true)
+                }}
+              >
+                Restart
+              </Button>
+            </>
+          ) : appId ? (
             step === 'complete' ? (
               <PipelineDnsStepFour pipelineId={appId} customDomain={customDomain} />
             ) : step === 'verified' ? (

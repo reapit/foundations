@@ -104,17 +104,20 @@ export class DnsEventBridgeProvider {
       })
     } catch (error: any) {
       await this.certificateProvider.deleteCertificate(pipeline)
-      await this.pipelineProvider.update(pipeline, {
-        certificateArn: undefined,
-        customDomain: undefined,
+      const updatedPipeline = await this.pipelineProvider.update(pipeline, {
+        // @ts-ignore
+        certificateArn: null,
+        // @ts-ignore
+        customDomain: null,
         domainVerified: false,
-        verifyDnsValue: undefined,
+        // @ts-ignore
+        verifyDnsValue: null,
         certificateStatus: 'unverified',
-        certificateError: 'Domain was found to be duplicated',
+        certificateError: `Configured domain [${pipeline.customDomain}] was found to be duplicated.`,
       })
 
       await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
-        ...pipeline,
+        ...updatedPipeline,
         message: 'DNS updated',
       })
     }
