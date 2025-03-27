@@ -1,6 +1,5 @@
 import React, { PropsWithChildren } from 'react'
 import { createContext, FC, useState } from 'react'
-import { Buffer } from 'buffer'
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { NavigateFunction } from 'react-router'
 import { authenticateWithGithub, redirectToGithub, storageMethod } from './utils'
@@ -73,7 +72,7 @@ export const GithubProvider: FC<PropsWithChildren> = ({ children }) => {
         storeTokenSession(response)
 
         if (state) {
-          const decoded = Buffer.from(state, 'base64')
+          const decoded = atob(state)
           const data = JSON.parse(decoded.toString())
 
           data.route && navigate(data.route)

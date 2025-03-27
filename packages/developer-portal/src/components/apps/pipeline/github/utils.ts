@@ -1,5 +1,4 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { Buffer } from 'buffer'
 
 export type GithubCodeRequest = {
   code: string
@@ -31,7 +30,7 @@ export const authenticateWithGithub = async (data: GithubAuthorizationBody, conn
 
 export const redirectToGithub = (redirect_uri: string, route?: string) => {
   // TODO verify state?
-  const state = Buffer.from(JSON.stringify({ route })).toString('base64')
+  const state = btoa(JSON.stringify({ route }))
   window.location.href = `https://github.com/login/oauth/authorize?client_id=${githubClientId}&redirect_uri=${redirect_uri}&state=${state}`
 }
 
