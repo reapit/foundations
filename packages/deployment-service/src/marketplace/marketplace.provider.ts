@@ -19,30 +19,33 @@ export class MarketplaceProvider {
 
   private async authenticate(): Promise<Auth0TokenResponse | never> {
     const result = await firstValueFrom(
-      this.httpService.post<Auth0TokenResponse>(`${this.config.auth0Url}/oauth/token`, {
-        client_id: this.config.auth0ClientId,
-        client_secret: this.config.auth0ClientSecret,
+      this.httpService.post<Auth0TokenResponse>(this.config.connectUrl, {
+        client_id: this.config.connectClientId,
         grant_type: 'client_credentials',
-        audience: `https://${this.config.url}`,
-      }),
-    )
+      },
+      {
+        headers: {
+          'content-type': 'application/x-www-form-urlencoded',
+          'Authorization': `Basic ${Buffer.from(`${this.config.connectClientId}:${this.config.connectClientSecret}`).toString('base64')}`,
+        },
+      },
+    ))
 
-    console.log('result', result)
+    const { access_token, token_type } = result.data
 
-    return result.data
+    if (!access_token) throw new Error(`Unauthorized`)
+
+    return { access_token, token_type }
   }
 
   async getAppDetails(appId: string): Promise<Marketplace.AppDetailModel> {
     const { access_token, token_type } = await this.authenticate()
 
-    console.log('aceess', access_token, token_type)
-
     const result = await firstValueFrom(
-      this.httpService.get<Marketplace.AppDetailModel>(`https://${this.config.url}/apps/${appId}`, {
+      this.httpService.get<Marketplace.AppDetailModel>(`${this.config.url}/apps/${appId}`, {
         headers: {
           Authorization: `${token_type} ${access_token}`,
-          // ['fnd-sec-key']: this.config.apiKey,
-          ['api-key']: 1,
+          ['api-version']: 1,
         },
       }),
     )
@@ -58,11 +61,9 @@ export class MarketplaceProvider {
   async updateAppUrls(appId: string, domain: string, developerId: string, name: string): Promise<void> {
     const { access_token, token_type } = await this.authenticate()
 
-    console.log('aceess', access_token, token_type)
-
     await firstValueFrom(
       this.httpService.post<Marketplace.AppRevisionModel>(
-        `https://${this.config.url}/apps/${appId}/revisions`,
+        `${this.config.url}/apps/${appId}/revisions`,
         {
           redirectUris: [`https://${domain}/login`],
           signoutUris: [`https://${domain}/login`],

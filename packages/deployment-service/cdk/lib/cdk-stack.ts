@@ -203,9 +203,9 @@ export const createStack = async () => {
     GITHUB_PEM_SECRET_ARN: githubPemSecret.ref,
     NODE_ENV: process.env.APP_STAGE || 'development',
     MARKETPLACE_URL: config.MARKETPLACE_URL,
-    AUTH0_CLIENT_ID: config.AUTH0_CLIENT_ID,
-    AUTH0_CLIENT_SECRET: config.AUTH0_CLIENT_SECRET,
-    AUTH0_URL: config.AUTH0_URL,
+    CONNECT_CLIENT_ID: config.CONNECT_CLIENT_ID,
+    CONNECT_CLIENT_SECRET: config.CONNECT_CLIENT_SECRET,
+    CONNECT_URL: config.CONNECT_URL,
   }
 
   Object.values(QueueNames).forEach((queueKey) => {
