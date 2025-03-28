@@ -1,9 +1,9 @@
-import { Test } from "@nestjs/testing"
-import { AppEventWorkflow } from "../app-event-workflow"
-import { EventDispatcher, SqsProvider } from "../../events"
-import { PipelineProvider } from "../../pipeline"
-import { MarketplaceProvider } from "../../marketplace"
-import { PipelineEntity } from "../../entities/pipeline.entity"
+import { Test } from '@nestjs/testing'
+import { AppEventWorkflow } from '../app-event-workflow'
+import { EventDispatcher, SqsProvider } from '../../events'
+import { PipelineProvider } from '../../pipeline'
+import { MarketplaceProvider } from '../../marketplace'
+import { PipelineEntity } from '../../entities/pipeline.entity'
 import { SQSRecord } from 'aws-lambda'
 
 const mockDeveloperId = 'developer-id'
@@ -20,7 +20,7 @@ const mockPipelineProvider = {
       id,
     }),
   ),
-  findByAppId: jest.fn((id) => Promise.resolve([{...mockPipeline, id, appId: id }])),
+  findByAppId: jest.fn((id) => Promise.resolve([{ ...mockPipeline, id, appId: id }])),
   update: jest.fn((pipeline) => Promise.resolve(pipeline)),
   create: jest.fn((pipeline) => Promise.resolve(pipeline)),
   saveAll: jest.fn(() => Promise.resolve()),
@@ -43,13 +43,7 @@ describe('AppEventWorkflow', () => {
 
   beforeAll(async () => {
     const module = await Test.createTestingModule({
-      providers: [
-        EventDispatcher,
-        PipelineProvider,
-        MarketplaceProvider,
-        SqsProvider,
-        AppEventWorkflow,
-      ],
+      providers: [EventDispatcher, PipelineProvider, MarketplaceProvider, SqsProvider, AppEventWorkflow],
     })
       .overrideProvider(PipelineProvider)
       .useValue(mockPipelineProvider)
@@ -60,7 +54,7 @@ describe('AppEventWorkflow', () => {
       .overrideProvider(EventDispatcher)
       .useValue(mockEventDispatcherProvider)
       .compile()
-    
+
     workflow = module.get(AppEventWorkflow)
   })
 
@@ -81,8 +75,7 @@ describe('AppEventWorkflow', () => {
         DeveloperId: mockDeveloperId,
       }),
     } as SQSRecord),
-
-    expect(mockPipelineProvider.create).toHaveBeenCalled()
+      expect(mockPipelineProvider.create).toHaveBeenCalled()
     expect(mockMarketplaceProvider.updateAppUrls).toHaveBeenCalled()
     expect(mockSqsProvider.deleteMessage).toHaveBeenCalled()
   })
