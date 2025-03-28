@@ -19,21 +19,24 @@ export class MarketplaceProvider {
 
   private async authenticate(): Promise<Auth0TokenResponse | never> {
     const result = await firstValueFrom(
-      this.httpService.post<Auth0TokenResponse>(this.config.connectUrl, {
-        client_id: this.config.connectClientId,
-        grant_type: 'client_credentials',
-      },
-      {
-        headers: {
-          'content-type': 'application/x-www-form-urlencoded',
-          'Authorization': `Basic ${Buffer.from(`${this.config.connectClientId}:${this.config.connectClientSecret}`).toString('base64')}`,
+      this.httpService.post<Auth0TokenResponse>(
+        this.config.connectUrl,
+        {
+          client_id: this.config.connectClientId,
+          grant_type: 'client_credentials',
         },
-      },
-    ))
+        {
+          headers: {
+            'content-type': 'application/x-www-form-urlencoded',
+            Authorization: `Basic ${Buffer.from(`${this.config.connectClientId}:${this.config.connectClientSecret}`).toString('base64')}`,
+          },
+        },
+      ),
+    )
 
     const { access_token, token_type } = result.data
 
-    if (!access_token) throw new Error(`Unauthorized`)
+    if (!access_token) throw new Error('Unauthorized')
 
     return { access_token, token_type }
   }
