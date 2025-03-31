@@ -4,7 +4,7 @@ import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { PipelineTabs } from '../pipeline-tabs'
 import { PipelineDnsStepThree } from './dns-step-three'
 import { PipelineDnsStepOne } from './dns-step-one'
-import { Button, elMb6, Loader, PersistentNotification, Subtitle } from '@reapit/elements'
+import { Button, elMb6, Loader, PersistentNotification } from '@reapit/elements'
 import { PipelineDnsStepTwo } from './dns-step-two'
 import { PipelineDnsStepFour } from './dns-step-four'
 import { cx } from '@linaria/core'
@@ -67,7 +67,6 @@ export const PipelineDns: FC<{}> = () => {
           {certificateError}
         </PersistentNotification>
       )}
-      <Subtitle> Custom DNS Configuration</Subtitle>
       {buildStatus && ['READY_FOR_DEPLOYMENT', 'FAILED', 'SUCCEEDED'].includes(buildStatus) ? (
         <>
           {certificateError && !errorAcknowledged ? (

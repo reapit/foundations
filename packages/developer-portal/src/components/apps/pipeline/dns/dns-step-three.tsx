@@ -6,19 +6,45 @@ import {
   elMb6,
   elMr2,
   FlexContainer,
+  FormLayout,
+  InputWrapHalf,
   Label,
   Loader,
   PersistantNotification,
   StatusIndicator,
   Steps,
-  Title,
+  Subtitle,
 } from '@reapit/elements'
 import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
-import React, { FC, useEffect, useRef } from 'react'
+import React, { Dispatch, FC, SetStateAction, useEffect, useRef, useState } from 'react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { cx } from '@linaria/core'
-import { DnsContainerElement, DnsContainerRow, DnsInputElement, DnsValue } from './__styles__'
 import { useAppState } from '../../state/use-app-state'
+import CopyToClipboard from 'react-copy-to-clipboard'
+
+export interface CopyState {
+  Name: string
+  Value: string
+}
+
+export const defaultCopyState = {
+  Name: 'Copy',
+  Value: 'Copy',
+}
+
+export const handleCopyCode = (setCopyState: Dispatch<SetStateAction<CopyState>>, key: keyof CopyState) => () => {
+  setCopyState({
+    ...defaultCopyState,
+    [key]: 'Copied',
+  })
+
+  setTimeout(() => {
+    setCopyState((currentState) => ({
+      ...currentState,
+      [key]: 'Copy',
+    }))
+  }, 5000)
+}
 
 const humanReadable = (s?: string): string => {
   if (!s) return ''
@@ -37,6 +63,7 @@ export const PipelineDnsStepThree: FC<{
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appPipelineState } = useAppState()
   const pollingRef = useRef<NodeJS.Timeout>()
+  const [copyState, setCopyState] = useState<CopyState>(defaultCopyState)
 
   const [certificate, loading, , fetchCertificate, refetching] = useReapitGet<{
     DomainValidationOptions: {
@@ -81,28 +108,29 @@ export const PipelineDnsStepThree: FC<{
 
   return (
     <>
-      <FlexContainer>
-        <Steps className={cx(elMr2)} steps={['2']} />
-        <Title>Certificate Records</Title>
+      <FlexContainer className={cx(elMb6)}>
+        <Steps className={cx(elMr2)} steps={['2']} selectedStep="2" />
+        <Subtitle>Certificate Records</Subtitle>
       </FlexContainer>
       <div className={cx(elMb6)}>
         <BodyText>Domain ownership has been verified.</BodyText>
         <BodyText>
-          Next add the below certificate record&apos;s values to your DNS and verify these values have been added. This
-          is so that your domain will use a &apos;https&apos; certificate hosted by IaaS. These records are verified
-          automatically, in order to verify they&apos;ve been added, please hit the refresh button.
+          Next step is to create a CNAME record by using the details below. Once the status has been updated,
+          you&apos;ll be navigated to the next step.
         </BodyText>
-        <BodyText hasGreyText>Certificate Status</BodyText>
-        <StatusIndicator
-          intent={
-            certificate?.Status === 'PENDING_VALIDATION'
-              ? 'warning'
-              : certificate?.Status === 'ISSUED'
-                ? 'success'
-                : 'default'
-          }
-        />
-        {humanReadable(certificate?.Status)}
+        <Subtitle>Certificate Status</Subtitle>
+        <BodyText hasGreyText>
+          <StatusIndicator
+            intent={
+              certificate?.Status === 'PENDING_VALIDATION'
+                ? 'warning'
+                : certificate?.Status === 'ISSUED'
+                  ? 'success'
+                  : 'default'
+            }
+          />
+          {humanReadable(certificate?.Status)}
+        </BodyText>
       </div>
       {loading ? (
         <Loader />
@@ -114,32 +142,35 @@ export const PipelineDnsStepThree: FC<{
         </>
       ) : (
         <>
-          <DnsContainerElement>
-            {certificate?.DomainValidationOptions?.map((domain, index) => (
-              <DnsContainerRow key={`${domain?.ResourceRecord?.Name}.${domain?.ResourceRecord?.Value}.${index}`}>
-                <DnsInputElement>
-                  <Label>Domain</Label>
-                  <DnsValue>{domain?.DomainName}</DnsValue>
-                </DnsInputElement>
-                <DnsInputElement>
-                  <Label>CNAME name</Label>
-                  <DnsValue>{domain?.ResourceRecord?.Name}</DnsValue>
-                </DnsInputElement>
-                <DnsInputElement>
-                  <Label>Type</Label>
-                  <DnsValue>{domain?.ResourceRecord?.Type}</DnsValue>
-                </DnsInputElement>
-                <DnsInputElement>
-                  <Label>Value</Label>
-                  <DnsValue>{domain?.ResourceRecord?.Value}</DnsValue>
-                </DnsInputElement>
-                <DnsInputElement>
-                  <Label>Status</Label>
-                  <DnsValue>{humanReadable(domain?.ValidationStatus)}</DnsValue>
-                </DnsInputElement>
-              </DnsContainerRow>
-            ))}
-          </DnsContainerElement>
+          {certificate?.DomainValidationOptions?.map((domain, index) => (
+            <FormLayout
+              className={cx(elMb6)}
+              key={`${domain?.ResourceRecord?.Name}.${domain?.ResourceRecord?.Value}.${index}`}
+            >
+              <InputWrapHalf>
+                <Subtitle>Domain</Subtitle>
+                <BodyText hasGreyText>{domain?.DomainName}</BodyText>
+              </InputWrapHalf>
+              <InputWrapHalf>
+                <Subtitle>Type</Subtitle>
+                <BodyText hasGreyText>{domain?.ResourceRecord?.Type}</BodyText>
+              </InputWrapHalf>
+              <InputWrapHalf>
+                <Subtitle>CNAME Name</Subtitle>
+                <BodyText hasGreyText>{domain?.ResourceRecord?.Name}</BodyText>
+                <CopyToClipboard text={domain?.ResourceRecord?.Name} onCopy={handleCopyCode(setCopyState, 'Name')}>
+                  <Button intent="default">{copyState.Name}</Button>
+                </CopyToClipboard>
+              </InputWrapHalf>
+              <InputWrapHalf>
+                <Subtitle>CNAME Value</Subtitle>
+                <BodyText hasGreyText>{domain?.ResourceRecord?.Value}</BodyText>
+                <CopyToClipboard text={domain?.ResourceRecord?.Value} onCopy={handleCopyCode(setCopyState, 'Value')}>
+                  <Button intent="default">{copyState.Value}</Button>
+                </CopyToClipboard>
+              </InputWrapHalf>
+            </FormLayout>
+          ))}
           <ButtonGroup>
             <Button intent="primary" onClick={() => clearPollAndCall()} loading={refetching} disabled={refetching}>
               Refresh

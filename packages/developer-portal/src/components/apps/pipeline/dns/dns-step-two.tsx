@@ -3,21 +3,33 @@ import {
   BodyText,
   Button,
   ButtonGroup,
+  elMb0,
   elMb6,
   elMr2,
   FlexContainer,
+  FormLayout,
+  InputWrapHalf,
   Label,
   Steps,
+  Subtitle,
   Title,
   useSnack,
 } from '@reapit/elements'
 import { UpdateActionNames, updateActions, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/use-reapit-data'
-import React, { FC, useEffect, useRef } from 'react'
+import React, { Dispatch, FC, SetStateAction, useEffect, useRef, useState } from 'react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { PipelineDnsStepModal } from './setup-model'
 import { useAppState } from '../../state/use-app-state'
 import { cx } from '@linaria/core'
-import { DnsContainerElement, DnsContainerRow, DnsInputElement, DnsValue } from './__styles__'
+import CopyToClipboard from 'react-copy-to-clipboard'
+
+export const handleCopyCode = (setCopyState: Dispatch<SetStateAction<'value' | undefined>>, key: 'value') => () => {
+  setCopyState(key)
+
+  setTimeout(() => {
+    setCopyState(undefined)
+  }, 5000)
+}
 
 export const PipelineDnsStepTwo: FC<{
   customDomain: string
@@ -42,6 +54,7 @@ export const PipelineDnsStepTwo: FC<{
   const { error, success } = useSnack()
   const { appPipelineState } = useAppState()
   const pollingRef = useRef<NodeJS.Timeout>()
+  const [copyState, setCopyState] = useState<'value' | undefined>()
 
   const verifyTxtRecord = async () => {
     const result = await sendVerifyRequest(undefined)
@@ -81,35 +94,37 @@ export const PipelineDnsStepTwo: FC<{
 
   return (
     <>
-      <FlexContainer>
-        <Steps className={cx(elMr2)} steps={['1']} />
-        <Title>Verify Domain Ownership</Title>
+      <FlexContainer isFlexAlignCenter className={cx(elMb6)}>
+        <Steps className={cx(elMr2)} steps={['1']} selectedStep={'1'} />
+        <Subtitle className={cx(elMb0)}>Verify Domain Ownership</Subtitle>
       </FlexContainer>
       <div className={cx(elMb6)}>
         <BodyText>Add the below TXT record to your DNS to start the verification process.</BodyText>
         <BodyText>
-          Once you&apos;ve added that TXT record. Click the &ldquo;Verify Record&rdquo; button below to begin verifying
-          your domain. This may take a few attempts as the TTL runs on your domain
+          Once you&apos;ve added the TXT record. This page will periodically check to see if the record exists. Clicking
+          the &ldquo;Verify Record&rdquo; button below will also run this validation process. This may take a few
+          attempts as the TTL runs on your domain.
         </BodyText>
       </div>
-      <DnsContainerElement>
-        <DnsContainerRow>
-          <DnsInputElement>
-            <Label>Domain</Label>
-            <DnsValue>
-              {verifyDnsName}.{customDomain}
-            </DnsValue>
-          </DnsInputElement>
-          <DnsInputElement>
-            <Label>Type</Label>
-            <DnsValue>TXT</DnsValue>
-          </DnsInputElement>
-          <DnsInputElement>
-            <Label>Value</Label>
-            <DnsValue>{verifyDnsValue}</DnsValue>
-          </DnsInputElement>
-        </DnsContainerRow>
-      </DnsContainerElement>
+      <FormLayout className={cx(elMb6)}>
+        <InputWrapHalf>
+          <Subtitle>Domain</Subtitle>
+          <BodyText hasGreyText>
+            {verifyDnsName}.{customDomain}
+          </BodyText>
+        </InputWrapHalf>
+        <InputWrapHalf>
+          <Subtitle>Type</Subtitle>
+          <BodyText hasGreyText>TXT</BodyText>
+        </InputWrapHalf>
+        <InputWrapHalf>
+          <Subtitle>Value</Subtitle>
+          <BodyText hasGreyText>{verifyDnsValue}</BodyText>
+          <CopyToClipboard text={verifyDnsValue} onCopy={handleCopyCode(setCopyState, 'value')}>
+            <Button intent="default">{copyState === 'value' ? 'Copied' : 'Copy'}</Button>
+          </CopyToClipboard>
+        </InputWrapHalf>
+      </FormLayout>
       <ButtonGroup>
         <Button
           loading={sendingVerify}

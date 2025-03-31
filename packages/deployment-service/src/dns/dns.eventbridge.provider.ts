@@ -113,7 +113,7 @@ export class DnsEventBridgeProvider {
         // @ts-ignore
         verifyDnsValue: null,
         certificateStatus: 'unverified',
-        certificateError: `Configured domain [${pipeline.customDomain}] was found to be duplicated.`,
+        certificateError: `Domain [${pipeline.customDomain}] has already been configured.`,
       })
 
       await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
