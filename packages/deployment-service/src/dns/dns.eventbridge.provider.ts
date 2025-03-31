@@ -1,5 +1,6 @@
 import {
   CloudFrontClient,
+  CNAMEAlreadyExists,
   Distribution,
   GetDistributionCommand,
   UpdateDistributionCommand,
@@ -103,6 +104,8 @@ export class DnsEventBridgeProvider {
         message: 'DNS updated',
       })
     } catch (error: any) {
+      console.error(error)
+      if (!(error instanceof CNAMEAlreadyExists)) throw error
       await this.certificateProvider.deleteCertificate(pipeline)
       const updatedPipeline = await this.pipelineProvider.update(pipeline, {
         // @ts-ignore
