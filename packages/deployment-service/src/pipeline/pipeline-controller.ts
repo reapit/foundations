@@ -42,6 +42,8 @@ export class PipelineController {
 
     this.ownershipProvider.check(pipeline, creds.developerId as string)
 
+    console.log('pipeline', pipeline)
+
     return pipeline
   }
 
@@ -123,6 +125,8 @@ export class PipelineController {
       setupInfra = true
     }
 
+    console.log('dto repository', dto.repository)
+
     const repository = dto.repository?.repositoryUrl
       ? await this.repositoryProvider.findOrCreate(
           {
@@ -131,6 +135,8 @@ export class PipelineController {
           creds.developerId as string,
         )
       : undefined
+
+    console.log('repository', repository)
 
     const updatedPipeline = await this.pipelineProvider.update(pipeline, {
       ...dto,

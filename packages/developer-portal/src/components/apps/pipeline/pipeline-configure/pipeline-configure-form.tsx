@@ -47,6 +47,7 @@ export const handlePipelineUpdate =
     appId: string | null,
   ) =>
   async (values: PipelineModelSchema) => {
+    console.log('sending to server', values)
     const updateModel = {
       ...values,
       packageManager:
@@ -90,19 +91,22 @@ export const handleSavePipeline =
 const schema: SchemaOf<PipelineModelSchema> = object().shape({
   name: string().required('Required - defaults to your app name').test(specialCharsTest),
   branch: string().required('Required - eg "main", "master"').test(specialCharsTest),
-  repository: object().shape({
-    repositoryUrl: string()
-      .trim()
-      .test({
-        name: 'isValidDescription',
-        message: 'Should be a secure https url if supplied',
-        test: (value) => {
-          if (!value) return true
-          return httpsUrlRegex.test(value)
-        },
-      })
-      .test(specialCharsTest),
-  }),
+  repository: object()
+    .shape({
+      repositoryUrl: string()
+        .trim()
+        .test({
+          name: 'isValidDescription',
+          message: 'Should be a secure https url if supplied',
+          test: (value) => {
+            if (!value) return true
+            return httpsUrlRegex.test(value)
+          },
+        })
+        .test(specialCharsTest),
+    })
+    .nullable()
+    .required('Repository must be configured'),
   buildCommand: string().trim().required('A build command is required eg "build" or "bundle"').test(specialCharsTest),
   packageManager: string().required('Required - Please select a package manager'),
   outDir: string().required('Required eg "dist" or "public').test(specialCharsTest),
@@ -195,9 +199,11 @@ export const PipelineConfigureForm: FC = () => {
             <Label>Github Repository</Label>
             <GithubRepositorySelectionElement
               onChange={({ repository, installation }) => {
-                setValue('repository.installationId', installation.id)
-                setValue('repository.repositoryId', repository.id)
-                setValue('repository.repositoryUrl', `https://github.com/${repository.full_name}`)
+                setValue('repository', {
+                  installationId: installation.id,
+                  repositoryId: repository.id,
+                  repositoryUrl: `https://github.com/${repository.full_name}`,
+                })
               }}
               placeholder="https://github.com/org/repo"
               value={
@@ -210,6 +216,7 @@ export const PipelineConfigureForm: FC = () => {
                   : undefined
               }
             />
+            {errors.repository?.message && <InputError message={errors.repository?.message} />}
             {errors.repository?.repositoryUrl?.message && (
               <InputError message={errors.repository?.repositoryUrl.message} />
             )}

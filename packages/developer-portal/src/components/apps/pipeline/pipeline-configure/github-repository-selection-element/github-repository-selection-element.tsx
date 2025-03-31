@@ -1,4 +1,4 @@
-import React, { FC, useContext, useState } from 'react'
+import React, { FC, useContext, useEffect, useState } from 'react'
 import { GithubContext } from '../../github'
 import { Button, Modal, Title } from '@reapit/elements'
 import { SelectedRepositoryEl } from './__styles__'
@@ -36,12 +36,17 @@ export const GithubRepositorySelectionElement: FC<{
   const completeAction = (selected) => {
     setIsModalOpen(false)
     setSelectedRepository(selected)
+  }
+
+  useEffect(() => {
     onChange &&
+      selectedRepository &&
+      selectedInstallation &&
       onChange({
         repository: selectedRepository as Repository,
         installation: selectedInstallation as Installation,
       })
-  }
+  }, [selectedRepository])
 
   return (
     <>

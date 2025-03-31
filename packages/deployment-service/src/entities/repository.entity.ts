@@ -2,7 +2,7 @@ import { AbstractEntity } from './abstract-entity'
 import { PipelineEntity } from './pipeline.entity'
 import { Column, Entity, OneToMany } from 'typeorm'
 import { GithubRepositoryInterface } from '@reapit/foundations-ts-definitions'
-import { Exclude } from 'class-transformer'
+import { Transform } from 'class-transformer'
 
 @Entity('repositories')
 export class RepositoryEntity extends AbstractEntity implements GithubRepositoryInterface {
@@ -13,10 +13,15 @@ export class RepositoryEntity extends AbstractEntity implements GithubRepository
   repositoryUrl?: string
 
   @Column({ nullable: true, type: 'varchar', length: 20 })
+  @Transform(({ value }) => {
+    return value ? parseInt(value) : undefined
+  })
   installationId?: number
 
   @Column({ nullable: true, type: 'varchar', length: 20 })
-  @Exclude()
+  @Transform(({ value }) => {
+    return value ? parseInt(value) : undefined
+  })
   repositoryId?: number
 
   @Column()
