@@ -60,7 +60,6 @@ export const GithubRepositorySelectionElement: FC<{
                 loading={githubAuthenticating}
                 onClick={(event) => {
                   event.preventDefault()
-                  console.log('clicked')
                   loginWithGithub(connectSession, `${window.location.pathname}?githubModalOpen=true`)
                 }}
               >

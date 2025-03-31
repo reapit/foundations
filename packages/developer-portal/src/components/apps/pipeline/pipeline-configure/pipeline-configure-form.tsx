@@ -47,7 +47,6 @@ export const handlePipelineUpdate =
     appId: string | null,
   ) =>
   async (values: PipelineModelSchema) => {
-    console.log('sending to server', values)
     const updateModel = {
       ...values,
       packageManager:

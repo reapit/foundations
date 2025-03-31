@@ -22,9 +22,7 @@ export const GithubContext = createContext<{
   githubSession?: GithubAccessToken
 }>({
   authenticatedWithGithub: false,
-  loginWithGithub: () => {
-    console.log('default login with github function')
-  },
+  loginWithGithub: () => {},
   redirect_uri: '',
   githubAuthenticating: false,
   returnedFromGithubAndObtainAccessToken: () => {},
