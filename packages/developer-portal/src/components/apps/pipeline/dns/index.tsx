@@ -50,15 +50,6 @@ export const PipelineDns: FC<{}> = () => {
 
   const step = resolveStep({ domainVerified, verifyDnsValue, customDomain, certificateStatus })
 
-  console.log('pipelineDNS')
-  console.table({
-    step,
-    domainVerified,
-    verifyDnsValue,
-    customDomain,
-    certificateStatus,
-  })
-
   return (
     <>
       <PipelineTabs />
