@@ -60,7 +60,7 @@ export class DnsCertificateUpdate extends Construct {
       // `),
       vpc,
       code: aws_lambda.Code.fromAsset('bundle/dns-eventbridge.zip'),
-      timeout: Duration.seconds(60),
+      timeout: Duration.minutes(15),
       memorySize: 512,
       environment: environmentVars,
     })
