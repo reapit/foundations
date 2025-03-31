@@ -1,6 +1,7 @@
 import {
   ACMClient,
   CertificateDetail,
+  DeleteCertificateCommand,
   DescribeCertificateCommand,
   RequestCertificateCommand,
   ResourceNotFoundException,
@@ -65,5 +66,15 @@ export class CertificateProvider {
         return undefined
       }
     }
+  }
+
+  async deleteCertificate(pipeline: PipelineEntity): Promise<void> {
+    if (!pipeline.certificateArn) return
+
+    await this.client.send(
+      new DeleteCertificateCommand({
+        CertificateArn: pipeline.certificateArn,
+      }),
+    )
   }
 }

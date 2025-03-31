@@ -52,15 +52,9 @@ export class DnsCertificateUpdate extends Construct {
     const certificateUpdateLambda = new aws_lambda.Function(paasEuWest2Stack, `${id}-eventbridge-update-lambda`, {
       runtime: aws_lambda.Runtime.NODEJS_18_X,
       handler: 'packages/deployment-service/dist/dns-eventbridge.handle',
-      // code: aws_lambda.Code.fromInline(`
-      //   exports.handler = async (event) => {
-      //     console.log('Event received:', JSON.stringify(event));
-      //     return { statusCode: 200, body: 'Event processed' };
-      //   };
-      // `),
       vpc,
       code: aws_lambda.Code.fromAsset('bundle/dns-eventbridge.zip'),
-      timeout: Duration.seconds(30),
+      timeout: Duration.minutes(15),
       memorySize: 512,
       environment: environmentVars,
     })

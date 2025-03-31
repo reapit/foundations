@@ -69,6 +69,7 @@ export class DnsController {
         domainVerified: true,
         certificateArn: await this.certificateProvider.createCertificate(pipeline),
         certificateStatus: 'pending',
+        certificateError: undefined,
       })
 
       return {

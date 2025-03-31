@@ -72,7 +72,7 @@ export const PipelineDnsStepModal: FC<{ customDomain?: string; buttonText?: stri
             <InputWrapFull>
               <InputGroup
                 {...register('customDomain')}
-                label="domain name"
+                label="Domain Name"
                 placeholder="my.domain.com"
                 errorMessage={errors.customDomain?.message}
               />
