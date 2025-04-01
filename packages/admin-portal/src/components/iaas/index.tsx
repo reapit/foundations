@@ -296,6 +296,7 @@ export const IaaS: FC = () => {
                           <BodyText>{certificateArn}</BodyText>
                         </InputWrap>
                       </FormLayout>
+                      <BodyText hasBoldText>Actions</BodyText>
                       <ButtonGroup>
                         <Button
                           intent="danger"
