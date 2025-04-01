@@ -10,7 +10,7 @@ import { Column, Entity, ManyToOne, OneToMany } from 'typeorm'
 import { AbstractEntity } from './abstract-entity'
 import { PipelineRunnerEntity } from './pipeline-runner.entity'
 import { BitbucketClientEntity } from './bitbucket-client.entity'
-import { Exclude, Type } from 'class-transformer'
+import { Exclude, Expose, Type } from 'class-transformer'
 import { RepositoryEntity } from './repository.entity'
 
 @Entity('pipelines')
@@ -68,14 +68,14 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   subDomain?: string
 
   @Column({ nullable: true })
-  @Exclude({
-    toPlainOnly: true,
+  @Expose({
+    groups: ['ReapitEmployeeFoundationsAdmin'],
   })
   cloudFrontId?: string
 
   @Column({ nullable: true })
-  @Exclude({
-    toPlainOnly: true,
+  @Expose({
+    groups: ['ReapitEmployeeFoundationsAdmin'],
   })
   aRecordId?: string
 
@@ -98,7 +98,9 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   domainVerified: boolean = false
 
   @Column({ nullable: true })
-  @Exclude()
+  @Expose({
+    groups: ['ReapitEmployeeFoundationsAdmin'],
+  })
   certificateArn?: string
 
   @Column({ default: 'unverified' })
@@ -118,6 +120,7 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   get hasRepositoryInstalled(): boolean {
     return this.repository !== undefined && this.repository.repositoryId !== undefined
   }
+
   get hasRoute53(): boolean {
     return this.aRecordId !== undefined && this.aRecordId !== ''
   }
