@@ -81,8 +81,6 @@ export enum UpdateActionNames {
   deleteIp = 'deleteIp',
   createRule = 'createRule',
   updateRule = 'updateRule',
-  githubAuthenticate = 'githubAuthenticate',
-  githubListInstallations = 'githubListInstallations',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -512,12 +510,4 @@ export const updateActions = {
     api: ApiNames.pipeline,
     path: PathNames.verifyPipelineDnsRecord,
   },
-  [UpdateActionNames.githubAuthenticate]: {
-    api: ApiNames.pipeline,
-    path: PathNames.gtihubAuthenticate,
-  },
-  [UpdateActionNames.githubListInstallations]: {
-    api: ApiNames.pipeline,
-    path: PathNames.githubListInstallations,
-  }
 }

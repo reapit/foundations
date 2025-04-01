@@ -119,6 +119,4 @@ export enum PathNames {
   verifyPipelineDnsRecord = '/dns/{pipelineId}/verify',
   pipelineDnsCertificate = '/dns/{pipelineId}/certificate',
   pipelineDnsFetchCname = '/dns/{pipelineId}/cloudFrontCname',
-  gtihubAuthenticate = '/github/auth',
-  githubListInstallations = '/github/installations',
 }
