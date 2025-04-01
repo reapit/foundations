@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import {
   PageContainer,
   Loader,
@@ -107,16 +107,17 @@ export const Installations: FC = () => {
 
   useEffect(handleSetInstallationsFilters(setInstallationsFilters, watch), [])
 
-  const [installations, installationsLoading, , installationsRefresh] = useReapitGet<InstallationModelPagedResult>({
-    reapitConnectBrowserSession,
-    action: getActions[GetActionNames.getInstallations],
-    queryParams: {
-      ...formatFilters(installationsFilters),
-      includeOfficeGroups: true,
-      pageNumber,
-      pageSize,
-    },
-  })
+  const [installations, installationsLoading, , installationsRefresh] =
+    useReapitGet<Marketplace.InstallationModelPagedResult>({
+      reapitConnectBrowserSession,
+      action: getActions[GetActionNames.getInstallations],
+      queryParams: {
+        ...formatFilters(installationsFilters),
+        includeOfficeGroups: true,
+        pageNumber,
+        pageSize,
+      },
+    })
 
   return (
     <PageContainer>

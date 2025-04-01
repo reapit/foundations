@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import {
   PersistentNotification,
   Table,
@@ -23,7 +23,7 @@ import { ToggleConsumption } from './toggle-consumption'
 import { ToggleSupportNotification } from './toggle-support-notification'
 
 export interface AppsTableProps {
-  apps: AppSummaryModelPagedResult | null
+  apps: Marketplace.AppSummaryModelPagedResult | null
   appsRefresh: () => void
 }
 

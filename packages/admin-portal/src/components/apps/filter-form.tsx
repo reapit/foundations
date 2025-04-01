@@ -12,14 +12,14 @@ import {
   MultiSelectInput,
   MultiSelectOption,
 } from '@reapit/elements'
-import { AppSummaryModelPagedResult, CategoryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import debounce from 'just-debounce-it'
 import { useReapitGet, GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 export interface FilterFormProps {
   setAppsFilters: Dispatch<SetStateAction<AppsFilters>>
-  apps: AppSummaryModelPagedResult | null
+  apps: Marketplace.AppSummaryModelPagedResult | null
 }
 
 export const handleSetAppsFilters =
@@ -33,7 +33,7 @@ export const FilterForm: FC<FilterFormProps> = ({ setAppsFilters }) => {
 
   useEffect(handleSetAppsFilters(setAppsFilters, watch), [])
 
-  const [appsBrowseCategoriesCollection] = useReapitGet<CategoryModelPagedResult>({
+  const [appsBrowseCategoriesCollection] = useReapitGet<Marketplace.CategoryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getAppCategories],
     queryParams: { pageSize: 50 },
