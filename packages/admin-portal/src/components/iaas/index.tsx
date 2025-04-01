@@ -5,13 +5,16 @@ import {
   Button,
   ButtonGroup,
   elMb11,
+  elMb12,
   FormLayout,
   InputWrap,
+  Label,
   Loader,
   PageContainer,
   Pagination,
   SearchableDropdown,
   StatusIndicator,
+  Subtitle,
   Table,
   Title,
   useModal,
@@ -32,6 +35,7 @@ import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { usePermissionsState } from '../../core/use-permissions-state'
 import { fetchDevelopersList } from '../../services/developers'
+import { cx } from '@linaria/core'
 
 type Pagination<T> = {
   items: Array<T>
@@ -79,7 +83,16 @@ export const IaaS: FC = () => {
 
   const queryParams = objectToQuery(iaasFilters)
 
-  const [pipelines, pipelinesLoading, , refreshPipelines] = useReapitGet<Pagination<PipelineModelInterface>>({
+  const [pipelines, pipelinesLoading, , refreshPipelines] = useReapitGet<
+    Pagination<
+      PipelineModelInterface & {
+        verifyDnsName?: string
+        verifyDnsValue?: string
+        certificateArn?: string
+        cloudFrontId?: string
+      }
+    >
+  >({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.paginatePipeline],
     headers: {
@@ -108,6 +121,13 @@ export const IaaS: FC = () => {
     mode: 'onChange',
   })
 
+  const subDomainUrl = (subDomain?: string): string => {
+    if (subDomain)
+      return `https://${subDomain}${process.env.NODE_ENV === 'development' ? '.dev.paas' : ''}.reapit.cloud`
+
+    return ''
+  }
+
   return (
     <PageContainer>
       <Title>IaaS Pipelines</Title>
@@ -134,46 +154,165 @@ export const IaaS: FC = () => {
           <Table
             className={elMb11}
             numberColumns={4}
-            rows={pipelines?.items.map(({ name, id, buildStatus, repository }) => ({
-              cells: [
-                {
-                  label: 'Name',
-                  value: name,
-                  icon: 'insights',
-                  cellHasDarkText: true,
-                  narrowTable: {
-                    showLabel: true,
+            rows={pipelines?.items.map(
+              ({
+                name,
+                id,
+                buildStatus,
+                repository,
+                appId,
+                branch,
+                subDomain,
+                developerId,
+                certificateStatus,
+                outDir,
+                customDomain,
+                packageManager,
+                verifyDnsName,
+                verifyDnsValue,
+                buildCommand,
+                cloudFrontId,
+                certificateArn,
+              }) => ({
+                cells: [
+                  {
+                    label: 'Name',
+                    value: name,
+                    icon: 'insights',
+                    cellHasDarkText: true,
+                    narrowTable: {
+                      showLabel: true,
+                    },
                   },
-                },
-                {
-                  label: 'Build Status',
-                  value: (
+                  {
+                    label: 'Build Status',
+                    value: (
+                      <>
+                        <StatusIndicator intent={buildStatusToIntent(buildStatus as string)} />
+                        {buildStatusToReadable(buildStatus as string)}
+                      </>
+                    ),
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                  {
+                    label: 'Repository',
+                    value: repository?.repositoryUrl,
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                ],
+                expandableContent: {
+                  content: (
                     <>
-                      <StatusIndicator intent={buildStatusToIntent(buildStatus as string)} />
-                      {buildStatusToReadable(buildStatus as string)}
+                      <BodyText hasBoldText>Pipeline</BodyText>
+                      <FormLayout className={cx(elMb12)}>
+                        <InputWrap>
+                          <Label>Pipeline Name</Label>
+                          <BodyText>{name}</BodyText>
+                        </InputWrap>
+                        <InputWrap>
+                          <Label>Pipeline Id</Label>
+                          <BodyText>{id}</BodyText>
+                        </InputWrap>
+                        <InputWrap>
+                          <Label>App Id</Label>
+                          <BodyText>{appId}</BodyText>
+                        </InputWrap>
+                        <InputWrap>
+                          <Label>Developer Id</Label>
+                          <BodyText>{developerId}</BodyText>
+                        </InputWrap>
+                        <InputWrap>
+                          <Label>Build Status</Label>
+                          <BodyText>{buildStatus}</BodyText>
+                        </InputWrap>
+                      </FormLayout>
+                      <BodyText hasBoldText>Repository</BodyText>
+                      <FormLayout className={cx(elMb12)}>
+                        <InputWrap>
+                          <Label>Repository Url</Label>
+                          <BodyText>{repository?.repositoryUrl}</BodyText>
+                        </InputWrap>
+                        <InputWrap>
+                          <Label>Repository Id</Label>
+                          <BodyText>{repository?.repositoryId}</BodyText>
+                        </InputWrap>
+                        <InputWrap>
+                          <Label>Repo Installation Id</Label>
+                          <BodyText>{repository?.installationId}</BodyText>
+                        </InputWrap>
+                        <InputWrap>
+                          <Label>Branch</Label>
+                          <BodyText>{branch}</BodyText>
+                        </InputWrap>
+                        <InputWrap>
+                          <Label>Out Dir</Label>
+                          <BodyText>{outDir}</BodyText>
+                        </InputWrap>
+                        <InputWrap>
+                          <Label>Package Manager</Label>
+                          <BodyText>{packageManager}</BodyText>
+                        </InputWrap>
+                        <InputWrap>
+                          <Label>Build Command</Label>
+                          <BodyText>{buildCommand}</BodyText>
+                        </InputWrap>
+                      </FormLayout>
+                      <BodyText hasBoldText>Domain</BodyText>
+                      <FormLayout className={cx(elMb12)}>
+                        <InputWrap>
+                          <Label>Sub Domain</Label>
+                          <BodyText>{subDomain}</BodyText>
+                        </InputWrap>
+                        <InputWrap>
+                          <Label>Sub Domain Url</Label>
+                          <BodyText>{subDomainUrl(subDomain)}</BodyText>
+                        </InputWrap>
+                        <InputWrap>
+                          <Label>Custom Domain</Label>
+                          <BodyText>{customDomain}</BodyText>
+                        </InputWrap>
+                        <InputWrap>
+                          <Label>Certificate Status</Label>
+                          <BodyText>{certificateStatus}</BodyText>
+                        </InputWrap>
+                        <InputWrap>
+                          <Label>Verify DNS TXT Record Name Prefix</Label>
+                          <BodyText>{verifyDnsName}</BodyText>
+                        </InputWrap>
+                        <InputWrap>
+                          <Label>Verify DNS TXT Record Value</Label>
+                          <BodyText>{verifyDnsValue}</BodyText>
+                        </InputWrap>
+                        <InputWrap>
+                          <Label>CloudFrontId</Label>
+                          <BodyText>{cloudFrontId}</BodyText>
+                        </InputWrap>
+                        <InputWrap>
+                          <Label>CertificateArn</Label>
+                          <BodyText>{certificateArn}</BodyText>
+                        </InputWrap>
+                      </FormLayout>
+                      <ButtonGroup>
+                        <Button
+                          intent="danger"
+                          onClick={
+                            pipelineNotDeletable.includes(buildStatus as string) || hasReadAccess
+                              ? undefined
+                              : handleOpenModal(setAppId, openModal, id)
+                          }
+                        >
+                          Delete Pipeline
+                        </Button>
+                      </ButtonGroup>
                     </>
                   ),
-                  narrowTable: {
-                    showLabel: true,
-                  },
                 },
-                {
-                  label: 'Repository',
-                  value: repository?.repositoryUrl,
-                  narrowTable: {
-                    showLabel: true,
-                  },
-                },
-              ],
-              ctaContent: {
-                headerContent: 'Delete Pipeline',
-                icon: pipelineNotDeletable.includes(buildStatus as string) || hasReadAccess ? undefined : 'trash',
-                onClick:
-                  pipelineNotDeletable.includes(buildStatus as string) || hasReadAccess
-                    ? undefined
-                    : handleOpenModal(setAppId, openModal, id),
-              },
-            }))}
+              }),
+            )}
           />
           <Modal title="Delete Pipeline">
             <BodyText hasGreyText>
