@@ -2,8 +2,10 @@ import React, { FC } from 'react'
 import { BodyText } from '@reapit/elements'
 import { PipelineTabs } from './../pipeline-tabs'
 import { PipelineConfigureForm } from './pipeline-configure-form'
+import { useLocation } from 'react-router'
 
 export const PipelineConfigure: FC = () => {
+  const location = useLocation()
   return (
     <>
       {!location.pathname.includes('new') && <PipelineTabs />}

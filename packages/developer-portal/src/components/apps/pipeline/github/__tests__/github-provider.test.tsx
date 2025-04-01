@@ -52,7 +52,7 @@ describe('GithubProvider', () => {
       const ghuRefreshToken = 'ghu_refreshTokenBroski'
       const validAccessToken = 'ghu_accessToken'
       mockGetItem.mockImplementationOnce((key: string) => {
-        key === 'githubSession'
+        return key === 'githubSession'
           ? JSON.stringify({
               refresh_token: ghuRefreshToken,
             })
@@ -92,7 +92,7 @@ describe('GithubProvider', () => {
     it('Will redirect when refresh token fails', async () => {
       const ghuRefreshToken = 'ghu_refreshTokenBroski'
       mockGetItem.mockImplementationOnce((key: string) => {
-        key === 'githubSession'
+        return key === 'githubSession'
           ? JSON.stringify({
               refresh_token: ghuRefreshToken,
             })
