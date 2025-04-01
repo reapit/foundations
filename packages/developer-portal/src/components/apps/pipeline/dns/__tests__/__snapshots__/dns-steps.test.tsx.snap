@@ -9,13 +9,13 @@ exports[`DNS Steps should match snapshot for route four 1`] = `
         class="mocked-styled-93 el-snack-holder"
       />
       <div
-        class="el-flex-container"
+        class="el-flex-container el-mb6"
       >
         <div
           class="el-mr2 el-steps"
         >
           <div
-            class="mocked-styled-96 el-step"
+            class="el-is-active el-step"
             data-testid="step-0"
             role="button"
             tabindex="0"
@@ -23,53 +23,73 @@ exports[`DNS Steps should match snapshot for route four 1`] = `
             3
           </div>
         </div>
-        <h1
-          class="el-text-base el-title"
+        <h2
+          class="el-text-base el-subtitle"
         >
           CNAME Record
-        </h1>
+        </h2>
       </div>
       <div
         class="el-mb6"
       >
         <p
-          class="el-text-base el-body-text el-has-grey-text"
+          class="el-text-base el-body-text"
         >
-          Last step. Add the below CNAME record to your DNS and your new custom domain will be working shortly
+          Copy the DNS record value to complete the setup. Once added this setup process is complete and your new domain will be active.
         </p>
       </div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <label
-              class="mocked-styled-41 el-label"
-            >
-              Domain
-            </label>
-            <mock-styled.p>
-              test
-            </mock-styled.p>
-          </mock-styled.div>
-          <mock-styled.div>
-            <label
-              class="mocked-styled-41 el-label"
-            >
-              Type
-            </label>
-            <mock-styled.p>
-              CNAME
-            </mock-styled.p>
-          </mock-styled.div>
-          <mock-styled.div>
-            <label
-              class="mocked-styled-41 el-label"
-            >
-              Value
-            </label>
-            <mock-styled.p />
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+      <div
+        class="mocked-styled-130 el-form-layout"
+      >
+        <div
+          class="mocked-styled-136 el-input-wrap-half"
+        >
+          <h2
+            class="el-text-base el-subtitle"
+          >
+            Domain
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
+          >
+            test
+          </p>
+        </div>
+        <div
+          class="mocked-styled-136 el-input-wrap-half"
+        >
+          <h2
+            class="el-text-base el-subtitle"
+          >
+            Type
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
+          >
+            CNAME
+          </p>
+        </div>
+        <div
+          class="mocked-styled-136 el-input-wrap-half"
+        >
+          <h2
+            class="el-text-base el-subtitle"
+          >
+            DNS Record Value
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
+          />
+          <button
+            class="el-intent-neutral el-button"
+          >
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
+            Copy
+          </button>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
@@ -77,13 +97,13 @@ exports[`DNS Steps should match snapshot for route four 1`] = `
       class="mocked-styled-93 el-snack-holder"
     />
     <div
-      class="el-flex-container"
+      class="el-flex-container el-mb6"
     >
       <div
         class="el-mr2 el-steps"
       >
         <div
-          class="mocked-styled-96 el-step"
+          class="el-is-active el-step"
           data-testid="step-0"
           role="button"
           tabindex="0"
@@ -91,53 +111,73 @@ exports[`DNS Steps should match snapshot for route four 1`] = `
           3
         </div>
       </div>
-      <h1
-        class="el-text-base el-title"
+      <h2
+        class="el-text-base el-subtitle"
       >
         CNAME Record
-      </h1>
+      </h2>
     </div>
     <div
       class="el-mb6"
     >
       <p
-        class="el-text-base el-body-text el-has-grey-text"
+        class="el-text-base el-body-text"
       >
-        Last step. Add the below CNAME record to your DNS and your new custom domain will be working shortly
+        Copy the DNS record value to complete the setup. Once added this setup process is complete and your new domain will be active.
       </p>
     </div>
-    <mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <label
-            class="mocked-styled-41 el-label"
-          >
-            Domain
-          </label>
-          <mock-styled.p>
-            test
-          </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div>
-          <label
-            class="mocked-styled-41 el-label"
-          >
-            Type
-          </label>
-          <mock-styled.p>
-            CNAME
-          </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div>
-          <label
-            class="mocked-styled-41 el-label"
-          >
-            Value
-          </label>
-          <mock-styled.p />
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+    <div
+      class="mocked-styled-130 el-form-layout"
+    >
+      <div
+        class="mocked-styled-136 el-input-wrap-half"
+      >
+        <h2
+          class="el-text-base el-subtitle"
+        >
+          Domain
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
+        >
+          test
+        </p>
+      </div>
+      <div
+        class="mocked-styled-136 el-input-wrap-half"
+      >
+        <h2
+          class="el-text-base el-subtitle"
+        >
+          Type
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
+        >
+          CNAME
+        </p>
+      </div>
+      <div
+        class="mocked-styled-136 el-input-wrap-half"
+      >
+        <h2
+          class="el-text-base el-subtitle"
+        >
+          DNS Record Value
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
+        />
+        <button
+          class="el-intent-neutral el-button"
+        >
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          Copy
+        </button>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -343,13 +383,13 @@ exports[`DNS Steps should match snapshot for route three 1`] = `
         class="mocked-styled-93 el-snack-holder"
       />
       <div
-        class="el-flex-container"
+        class="el-flex-container el-mb6"
       >
         <div
           class="el-mr2 el-steps"
         >
           <div
-            class="mocked-styled-96 el-step"
+            class="el-is-active el-step"
             data-testid="step-0"
             role="button"
             tabindex="0"
@@ -357,11 +397,11 @@ exports[`DNS Steps should match snapshot for route three 1`] = `
             2
           </div>
         </div>
-        <h1
-          class="el-text-base el-title"
+        <h2
+          class="el-text-base el-subtitle"
         >
           Certificate Records
-        </h1>
+        </h2>
       </div>
       <div
         class="el-mb6"
@@ -374,16 +414,20 @@ exports[`DNS Steps should match snapshot for route three 1`] = `
         <p
           class="el-text-base el-body-text"
         >
-          Next add the below certificate record's values to your DNS and verify these values have been added. This is so that your domain will use a 'https' certificate hosted by IaaS. These records are verified automatically, in order to verify they've been added, please hit the refresh button.
+          Next step is to create a CNAME record by using the details below. Once the status has been updated, you'll be navigated to the next step.
         </p>
+        <h2
+          class="el-text-base el-subtitle"
+        >
+          Certificate Status
+        </h2>
         <p
           class="el-text-base el-body-text el-has-grey-text"
         >
-          Certificate Status
+          <span
+            class="el-intent-default el-status-indicator"
+          />
         </p>
-        <span
-          class="el-intent-default el-status-indicator"
-        />
       </div>
       <div
         class="el-intent-danger el-is-active el-pn-is-inline el-persistant-notification"
@@ -424,13 +468,13 @@ exports[`DNS Steps should match snapshot for route three 1`] = `
       class="mocked-styled-93 el-snack-holder"
     />
     <div
-      class="el-flex-container"
+      class="el-flex-container el-mb6"
     >
       <div
         class="el-mr2 el-steps"
       >
         <div
-          class="mocked-styled-96 el-step"
+          class="el-is-active el-step"
           data-testid="step-0"
           role="button"
           tabindex="0"
@@ -438,11 +482,11 @@ exports[`DNS Steps should match snapshot for route three 1`] = `
           2
         </div>
       </div>
-      <h1
-        class="el-text-base el-title"
+      <h2
+        class="el-text-base el-subtitle"
       >
         Certificate Records
-      </h1>
+      </h2>
     </div>
     <div
       class="el-mb6"
@@ -455,16 +499,20 @@ exports[`DNS Steps should match snapshot for route three 1`] = `
       <p
         class="el-text-base el-body-text"
       >
-        Next add the below certificate record's values to your DNS and verify these values have been added. This is so that your domain will use a 'https' certificate hosted by IaaS. These records are verified automatically, in order to verify they've been added, please hit the refresh button.
+        Next step is to create a CNAME record by using the details below. Once the status has been updated, you'll be navigated to the next step.
       </p>
+      <h2
+        class="el-text-base el-subtitle"
+      >
+        Certificate Status
+      </h2>
       <p
         class="el-text-base el-body-text el-has-grey-text"
       >
-        Certificate Status
+        <span
+          class="el-intent-default el-status-indicator"
+        />
       </p>
-      <span
-        class="el-intent-default el-status-indicator"
-      />
     </div>
     <div
       class="el-intent-danger el-is-active el-pn-is-inline el-persistant-notification"
@@ -562,13 +610,13 @@ exports[`DNS Steps should match snapshot for route two 1`] = `
         class="mocked-styled-93 el-snack-holder"
       />
       <div
-        class="el-flex-container"
+        class="el-flex-container el-flex-align-center el-mb6"
       >
         <div
           class="el-mr2 el-steps"
         >
           <div
-            class="mocked-styled-96 el-step"
+            class="el-is-active el-step"
             data-testid="step-0"
             role="button"
             tabindex="0"
@@ -576,11 +624,11 @@ exports[`DNS Steps should match snapshot for route two 1`] = `
             1
           </div>
         </div>
-        <h1
-          class="el-text-base el-title"
+        <h2
+          class="el-text-base el-subtitle el-mb0"
         >
           Verify Domain Ownership
-        </h1>
+        </h2>
       </div>
       <div
         class="el-mb6"
@@ -593,45 +641,65 @@ exports[`DNS Steps should match snapshot for route two 1`] = `
         <p
           class="el-text-base el-body-text"
         >
-          Once you've added that TXT record. Click the “Verify Record” button below to begin verifying your domain. This may take a few attempts as the TTL runs on your domain
+          Once you've added the TXT record. This page will periodically check to see if the record exists. Clicking the “Verify Record” button below will also run this validation process. This may take a few attempts as the TTL runs on your domain.
         </p>
       </div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <label
-              class="mocked-styled-41 el-label"
-            >
-              Domain
-            </label>
-            <mock-styled.p>
-              test
-              .
-              test
-            </mock-styled.p>
-          </mock-styled.div>
-          <mock-styled.div>
-            <label
-              class="mocked-styled-41 el-label"
-            >
-              Type
-            </label>
-            <mock-styled.p>
-              TXT
-            </mock-styled.p>
-          </mock-styled.div>
-          <mock-styled.div>
-            <label
-              class="mocked-styled-41 el-label"
-            >
-              Value
-            </label>
-            <mock-styled.p>
-              test
-            </mock-styled.p>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+      <div
+        class="el-mb6 el-form-layout"
+      >
+        <div
+          class="mocked-styled-136 el-input-wrap-half"
+        >
+          <h2
+            class="el-text-base el-subtitle"
+          >
+            Domain
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
+          >
+            test
+            .
+            test
+          </p>
+        </div>
+        <div
+          class="mocked-styled-136 el-input-wrap-half"
+        >
+          <h2
+            class="el-text-base el-subtitle"
+          >
+            Type
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
+          >
+            TXT
+          </p>
+        </div>
+        <div
+          class="mocked-styled-136 el-input-wrap-half"
+        >
+          <h2
+            class="el-text-base el-subtitle"
+          >
+            Value
+          </h2>
+          <p
+            class="el-text-base el-body-text el-has-grey-text"
+          >
+            test
+          </p>
+          <button
+            class="el-intent-neutral el-button"
+          >
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
+            Copy
+          </button>
+        </div>
+      </div>
       <div
         class="mocked-styled-2 el-button-group"
       >
@@ -663,13 +731,13 @@ exports[`DNS Steps should match snapshot for route two 1`] = `
       class="mocked-styled-93 el-snack-holder"
     />
     <div
-      class="el-flex-container"
+      class="el-flex-container el-flex-align-center el-mb6"
     >
       <div
         class="el-mr2 el-steps"
       >
         <div
-          class="mocked-styled-96 el-step"
+          class="el-is-active el-step"
           data-testid="step-0"
           role="button"
           tabindex="0"
@@ -677,11 +745,11 @@ exports[`DNS Steps should match snapshot for route two 1`] = `
           1
         </div>
       </div>
-      <h1
-        class="el-text-base el-title"
+      <h2
+        class="el-text-base el-subtitle el-mb0"
       >
         Verify Domain Ownership
-      </h1>
+      </h2>
     </div>
     <div
       class="el-mb6"
@@ -694,45 +762,65 @@ exports[`DNS Steps should match snapshot for route two 1`] = `
       <p
         class="el-text-base el-body-text"
       >
-        Once you've added that TXT record. Click the “Verify Record” button below to begin verifying your domain. This may take a few attempts as the TTL runs on your domain
+        Once you've added the TXT record. This page will periodically check to see if the record exists. Clicking the “Verify Record” button below will also run this validation process. This may take a few attempts as the TTL runs on your domain.
       </p>
     </div>
-    <mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <label
-            class="mocked-styled-41 el-label"
-          >
-            Domain
-          </label>
-          <mock-styled.p>
-            test
-            .
-            test
-          </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div>
-          <label
-            class="mocked-styled-41 el-label"
-          >
-            Type
-          </label>
-          <mock-styled.p>
-            TXT
-          </mock-styled.p>
-        </mock-styled.div>
-        <mock-styled.div>
-          <label
-            class="mocked-styled-41 el-label"
-          >
-            Value
-          </label>
-          <mock-styled.p>
-            test
-          </mock-styled.p>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+    <div
+      class="el-mb6 el-form-layout"
+    >
+      <div
+        class="mocked-styled-136 el-input-wrap-half"
+      >
+        <h2
+          class="el-text-base el-subtitle"
+        >
+          Domain
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
+        >
+          test
+          .
+          test
+        </p>
+      </div>
+      <div
+        class="mocked-styled-136 el-input-wrap-half"
+      >
+        <h2
+          class="el-text-base el-subtitle"
+        >
+          Type
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
+        >
+          TXT
+        </p>
+      </div>
+      <div
+        class="mocked-styled-136 el-input-wrap-half"
+      >
+        <h2
+          class="el-text-base el-subtitle"
+        >
+          Value
+        </h2>
+        <p
+          class="el-text-base el-body-text el-has-grey-text"
+        >
+          test
+        </p>
+        <button
+          class="el-intent-neutral el-button"
+        >
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          Copy
+        </button>
+      </div>
+    </div>
     <div
       class="mocked-styled-2 el-button-group"
     >

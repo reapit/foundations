@@ -104,6 +104,9 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   @Column({ default: 'unverified' })
   certificateStatus?: string
 
+  @Column()
+  certificateError?: string
+
   get hasDistro(): boolean {
     return this.cloudFrontId !== null && this.cloudFrontId !== undefined && this.cloudFrontId !== ''
   }

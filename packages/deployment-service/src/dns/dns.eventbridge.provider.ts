@@ -1,5 +1,6 @@
 import {
   CloudFrontClient,
+  CNAMEAlreadyExists,
   Distribution,
   GetDistributionCommand,
   UpdateDistributionCommand,
@@ -10,7 +11,8 @@ import { PipelineProvider } from '../pipeline'
 import { EventBridgeEvent } from 'aws-lambda'
 import { CertificateDetail } from '../dns-eventbridge'
 import { PusherProvider } from '../events'
-import { PipelineEntity } from 'src/entities/pipeline.entity'
+import { PipelineEntity } from '../entities/pipeline.entity'
+import { CertificateProvider } from './certificate.provider'
 
 @Injectable()
 export class DnsEventBridgeProvider {
@@ -18,6 +20,7 @@ export class DnsEventBridgeProvider {
     private readonly pipelineProvider: PipelineProvider,
     private readonly cloudfrontClient: CloudFrontClient,
     private readonly pusherProvider: PusherProvider,
+    private readonly certificateProvider: CertificateProvider,
   ) {}
 
   private async getPipeline(certificateArn: string): Promise<PipelineEntity | never> {
@@ -82,22 +85,44 @@ export class DnsEventBridgeProvider {
 
     const [distro, etag] = await this.getDistribution(pipeline)
 
-    await this.updateDistribution(
-      {
-        ...distro,
-        IfMatch: etag,
-      },
-      certificateArn,
-      commonName,
-    )
+    try {
+      await this.updateDistribution(
+        {
+          ...distro,
+          IfMatch: etag,
+        },
+        certificateArn,
+        commonName,
+      )
 
-    await this.pipelineProvider.update(pipeline, {
-      certificateStatus: 'complete',
-    })
+      await this.pipelineProvider.update(pipeline, {
+        certificateStatus: 'complete',
+      })
 
-    await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
-      ...pipeline,
-      message: 'DNS updated',
-    })
+      await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
+        ...pipeline,
+        message: 'DNS updated',
+      })
+    } catch (error: any) {
+      console.error(error)
+      if (!(error instanceof CNAMEAlreadyExists)) throw error
+      await this.certificateProvider.deleteCertificate(pipeline)
+      const updatedPipeline = await this.pipelineProvider.update(pipeline, {
+        // @ts-ignore
+        certificateArn: null,
+        // @ts-ignore
+        customDomain: null,
+        domainVerified: false,
+        // @ts-ignore
+        verifyDnsValue: null,
+        certificateStatus: 'unverified',
+        certificateError: `Domain [${pipeline.customDomain}] has already been configured.`,
+      })
+
+      await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
+        ...updatedPipeline,
+        message: 'DNS updated',
+      })
+    }
   }
 }
