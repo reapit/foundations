@@ -40,11 +40,16 @@ export class AppEventWorkflow extends AbstractWorkflow<AppEventType> {
 
         if (!pipeline) throw new Error('Will never get here')
 
+        const appDetails = await this.marketplaceProvider.getAppDetails(payload.AppId)
+
+        // TODO check redirect urls are not included in payload
         await this.marketplaceProvider.updateAppUrls(
           payload.AppId,
           `https://${pipeline.subDomain}${process.env.NODE_ENV === 'production' ? '' : '.dev'}.iaas.reapit.cloud`,
           payload.DeveloperId,
           payload.ApplicationName,
+          appDetails.redirectUris,
+          appDetails.signoutUris,
         )
 
         break

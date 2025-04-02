@@ -108,6 +108,8 @@ export class DnsEventBridgeProvider {
         `https://${commonName}`,
         pipeline.developerId as string,
         appDetails.name as string,
+        appDetails.redirectUris,
+        appDetails.signoutUris,
       )
 
       await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
