@@ -28,6 +28,10 @@ const mockPipelineProvider = {
 
 const mockMarketplaceProvider = {
   updateAppUrls: jest.fn(() => Promise.resolve()),
+  getAppDetails: jest.fn(() => Promise.resolve({
+    redirectUris: ['http://localhost:8080'],
+    signoutUris: ['http://localhost:8080'],
+  })),
 }
 
 const mockSqsProvider = {
