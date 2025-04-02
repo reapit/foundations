@@ -7898,6 +7898,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@reapit/foundations-ts-definitions@npm:^2.1.21":
+  version: 2.1.21
+  resolution: "@reapit/foundations-ts-definitions@npm:2.1.21"
+  checksum: cfd56b75c8720844abcab192f8afcfe81dbe7dd50ca35992fc1e52e9c9749ebdd457dfd2355904fdb4787937cff9899ad4a6be1361830fea114eefb2e636dbc7
+  languageName: node
+  linkType: hard
+
 "@reapit/payments-ui@workspace:packages/payments-ui":
   version: 0.0.0-use.local
   resolution: "@reapit/payments-ui@workspace:packages/payments-ui"
@@ -12943,7 +12950,7 @@ __metadata:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.3"
     "@reapit/elements": "npm:4.3.2"
-    "@reapit/foundations-ts-definitions": "npm:^2.1.20"
+    "@reapit/foundations-ts-definitions": "npm:^2.1.21"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/use-reapit-data": "workspace:packages/use-reapit-data"
     "@reapit/utils-common": "workspace:packages/utils-common"

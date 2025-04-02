@@ -85,14 +85,7 @@ export const IaaS: FC = () => {
 
   // TODO: remove union type when foundations-ts-definitions has been updated
   const [pipelines, pipelinesLoading, , refreshPipelines] = useReapitGet<
-    Pagination<
-      PipelineModelInterface & {
-        verifyDnsName?: string
-        verifyDnsValue?: string
-        certificateArn?: string
-        cloudFrontId?: string
-      }
-    >
+    Pagination<PipelineModelInterface >
   >({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.paginatePipeline],
