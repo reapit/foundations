@@ -1,6 +1,6 @@
-import { CategoryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
-export const mockCategoryModelPagedResult: CategoryModelPagedResult = {
+export const mockCategoryModelPagedResult: Marketplace.CategoryModelPagedResult = {
   data: [
     {
       id: 'string',

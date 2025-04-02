@@ -1,6 +1,6 @@
-import { DesktopIntegrationTypeModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
-export const mockDesktopIntegrationTypeModelPagedResult: DesktopIntegrationTypeModelPagedResult = {
+export const mockDesktopIntegrationTypeModelPagedResult: Marketplace.DesktopIntegrationTypeModelPagedResult = {
   data: [
     {
       id: 'Applicant',
