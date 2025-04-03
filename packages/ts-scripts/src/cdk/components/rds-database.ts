@@ -28,10 +28,10 @@ export const createDatabase = (
     credentials: secret ? rds.Credentials.fromSecret(secret) : undefined,
   })
 
-  db.connections.allowFromAnyIpv4(ec2.Port.allTcp())
+  db.connections.allowFromAnyIpv4(ec2.Port.MYSQL_AURORA)
 
   if (bastion) {
-    const bastionInstance = new ec2.BastionHostLinux(stack, 'bastion', {
+    new ec2.BastionHostLinux(stack, 'bastion', {
       vpc,
       instanceType: ec2.InstanceType.of(ec2.InstanceClass.T4G, ec2.InstanceSize.NANO),
       blockDevices: [
