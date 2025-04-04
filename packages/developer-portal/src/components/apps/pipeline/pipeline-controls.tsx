@@ -65,9 +65,7 @@ export const handleSaveConfig = (setAppPipelineSaving: Dispatch<SetStateAction<b
 export const handleSavePipeline =
   (
     sendPipelineUpdate: SendFunction<PipelineModelInterface, boolean | PipelineModelInterface>,
-    createAppRevision: SendFunction<Marketplace.CreateAppRevisionModel, boolean | Marketplace.AppDetailModel>,
     appsDetailRefresh: () => void,
-    appRefreshRevisions: () => void,
     appDetail: Marketplace.AppDetailModel | null,
     developerId: string | null,
     pipelineUpdate: PipelineModelInterface,
@@ -75,25 +73,7 @@ export const handleSavePipeline =
   async () => {
     const savedPipeline = await sendPipelineUpdate(pipelineUpdate)
     if (appDetail && savedPipeline && typeof savedPipeline !== 'boolean' && savedPipeline.subDomain && developerId) {
-      const formattedFields = formatAppFields(appDetail, developerId)
-      const sanitisedAppDetail = formatFormValues(formattedFields as AppEditFormSchema)
-      const redirectUri = `https://${savedPipeline.subDomain}.iaas.paas.reapit.cloud`
-      const signoutUri = `https://${savedPipeline.subDomain}.iaas.paas.reapit.cloud/login`
-
-      if (!sanitisedAppDetail?.redirectUris?.includes(redirectUri)) {
-        sanitisedAppDetail?.redirectUris?.push(redirectUri)
-      }
-
-      if (!sanitisedAppDetail?.signoutUris?.includes(signoutUri)) {
-        sanitisedAppDetail?.signoutUris?.push(signoutUri)
-      }
-
-      const appRevsion = await createAppRevision(sanitisedAppDetail)
-
-      if (appRevsion) {
-        appsDetailRefresh()
-        appRefreshRevisions()
-      }
+      appsDetailRefresh()
     }
   }
 
@@ -204,18 +184,10 @@ export const PipelineControls: FC = () => {
         )}
         {pipelinePreprovisionedFlow.includes(appPipeline?.buildStatus as string) ? (
           <Button
-            onClick={handleSavePipeline(
-              sendPipelineUpdate,
-              createAppRevision,
-              appsDetailRefresh,
-              appRefreshRevisions,
-              appDetail,
-              developerId,
-              {
-                ...(appPipeline ?? {}),
-                buildStatus: 'PROVISION_REQUEST',
-              },
-            )}
+            onClick={handleSavePipeline(sendPipelineUpdate, appsDetailRefresh, appDetail, developerId, {
+              ...(appPipeline ?? {}),
+              buildStatus: 'PROVISION_REQUEST',
+            })}
             disabled={pipelineProvisioning.includes(appPipeline?.buildStatus as string)}
             loading={pipelineProvisioning.includes(appPipeline?.buildStatus as string)}
             intent="primary"
