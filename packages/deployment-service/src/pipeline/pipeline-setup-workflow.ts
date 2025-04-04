@@ -128,9 +128,7 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
         },
         Aliases: {
           Quantity: 1,
-          Items: [
-            pipelineSubDomain,
-          ],
+          Items: [pipelineSubDomain],
         },
         Comment: `Cloudfront distribution for pipeline [${pipeline.id}] [${
           process.env.NODE_ENV === 'production' ? 'prod' : 'dev'
