@@ -52,7 +52,6 @@ export const GithubProvider: FC<PropsWithChildren> = ({ children }) => {
   ) => {
     const params = new URLSearchParams(window.location.search)
     const code = params.get('code')
-    // TODO handle errors
     if (code) {
       setGithubAuthenticating(true)
       const response = await authenticateWithGithub(
