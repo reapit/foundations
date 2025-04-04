@@ -125,8 +125,6 @@ export class PipelineController {
       setupInfra = true
     }
 
-    console.log('dto repository', dto.repository)
-
     const repository = dto.repository?.repositoryUrl
       ? await this.repositoryProvider.findOrCreate(
           {
