@@ -15,8 +15,7 @@ export type GithubAuthorizationBody = GithubCodeRequest | GithubRefreshRequest
 const githubClientId = process.env.githubClientId
 
 export const authenticateWithGithub = async (data: GithubAuthorizationBody, connectSession: ReapitConnectSession) => {
-  // TODO need to make the below domain an env
-  const response = await fetch('https://deployments.dev.paas.reapit.cloud/github/auth', {
+  const response = await fetch(`${process.env.DEPLOYMENT_SERVICE_HOST}/github/auth`, {
     method: 'post',
     body: JSON.stringify(data),
     headers: {
