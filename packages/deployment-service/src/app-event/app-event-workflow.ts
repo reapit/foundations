@@ -2,7 +2,6 @@ import { QueueNamesEnum } from '../constants'
 import { AppTypeEnum } from '../pipeline/pipeline-dto'
 import { PipelineProvider } from '../pipeline'
 import { AbstractWorkflow, EventDispatcher, SqsProvider, Workflow } from '../events'
-import { MarketplaceProvider } from '../marketplace'
 
 type AppEventType = {
   AppId: string
@@ -18,7 +17,6 @@ export class AppEventWorkflow extends AbstractWorkflow<AppEventType> {
   constructor(
     private readonly eventDispatcher: EventDispatcher,
     private readonly pipelineProvider: PipelineProvider,
-    private readonly marketplaceProvider: MarketplaceProvider,
     sqsProvider: SqsProvider,
   ) {
     super(sqsProvider)
@@ -39,18 +37,6 @@ export class AppEventWorkflow extends AbstractWorkflow<AppEventType> {
         const pipeline = await this.pipelineProvider.findById(payload.AppId)
 
         if (!pipeline) throw new Error('Will never get here')
-
-        const appDetails = await this.marketplaceProvider.getAppDetails(payload.AppId)
-
-        // TODO check redirect urls are not included in payload
-        await this.marketplaceProvider.updateAppUrls(
-          payload.AppId,
-          `${pipeline.subDomain}${process.env.NODE_ENV === 'production' ? '' : '.dev'}.iaas.reapit.cloud`,
-          payload.DeveloperId,
-          payload.ApplicationName,
-          appDetails.redirectUris,
-          appDetails.signoutUris,
-        )
 
         break
       }
