@@ -134,8 +134,6 @@ export class PipelineController {
         )
       : undefined
 
-    console.log('repository', repository)
-
     const updatedPipeline = await this.pipelineProvider.update(pipeline, {
       ...dto,
       repository,
