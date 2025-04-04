@@ -84,8 +84,6 @@ export const GithubProvider: FC<PropsWithChildren> = ({ children }) => {
     if (!storedToken) {
       redirectToGithub(redirect_uri, route)
     } else if (storedToken) {
-      // TODO add method to determine if the existing access_token has expired
-      // add condition here to prevent calls for refresh_token if access_token is not expired
       setGithubAuthenticating(true)
       const response = await authenticateWithGithub(
         {
