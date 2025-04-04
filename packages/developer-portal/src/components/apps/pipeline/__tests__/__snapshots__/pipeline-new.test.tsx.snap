@@ -162,12 +162,9 @@ exports[`PipelineNew Should match snapshot 1`] = `
               >
                 Github Repository
               </label>
-              <input
-                aria-label="Input type undefined"
-                class="mocked-styled-38 el-input"
-                name="repository.repositoryUrl"
-                placeholder="https://github.com/org/repo"
-              />
+              <mock-styled.div>
+                https://github.com/bashleigh/reapit-react-test
+              </mock-styled.div>
             </div>
           </div>
           <div
@@ -249,10 +246,10 @@ exports[`PipelineNew Should match snapshot 1`] = `
       />
       <div
         class="mocked-styled-147 el-mobile-controls"
-        id=":r0:"
+        id=":r1:"
       >
         <button
-          aria-controls=":r0:"
+          aria-controls=":r1:"
           class="el-floating-button el-intent-primary el-button"
         >
           <div
@@ -438,12 +435,9 @@ exports[`PipelineNew Should match snapshot 1`] = `
             >
               Github Repository
             </label>
-            <input
-              aria-label="Input type undefined"
-              class="mocked-styled-38 el-input"
-              name="repository.repositoryUrl"
-              placeholder="https://github.com/org/repo"
-            />
+            <mock-styled.div>
+              https://github.com/bashleigh/reapit-react-test
+            </mock-styled.div>
           </div>
         </div>
         <div
@@ -525,10 +519,10 @@ exports[`PipelineNew Should match snapshot 1`] = `
     />
     <div
       class="mocked-styled-147 el-mobile-controls"
-      id=":r0:"
+      id=":r1:"
     >
       <button
-        aria-controls=":r0:"
+        aria-controls=":r1:"
         class="el-floating-button el-intent-primary el-button"
       >
         <div
@@ -776,12 +770,9 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
               >
                 Github Repository
               </label>
-              <input
-                aria-label="Input type undefined"
-                class="mocked-styled-38 el-input"
-                name="repository.repositoryUrl"
-                placeholder="https://github.com/org/repo"
-              />
+              <mock-styled.div>
+                https://github.com/bashleigh/reapit-react-test
+              </mock-styled.div>
             </div>
           </div>
           <div
@@ -863,10 +854,10 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
       />
       <div
         class="mocked-styled-147 el-mobile-controls"
-        id=":r2:"
+        id=":r4:"
       >
         <button
-          aria-controls=":r2:"
+          aria-controls=":r4:"
           class="el-floating-button el-intent-primary el-button"
         >
           <div
@@ -1052,12 +1043,9 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
             >
               Github Repository
             </label>
-            <input
-              aria-label="Input type undefined"
-              class="mocked-styled-38 el-input"
-              name="repository.repositoryUrl"
-              placeholder="https://github.com/org/repo"
-            />
+            <mock-styled.div>
+              https://github.com/bashleigh/reapit-react-test
+            </mock-styled.div>
           </div>
         </div>
         <div
@@ -1139,10 +1127,10 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
     />
     <div
       class="mocked-styled-147 el-mobile-controls"
-      id=":r2:"
+      id=":r4:"
     >
       <button
-        aria-controls=":r2:"
+        aria-controls=":r4:"
         class="el-floating-button el-intent-primary el-button"
       >
         <div

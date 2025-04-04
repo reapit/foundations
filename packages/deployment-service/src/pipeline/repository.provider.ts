@@ -22,7 +22,7 @@ export class RepositoryProvider {
 
     return this.repository.save(
       this.repository.create({
-        repositoryUrl: repository.repositoryUrl,
+        ...repository,
         developerId,
       }),
     )
