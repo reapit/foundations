@@ -106,7 +106,6 @@ describe('handleSavePipeline', () => {
     const sendPipelineUpdate = jest.fn(
       () => new Promise<PipelineModelInterface>((resolve) => resolve({ subDomain: 'foo-bar' })),
     )
-    const createAppRevision = jest.fn(() => new Promise<Marketplace.AppDetailModel>((resolve) => resolve({})))
     const appsDetailRefresh = jest.fn()
     const appRefreshRevisions = jest.fn()
     const developerId = 'MOCK_DEVELOPER_ID'
@@ -114,7 +113,6 @@ describe('handleSavePipeline', () => {
     const pipelineUpdate = mockPipelineModelInterface
     const curried = handleSavePipeline(
       sendPipelineUpdate,
-      createAppRevision,
       appsDetailRefresh,
       appRefreshRevisions,
       appDetail,
@@ -125,7 +123,6 @@ describe('handleSavePipeline', () => {
     await curried()
 
     expect(sendPipelineUpdate).toHaveBeenCalledWith(pipelineUpdate)
-    expect(createAppRevision).toHaveBeenCalledTimes(1)
     expect(appsDetailRefresh).toHaveBeenCalledTimes(1)
     expect(appRefreshRevisions).toHaveBeenCalledTimes(1)
   })
