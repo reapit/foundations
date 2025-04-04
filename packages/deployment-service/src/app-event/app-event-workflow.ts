@@ -45,7 +45,7 @@ export class AppEventWorkflow extends AbstractWorkflow<AppEventType> {
         // TODO check redirect urls are not included in payload
         await this.marketplaceProvider.updateAppUrls(
           payload.AppId,
-          `https://${pipeline.subDomain}${process.env.NODE_ENV === 'production' ? '' : '.dev'}.iaas.reapit.cloud`,
+          `${pipeline.subDomain}${process.env.NODE_ENV === 'production' ? '' : '.dev'}.iaas.reapit.cloud`,
           payload.DeveloperId,
           payload.ApplicationName,
           appDetails.redirectUris,
