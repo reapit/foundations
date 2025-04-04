@@ -66,6 +66,7 @@ export const handleSavePipeline =
   (
     sendPipelineUpdate: SendFunction<PipelineModelInterface, boolean | PipelineModelInterface>,
     appsDetailRefresh: () => void,
+    appRefreshRevisions: () => void,
     appDetail: Marketplace.AppDetailModel | null,
     developerId: string | null,
     pipelineUpdate: PipelineModelInterface,
@@ -74,6 +75,7 @@ export const handleSavePipeline =
     const savedPipeline = await sendPipelineUpdate(pipelineUpdate)
     if (appDetail && savedPipeline && typeof savedPipeline !== 'boolean' && savedPipeline.subDomain && developerId) {
       appsDetailRefresh()
+      appRefreshRevisions()
     }
   }
 
@@ -184,10 +186,17 @@ export const PipelineControls: FC = () => {
         )}
         {pipelinePreprovisionedFlow.includes(appPipeline?.buildStatus as string) ? (
           <Button
-            onClick={handleSavePipeline(sendPipelineUpdate, appsDetailRefresh, appDetail, developerId, {
-              ...(appPipeline ?? {}),
-              buildStatus: 'PROVISION_REQUEST',
-            })}
+            onClick={handleSavePipeline(
+              sendPipelineUpdate,
+              appsDetailRefresh,
+              appRefreshRevisions,
+              appDetail,
+              developerId,
+              {
+                ...(appPipeline ?? {}),
+                buildStatus: 'PROVISION_REQUEST',
+              },
+            )}
             disabled={pipelineProvisioning.includes(appPipeline?.buildStatus as string)}
             loading={pipelineProvisioning.includes(appPipeline?.buildStatus as string)}
             intent="primary"
