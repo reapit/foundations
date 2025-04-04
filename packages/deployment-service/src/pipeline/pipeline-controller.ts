@@ -42,8 +42,6 @@ export class PipelineController {
 
     this.ownershipProvider.check(pipeline, creds.developerId as string)
 
-    console.log('pipeline', pipeline)
-
     return pipeline
   }
 
