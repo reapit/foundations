@@ -11,6 +11,7 @@ import { v4 as uuid } from 'uuid'
 import { ChangeResourceRecordSetsCommand, Route53Client } from '@aws-sdk/client-route-53'
 import { QueueNamesEnum } from '../constants'
 import { MarketplaceProvider } from '../marketplace'
+import { isAxiosError } from 'axios'
 
 @Workflow(QueueNamesEnum.PIPELINE_SETUP, () => PipelineEntity)
 export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
@@ -57,14 +58,21 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
 
       const appDetails = await this.marketplaceProvider.getAppDetails(pipeline.appId as string)
 
-      await this.marketplaceProvider.updateAppUrls(
-        pipeline.appId as string,
-        pipelineSubDomain,
-        pipeline.developerId as string,
-        appDetails.name as string,
-        appDetails.redirectUris,
-        appDetails.signoutUris,
-      )
+      try {
+        await this.marketplaceProvider.updateAppUrls(
+          pipeline.appId as string,
+          pipelineSubDomain,
+          pipeline.developerId as string,
+          appDetails.name as string,
+          appDetails.redirectUris,
+          appDetails.signoutUris,
+        )
+      } catch (error) {
+        if (isAxiosError(error)) {
+          console.log('Failed to create app reivision')
+          console.error(error)
+        } else throw error
+      }
 
       const updatedPipeline = await this.pipelineProvider.update(pipeline, {
         buildStatus: 'READY_FOR_DEPLOYMENT',
