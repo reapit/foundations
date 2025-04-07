@@ -53,14 +53,6 @@ export const getContext = (relModuleDir: string = '.', isIncremental?: boolean):
     throw new Error('tsconfig.json does not contain paths')
   }
 
-  const mn = Object.keys(paths)
-  const mnPath = mn.find((path) => path !== '@/*')
-
-  if (!mnPath) {
-    throw new Error('Could not find monorepo namespace')
-  }
-
-  const monorepoNamespace = mnPath.split('/*')[0]
   const mainModuleName = JSON.parse(fs.readFileSync(path.resolve('package.json'), 'utf-8')).name
 
   const { packagesRoot, repoRootLocation } = getWorkspaceRoot(relModuleDir)
@@ -84,7 +76,6 @@ export const getContext = (relModuleDir: string = '.', isIncremental?: boolean):
 
   return {
     mainModuleName,
-    monorepoNamespace,
     outDir,
     tmpDir,
     subdirs,
