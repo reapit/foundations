@@ -9,6 +9,7 @@ import { Server } from 'http'
 import express, { Express } from 'express'
 import * as bodyParser from 'body-parser'
 import { CorsHeaderInterceptor } from '@reapit/utils-nest'
+import { APIGatewayProxyResult } from 'aws-lambda/trigger/api-gateway-proxy'
 const crypto = require('crypto')
 
 global.crypto = crypto
@@ -43,8 +44,17 @@ async function bootstrapServer(): Promise<Server> {
   return cachedServer
 }
 
-export const handler: Handler = async (event: APIGatewayEvent, context: Context) => {
+export const handler: Handler<APIGatewayEvent, APIGatewayProxyResult> = async (event, context: Context) => {
   cachedServer = await bootstrapServer()
+
+  if (!event.path.includes('github')) {
+    return {
+      statusCode: 404,
+      body: 'Not Found',
+    }
+  }
+
+  event.path = event.path?.replace('api/', '')
 
   return proxy(cachedServer, event, context, 'PROMISE').promise
 }
