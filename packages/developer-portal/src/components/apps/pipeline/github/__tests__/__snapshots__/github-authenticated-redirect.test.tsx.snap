@@ -8,18 +8,18 @@ exports[`GtihubAuthenticatedRedirect Should match snapshot 1`] = `
       <div
         class="mocked-styled-93 el-snack-holder"
       />
-      <p>
-        Github authenticating...
-      </p>
+      <section
+        class="el-page-container"
+      />
     </div>
   </body>,
   "container": <div>
     <div
       class="mocked-styled-93 el-snack-holder"
     />
-    <p>
-      Github authenticating...
-    </p>
+    <section
+      class="el-page-container"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
