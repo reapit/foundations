@@ -14,7 +14,6 @@ export type Context = {
   repoRootLocation: string
   mainModuleName: string
   moduleDir: string
-  monorepoNamespace: string
   outDir: string
   tmpDir: string
   subdirs: string[]
