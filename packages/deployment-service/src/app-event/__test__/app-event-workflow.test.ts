@@ -2,7 +2,6 @@ import { Test } from '@nestjs/testing'
 import { AppEventWorkflow } from '../app-event-workflow'
 import { EventDispatcher, SqsProvider } from '../../events'
 import { PipelineProvider } from '../../pipeline'
-import { MarketplaceProvider } from '../../marketplace'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 import { SQSRecord } from 'aws-lambda'
 
@@ -26,16 +25,6 @@ const mockPipelineProvider = {
   saveAll: jest.fn(() => Promise.resolve()),
 }
 
-const mockMarketplaceProvider = {
-  updateAppUrls: jest.fn(() => Promise.resolve()),
-  getAppDetails: jest.fn(() =>
-    Promise.resolve({
-      redirectUris: ['http://localhost:8080'],
-      signoutUris: ['http://localhost:8080'],
-    }),
-  ),
-}
-
 const mockSqsProvider = {
   deleteMessage: jest.fn(() => Promise.resolve()),
 }
@@ -49,12 +38,10 @@ describe('AppEventWorkflow', () => {
 
   beforeAll(async () => {
     const module = await Test.createTestingModule({
-      providers: [EventDispatcher, PipelineProvider, MarketplaceProvider, SqsProvider, AppEventWorkflow],
+      providers: [EventDispatcher, PipelineProvider, SqsProvider, AppEventWorkflow],
     })
       .overrideProvider(PipelineProvider)
       .useValue(mockPipelineProvider)
-      .overrideProvider(MarketplaceProvider)
-      .useValue(mockMarketplaceProvider)
       .overrideProvider(SqsProvider)
       .useValue(mockSqsProvider)
       .overrideProvider(EventDispatcher)
@@ -67,7 +54,6 @@ describe('AppEventWorkflow', () => {
   afterEach(() => {
     mockPipelineProvider.create.mockReset()
     mockPipelineProvider.update.mockReset()
-    mockMarketplaceProvider.updateAppUrls.mockReset()
   })
 
   it('Create Event', async () => {
@@ -82,7 +68,6 @@ describe('AppEventWorkflow', () => {
       }),
     } as SQSRecord),
       expect(mockPipelineProvider.create).toHaveBeenCalled()
-    expect(mockMarketplaceProvider.updateAppUrls).toHaveBeenCalled()
     expect(mockSqsProvider.deleteMessage).toHaveBeenCalled()
   })
 

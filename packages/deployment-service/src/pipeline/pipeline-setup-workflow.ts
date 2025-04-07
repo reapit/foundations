@@ -48,9 +48,6 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
         throw new Error('cloudfront failed :shrug:')
       }
 
-      console.log('distro', distroResult)
-      console.log('distro', JSON.stringify(distroResult))
-
       const frontDomain = distroResult.Distribution?.DomainName
       const cloudFrontId = distroResult.Distribution?.Id
 
