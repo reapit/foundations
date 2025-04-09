@@ -31,6 +31,7 @@ import { ResolveProductionS3BucketPermissionsCustomResource } from './resolve-pr
 import { ResolveProductionOACCustomResource } from './resolve-production-OAC-custom-resource'
 import { ResolveProductionS3BucketPoliciesCustomResource } from './resolve-production-S3-bucket-policies-custom-resource'
 import { DnsCertificateUpdate } from './dns-certificate-update'
+import { ResolveS3BucketPolicyConditionsCustomResource } from './resolve-s3-bucket-policy-conditions-custom-resource'
 
 export const databaseName = 'deployment_service'
 
@@ -302,5 +303,11 @@ export const createStack = async () => {
   new ResolveProductionS3BucketPermissionsCustomResource(usercodeStack, 'resolve-s3-bucket-permissions', {
     buckets,
     iaasAccountId: usercodeStack.account,
+  })
+
+  new ResolveS3BucketPolicyConditionsCustomResource(usercodeStack, 'resolve-s3-bucket-policy-conditions', {
+    buckets,
+    iaasAccountId: usercodeStack.account,
+    paasAcountId: stack.account,
   })
 }
