@@ -12,7 +12,7 @@ enum BucketPolicyConditions {
 }
 
 enum BucketPolicyConditionKey {
-  'aws:PrincipalAccount' = 'aws:PrincipalAccount',
+  'aws:SourceAccount' = 'aws:SourceAccount',
 }
 
 type BucketPolicyCondition = {
@@ -95,7 +95,7 @@ const migrateS3BucketPolicyConditions = async ({
     bucketNames.map((bucketName) =>
       resolveBucketPolicyConditions(client)(bucketName, {
         [BucketPolicyConditions.StringEquals]: {
-          [BucketPolicyConditionKey['aws:PrincipalAccount']]: [paasAccountId, iaasAccountId],
+          [BucketPolicyConditionKey['aws:SourceAccount']]: [paasAccountId, iaasAccountId],
         },
       }),
     ),
