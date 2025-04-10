@@ -152,7 +152,7 @@ export const createStack = async () => {
       entrypoint: 'bundle/sns.zip',
     },
     httpApi: {
-      handler: createFileLoc('http', 'handler'),
+      handler: createFileLoc('httpApi', 'handler'),
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy, policies.route53Policy],
       api: {
         routes: [
