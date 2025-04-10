@@ -258,7 +258,9 @@ export const AppsNewPage: FC = () => {
             <Subtitle hasBoldText>{headingText}</Subtitle>
             <FlexContainer className={elMb7}>
               <Icon className={elMr5} icon={iconName} iconSize="large" />
-              <SmallText hasGreyText>{headerText}</SmallText>
+              <SmallText tag="div" hasGreyText>
+                {headerText}
+              </SmallText>
             </FlexContainer>
             <FlexContainer>
               <StepOptionsContent register={register} errors={errors} getValues={getValues} />

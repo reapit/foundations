@@ -118,11 +118,11 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
             >
               Apps Documentation
             </p>
-            <small
+            <div
               class="el-text-base el-small-text el-has-grey-text"
             >
               This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-            </small>
+            </div>
             <div
               class="mocked-styled-2 el-button-group"
             >
@@ -414,11 +414,11 @@ exports[`AppsPage should match a snapshot when I have the full menu 1`] = `
           >
             Apps Documentation
           </p>
-          <small
+          <div
             class="el-text-base el-small-text el-has-grey-text"
           >
             This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-          </small>
+          </div>
           <div
             class="mocked-styled-2 el-button-group"
           >
@@ -874,11 +874,11 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
             >
               Apps Documentation
             </p>
-            <small
+            <div
               class="el-text-base el-small-text el-has-grey-text"
             >
               This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-            </small>
+            </div>
             <div
               class="mocked-styled-2 el-button-group"
             >
@@ -1170,11 +1170,11 @@ exports[`AppsPage should match a snapshot when apps are present 1`] = `
           >
             Apps Documentation
           </p>
-          <small
+          <div
             class="el-text-base el-small-text el-has-grey-text"
           >
             This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-          </small>
+          </div>
           <div
             class="mocked-styled-2 el-button-group"
           >

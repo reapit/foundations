@@ -25,7 +25,7 @@ export const SelectRolePage: FC = () => {
               <Icon className={elMr5} fontSize="4rem" icon="propTechInfographic" />
               <FlexContainer isFlexJustifyCenter isFlexColumn>
                 <BodyText>PropTech</BodyText>
-                <SmallText hasGreyText hasNoMargin>
+                <SmallText tag="div" hasGreyText hasNoMargin>
                   Independent company building an app or integration
                 </SmallText>
               </FlexContainer>
@@ -42,7 +42,7 @@ export const SelectRolePage: FC = () => {
               <Icon className={elMr5} fontSize="4rem" icon="webDeveloperInfographic" />
               <FlexContainer isFlexJustifyCenter isFlexColumn>
                 <BodyText>Third-party developer</BodyText>
-                <SmallText hasGreyText hasNoMargin>
+                <SmallText tag="div" hasGreyText hasNoMargin>
                   Working on behalf of a Reapit agent to build either a private app or website feed
                 </SmallText>
               </FlexContainer>
@@ -54,8 +54,8 @@ export const SelectRolePage: FC = () => {
             <Icon className={elMr5} fontSize="4rem" icon="foundationsCustomerInfographic" />
             <FlexContainer isFlexJustifyCenter isFlexColumn>
               <BodyText>Existing Customer</BodyText>
-              <SmallText hasGreyText hasNoMargin>
-                Existing Reapit AgencyCloud (desktop CRM) subscriber
+              <SmallText tag="div" hasGreyText hasNoMargin>
+                Existing Reapit CRM subscriber
               </SmallText>
             </FlexContainer>
           </FlexContainer>
@@ -65,7 +65,7 @@ export const SelectRolePage: FC = () => {
             <Icon className={elMr5} fontSize="4rem" icon="newCustomerInfographic" />
             <FlexContainer isFlexJustifyCenter isFlexColumn>
               <BodyText>Prospective Customer</BodyText>
-              <SmallText hasGreyText hasNoMargin>
+              <SmallText tag="div" hasGreyText hasNoMargin>
                 Interested in Reapit Products, not currently a subscriber
               </SmallText>
             </FlexContainer>
@@ -78,8 +78,8 @@ export const SelectRolePage: FC = () => {
           <FlexContainer isFlexJustifyCenter isFlexColumn>
             <BodyText>New Customer</BodyText>
             <BodyText hasGreyText>
-              To find out more about DeveloperPortal, AgencyCloud and the AppMarket, just enter your email address and
-              we will be in touch:
+              To find out more about DeveloperPortal, Reapit CRM and the AppMarket, just enter your email address and we
+              will be in touch:
             </BodyText>
           </FlexContainer>
         </FlexContainer>

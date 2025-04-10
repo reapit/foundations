@@ -230,7 +230,7 @@ exports[`AppsWelcome should match a snapshot when apps are present 1`] = `
                     <p
                       class="el-text-base el-body-text el-has-grey-text"
                     >
-                      Creating an app is the starting point for authenticating against the Foundations APIs. Your app might be a web application, possibly rendered inside of the AgencyCloud CRM, or a simple data feed to serve a website.
+                      Creating an app is the starting point for authenticating against the Foundations APIs. Your app might be a web application, possibly rendered inside of the Reapit CRM, or a simple data feed to serve a website.
                     </p>
                   </div>
                   <div
@@ -280,7 +280,7 @@ exports[`AppsWelcome should match a snapshot when apps are present 1`] = `
               <p
                 class="el-text-base el-body-text el-has-grey-text"
               >
-                Reapit Foundations is a Platform as a Service that enables developers to access, update and enhance data within the Reapit AgencyCloud desktop CRM.
+                Reapit Foundations is a Platform as a Service that enables developers to access, update and enhance data within the Reapit CRM.
               </p>
               <svg
                 fill="none"
@@ -796,7 +796,7 @@ exports[`AppsWelcome should match a snapshot when apps are present 1`] = `
                   <p
                     class="el-text-base el-body-text el-has-grey-text"
                   >
-                    Creating an app is the starting point for authenticating against the Foundations APIs. Your app might be a web application, possibly rendered inside of the AgencyCloud CRM, or a simple data feed to serve a website.
+                    Creating an app is the starting point for authenticating against the Foundations APIs. Your app might be a web application, possibly rendered inside of the Reapit CRM, or a simple data feed to serve a website.
                   </p>
                 </div>
                 <div
@@ -846,7 +846,7 @@ exports[`AppsWelcome should match a snapshot when apps are present 1`] = `
             <p
               class="el-text-base el-body-text el-has-grey-text"
             >
-              Reapit Foundations is a Platform as a Service that enables developers to access, update and enhance data within the Reapit AgencyCloud desktop CRM.
+              Reapit Foundations is a Platform as a Service that enables developers to access, update and enhance data within the Reapit CRM.
             </p>
             <svg
               fill="none"
