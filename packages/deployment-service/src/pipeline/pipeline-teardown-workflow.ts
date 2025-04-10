@@ -7,6 +7,7 @@ import { PipelineEntity } from '../entities/pipeline.entity'
 import { PipelineProvider } from './pipeline-provider'
 import { PipelineRunnerProvider, TaskProvider } from '../pipeline-runner'
 import { ParameterProvider } from './parameter-provider'
+import { ACMClient, DeleteCertificateCommand } from '@aws-sdk/client-acm'
 
 @Workflow(QueueNamesEnum.PIPELINE_TEAR_DOWN, () => PipelineEntity)
 export class PipelineTearDownWorkflow extends AbstractWorkflow<PipelineEntity> {
@@ -20,18 +21,20 @@ export class PipelineTearDownWorkflow extends AbstractWorkflow<PipelineEntity> {
     private readonly parameterProvider: ParameterProvider,
     private readonly cloudfrontClient: CloudFrontClient,
     private readonly route53Client: Route53Client,
+    private readonly certificateClient: ACMClient,
   ) {
     super(sqsProvider)
   }
 
-  private tearDownLiveBucketLocation = (location: string): Promise<void> => {
+  private async tearDownLiveBucketLocation(location: string): Promise<void> {
     return this.s3Provider.deleteObject({
       Bucket: process.env.DEPLOYMENT_LIVE_BUCKET_NAME as string,
       Key: location,
     })
   }
 
-  private tearDownR53 = (domain: string, pipelineId: string, subDomain: string): Promise<any> => {
+  private async tearDownR53(domain: string, pipelineId: string, subDomain: string): Promise<any> {
+    // todo fetch from r53?
     return this.route53Client.send(
       new ChangeResourceRecordSetsCommand({
         HostedZoneId: process.env.HOSTED_ZONE_ID,
@@ -41,11 +44,11 @@ export class PipelineTearDownWorkflow extends AbstractWorkflow<PipelineEntity> {
               Action: 'DELETE',
               ResourceRecordSet: {
                 Type: 'A',
-                Name: `${subDomain}.iaas.paas.reapit.cloud`,
+                Name: `${subDomain}${process.env.NODE_ENV === 'production' ? '' : '.dev'}.iaas.paas.reapit.cloud`,
                 AliasTarget: {
                   DNSName: domain,
                   EvaluateTargetHealth: false,
-                  HostedZoneId: 'Z2FDTNDATAQYW2',
+                  HostedZoneId: 'Z2FDTNDATAQYW2', // hardcoded?
                 },
               },
             },
@@ -56,13 +59,13 @@ export class PipelineTearDownWorkflow extends AbstractWorkflow<PipelineEntity> {
     )
   }
 
-  private deleteAllFromDb = async (pipeline: PipelineEntity) => {
+  private async deleteAllFromDb(pipeline: PipelineEntity) {
     await this.taskProvider.deleteForPipeline(pipeline)
     await this.pipelineRunnerProvider.deleteForPipeline(pipeline)
     await this.pipelineProvider.delete(pipeline)
   }
 
-  private tearDownCloudFront = async (Id: string): Promise<string> => {
+  private async tearDownCloudFront(Id: string): Promise<string> {
     const cloudFrontDistro = await this.cloudfrontClient.send(
       new GetDistributionCommand({
         Id,
@@ -79,6 +82,16 @@ export class PipelineTearDownWorkflow extends AbstractWorkflow<PipelineEntity> {
     return cloudFrontDistro.Distribution?.DomainName as string
   }
 
+  private async tearDownCertificate(pipeline: PipelineEntity): Promise<void> {
+    if (pipeline.certificateArn) {
+      await this.certificateClient.send(
+        new DeleteCertificateCommand({
+          CertificateArn: pipeline.certificateArn,
+        }),
+      )
+    }
+  }
+
   // TODO add try catch for failure results
   async execute(pipeline: PipelineEntity) {
     await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
@@ -88,12 +101,15 @@ export class PipelineTearDownWorkflow extends AbstractWorkflow<PipelineEntity> {
     if (pipeline.buildStatus !== 'PRE_PROVISIONED') {
       await this.tearDownLiveBucketLocation(`pipeline/${pipeline.uniqueRepoName}`)
 
+      console.log('testing exists', pipeline.hasDistro, pipeline.cloudFrontId, pipeline.subDomain)
+
       if (pipeline.hasDistro) {
         const domainName = await this.tearDownCloudFront(pipeline.cloudFrontId as string)
 
         if (pipeline.hasRoute53) await this.tearDownR53(domainName, pipeline.id as string, pipeline.subDomain as string)
       }
     }
+    await this.tearDownCertificate(pipeline)
 
     await this.parameterProvider.destroyParameters(pipeline.id as string)
 

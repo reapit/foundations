@@ -61,12 +61,6 @@ functions:
           includeBody: false
           stage: ${opt:stage, 'dev'}
       - preExistingCloudFront:
-          distributionId: ${self:custom.env.amlCheckListCfDistId}
-          eventType: origin-response
-          pathPattern: '*'
-          includeBody: false
-          stage: ${opt:stage, 'dev'}
-      - preExistingCloudFront:
           distributionId: ${self:custom.env.marketplaceManagementCfDistId}
           eventType: origin-response
           pathPattern: '*'

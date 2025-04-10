@@ -1,5 +1,5 @@
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common'
-import { LoginIdentity } from '@reapit/connect-session'
+import { LoginIdentity } from '@reapit/connect-session-server'
 import { ACCESS_TOKEN_PROVIDER_CONFIG_PROVIDE } from '../consts'
 
 export interface AccessTokenProviderConfigInterface {

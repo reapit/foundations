@@ -81,6 +81,26 @@ exports[`PipelineNew Should match snapshot 1`] = `
               Environment Variables
             </span>
           </label>
+          <input
+            aria-selected="false"
+            class="mocked-styled-117 el-tabs"
+            id="DNS"
+            name="pipeline-tabs"
+            type="radio"
+            value="DNS"
+          />
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="DNS"
+            role="tab"
+            tabindex="0"
+          >
+            <span
+              class="el-tabs-item"
+            >
+              Custom DNS
+            </span>
+          </label>
         </div>
         <div
           class="el-tabs-full-width el-tabs-footer"
@@ -335,6 +355,26 @@ exports[`PipelineNew Should match snapshot 1`] = `
             class="el-tabs-item"
           >
             Environment Variables
+          </span>
+        </label>
+        <input
+          aria-selected="false"
+          class="mocked-styled-117 el-tabs"
+          id="DNS"
+          name="pipeline-tabs"
+          type="radio"
+          value="DNS"
+        />
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="DNS"
+          role="tab"
+          tabindex="0"
+        >
+          <span
+            class="el-tabs-item"
+          >
+            Custom DNS
           </span>
         </label>
       </div>
@@ -655,6 +695,26 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
               Environment Variables
             </span>
           </label>
+          <input
+            aria-selected="false"
+            class="mocked-styled-117 el-tabs"
+            id="DNS"
+            name="pipeline-tabs"
+            type="radio"
+            value="DNS"
+          />
+          <label
+            class="mocked-styled-118 el-tabs-label"
+            for="DNS"
+            role="tab"
+            tabindex="0"
+          >
+            <span
+              class="el-tabs-item"
+            >
+              Custom DNS
+            </span>
+          </label>
         </div>
         <div
           class="el-tabs-full-width el-tabs-footer"
@@ -909,6 +969,26 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
             class="el-tabs-item"
           >
             Environment Variables
+          </span>
+        </label>
+        <input
+          aria-selected="false"
+          class="mocked-styled-117 el-tabs"
+          id="DNS"
+          name="pipeline-tabs"
+          type="radio"
+          value="DNS"
+        />
+        <label
+          class="mocked-styled-118 el-tabs-label"
+          for="DNS"
+          role="tab"
+          tabindex="0"
+        >
+          <span
+            class="el-tabs-item"
+          >
+            Custom DNS
           </span>
         </label>
       </div>

@@ -1,6 +1,7 @@
 {
   "name": "deployment-service",
   "dependencies": {
+    "@aws-sdk/client-acm": "^3.670.0",
     "@aws-sdk/client-cloudfront": "^3.675.0",
     "@aws-sdk/client-rds": "^3.709.0",
     "@aws-sdk/client-route-53": "^3.675.0",
@@ -13,8 +14,8 @@
     "@nestjs/passport": "^11.0.4",
     "@nestjs/platform-express": "^11.0.5",
     "@nestjs/typeorm": "^8.1.4",
-    "@octokit/app": "^14.1.0",
-    "@reapit/foundations-ts-definitions": "^1.5.9",
+    "@octokit/app": "^14.0.2",
+    "@reapit/foundations-ts-definitions": "^2.1.20",
     "@reapit/utils-authorizer": "workspace:^",
     "@reapit/utils-nest": "workspace:packages/utils-nest",
     "@reapit/utils-node": "workspace:^",
@@ -87,5 +88,5 @@
     "tsup": "^8.3.6",
     "typescript": "^5.6.3"
   },
-  "version": "3.1.20"
+  "version": "3.1.21"
 }

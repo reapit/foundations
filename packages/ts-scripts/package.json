@@ -58,7 +58,7 @@
     "ajv": "^8.17.1",
     "autoprefixer": "^10.4.20",
     "aws-cdk": "^2.162.1",
-    "aws-cdk-lib": "2.133.0",
+    "aws-cdk-lib": "^2.162.0",
     "aws-jwt-verify": "^4.0.1",
     "aws-sdk": "^2.1691.0",
     "babel-jest": "^29.7.0",
@@ -101,7 +101,7 @@
     "vite": "^6.1.0",
     "vite-plugin-checker": "^0.8.0",
     "vite-plugin-graphql-loader": "^3.0.1",
-    "vite-plugin-pwa": "^0.20.5",
+    "vite-plugin-pwa": "^0.21.1",
     "vite-plugin-top-level-await": "^1.4.4"
   }
 }

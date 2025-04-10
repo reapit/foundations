@@ -19,6 +19,9 @@ import { pipelineBitbucketRelation1654693666828 } from './1654693666828-pipeline
 import { pipelineRepositoryNullable1655394853865 } from './1655394853865-pipelineRepositoryNullable'
 import { githubRepository1697724871099 } from './1697724871099-github-repository'
 import { githubRepositoryDeveloperId1698161392543 } from './1698161392543-github-repository-developerId'
+import { AddDomainFields1729084248683 } from './1729084248683-AddDomainFields'
+import { AddDomainStatusField1732024866737 } from './1732024866737-AddDomainStatusField'
+import { DnsDuplicateField1743066932147 } from './1743066932147-DnsDuplicateField'
 
 export default [
   pipelines1625758770110,
@@ -42,4 +45,7 @@ export default [
   pipelineRepositoryNullable1655394853865,
   githubRepository1697724871099,
   githubRepositoryDeveloperId1698161392543,
+  AddDomainFields1729084248683,
+  AddDomainStatusField1732024866737,
+  DnsDuplicateField1743066932147,
 ]

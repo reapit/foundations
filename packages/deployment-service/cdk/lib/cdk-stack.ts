@@ -30,6 +30,7 @@ import * as cdk from 'aws-cdk-lib'
 import { ResolveProductionS3BucketPermissionsCustomResource } from './resolve-production-S3-bucket-permissions-custom-resource'
 import { ResolveProductionOACCustomResource } from './resolve-production-OAC-custom-resource'
 import { ResolveProductionS3BucketPoliciesCustomResource } from './resolve-production-S3-bucket-policies-custom-resource'
+import { DnsCertificateUpdate } from './dns-certificate-update'
 
 export const databaseName = 'deployment_service'
 
@@ -76,7 +77,7 @@ export const createStack = async () => {
   const vpc = createVpc(stack, 'vpc')
   const buckets = createS3Buckets(usercodeStack, envStage)
   const queues = createSqsQueues(stack)
-  const database = createDatabase(stack, 'database', databaseName, vpc)
+  const database = createDatabase(stack, 'database', databaseName, vpc, undefined, true)
 
   const secretManager = database.secret
 
@@ -134,7 +135,12 @@ export const createStack = async () => {
     },
     appEvents: {
       handler: createFileLoc('sqs', 'handle'),
-      policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy, policies.route53Policy],
+      policies: [
+        ...policies.commonBackendPolicies,
+        policies.cloudFrontPolicy,
+        policies.route53Policy,
+        policies.certificatePolicy,
+      ],
       queues: [queues[QueueNames.APP_EVENTS]],
       entrypoint: 'bundle/sqs.zip',
     },
@@ -249,6 +255,13 @@ export const createStack = async () => {
       addLambdaSNSTrigger(lambda, options.topic)
     }
   }
+
+  new DnsCertificateUpdate(stack, 'dns-certificate', {
+    vpc,
+    usercodeStack,
+    environmentVars: env,
+    policies: [...policies.commonBackendPolicies, policies.certificatePolicy, policies.cloudFrontPolicy],
+  })
 
   /**
    * NOTE: In order to make a successful deployment, migrations must be removed for the first deloy

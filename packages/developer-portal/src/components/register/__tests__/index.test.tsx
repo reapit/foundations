@@ -22,6 +22,12 @@ jest.mock('../../../services/developer', () => ({
 
 const mockCreateDevelperService = createDeveloperService as jest.Mock
 
+const mockStepContext = {
+  goToStep: jest.fn(),
+}
+
+const setDeveloperState = jest.fn()
+
 describe('Register', () => {
   it('should match a snapshot', () => {
     process.env.appEnv = 'development'
@@ -38,11 +44,14 @@ describe('onSubmit', () => {
     MockDate.reset()
   })
 
+  afterEach(() => {
+    setDeveloperState.mockReset()
+  })
+
   it('should submit correctly', async () => {
     mockCreateDevelperService.mockReturnValue(true)
-    const setDeveloperState = jest.fn()
     const error = jest.fn()
-    const curried = onSubmit(mockRegisterFormValues, setDeveloperState, error)
+    const curried = onSubmit(mockRegisterFormValues, setDeveloperState, error, mockStepContext)
 
     await curried()
 
@@ -52,14 +61,14 @@ describe('onSubmit', () => {
     })
 
     expect(error).not.toHaveBeenCalled()
-    expect(setDeveloperState).toHaveBeenCalledWith('SUCCESS')
+    expect(setDeveloperState).toHaveBeenCalledWith({ state: 'SUCCESS' })
   })
 
   it('should fail correctly', async () => {
     mockCreateDevelperService.mockReturnValue('Err message')
     const setDeveloperState = jest.fn()
     const error = jest.fn()
-    const curried = onSubmit(mockRegisterFormValues, setDeveloperState, error)
+    const curried = onSubmit(mockRegisterFormValues, setDeveloperState, error, mockStepContext)
 
     await curried()
 
@@ -68,8 +77,25 @@ describe('onSubmit', () => {
       agreedTerms: dayjs().format(DATE_TIME_FORMAT.RFC3339),
     })
 
-    expect(error.mock.calls[0][0]).toEqual('Err message')
-    expect(setDeveloperState).toHaveBeenCalledWith('ERROR')
+    expect(error).toHaveBeenCalledWith('Err message', 5000)
+    expect(setDeveloperState).toHaveBeenLastCalledWith({ state: 'ERROR', message: '' })
+  })
+
+  it('should fail with error message', async () => {
+    mockCreateDevelperService.mockReturnValue('email')
+    const setDeveloperState = jest.fn()
+    const error = jest.fn()
+    const curried = onSubmit(mockRegisterFormValues, setDeveloperState, error, mockStepContext)
+
+    await curried()
+
+    expect(createDeveloperService).toHaveBeenCalledWith({
+      ...mockRegisterFormValues,
+      agreedTerms: dayjs().format(DATE_TIME_FORMAT.RFC3339),
+    })
+
+    expect(error).toHaveBeenCalledWith('email', 5000)
+    expect(setDeveloperState).toHaveBeenCalledWith({ state: 'ERROR', message: 'Email address already in use' })
   })
 })
 

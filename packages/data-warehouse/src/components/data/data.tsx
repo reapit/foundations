@@ -70,7 +70,7 @@ export const Data: FC = () => {
           <Button
             className={elMb5}
             intent="neutral"
-            onClick={openNewPage('https://www.youtube.com/watch?v=hro2CVE4Rn4')}
+            onClick={openNewPage('https://www.youtube.com/watch?v=dX9xhOENd7U')}
           >
             Video
           </Button>
