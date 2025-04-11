@@ -10,6 +10,8 @@ import { PipelineEntity } from '../entities/pipeline.entity'
 import { v4 as uuid } from 'uuid'
 import { ChangeResourceRecordSetsCommand, Route53Client } from '@aws-sdk/client-route-53'
 import { QueueNamesEnum } from '../constants'
+import { MarketplaceProvider } from '../marketplace'
+import { isAxiosError } from 'axios'
 
 @Workflow(QueueNamesEnum.PIPELINE_SETUP, () => PipelineEntity)
 export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
@@ -20,6 +22,7 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
     private readonly s3Provider: S3Provider,
     private readonly cloudfrontClient: CloudFrontClient,
     private readonly route53Client: Route53Client,
+    private readonly marketplaceProvider: MarketplaceProvider,
   ) {
     super(sqsProvider)
   }
@@ -34,22 +37,39 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
         message: 'Started architecture build',
       })
 
+      const pipelineSubDomain = `${pipeline.subDomain}.iaas${process.env.APP_STAGE === 'production' ? '' : '.dev'}.paas.reapit.cloud`
+
       await this.s3Provision(pipeline)
 
-      const distroResult = await this.createDistro(pipeline)
+      const distroResult = await this.createDistro(pipeline, pipelineSubDomain)
 
       if (!distroResult) {
         // TODO this did not error??? why???
         throw new Error('cloudfront failed :shrug:')
       }
 
-      console.log('distro', distroResult)
-      console.log('distro', JSON.stringify(distroResult))
-
       const frontDomain = distroResult.Distribution?.DomainName
       const cloudFrontId = distroResult.Distribution?.Id
 
       const aRecordId = await this.createARecord(pipeline, frontDomain as string)
+
+      const appDetails = await this.marketplaceProvider.getAppDetails(pipeline.appId as string)
+
+      try {
+        await this.marketplaceProvider.updateAppUrls(
+          pipeline.appId as string,
+          pipelineSubDomain,
+          pipeline.developerId as string,
+          appDetails.name as string,
+          appDetails.redirectUris,
+          appDetails.signoutUris,
+        )
+      } catch (error) {
+        if (isAxiosError(error)) {
+          console.log('Failed to create app reivision')
+          console.error(error)
+        } else throw error
+      }
 
       const updatedPipeline = await this.pipelineProvider.update(pipeline, {
         buildStatus: 'READY_FOR_DEPLOYMENT',
@@ -74,7 +94,7 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
     return result.OriginAccessControlList?.Items?.find((item) => item.Name === 'distro-to-s3')?.Id
   }
 
-  private async createDistro(pipeline: PipelineEntity) {
+  private async createDistro(pipeline: PipelineEntity, pipelineSubDomain: string) {
     const id = uuid()
 
     const AOCId = await this.findOACId()
@@ -105,9 +125,7 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
         },
         Aliases: {
           Quantity: 1,
-          Items: [
-            `${pipeline.subDomain}.iaas${process.env.APP_STAGE === 'production' ? '' : '.dev'}.paas.reapit.cloud`,
-          ],
+          Items: [pipelineSubDomain],
         },
         Comment: `Cloudfront distribution for pipeline [${pipeline.id}] [${
           process.env.NODE_ENV === 'production' ? 'prod' : 'dev'

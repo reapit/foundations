@@ -50,7 +50,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
             >
               <mock-styled.div>
                 <mock-styled.div>
-                  <svg />
+                  <img
+                    alt="CRM Image"
+                    src="[object Object]"
+                  />
                   <mock-styled.div>
                     Become familiar with our CRM software using sandbox data
                   </mock-styled.div>
@@ -58,7 +61,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
               </mock-styled.div>
               <mock-styled.div>
                 <mock-styled.div>
-                  <svg />
+                  <img
+                    alt="Phone Image"
+                    src="[object Object]"
+                  />
                   <mock-styled.div>
                     Test your Marketplace application inside Agency Cloud
                   </mock-styled.div>
@@ -66,7 +72,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
               </mock-styled.div>
               <mock-styled.div>
                 <mock-styled.div>
-                  <svg />
+                  <img
+                    alt="Customer Image"
+                    src="[object Object]"
+                  />
                   <mock-styled.div>
                     Understand how customers will interact with your application
                   </mock-styled.div>
@@ -142,7 +151,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                   How your app integrates with the Developer Edition of Agency Cloud
                 </h2>
                 <mock-styled.div>
-                  <svg />
+                  <img
+                    alt="Video Image"
+                    src="[object Object]"
+                  />
                   <small
                     class="el-text-base el-small-text mock-css.
   color: var(--color-grey-500);
@@ -190,7 +202,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                     <mock-styled.div
                       classname="el-mx4"
                     >
-                      <svg />
+                      <img
+                        alt="Windows Image"
+                        src="[object Object]"
+                      />
                       <mock-styled.div
                         classname="mock-css.
   color: var(--color-grey-500);
@@ -266,7 +281,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
   }
 "
                     >
-                      <svg />
+                      <img
+                        alt="Developer Edition Image One"
+                        src="[object Object]"
+                      />
                     </mock-styled.div>
                     <mock-styled.div
                       classname="mock-css.
@@ -304,7 +322,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
   }
 "
                     >
-                      <svg />
+                      <img
+                        alt="Developer Edition Image Two"
+                        src="[object Object]"
+                      />
                     </mock-styled.div>
                     <mock-styled.div
                       classname="mock-css.
@@ -333,7 +354,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
   }
 "
                     >
-                      <svg />
+                      <img
+                        alt="Developer Edition Image Three"
+                        src="[object Object]"
+                      />
                     </mock-styled.div>
                   </mock-styled.div>
                 </div>
@@ -390,7 +414,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
           >
             <mock-styled.div>
               <mock-styled.div>
-                <svg />
+                <img
+                  alt="CRM Image"
+                  src="[object Object]"
+                />
                 <mock-styled.div>
                   Become familiar with our CRM software using sandbox data
                 </mock-styled.div>
@@ -398,7 +425,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.div>
-                <svg />
+                <img
+                  alt="Phone Image"
+                  src="[object Object]"
+                />
                 <mock-styled.div>
                   Test your Marketplace application inside Agency Cloud
                 </mock-styled.div>
@@ -406,7 +436,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.div>
-                <svg />
+                <img
+                  alt="Customer Image"
+                  src="[object Object]"
+                />
                 <mock-styled.div>
                   Understand how customers will interact with your application
                 </mock-styled.div>
@@ -482,7 +515,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                 How your app integrates with the Developer Edition of Agency Cloud
               </h2>
               <mock-styled.div>
-                <svg />
+                <img
+                  alt="Video Image"
+                  src="[object Object]"
+                />
                 <small
                   class="el-text-base el-small-text mock-css.
   color: var(--color-grey-500);
@@ -530,7 +566,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
                   <mock-styled.div
                     classname="el-mx4"
                   >
-                    <svg />
+                    <img
+                      alt="Windows Image"
+                      src="[object Object]"
+                    />
                     <mock-styled.div
                       classname="mock-css.
   color: var(--color-grey-500);
@@ -606,7 +645,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
   }
 "
                   >
-                    <svg />
+                    <img
+                      alt="Developer Edition Image One"
+                      src="[object Object]"
+                    />
                   </mock-styled.div>
                   <mock-styled.div
                     classname="mock-css.
@@ -644,7 +686,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
   }
 "
                   >
-                    <svg />
+                    <img
+                      alt="Developer Edition Image Two"
+                      src="[object Object]"
+                    />
                   </mock-styled.div>
                   <mock-styled.div
                     classname="mock-css.
@@ -673,7 +718,10 @@ exports[`DeveloperDesktopPage should match snapshot 1`] = `
   }
 "
                   >
-                    <svg />
+                    <img
+                      alt="Developer Edition Image Three"
+                      src="[object Object]"
+                    />
                   </mock-styled.div>
                 </mock-styled.div>
               </div>

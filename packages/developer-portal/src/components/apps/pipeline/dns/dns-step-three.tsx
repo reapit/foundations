@@ -8,7 +8,6 @@ import {
   FlexContainer,
   FormLayout,
   InputWrapHalf,
-  Label,
   Loader,
   PersistantNotification,
   StatusIndicator,
@@ -21,6 +20,7 @@ import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { cx } from '@linaria/core'
 import { useAppState } from '../../state/use-app-state'
 import CopyToClipboard from 'react-copy-to-clipboard'
+import { elNoMargin } from './__styles__'
 
 export interface CopyState {
   Name: string
@@ -110,7 +110,9 @@ export const PipelineDnsStepThree: FC<{
     <>
       <FlexContainer className={cx(elMb6)}>
         <Steps className={cx(elMr2)} steps={['2']} selectedStep="2" />
-        <Subtitle>Certificate Records</Subtitle>
+        <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
+          <Subtitle className={cx(elNoMargin)}>Certificate Records</Subtitle>
+        </FlexContainer>
       </FlexContainer>
       <div className={cx(elMb6)}>
         <BodyText>Domain ownership has been verified.</BodyText>

@@ -99,11 +99,11 @@ exports[`AnalyticsV2 should match snapshot 1`] = `
             >
               Filter By
             </p>
-            <small
+            <div
               class="el-text-base el-small-text el-has-grey-text"
             >
               Please use the filters below to search. Please note, we only hold transactional records for the last 12 months.
-            </small>
+            </div>
             <div
               class="el-border-radius mock-css.
   overflow: hidden;
@@ -371,11 +371,11 @@ exports[`AnalyticsV2 should match snapshot 1`] = `
           >
             Filter By
           </p>
-          <small
+          <div
             class="el-text-base el-small-text el-has-grey-text"
           >
             Please use the filters below to search. Please note, we only hold transactional records for the last 12 months.
-          </small>
+          </div>
           <div
             class="el-border-radius mock-css.
   overflow: hidden;

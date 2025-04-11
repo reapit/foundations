@@ -98,8 +98,8 @@ export const AppsWelcomePage: FC = () => {
                   <Icon className={elMr5} icon="welcomeInfographic" iconSize="large" />
                   <BodyText hasGreyText>
                     Creating an app is the starting point for authenticating against the Foundations APIs. Your app
-                    might be a web application, possibly rendered inside of the AgencyCloud CRM, or a simple data feed
-                    to serve a website.
+                    might be a web application, possibly rendered inside of the Reapit CRM, or a simple data feed to
+                    serve a website.
                   </BodyText>
                 </FlexContainer>
                 <div className={elMb7}>
@@ -133,7 +133,7 @@ export const AppsWelcomePage: FC = () => {
         <Title>About Foundations</Title>
         <BodyText hasGreyText>
           Reapit Foundations is a Software as a Service Platform that enables developers to access, update and enhance
-          data within the Reapit AgencyCloud desktop CRM.
+          data within the Reapit CRM.
         </BodyText>
         <BodyText hasGreyText>
           There are a number of aspects to Foundations documented within this Developer Portal, specifically, APIs,
