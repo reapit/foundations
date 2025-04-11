@@ -14,7 +14,7 @@ exports[`DeveloperEditionDownload should match snapshot 1`] = `
         <h1
           class="el-text-base el-title"
         >
-          AgencyCloud Developer Edition
+          Reapit CRM Developer Edition
         </h1>
         <div
           class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
@@ -65,7 +65,7 @@ exports[`DeveloperEditionDownload should match snapshot 1`] = `
       <h1
         class="el-text-base el-title"
       >
-        AgencyCloud Developer Edition
+        Reapit CRM Developer Edition
       </h1>
       <div
         class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"

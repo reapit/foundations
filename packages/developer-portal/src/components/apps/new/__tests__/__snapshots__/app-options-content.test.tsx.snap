@@ -55,7 +55,7 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
           </svg>
         </span>
         <mock-styled.div>
-          AgencyCloud Functionality
+          Reapit CRM Functionality
         </mock-styled.div>
         <span
           class="el-intent-primary el-icon-new el-icon"
@@ -479,7 +479,7 @@ exports[`AppOptionsContent should match a snapshot 1`] = `
         </svg>
       </span>
       <mock-styled.div>
-        AgencyCloud Functionality
+        Reapit CRM Functionality
       </mock-styled.div>
       <span
         class="el-intent-primary el-icon-new el-icon"

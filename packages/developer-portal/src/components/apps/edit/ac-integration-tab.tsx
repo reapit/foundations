@@ -52,19 +52,19 @@ export const AcIntegrationTab: FC<AppEditTabsProps> = ({ register, errors, contr
   return (
     <>
       <BodyText hasGreyText>
-        When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in
-        the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual
+        When your application is integrated with Reapit CRM you can either launch it from the dedicated Apps menu in the
+        Reapit CRM software, or from a series of menus embedded within other pages. Your app can receive contextual
         entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API{' '}
         <a onClick={openNewPage(ExternalPages.desktopDocs)}>see here.</a>
       </BodyText>
       <BodyText hasGreyText>
-        You should toggle &lsquo;AgencyCloud Integration&rsquo; only if you are intending your app to be launched from
-        within AgencyCloud
+        You should toggle &lsquo;Reapit CRM Integration&rsquo; only if you are intending your app to be launched from
+        within Reapit CRM
       </BodyText>
       <BodyText hasGreyText>
-        The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen.
-        You should select the ones that are relevant to your app only. You can also select the default height and width
-        of the window you wish your app to launch in within AgencyCloud.
+        The below list maps to the various menus from which you can launch your app or replace an Reapit CRM Screen. You
+        should select the ones that are relevant to your app only. You can also select the default height and width of
+        the window you wish your app to launch in within Reapit CRM.
       </BodyText>
       <FormLayout hasMargin>
         <InputWrap>

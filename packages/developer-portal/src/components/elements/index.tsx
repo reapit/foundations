@@ -20,7 +20,7 @@ export const ElementsPage: FC = () => {
       <SecondaryNavContainer>
         <Icon className={elMb5} icon="elementsInfographic" iconSize="large" />
         <BodyText>Reapit Elements</BodyText>
-        <SmallText hasGreyText>
+        <SmallText tag="div" hasGreyText>
           Elements is a UI toolkit built in React JS, exporting a library of CSS classes to help you build clean,
           interactive user interfaces for the Reapit Foundations ecosystem. It is based on the Reapit Foundations Design
           System, our in house styleguide.

@@ -182,11 +182,11 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline 
         >
           Pipeline
         </h2>
-        <small
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
-        </small>
+        </div>
         <div
           class="mocked-styled-2 el-button-group"
         >
@@ -396,11 +396,11 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline 
       >
         Pipeline
       </h2>
-      <small
+      <div
         class="el-text-base el-small-text el-has-grey-text"
       >
         When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
-      </small>
+      </div>
       <div
         class="mocked-styled-2 el-button-group"
       >
@@ -675,11 +675,11 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
         >
           Pipeline
         </h2>
-        <small
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
-        </small>
+        </div>
         <div
           class="mocked-styled-2 el-button-group"
         >
@@ -889,11 +889,11 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
       >
         Pipeline
       </h2>
-      <small
+      <div
         class="el-text-base el-small-text el-has-grey-text"
       >
         When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
-      </small>
+      </div>
       <div
         class="mocked-styled-2 el-button-group"
       >
@@ -1174,11 +1174,11 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
         >
           Pipeline
         </h2>
-        <small
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
-        </small>
+        </div>
         <div
           class="mocked-styled-2 el-button-group"
         >
@@ -1388,11 +1388,11 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
       >
         Pipeline
       </h2>
-      <small
+      <div
         class="el-text-base el-small-text el-has-grey-text"
       >
         When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
-      </small>
+      </div>
       <div
         class="mocked-styled-2 el-button-group"
       >
@@ -1670,11 +1670,11 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
         >
           Pipeline
         </h2>
-        <small
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
-        </small>
+        </div>
         <div
           class="mocked-styled-2 el-button-group"
         >
@@ -1884,11 +1884,11 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
       >
         Pipeline
       </h2>
-      <small
+      <div
         class="el-text-base el-small-text el-has-grey-text"
       >
         When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
-      </small>
+      </div>
       <div
         class="mocked-styled-2 el-button-group"
       >
@@ -2175,11 +2175,11 @@ exports[`PipelineControls should match snapshot where pipeline is provisioning 1
         >
           Pipeline
         </h2>
-        <small
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
-        </small>
+        </div>
         <div
           class="mocked-styled-2 el-button-group"
         >
@@ -2390,11 +2390,11 @@ exports[`PipelineControls should match snapshot where pipeline is provisioning 1
       >
         Pipeline
       </h2>
-      <small
+      <div
         class="el-text-base el-small-text el-has-grey-text"
       >
         When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
-      </small>
+      </div>
       <div
         class="mocked-styled-2 el-button-group"
       >
@@ -2679,11 +2679,11 @@ exports[`PipelineControls should match snapshot where there is no pipeline 1`] =
         >
           Pipeline
         </h2>
-        <small
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           To get started with Reapit IAAS pipelines, first take the time to read the documentation. Then visit this page to configure your first pipeline.
-        </small>
+        </div>
         <div
           class="mocked-styled-2 el-button-group"
         >
@@ -2876,11 +2876,11 @@ exports[`PipelineControls should match snapshot where there is no pipeline 1`] =
       >
         Pipeline
       </h2>
-      <small
+      <div
         class="el-text-base el-small-text el-has-grey-text"
       >
         To get started with Reapit IAAS pipelines, first take the time to read the documentation. Then visit this page to configure your first pipeline.
-      </small>
+      </div>
       <div
         class="mocked-styled-2 el-button-group"
       >

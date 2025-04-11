@@ -163,17 +163,17 @@ export const PipelineControls: FC = () => {
       <Icon className={elMb3} icon="webDeveloperInfographic" iconSize="large" />
       <Subtitle>Pipeline</Subtitle>
       {isConfigPage ? (
-        <SmallText hasGreyText>
+        <SmallText tag="div" hasGreyText>
           When you create an app, we create a pre-provisioned pipeline for your app. You should configure your build
           steps on this page before using the deployments page to manage your releases to our infra.
         </SmallText>
       ) : appPipeline ? (
-        <SmallText hasGreyText>
+        <SmallText tag="div" hasGreyText>
           When you have a pipeline for your application, you can manage deployments from this page. Each table row
           refers to a deployment, and by expading the content, you can follow progress in real time.
         </SmallText>
       ) : (
-        <SmallText hasGreyText>
+        <SmallText tag="div" hasGreyText>
           To get started with Reapit IAAS pipelines, first take the time to read the documentation. Then visit this page
           to configure your first pipeline.
         </SmallText>
