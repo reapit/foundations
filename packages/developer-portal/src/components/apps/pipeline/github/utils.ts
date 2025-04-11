@@ -15,7 +15,7 @@ export type GithubAuthorizationBody = GithubCodeRequest | GithubRefreshRequest
 const githubClientId = process.env.githubClientId
 
 export const authenticateWithGithub = async (data: GithubAuthorizationBody, connectSession: ReapitConnectSession) => {
-  const response = await fetch(`${process.env.DEPLOYMENT_SERVICE_HOST}/github/auth`, {
+  const response = await fetch(`${process.env.DEPLOYMENT_SERVICE_HOST}github/auth`, {
     method: 'post',
     body: JSON.stringify(data),
     headers: {
