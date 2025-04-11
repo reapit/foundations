@@ -16,6 +16,7 @@ import {
 } from '@reapit/elements'
 import { cx } from '@linaria/core'
 import CopyToClipboard from 'react-copy-to-clipboard'
+import { elNoMargin } from './__styles__'
 
 export const handleCopyCode = (setCopyState: Dispatch<SetStateAction<'value' | undefined>>, key: 'value') => () => {
   setCopyState(key)
@@ -49,7 +50,9 @@ export const PipelineDnsStepFour: FC<{ pipelineId: string; customDomain: string 
         <>
           <FlexContainer className={cx(elMb6)}>
             <Steps className={cx(elMr2)} steps={['3']} selectedStep="3" />
-            <Subtitle>CNAME Record</Subtitle>
+            <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
+              <Subtitle className={cx(elNoMargin)}>CNAME Record</Subtitle>
+            </FlexContainer>
           </FlexContainer>
           <div className={cx(elMb6)}>
             <BodyText>
