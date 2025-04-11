@@ -4,6 +4,7 @@ import { BodyText, Col, elMb11, elMr4, FlexContainer, Grid, Icon, StatusIndicato
 import { useAppState } from '../state/use-app-state'
 import { PipelineDeploymentTable } from './pipeline-deployments-table'
 import { PipelineTabs } from './pipeline-tabs'
+import { cx } from '@linaria/core'
 
 export const getAppFromPipeline = (isGithub: boolean) => {
   const isBitbucket = !isGithub
@@ -32,7 +33,9 @@ export const PipelineInfo: FC = () => {
       <Grid className={elMb11}>
         <Col>
           <FlexContainer isFlexAlignCenter>
-            <Icon className={elMr4} icon="refreshInfographic" iconSize="medium" />
+            <div className={elMr4}>
+              <Icon icon="refreshInfographic" iconSize="medium" />
+            </div>
             <div>
               <Subtitle hasNoMargin>Status</Subtitle>
               <BodyText hasNoMargin hasGreyText>
@@ -44,7 +47,9 @@ export const PipelineInfo: FC = () => {
         </Col>
         <Col>
           <FlexContainer isFlexAlignCenter>
-            <Icon className={elMr4} icon="apiDocsInfographic" iconSize="medium" />
+            <div className={elMr4}>
+              <Icon icon="apiDocsInfographic" iconSize="medium" />
+            </div>
             <div>
               <Subtitle hasNoMargin>Repository</Subtitle>
               <BodyText hasNoMargin hasGreyText>
@@ -62,7 +67,9 @@ export const PipelineInfo: FC = () => {
         </Col>
         <Col>
           <FlexContainer isFlexAlignCenter>
-            <Icon className={elMr4} icon="globeInfographic" iconSize="medium" />
+            <div className={elMr4}>
+              <Icon icon="globeInfographic" iconSize="medium" />
+            </div>
             <div>
               <Subtitle hasNoMargin>Location</Subtitle>
               <BodyText hasNoMargin hasGreyText>
