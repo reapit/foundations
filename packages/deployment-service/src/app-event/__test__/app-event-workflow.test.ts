@@ -1,77 +1,89 @@
-import { EventDispatcher } from '../../events'
-import { PipelineProvider } from '../../pipeline'
 import { Test } from '@nestjs/testing'
 import { AppEventWorkflow } from '../app-event-workflow'
+import { EventDispatcher, SqsProvider } from '../../events'
+import { PipelineProvider } from '../../pipeline'
+import { PipelineEntity } from '../../entities/pipeline.entity'
 import { SQSRecord } from 'aws-lambda'
-import { SqsProvider } from '../../events'
-import { INestApplication } from '@nestjs/common'
 
-const mockPipelineProvider = {
-  create: jest.fn(),
-  saveAll: jest.fn(() => [{}]),
-  findByAppId: jest.fn(() => [{}]),
+const mockDeveloperId = 'developer-id'
+
+const mockPipeline: Partial<PipelineEntity> = {
+  developerId: mockDeveloperId,
+  subDomain: 'test-domain',
 }
 
-const mockEventDispatcher = {
-  triggerPipelineTearDownStart: jest.fn(),
+const mockPipelineProvider = {
+  findById: jest.fn((id) =>
+    Promise.resolve({
+      ...mockPipeline,
+      id,
+    }),
+  ),
+  findByAppId: jest.fn((id) => Promise.resolve([{ ...mockPipeline, id, appId: id }])),
+  update: jest.fn((pipeline) => Promise.resolve(pipeline)),
+  create: jest.fn((pipeline) => Promise.resolve(pipeline)),
+  saveAll: jest.fn(() => Promise.resolve()),
+}
+
+const mockSqsProvider = {
+  deleteMessage: jest.fn(() => Promise.resolve()),
+}
+
+const mockEventDispatcherProvider = {
+  triggerPipelineTearDownStart: jest.fn(() => Promise.resolve()),
 }
 
 describe('AppEventWorkflow', () => {
-  let app: INestApplication
+  let workflow: AppEventWorkflow
+
   beforeAll(async () => {
     const module = await Test.createTestingModule({
-      providers: [
-        {
-          provide: PipelineProvider,
-          useValue: mockPipelineProvider,
-        },
-        {
-          provide: EventDispatcher,
-          useValue: mockEventDispatcher,
-        },
-        {
-          provide: SqsProvider,
-          useValue: {
-            deleteMessage: jest.fn(),
-          },
-        },
-        AppEventWorkflow,
-      ],
-    }).compile()
+      providers: [EventDispatcher, PipelineProvider, SqsProvider, AppEventWorkflow],
+    })
+      .overrideProvider(PipelineProvider)
+      .useValue(mockPipelineProvider)
+      .overrideProvider(SqsProvider)
+      .useValue(mockSqsProvider)
+      .overrideProvider(EventDispatcher)
+      .useValue(mockEventDispatcherProvider)
+      .compile()
 
-    app = module.createNestApplication()
+    workflow = module.get(AppEventWorkflow)
   })
 
-  it('Can create pipeline', () => {
-    const appEventWorkflow = app.get<AppEventWorkflow>(AppEventWorkflow)
+  afterEach(() => {
+    mockPipelineProvider.create.mockReset()
+    mockPipelineProvider.update.mockReset()
+  })
 
-    appEventWorkflow.run({
+  it('Create Event', async () => {
+    await workflow.run({
       body: JSON.stringify({
-        AppId: 'AppId',
-        ApplicationName: 'ApplicationName',
-        AuthFlow: 'authorisationCode',
-        DeveloperId: 'developer-id',
+        AppId: '',
         Type: 'created',
-      }),
-    } as SQSRecord)
-
-    expect(mockPipelineProvider.create).toHaveBeenCalled()
-  })
-
-  it('Can delete pipeline', async () => {
-    const appEventWorkflow = app.get<AppEventWorkflow>(AppEventWorkflow)
-
-    await appEventWorkflow.run({
-      body: JSON.stringify({
-        AppId: 'AppId',
+        TimeStamp: new Date().toISOString(),
         ApplicationName: 'ApplicationName',
         AuthFlow: 'authorisationCode',
-        DeveloperId: 'developer-id',
+        DeveloperId: mockDeveloperId,
+      }),
+    } as SQSRecord),
+      expect(mockPipelineProvider.create).toHaveBeenCalled()
+    expect(mockSqsProvider.deleteMessage).toHaveBeenCalled()
+  })
+
+  it('Delete Event', async () => {
+    await workflow.run({
+      body: JSON.stringify({
+        AppId: '',
         Type: 'deleted',
+        TimeStamp: new Date().toISOString(),
+        ApplicationName: 'ApplicationName',
+        AuthFlow: 'authorisationCode',
+        DeveloperId: mockDeveloperId,
       }),
     } as SQSRecord)
 
-    expect(mockEventDispatcher.triggerPipelineTearDownStart).toHaveBeenCalled()
-    expect(mockPipelineProvider.saveAll).toHaveBeenCalled()
+    expect(mockEventDispatcherProvider.triggerPipelineTearDownStart).toHaveBeenCalled()
+    expect(mockSqsProvider.deleteMessage).toHaveBeenCalled()
   })
 })
