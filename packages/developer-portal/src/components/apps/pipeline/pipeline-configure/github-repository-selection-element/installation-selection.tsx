@@ -47,7 +47,10 @@ const fetchInstallations = async ({
   })
 }
 
-export const InstallationSelection: FC<{ setInstallation: Dispatch<Installation>, setIsModelOpen: Dispatch<SetStateAction<boolean>> }> = ({ setInstallation, setIsModelOpen }) => {
+export const InstallationSelection: FC<{
+  setInstallation: Dispatch<Installation>
+  setIsModelOpen: Dispatch<SetStateAction<boolean>>
+}> = ({ setInstallation, setIsModelOpen }) => {
   const [installations, setInstallations] = useState<Installation[] | undefined>()
   const { githubSession } = useContext(GithubContext)
   const [loading, setLoading] = useState<boolean>(false)
@@ -82,8 +85,10 @@ export const InstallationSelection: FC<{ setInstallation: Dispatch<Installation>
           <div key={pageData.current_page}>
             {installations?.map((installation) => (
               <FlexContainer key={installation.id} isFlexAlignCenter>
-                <img width='50px' height='auto' className={cx(elMr6)} src={installation.account.avatar_url} />
-                <Button intent='primary' onClick={() => setInstallation(installation)}>{installation.account.login}</Button>
+                <img width="50px" height="auto" className={cx(elMr6)} src={installation.account.avatar_url} />
+                <Button intent="primary" onClick={() => setInstallation(installation)}>
+                  {installation.account.login}
+                </Button>
               </FlexContainer>
             ))}
           </div>
