@@ -13,11 +13,12 @@ enum BucketPolicyConditions {
 
 enum BucketPolicyConditionKey {
   'aws:SourceAccount' = 'aws:SourceAccount',
+  'aws:PrincipalAccount' = 'aws:PrincipalAccount',
 }
 
 type BucketPolicyCondition = {
   [key in BucketPolicyConditions]: {
-    [key in BucketPolicyConditionKey]: string | string[]
+    [key in BucketPolicyConditionKey]?: string | string[]
   }
 }
 
@@ -32,7 +33,7 @@ type BucketPolicyStatement = {
 }
 
 const resolveBucketPolicyConditions =
-  (client: S3Client) => async (bucketName: string, conditions?: BucketPolicyCondition) => {
+  (client: S3Client) => async (bucketName: string, modifyPolicyStatement: (policyStatement: BucketPolicyStatement) => BucketPolicyStatement) => {
     const policyResult = await client.send(
       new GetBucketPolicyCommand({
         Bucket: bucketName,
@@ -51,10 +52,7 @@ const resolveBucketPolicyConditions =
         Bucket: bucketName,
         Policy: JSON.stringify({
           ...policy,
-          Statement: policy.Statement.map((statement) => ({
-            ...statement,
-            Condition: conditions,
-          })),
+          Statement: policy.Statement.map((statement) => modifyPolicyStatement(statement)),
         }),
       }),
     )
@@ -81,23 +79,16 @@ const migrateS3BucketPolicyConditions = async ({
     ),
   )
 
-  // await Promise.all(
-  //   bucketInputs.map((bucketName) => {
-  //     return client.send(
-  //       new DeleteBucketPolicyCommand({
-  //         Bucket: bucketName,
-  //       }),
-  //     )
-  //   }),
-  // )
-
   await Promise.all(
     bucketNames.map((bucketName) =>
-      resolveBucketPolicyConditions(client)(bucketName, {
-        [BucketPolicyConditions.StringEquals]: {
-          [BucketPolicyConditionKey['aws:SourceAccount']]: [paasAccountId, iaasAccountId],
+      resolveBucketPolicyConditions(client)(bucketName, (statement) => ({
+        ...statement,
+        Condition: {
+          [BucketPolicyConditions.StringEquals]: { // TODO conditionally change key below
+            [statement?.Principal?.Service?.includes('cloudfront') ? BucketPolicyConditionKey['aws:Principal'] : BucketPolicyConditionKey['aws:SourceAccount']]: [paasAccountId, iaasAccountId],
+          },
         },
-      }),
+      })),
     ),
   )
 
@@ -131,17 +122,11 @@ const rollbackS3BucketPolicyConditions = async (bucketNames: string[]) => {
     ),
   )
 
-  // await Promise.all(
-  //   bucketInputs.map((bucketName) => {
-  //     return client.send(
-  //       new DeleteBucketPolicyCommand({
-  //         Bucket: bucketName,
-  //       }),
-  //     )
-  //   }),
-  // )
+  await Promise.all(bucketNames.map((bucketName) => resolveBucketPolicyConditions(client)(bucketName, (statement) => {
+    delete statement.Condition
 
-  await Promise.all(bucketNames.map((bucketName) => resolveBucketPolicyConditions(client)(bucketName)))
+    return statement
+  })))
 
   await Promise.all(
     bucketNames.map((bucketName) =>
