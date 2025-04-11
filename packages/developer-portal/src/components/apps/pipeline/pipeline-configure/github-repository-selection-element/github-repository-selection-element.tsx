@@ -72,7 +72,7 @@ export const GithubRepositorySelectionElement: FC<{
             )}
           </>
         ) : !selectedInstallation ? (
-          <InstallationSelection setInstallation={setSelectedInstallation} />
+          <InstallationSelection setInstallation={setSelectedInstallation} setIsModelOpen={setIsModalOpen} />
         ) : (
           <RepositorySelection
             complete={completeAction}
