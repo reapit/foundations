@@ -1,4 +1,4 @@
-import { SubscriptionModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { useReapitGet } from '@reapit/use-reapit-data'
 import React from 'react'
 import { render } from '../../../tests/react-testing'
@@ -45,7 +45,7 @@ describe('CreateSubscriptions', () => {
 describe('createSubscriptionHander', () => {
   it('should handle creating subscriptions', () => {
     const createSubscription = jest.fn()
-    const createSubscriptionModel = mockSubscriptionModelPagedResult.data as SubscriptionModel[][0]
+    const createSubscriptionModel = mockSubscriptionModelPagedResult.data as Marketplace.SubscriptionModel[][0]
     const curried = createSubscriptionHander(createSubscription, createSubscriptionModel)
 
     curried()

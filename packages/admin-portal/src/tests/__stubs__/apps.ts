@@ -1,6 +1,6 @@
-import { AppDetailModel, AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
-export const mockAppDetailModel: AppDetailModel = {
+export const mockAppDetailModel: Marketplace.AppDetailModel = {
   id: 'f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09',
   created: '2021-03-04T09:37:00',
   developerId: '421b65bc-dd09-4c34-90fa-dacc3cd2ff5a',
@@ -66,7 +66,7 @@ export const mockAppDetailModel: AppDetailModel = {
   ],
 }
 
-export const mockAppSummaryModelPagedResult: AppSummaryModelPagedResult = {
+export const mockAppSummaryModelPagedResult: Marketplace.AppSummaryModelPagedResult = {
   data: [
     {
       id: 'f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09',

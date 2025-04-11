@@ -1,4 +1,4 @@
-import { ClassSerializerInterceptor, Module } from '@nestjs/common'
+import { Module } from '@nestjs/common'
 import { EventModule } from './events'
 import { PipelineModule } from './pipeline'
 import { PipelineRunnerModule } from './pipeline-runner'
@@ -16,6 +16,7 @@ import { CodeBuildModule } from './codebuild'
 import { APP_INTERCEPTOR } from '@nestjs/core'
 import { CorsHeaderInterceptor, AuthModule } from '@reapit/utils-nest'
 import { DnsModule } from './dns'
+import { CustomClassSerialiserInterceptor } from './custom-class-serialiser-interceptor'
 
 process.env = {
   ...process.env,
@@ -59,7 +60,7 @@ process.env = {
     CorsHeaderInterceptor,
     {
       provide: APP_INTERCEPTOR,
-      useClass: ClassSerializerInterceptor,
+      useClass: CustomClassSerialiserInterceptor,
     },
   ],
   exports: [EventModule, AuthModule, GithubModule],

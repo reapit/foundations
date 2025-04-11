@@ -1,6 +1,6 @@
-import { UserInfoModel } from '@reapit/foundations-ts-definitions'
+import { Organisations } from '@reapit/foundations-ts-definitions'
 
-export const mockUserInfoModel: UserInfoModel = {
+export const mockUserInfoModel: Organisations.UserInfoModel = {
   id: 'cnlhbi5wYXVsLndpbGNveCsxMjM0NUBnbWFpbC5jb20',
   created: '2022-07-27T10:30:05.0000000Z',
   modified: '2022-07-27T10:30:46.0000000Z',

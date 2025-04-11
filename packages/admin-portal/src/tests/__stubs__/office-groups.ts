@@ -1,6 +1,6 @@
-import { OfficeGroupModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Organisations } from '@reapit/foundations-ts-definitions'
 
-export const mockOfficeGroupModelPagedResult: OfficeGroupModelPagedResult = {
+export const mockOfficeGroupModelPagedResult: Organisations.OfficeGroupModelPagedResult = {
   _embedded: [
     {
       id: '12ce73ac-76b6-45ec-8b92-a3d1a10c2ffc',

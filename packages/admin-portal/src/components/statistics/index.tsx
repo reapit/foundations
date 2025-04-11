@@ -1,36 +1,24 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import Papa from 'papaparse'
-import {
-  AppSummaryModel,
-  AppSummaryModelPagedResult,
-  DeveloperModel,
-  DeveloperModelPagedResult,
-  InstallationModel,
-  InstallationModelPagedResult,
-  OfficeGroupModel,
-  OfficeGroupModelPagedResult,
-  ServiceItemBillingV2Model,
-  SubscriptionModel,
-  SubscriptionModelPagedResult,
-} from '@reapit/foundations-ts-definitions'
+import { ServiceItemBillingV2Model, Marketplace, Organisations } from '@reapit/foundations-ts-definitions'
 import FileSaver from 'file-saver'
 import { ButtonGroup, Button, elMb11 } from '@reapit/elements'
 import { toLocalTime } from '@reapit/utils-common'
 
 export type Area = 'APPS' | 'DEVELOPERS' | 'INSTALLATIONS' | 'BILLING' | 'SUBSCRIPTIONS' | 'SERVICES' | 'OFFICE_GROUPS'
 export type PagedData =
-  | AppSummaryModelPagedResult
-  | DeveloperModelPagedResult
-  | InstallationModelPagedResult
-  | SubscriptionModelPagedResult
-export type StatsDataType = PagedData | ServiceItemBillingV2Model[] | OfficeGroupModelPagedResult | null
+  | Marketplace.AppSummaryModelPagedResult
+  | Marketplace.DeveloperModelPagedResult
+  | Marketplace.InstallationModelPagedResult
+  | Marketplace.SubscriptionModelPagedResult
+export type StatsDataType = PagedData | ServiceItemBillingV2Model[] | Organisations.OfficeGroupModelPagedResult | null
 
 export type CSVDataType =
-  | AppSummaryModel[]
-  | DeveloperModel[]
-  | InstallationModel[]
+  | Marketplace.AppSummaryModel[]
+  | Marketplace.DeveloperModel[]
+  | Marketplace.InstallationModel[]
   | ServiceItemBillingV2Model[]
-  | OfficeGroupModel[]
+  | Organisations.OfficeGroupModel[]
   | null
 
 export interface StatisticsProps {
@@ -47,7 +35,7 @@ export const handleSaveFile = (csv: string, filename: string) => {
 export const handleDownloadCSV =
   (area: Area, data: CSVDataType, setPageSize?: Dispatch<SetStateAction<number>>) => () => {
     if (data && area === 'APPS') {
-      const apps = data as AppSummaryModel[]
+      const apps = data as Marketplace.AppSummaryModel[]
       const csv = Papa.unparse({
         fields: [
           'App Name',
@@ -60,7 +48,7 @@ export const handleDownloadCSV =
           'Auth Flow',
           'Publicly Listed',
         ],
-        data: apps.map((item: AppSummaryModel) => {
+        data: apps.map((item: Marketplace.AppSummaryModel) => {
           const { name, developer, created, summary, isListed, isDirectApi, isFree, authFlow, publicListedDate } = item
           return [
             name,
@@ -81,7 +69,7 @@ export const handleDownloadCSV =
     }
 
     if (data && area === 'INSTALLATIONS') {
-      const installs = data as (InstallationModel & { appName: string })[]
+      const installs = data as (Marketplace.InstallationModel & { appName: string })[]
 
       const csv = Papa.unparse({
         fields: [
@@ -126,11 +114,11 @@ export const handleDownloadCSV =
     }
 
     if (data && area === 'DEVELOPERS') {
-      const developers = data as DeveloperModel[]
+      const developers = data as Marketplace.DeveloperModel[]
 
       const csv = Papa.unparse({
         fields: ['Name', 'Company', 'Created', 'Job Title', 'Email', 'Telephone', 'Is Inactive', 'Status'],
-        data: developers.map((item: DeveloperModel) => {
+        data: developers.map((item: Marketplace.DeveloperModel) => {
           const { name, company, created, jobTitle, email, telephone, isInactive, status } = item
           return [name, company, created, jobTitle, email, telephone, isInactive, status]
         }),
@@ -157,7 +145,7 @@ export const handleDownloadCSV =
     }
 
     if (data && area === 'SUBSCRIPTIONS') {
-      const apiCalls = data as SubscriptionModel[]
+      const apiCalls = data as Marketplace.SubscriptionModel[]
 
       const csv = Papa.unparse({
         fields: [
@@ -193,7 +181,7 @@ export const handleDownloadCSV =
     }
 
     if (data && area === 'OFFICE_GROUPS') {
-      const officeGroups = data as OfficeGroupModel[]
+      const officeGroups = data as Organisations.OfficeGroupModel[]
 
       const csv = Papa.unparse({
         fields: ['Customer Id', 'Group Name', 'Office Ids', 'Status'],
@@ -236,7 +224,7 @@ export const handleDataChange =
     }
 
     if (data && area === 'OFFICE_GROUPS') {
-      const pagedData = data as OfficeGroupModelPagedResult
+      const pagedData = data as Organisations.OfficeGroupModelPagedResult
 
       if (pagedData && pagedData.pageSize === 9999) {
         setCsvData(pagedData._embedded ?? [])

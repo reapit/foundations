@@ -1,6 +1,6 @@
-import { AppRevisionConsentModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
-export const mockAppRevisionConsentModelResponse: AppRevisionConsentModel[] = [
+export const mockAppRevisionConsentModelResponse: Marketplace.AppRevisionConsentModel[] = [
   {
     id: '13fa585c-c268-4c5e-ac79-a92fbbe1d35f',
     created: '2022-09-22T13:38:46',

@@ -1,7 +1,7 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { BodyText, Button, FlexContainer } from '@reapit/elements'
 import { useReapitGet, GetActionNames, getActions } from '@reapit/use-reapit-data'
-import { WebhookModel, WebhookModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Platform } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 interface CheckAWSButtonProps {
@@ -23,7 +23,7 @@ export const handleSetWebHooksLoading = (setAwsStatus: Dispatch<SetStateAction<A
   setAwsStatus(AWSStatus.Fetching)
 }
 
-export const checkIsAws = (subscriptions: (WebhookModel & { customerIds?: string[] })[]): boolean => {
+export const checkIsAws = (subscriptions: (Platform.WebhookModel & { customerIds?: string[] })[]): boolean => {
   const filtered = subscriptions.filter((subscription) => {
     const { topicIds, customerIds, active } = subscription
     const hasDataTopics = Boolean(topicIds?.filter((topic: string) => !INSTALL_TOPICS.includes(topic)).length)
@@ -38,7 +38,7 @@ export const checkIsAws = (subscriptions: (WebhookModel & { customerIds?: string
 }
 
 export const handleSetAwsStatus =
-  (subscriptions: WebhookModelPagedResult | null, setAwsStatus: Dispatch<SetStateAction<AWSStatus>>) => () => {
+  (subscriptions: Platform.WebhookModelPagedResult | null, setAwsStatus: Dispatch<SetStateAction<AWSStatus>>) => () => {
     if (subscriptions) {
       const isAws = checkIsAws(subscriptions?._embedded ?? [])
       setAwsStatus(isAws ? AWSStatus.AWSOnly : AWSStatus.AllUsers)
@@ -50,7 +50,7 @@ export const handleSetAwsStatus =
 export const CheckAWSButton: FC<CheckAWSButtonProps> = ({ appId, status }) => {
   const [awsStatus, setAwsStatus] = useState<AWSStatus>(status ?? AWSStatus.Unfetched)
 
-  const [subscriptions] = useReapitGet<WebhookModelPagedResult>({
+  const [subscriptions] = useReapitGet<Platform.WebhookModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getWebhookSubscriptions],
     queryParams: { applicationId: appId, pageSize: 999, active: true },

@@ -1,16 +1,5 @@
 import React, { FC, useEffect } from 'react'
-import {
-  AppRevisionModel,
-  MediaModel,
-  ScopeModel,
-  AppDetailModel,
-  DesktopIntegrationTypeModel,
-  DesktopIntegrationTypeModelPagedResult,
-  ApprovalModel,
-  ApproveModel,
-  RejectRevisionModel,
-  CreateAppRevisionConsentsModel,
-} from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { DiffMedia } from './diff-media'
 import { DiffCheckbox } from './diff-checkbox'
 import { DiffViewer } from './diff-viewer'
@@ -48,7 +37,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { usePermissionsState } from '../../core/use-permissions-state'
 
 export type AppRevisionComparisonProps = {
-  approval: ApprovalModel | null
+  approval: Marketplace.ApprovalModel | null
   refreshApprovals: () => void
 }
 
@@ -63,7 +52,7 @@ export type DiffMediaModel = {
   type: string
 }
 
-const diffStringList: { [k in keyof AppRevisionModel]: string } = {
+const diffStringList: { [k in keyof Marketplace.AppRevisionModel]: string } = {
   name: 'Name',
   homePage: 'Home page',
   launchUri: 'Launch URI',
@@ -81,11 +70,11 @@ const diffStringList: { [k in keyof AppRevisionModel]: string } = {
   pricingUrl: 'Pricing Info',
 }
 
-export const isAppearInScope = (nameNeedToFind: string | undefined, scopes: ScopeModel[] = []): boolean => {
+export const isAppearInScope = (nameNeedToFind: string | undefined, scopes: Marketplace.ScopeModel[] = []): boolean => {
   if (!nameNeedToFind || !scopes?.length) {
     return false
   }
-  const result = scopes.find((item: ScopeModel) => {
+  const result = scopes.find((item: Marketplace.ScopeModel) => {
     return item.name === nameNeedToFind
   })
   return !!result
@@ -96,11 +85,11 @@ export const renderCheckboxesDiff = ({
   appScopes,
   revisionScopes,
 }: {
-  scopes: ScopeModel[]
-  appScopes: ScopeModel[] | undefined
-  revisionScopes: ScopeModel[] | undefined
+  scopes: Marketplace.ScopeModel[]
+  appScopes: Marketplace.ScopeModel[] | undefined
+  revisionScopes: Marketplace.ScopeModel[] | undefined
 }) => {
-  return scopes.map((scope: ScopeModel) => {
+  return scopes.map((scope: Marketplace.ScopeModel) => {
     const isCheckedInAppDetail = isAppearInScope(scope.name, appScopes)
     const isCheckedInRevision = isAppearInScope(scope.name, revisionScopes)
     return (
@@ -128,7 +117,7 @@ export const getChangedMediaList = ({ app, revision }): DiffMediaModel[] => {
   // Check the longest array to compare
   const isNewMediaMoreItemThanOldOne = revisionMedia.length >= appMedia.length
   if (isNewMediaMoreItemThanOldOne) {
-    return revisionMedia.map((revisionMedia: MediaModel, index: number) => ({
+    return revisionMedia.map((revisionMedia: Marketplace.MediaModel, index: number) => ({
       changedMedia: revisionMedia?.uri,
       currentMedia: appMedia[index]?.uri,
       order: revisionMedia?.order || 0,
@@ -136,7 +125,7 @@ export const getChangedMediaList = ({ app, revision }): DiffMediaModel[] => {
     }))
   }
 
-  return appMedia.map((currentMedia: MediaModel, index: number) => ({
+  return appMedia.map((currentMedia: Marketplace.MediaModel, index: number) => ({
     changedMedia: revisionMedia[index]?.uri,
     currentMedia: currentMedia?.uri,
     order: currentMedia?.order || 0,
@@ -146,14 +135,14 @@ export const getChangedMediaList = ({ app, revision }): DiffMediaModel[] => {
 
 export const mapIntegrationIdArrayToNameArray = (
   desktopIntegrationTypeIds?: string[],
-  desktopIntegrationTypesArray?: DesktopIntegrationTypeModel[],
+  desktopIntegrationTypesArray?: Marketplace.DesktopIntegrationTypeModel[],
 ): string[] => {
   if (!desktopIntegrationTypeIds || !desktopIntegrationTypesArray) {
     return []
   }
   const result = desktopIntegrationTypeIds.map((id: string) => {
     const matchedIntegration = desktopIntegrationTypesArray.find(
-      (integration: DesktopIntegrationTypeModel) => integration.id === id,
+      (integration: Marketplace.DesktopIntegrationTypeModel) => integration.id === id,
     )
     return matchedIntegration?.name ?? ''
   })
@@ -162,12 +151,12 @@ export const mapIntegrationIdArrayToNameArray = (
 
 export type RenderDiffContentParams = {
   key: string
-  revision: AppRevisionModel
-  app: AppDetailModel
-  desktopIntegrationTypes: DesktopIntegrationTypeModelPagedResult
+  revision: Marketplace.AppRevisionModel
+  app: Marketplace.AppDetailModel
+  desktopIntegrationTypes: Marketplace.DesktopIntegrationTypeModelPagedResult
 }
 
-export const renderCategoriesDiff = (app: AppDetailModel, revision: AppRevisionModel) => {
+export const renderCategoriesDiff = (app: Marketplace.AppDetailModel, revision: Marketplace.AppRevisionModel) => {
   const currentString = app.categories?.map((category) => category.name).join(', ') ?? ''
   const changedString = revision.categories?.map((category) => category.name).join(', ') ?? ''
 
@@ -215,7 +204,11 @@ export const validationSchema = object().shape({
 })
 
 export const handleApproveRevision =
-  (approveRevision: SendFunction<ApproveModel, boolean>, closeModal: () => void, loginIdentity?: LoginIdentity) =>
+  (
+    approveRevision: SendFunction<Marketplace.ApproveModel, boolean>,
+    closeModal: () => void,
+    loginIdentity?: LoginIdentity,
+  ) =>
   () => {
     const email = loginIdentity?.email
     const name = loginIdentity?.name
@@ -231,7 +224,11 @@ export const handleApproveRevision =
   }
 
 export const handleRejectRevision =
-  (rejectRevision: SendFunction<RejectRevisionModel, boolean>, closeModal: () => void, loginIdentity?: LoginIdentity) =>
+  (
+    rejectRevision: SendFunction<Marketplace.RejectRevisionModel, boolean>,
+    closeModal: () => void,
+    loginIdentity?: LoginIdentity,
+  ) =>
   (values: RejectRevisionForm) => {
     const email = loginIdentity?.email
     const name = loginIdentity?.name
@@ -249,7 +246,7 @@ export const handleRefreshApprovals = (refreshApprovals: () => void, shouldRefre
 }
 
 export const handleSendConstents =
-  (createConsentEmails: SendFunction<CreateAppRevisionConsentsModel, boolean>, email?: string) => () => {
+  (createConsentEmails: SendFunction<Marketplace.CreateAppRevisionConsentsModel, boolean>, email?: string) => () => {
     if (email) {
       createConsentEmails({ actionedBy: email })
     }
@@ -264,7 +261,7 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
   const revisionId = approval?.appRevisionId
   const email = connectSession?.loginIdentity.email
 
-  const [app, appLoading] = useReapitGet<AppDetailModel>({
+  const [app, appLoading] = useReapitGet<Marketplace.AppDetailModel>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getAppById],
     uriParams: {
@@ -273,7 +270,7 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
     fetchWhenTrue: [appId],
   })
 
-  const [revision, revisionLoading] = useReapitGet<AppRevisionModel>({
+  const [revision, revisionLoading] = useReapitGet<Marketplace.AppRevisionModel>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getRevisionById],
     uriParams: {
@@ -283,17 +280,18 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
     fetchWhenTrue: [revisionId, appId],
   })
 
-  const [desktopIntegrationTypes, desktopTypesLoading] = useReapitGet<DesktopIntegrationTypeModelPagedResult>({
-    reapitConnectBrowserSession,
-    action: getActions[GetActionNames.getDesktopIntegrationTypes],
-  })
+  const [desktopIntegrationTypes, desktopTypesLoading] =
+    useReapitGet<Marketplace.DesktopIntegrationTypeModelPagedResult>({
+      reapitConnectBrowserSession,
+      action: getActions[GetActionNames.getDesktopIntegrationTypes],
+    })
 
-  const [scopes, scopesLoading] = useReapitGet<ScopeModel[]>({
+  const [scopes, scopesLoading] = useReapitGet<Marketplace.ScopeModel[]>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getAppPermissions],
   })
 
-  const [, , approveRevision, revisionApproved] = useReapitUpdate<ApproveModel, boolean>({
+  const [, , approveRevision, revisionApproved] = useReapitUpdate<Marketplace.ApproveModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.approveRevision],
     method: 'POST',
@@ -303,7 +301,7 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
     },
   })
 
-  const [, , rejectRevision, revisionRejected] = useReapitUpdate<RejectRevisionModel, boolean>({
+  const [, , rejectRevision, revisionRejected] = useReapitUpdate<Marketplace.RejectRevisionModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.rejectRevision],
     method: 'POST',
@@ -313,7 +311,7 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
     },
   })
 
-  const [, , createConsentEmails] = useReapitUpdate<CreateAppRevisionConsentsModel, boolean>({
+  const [, , createConsentEmails] = useReapitUpdate<Marketplace.CreateAppRevisionConsentsModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.createConsentEmails],
     method: 'POST',

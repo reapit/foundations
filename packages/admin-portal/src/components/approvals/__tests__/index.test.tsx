@@ -1,5 +1,5 @@
 import React from 'react'
-import { ApprovalModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { useReapitGet } from '@reapit/use-reapit-data'
 import { handleSetConsentApproval, handleSetDiffApproval, AdminApprovals } from '../index'
 import { render } from '../../../tests/react-testing'
@@ -29,7 +29,7 @@ describe('handleSetConsentApproval', () => {
   it('handleSetConsentApproval should return expected output', () => {
     const setConsentApproval = jest.fn()
     const setDiffApproval = jest.fn()
-    const approval = (mockApprovalModelPagedResult?.data as ApprovalModel[])[0]
+    const approval = (mockApprovalModelPagedResult?.data as Marketplace.ApprovalModel[])[0]
     const curried = handleSetConsentApproval(setConsentApproval, setDiffApproval, approval)
 
     curried()
@@ -43,7 +43,7 @@ describe('handleSetDiffApproval', () => {
   it('handleSetConsentApproval should return expected output', () => {
     const setConsentApproval = jest.fn()
     const setDiffApproval = jest.fn()
-    const approval = (mockApprovalModelPagedResult?.data as ApprovalModel[])[0]
+    const approval = (mockApprovalModelPagedResult?.data as Marketplace.ApprovalModel[])[0]
     const curried = handleSetDiffApproval(setDiffApproval, setConsentApproval, approval)
 
     curried()

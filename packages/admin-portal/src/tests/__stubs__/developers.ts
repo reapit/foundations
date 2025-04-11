@@ -1,6 +1,6 @@
-import { DeveloperModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
-export const mockDeveloperModelPagedResult: DeveloperModelPagedResult = {
+export const mockDeveloperModelPagedResult: Marketplace.DeveloperModelPagedResult = {
   data: [
     {
       id: '8240d435-9e6f-4271-a863-7774d199461a',
