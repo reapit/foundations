@@ -94,11 +94,11 @@ exports[`Helper should match a snapshot 1`] = `
         >
           Apps Documentation
         </p>
-        <small
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </small>
+        </div>
         <div
           class="mocked-styled-2 el-button-group"
         >
@@ -208,11 +208,11 @@ exports[`Helper should match a snapshot 1`] = `
       >
         Apps Documentation
       </p>
-      <small
+      <div
         class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </small>
+      </div>
       <div
         class="mocked-styled-2 el-button-group"
       >
@@ -379,11 +379,11 @@ exports[`Helper should match a snapshot for the appsDetail page 1`] = `
         >
           Apps Documentation
         </p>
-        <small
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </small>
+        </div>
         <div
           class="mocked-styled-2 el-button-group"
         >
@@ -493,11 +493,11 @@ exports[`Helper should match a snapshot for the appsDetail page 1`] = `
       >
         Apps Documentation
       </p>
-      <small
+      <div
         class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </small>
+      </div>
       <div
         class="mocked-styled-2 el-button-group"
       >
@@ -664,11 +664,11 @@ exports[`Helper should match a snapshot for the appsEdit page 1`] = `
         >
           Apps Documentation
         </p>
-        <small
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </small>
+        </div>
         <div
           class="mocked-styled-2 el-button-group"
         >
@@ -778,11 +778,11 @@ exports[`Helper should match a snapshot for the appsEdit page 1`] = `
       >
         Apps Documentation
       </p>
-      <small
+      <div
         class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </small>
+      </div>
       <div
         class="mocked-styled-2 el-button-group"
       >
@@ -949,11 +949,11 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
         >
           Apps Documentation
         </p>
-        <small
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </small>
+        </div>
         <div
           class="mocked-styled-2 el-button-group"
         >
@@ -1063,11 +1063,11 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
       >
         Apps Documentation
       </p>
-      <small
+      <div
         class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </small>
+      </div>
       <div
         class="mocked-styled-2 el-button-group"
       >
@@ -1234,11 +1234,11 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
         >
           Apps Documentation
         </p>
-        <small
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </small>
+        </div>
         <div
           class="mocked-styled-2 el-button-group"
         >
@@ -1348,11 +1348,11 @@ exports[`Helper should match a snapshot for the appsEdit page where has unsaved 
       >
         Apps Documentation
       </p>
-      <small
+      <div
         class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </small>
+      </div>
       <div
         class="mocked-styled-2 el-button-group"
       >
@@ -1519,11 +1519,11 @@ exports[`Helper should match a snapshot for the appsEdit page where is completed
         >
           Apps Documentation
         </p>
-        <small
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </small>
+        </div>
         <div
           class="mocked-styled-2 el-button-group"
         >
@@ -1633,11 +1633,11 @@ exports[`Helper should match a snapshot for the appsEdit page where is completed
       >
         Apps Documentation
       </p>
-      <small
+      <div
         class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </small>
+      </div>
       <div
         class="mocked-styled-2 el-button-group"
       >
@@ -1804,11 +1804,11 @@ exports[`Helper should match a snapshot for the appsEdit page where isListed 1`]
         >
           Apps Documentation
         </p>
-        <small
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </small>
+        </div>
         <div
           class="mocked-styled-2 el-button-group"
         >
@@ -1918,11 +1918,11 @@ exports[`Helper should match a snapshot for the appsEdit page where isListed 1`]
       >
         Apps Documentation
       </p>
-      <small
+      <div
         class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </small>
+      </div>
       <div
         class="mocked-styled-2 el-button-group"
       >
@@ -2089,11 +2089,11 @@ exports[`Helper should match a snapshot for the appsEdit page where the app is l
         >
           Apps Documentation
         </p>
-        <small
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </small>
+        </div>
         <div
           class="mocked-styled-2 el-button-group"
         >
@@ -2203,11 +2203,11 @@ exports[`Helper should match a snapshot for the appsEdit page where the app is l
       >
         Apps Documentation
       </p>
-      <small
+      <div
         class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </small>
+      </div>
       <div
         class="mocked-styled-2 el-button-group"
       >
@@ -2374,11 +2374,11 @@ exports[`Helper should match a snapshot for the consents page 1`] = `
         >
           Apps Documentation
         </p>
-        <small
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </small>
+        </div>
         <div
           class="mocked-styled-2 el-button-group"
         >
@@ -2488,11 +2488,11 @@ exports[`Helper should match a snapshot for the consents page 1`] = `
       >
         Apps Documentation
       </p>
-      <small
+      <div
         class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </small>
+      </div>
       <div
         class="mocked-styled-2 el-button-group"
       >
@@ -2659,11 +2659,11 @@ exports[`Helper should match a snapshot for the pipelines page 1`] = `
         >
           Apps Documentation
         </p>
-        <small
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-        </small>
+        </div>
         <div
           class="mocked-styled-2 el-button-group"
         >
@@ -2773,11 +2773,11 @@ exports[`Helper should match a snapshot for the pipelines page 1`] = `
       >
         Apps Documentation
       </p>
-      <small
+      <div
         class="el-text-base el-small-text el-has-grey-text"
       >
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
-      </small>
+      </div>
       <div
         class="mocked-styled-2 el-button-group"
       >

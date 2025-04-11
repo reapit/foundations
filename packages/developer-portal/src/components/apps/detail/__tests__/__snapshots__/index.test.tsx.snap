@@ -274,7 +274,7 @@ exports[`AppDetail should match snapshot 1`] = `
             <p
               class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
             >
-              You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
+              You have a client side authenticated integration that will not render within the Reapit CRM
             </p>
           </div>
         </div>
@@ -584,7 +584,7 @@ exports[`AppDetail should match snapshot 1`] = `
           <p
             class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
           >
-            You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
+            You have a client side authenticated integration that will not render within the Reapit CRM
           </p>
         </div>
       </div>
@@ -951,7 +951,7 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
             <p
               class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
             >
-              You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
+              You have a client side authenticated integration that will not render within the Reapit CRM
             </p>
           </div>
         </div>
@@ -1261,7 +1261,7 @@ exports[`AppDetail should match snapshot when app is client credentials 1`] = `
           <p
             class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
           >
-            You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
+            You have a client side authenticated integration that will not render within the Reapit CRM
           </p>
         </div>
       </div>

@@ -175,11 +175,11 @@ exports[`IaaS should match snapshot 1`] = `
               </defs>
             </svg>
           </span>
-          <small
+          <div
             class="el-text-base el-small-text el-has-grey-text"
           >
             Infrastructure as a Service management. Pipelines are for deploying your Reapit apps to our infrastructure to simplify your development process
-          </small>
+          </div>
           <button
             class="el-intent-neutral el-button"
           >
@@ -368,11 +368,11 @@ exports[`IaaS should match snapshot 1`] = `
             </defs>
           </svg>
         </span>
-        <small
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           Infrastructure as a Service management. Pipelines are for deploying your Reapit apps to our infrastructure to simplify your development process
-        </small>
+        </div>
         <button
           class="el-intent-neutral el-button"
         >

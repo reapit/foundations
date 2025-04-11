@@ -88,7 +88,7 @@ export const AppEditPage: FC = () => {
             appDetail.authFlow === 'authorisationCode' && {
               id: AppEditTab.acIntegration,
               value: AppEditTab.acIntegration,
-              text: 'AgencyCloud Integration',
+              text: 'Reapit CRM Integration',
               isChecked: pathname.includes(AppEditTab.acIntegration),
             },
           ].filter(Boolean) as TabsOption[]
