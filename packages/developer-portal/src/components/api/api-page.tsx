@@ -111,15 +111,15 @@ export const ApiPage: FC = () => {
               <BodyText>Open API Specification</BodyText>
               <div>
                 <Label>API Version</Label>
-                <SmallText>2020-01-31</SmallText>
+                <SmallText tag="div">2020-01-31</SmallText>
               </div>
               <div>
                 <Label>API Location</Label>
-                <SmallText>https://platform.reapit.cloud</SmallText>
+                <SmallText tag="div">https://platform.reapit.cloud</SmallText>
               </div>
               {hasProducts && (
                 <>
-                  <SmallText hasGreyText>
+                  <SmallText tag="div" hasGreyText>
                     Reapit now supports multiple products in the Developer Portal, each with a corresponding API
                     document. For most developers the default will be Agency Cloud but if you wish to select a different
                     product API you can do this below.
@@ -174,7 +174,7 @@ export const ApiPage: FC = () => {
             <>
               <Icon className={elMb5} icon="graphQlInfographic" iconSize="large" />
               <BodyText>GraphQL Playground</BodyText>
-              <SmallText hasGreyText>
+              <SmallText tag="div" hasGreyText>
                 GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.
                 GraphQL gives clients the power to ask for exactly what they need and nothing more, makes it easier to
                 evolve APIs over time, and enables powerful developer tools.
@@ -191,7 +191,7 @@ export const ApiPage: FC = () => {
             <>
               <Icon className={elMb5} icon="webhooksInfographic" iconSize="large" />
               <BodyText>Webhooks Documentation</BodyText>
-              <SmallText hasGreyText>
+              <SmallText tag="div" hasGreyText>
                 This system is designed to flexibly work with how your application is built and deployed. If you wish,
                 you can set up a single endpoint to catch all topics for all customers. Alternatively, you may wish to
                 set up a different webhook subscription per topic or per customer. For more information about Webhooks,

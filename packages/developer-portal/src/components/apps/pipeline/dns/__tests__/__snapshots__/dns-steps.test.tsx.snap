@@ -23,11 +23,17 @@ exports[`DNS Steps should match snapshot for route four 1`] = `
             3
           </div>
         </div>
-        <h2
-          class="el-text-base el-subtitle"
+        <div
+          class="el-flex-container el-flex-justify-center el-flex-align-center"
         >
-          CNAME Record
-        </h2>
+          <h2
+            class="el-text-base el-subtitle mock-css.
+  margin-bottom: 0px !important;
+"
+          >
+            CNAME Record
+          </h2>
+        </div>
       </div>
       <div
         class="el-mb6"
@@ -111,11 +117,17 @@ exports[`DNS Steps should match snapshot for route four 1`] = `
           3
         </div>
       </div>
-      <h2
-        class="el-text-base el-subtitle"
+      <div
+        class="el-flex-container el-flex-justify-center el-flex-align-center"
       >
-        CNAME Record
-      </h2>
+        <h2
+          class="el-text-base el-subtitle mock-css.
+  margin-bottom: 0px !important;
+"
+        >
+          CNAME Record
+        </h2>
+      </div>
     </div>
     <div
       class="el-mb6"
@@ -397,11 +409,17 @@ exports[`DNS Steps should match snapshot for route three 1`] = `
             2
           </div>
         </div>
-        <h2
-          class="el-text-base el-subtitle"
+        <div
+          class="el-flex-container el-flex-justify-center el-flex-align-center"
         >
-          Certificate Records
-        </h2>
+          <h2
+            class="el-text-base el-subtitle mock-css.
+  margin-bottom: 0px !important;
+"
+          >
+            Certificate Records
+          </h2>
+        </div>
       </div>
       <div
         class="el-mb6"
@@ -482,11 +500,17 @@ exports[`DNS Steps should match snapshot for route three 1`] = `
           2
         </div>
       </div>
-      <h2
-        class="el-text-base el-subtitle"
+      <div
+        class="el-flex-container el-flex-justify-center el-flex-align-center"
       >
-        Certificate Records
-      </h2>
+        <h2
+          class="el-text-base el-subtitle mock-css.
+  margin-bottom: 0px !important;
+"
+        >
+          Certificate Records
+        </h2>
+      </div>
     </div>
     <div
       class="el-mb6"
@@ -624,11 +648,17 @@ exports[`DNS Steps should match snapshot for route two 1`] = `
             1
           </div>
         </div>
-        <h2
-          class="el-text-base el-subtitle el-mb0"
+        <div
+          class="el-flex-container el-flex-justify-center el-flex-align-center"
         >
-          Verify Domain Ownership
-        </h2>
+          <h2
+            class="el-text-base el-subtitle mock-css.
+  margin-bottom: 0px !important;
+"
+          >
+            Verify Domain Ownership
+          </h2>
+        </div>
       </div>
       <div
         class="el-mb6"
@@ -745,11 +775,17 @@ exports[`DNS Steps should match snapshot for route two 1`] = `
           1
         </div>
       </div>
-      <h2
-        class="el-text-base el-subtitle el-mb0"
+      <div
+        class="el-flex-container el-flex-justify-center el-flex-align-center"
       >
-        Verify Domain Ownership
-      </h2>
+        <h2
+          class="el-text-base el-subtitle mock-css.
+  margin-bottom: 0px !important;
+"
+        >
+          Verify Domain Ownership
+        </h2>
+      </div>
     </div>
     <div
       class="el-mb6"

@@ -84,10 +84,10 @@ export const getIntegrationType = ({
   return authFlow === 'clientCredentials'
     ? 'Your app is a server-side only integration or data feed'
     : isDirectApi
-      ? 'You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM'
+      ? 'You have a client side authenticated integration that will not render within the Reapit CRM'
       : isAcIntegrated
-        ? 'You have a client side authenticated integration that will replace a screen or launch from within the AgencyCloud desktop CRM'
-        : 'You have a client side authenticated integration that will render within the AgencyCloud desktop CRM'
+        ? 'You have a client side authenticated integration that will replace a screen or launch from within the Reapit CRM'
+        : 'You have a client side authenticated integration that will render within the Reapit CRM'
 }
 
 export const handleSetShouldFetchSecret = (setShouldFetchSecret: Dispatch<SetStateAction<boolean>>) => () => {

@@ -158,7 +158,7 @@ describe('getIntegrationType', () => {
     })
 
     expect(result).toEqual(
-      'You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM',
+      'You have a client side authenticated integration that will not render within the Reapit CRM',
     )
   })
 
@@ -170,7 +170,7 @@ describe('getIntegrationType', () => {
     })
 
     expect(result).toEqual(
-      'You have a client side authenticated integration that will replace a screen or launch from within the AgencyCloud desktop CRM',
+      'You have a client side authenticated integration that will replace a screen or launch from within the Reapit CRM',
     )
   })
 
@@ -181,8 +181,6 @@ describe('getIntegrationType', () => {
       desktopIntegrationTypeIds: [],
     })
 
-    expect(result).toEqual(
-      'You have a client side authenticated integration that will render within the AgencyCloud desktop CRM',
-    )
+    expect(result).toEqual('You have a client side authenticated integration that will render within the Reapit CRM')
   })
 })

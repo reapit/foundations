@@ -123,16 +123,16 @@ exports[`SettingsPage should match a snapshot 1`] = `
             >
               Settings
             </h2>
-            <small
+            <div
               class="el-text-base el-small-text el-has-grey-text"
             >
               You can manage the information we hold about you and change your password in these pages.
-            </small>
-            <small
+            </div>
+            <div
               class="el-text-base el-small-text el-has-grey-text"
             >
               Additionally, as an admin, you can manage your developer organisation, members and subscriptions.
-            </small>
+            </div>
             <div
               class="mocked-styled-2 el-button-group"
             >
@@ -276,16 +276,16 @@ exports[`SettingsPage should match a snapshot 1`] = `
           >
             Settings
           </h2>
-          <small
+          <div
             class="el-text-base el-small-text el-has-grey-text"
           >
             You can manage the information we hold about you and change your password in these pages.
-          </small>
-          <small
+          </div>
+          <div
             class="el-text-base el-small-text el-has-grey-text"
           >
             Additionally, as an admin, you can manage your developer organisation, members and subscriptions.
-          </small>
+          </div>
           <div
             class="mocked-styled-2 el-button-group"
           >

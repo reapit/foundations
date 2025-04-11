@@ -16,7 +16,7 @@ jest.mock('../../state/use-app-state', () => ({
 
 const steps = [
   {
-    text: 'AgencyCloud Functionality',
+    text: 'Reapit CRM Functionality',
     nextStep: AppNewStepId.agencyCloudStep,
     authFlow: 'authorisationCode',
   },
