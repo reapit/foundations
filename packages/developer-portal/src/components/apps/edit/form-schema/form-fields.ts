@@ -226,7 +226,7 @@ export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { nam
   },
   isAgencyCloudIntegrated: {
     name: 'isAgencyCloudIntegrated',
-    label: 'AgencyCloud Integration',
+    label: 'Reapit CRM Integration',
   },
   isPrivateApp: {
     name: 'isPrivateApp',
@@ -255,13 +255,13 @@ export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { nam
   launchWindowSizeX: {
     name: 'launchWindowSizeX',
     label: 'Default App Window Width',
-    placeholder: 'Width of window your app will be launched in AgencyCloud',
+    placeholder: 'Width of window your app will be launched in Reapit CRM',
     type: 'text',
   },
   launchWindowSizeY: {
     name: 'launchWindowSizeY',
     label: 'Default App Window Height',
-    placeholder: 'Height of window your app will be launched in AgencyCloud',
+    placeholder: 'Height of window your app will be launched in Reapit CRM',
     type: 'text',
   },
 }

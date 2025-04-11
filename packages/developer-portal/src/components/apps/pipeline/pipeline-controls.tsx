@@ -65,7 +65,6 @@ export const handleSaveConfig = (setAppPipelineSaving: Dispatch<SetStateAction<b
 export const handleSavePipeline =
   (
     sendPipelineUpdate: SendFunction<PipelineModelInterface, boolean | PipelineModelInterface>,
-    createAppRevision: SendFunction<Marketplace.CreateAppRevisionModel, boolean | Marketplace.AppDetailModel>,
     appsDetailRefresh: () => void,
     appRefreshRevisions: () => void,
     appDetail: Marketplace.AppDetailModel | null,
@@ -75,25 +74,8 @@ export const handleSavePipeline =
   async () => {
     const savedPipeline = await sendPipelineUpdate(pipelineUpdate)
     if (appDetail && savedPipeline && typeof savedPipeline !== 'boolean' && savedPipeline.subDomain && developerId) {
-      const formattedFields = formatAppFields(appDetail, developerId)
-      const sanitisedAppDetail = formatFormValues(formattedFields as AppEditFormSchema)
-      const redirectUri = `https://${savedPipeline.subDomain}.iaas.paas.reapit.cloud`
-      const signoutUri = `https://${savedPipeline.subDomain}.iaas.paas.reapit.cloud/login`
-
-      if (!sanitisedAppDetail?.redirectUris?.includes(redirectUri)) {
-        sanitisedAppDetail?.redirectUris?.push(redirectUri)
-      }
-
-      if (!sanitisedAppDetail?.signoutUris?.includes(signoutUri)) {
-        sanitisedAppDetail?.signoutUris?.push(signoutUri)
-      }
-
-      const appRevsion = await createAppRevision(sanitisedAppDetail)
-
-      if (appRevsion) {
-        appsDetailRefresh()
-        appRefreshRevisions()
-      }
+      appsDetailRefresh()
+      appRefreshRevisions()
     }
   }
 
@@ -181,17 +163,17 @@ export const PipelineControls: FC = () => {
       <Icon className={elMb3} icon="webDeveloperInfographic" iconSize="large" />
       <Subtitle>Pipeline</Subtitle>
       {isConfigPage ? (
-        <SmallText hasGreyText>
+        <SmallText tag="div" hasGreyText>
           When you create an app, we create a pre-provisioned pipeline for your app. You should configure your build
           steps on this page before using the deployments page to manage your releases to our infra.
         </SmallText>
       ) : appPipeline ? (
-        <SmallText hasGreyText>
+        <SmallText tag="div" hasGreyText>
           When you have a pipeline for your application, you can manage deployments from this page. Each table row
           refers to a deployment, and by expading the content, you can follow progress in real time.
         </SmallText>
       ) : (
-        <SmallText hasGreyText>
+        <SmallText tag="div" hasGreyText>
           To get started with Reapit IAAS pipelines, first take the time to read the documentation. Then visit this page
           to configure your first pipeline.
         </SmallText>
@@ -206,7 +188,6 @@ export const PipelineControls: FC = () => {
           <Button
             onClick={handleSavePipeline(
               sendPipelineUpdate,
-              createAppRevision,
               appsDetailRefresh,
               appRefreshRevisions,
               appDetail,

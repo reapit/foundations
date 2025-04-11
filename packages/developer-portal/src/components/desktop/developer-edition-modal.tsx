@@ -87,10 +87,10 @@ export const getBillingContent = (
   if (currentMember?.role === 'admin' && currentDeveloper?.status === 'incomplete') {
     return (
       <p>
-        Before you can subscribe to the Developer Edition of AgencyCloud, we will first need to verify your account
+        Before you can subscribe to the Developer Edition of Reapit CRM, we will first need to verify your account
         information. Please
         <a
-          href="mailto:jhennessy@reapit.com?subject=Developer%20Edition%20of%20AgencyCloud%20Subscription"
+          href="mailto:jhennessy@reapit.com?subject=Developer%20Edition%20of%20Reapit%20CRM%20Subscription"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -105,8 +105,8 @@ export const getBillingContent = (
   if (currentMember?.role === 'user' && currentDeveloper?.status === 'incomplete') {
     return (
       <p>
-        Before you can subscribe to the Developer Edition of Agency Cloud, billing information will need to be
-        submitted. Please ask the Admin of your organisation to visit this page to contact a member of the team.
+        Before you can subscribe to the Developer Edition of Reapit CRM, billing information will need to be submitted.
+        Please ask the Admin of your organisation to visit this page to contact a member of the team.
       </p>
     )
   }

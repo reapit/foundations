@@ -172,11 +172,11 @@ exports[`AppTypeOptionsContent should match a snapshot 1`] = `
                   >
                     PropTech
                   </p>
-                  <small
+                  <div
                     class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
                   >
                     Independent company building an app or integration
-                  </small>
+                  </div>
                 </div>
               </div>
             </a>
@@ -361,11 +361,11 @@ exports[`AppTypeOptionsContent should match a snapshot 1`] = `
                   >
                     Third-party developer
                   </p>
-                  <small
+                  <div
                     class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
                   >
                     Working on behalf of a Reapit agent to build either a private app or website feed
-                  </small>
+                  </div>
                 </div>
               </div>
             </a>
@@ -518,11 +518,11 @@ exports[`AppTypeOptionsContent should match a snapshot 1`] = `
                 >
                   Existing Customer
                 </p>
-                <small
+                <div
                   class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
                 >
-                  Existing Reapit AgencyCloud (desktop CRM) subscriber
-                </small>
+                  Existing Reapit CRM subscriber
+                </div>
               </div>
             </div>
           </mock-styled.div>
@@ -688,11 +688,11 @@ exports[`AppTypeOptionsContent should match a snapshot 1`] = `
                 >
                   Prospective Customer
                 </p>
-                <small
+                <div
                   class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
                 >
                   Interested in Reapit Products, not currently a subscriber
-                </small>
+                </div>
               </div>
             </div>
           </mock-styled.div>
@@ -868,11 +868,11 @@ exports[`AppTypeOptionsContent should match a snapshot 1`] = `
                 >
                   PropTech
                 </p>
-                <small
+                <div
                   class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
                 >
                   Independent company building an app or integration
-                </small>
+                </div>
               </div>
             </div>
           </a>
@@ -1057,11 +1057,11 @@ exports[`AppTypeOptionsContent should match a snapshot 1`] = `
                 >
                   Third-party developer
                 </p>
-                <small
+                <div
                   class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
                 >
                   Working on behalf of a Reapit agent to build either a private app or website feed
-                </small>
+                </div>
               </div>
             </div>
           </a>
@@ -1214,11 +1214,11 @@ exports[`AppTypeOptionsContent should match a snapshot 1`] = `
               >
                 Existing Customer
               </p>
-              <small
+              <div
                 class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
               >
-                Existing Reapit AgencyCloud (desktop CRM) subscriber
-              </small>
+                Existing Reapit CRM subscriber
+              </div>
             </div>
           </div>
         </mock-styled.div>
@@ -1384,11 +1384,11 @@ exports[`AppTypeOptionsContent should match a snapshot 1`] = `
               >
                 Prospective Customer
               </p>
-              <small
+              <div
                 class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
               >
                 Interested in Reapit Products, not currently a subscriber
-              </small>
+              </div>
             </div>
           </div>
         </mock-styled.div>

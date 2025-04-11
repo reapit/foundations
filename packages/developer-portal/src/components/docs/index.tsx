@@ -51,11 +51,11 @@ const DocsPage: FC = () => {
           </SecondaryNav>
           <Icon className={elMb5} icon="apiDocsInfographic" iconSize="large" />
           <BodyText>Welcome</BodyText>
-          <SmallText hasGreyText>
+          <SmallText tag="div" hasGreyText>
             We have provided comprehensive documentation for all of our APIs, services, tooling and open source packages
             accross these pages.
           </SmallText>
-          <SmallText hasGreyText>
+          <SmallText tag="div" hasGreyText>
             You can also visit us on Github where you can raise and track issues, look at code examples and view our
             milestones.
           </SmallText>

@@ -89,11 +89,11 @@ exports[`ElementsPage should match a snapshot 1`] = `
           >
             Reapit Elements
           </p>
-          <small
+          <div
             class="el-text-base el-small-text el-has-grey-text"
           >
             Elements is a UI toolkit built in React JS, exporting a library of CSS classes to help you build clean, interactive user interfaces for the Reapit Foundations ecosystem. It is based on the Reapit Foundations Design System, our in house styleguide.
-          </small>
+          </div>
           <button
             class="el-mb5 el-intent-neutral el-button"
           >
@@ -216,11 +216,11 @@ exports[`ElementsPage should match a snapshot 1`] = `
         >
           Reapit Elements
         </p>
-        <small
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           Elements is a UI toolkit built in React JS, exporting a library of CSS classes to help you build clean, interactive user interfaces for the Reapit Foundations ecosystem. It is based on the Reapit Foundations Design System, our in house styleguide.
-        </small>
+        </div>
         <button
           class="el-mb5 el-intent-neutral el-button"
         >
