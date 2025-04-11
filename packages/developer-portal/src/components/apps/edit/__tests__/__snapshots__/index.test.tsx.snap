@@ -117,7 +117,7 @@ exports[`AppEditPage should match a snapshot 1`] = `
             <span
               class="el-tabs-item"
             >
-              AgencyCloud Integration
+              Reapit CRM Integration
             </span>
           </label>
         </div>
@@ -276,7 +276,7 @@ exports[`AppEditPage should match a snapshot 1`] = `
           <span
             class="el-tabs-item"
           >
-            AgencyCloud Integration
+            Reapit CRM Integration
           </span>
         </label>
       </div>

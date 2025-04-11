@@ -118,8 +118,8 @@ export const HelperContent: FC = () => {
             onClick={openModalDesktop}
           >
             <BodyText hasGreyText>
-              For the greatest integration with our AgencyCloud Desktop CRM, we support the ability to load client-side
-              apps using an internal web browser, inside of the CRM.
+              For the greatest integration with our Reapit CRM, we support the ability to load client-side apps using an
+              internal web browser, inside of the CRM.
             </BodyText>
             <VideoImage width="100%" height="100%" />
           </div>
@@ -131,7 +131,7 @@ export const HelperContent: FC = () => {
               on our Desktop API please <a onClick={openNewPage(ExternalPages.desktopDocs)}>see here.</a>
             </BodyText>
             <BodyText hasGreyText>
-              To ensure a consistent UI and UX, it is a requirement that apps that integrate with AgencyCloud use our
+              To ensure a consistent UI and UX, it is a requirement that apps that integrate with Reapit CRM use our
               Elements UI library and our Design System. If you want to familiarise yourself with this before moving on,
               you can <a onClick={openNewPage(ExternalPages.elementsDocs)}>view the docs here.</a>
             </BodyText>
@@ -152,13 +152,13 @@ export const HelperContent: FC = () => {
         <Subtitle hasBoldText>External Web Applications</Subtitle>
         <BodyText hasGreyText>
           You should select this if you wish to integrate our Platform APIs with a pre-existing or future web
-          application that you do not wish to launch from within the AgencyCloud desktop CRM.
+          application that you do not wish to launch from within the Reapit CRM.
         </BodyText>
         <BodyText hasGreyText>
           Your application can be authenticated against our Platform either on the client-side or server-side. If you
-          choose client-side authentication at the next step but later wish to upgrade to a full AgencyCloud integration
+          choose client-side authentication at the next step but later wish to upgrade to a full Reapit CRM integration
           in the future, you can do this. However, it is important to note, server-side integrations cannot be launched
-          from within AgencyCloud.
+          from within Reapit CRM.
         </BodyText>
         <BodyText hasGreyText>
           When registering an app that uses the authorisation code authentication flow, it is important to understand
@@ -171,8 +171,8 @@ export const HelperContent: FC = () => {
         <BodyText hasGreyText>
           This is a server-side only data feed, using our{' '}
           <a onClick={openNewPage(ExternalPages.clientCredentials)}>Client Credentials authentication flow.</a> You
-          should select this if you have no requirement to render your application inside of the AgencyCloud desktop CRM
-          and, you have no requirement for user-centric client-side authentication.
+          should select this if you have no requirement to render your application inside of the Reapit CRM and, you
+          have no requirement for user-centric client-side authentication.
         </BodyText>
         <BodyText hasGreyText>
           Typically, you will be pulling data to serve another application, to perform data processing or some other

@@ -205,6 +205,10 @@ export const createStack = async () => {
     GTIHUB_URL: config.GITHUB_URL,
     GITHUB_CLIENT_ID: config.GITHUB_CLIENT_ID,
     GITHUB_CLIENT_SECRET: config.GITHUB_CLIENT_SECRET,
+    MARKETPLACE_URL: config.MARKETPLACE_URL,
+    CONNECT_CLIENT_ID: config.CONNECT_CLIENT_ID,
+    CONNECT_CLIENT_SECRET: config.CONNECT_CLIENT_SECRET,
+    CONNECT_URL: config.CONNECT_URL,
   }
 
   Object.values(QueueNames).forEach((queueKey) => {

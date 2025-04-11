@@ -40,9 +40,9 @@ export const GeneralTab: FC<AppEditTabsProps> = () => {
           <BodyText hasGreyText>
             As an app developer, you need to provide us with a number of pieces of information about your integration
             and have it approved by our team, prior to going live with customer data. For apps that wish to integrate
-            with the AgencyCloud CRM, and be publicly listed in the AppMarket, the approvals process is more involved
-            than for simple server-side or single customer private apps. Regardless of your target audience, you should
-            start to complete your app listing as soon as possible.
+            with the Reapit CRM, and be publicly listed in the AppMarket, the approvals process is more involved than
+            for simple server-side or single customer private apps. Regardless of your target audience, you should start
+            to complete your app listing as soon as possible.
           </BodyText>
           <BodyText hasGreyText>
             You can check the status of your app listing at any time by using the button below, prior to submitting for

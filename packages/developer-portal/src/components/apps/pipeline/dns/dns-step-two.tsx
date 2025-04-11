@@ -3,16 +3,13 @@ import {
   BodyText,
   Button,
   ButtonGroup,
-  elMb0,
   elMb6,
   elMr2,
   FlexContainer,
   FormLayout,
   InputWrapHalf,
-  Label,
   Steps,
   Subtitle,
-  Title,
   useSnack,
 } from '@reapit/elements'
 import { UpdateActionNames, updateActions, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/use-reapit-data'
@@ -22,6 +19,7 @@ import { PipelineDnsStepModal } from './setup-model'
 import { useAppState } from '../../state/use-app-state'
 import { cx } from '@linaria/core'
 import CopyToClipboard from 'react-copy-to-clipboard'
+import { elNoMargin } from './__styles__'
 
 export const handleCopyCode = (setCopyState: Dispatch<SetStateAction<'value' | undefined>>, key: 'value') => () => {
   setCopyState(key)
@@ -96,7 +94,9 @@ export const PipelineDnsStepTwo: FC<{
     <>
       <FlexContainer isFlexAlignCenter className={cx(elMb6)}>
         <Steps className={cx(elMr2)} steps={['1']} selectedStep={'1'} />
-        <Subtitle className={cx(elMb0)}>Verify Domain Ownership</Subtitle>
+        <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
+          <Subtitle className={cx(elNoMargin)}>Verify Domain Ownership</Subtitle>
+        </FlexContainer>
       </FlexContainer>
       <div className={cx(elMb6)}>
         <BodyText>Add the below TXT record to your DNS to start the verification process.</BodyText>
