@@ -8,7 +8,7 @@ const pkgJson = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
 export default defineConfig([
   {
     entry: ['src/http.ts', 'src/sqs.ts', 'src/sns.ts', 'src/migration-run.ts', 'src/dns-eventbridge.ts'],
-    target: 'node18',
+    target: 'node22',
     clean: true,
     minify: config.NODE_ENV === 'production',
     esbuildOptions: (opts) => {
@@ -45,7 +45,7 @@ export default defineConfig([
     entry: {
       'authorizer/index': '../utils-authorizer/src/handler.ts',
     },
-    target: 'node18',
+    target: 'node22',
     clean: true,
     minify: config.NODE_ENV === 'production',
     esbuildOptions: (opts) => {
@@ -59,7 +59,7 @@ export default defineConfig([
       'src/resolve-production-s3-bucket-policies.ts',
       'src/resolve-production-apply-OAC-to-all-distros.ts',
     ],
-    target: 'node18',
+    target: 'node22',
     clean: true,
     minify: config.NODE_ENV === 'production',
   },
