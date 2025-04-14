@@ -31,7 +31,7 @@ export const createFunction = (
     handler,
     vpc,
     code: typeof entry === 'string' ? lambda.Code.fromAsset(entry) : entry,
-    runtime: runtime || lambda.Runtime.NODEJS_18_X,
+    runtime: runtime || lambda.Runtime.NODEJS_LATEST,
     logRetention: logs.RetentionDays.ONE_MONTH,
   })
 }
