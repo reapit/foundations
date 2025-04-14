@@ -33,7 +33,11 @@ type BucketPolicyStatement = {
 }
 
 const resolveBucketPolicyConditions =
-  (client: S3Client) => async (bucketName: string, modifyPolicyStatement: (policyStatement: BucketPolicyStatement) => BucketPolicyStatement) => {
+  (client: S3Client) =>
+  async (
+    bucketName: string,
+    modifyPolicyStatement: (policyStatement: BucketPolicyStatement) => BucketPolicyStatement,
+  ) => {
     const policyResult = await client.send(
       new GetBucketPolicyCommand({
         Bucket: bucketName,
@@ -83,11 +87,13 @@ const migrateS3BucketPolicyConditions = async ({
     bucketNames.map((bucketName) =>
       resolveBucketPolicyConditions(client)(bucketName, (statement) => ({
         ...statement,
-        Condition: {
-          [BucketPolicyConditions.StringEquals]: { // TODO conditionally change key below
-            [statement?.Principal?.Service?.includes('cloudfront') ? BucketPolicyConditionKey['aws:Principal'] : BucketPolicyConditionKey['aws:SourceAccount']]: [paasAccountId, iaasAccountId],
-          },
-        },
+        Condition: statement?.Principal?.Service?.includes('cloudfront')
+          ? undefined
+          : {
+              [BucketPolicyConditions.StringEquals]: {
+                [BucketPolicyConditionKey['aws:SourceAccount']]: [paasAccountId, iaasAccountId],
+              },
+            },
       })),
     ),
   )
@@ -122,11 +128,15 @@ const rollbackS3BucketPolicyConditions = async (bucketNames: string[]) => {
     ),
   )
 
-  await Promise.all(bucketNames.map((bucketName) => resolveBucketPolicyConditions(client)(bucketName, (statement) => {
-    delete statement.Condition
+  await Promise.all(
+    bucketNames.map((bucketName) =>
+      resolveBucketPolicyConditions(client)(bucketName, (statement) => {
+        delete statement.Condition
 
-    return statement
-  })))
+        return statement
+      }),
+    ),
+  )
 
   await Promise.all(
     bucketNames.map((bucketName) =>
