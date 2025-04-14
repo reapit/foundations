@@ -91,7 +91,7 @@ const migrateS3BucketPolicyConditions = async ({
           ? undefined
           : {
               [BucketPolicyConditions.StringEquals]: {
-                [BucketPolicyConditionKey['aws:SourceAccount']]: [paasAccountId, iaasAccountId],
+                [BucketPolicyConditionKey['aws:PrincipalAccount']]: [paasAccountId, iaasAccountId],
               },
             },
       })),
