@@ -7,19 +7,9 @@ import { reapitConnectBrowserSession } from '../core/connect-session'
 import { Loader, MainContainer } from '@reapit/elements'
 import { HelperWidget, HelperWidgetApps } from '@reapit/utils-react'
 import { GlobalProvider } from './use-global-state'
-import { openChatbot } from '../scripts/chat-bot'
 import { FourOFour } from './router'
 import { selectIsCustomer } from '../utils/auth'
 import { TAndCsHoc } from './t-and-cs-hoc'
-
-export const handleOpenChatbot = (connectSession: ReapitConnectSession | null) => () => {
-  if (
-    connectSession?.loginIdentity.developerId &&
-    process.env.liveChatWhitelist.includes(connectSession.loginIdentity.developerId)
-  ) {
-    openChatbot(connectSession.loginIdentity)
-  }
-}
 
 export const handleRedirectRegistraitionPage =
   (navigate: NavigateFunction, connectSession: ReapitConnectSession | null) => () => {
@@ -44,8 +34,6 @@ export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
   const isAusUser = connectSession?.loginIdentity.orgProduct?.toLowerCase() === 'agentbox'
 
   useEffect(handleRedirectRegistraitionPage(navigate, connectSession), [connectSession, history])
-
-  useEffect(handleOpenChatbot(connectSession), [connectSession])
 
   if (isAusUser) {
     return <FourOFour />

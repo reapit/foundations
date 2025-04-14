@@ -78,7 +78,7 @@ export const Controls: FC = () => {
     <div className={cx(isCalcPage && visiblyHidden, elFadeIn, elMb7)}>
       <Icon className={cx(isCalcPage && visiblyHidden, elMb3)} icon="crmInfographic" iconSize="large" />
       <BodyText className={cx(isCalcPage && visiblyHidden)}>Filter By</BodyText>
-      <SmallText hasGreyText>
+      <SmallText tag="div" hasGreyText>
         Please use the filters below to search. Please note, we only hold transactional records for the last 12 months.
       </SmallText>
       <div className={cx(elBorderRadius, overflowHidden)}>

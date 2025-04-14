@@ -43,14 +43,14 @@ import {
 } from './__styles__/styles'
 import { Grid, Col } from './grid'
 import { cx } from '@linaria/core'
-import { ReactComponent as CrmImage } from '../../assets/images/desktop/crm-sandbox.svg'
-import { ReactComponent as PhoneImage } from '../../assets/images/desktop/marketplace-agency-cloud.svg'
-import { ReactComponent as CustomerImage } from '../../assets/images/desktop/customer-interact-app.svg'
-import { ReactComponent as VideoImage } from '../../assets/images/desktop/video-placeholder.svg'
-import { ReactComponent as WindowsImage } from '../../assets/images/desktop/windows-badge.svg'
-import { ReactComponent as DevEditionImgOne } from '../../assets/images/desktop/developer-edition/developer-edition-01.svg'
-import { ReactComponent as DevEditionImgTwo } from '../../assets/images/desktop/developer-edition/developer-edition-02.svg'
-import { ReactComponent as DevEditionImgThree } from '../../assets/images/desktop/developer-edition/developer-edition-03.svg'
+import crmImage from '../../assets/images/desktop/crm-sandbox.svg'
+import phoneImage from '../../assets/images/desktop/marketplace-agency-cloud.svg'
+import customerImage from '../../assets/images/desktop/customer-interact-app.svg'
+import videoImage from '../../assets/images/desktop/video-placeholder.svg'
+import windowsImage from '../../assets/images/desktop/windows-badge.svg'
+import devEditionImgOne from '../../assets/images/desktop/developer-edition/developer-edition-01.svg'
+import devEditionImgTwo from '../../assets/images/desktop/developer-edition/developer-edition-02.svg'
+import devEditionImgThree from '../../assets/images/desktop/developer-edition/developer-edition-03.svg'
 import { IFRAME_URLS } from '../../constants/iframe-urls'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
@@ -75,19 +75,19 @@ export const BannerSection: FC = () => (
     <Grid className={elMb8}>
       <BannerCol>
         <ImageTextPair>
-          <CrmImage />
+          <img src={crmImage} alt="CRM Image" />
           <TextWrap>Become familiar with our CRM software using sandbox data</TextWrap>
         </ImageTextPair>
       </BannerCol>
       <BannerCol>
         <ImageTextPair>
-          <PhoneImage />
+          <img src={phoneImage} alt="Phone Image" />
           <TextWrap>Test your Marketplace application inside Agency Cloud</TextWrap>
         </ImageTextPair>
       </BannerCol>
       <BannerCol>
         <ImageTextPair>
-          <CustomerImage />
+          <img src={customerImage} alt="Customer Image" />
           <TextWrap>Understand how customers will interact with your application</TextWrap>
         </ImageTextPair>
       </BannerCol>
@@ -124,7 +124,7 @@ export const VideoSection: FC = () => {
     <div className={elFadeIn}>
       <Subtitle>How your app integrates with the Developer Edition of Agency Cloud</Subtitle>
       <VideoContainer>
-        <VideoImage onClick={openModal} />
+        <img src={videoImage} alt="Video Image" onClick={openModal} />
         <SmallText className={cx(hasGreyText)}>
           The Developer Edition of Agency Cloud allows developers using the Desktop API to test their apps within the
           desktop application using sandbox data.
@@ -168,7 +168,7 @@ export const SubscribeSection: FC = () => {
             {subscribingState === 'INITIAL' && (
               <div className={elFadeIn}>
                 <ImageTextPair className={elMx4}>
-                  <WindowsImage />
+                  <img src={windowsImage} alt="Windows Image" />
                   <TextWrap className={hasGreyText}>
                     The application is licensed per user / developer of an organisation and requires a Windows machine
                     to install.
@@ -212,13 +212,13 @@ export const SubscribeSection: FC = () => {
           <Col span={12} spanTablet={6} spanMobile={12}>
             <SubscribeImageContainer className={cx(!isInitial && subscribingContractedContainer)}>
               <SubscribeImageBars className={cx(isInitial ? imgBarsInitial : imgBarsSubscribing)}>
-                <DevEditionImgOne />
+                <img src={devEditionImgOne} alt="Developer Edition Image One" />
               </SubscribeImageBars>
               <SubscribeImageDevices className={cx(isInitial ? imgDevicesInitial : imgDevicesSubscribing)}>
-                <DevEditionImgTwo />
+                <img src={devEditionImgTwo} alt="Developer Edition Image Two" />
               </SubscribeImageDevices>
               <SubscribeImageFooter className={cx(isInitial ? imageFooterInitial : imgFooterSubscribing)}>
-                <DevEditionImgThree />
+                <img src={devEditionImgThree} alt="Developer Edition Image Three" />
               </SubscribeImageFooter>
             </SubscribeImageContainer>
           </Col>

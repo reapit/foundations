@@ -9,6 +9,7 @@ import { S3Provider } from '../../s3'
 import { v4 as uuid } from 'uuid'
 import { SQSRecord } from 'aws-lambda'
 import { INestApplication } from '@nestjs/common'
+import { MarketplaceProvider } from '../../marketplace'
 
 const mockS3Provider = {
   upload: jest.fn(),
@@ -32,6 +33,11 @@ const mockRoute53Client = {
 
 const mockSqsProvider = {
   deleteMessage: jest.fn(),
+}
+
+const mockMarketplaceProvider = {
+  updateAppUrls: jest.fn(() => Promise.resolve()),
+  getAppDetails: jest.fn(() => Promise.resolve({})),
 }
 
 describe('PipelineSetupWorkflow', () => {
@@ -71,6 +77,10 @@ describe('PipelineSetupWorkflow', () => {
         {
           provide: Route53Client,
           useValue: mockRoute53Client,
+        },
+        {
+          provide: MarketplaceProvider,
+          useValue: mockMarketplaceProvider,
         },
       ],
     }).compile()
@@ -143,6 +153,7 @@ describe('PipelineSetupWorkflow', () => {
     expect(mockCloudFrontClient.send).toHaveBeenCalled()
     expect(mockRoute53Client.send).toHaveBeenCalled()
     expect(mockSqsProvider.deleteMessage).toHaveBeenCalled()
+    expect(mockMarketplaceProvider.updateAppUrls).toHaveBeenCalled()
   })
 
   it('Failed to provision result', async () => {

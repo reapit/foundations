@@ -17,7 +17,7 @@ export const AppOptionsContent: FC = () => {
         onClick={handleSetAppWizardState(setAppWizardState, AppNewStepId.agencyCloudStep, 'authorisationCode')}
       >
         <Icon className={elMr8} fontSize="2rem" icon="logoSettingsInfographic" />
-        <StepOptionItemText>AgencyCloud Functionality</StepOptionItemText>
+        <StepOptionItemText>Reapit CRM Functionality</StepOptionItemText>
         {nextStep === AppNewStepId.agencyCloudStep && <Icon icon="check" intent="primary" />}
       </StepOptionItem>
       <StepOptionItem

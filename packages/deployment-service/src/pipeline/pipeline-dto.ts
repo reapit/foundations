@@ -10,6 +10,7 @@ import {
   Matches,
   IsUrl,
   ValidateNested,
+  IsNumber,
 } from 'class-validator'
 
 export enum AppTypeEnum {
@@ -18,9 +19,17 @@ export enum AppTypeEnum {
 }
 
 export class GithubRepositoryDto {
-  @IsOptional()
+  @IsNotEmpty()
   @IsUrl()
   repositoryUrl?: string
+
+  @IsNotEmpty()
+  @IsNumber()
+  installationId?: number
+
+  @IsNotEmpty()
+  @IsNumber()
+  repositoryId?: number
 }
 
 export class PipelineDto {

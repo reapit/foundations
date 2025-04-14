@@ -5,6 +5,7 @@ import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/ele
 import { injectSwitchModeToWindow } from '@reapit/utils-react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { GithubProvider } from '../components/apps/pipeline/github'
 
 const queryClient = new QueryClient()
 
@@ -16,7 +17,9 @@ const App = () => (
       <SnackProvider>
         <NavStateProvider>
           <MediaStateProvider>
-            <Router />
+            <GithubProvider>
+              <Router />
+            </GithubProvider>
           </MediaStateProvider>
         </NavStateProvider>
       </SnackProvider>
