@@ -60,6 +60,9 @@ export default (config, appName) =>
             },
           ],
         },
+        workbox: {
+          maximumFileSizeToCacheInBytes: 2500000,
+        },
       }),
       process.env.IS_RELEASE &&
         sentryVitePlugin({
