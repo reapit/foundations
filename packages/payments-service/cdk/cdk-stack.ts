@@ -53,7 +53,7 @@ export const createStack = async () => {
     undefined,
     undefined,
     undefined,
-    aws_lambda.Runtime.NODEJS_18_X,
+    aws_lambda.Runtime.NODEJS_20_X,
   )
 
   const lambdaAuthorizer = createFunction(
@@ -65,7 +65,7 @@ export const createStack = async () => {
     undefined,
     undefined,
     undefined,
-    aws_lambda.Runtime.NODEJS_18_X,
+    aws_lambda.Runtime.NODEJS_20_X,
   )
 
   const authorizer = new apigateway.RequestAuthorizer(stack, 'payments-service-authorizer', {
