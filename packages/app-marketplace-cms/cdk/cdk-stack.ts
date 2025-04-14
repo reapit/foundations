@@ -35,7 +35,7 @@ export const createStack = async () => {
     undefined,
     undefined,
     undefined,
-    aws_lambda.Runtime.NODEJS_18_X,
+    aws_lambda.Runtime.NODEJS_20_X,
   )
   dynamodb.grantReadWriteData(httpLambda)
 
@@ -51,7 +51,7 @@ export const createStack = async () => {
     undefined,
     undefined,
     512,
-    aws_lambda.Runtime.NODEJS_18_X,
+    aws_lambda.Runtime.NODEJS_20_X,
   )
 
   const authorizer = new aws_apigateway.RequestAuthorizer(stack, 'app-marketplace-authorizer', {
