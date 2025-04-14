@@ -11,7 +11,7 @@ const resetPasswordUrl = `${process.env.MARKET_PLACE_URL}/reset-password`
 const internalOrgServiceUrl = process.env.INTERNAL_ORG_SERVICE_URL
 const agentboxUrl = process.env.AGENTBOX_URL
 const consoleUrl = process.env.CONSOLE_URL ?? confirmRegistrationUrl
-const ireUrl = process.env.IRE_URL ?? confirmRegistrationUrl;
+const ireUrl = process.env.IRE_URL ?? confirmRegistrationUrl
 
 const replaceAll = (str: string, find: string, replace: string): string => {
   return str.replace(new RegExp(find, 'g'), replace)
