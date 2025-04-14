@@ -11,7 +11,7 @@ export const getCdkJson = async (auth: string, projectName: string) => {
 
   const cdkJsonFile = await api.repos.getContent({
     owner: 'reapit-global',
-    repo: 'uk-devops-infrastructure-core',
+    repo: 'uk-devops-infrastructure-core-cdk',
     path: `aws_cdk_apps/${projectName}/cdk.json`,
     mediaType: {
       format: 'application/vnd.github.raw',
@@ -46,7 +46,7 @@ export const updateCdkJson = async (auth: string, projectName: string, newFileCo
 
   const result = await api.createPullRequest({
     owner: 'reapit-global',
-    repo: 'uk-devops-infrastructure-core',
+    repo: 'uk-devops-infrastructure-core-cdk',
     changes: [
       {
         files: {
