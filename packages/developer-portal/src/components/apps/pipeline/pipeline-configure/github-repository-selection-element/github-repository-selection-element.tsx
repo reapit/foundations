@@ -1,6 +1,6 @@
 import React, { FC, useContext, useEffect, useState } from 'react'
 import { GithubContext } from '../../github'
-import { Button, ButtonGroup, Modal, Title } from '@reapit/elements'
+import { Button, ButtonGroup, Loader, Modal, Title } from '@reapit/elements'
 import { SelectedRepositoryEl } from './__styles__'
 import { Installation, Repository } from './types'
 import { InstallationSelection } from './installation-selection'
@@ -54,7 +54,7 @@ export const GithubRepositorySelectionElement: FC<{
         {!authenticatedWithGithub ? (
           <>
             <Title>Repository Selection</Title>
-            {connectSession && (
+            {connectSession ? (
               <ButtonGroup>
                 <Button
                   intent="primary"
@@ -69,6 +69,8 @@ export const GithubRepositorySelectionElement: FC<{
                 </Button>
                 <Button onClick={() => setIsModalOpen(false)}>Cancel</Button>
               </ButtonGroup>
+            ) : (
+              <Loader />
             )}
           </>
         ) : !selectedInstallation ? (
