@@ -2,7 +2,6 @@ import React, { Dispatch, FC, useContext, useEffect, useState } from 'react'
 import { Installation, Repository } from './types'
 import { GithubAccessToken, GithubContext } from '../../github'
 import {
-  LevelEl,
   LoadingContentEl,
   PaginatedListEl,
   paginationFix,
@@ -10,7 +9,7 @@ import {
   RepositorySelectionActive,
   RepositorySelectionEl,
 } from './__styles__'
-import { Button, elMb6, Loader, Pagination, Title } from '@reapit/elements'
+import { Button, ButtonGroup, elMb6, Loader, Pagination, Title } from '@reapit/elements'
 import { cx } from '@linaria/core'
 
 type PageData = {
@@ -84,17 +83,7 @@ export const RepositorySelection: FC<{
 
   return (
     <div>
-      <LevelEl>
-        <Button
-          onClick={() => {
-            setSelectedRepository(undefined)
-            back(undefined)
-          }}
-        >
-          Back
-        </Button>
-        <Title>Repository Selection</Title>
-      </LevelEl>
+      <Title>Repository Selection</Title>
       <RepositoryEl>
         <img src={installation.account.avatar_url} />
         <p className="repository-name">{installation.account.login}</p>
@@ -136,16 +125,26 @@ export const RepositorySelection: FC<{
           }}
         />
       )}
-      <Button
-        onClick={(event) => {
-          event.preventDefault()
-          selectedRepository && complete(selectedRepository)
-        }}
-        disabled={!selectedRepository}
-        intent="primary"
-      >
-        {selectedRepository ? `Use ${selectedRepository.full_name}` : 'Done'}
-      </Button>
+      <ButtonGroup>
+        <Button
+          onClick={() => {
+            setSelectedRepository(undefined)
+            back(undefined)
+          }}
+        >
+          Back
+        </Button>
+        <Button
+          onClick={(event) => {
+            event.preventDefault()
+            selectedRepository && complete(selectedRepository)
+          }}
+          disabled={!selectedRepository}
+          intent="primary"
+        >
+          {selectedRepository ? `Use ${selectedRepository.full_name}` : 'Done'}
+        </Button>
+      </ButtonGroup>
     </div>
   )
 }
