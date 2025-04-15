@@ -10,7 +10,7 @@ custom:
 
 provider:
   name: aws
-  runtime: 'nodejs18.x'
+  runtime: 'nodejs22.x'
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
   deploymentBucket:

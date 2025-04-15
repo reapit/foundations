@@ -29,7 +29,7 @@ export class ResolveProductionS3BucketPermissionsCustomResource extends Construc
         code: aws_lambda.Code.fromAsset('bundle/resolve-production-s3-bucket-permissions.zip'),
         memorySize: 1024,
         timeout: Duration.seconds(60),
-        runtime: aws_lambda.Runtime.NODEJS_18_X,
+        runtime: aws_lambda.Runtime.NODEJS_20_X,
         environment: {
           PAAS_ACCOUNT_ID: scope.account,
           IAAS_ACCOUNT_ID: iaasAccountId,
