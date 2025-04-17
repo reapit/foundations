@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
-import { DeveloperModel, DeveloperModelPagedResult, UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import {
   PersistentNotification,
   Table,
@@ -21,15 +21,15 @@ import { usePermissionsState } from '../../core/use-permissions-state'
 import { InviteMemberModalForm } from './invite-member-modal-form'
 
 export interface DevelopersTableProps {
-  developers: DeveloperModelPagedResult | null
+  developers: Marketplace.DeveloperModelPagedResult | null
   refreshDevelopers: () => void
 }
 
 export const handleOpenModal =
   (
     openModal: () => void,
-    setDeveloperUpdate: Dispatch<SetStateAction<DeveloperModel | null>>,
-    developer: DeveloperModel,
+    setDeveloperUpdate: Dispatch<SetStateAction<Marketplace.DeveloperModel | null>>,
+    developer: Marketplace.DeveloperModel,
   ) =>
   () => {
     if (developer) {
@@ -111,8 +111,8 @@ export const handleDeleteDev =
 
 export const handleToggleDevEdition =
   (
-    developer: DeveloperModel,
-    updateDeveloper: SendFunction<UpdateDeveloperModel, boolean>,
+    developer: Marketplace.DeveloperModel,
+    updateDeveloper: SendFunction<Marketplace.UpdateDeveloperModel, boolean>,
     refreshDevelopers: () => void,
     paysDeveloperEdition: boolean,
   ) =>
@@ -152,7 +152,7 @@ export const DevelopersTable: FC<DevelopersTableProps> = ({ developers, refreshD
     closeModal: closeDeleteConfirmModal,
   } = useModal()
   const { Modal: InviteMemberModal, openModal: openInviteMemberModal, closeModal: closeInviteMemberModal } = useModal()
-  const [developerUpdate, setDeveloperUpdate] = useState<DeveloperModel | null>(null)
+  const [developerUpdate, setDeveloperUpdate] = useState<Marketplace.DeveloperModel | null>(null)
   const [devIdMembers, setDevIdMembers] = useState<string | null>(null)
   const [devIdApps, setDevIdApps] = useState<string | null>(null)
   const [devIdSubs, setDevIdSubs] = useState<string | null>(null)
@@ -160,7 +160,7 @@ export const DevelopersTable: FC<DevelopersTableProps> = ({ developers, refreshD
   const [devIdInvite, setDevIdInvite] = useState<string | null>(null)
   const { hasReadAccess } = usePermissionsState()
 
-  const [, , updateDeveloper] = useReapitUpdate<UpdateDeveloperModel, boolean>({
+  const [, , updateDeveloper] = useReapitUpdate<Marketplace.UpdateDeveloperModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.updateDeveloper],
     method: 'PUT',

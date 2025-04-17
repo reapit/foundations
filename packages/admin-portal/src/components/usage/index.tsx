@@ -4,11 +4,7 @@ import { FilterForm } from './filter-form'
 import { UsageTable } from './usage-table'
 import { useReapitGet, GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import {
-  AppSummaryModelPagedResult,
-  BillingBreakdownForMonthV2Model,
-  InstallationModelPagedResult,
-} from '@reapit/foundations-ts-definitions'
+import { BillingBreakdownForMonthV2Model, Marketplace } from '@reapit/foundations-ts-definitions'
 import { Statistics } from '../statistics'
 
 export interface UsageFilters {
@@ -41,7 +37,7 @@ export const UsagePage: FC = () => {
     fetchWhenTrue: [month && developerId],
   })
 
-  const [apps] = useReapitGet<AppSummaryModelPagedResult>({
+  const [apps] = useReapitGet<Marketplace.AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getApps],
     queryParams: {
@@ -51,7 +47,7 @@ export const UsagePage: FC = () => {
     fetchWhenTrue: [month && developerId],
   })
 
-  const [installations] = useReapitGet<InstallationModelPagedResult>({
+  const [installations] = useReapitGet<Marketplace.InstallationModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getInstallations],
     queryParams: {

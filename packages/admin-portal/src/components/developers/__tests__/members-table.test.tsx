@@ -12,7 +12,7 @@ import {
 import { render } from '../../../tests/react-testing'
 import { mockMemberModelPagedResult } from '../../../tests/__stubs__/members'
 import { mockUserInfoModel } from '../../../tests/__stubs__/users'
-import { MemberModel, UpdateMemberModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
 jest.mock('../../../core/use-permissions-state')
 jest.mock('@reapit/use-reapit-data', () => ({
@@ -40,7 +40,7 @@ describe('MembersTable', () => {
 describe('handleUpdateMember', () => {
   it('handleUpdateMember should correctly update member', () => {
     const updateMember = jest.fn()
-    const memberUpdate = mockMemberModelPagedResult.data as UpdateMemberModel[][0]
+    const memberUpdate = mockMemberModelPagedResult.data as Marketplace.UpdateMemberModel[][0]
     const curried = handleUpdateMember(updateMember, memberUpdate)
 
     curried()
@@ -64,7 +64,7 @@ describe('handleSetMemberEmail', () => {
 describe('handleSetUpdateMember', () => {
   it('handleSetUpdateMember should correctly set member', () => {
     const setMemberUpdate = jest.fn()
-    const memberUpdate = mockMemberModelPagedResult.data as MemberModel[][0]
+    const memberUpdate = mockMemberModelPagedResult.data as Marketplace.MemberModel[][0]
     const curried = handleSetUpdateMember(setMemberUpdate, memberUpdate)
 
     curried()
@@ -89,7 +89,7 @@ describe('handleMemberDelete', () => {
   it('handleMemberDelete should correctly set the delete member', () => {
     const setMemberDelete = jest.fn()
     const openModal = jest.fn()
-    const memberDelete = mockMemberModelPagedResult.data as UpdateMemberModel[][0]
+    const memberDelete = mockMemberModelPagedResult.data as Marketplace.UpdateMemberModel[][0]
     const curried = handleMemberDelete(setMemberDelete, openModal, memberDelete)
 
     curried()

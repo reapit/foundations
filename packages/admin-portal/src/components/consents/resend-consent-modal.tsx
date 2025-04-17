@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { Button, ButtonGroup, elMb11, FormLayout, InputGroup, InputWrapFull } from '@reapit/elements'
-import { ResendAppRevisionConsentModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { object, string } from 'yup'
 import { SendFunction } from '@reapit/use-reapit-data'
 import { emailRegex } from '@reapit/utils-common'
@@ -10,7 +10,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 interface ResendConsentModalProps {
   email?: string
   recipient?: string
-  resendEmail: SendFunction<ResendAppRevisionConsentModel, boolean>
+  resendEmail: SendFunction<Marketplace.ResendAppRevisionConsentModel, boolean>
   closeModal: () => void
 }
 
@@ -23,7 +23,8 @@ export const validationSchema = object().shape({
 })
 
 export const handleResendEmail =
-  (resendEmail: SendFunction<ResendAppRevisionConsentModel, boolean>, email: string) => (values: ResendConsentForm) => {
+  (resendEmail: SendFunction<Marketplace.ResendAppRevisionConsentModel, boolean>, email: string) =>
+  (values: ResendConsentForm) => {
     resendEmail({
       ...values,
       actionedBy: email,

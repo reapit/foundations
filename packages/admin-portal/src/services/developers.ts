@@ -4,7 +4,7 @@ import { getPlatformHeaders, logger } from '@reapit/utils-react'
 import { FetchListCommonParams } from './types'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { FetchError } from '@reapit/utils-common'
-import { DeveloperModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
 export type FetchDevelopersListParams = FetchListCommonParams & {
   name?: string
@@ -38,7 +38,7 @@ export const fetchDeveloperBillingPeriod = async (params: FetchDeveloperBillingP
 
 export const fetchDevelopersList = async (
   params: FetchDevelopersListParams,
-): Promise<DeveloperModelPagedResult | void> => {
+): Promise<Marketplace.DeveloperModelPagedResult | void> => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {

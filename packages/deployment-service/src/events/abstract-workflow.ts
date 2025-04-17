@@ -27,7 +27,9 @@ export abstract class AbstractWorkflow<T extends any> {
 
   protected deserialisePayload(payload: string): T {
     if (Reflect.hasMetadata(WORKFLOW_TYPE, this.constructor)) {
-      return plainToInstance<T, T>(Reflect.getMetadata(WORKFLOW_TYPE, this.constructor), JSON.parse(payload)) as T
+      return plainToInstance<T, T>(Reflect.getMetadata(WORKFLOW_TYPE, this.constructor), JSON.parse(payload), {
+        ignoreDecorators: true,
+      }) as T
     }
 
     return JSON.parse(payload)

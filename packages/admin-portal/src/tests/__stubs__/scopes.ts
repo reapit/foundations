@@ -1,6 +1,6 @@
-import { ScopeModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
-export const mockScopeModel: ScopeModel[] = [
+export const mockScopeModel: Marketplace.ScopeModel[] = [
   {
     name: 'agencyCloud/applicants.read',
     description: 'Read applicants',

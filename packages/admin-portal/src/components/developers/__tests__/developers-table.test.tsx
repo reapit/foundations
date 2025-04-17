@@ -1,4 +1,4 @@
-import { DeveloperModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import React from 'react'
 import { render } from '../../../tests/react-testing'
 import { mockDeveloperModelPagedResult } from '../../../tests/__stubs__/developers'
@@ -32,7 +32,7 @@ describe('handleOpenModal', () => {
   it('handleOpenModal should set developer and open modal', () => {
     const openModal = jest.fn()
     const setDeveloperUpdate = jest.fn()
-    const developer = mockDeveloperModelPagedResult.data as DeveloperModel[][0]
+    const developer = mockDeveloperModelPagedResult.data as Marketplace.DeveloperModel[][0]
     const curried = handleOpenModal(openModal, setDeveloperUpdate, developer)
 
     curried()
@@ -139,7 +139,7 @@ describe('handleDevIdInvite', () => {
 
 describe('handleToggleDevEdition', () => {
   it('handleToggleDevEdition should correctly set the dev edition status if pays for currently', async () => {
-    const developer = mockDeveloperModelPagedResult.data as DeveloperModel[][0]
+    const developer = mockDeveloperModelPagedResult.data as Marketplace.DeveloperModel[][0]
     const updateDeveloper = jest.fn(() => Promise.resolve(true))
     const refreshDevelopers = jest.fn()
     const paysDeveloperEdition = true
@@ -158,7 +158,7 @@ describe('handleToggleDevEdition', () => {
   })
 
   it('handleToggleDevEdition should correctly set the dev edition status if does not pay for currently', async () => {
-    const developer = mockDeveloperModelPagedResult.data as DeveloperModel[][0]
+    const developer = mockDeveloperModelPagedResult.data as Marketplace.DeveloperModel[][0]
     const updateDeveloper = jest.fn(() => Promise.resolve(true))
     const refreshDevelopers = jest.fn()
     const paysDeveloperEdition = false
