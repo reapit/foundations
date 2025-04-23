@@ -107,7 +107,7 @@ export class DnsEventBridgeProvider {
       try {
         await this.marketplaceProvider.updateAppUrls(
           pipeline.appId as string,
-          `https://${commonName}`,
+          commonName,
           pipeline.developerId as string,
           appDetails.name as string,
           appDetails.redirectUris,

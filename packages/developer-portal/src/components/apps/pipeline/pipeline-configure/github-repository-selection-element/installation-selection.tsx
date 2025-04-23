@@ -1,8 +1,8 @@
-import React, { Dispatch, FC, useContext, useEffect, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, useContext, useEffect, useState } from 'react'
 import { Installation } from './types'
 import { GithubAccessToken, GithubContext } from '../../github'
-import { InstallationSelectionEl, LoadingContentEl, PaginatedListEl, paginationFix } from './__styles__'
-import { BodyText, elMb6, Loader, Pagination, Title } from '@reapit/elements'
+import { LoadingContentEl, PaginatedListEl, paginationFix } from './__styles__'
+import { BodyText, Button, elMb6, elMr6, FlexContainer, Loader, Pagination, Title } from '@reapit/elements'
 import { cx } from '@linaria/core'
 
 type PageData = {
@@ -47,7 +47,10 @@ const fetchInstallations = async ({
   })
 }
 
-export const InstallationSelection: FC<{ setInstallation: Dispatch<Installation> }> = ({ setInstallation }) => {
+export const InstallationSelection: FC<{
+  setInstallation: Dispatch<Installation>
+  setIsModelOpen: Dispatch<SetStateAction<boolean>>
+}> = ({ setInstallation, setIsModelOpen }) => {
   const [installations, setInstallations] = useState<Installation[] | undefined>()
   const { githubSession } = useContext(GithubContext)
   const [loading, setLoading] = useState<boolean>(false)
@@ -81,10 +84,12 @@ export const InstallationSelection: FC<{ setInstallation: Dispatch<Installation>
         {installations && (
           <div key={pageData.current_page}>
             {installations?.map((installation) => (
-              <InstallationSelectionEl key={installation.id} onClick={() => setInstallation(installation)}>
-                <img src={installation.account.avatar_url} />
-                <p>{installation.account.login}</p>
-              </InstallationSelectionEl>
+              <FlexContainer key={installation.id} isFlexAlignCenter>
+                <img width="50px" height="auto" className={cx(elMr6)} src={installation.account.avatar_url} />
+                <Button intent="primary" onClick={() => setInstallation(installation)}>
+                  {installation.account.login}
+                </Button>
+              </FlexContainer>
             ))}
           </div>
         )}
@@ -106,6 +111,7 @@ export const InstallationSelection: FC<{ setInstallation: Dispatch<Installation>
           }}
         />
       )}
+      <Button onClick={() => setIsModelOpen(false)}>Close</Button>
     </div>
   )
 }

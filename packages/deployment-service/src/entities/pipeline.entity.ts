@@ -37,6 +37,7 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
     cascade: ['remove', 'insert'],
     eager: true,
   })
+  @Type(() => RepositoryEntity)
   repository?: RepositoryEntity
 
   @OneToMany(() => PipelineRunnerEntity, (pipelineRunner) => pipelineRunner.pipeline)

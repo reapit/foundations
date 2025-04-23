@@ -16386,7 +16386,7 @@ __metadata:
     "@linaria/react": "npm:^6.2.1"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.3"
-    "@reapit/elements": "npm:^4.3.2"
+    "@reapit/elements": "npm:4.3.2"
     "@reapit/foundations-ts-definitions": "npm:^2.1.20"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/use-reapit-data": "workspace:packages/use-reapit-data"
