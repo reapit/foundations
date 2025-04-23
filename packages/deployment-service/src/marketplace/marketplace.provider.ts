@@ -61,24 +61,17 @@ export class MarketplaceProvider {
    * @param appId The App Id to make the revision for
    * @param domain The domain to be added to the app for login redirect/signout
    */
-  async updateAppUrls(
-    appId: string,
-    domain: string,
-    developerId: string,
-    name: string,
-    redirectUris?: string[],
-    signoutUris?: string[],
-  ): Promise<void> {
+  async updateAppUrls(appId: string, domain: string): Promise<void> {
     const { access_token, token_type } = await this.authenticate()
+    const appDetails = await this.getAppDetails(appId)
 
     await firstValueFrom(
       this.httpService.post<Marketplace.AppRevisionModel>(
         `${this.config.url}/apps/${appId}/revisions`,
         {
-          redirectUris: [...(redirectUris || []), `https://${domain}/login`],
-          signoutUris: [...(signoutUris || []), `https://${domain}/login`],
-          developerId,
-          name,
+          ...appDetails,
+          redirectUris: [...(appDetails.redirectUris || []), `https://${domain}/`],
+          signoutUris: [...(appDetails.signoutUris || []), `https://${domain}/login`],
         },
         {
           headers: {

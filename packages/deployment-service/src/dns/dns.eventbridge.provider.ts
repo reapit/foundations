@@ -102,17 +102,8 @@ export class DnsEventBridgeProvider {
         certificateStatus: 'complete',
       })
 
-      const appDetails = await this.marketplaceProvider.getAppDetails(pipeline.appId as string)
-
       try {
-        await this.marketplaceProvider.updateAppUrls(
-          pipeline.appId as string,
-          commonName,
-          pipeline.developerId as string,
-          appDetails.name as string,
-          appDetails.redirectUris,
-          appDetails.signoutUris,
-        )
+        await this.marketplaceProvider.updateAppUrls(pipeline.appId as string, commonName)
       } catch (error) {
         if (isAxiosError(error)) {
           console.log('Failed to create app revision')

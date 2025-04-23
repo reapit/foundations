@@ -33,7 +33,7 @@ describe('MarketplaceProvider', () => {
   })
 
   it('updateAppUrls', async () => {
-    await provider.updateAppUrls('appId', 'domain', 'developerId', 'appName')
+    await provider.updateAppUrls('appId', 'domain')
 
     expect(mockAxios.post).toHaveBeenCalledTimes(2)
   })
