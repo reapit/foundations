@@ -41,9 +41,11 @@ export class MarketplaceProvider {
     return { access_token, token_type }
   }
 
-  async getAppDetails(appId: string): Promise<Marketplace.AppDetailModel> {
-    const { access_token, token_type } = await this.authenticate()
-
+  private async getAppDetails(
+    appId: string,
+    token_type: string,
+    access_token: string,
+  ): Promise<Marketplace.AppDetailModel> {
     const result = await firstValueFrom(
       this.httpService.get<Marketplace.AppDetailModel>(`${this.config.url}/apps/${appId}`, {
         headers: {
@@ -63,7 +65,7 @@ export class MarketplaceProvider {
    */
   async updateAppUrls(appId: string, domain: string): Promise<void> {
     const { access_token, token_type } = await this.authenticate()
-    const appDetails = await this.getAppDetails(appId)
+    const appDetails = await this.getAppDetails(appId, token_type, access_token)
 
     await firstValueFrom(
       this.httpService.post<Marketplace.AppRevisionModel>(

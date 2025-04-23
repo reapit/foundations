@@ -6,14 +6,15 @@ import marketplace from '../../config/marketplace'
 const connectUrl = 'connect-url'
 
 const mockAxios = {
-  post: jest.fn(() =>
-    Promise.resolve({
+  post: jest.fn((data, params) => {
+    console.log('data', data, params)
+    return Promise.resolve({
       data: {
         access_token: 'access_token',
         token_type: 'bearer',
       },
-    }),
-  ),
+    })
+  }),
   get: jest.fn(() =>
     Promise.resolve({
       data: {
@@ -36,12 +37,6 @@ describe('MarketplaceProvider', () => {
     await provider.updateAppUrls('appId', 'domain')
 
     expect(mockAxios.post).toHaveBeenCalledTimes(2)
-  })
-
-  it('getAppDetails', async () => {
-    await provider.getAppDetails('appId')
-
-    expect(mockAxios.post).toHaveBeenCalled()
-    expect(mockAxios.get).toHaveBeenCalled()
+    expect(mockAxios.get).toHaveBeenCalledTimes(1)
   })
 })
