@@ -1,9 +1,5 @@
 import React, { useEffect, Dispatch, SetStateAction, useState, FC } from 'react'
-import {
-  CreateSubscriptionModel,
-  SubscriptionModel,
-  SubscriptionModelPagedResult,
-} from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import {
   objectToQuery,
   SendFunction,
@@ -34,9 +30,9 @@ export interface ToggleSubscribedForm {
 
 export const getCurrentSub =
   (
-    subscriptions: SubscriptionModelPagedResult | null,
+    subscriptions: Marketplace.SubscriptionModelPagedResult | null,
     subscriptionType: SubscriptionType,
-    setCurrentSub: Dispatch<SetStateAction<SubscriptionModel | null>>,
+    setCurrentSub: Dispatch<SetStateAction<Marketplace.SubscriptionModel | null>>,
     reset: UseFormReset<ToggleSubscribedForm>,
     appId?: string,
   ) =>
@@ -59,8 +55,8 @@ export const getCurrentSub =
 
 export const createSubscriptionHander =
   (
-    createSubscription: SendFunction<CreateSubscriptionModel, boolean>,
-    createSubscriptionModel: CreateSubscriptionModel,
+    createSubscription: SendFunction<Marketplace.CreateSubscriptionModel, boolean>,
+    createSubscriptionModel: Marketplace.CreateSubscriptionModel,
   ) =>
   () => {
     createSubscription(createSubscriptionModel)
@@ -99,7 +95,7 @@ export const handleWatchToggle =
 export const CreateSubscriptions: FC<CreateSubscriptionsProps> = ({ subscriptionType, developerId, appId }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const email = connectSession?.loginIdentity.email
-  const [currentSub, setCurrentSub] = useState<SubscriptionModel | null>(null)
+  const [currentSub, setCurrentSub] = useState<Marketplace.SubscriptionModel | null>(null)
   const { register, watch, reset } = useForm<ToggleSubscribedForm>()
 
   const queryParams = objectToQuery({
@@ -107,7 +103,7 @@ export const CreateSubscriptions: FC<CreateSubscriptionsProps> = ({ subscription
     subscriptionType,
   })
 
-  const [subscriptions, , , subscriptionsRefresh] = useReapitGet<SubscriptionModelPagedResult>({
+  const [subscriptions, , , subscriptionsRefresh] = useReapitGet<Marketplace.SubscriptionModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getSubscriptions],
     queryParams: {
@@ -125,7 +121,7 @@ export const CreateSubscriptions: FC<CreateSubscriptionsProps> = ({ subscription
     },
   })
 
-  const [, , createSubscription, subscriptionCreated] = useReapitUpdate<CreateSubscriptionModel, boolean>({
+  const [, , createSubscription, subscriptionCreated] = useReapitUpdate<Marketplace.CreateSubscriptionModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.createSubscription],
     method: 'POST',

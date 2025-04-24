@@ -3,7 +3,7 @@ import { Button, ButtonGroup, FormLayout, InputGroup } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
-import { InviteMemberModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { validationSchemaMember } from './validation-schema'
 import { useForm } from 'react-hook-form'
@@ -15,8 +15,8 @@ export interface InviteMemberModalFormProps {
 }
 
 export const handleInviteMember =
-  (inviteMember: SendFunction<InviteMemberModel, boolean>, closeModal: () => void) =>
-  async (member: InviteMemberModel) => {
+  (inviteMember: SendFunction<Marketplace.InviteMemberModel, boolean>, closeModal: () => void) =>
+  async (member: Marketplace.InviteMemberModel) => {
     const created = await inviteMember(member)
     if (created) {
       closeModal()
@@ -26,7 +26,7 @@ export const handleInviteMember =
 export const InviteMemberModalForm: FC<InviteMemberModalFormProps> = ({ developerId, closeModal }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
-  const [, , inviteMember] = useReapitUpdate<InviteMemberModel, boolean>({
+  const [, , inviteMember] = useReapitUpdate<Marketplace.InviteMemberModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.inviteMember],
     method: 'POST',
@@ -39,7 +39,7 @@ export const InviteMemberModalForm: FC<InviteMemberModalFormProps> = ({ develope
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<InviteMemberModel>({
+  } = useForm<Marketplace.InviteMemberModel>({
     resolver: yupResolver(validationSchemaMember),
     defaultValues: {
       name: '',

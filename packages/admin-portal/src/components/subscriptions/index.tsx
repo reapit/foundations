@@ -23,7 +23,7 @@ import {
   GetActionNames,
   getActions,
 } from '@reapit/use-reapit-data'
-import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { FilterForm } from './filter-form'
 import { Statistics } from '../statistics'
@@ -68,7 +68,7 @@ const Subscriptions: FC = () => {
   const { Modal, openModal, closeModal } = useModal()
   const { hasReadAccess } = usePermissionsState()
 
-  const [subscriptions, subscriptionsLoading, , refetchSubs] = useReapitGet<SubscriptionModelPagedResult>({
+  const [subscriptions, subscriptionsLoading, , refetchSubs] = useReapitGet<Marketplace.SubscriptionModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getSubscriptions],
     queryParams: {

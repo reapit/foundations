@@ -2,9 +2,9 @@ import React from 'react'
 import { handleUpdateDevStatus, handleRefreshDevelopers, DeveloperStatusModal } from '../developer-status-modal'
 import { render } from '../../../tests/react-testing'
 import { mockDeveloperModelPagedResult } from '../../../tests/__stubs__/developers'
-import { DeveloperModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
-const developer = mockDeveloperModelPagedResult.data as DeveloperModel[][0]
+const developer = mockDeveloperModelPagedResult.data as Marketplace.DeveloperModel[][0]
 
 describe('DeveloperStatusModal', () => {
   it('should render component with no developer', () => {

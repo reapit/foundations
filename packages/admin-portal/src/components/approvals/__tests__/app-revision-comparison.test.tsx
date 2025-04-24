@@ -1,5 +1,5 @@
 import React from 'react'
-import { ApprovalModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { useReapitGet } from '@reapit/use-reapit-data'
 import { LoginIdentity } from '@reapit/connect-session'
 import dayjs from 'dayjs'
@@ -41,7 +41,7 @@ describe('AppRevisionComparison', () => {
     expect(
       render(
         <AppRevisionComparison
-          approval={(mockApprovalModelPagedResult.data as ApprovalModel[])[0]}
+          approval={(mockApprovalModelPagedResult.data as Marketplace.ApprovalModel[])[0]}
           refreshApprovals={jest.fn()}
         />,
       ),
@@ -58,7 +58,7 @@ describe('AppRevisionComparison', () => {
     expect(
       render(
         <AppRevisionComparison
-          approval={(mockApprovalModelPagedResult.data as ApprovalModel[])[0]}
+          approval={(mockApprovalModelPagedResult.data as Marketplace.ApprovalModel[])[0]}
           refreshApprovals={jest.fn()}
         />,
       ),
@@ -75,7 +75,7 @@ describe('AppRevisionComparison', () => {
     expect(
       render(
         <AppRevisionComparison
-          approval={(mockApprovalModelPagedResult.data as ApprovalModel[])[0]}
+          approval={(mockApprovalModelPagedResult.data as Marketplace.ApprovalModel[])[0]}
           refreshApprovals={jest.fn()}
         />,
       ),
