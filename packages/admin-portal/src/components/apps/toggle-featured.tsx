@@ -3,7 +3,7 @@ import { elMt5, FormLayout, InputWrap, Label, ToggleRadio } from '@reapit/elemen
 import { useForm, UseFormWatch } from 'react-hook-form'
 import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
 export interface ToggleFeaturedForm {
   isFeatured?: 'FEATURED' | 'NOT_FEATURED'
@@ -11,7 +11,7 @@ export interface ToggleFeaturedForm {
 
 export interface ToggleFeaturedProps {
   appIdFeatured: string
-  apps: AppSummaryModelPagedResult | null
+  apps: Marketplace.AppSummaryModelPagedResult | null
   appsRefresh: () => void
 }
 

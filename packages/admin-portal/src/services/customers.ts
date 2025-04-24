@@ -1,4 +1,4 @@
-import { CustomerModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { getPlatformHeaders, logger } from '@reapit/utils-react'
 import { fetcher, FetchError, setQueryParams } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../core/connect-session'
@@ -9,7 +9,9 @@ export type CustomerListParams = FetchListCommonParams & {
   name?: string
 }
 
-export const fetchCustomersList = async (params: CustomerListParams): Promise<CustomerModelPagedResult | void> => {
+export const fetchCustomersList = async (
+  params: CustomerListParams,
+): Promise<Marketplace.CustomerModelPagedResult | void> => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {

@@ -3,7 +3,7 @@ import { elMt5, FormLayout, InputGroup, InputWrap, Label, ToggleRadio } from '@r
 import { useForm, UseFormWatch } from 'react-hook-form'
 import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { InstallationModelPagedResult, UpdateInstallationModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
 export interface ToggleConsumptionForm {
   fixedApiConsumptionCost?: 'FREE' | 'NOT_FREE'
@@ -11,12 +11,12 @@ export interface ToggleConsumptionForm {
 
 export interface ToggleConsumptionProps {
   installIdConsumption: string
-  installations: InstallationModelPagedResult | null
+  installations: Marketplace.InstallationModelPagedResult | null
   installationsRefresh: () => void
 }
 
 export const handleToggleConsumption =
-  (updateInstallation: SendFunction<UpdateInstallationModel, boolean>) =>
+  (updateInstallation: SendFunction<Marketplace.UpdateInstallationModel, boolean>) =>
   ({ fixedApiConsumptionCost }: ToggleConsumptionForm) => {
     const value = fixedApiConsumptionCost === 'FREE' ? 0 : undefined
     updateInstallation({ fixedApiConsumptionCost: value })
@@ -29,7 +29,10 @@ export const handleRefreshInstallations = (installationsRefresh: () => void, sho
 }
 
 export const handleWatchToggle =
-  (updateInstallation: SendFunction<UpdateInstallationModel, boolean>, watch: UseFormWatch<ToggleConsumptionForm>) =>
+  (
+    updateInstallation: SendFunction<Marketplace.UpdateInstallationModel, boolean>,
+    watch: UseFormWatch<ToggleConsumptionForm>,
+  ) =>
   () => {
     const subscription = watch(handleToggleConsumption(updateInstallation))
     return () => subscription.unsubscribe()
@@ -44,7 +47,7 @@ export const ToggleConsumption: FC<ToggleConsumptionProps> = ({
   const currentConsumptionPaid =
     installations?.data?.find((install) => install.id === installIdConsumption)?.fixedApiConsumptionCost !== 0
 
-  const [, , updateInstallation, appUpdated] = useReapitUpdate<UpdateInstallationModel, boolean>({
+  const [, , updateInstallation, appUpdated] = useReapitUpdate<Marketplace.UpdateInstallationModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.updateInstallation],
     method: 'PUT',

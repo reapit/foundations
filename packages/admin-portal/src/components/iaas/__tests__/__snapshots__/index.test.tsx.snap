@@ -295,8 +295,8 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
         </form>
         <div
           class="el-mb11 el-table"
-          data-has-call-to-action="true"
-          data-has-expandable-action="false"
+          data-has-call-to-action="false"
+          data-has-expandable-action="true"
           data-num-columns-excl-action-col="3"
           role="table"
         >
@@ -329,7 +329,24 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
               class="mocked-styled-102 el-table-header"
               role="columnheader"
             >
-              Delete Pipeline
+              <span
+                class="el-intent-default el-icon-new el-icon"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  title="Icon image with name settings"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
             </div>
           </div>
           <div
@@ -394,37 +411,349 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
                 />
               </div>
               <div
-                class="mocked-styled-104 el-table-cta-cell"
+                class="mocked-styled-109 el-table-expandable-row-trigger-cell"
                 role="cell"
                 tabindex="0"
               >
-                <div
-                  class="mocked-styled-112 el-table-cta-icon-container"
+                <span
+                  class="el-intent-default el-icon-new el-icon"
                 >
-                  <span
-                    class="el-intent-default el-icon-new el-icon"
+                  <svg
+                    fill="none"
+                    height="1em"
+                    role="img"
+                    title="Icon image with name more"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <svg
-                      fill="none"
-                      height="1em"
-                      role="img"
-                      title="Icon image with name trash"
-                      viewBox="0 0 24 24"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <path
+                      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-113 el-table-expandable-row"
+            >
+              <div
+                class="mocked-styled-114 el-table-expandable-container"
+              >
+                <p
+                  class="el-text-base el-body-text el-has-bold-text"
+                >
+                  Pipeline
+                </p>
+                <div
+                  class="el-mb12 el-form-layout"
+                >
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
                     >
-                      <path
-                        d="M9 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0zM13 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0z"
-                        fill="currentColor"
+                      Pipeline Name
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    >
+                      reapit-ltd-internal-thoughtless-cub
+                    </p>
+                  </div>
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
+                      Pipeline Id
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    >
+                      bb2061b6-b994-4851-bc5c-94f3a42c3a79
+                    </p>
+                  </div>
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
+                      App Id
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    >
+                      bb2061b6-b994-4851-bc5c-94f3a42c3a79
+                    </p>
+                  </div>
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
+                      Developer Id
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    >
+                      421b65bc-dd09-4c34-90fa-dacc3cd2ff5a
+                    </p>
+                  </div>
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
+                      Build Status
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    >
+                      PRE_PROVISIONED
+                    </p>
+                  </div>
+                </div>
+                <p
+                  class="el-text-base el-body-text el-has-bold-text"
+                >
+                  Repository
+                </p>
+                <div
+                  class="el-mb12 el-form-layout"
+                >
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
+                      Repository Url
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    />
+                  </div>
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
+                      Repository Id
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    >
+                      0
+                    </p>
+                  </div>
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
+                      Repo Installation Id
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    >
+                      0
+                    </p>
+                  </div>
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
+                      Branch
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    >
+                      master
+                    </p>
+                  </div>
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
+                      Out Dir
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    >
+                      build
+                    </p>
+                  </div>
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
+                      Package Manager
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    >
+                      npm
+                    </p>
+                  </div>
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
+                      Build Command
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    >
+                      build
+                    </p>
+                  </div>
+                </div>
+                <p
+                  class="el-text-base el-body-text el-has-bold-text"
+                >
+                  Domain
+                </p>
+                <div
+                  class="el-mb12 el-form-layout"
+                >
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
+                      Sub Domain
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    >
+                      gutsy-bikes
+                    </p>
+                  </div>
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
+                      Sub Domain Url
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    >
+                      https://gutsy-bikes.reapit.cloud
+                    </p>
+                  </div>
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
+                      Custom Domain
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    />
+                  </div>
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
+                      Certificate Status
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    />
+                  </div>
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
+                      Verify DNS TXT Record Name Prefix
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    />
+                  </div>
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
+                      Verify DNS TXT Record Value
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    />
+                  </div>
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
+                      CloudFrontId
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    />
+                  </div>
+                  <div
+                    class="mocked-styled-133 el-input-wrap"
+                  >
+                    <label
+                      class="mocked-styled-41 el-label"
+                    >
+                      CertificateArn
+                    </label>
+                    <p
+                      class="el-text-base el-body-text"
+                    />
+                  </div>
+                </div>
+                <p
+                  class="el-text-base el-body-text el-has-bold-text"
+                >
+                  Actions
+                </p>
+                <div
+                  class="mocked-styled-2 el-button-group"
+                >
+                  <div
+                    class="mocked-styled-3 el-button-group-inner"
+                  >
+                    <button
+                      class="el-intent-danger el-button"
+                    >
+                      <div
+                        class="mocked-styled-0 el-button-loader"
                       />
-                      <path
-                        clip-rule="evenodd"
-                        d="M18 5h3a1 1 0 1 1 0 2h-.06l-.69 11.31a5 5 0 0 1-5 4.69H8.77a5 5 0 0 1-5-4.69L3.06 7H3a1 1 0 1 1 0-2h3V4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3zM9 3a1 1 0 0 0-1 1v1h8V4a1 1 0 0 0-1-1zm6.24 18a3 3 0 0 0 3-2.81L18.94 7H5.06l.7 11.19a3 3 0 0 0 3 2.81z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </span>
+                      Delete Pipeline
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -571,8 +900,8 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
       </form>
       <div
         class="el-mb11 el-table"
-        data-has-call-to-action="true"
-        data-has-expandable-action="false"
+        data-has-call-to-action="false"
+        data-has-expandable-action="true"
         data-num-columns-excl-action-col="3"
         role="table"
       >
@@ -605,7 +934,24 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
             class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
-            Delete Pipeline
+            <span
+              class="el-intent-default el-icon-new el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                role="img"
+                title="Icon image with name settings"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
           </div>
         </div>
         <div
@@ -670,37 +1016,349 @@ exports[`IaaS should match snapshot with pipelines 1`] = `
               />
             </div>
             <div
-              class="mocked-styled-104 el-table-cta-cell"
+              class="mocked-styled-109 el-table-expandable-row-trigger-cell"
               role="cell"
               tabindex="0"
             >
-              <div
-                class="mocked-styled-112 el-table-cta-icon-container"
+              <span
+                class="el-intent-default el-icon-new el-icon"
               >
-                <span
-                  class="el-intent-default el-icon-new el-icon"
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  title="Icon image with name more"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    fill="none"
-                    height="1em"
-                    role="img"
-                    title="Icon image with name trash"
-                    viewBox="0 0 24 24"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <path
+                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-113 el-table-expandable-row"
+          >
+            <div
+              class="mocked-styled-114 el-table-expandable-container"
+            >
+              <p
+                class="el-text-base el-body-text el-has-bold-text"
+              >
+                Pipeline
+              </p>
+              <div
+                class="el-mb12 el-form-layout"
+              >
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
                   >
-                    <path
-                      d="M9 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0zM13 11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0z"
-                      fill="currentColor"
+                    Pipeline Name
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  >
+                    reapit-ltd-internal-thoughtless-cub
+                  </p>
+                </div>
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
+                    Pipeline Id
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  >
+                    bb2061b6-b994-4851-bc5c-94f3a42c3a79
+                  </p>
+                </div>
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
+                    App Id
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  >
+                    bb2061b6-b994-4851-bc5c-94f3a42c3a79
+                  </p>
+                </div>
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
+                    Developer Id
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  >
+                    421b65bc-dd09-4c34-90fa-dacc3cd2ff5a
+                  </p>
+                </div>
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
+                    Build Status
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  >
+                    PRE_PROVISIONED
+                  </p>
+                </div>
+              </div>
+              <p
+                class="el-text-base el-body-text el-has-bold-text"
+              >
+                Repository
+              </p>
+              <div
+                class="el-mb12 el-form-layout"
+              >
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
+                    Repository Url
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  />
+                </div>
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
+                    Repository Id
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  >
+                    0
+                  </p>
+                </div>
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
+                    Repo Installation Id
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  >
+                    0
+                  </p>
+                </div>
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
+                    Branch
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  >
+                    master
+                  </p>
+                </div>
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
+                    Out Dir
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  >
+                    build
+                  </p>
+                </div>
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
+                    Package Manager
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  >
+                    npm
+                  </p>
+                </div>
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
+                    Build Command
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  >
+                    build
+                  </p>
+                </div>
+              </div>
+              <p
+                class="el-text-base el-body-text el-has-bold-text"
+              >
+                Domain
+              </p>
+              <div
+                class="el-mb12 el-form-layout"
+              >
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
+                    Sub Domain
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  >
+                    gutsy-bikes
+                  </p>
+                </div>
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
+                    Sub Domain Url
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  >
+                    https://gutsy-bikes.reapit.cloud
+                  </p>
+                </div>
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
+                    Custom Domain
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  />
+                </div>
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
+                    Certificate Status
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  />
+                </div>
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
+                    Verify DNS TXT Record Name Prefix
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  />
+                </div>
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
+                    Verify DNS TXT Record Value
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  />
+                </div>
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
+                    CloudFrontId
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  />
+                </div>
+                <div
+                  class="mocked-styled-133 el-input-wrap"
+                >
+                  <label
+                    class="mocked-styled-41 el-label"
+                  >
+                    CertificateArn
+                  </label>
+                  <p
+                    class="el-text-base el-body-text"
+                  />
+                </div>
+              </div>
+              <p
+                class="el-text-base el-body-text el-has-bold-text"
+              >
+                Actions
+              </p>
+              <div
+                class="mocked-styled-2 el-button-group"
+              >
+                <div
+                  class="mocked-styled-3 el-button-group-inner"
+                >
+                  <button
+                    class="el-intent-danger el-button"
+                  >
+                    <div
+                      class="mocked-styled-0 el-button-loader"
                     />
-                    <path
-                      clip-rule="evenodd"
-                      d="M18 5h3a1 1 0 1 1 0 2h-.06l-.69 11.31a5 5 0 0 1-5 4.69H8.77a5 5 0 0 1-5-4.69L3.06 7H3a1 1 0 1 1 0-2h3V4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3zM9 3a1 1 0 0 0-1 1v1h8V4a1 1 0 0 0-1-1zm6.24 18a3 3 0 0 0 3-2.81L18.94 7H5.06l.7 11.19a3 3 0 0 0 3 2.81z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                </span>
+                    Delete Pipeline
+                  </button>
+                </div>
               </div>
             </div>
           </div>
