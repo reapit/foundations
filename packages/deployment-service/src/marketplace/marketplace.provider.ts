@@ -67,11 +67,19 @@ export class MarketplaceProvider {
     const { access_token, token_type } = await this.authenticate()
     const appDetails = await this.getAppDetails(appId, token_type, access_token)
 
+    if (!appDetails.description) delete appDetails.description
+    if (!appDetails.supportEmail) delete appDetails.supportEmail
+    if (!appDetails.homePage) delete appDetails.homePage
+    if (!appDetails.summary) delete appDetails.summary
+    if (!appDetails.telephone) delete appDetails.telephone
+    if (!appDetails.launchUri) delete appDetails.launchUri
+
     await firstValueFrom(
       this.httpService.post<Marketplace.AppRevisionModel>(
         `${this.config.url}/apps/${appId}/revisions`,
         {
           ...appDetails,
+          scopes: appDetails.scopes?.map(scope => scope.name),
           redirectUris: [...(appDetails.redirectUris || []), `https://${domain}/`],
           signoutUris: [...(appDetails.signoutUris || []), `https://${domain}/login`],
         },
