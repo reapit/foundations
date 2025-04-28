@@ -86,17 +86,18 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   @Column({ default: 'master' })
   branch?: string
 
-  @Column({ nullable: true })
-  verifyDnsValue?: string
+  // TODO remove from migration
+  // @Column({ nullable: true })
+  // verifyDnsValue?: string
 
-  @Column({ nullable: true })
-  verifyDnsName?: string
+  // @Column({ nullable: true })
+  // verifyDnsName?: string
 
   @Column({ nullable: true })
   customDomain?: string
 
-  @Column({ default: false })
-  domainVerified: boolean = false
+  // @Column({ default: false })
+  // domainVerified: boolean = false
 
   @Column({ nullable: true })
   @Expose({
@@ -104,8 +105,8 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   })
   certificateArn?: string
 
-  @Column({ default: 'unverified' })
-  certificateStatus?: string
+  // @Column({ default: 'unverified' })
+  // certificateStatus?: string
 
   @Column()
   certificateError?: string

@@ -17,7 +17,6 @@ import { MarketplaceModule } from '../marketplace'
       provide: Route53Client,
       useFactory: () => new Route53Client({}),
     },
-    DnsProvider,
     CertificateProvider,
     DnsEventBridgeProvider,
     DnsCloudFrontProvider,
