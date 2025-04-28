@@ -14,11 +14,12 @@ export const validationSchema = Yup.object().shape({
   customDomain: Yup.string().matches(domainRegex, 'Should be a valid domain').trim().required(),
 })
 
-export const PipelineDnsStepModal: FC<{ customDomain?: string; buttonText?: string; pipelineId: string }> = ({
-  customDomain,
-  buttonText = 'Edit DNS',
-  pipelineId,
-}) => {
+export const PipelineDnsStepModal: FC<{
+  customDomain?: string
+  buttonText?: string
+  pipelineId: string
+  refresh: () => void
+}> = ({ customDomain, buttonText = 'Edit DNS', pipelineId, refresh }) => {
   const { modalIsOpen, closeModal, openModal } = useModal()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appPipelineState } = useAppState()
@@ -34,7 +35,10 @@ export const PipelineDnsStepModal: FC<{ customDomain?: string; buttonText?: stri
     resolver: yupResolver(validationSchema),
   })
 
-  const [sendingDns, , sendDnsRequest] = useReapitUpdate({
+  const [sendingDns, dnsInfo, sendDnsRequest] = useReapitUpdate<
+    { customDomain: string },
+    { cloudfrontUrl: string; certificate: string; customDomain: string }
+  >({
     action: updateActions[UpdateActionNames.createCustomPipelineDnsRecord],
     method: 'POST',
     headers: {
@@ -43,6 +47,8 @@ export const PipelineDnsStepModal: FC<{ customDomain?: string; buttonText?: stri
     reapitConnectBrowserSession,
     uriParams: { pipelineId },
   })
+
+  if (dnsInfo) refresh()
 
   return (
     <>

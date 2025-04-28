@@ -2,43 +2,21 @@ import React, { FC, useState } from 'react'
 import { useAppState } from '../../state/use-app-state'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { PipelineTabs } from '../pipeline-tabs'
-import { PipelineDnsStepThree } from './dns-step-three'
-import { PipelineDnsStepOne } from './dns-step-one'
-import { Button, elMb6, Loader, PersistentNotification } from '@reapit/elements'
-import { PipelineDnsStepTwo } from './dns-step-two'
-import { PipelineDnsStepFour } from './dns-step-four'
-import { cx } from '@linaria/core'
-
-const resolveStep = ({
-  domainVerified,
-  certificateStatus,
-  verifyDnsValue,
-  customDomain,
-}: {
-  domainVerified: string
-  certificateStatus: string
-  verifyDnsValue: string
-  customDomain: string
-}): 'complete' | 'verified' | 'start' | 'not-started' => {
-  if (domainVerified && certificateStatus === 'complete') return 'complete'
-  else if (domainVerified) return 'verified'
-  else if (verifyDnsValue && customDomain) return 'start'
-  else if (customDomain) return 'start'
-  return 'not-started'
-}
+import { Loader } from '@reapit/elements'
+import { reapitConnectBrowserSession } from '../../../../core/connect-session'
+import { useReapitConnect } from '@reapit/connect-session'
+import { DnsConfiguration } from './dns-configuration'
 
 export const PipelineDns: FC<{}> = () => {
-  const { appId, appPipelineState } = useAppState()
+  const { appPipelineState } = useAppState()
   const [errorAcknowledged, setErrorAcknowledged] = useState<boolean>(false)
 
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+
   const {
-    domainVerified,
-    verifyDnsName,
-    verifyDnsValue,
-    customDomain,
-    certificateStatus,
     buildStatus,
     certificateError,
+    id: pipelineId,
   } = appPipelineState.appPipeline as PipelineModelInterface & {
     domainVerified: string
     verifyDnsName: string
@@ -48,63 +26,57 @@ export const PipelineDns: FC<{}> = () => {
     certificateError: string
   }
 
-  const step = resolveStep({ domainVerified, verifyDnsValue, customDomain, certificateStatus })
+  const isFoundationsDeveloperAdmin = connectSession?.loginIdentity.groups.includes('FoundationsDeveloperAdmin')
+  const canConfigureDns =
+    buildStatus && ['CREATED', 'READY_FOR_DEPLOYMENT', 'FAILED', 'SUCCEEDED', 'IN_PROGRESS'].includes(buildStatus)
+
+  console.log('isFoundationsAdmin', isFoundationsDeveloperAdmin)
+  console.log('canConfigureDns', canConfigureDns)
 
   return (
     <>
       <PipelineTabs />
-      {errorAcknowledged && (
-        <PersistentNotification className={cx(elMb6)} isExpanded intent="danger" isInline>
-          {certificateError}
-        </PersistentNotification>
-      )}
-      {buildStatus && ['READY_FOR_DEPLOYMENT', 'FAILED', 'SUCCEEDED'].includes(buildStatus) ? (
+      {!isFoundationsDeveloperAdmin ? (
         <>
-          {certificateError && !errorAcknowledged ? (
-            <>
-              <PersistentNotification className={cx(elMb6)} isExpanded intent="danger" isInline>
-                {certificateError}
-              </PersistentNotification>
-              <Button
-                intent="primary"
-                loading={appPipelineState.appPipelineLoading}
-                disabled={appPipelineState.appPipelineLoading}
-                onClick={() => {
-                  appPipelineState.appPipelineRefresh()
-                  setErrorAcknowledged(true)
-                }}
-              >
-                Restart
-              </Button>
-            </>
-          ) : appId ? (
-            step === 'complete' ? (
-              <PipelineDnsStepFour pipelineId={appId} customDomain={customDomain} />
-            ) : step === 'verified' ? (
-              <PipelineDnsStepThree
-                pipelineId={appId}
-                verifyDnsName={verifyDnsName}
-                customDomain={customDomain}
-                verifyDnsValue={verifyDnsValue}
-              />
-            ) : step === 'not-started' ? (
-              <PipelineDnsStepOne pipelineId={appId} />
-            ) : (
-              <PipelineDnsStepTwo
-                pipelineId={appId}
-                verifyDnsValue={verifyDnsValue}
-                customDomain={customDomain}
-                verifyDnsName={verifyDnsName}
-              />
-            )
-          ) : (
-            <Loader />
-          )}
+          <p>
+            You don&apos;t have permission to configure a custom DNS. Please contact the{' '}
+            <a
+              href="mailto:iaasbeta@reapitfoundations.zendesk.com?subject=IAAS%20Beta%20custom%20DNS%20permission"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              IaaS team.
+            </a>{' '}
+            if you&apos;re looking to configure a custom domain for your pipeline.
+          </p>
+        </>
+      ) : connectSession && pipelineId ? (
+        <>
+          <DnsConfiguration connectSession={connectSession} pipelineId={pipelineId} />
+          {/* {certificateError && !errorAcknowledged ? (
+                <>
+                  <PersistentNotification className={cx(elMb6)} isExpanded intent="danger" isInline>
+                    {certificateError}
+                  </PersistentNotification>
+                  <Button
+                    intent="primary"
+                    loading={appPipelineState.appPipelineLoading}
+                    disabled={appPipelineState.appPipelineLoading}
+                    onClick={() => {
+                      appPipelineState.appPipelineRefresh()
+                      setErrorAcknowledged(true)
+                    }}
+                  >
+                    Restart
+                  </Button>
+                </>)
+            {errorAcknowledged && (
+            <PersistentNotification className={cx(elMb6)} isExpanded intent="danger" isInline>
+              {certificateError}
+            </PersistentNotification> */}
         </>
       ) : (
-        <PersistentNotification isExpanded={true} isInline intent="danger">
-          Ensure your app has been provisioned before configuring your DNS.
-        </PersistentNotification>
+        <Loader />
       )}
     </>
   )
