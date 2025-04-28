@@ -30,9 +30,6 @@ export const PipelineDns: FC<{}> = () => {
   const canConfigureDns =
     buildStatus && ['CREATED', 'READY_FOR_DEPLOYMENT', 'FAILED', 'SUCCEEDED', 'IN_PROGRESS'].includes(buildStatus)
 
-  console.log('isFoundationsAdmin', isFoundationsDeveloperAdmin)
-  console.log('canConfigureDns', canConfigureDns)
-
   return (
     <>
       <PipelineTabs />

@@ -66,14 +66,10 @@ export class DnsController {
 
     if (!pipeline) throw NotFoundException
 
-    console.log('pipeline', pipeline)
-
     this.ownershipProvider.check(pipeline, creds.developerId as string)
 
     const certificate = await this.certificateProvider.obtainCertificate(pipeline)
     const cloudfrontUrl = await this.cloudFrontProvider.getCloudFrontDistro(pipeline)
-
-    console.log(certificate)
 
     if (!certificate) throw new NotFoundException()
 
