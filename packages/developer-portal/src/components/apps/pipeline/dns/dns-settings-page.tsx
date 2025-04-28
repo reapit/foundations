@@ -91,6 +91,7 @@ export const DnsSettingsPage: FC<{
       ))}
       <FormLayout>
         <InputWrapFull>
+        <BodyText>Use the copy button below to copy all of the details above to use in your Jira ticket.</BodyText>
           <CopyToClipboard text={copyText} onCopy={handleCopyCode(setCopyState, 'Text')}>
             <Button intent="default">{copyState.Text}</Button>
           </CopyToClipboard>
