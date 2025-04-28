@@ -9,7 +9,7 @@ import {
   RepositorySelectionActive,
   RepositorySelectionEl,
 } from './__styles__'
-import { Button, ButtonGroup, elMb6, Loader, Pagination, Title } from '@reapit/elements'
+import { Button, ButtonGroup, elMb6, Loader, Pagination, Title, BodyText } from '@reapit/elements'
 import { cx } from '@linaria/core'
 
 type PageData = {
@@ -84,6 +84,10 @@ export const RepositorySelection: FC<{
   return (
     <div>
       <Title>Repository Selection</Title>
+      <BodyText hasGreyText>
+        If you cannot find your repository, please make sure the Reapit Github App has your repository enabled.{' '}
+        <a href="">F&amp;Qs</a>
+      </BodyText>
       <RepositoryEl>
         <img src={installation.account.avatar_url} />
         <p className="repository-name">{installation.account.login}</p>
