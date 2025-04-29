@@ -138,4 +138,10 @@ export class PipelineProvider {
       relations: ['repository'],
     })
   }
+
+  async findByDomain(customDomain: string): Promise<PipelineEntity | null> {
+    return this.repository.findOneBy({
+      customDomain,
+    })
+  }
 }
