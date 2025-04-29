@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react'
 import { useAppState } from '../../state/use-app-state'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { PipelineTabs } from '../pipeline-tabs'
-import { Loader } from '@reapit/elements'
+import { Loader, PersistentNotification } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { DnsConfiguration } from './dns-configuration'
@@ -49,7 +49,13 @@ export const PipelineDns: FC<{}> = () => {
         </>
       ) : connectSession && pipelineId ? (
         <>
-          <DnsConfiguration connectSession={connectSession} pipelineId={pipelineId} />
+          {canConfigureDns ? (
+            <DnsConfiguration connectSession={connectSession} pipelineId={pipelineId} />
+          ) : (
+            <PersistentNotification isExpanded isFullWidth isInline intent="danger">
+              You need to provision your pipeline before you can configure a custom DNS.
+            </PersistentNotification>
+          )}
           {/* {certificateError && !errorAcknowledged ? (
                 <>
                   <PersistentNotification className={cx(elMb6)} isExpanded intent="danger" isInline>
