@@ -1,6 +1,6 @@
 import { useReapitConnect } from '@reapit/connect-session'
 import { BodyText, Button, FormLayout, InputGroup, InputWrapFull, Modal, Subtitle, useModal } from '@reapit/elements'
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { useAppState } from '../../state/use-app-state'
 import { useForm } from 'react-hook-form'
@@ -23,6 +23,7 @@ export const PipelineDnsStepModal: FC<{
   const { modalIsOpen, closeModal, openModal } = useModal()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appPipelineState } = useAppState()
+  const [postLoading, setPostLoading] = useState<boolean>(false)
 
   const {
     register,
@@ -48,7 +49,16 @@ export const PipelineDnsStepModal: FC<{
     uriParams: { pipelineId },
   })
 
-  if (dnsInfo) refresh()
+  useEffect(() => {
+    if (sendingDns) setPostLoading(true)
+  }, [sendingDns])
+
+  if (dnsInfo) {
+    setTimeout(() => {
+      refresh()
+      appPipelineState.appPipelineRefresh()
+    }, 5000)
+  }
 
   return (
     <>
@@ -61,11 +71,6 @@ export const PipelineDnsStepModal: FC<{
         <form
           onSubmit={handleSubmit(async (values) => {
             const result = await sendDnsRequest(values)
-
-            if (result) {
-              appPipelineState.appPipelineRefresh()
-              closeModal()
-            }
           })}
         >
           <FormLayout>
@@ -84,8 +89,8 @@ export const PipelineDnsStepModal: FC<{
               />
             </InputWrapFull>
             <InputWrapFull>
-              <Button loading={sendingDns} disabled={sendingDns} intent="primary">
-                Next
+              <Button loading={sendingDns || postLoading} disabled={sendingDns} intent="primary">
+                {sendingDns ? 'Creating Custom Domain' : postLoading ? 'Waiting for Certificate' : 'Next'}
               </Button>
             </InputWrapFull>
           </FormLayout>
