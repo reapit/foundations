@@ -39,22 +39,25 @@ export class DnsController {
     if (!pipeline) throw NotFoundException
 
     this.ownershipProvider.check(pipeline, creds.developerId as string)
+    const domain = body.customDomain
 
     const existingCertificate = await this.certificateProvider.obtainCertificate(pipeline)
 
     if (existingCertificate) throw new UnprocessableEntityException()
 
-    const certificateArn = await this.certificateProvider.createCertificate(pipeline, body.customDomain)
-    const cloudfrontUrl = await this.cloudFrontProvider.getCloudFrontDistro(pipeline)
+    const certificateArn = await this.certificateProvider.createCertificate(pipeline, domain)
+    const cloudfrontUrl = await this.cloudFrontProvider.getCloudFrontDistroDomain(pipeline)
 
     await this.pipelineProvider.update(pipeline, {
-      customDomain: body.customDomain, // TODO should strip everything not a domain? query params example
+      customDomain: domain, // TODO should strip everything not a domain? query params example
       certificateArn,
+      // @ts-ignore
+      certificateError: null,
     })
 
     return {
       cloudfrontUrl,
-      customDomain: body.customDomain,
+      customDomain: domain,
     }
   }
 
@@ -68,8 +71,10 @@ export class DnsController {
 
     this.ownershipProvider.check(pipeline, creds.developerId as string)
 
+    if (!pipeline.cloudFrontId) return new NotFoundException()
+
     const certificate = await this.certificateProvider.obtainCertificate(pipeline)
-    const cloudfrontUrl = await this.cloudFrontProvider.getCloudFrontDistro(pipeline)
+    const cloudfrontUrl = await this.cloudFrontProvider.getCloudFrontDistroDomain(pipeline)
 
     if (!certificate) throw new NotFoundException()
 
