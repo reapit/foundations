@@ -89,7 +89,7 @@ export const PipelineDnsStepModal: FC<{
               />
             </InputWrapFull>
             <InputWrapFull>
-              <Button loading={sendingDns || postLoading} disabled={sendingDns} intent="primary">
+              <Button loading={sendingDns || postLoading} disabled={sendingDns || postLoading} intent="primary">
                 {sendingDns ? 'Creating Custom Domain' : postLoading ? 'Waiting for Certificate' : 'Next'}
               </Button>
             </InputWrapFull>

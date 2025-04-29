@@ -2,10 +2,11 @@ import React, { FC, useState } from 'react'
 import { useAppState } from '../../state/use-app-state'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { PipelineTabs } from '../pipeline-tabs'
-import { Loader, PersistentNotification } from '@reapit/elements'
+import { Button, elMb6, Loader, PersistentNotification } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { DnsConfiguration } from './dns-configuration'
+import { cx } from '@linaria/core'
 
 export const PipelineDns: FC<{}> = () => {
   const { appPipelineState } = useAppState()
@@ -49,6 +50,12 @@ export const PipelineDns: FC<{}> = () => {
         </>
       ) : connectSession && pipelineId ? (
         <>
+         {certificateError && !errorAcknowledged && (
+                <>
+                  <PersistentNotification className={cx(elMb6)} isExpanded intent="danger" isInline>
+                    {certificateError}
+                  </PersistentNotification>
+                </>)}
           {canConfigureDns ? (
             <DnsConfiguration connectSession={connectSession} pipelineId={pipelineId} />
           ) : (
@@ -56,27 +63,6 @@ export const PipelineDns: FC<{}> = () => {
               You need to provision your pipeline before you can configure a custom DNS.
             </PersistentNotification>
           )}
-          {/* {certificateError && !errorAcknowledged ? (
-                <>
-                  <PersistentNotification className={cx(elMb6)} isExpanded intent="danger" isInline>
-                    {certificateError}
-                  </PersistentNotification>
-                  <Button
-                    intent="primary"
-                    loading={appPipelineState.appPipelineLoading}
-                    disabled={appPipelineState.appPipelineLoading}
-                    onClick={() => {
-                      appPipelineState.appPipelineRefresh()
-                      setErrorAcknowledged(true)
-                    }}
-                  >
-                    Restart
-                  </Button>
-                </>)
-            {errorAcknowledged && (
-            <PersistentNotification className={cx(elMb6)} isExpanded intent="danger" isInline>
-              {certificateError}
-            </PersistentNotification> */}
         </>
       ) : (
         <Loader />
