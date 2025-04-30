@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common'
-import { DnsProvider } from './dns.provider'
 import { DnsController } from './dns.controller'
 import { Route53Client } from '@aws-sdk/client-route-53'
 import { CertificateProvider } from './certificate.provider'
