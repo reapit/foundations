@@ -50,12 +50,13 @@ export const PipelineDns: FC<{}> = () => {
         </>
       ) : connectSession && pipelineId ? (
         <>
-         {certificateError && !errorAcknowledged && (
-                <>
-                  <PersistentNotification className={cx(elMb6)} isExpanded intent="danger" isInline>
-                    {certificateError}
-                  </PersistentNotification>
-                </>)}
+          {certificateError && !errorAcknowledged && (
+            <>
+              <PersistentNotification className={cx(elMb6)} isExpanded intent="danger" isInline>
+                {certificateError}
+              </PersistentNotification>
+            </>
+          )}
           {canConfigureDns ? (
             <DnsConfiguration connectSession={connectSession} pipelineId={pipelineId} />
           ) : (
