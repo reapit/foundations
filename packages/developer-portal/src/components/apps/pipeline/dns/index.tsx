@@ -58,7 +58,11 @@ export const PipelineDns: FC<{}> = () => {
             </>
           )}
           {canConfigureDns ? (
-            <DnsConfiguration connectSession={connectSession} pipelineId={pipelineId} />
+            <DnsConfiguration
+              connectSession={connectSession}
+              pipelineId={pipelineId}
+              certificateError={certificateError}
+            />
           ) : (
             <PersistentNotification isExpanded isFullWidth isInline intent="danger">
               You need to provision your pipeline before you can configure a custom DNS.

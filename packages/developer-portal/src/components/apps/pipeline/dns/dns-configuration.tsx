@@ -7,10 +7,11 @@ import { cx } from '@linaria/core'
 import { PipelineDnsStepModal } from './setup-model'
 import { DnsSettingsPage } from './dns-settings-page'
 
-export const DnsConfiguration: FC<{ connectSession: ReapitConnectSession; pipelineId: string }> = ({
-  connectSession,
-  pipelineId,
-}) => {
+export const DnsConfiguration: FC<{
+  connectSession: ReapitConnectSession
+  pipelineId: string
+  certificateError?: string
+}> = ({ connectSession, pipelineId, certificateError }) => {
   const [dnsInfo, loading, , refresh] = useReapitGet<{
     customDomain: string
     cloudfrontUrl: string
@@ -26,7 +27,7 @@ export const DnsConfiguration: FC<{ connectSession: ReapitConnectSession; pipeli
   })
 
   return !loading ? (
-    dnsInfo ? (
+    dnsInfo && !certificateError ? (
       <DnsSettingsPage dnsInfo={dnsInfo} />
     ) : (
       <>
