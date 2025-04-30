@@ -148,7 +148,6 @@ describe('PipelineSetupWorkflow', () => {
       message: 'Pipeline successfully created',
       outDir: 'build',
       developerId,
-      domainVerified: false,
     })
     expect(mockCloudFrontClient.send).toHaveBeenCalled()
     expect(mockRoute53Client.send).toHaveBeenCalled()
