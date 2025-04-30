@@ -67,11 +67,11 @@ export class DnsController {
 
     const pipeline = await this.pipelineProvider.findById(pipelineId)
 
-    if (!pipeline) throw NotFoundException
+    if (!pipeline) throw new NotFoundException()
 
     this.ownershipProvider.check(pipeline, creds.developerId as string)
 
-    if (!pipeline.cloudFrontId) return new NotFoundException()
+    if (!pipeline.cloudFrontId) throw new NotFoundException()
 
     const certificate = await this.certificateProvider.obtainCertificate(pipeline)
     const cloudfrontUrl = await this.cloudFrontProvider.getCloudFrontDistroDomain(pipeline)
