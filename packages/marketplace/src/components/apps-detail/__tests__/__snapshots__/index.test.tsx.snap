@@ -266,6 +266,18 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
               >
                 Permissions
               </h2>
+              <p
+                class="el-text-base el-body-text el-has-grey-text el-mt6"
+              >
+                For more detailed information about App permissions, please
+                 
+                <a
+                  href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+                >
+                  click here
+                </a>
+                .
+              </p>
             </div>
           </mock-styled.div>
         </mock-styled.div>
@@ -534,6 +546,18 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
             >
               Permissions
             </h2>
+            <p
+              class="el-text-base el-body-text el-has-grey-text el-mt6"
+            >
+              For more detailed information about App permissions, please
+               
+              <a
+                href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+              >
+                click here
+              </a>
+              .
+            </p>
           </div>
         </mock-styled.div>
       </mock-styled.div>

@@ -1,4 +1,5 @@
-import { BodyText, Col, elMb11, Grid, Subtitle } from '@reapit/elements'
+import { cx } from '@linaria/core'
+import { BodyText, Col, elMb11, elMt6, Grid, Subtitle } from '@reapit/elements'
 import { AppDetailModel, DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
 import React from 'react'
 
@@ -90,6 +91,10 @@ const AppPricingPermissionsSection: React.FC<AppPricingPermissionsProps> = ({
             ))}
           </Grid>
         )}
+        <BodyText hasGreyText className={cx(elMt6)}>
+          For more detailed information about App permissions, please{' '}
+          <a href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions">click here.</a>
+        </BodyText>
       </>
     </>
   )
