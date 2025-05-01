@@ -87,16 +87,7 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   branch?: string
 
   @Column({ nullable: true })
-  verifyDnsValue?: string
-
-  @Column({ nullable: true })
-  verifyDnsName?: string
-
-  @Column({ nullable: true })
   customDomain?: string
-
-  @Column({ default: false })
-  domainVerified: boolean = false
 
   @Column({ nullable: true })
   @Expose({
