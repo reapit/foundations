@@ -13,13 +13,13 @@ import {
   Select,
 } from '@reapit/elements'
 import { fetchDevelopersList } from '../../services/developers'
-import { AppSummaryModelPagedResult, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import dayjs from 'dayjs'
 
 export interface FilterFormProps {
   setUsageFilters: Dispatch<SetStateAction<UsageFilters>>
-  apps: AppSummaryModelPagedResult | null
-  installations: InstallationModelPagedResult | null
+  apps: Marketplace.AppSummaryModelPagedResult | null
+  installations: Marketplace.InstallationModelPagedResult | null
 }
 
 export const FilterForm: FC<FilterFormProps> = ({ setUsageFilters, apps, installations }) => {

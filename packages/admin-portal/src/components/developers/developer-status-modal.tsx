@@ -10,7 +10,7 @@ import {
   TextArea,
   ToggleRadio,
 } from '@reapit/elements'
-import { DeveloperModel, UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { object, string } from 'yup'
 import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
@@ -18,8 +18,8 @@ import { useForm, useWatch } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 interface DeveloperStatusModalProps {
-  developer: DeveloperModel | null
-  setDeveloperUpdate: Dispatch<SetStateAction<DeveloperModel | null>>
+  developer: Marketplace.DeveloperModel | null
+  setDeveloperUpdate: Dispatch<SetStateAction<Marketplace.DeveloperModel | null>>
   closeModal: () => void
   refreshDevelopers: () => void
 }
@@ -42,7 +42,10 @@ export const validationSchema = object().shape({
 })
 
 export const handleUpdateDevStatus =
-  (updateDeveloperStatus: SendFunction<UpdateDeveloperModel, boolean>, updateDeveloperModel: DeveloperModel | null) =>
+  (
+    updateDeveloperStatus: SendFunction<Marketplace.UpdateDeveloperModel, boolean>,
+    updateDeveloperModel: Marketplace.DeveloperModel | null,
+  ) =>
   (values: UpdateDeveloperForm) => {
     if (updateDeveloperModel) {
       updateDeveloperStatus({
@@ -56,7 +59,7 @@ export const handleUpdateDevStatus =
 export const handleRefreshDevelopers =
   (
     refreshDevelopers: () => void,
-    setDeveloperUpdate: Dispatch<SetStateAction<DeveloperModel | null>>,
+    setDeveloperUpdate: Dispatch<SetStateAction<Marketplace.DeveloperModel | null>>,
     closeModal: () => void,
     developerUpdated?: boolean,
   ) =>
@@ -88,7 +91,7 @@ export const DeveloperStatusModal: FC<DeveloperStatusModalProps> = ({
     },
   })
 
-  const [, , updateDeveloperStatus, developerUpdated] = useReapitUpdate<UpdateDeveloperModel, boolean>({
+  const [, , updateDeveloperStatus, developerUpdated] = useReapitUpdate<Marketplace.UpdateDeveloperModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.updateDeveloper],
     method: 'PUT',

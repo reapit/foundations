@@ -2,17 +2,16 @@ import {
   Controller,
   UseGuards,
   Post,
-  Get,
   Param,
   NotFoundException,
-  UnprocessableEntityException,
   Body,
+  Get,
+  ForbiddenException,
+  UnprocessableEntityException,
 } from '@nestjs/common'
 import { Creds, IdTokenGuard, OwnershipProvider } from '@reapit/utils-nest'
 import { PipelineProvider } from './../pipeline'
-import { v4 as uuid } from 'uuid'
 import { CreateDnsModel } from './dns.model'
-import { DnsProvider } from './dns.provider'
 import { CertificateProvider } from './certificate.provider'
 import { LoginIdentity } from '@reapit/connect-session-server'
 import { DnsCloudFrontProvider } from './dns.cloudfront.provider'
@@ -23,7 +22,6 @@ export class DnsController {
   constructor(
     private readonly pipelineProvider: PipelineProvider,
     private readonly ownershipProvider: OwnershipProvider,
-    private readonly dnsProvider: DnsProvider,
     private readonly certificateProvider: CertificateProvider,
     private readonly cloudFrontProvider: DnsCloudFrontProvider,
   ) {}
@@ -34,86 +32,57 @@ export class DnsController {
     @Body() body: CreateDnsModel,
     @Creds() creds: LoginIdentity,
   ) {
+    if (!creds.groups.includes('FoundationsDeveloperAdmin')) throw new ForbiddenException()
+
     const pipeline = await this.pipelineProvider.findById(pipelineId)
 
     if (!pipeline) throw NotFoundException
 
     this.ownershipProvider.check(pipeline, creds.developerId as string)
+    const domain = body.customDomain
 
-    const verifyDnsName = 'reapit-iaas'
-    const verifyDnsValue = uuid()
+    const existingCertificate = await this.certificateProvider.obtainCertificate(pipeline)
+
+    if (existingCertificate) throw new UnprocessableEntityException()
+
+    const certificateArn = await this.certificateProvider.createCertificate(pipeline, domain)
+    const cloudfrontUrl = await this.cloudFrontProvider.getCloudFrontDistroDomain(pipeline)
 
     await this.pipelineProvider.update(pipeline, {
-      customDomain: body.customDomain, // TODO should strip everything not a domain? query params example
-      verifyDnsValue,
-      verifyDnsName,
+      customDomain: domain, // TODO should strip everything not a domain? query params example
+      certificateArn,
+      // @ts-ignore
+      certificateError: null,
     })
 
-    return { verifyDnsValue }
-  }
-
-  @Post(':pipelineId/verify')
-  async verifyRecord(@Param('pipelineId') pipelineId: string, @Creds() creds: LoginIdentity) {
-    const pipeline = await this.pipelineProvider.findById(pipelineId)
-
-    if (!pipeline) throw NotFoundException
-
-    this.ownershipProvider.check(pipeline, creds.developerId as string)
-
-    if (pipeline.domainVerified) throw new UnprocessableEntityException('Domain already verified')
-
-    const { result: domainVerified, reason } = await this.dnsProvider.verifyTextRecordOnDomain(pipeline)
-
-    if (typeof domainVerified === 'boolean' && domainVerified) {
-      await this.pipelineProvider.update(pipeline, {
-        domainVerified: true,
-        certificateArn: await this.certificateProvider.createCertificate(pipeline),
-        certificateStatus: 'pending',
-        // @ts-ignore
-        certificateError: null,
-      })
-
-      return {
-        result: 'success',
-      }
-    }
-
     return {
-      result: domainVerified ? 'success' : 'failed',
-      reason,
+      cloudfrontUrl,
+      customDomain: domain,
     }
   }
 
-  @Get(':pipelineId/certificate')
-  async describeCertificate(@Param('pipelineId') pipelineId: string, @Creds() creds: LoginIdentity) {
+  @Get(':pipelineId')
+  async getDnsRecordInfo(@Param('pipelineId') pipelineId: string, @Creds() creds: LoginIdentity) {
+    if (!creds.groups.includes('FoundationsDeveloperAdmin')) throw new ForbiddenException()
+
     const pipeline = await this.pipelineProvider.findById(pipelineId)
 
-    if (!pipeline) throw NotFoundException
+    if (!pipeline) throw new NotFoundException()
 
     this.ownershipProvider.check(pipeline, creds.developerId as string)
 
-    if (!pipeline.domainVerified) throw new UnprocessableEntityException()
+    if (!pipeline.cloudFrontId) throw new NotFoundException()
 
     const certificate = await this.certificateProvider.obtainCertificate(pipeline)
+    const cloudfrontUrl = await this.cloudFrontProvider.getCloudFrontDistroDomain(pipeline)
 
     if (!certificate) throw new NotFoundException()
 
-    // TODO serialise
-    return certificate
-  }
-
-  @Get(':pipelineId/cloudFrontCname')
-  async getCloudFrontCname(@Param('pipelineId') pipelineId: string, @Creds() creds: LoginIdentity) {
-    const pipeline = await this.pipelineProvider.findById(pipelineId)
-
-    if (!pipeline) throw NotFoundException
-
-    this.ownershipProvider.check(pipeline, creds.developerId as string)
-
-    if (!pipeline.domainVerified) throw new UnprocessableEntityException('Domain not verified')
-
-    if (pipeline.certificateStatus !== 'complete') throw new UnprocessableEntityException('Certificate not appoved')
-
-    return this.cloudFrontProvider.getCloudFrontDistro(pipeline)
+    return {
+      cloudfrontUrl,
+      // TODO serialise
+      certificate,
+      customDomain: pipeline.customDomain,
+    }
   }
 }

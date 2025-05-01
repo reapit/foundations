@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { Pagination, Table, Button, Loader, PageContainer, Title, ButtonGroup, elMb11 } from '@reapit/elements'
-import { ApprovalModel, ApprovalModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { AppConsents } from '../consents'
 import { useReapitGet, GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { toLocalTime } from '@reapit/utils-common'
@@ -11,9 +11,9 @@ import { usePermissionsState } from '../../core/use-permissions-state'
 
 export const handleSetConsentApproval =
   (
-    setConsentApproval: Dispatch<SetStateAction<ApprovalModel | null>>,
-    setDiffApproval: Dispatch<SetStateAction<ApprovalModel | null>>,
-    approval: ApprovalModel | null,
+    setConsentApproval: Dispatch<SetStateAction<Marketplace.ApprovalModel | null>>,
+    setDiffApproval: Dispatch<SetStateAction<Marketplace.ApprovalModel | null>>,
+    approval: Marketplace.ApprovalModel | null,
   ) =>
   () => {
     if (approval) {
@@ -24,9 +24,9 @@ export const handleSetConsentApproval =
 
 export const handleSetDiffApproval =
   (
-    setDiffApproval: Dispatch<SetStateAction<ApprovalModel | null>>,
-    setConsentApproval: Dispatch<SetStateAction<ApprovalModel | null>>,
-    approval: ApprovalModel | null,
+    setDiffApproval: Dispatch<SetStateAction<Marketplace.ApprovalModel | null>>,
+    setConsentApproval: Dispatch<SetStateAction<Marketplace.ApprovalModel | null>>,
+    approval: Marketplace.ApprovalModel | null,
   ) =>
   () => {
     if (approval) {
@@ -37,11 +37,11 @@ export const handleSetDiffApproval =
 
 export const AdminApprovals: FC = () => {
   const [pageNumber, setPageNumber] = useState<number>(1)
-  const [consentApproval, setConsentApproval] = useState<ApprovalModel | null>(null)
-  const [diffApproval, setDiffApproval] = useState<ApprovalModel | null>(null)
+  const [consentApproval, setConsentApproval] = useState<Marketplace.ApprovalModel | null>(null)
+  const [diffApproval, setDiffApproval] = useState<Marketplace.ApprovalModel | null>(null)
   const { hasReadAccess } = usePermissionsState()
 
-  const [approvals, approvalsLoading, , refreshApprovals] = useReapitGet<ApprovalModelPagedResult>({
+  const [approvals, approvalsLoading, , refreshApprovals] = useReapitGet<Marketplace.ApprovalModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getApprovals],
     queryParams: { pageNumber, pageSize: 12 },

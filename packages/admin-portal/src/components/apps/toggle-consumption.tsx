@@ -3,7 +3,7 @@ import { elMt5, FormLayout, InputWrap, Label, ToggleRadio } from '@reapit/elemen
 import { useForm, UseFormWatch } from 'react-hook-form'
 import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { AppSummaryModelPagedResult, UpdateAppModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
 export interface ToggleConsumptionForm {
   fixedApiConsumptionCost?: 'FREE' | 'NOT_FREE'
@@ -11,12 +11,12 @@ export interface ToggleConsumptionForm {
 
 export interface ToggleConsumptionProps {
   appIdConsumption: string
-  apps: AppSummaryModelPagedResult | null
+  apps: Marketplace.AppSummaryModelPagedResult | null
   appsRefresh: () => void
 }
 
 export const handleToggleConsumption =
-  (updateApp: SendFunction<UpdateAppModel, boolean>) =>
+  (updateApp: SendFunction<Marketplace.UpdateAppModel, boolean>) =>
   ({ fixedApiConsumptionCost }: ToggleConsumptionForm) => {
     const value = fixedApiConsumptionCost === 'FREE' ? 0 : undefined
     updateApp({ fixedApiConsumptionCost: value })
@@ -29,7 +29,7 @@ export const handleRefreshApps = (appsRefresh: () => void, shouldRefresh?: boole
 }
 
 export const handleWatchToggle =
-  (updateApp: SendFunction<UpdateAppModel, boolean>, watch: UseFormWatch<ToggleConsumptionForm>) => () => {
+  (updateApp: SendFunction<Marketplace.UpdateAppModel, boolean>, watch: UseFormWatch<ToggleConsumptionForm>) => () => {
     const subscription = watch(handleToggleConsumption(updateApp))
     return () => subscription.unsubscribe()
   }
@@ -38,7 +38,7 @@ export const ToggleConsumption: FC<ToggleConsumptionProps> = ({ appIdConsumption
   const { register, watch } = useForm<ToggleConsumptionForm>()
   const currentConsumptionPaid = apps?.data?.find((app) => app.id === appIdConsumption)?.fixedApiConsumptionCost !== 0
 
-  const [, , updateApp, appUpdated] = useReapitUpdate<UpdateAppModel, boolean>({
+  const [, , updateApp, appUpdated] = useReapitUpdate<Marketplace.UpdateAppModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.updateApp],
     method: 'PUT',

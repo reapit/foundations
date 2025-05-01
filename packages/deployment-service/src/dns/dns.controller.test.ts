@@ -1,18 +1,22 @@
 import { Test } from '@nestjs/testing'
 import { DnsController } from './dns.controller'
-import { DnsProvider } from './dns.provider'
 import { PipelineProvider } from '../pipeline'
 import { OwnershipProvider } from '@reapit/utils-nest'
 import { CertificateProvider } from './certificate.provider'
 import { DnsCloudFrontProvider } from './dns.cloudfront.provider'
 import { PipelineEntity } from '../entities/pipeline.entity'
 import { LoginIdentity } from '@reapit/connect-session-server'
-import { UnprocessableEntityException } from '@nestjs/common'
+import { ForbiddenException, NotFoundException, UnprocessableEntityException } from '@nestjs/common'
 
 const mockDeveloperId = 'developer-id'
 
+const mockCustomDomain = 'custom.domain.co.uk'
+const mockCloudfrontDistroDomain = 'id.cloudfront.com'
+const mockCertificateArn = 'mock-certificate-arn'
+
 const mockPipeline: Partial<PipelineEntity> = {
   developerId: mockDeveloperId,
+  customDomain: mockCustomDomain,
 }
 
 const mockCredentials: LoginIdentity = {
@@ -43,21 +47,21 @@ const mockPipelineProvider = {
   update: jest.fn((pipeline) => Promise.resolve(pipeline)),
 }
 
-const mockDnsProvider = {
-  verifyTextRecordOnDomain: jest.fn(),
-}
-
 const mockCertificateProvider = {
   createCertificate: jest.fn(),
   obtainCertificate: jest.fn(() =>
     Promise.resolve({
-      CertificateArn: 'certificate-arn',
+      CertificateArn: mockCertificateArn,
     }),
   ),
 }
 
 const mockCloudFrontProvider = {
-  getCloudFrontDistro: jest.fn(),
+  getCloudFrontDistroDomain: jest.fn(() => Promise.resolve(mockCloudfrontDistroDomain)),
+}
+
+const mockBody = {
+  customDomain: mockCustomDomain,
 }
 
 describe('DnsController', () => {
@@ -66,7 +70,7 @@ describe('DnsController', () => {
   beforeAll(async () => {
     const module = await Test.createTestingModule({
       controllers: [DnsController],
-      providers: [DnsProvider, PipelineProvider, OwnershipProvider, CertificateProvider, DnsCloudFrontProvider],
+      providers: [PipelineProvider, OwnershipProvider, CertificateProvider, DnsCloudFrontProvider],
     })
       .overrideProvider(PipelineProvider)
       .useValue(mockPipelineProvider)
@@ -74,144 +78,119 @@ describe('DnsController', () => {
       .useValue(mockCertificateProvider)
       .overrideProvider(DnsCloudFrontProvider)
       .useValue(mockCloudFrontProvider)
-      .overrideProvider(DnsProvider)
-      .useValue(mockDnsProvider)
       .compile()
 
     controller = module.get<DnsController>(DnsController)
   })
 
-  it('create dns record', async () => {
-    const result = await controller.createDnsRecord('id', { customDomain: 'my.domain.com' }, mockCredentials)
-
-    expect(result.verifyDnsValue).toBeTruthy()
-  })
-
-  describe('Verify Dns Record', () => {
-    beforeEach(() => {
-      mockPipelineProvider.update.mockReset()
-      mockCertificateProvider.createCertificate.mockReset()
-    })
-
-    it('Successful verify', async () => {
-      mockDnsProvider.verifyTextRecordOnDomain.mockImplementationOnce(() =>
-        Promise.resolve({
-          result: true,
-        }),
-      )
-
-      const result = await controller.verifyRecord('id', mockCredentials)
-
-      expect(mockPipelineProvider.update).toHaveBeenCalledTimes(1)
-      expect(result.result).toBe('success')
-      expect(mockCertificateProvider.createCertificate).toHaveBeenCalled()
-    })
-
-    it('Failed verify', async () => {
-      const failedReason = 'failed reason here'
-      mockDnsProvider.verifyTextRecordOnDomain.mockImplementationOnce(() =>
-        Promise.resolve({
-          result: false,
-          reason: failedReason,
-        }),
-      )
-
-      const result = await controller.verifyRecord('id', mockCredentials)
-
-      expect(result.result).toBe('failed')
-      expect(result.reason).toBe(failedReason)
-      expect(mockPipelineProvider.update).not.toHaveBeenCalled()
-      expect(mockCertificateProvider.createCertificate).not.toHaveBeenCalled()
-    })
-  })
-
-  describe('Describe Certificate', () => {
-    it('Will throw when domain not verified', async () => {
+  describe('GET /dns/:pipeline createDnsRecord', () => {
+    it('Will return domain and certificateArn', async () => {
       mockPipelineProvider.findById.mockImplementationOnce((id) =>
         Promise.resolve({
-          ...mockPipeline,
           id,
-          domainVerified: false,
+          ...mockPipeline,
+          cloudFrontId: 'some-cloudfront-id',
         }),
       )
+      const result = await controller.getDnsRecordInfo('pipelineId', {
+        ...mockCredentials,
+        groups: ['FoundationsDeveloperAdmin'],
+      })
 
-      expect.assertions(1)
-
-      try {
-        await controller.describeCertificate('id', mockCredentials)
-      } catch (error) {
-        expect(error).toBeInstanceOf(UnprocessableEntityException)
-      }
+      expect(result.customDomain).toBe(mockCustomDomain)
+      expect(result.cloudfrontUrl).toBe(mockCloudfrontDistroDomain)
+      expect(result.certificate).toStrictEqual(
+        expect.objectContaining({
+          CertificateArn: mockCertificateArn,
+        }),
+      )
     })
 
-    it('Will fetch certificate when domain verified', async () => {
+    it('Will return 404 if pipeline has no cloudfrontId', async () => {
+      expect(
+        async () =>
+          await controller.getDnsRecordInfo('pipelineId', {
+            ...mockCredentials,
+            groups: ['FoundationsDeveloperAdmin'],
+          }),
+      ).rejects.toThrow(NotFoundException)
+    })
+
+    it('Will return 404 if no certificate exists', async () => {
+      mockCertificateProvider.obtainCertificate.mockImplementationOnce(() => Promise.resolve(undefined) as any)
       mockPipelineProvider.findById.mockImplementationOnce((id) =>
         Promise.resolve({
-          ...mockPipeline,
           id,
-          domainVerified: true,
+          ...mockPipeline,
+          cloudFrontId: 'some-cloudfront-id',
         }),
       )
 
-      const result = await controller.describeCertificate('id', mockCredentials)
+      expect(
+        async () =>
+          await controller.getDnsRecordInfo('pipelineId', {
+            ...mockCredentials,
+            groups: ['FoundationsDeveloperAdmin'],
+          }),
+      ).rejects.toThrow(NotFoundException)
+    })
 
-      expect(mockCertificateProvider.obtainCertificate).toHaveBeenCalled()
-      expect(result.CertificateArn).toBe('certificate-arn')
+    it('Will return 403 if credentals is not FoundationsDeveloperAdmin', async () => {
+      expect(async () => await controller.getDnsRecordInfo('pipelineId', mockCredentials)).rejects.toThrow(
+        ForbiddenException,
+      )
+    })
+
+    it("Will return 403 if credentials developerId doesn't match pipeline developerId", async () => {
+      expect(
+        async () =>
+          await controller.getDnsRecordInfo('pipelineId', {
+            ...mockCredentials,
+            groups: ['FoundationsDeveloperAdmin'],
+            developerId: 'not-the-same-developer-id',
+          }),
+      ).rejects.toThrow(ForbiddenException)
     })
   })
 
-  describe('Get cloudfront distro', () => {
-    it('Will fetch distro when cerificate status is complete', async () => {
-      mockPipelineProvider.findById.mockImplementationOnce((id) =>
-        Promise.resolve({
-          ...mockPipeline,
-          id,
-          domainVerified: true,
-          certificateStatus: 'complete',
-        }),
+  describe('POST /dns/:pipelineId createDnsRecord', () => {
+    it('Will return 403 if credentals is not FoundationsDeveloperAdmin', async () => {
+      expect(async () => await controller.createDnsRecord('pipelineId', mockBody, mockCredentials)).rejects.toThrow(
+        ForbiddenException,
       )
-
-      await controller.getCloudFrontCname('id', mockCredentials)
-
-      expect(mockCloudFrontProvider.getCloudFrontDistro).toHaveBeenCalled()
     })
 
-    it('Will throw if domain not verified', async () => {
-      mockPipelineProvider.findById.mockImplementationOnce((id) =>
-        Promise.resolve({
-          ...mockPipeline,
-          id,
-          domainVerified: false,
-          // certificateStatus: 'complete',
-        }),
-      )
-
-      expect.assertions(1)
-
-      try {
-        await controller.getCloudFrontCname('id', mockCredentials)
-      } catch (error) {
-        expect(error).toBeInstanceOf(UnprocessableEntityException)
-      }
+    it("Will return 403 if credentials developerId doesn't match pipeline developerId", async () => {
+      expect(
+        async () =>
+          await controller.createDnsRecord('pipelineId', mockBody, {
+            ...mockCredentials,
+            groups: ['FoundationsDeveloperAdmin'],
+            developerId: 'not-the-same-developer-id',
+          }),
+      ).rejects.toThrow(ForbiddenException)
     })
 
-    it('Will throw if certificate not complete', async () => {
-      mockPipelineProvider.findById.mockImplementationOnce((id) =>
-        Promise.resolve({
-          ...mockPipeline,
-          id,
-          domainVerified: true,
-          certificateStatus: 'not-complete',
-        }),
-      )
+    it('Will return 422 if certificate already exists', async () => {
+      expect(
+        async () =>
+          await controller.createDnsRecord('pipelineId', mockBody, {
+            ...mockCredentials,
+            groups: ['FoundationsDeveloperAdmin'],
+          }),
+      ).rejects.toThrow(UnprocessableEntityException)
+    })
 
-      expect.assertions(1)
+    it('Will return domain and distro url when successful', async () => {
+      mockCertificateProvider.obtainCertificate.mockImplementationOnce(() => Promise.resolve(undefined) as any)
 
-      try {
-        await controller.getCloudFrontCname('id', mockCredentials)
-      } catch (error) {
-        expect(error).toBeInstanceOf(UnprocessableEntityException)
-      }
+      const result = await controller.createDnsRecord('pipelineId', mockBody, {
+        ...mockCredentials,
+        groups: ['FoundationsDeveloperAdmin'],
+      })
+
+      expect(result.customDomain).toBe(mockCustomDomain)
+      expect(result.cloudfrontUrl).toBe(mockCloudfrontDistroDomain)
     })
   })
 })

@@ -64,15 +64,6 @@ export const RepositoryEl = styled.div`
   }
 `
 
-export const LevelEl = styled.div`
-  display: flex;
-  flex-direction: row;
-
-  button {
-    margin-right: 1rem;
-  }
-`
-
 export const SelectedRepositoryEl = styled.div`
   border-radius: 0.125rem;
   border: var(--component-input-border);
