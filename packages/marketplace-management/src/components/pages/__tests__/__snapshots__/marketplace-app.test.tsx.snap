@@ -413,6 +413,17 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
               Read Referrals
             </div>
           </div>
+          <p
+            class="el-text-base el-body-text el-has-grey-text el-mt6"
+          >
+            For more detailed information about App permissions, please
+             
+            <a
+              href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+            >
+              click here.
+            </a>
+          </p>
           <h2
             class="el-text-base el-subtitle"
           >
@@ -807,6 +818,17 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
             Read Referrals
           </div>
         </div>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-mt6"
+        >
+          For more detailed information about App permissions, please
+           
+          <a
+            href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          >
+            click here.
+          </a>
+        </p>
         <h2
           class="el-text-base el-subtitle"
         >
