@@ -119,6 +119,18 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
         <mock-styled.div>
           Read properties
         </mock-styled.div>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-mt6"
+        >
+          For more detailed information about App permissions, please
+           
+          <a
+            href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          >
+            click here
+          </a>
+          .
+        </p>
       </div>
       <div
         class="mocked-styled-2 el-button-group"
@@ -262,6 +274,18 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
       <mock-styled.div>
         Read properties
       </mock-styled.div>
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-mt6"
+      >
+        For more detailed information about App permissions, please
+         
+        <a
+          href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+        >
+          click here
+        </a>
+        .
+      </p>
     </div>
     <div
       class="mocked-styled-2 el-button-group"
@@ -462,6 +486,18 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
         <mock-styled.div>
           Read properties
         </mock-styled.div>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-mt6"
+        >
+          For more detailed information about App permissions, please
+           
+          <a
+            href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          >
+            click here
+          </a>
+          .
+        </p>
       </div>
       <div
         class="mocked-styled-2 el-button-group"
@@ -605,6 +641,18 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
       <mock-styled.div>
         Read properties
       </mock-styled.div>
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-mt6"
+      >
+        For more detailed information about App permissions, please
+         
+        <a
+          href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+        >
+          click here
+        </a>
+        .
+      </p>
     </div>
     <div
       class="mocked-styled-2 el-button-group"
@@ -783,6 +831,18 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
         <mock-styled.div>
           Read properties
         </mock-styled.div>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-mt6"
+        >
+          For more detailed information about App permissions, please
+           
+          <a
+            href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          >
+            click here
+          </a>
+          .
+        </p>
       </div>
       <div
         class="mocked-styled-2 el-button-group"
@@ -904,6 +964,18 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
       <mock-styled.div>
         Read properties
       </mock-styled.div>
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-mt6"
+      >
+        For more detailed information about App permissions, please
+         
+        <a
+          href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+        >
+          click here
+        </a>
+        .
+      </p>
     </div>
     <div
       class="mocked-styled-2 el-button-group"
@@ -1100,6 +1172,18 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
         <mock-styled.div>
           Read properties
         </mock-styled.div>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-mt6"
+        >
+          For more detailed information about App permissions, please
+           
+          <a
+            href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          >
+            click here
+          </a>
+          .
+        </p>
       </div>
       <div
         class="mocked-styled-2 el-button-group"
@@ -1239,6 +1323,18 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
       <mock-styled.div>
         Read properties
       </mock-styled.div>
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-mt6"
+      >
+        For more detailed information about App permissions, please
+         
+        <a
+          href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+        >
+          click here
+        </a>
+        .
+      </p>
     </div>
     <div
       class="mocked-styled-2 el-button-group"
@@ -1420,6 +1516,18 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
         <mock-styled.div>
           Read properties
         </mock-styled.div>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-mt6"
+        >
+          For more detailed information about App permissions, please
+           
+          <a
+            href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          >
+            click here
+          </a>
+          .
+        </p>
       </div>
       <div
         class="mocked-styled-2 el-button-group"
@@ -1544,6 +1652,18 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
       <mock-styled.div>
         Read properties
       </mock-styled.div>
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-mt6"
+      >
+        For more detailed information about App permissions, please
+         
+        <a
+          href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+        >
+          click here
+        </a>
+        .
+      </p>
     </div>
     <div
       class="mocked-styled-2 el-button-group"
@@ -1742,6 +1862,18 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
         <mock-styled.div>
           Read properties
         </mock-styled.div>
+        <p
+          class="el-text-base el-body-text el-has-grey-text el-mt6"
+        >
+          For more detailed information about App permissions, please
+           
+          <a
+            href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          >
+            click here
+          </a>
+          .
+        </p>
       </div>
       <div
         class="mocked-styled-2 el-button-group"
@@ -1883,6 +2015,18 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
       <mock-styled.div>
         Read properties
       </mock-styled.div>
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-mt6"
+      >
+        For more detailed information about App permissions, please
+         
+        <a
+          href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+        >
+          click here
+        </a>
+        .
+      </p>
     </div>
     <div
       class="mocked-styled-2 el-button-group"

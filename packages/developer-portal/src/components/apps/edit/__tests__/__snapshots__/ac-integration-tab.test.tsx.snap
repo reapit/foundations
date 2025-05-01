@@ -11,7 +11,7 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
       <p
         class="el-text-base el-body-text el-has-grey-text"
       >
-        When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
+        When your application is integrated with Reapit CRM you can either launch it from the dedicated Apps menu in the Reapit CRM software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
          
         <a>
           see here.
@@ -20,12 +20,12 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
       <p
         class="el-text-base el-body-text el-has-grey-text"
       >
-        You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
+        You should toggle ‘Reapit CRM Integration’ only if you are intending your app to be launched from within Reapit CRM
       </p>
       <p
         class="el-text-base el-body-text el-has-grey-text"
       >
-        The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
+        The below list maps to the various menus from which you can launch your app or replace an Reapit CRM Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within Reapit CRM.
       </p>
       <div
         class="el-form-layout-has-margin el-form-layout"
@@ -39,7 +39,7 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
             <label
               class="mocked-styled-41 el-label"
             >
-              AgencyCloud Integration
+              Reapit CRM Integration
             </label>
             <input
               class="mocked-styled-125 el-toggle-checkbox"
@@ -146,7 +146,7 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
               disabled=""
               id="test-static-id"
               name="launchWindowSizeX"
-              placeholder="Width of window your app will be launched in AgencyCloud"
+              placeholder="Width of window your app will be launched in Reapit CRM"
               type="text"
             />
             <label
@@ -169,7 +169,7 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
               disabled=""
               id="test-static-id"
               name="launchWindowSizeY"
-              placeholder="Height of window your app will be launched in AgencyCloud"
+              placeholder="Height of window your app will be launched in Reapit CRM"
               type="text"
             />
             <label
@@ -190,7 +190,7 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
     <p
       class="el-text-base el-body-text el-has-grey-text"
     >
-      When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
+      When your application is integrated with Reapit CRM you can either launch it from the dedicated Apps menu in the Reapit CRM software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
        
       <a>
         see here.
@@ -199,12 +199,12 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
     <p
       class="el-text-base el-body-text el-has-grey-text"
     >
-      You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
+      You should toggle ‘Reapit CRM Integration’ only if you are intending your app to be launched from within Reapit CRM
     </p>
     <p
       class="el-text-base el-body-text el-has-grey-text"
     >
-      The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
+      The below list maps to the various menus from which you can launch your app or replace an Reapit CRM Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within Reapit CRM.
     </p>
     <div
       class="el-form-layout-has-margin el-form-layout"
@@ -218,7 +218,7 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
           <label
             class="mocked-styled-41 el-label"
           >
-            AgencyCloud Integration
+            Reapit CRM Integration
           </label>
           <input
             class="mocked-styled-125 el-toggle-checkbox"
@@ -325,7 +325,7 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
             disabled=""
             id="test-static-id"
             name="launchWindowSizeX"
-            placeholder="Width of window your app will be launched in AgencyCloud"
+            placeholder="Width of window your app will be launched in Reapit CRM"
             type="text"
           />
           <label
@@ -348,7 +348,7 @@ exports[`AcIntegrationTab should match a snapshot 1`] = `
             disabled=""
             id="test-static-id"
             name="launchWindowSizeY"
-            placeholder="Height of window your app will be launched in AgencyCloud"
+            placeholder="Height of window your app will be launched in Reapit CRM"
             type="text"
           />
           <label
@@ -426,7 +426,7 @@ exports[`AcIntegrationTab should match a snapshot when loading 1`] = `
       <p
         class="el-text-base el-body-text el-has-grey-text"
       >
-        When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
+        When your application is integrated with Reapit CRM you can either launch it from the dedicated Apps menu in the Reapit CRM software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
          
         <a>
           see here.
@@ -435,12 +435,12 @@ exports[`AcIntegrationTab should match a snapshot when loading 1`] = `
       <p
         class="el-text-base el-body-text el-has-grey-text"
       >
-        You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
+        You should toggle ‘Reapit CRM Integration’ only if you are intending your app to be launched from within Reapit CRM
       </p>
       <p
         class="el-text-base el-body-text el-has-grey-text"
       >
-        The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
+        The below list maps to the various menus from which you can launch your app or replace an Reapit CRM Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within Reapit CRM.
       </p>
       <div
         class="el-form-layout-has-margin el-form-layout"
@@ -454,7 +454,7 @@ exports[`AcIntegrationTab should match a snapshot when loading 1`] = `
             <label
               class="mocked-styled-41 el-label"
             >
-              AgencyCloud Integration
+              Reapit CRM Integration
             </label>
             <input
               class="mocked-styled-125 el-toggle-checkbox"
@@ -507,7 +507,7 @@ exports[`AcIntegrationTab should match a snapshot when loading 1`] = `
               disabled=""
               id="test-static-id"
               name="launchWindowSizeX"
-              placeholder="Width of window your app will be launched in AgencyCloud"
+              placeholder="Width of window your app will be launched in Reapit CRM"
               type="text"
             />
             <label
@@ -530,7 +530,7 @@ exports[`AcIntegrationTab should match a snapshot when loading 1`] = `
               disabled=""
               id="test-static-id"
               name="launchWindowSizeY"
-              placeholder="Height of window your app will be launched in AgencyCloud"
+              placeholder="Height of window your app will be launched in Reapit CRM"
               type="text"
             />
             <label
@@ -551,7 +551,7 @@ exports[`AcIntegrationTab should match a snapshot when loading 1`] = `
     <p
       class="el-text-base el-body-text el-has-grey-text"
     >
-      When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
+      When your application is integrated with Reapit CRM you can either launch it from the dedicated Apps menu in the Reapit CRM software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
        
       <a>
         see here.
@@ -560,12 +560,12 @@ exports[`AcIntegrationTab should match a snapshot when loading 1`] = `
     <p
       class="el-text-base el-body-text el-has-grey-text"
     >
-      You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
+      You should toggle ‘Reapit CRM Integration’ only if you are intending your app to be launched from within Reapit CRM
     </p>
     <p
       class="el-text-base el-body-text el-has-grey-text"
     >
-      The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
+      The below list maps to the various menus from which you can launch your app or replace an Reapit CRM Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within Reapit CRM.
     </p>
     <div
       class="el-form-layout-has-margin el-form-layout"
@@ -579,7 +579,7 @@ exports[`AcIntegrationTab should match a snapshot when loading 1`] = `
           <label
             class="mocked-styled-41 el-label"
           >
-            AgencyCloud Integration
+            Reapit CRM Integration
           </label>
           <input
             class="mocked-styled-125 el-toggle-checkbox"
@@ -632,7 +632,7 @@ exports[`AcIntegrationTab should match a snapshot when loading 1`] = `
             disabled=""
             id="test-static-id"
             name="launchWindowSizeX"
-            placeholder="Width of window your app will be launched in AgencyCloud"
+            placeholder="Width of window your app will be launched in Reapit CRM"
             type="text"
           />
           <label
@@ -655,7 +655,7 @@ exports[`AcIntegrationTab should match a snapshot when loading 1`] = `
             disabled=""
             id="test-static-id"
             name="launchWindowSizeY"
-            placeholder="Height of window your app will be launched in AgencyCloud"
+            placeholder="Height of window your app will be launched in Reapit CRM"
             type="text"
           />
           <label
@@ -733,7 +733,7 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
       <p
         class="el-text-base el-body-text el-has-grey-text"
       >
-        When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
+        When your application is integrated with Reapit CRM you can either launch it from the dedicated Apps menu in the Reapit CRM software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
          
         <a>
           see here.
@@ -742,12 +742,12 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
       <p
         class="el-text-base el-body-text el-has-grey-text"
       >
-        You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
+        You should toggle ‘Reapit CRM Integration’ only if you are intending your app to be launched from within Reapit CRM
       </p>
       <p
         class="el-text-base el-body-text el-has-grey-text"
       >
-        The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
+        The below list maps to the various menus from which you can launch your app or replace an Reapit CRM Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within Reapit CRM.
       </p>
       <div
         class="el-form-layout-has-margin el-form-layout"
@@ -761,7 +761,7 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
             <label
               class="mocked-styled-41 el-label"
             >
-              AgencyCloud Integration
+              Reapit CRM Integration
             </label>
             <input
               class="mocked-styled-125 el-toggle-checkbox"
@@ -841,7 +841,7 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
               disabled=""
               id="test-static-id"
               name="launchWindowSizeX"
-              placeholder="Width of window your app will be launched in AgencyCloud"
+              placeholder="Width of window your app will be launched in Reapit CRM"
               type="text"
             />
             <label
@@ -864,7 +864,7 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
               disabled=""
               id="test-static-id"
               name="launchWindowSizeY"
-              placeholder="Height of window your app will be launched in AgencyCloud"
+              placeholder="Height of window your app will be launched in Reapit CRM"
               type="text"
             />
             <label
@@ -885,7 +885,7 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
     <p
       class="el-text-base el-body-text el-has-grey-text"
     >
-      When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
+      When your application is integrated with Reapit CRM you can either launch it from the dedicated Apps menu in the Reapit CRM software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
        
       <a>
         see here.
@@ -894,12 +894,12 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
     <p
       class="el-text-base el-body-text el-has-grey-text"
     >
-      You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
+      You should toggle ‘Reapit CRM Integration’ only if you are intending your app to be launched from within Reapit CRM
     </p>
     <p
       class="el-text-base el-body-text el-has-grey-text"
     >
-      The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within AgencyCloud.
+      The below list maps to the various menus from which you can launch your app or replace an Reapit CRM Screen. You should select the ones that are relevant to your app only. You can also select the default height and width of the window you wish your app to launch in within Reapit CRM.
     </p>
     <div
       class="el-form-layout-has-margin el-form-layout"
@@ -913,7 +913,7 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
           <label
             class="mocked-styled-41 el-label"
           >
-            AgencyCloud Integration
+            Reapit CRM Integration
           </label>
           <input
             class="mocked-styled-125 el-toggle-checkbox"
@@ -993,7 +993,7 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
             disabled=""
             id="test-static-id"
             name="launchWindowSizeX"
-            placeholder="Width of window your app will be launched in AgencyCloud"
+            placeholder="Width of window your app will be launched in Reapit CRM"
             type="text"
           />
           <label
@@ -1016,7 +1016,7 @@ exports[`AcIntegrationTab should match a snapshot with no errors and empty types
             disabled=""
             id="test-static-id"
             name="launchWindowSizeY"
-            placeholder="Height of window your app will be launched in AgencyCloud"
+            placeholder="Height of window your app will be launched in Reapit CRM"
             type="text"
           />
           <label

@@ -66,6 +66,17 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
         By installing this app, you are granting the following permissions to your data:
       </p>
       0
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-mt6"
+      >
+        For more detailed information about App permissions, please
+         
+        <a
+          href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+        >
+          click here.
+        </a>
+      </p>
     </div>
   </body>,
   "container": <div>
@@ -130,6 +141,17 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
       By installing this app, you are granting the following permissions to your data:
     </p>
     0
+    <p
+      class="el-text-base el-body-text el-has-grey-text el-mt6"
+    >
+      For more detailed information about App permissions, please
+       
+      <a
+        href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+      >
+        click here.
+      </a>
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -265,6 +287,17 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
         By installing this app, you are granting the following permissions to your data:
       </p>
       0
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-mt6"
+      >
+        For more detailed information about App permissions, please
+         
+        <a
+          href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+        >
+          click here.
+        </a>
+      </p>
     </div>
   </body>,
   "container": <div>
@@ -343,6 +376,17 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
       By installing this app, you are granting the following permissions to your data:
     </p>
     0
+    <p
+      class="el-text-base el-body-text el-has-grey-text el-mt6"
+    >
+      For more detailed information about App permissions, please
+       
+      <a
+        href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+      >
+        click here.
+      </a>
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -478,6 +522,17 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
         By installing this app, you are granting the following permissions to your data:
       </p>
       0
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-mt6"
+      >
+        For more detailed information about App permissions, please
+         
+        <a
+          href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+        >
+          click here.
+        </a>
+      </p>
     </div>
   </body>,
   "container": <div>
@@ -556,6 +611,17 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
       By installing this app, you are granting the following permissions to your data:
     </p>
     0
+    <p
+      class="el-text-base el-body-text el-has-grey-text el-mt6"
+    >
+      For more detailed information about App permissions, please
+       
+      <a
+        href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+      >
+        click here.
+      </a>
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -677,6 +743,17 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
         By installing this app, you are granting the following permissions to your data:
       </p>
       0
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-mt6"
+      >
+        For more detailed information about App permissions, please
+         
+        <a
+          href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+        >
+          click here.
+        </a>
+      </p>
     </div>
   </body>,
   "container": <div>
@@ -741,6 +818,17 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
       By installing this app, you are granting the following permissions to your data:
     </p>
     0
+    <p
+      class="el-text-base el-body-text el-has-grey-text el-mt6"
+    >
+      For more detailed information about App permissions, please
+       
+      <a
+        href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+      >
+        click here.
+      </a>
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -17,6 +17,7 @@ import { ParameterController } from './parameter-controller'
 import { AwsModule } from '../aws'
 import { RepositoryProvider } from './repository.provider'
 import { RepositoryEntity } from '../entities/repository.entity'
+import { MarketplaceModule } from '../marketplace'
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { RepositoryEntity } from '../entities/repository.entity'
     S3Module,
     forwardRef(() => PipelineRunnerModule),
     AwsModule,
+    MarketplaceModule,
   ],
   providers: [
     PipelineProvider,

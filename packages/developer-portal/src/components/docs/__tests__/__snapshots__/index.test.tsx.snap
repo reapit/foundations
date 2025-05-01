@@ -91,16 +91,16 @@ exports[`DocsPage should match a snapshot 1`] = `
           >
             Welcome
           </p>
-          <small
+          <div
             class="el-text-base el-small-text el-has-grey-text"
           >
             We have provided comprehensive documentation for all of our APIs, services, tooling and open source packages accross these pages.
-          </small>
-          <small
+          </div>
+          <div
             class="el-text-base el-small-text el-has-grey-text"
           >
             You can also visit us on Github where you can raise and track issues, look at code examples and view our milestones.
-          </small>
+          </div>
           <button
             class="el-mb5 el-intent-neutral el-button"
           >
@@ -216,16 +216,16 @@ exports[`DocsPage should match a snapshot 1`] = `
         >
           Welcome
         </p>
-        <small
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           We have provided comprehensive documentation for all of our APIs, services, tooling and open source packages accross these pages.
-        </small>
-        <small
+        </div>
+        <div
           class="el-text-base el-small-text el-has-grey-text"
         >
           You can also visit us on Github where you can raise and track issues, look at code examples and view our milestones.
-        </small>
+        </div>
         <button
           class="el-mb5 el-intent-neutral el-button"
         >

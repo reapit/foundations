@@ -1,20 +1,10 @@
 import React, { FC } from 'react'
 import { buildStatusToIntent, buildStatusToReadable } from '@reapit/utils-common'
-import {
-  BodyText,
-  Col,
-  elMb11,
-  elMr2,
-  elMr4,
-  FlexContainer,
-  Grid,
-  Icon,
-  StatusIndicator,
-  Subtitle,
-} from '@reapit/elements'
+import { BodyText, Col, elMb11, elMr4, FlexContainer, Grid, Icon, StatusIndicator, Subtitle } from '@reapit/elements'
 import { useAppState } from '../state/use-app-state'
 import { PipelineDeploymentTable } from './pipeline-deployments-table'
 import { PipelineTabs } from './pipeline-tabs'
+import { cx } from '@linaria/core'
 
 export const getAppFromPipeline = (isGithub: boolean) => {
   const isBitbucket = !isGithub
@@ -36,8 +26,6 @@ export const PipelineInfo: FC = () => {
       : `https://${appPipeline?.subDomain}${isProd ? '' : '.dev'}.iaas.paas.reapit.cloud`
   const isGithub = Boolean(appPipeline?.repository?.repositoryUrl?.includes('github'))
   const isBitbucket = Boolean(appPipeline?.repository?.repositoryUrl?.includes('bitbucket'))
-  const hasGithubApp = Boolean(appPipeline?.repository?.installationId)
-  const hasBitbucketApp = Boolean(appPipeline?.bitbucketClientId)
 
   return (
     <>
@@ -45,7 +33,9 @@ export const PipelineInfo: FC = () => {
       <Grid className={elMb11}>
         <Col>
           <FlexContainer isFlexAlignCenter>
-            <Icon className={elMr4} icon="refreshInfographic" iconSize="medium" />
+            <div className={elMr4}>
+              <Icon icon="refreshInfographic" iconSize="medium" />
+            </div>
             <div>
               <Subtitle hasNoMargin>Status</Subtitle>
               <BodyText hasNoMargin hasGreyText>
@@ -57,7 +47,9 @@ export const PipelineInfo: FC = () => {
         </Col>
         <Col>
           <FlexContainer isFlexAlignCenter>
-            <Icon className={elMr4} icon="apiDocsInfographic" iconSize="medium" />
+            <div className={elMr4}>
+              <Icon icon="apiDocsInfographic" iconSize="medium" />
+            </div>
             <div>
               <Subtitle hasNoMargin>Repository</Subtitle>
               <BodyText hasNoMargin hasGreyText>
@@ -75,7 +67,9 @@ export const PipelineInfo: FC = () => {
         </Col>
         <Col>
           <FlexContainer isFlexAlignCenter>
-            <Icon className={elMr4} icon="globeInfographic" iconSize="medium" />
+            <div className={elMr4}>
+              <Icon icon="globeInfographic" iconSize="medium" />
+            </div>
             <div>
               <Subtitle hasNoMargin>Location</Subtitle>
               <BodyText hasNoMargin hasGreyText>
@@ -87,52 +81,6 @@ export const PipelineInfo: FC = () => {
                   'Awaiting provision request'
                 )}
               </BodyText>
-            </div>
-          </FlexContainer>
-        </Col>
-        <Col>
-          <FlexContainer isFlexAlignCenter>
-            <Icon className={elMr4} icon="webhooksInfographic" iconSize="medium" />
-            <div>
-              <Subtitle hasNoMargin>Github / Bitbucket App</Subtitle>
-              <FlexContainer>
-                <div className={elMr2}>
-                  <StatusIndicator
-                    intent={
-                      isGithub
-                        ? hasGithubApp
-                          ? 'success'
-                          : 'critical'
-                        : isBitbucket
-                          ? hasBitbucketApp
-                            ? 'success'
-                            : 'critical'
-                          : 'danger'
-                    }
-                  />
-                </div>
-                <BodyText hasNoMargin hasGreyText>
-                  {hasGithubApp ? (
-                    'Github app installed successfully'
-                  ) : hasBitbucketApp ? (
-                    'Bitbucket app installed successfully'
-                  ) : !isGithub && !isBitbucket ? (
-                    'You need to confgure a repo before installing either the Github or Bitbucket app'
-                  ) : (
-                    <>
-                      To deploy from repos, configure either the Reapit{' '}
-                      <a href={getAppFromPipeline(true)} target="_blank" rel="noreferrer">
-                        Github
-                      </a>{' '}
-                      or{' '}
-                      <a href={getAppFromPipeline(false)} target="_blank" rel="noreferrer">
-                        Bitbucket
-                      </a>{' '}
-                      app.
-                    </>
-                  )}
-                </BodyText>
-              </FlexContainer>
             </div>
           </FlexContainer>
         </Col>

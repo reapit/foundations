@@ -17,7 +17,6 @@ import {
   Title,
   elMb5,
   FlexContainer,
-  PersistentNotification,
 } from '@reapit/elements'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/use-reapit-data'
@@ -67,7 +66,7 @@ export const IaaS: FC = () => {
     <FlexContainer>
       <SecondaryNavContainer>
         <Icon className={elMb5} iconSize="large" icon="webDeveloperInfographic" />
-        <SmallText hasGreyText>
+        <SmallText tag="div" hasGreyText>
           Infrastructure as a Service management. Pipelines are for deploying your Reapit apps to our infrastructure to
           simplify your development process
         </SmallText>

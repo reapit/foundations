@@ -116,7 +116,5 @@ export enum PathNames {
   getOrgConfig = '/organisations/organisations/{orgId}/configuration/platform',
   installationsId = '/marketplace/installations/{installationId}',
   createCustomPipelineDnsRecord = '/dns/{pipelineId}',
-  verifyPipelineDnsRecord = '/dns/{pipelineId}/verify',
-  pipelineDnsCertificate = '/dns/{pipelineId}/certificate',
-  pipelineDnsFetchCname = '/dns/{pipelineId}/cloudFrontCname',
+  getPipelineDnsConfig = '/dns/{pipelineId}',
 }

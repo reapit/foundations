@@ -1,6 +1,6 @@
-import { WebhookModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Platform } from '@reapit/foundations-ts-definitions'
 
-export const mockWebhookModelPagedResult: WebhookModelPagedResult = {
+export const mockWebhookModelPagedResult: Platform.WebhookModelPagedResult = {
   _embedded: [
     {
       id: '08da9fb4-b5d2-4871-8381-b57039a0edc5',

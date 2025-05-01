@@ -7,7 +7,7 @@ export const DeveloperEditionDownload: FC = () => {
 
   return (
     <PageContainer>
-      <Title>AgencyCloud Developer Edition</Title>
+      <Title>Reapit CRM Developer Edition</Title>
       <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
         Your developer edition download has started.
       </PersistentNotification>

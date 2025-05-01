@@ -34,6 +34,10 @@ export class AppEventWorkflow extends AbstractWorkflow<AppEventType> {
           developerId: payload.DeveloperId,
         })
 
+        const pipeline = await this.pipelineProvider.findById(payload.AppId)
+
+        if (!pipeline) throw new Error('Will never get here')
+
         break
       }
       case 'deleted': {

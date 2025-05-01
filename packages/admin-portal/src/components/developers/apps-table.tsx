@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import {
   PersistentNotification,
   Table,
@@ -22,7 +22,7 @@ export interface AppsTableProps {
 export const AppsTable: FC<AppsTableProps> = ({ devIdApps }) => {
   const [pageNumber, setPageNumber] = useState<number>(1)
 
-  const [apps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
+  const [apps, appsLoading] = useReapitGet<Marketplace.AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getApps],
     queryParams: {

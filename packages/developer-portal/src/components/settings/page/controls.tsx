@@ -82,11 +82,11 @@ export const Controls: FC = () => {
     <div className={elMb7}>
       <Icon icon="reapitConnectInfographic" iconSize="large" />
       <Subtitle>Settings</Subtitle>
-      <SmallText hasGreyText>
+      <SmallText tag="div" hasGreyText>
         You can manage the information we hold about you and change your password in these pages.
       </SmallText>
       {currentMember?.role === 'admin' && (
-        <SmallText hasGreyText>
+        <SmallText tag="div" hasGreyText>
           Additionally, as an admin, you can manage your developer organisation, members and subscriptions.
         </SmallText>
       )}

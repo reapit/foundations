@@ -13,6 +13,8 @@ import { CertificateDetail } from '../dns-eventbridge'
 import { PusherProvider } from '../events'
 import { PipelineEntity } from '../entities/pipeline.entity'
 import { CertificateProvider } from './certificate.provider'
+import { MarketplaceProvider } from '../marketplace'
+import { isAxiosError } from 'axios'
 
 @Injectable()
 export class DnsEventBridgeProvider {
@@ -21,6 +23,7 @@ export class DnsEventBridgeProvider {
     private readonly cloudfrontClient: CloudFrontClient,
     private readonly pusherProvider: PusherProvider,
     private readonly certificateProvider: CertificateProvider,
+    private readonly marketplaceProvider: MarketplaceProvider,
   ) {}
 
   private async getPipeline(certificateArn: string): Promise<PipelineEntity | never> {
@@ -98,6 +101,24 @@ export class DnsEventBridgeProvider {
       await this.pipelineProvider.update(pipeline, {
         certificateStatus: 'complete',
       })
+
+      const appDetails = await this.marketplaceProvider.getAppDetails(pipeline.appId as string)
+
+      try {
+        await this.marketplaceProvider.updateAppUrls(
+          pipeline.appId as string,
+          commonName,
+          pipeline.developerId as string,
+          appDetails.name as string,
+          appDetails.redirectUris,
+          appDetails.signoutUris,
+        )
+      } catch (error) {
+        if (isAxiosError(error)) {
+          console.log('Failed to create app revision')
+          console.error(error)
+        } else throw error
+      }
 
       await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
         ...pipeline,

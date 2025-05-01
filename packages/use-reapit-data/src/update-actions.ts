@@ -13,7 +13,6 @@ export enum UpdateActionNames {
   createPipeline = 'createPipeline',
   createApp = 'createApp',
   createCustomPipelineDnsRecord = 'createCustomPipelineDnsRecord',
-  verifyPipelineDnsRecord = 'verifyPipelineDnsRecord',
   createApiKeyByMember = 'createApiKeyByMember',
   updateDeveloper = 'updateDeveloper',
   deleteDeveloper = 'deleteDeveloper',
@@ -505,9 +504,5 @@ export const updateActions = {
   [UpdateActionNames.createCustomPipelineDnsRecord]: {
     api: ApiNames.pipeline,
     path: PathNames.createCustomPipelineDnsRecord,
-  },
-  [UpdateActionNames.verifyPipelineDnsRecord]: {
-    api: ApiNames.pipeline,
-    path: PathNames.verifyPipelineDnsRecord,
   },
 }
