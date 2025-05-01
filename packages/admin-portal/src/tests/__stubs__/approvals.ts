@@ -1,6 +1,6 @@
-import { ApprovalModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 
-export const mockApprovalModelPagedResult: ApprovalModelPagedResult = {
+export const mockApprovalModelPagedResult: Marketplace.ApprovalModelPagedResult = {
   data: [
     {
       appId: 'f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09',

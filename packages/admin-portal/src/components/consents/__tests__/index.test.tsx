@@ -1,4 +1,4 @@
-import { ApprovalModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { useReapitGet } from '@reapit/use-reapit-data'
 import React from 'react'
 import { render } from '../../../tests/react-testing'
@@ -28,7 +28,9 @@ describe('AppConsents', () => {
       .mockReturnValueOnce([mockAppDetailModel])
       .mockReturnValueOnce([mockAppRevisionModel])
       .mockReturnValueOnce([mockAppRevisionConsentModelResponse])
-    expect(render(<AppConsents approval={mockApprovalModelPagedResult.data as ApprovalModel[][0]} />)).toMatchSnapshot()
+    expect(
+      render(<AppConsents approval={mockApprovalModelPagedResult.data as Marketplace.ApprovalModel[][0]} />),
+    ).toMatchSnapshot()
   })
 
   it('should match snapshot where there are no consents returned', () => {
@@ -36,17 +38,23 @@ describe('AppConsents', () => {
       .mockReturnValueOnce([mockAppDetailModel])
       .mockReturnValueOnce([mockAppRevisionModel])
       .mockReturnValueOnce([null])
-    expect(render(<AppConsents approval={mockApprovalModelPagedResult.data as ApprovalModel[][0]} />)).toMatchSnapshot()
+    expect(
+      render(<AppConsents approval={mockApprovalModelPagedResult.data as Marketplace.ApprovalModel[][0]} />),
+    ).toMatchSnapshot()
   })
 
   it('should match snapshot where nothing is returned', () => {
     mockUseReapitGet.mockReturnValueOnce([null]).mockReturnValueOnce([null]).mockReturnValueOnce([null])
-    expect(render(<AppConsents approval={mockApprovalModelPagedResult.data as ApprovalModel[][0]} />)).toMatchSnapshot()
+    expect(
+      render(<AppConsents approval={mockApprovalModelPagedResult.data as Marketplace.ApprovalModel[][0]} />),
+    ).toMatchSnapshot()
   })
 
   it('should match snapshot where the app is loading', () => {
     mockUseReapitGet.mockReturnValue([null, true])
-    expect(render(<AppConsents approval={mockApprovalModelPagedResult.data as ApprovalModel[][0]} />)).toMatchSnapshot()
+    expect(
+      render(<AppConsents approval={mockApprovalModelPagedResult.data as Marketplace.ApprovalModel[][0]} />),
+    ).toMatchSnapshot()
   })
 })
 

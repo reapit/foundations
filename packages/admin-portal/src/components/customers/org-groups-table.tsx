@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react'
 import ErrorBoundary from '../error-boundary'
-import { OfficeGroupModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Organisations } from '@reapit/foundations-ts-definitions'
 import {
   elMb11,
   elMt7,
@@ -27,7 +27,7 @@ export const OrgGroupsTable: FC<OrgGroupsProps> = ({ orgId }) => {
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [pageSize, setPageSize] = useState<number>(12)
 
-  const [orgGroups, orgGroupsLoading] = useReapitGet<OfficeGroupModelPagedResult>({
+  const [orgGroups, orgGroupsLoading] = useReapitGet<Organisations.OfficeGroupModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getGroupsByOrgId],
     queryParams: {

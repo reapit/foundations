@@ -4,7 +4,7 @@ import { FilterForm } from './filter-form'
 import { AppsTable } from './apps-table'
 import { objectToQuery, useReapitGet, GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { Statistics } from '../statistics'
 
 export interface AppsFilters {
@@ -32,7 +32,7 @@ export const AppsPage: FC = () => {
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [pageSize, setPageSize] = useState<number>(12)
 
-  const [apps, appsLoading, , appsRefresh] = useReapitGet<AppSummaryModelPagedResult>({
+  const [apps, appsLoading, , appsRefresh] = useReapitGet<Marketplace.AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getApps],
     queryParams: {

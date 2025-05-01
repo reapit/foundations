@@ -1,6 +1,6 @@
 import React, { FC, useContext, useEffect, useState } from 'react'
 import { GithubContext } from '../../github'
-import { Button, Modal, Title } from '@reapit/elements'
+import { Button, ButtonGroup, Loader, Modal, Title } from '@reapit/elements'
 import { SelectedRepositoryEl } from './__styles__'
 import { Installation, Repository } from './types'
 import { InstallationSelection } from './installation-selection'
@@ -54,21 +54,27 @@ export const GithubRepositorySelectionElement: FC<{
         {!authenticatedWithGithub ? (
           <>
             <Title>Repository Selection</Title>
-            {connectSession && (
-              <Button
-                disabled={githubAuthenticating}
-                loading={githubAuthenticating}
-                onClick={(event) => {
-                  event.preventDefault()
-                  loginWithGithub(connectSession, `${window.location.pathname}?githubModalOpen=true`)
-                }}
-              >
-                Login with Github to continue
-              </Button>
+            {connectSession ? (
+              <ButtonGroup>
+                <Button
+                  intent="primary"
+                  disabled={githubAuthenticating}
+                  loading={githubAuthenticating}
+                  onClick={(event) => {
+                    event.preventDefault()
+                    loginWithGithub(connectSession, `${window.location.pathname}?githubModalOpen=true`)
+                  }}
+                >
+                  Login with Github to continue
+                </Button>
+                <Button onClick={() => setIsModalOpen(false)}>Cancel</Button>
+              </ButtonGroup>
+            ) : (
+              <Loader />
             )}
           </>
         ) : !selectedInstallation ? (
-          <InstallationSelection setInstallation={setSelectedInstallation} />
+          <InstallationSelection setInstallation={setSelectedInstallation} setIsModelOpen={setIsModalOpen} />
         ) : (
           <RepositorySelection
             complete={completeAction}

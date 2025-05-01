@@ -1,7 +1,7 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import ErrorBoundary from '../error-boundary'
 import { DeveloperFilters, FilterForm } from './filter-form'
-import { DeveloperModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { Loader, PageContainer, Pagination, Title } from '@reapit/elements'
 import { Statistics } from '../statistics'
@@ -17,7 +17,7 @@ export const DevsManagement: FC = () => {
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [pageSize, setPageSize] = useState<number>(12)
 
-  const [developers, developersLoading, , refreshDevelopers] = useReapitGet<DeveloperModelPagedResult>({
+  const [developers, developersLoading, , refreshDevelopers] = useReapitGet<Marketplace.DeveloperModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getDevelopers],
     queryParams: { pageNumber, pageSize, ...objectToQuery(developerFilters) },

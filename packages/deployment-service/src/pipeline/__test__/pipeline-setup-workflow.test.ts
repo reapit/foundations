@@ -148,7 +148,6 @@ describe('PipelineSetupWorkflow', () => {
       message: 'Pipeline successfully created',
       outDir: 'build',
       developerId,
-      domainVerified: false,
     })
     expect(mockCloudFrontClient.send).toHaveBeenCalled()
     expect(mockRoute53Client.send).toHaveBeenCalled()
@@ -184,7 +183,6 @@ describe('PipelineSetupWorkflow', () => {
       message: 'Failed to architect',
       outDir: 'build',
       developerId,
-      domainVerified: false,
     })
     expect(mockRoute53Client.send).not.toHaveBeenCalled()
     expect(mockSqsProvider.deleteMessage).toHaveBeenCalled()
