@@ -7,12 +7,13 @@ import {
 import { selectIsMarketplaceAdmin, selectIsOffGrouping, selectIsOrgAdmin } from '../../utils/auth'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { Button, ButtonGroup, elMb11, BodyText, elMb6 } from '@reapit/elements'
+import { Button, ButtonGroup, elMb11, BodyText, elMb6, elMt6 } from '@reapit/elements'
 import { AcProcessType, DesktopLink } from '@reapit/utils-react'
 import { UpdateActionNames, updateActions, SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
 import { AppDetailPermissionChip } from './__styles__'
 import { trackEvent, trackEventHandler } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
+import { cx } from '@linaria/core'
 
 export const DESKTOP_REFRESH_URL = 'agencycloud://apps/refresh'
 
@@ -199,6 +200,10 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
           {scopes?.map(({ name, description }) => (
             <AppDetailPermissionChip key={name}>{description ?? ''}</AppDetailPermissionChip>
           ))}
+          <BodyText className={cx(elMt6)} hasGreyText>
+            For more detailed information about App permissions, please{' '}
+            <a href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions">click here</a>.
+          </BodyText>
         </>
       </div>
       <ButtonGroup alignment="center">
