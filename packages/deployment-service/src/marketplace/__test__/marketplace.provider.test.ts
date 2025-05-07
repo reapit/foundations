@@ -17,10 +17,24 @@ const mockAxios = {
   get: jest.fn(() =>
     Promise.resolve({
       data: {
-        appId: 'appId',
+        data: [
+          {
+            id: 'some-revision-id',
+            appId: 'some-app-id',
+            signoutUrls: [],
+            redirectUrls: [],
+          },
+          {
+            id: 'some-revision-id',
+            appId: 'some-app-id',
+            signoutUrls: [],
+            redirectUrls: [],
+          },
+        ],
       },
     }),
   ),
+  patch: jest.fn(() => Promise.resolve()),
 }
 
 describe('MarketplaceProvider', () => {
@@ -35,7 +49,7 @@ describe('MarketplaceProvider', () => {
   it('updateAppUrls', async () => {
     await provider.updateAppUrls('appId', 'domain')
 
-    expect(mockAxios.post).toHaveBeenCalledTimes(2)
+    expect(mockAxios.patch).toHaveBeenCalledTimes(1)
     expect(mockAxios.get).toHaveBeenCalledTimes(1)
   })
 })
