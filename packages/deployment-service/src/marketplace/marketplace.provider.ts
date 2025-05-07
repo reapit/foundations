@@ -41,13 +41,21 @@ export class MarketplaceProvider {
     return { access_token, token_type }
   }
 
-  private async getAppDetails(
+  /**
+   * Find the app's latest revision for patch update
+   *
+   * @param appId
+   * @param token_type
+   * @param access_token
+   * @returns Revision or undefined
+   */
+  private async findLatestRevision(
     appId: string,
     token_type: string,
     access_token: string,
-  ): Promise<Marketplace.AppDetailModel> {
+  ): Promise<Marketplace.AppRevisionModel | undefined> {
     const result = await firstValueFrom(
-      this.httpService.get<Marketplace.AppDetailModel>(`${this.config.url}/apps/${appId}`, {
+      this.httpService.get<Marketplace.AppRevisionModelPagedResult>(`${this.config.url}/apps/${appId}/revisions`, {
         headers: {
           Authorization: `${token_type} ${access_token}`,
           ['api-version']: 1,
@@ -55,7 +63,7 @@ export class MarketplaceProvider {
       }),
     )
 
-    return result.data
+    return result?.data?.data ? result.data.data[0] : undefined
   }
 
   /**
@@ -65,23 +73,16 @@ export class MarketplaceProvider {
    */
   async updateAppUrls(appId: string, domain: string): Promise<void> {
     const { access_token, token_type } = await this.authenticate()
-    const appDetails = await this.getAppDetails(appId, token_type, access_token)
+    const revision = await this.findLatestRevision(appId, token_type, access_token)
 
-    if (!appDetails.description) delete appDetails.description
-    if (!appDetails.supportEmail) delete appDetails.supportEmail
-    if (!appDetails.homePage) delete appDetails.homePage
-    if (!appDetails.summary) delete appDetails.summary
-    if (!appDetails.telephone) delete appDetails.telephone
-    if (!appDetails.launchUri) delete appDetails.launchUri
+    if (!revision) throw new Error(`Latest revision not found for app [${appId}]`)
 
     await firstValueFrom(
-      this.httpService.post<Marketplace.AppRevisionModel>(
-        `${this.config.url}/apps/${appId}/revisions`,
+      this.httpService.patch<Marketplace.AppRevisionModel>(
+        `${this.config.url}/apps/${appId}/revisions/${revision.id}`,
         {
-          ...appDetails,
-          scopes: appDetails.scopes?.map(scope => scope.name),
-          redirectUris: [...(appDetails.redirectUris || []), `https://${domain}/`],
-          signoutUris: [...(appDetails.signoutUris || []), `https://${domain}/login`],
+          redirectUris: [...(revision.redirectUris || []), `https://${domain}/`],
+          signoutUris: [...(revision.signoutUris || []), `https://${domain}/login`],
         },
         {
           headers: {

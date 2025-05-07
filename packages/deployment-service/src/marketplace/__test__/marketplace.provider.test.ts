@@ -6,12 +6,13 @@ import marketplace from '../../config/marketplace'
 const connectUrl = 'connect-url'
 
 const mockAxios = {
-  post: jest.fn(() => Promise.resolve({
+  post: jest.fn(() =>
+    Promise.resolve({
       data: {
         access_token: 'access_token',
         token_type: 'bearer',
       },
-    })
+    }),
   ),
   get: jest.fn(() =>
     Promise.resolve({
