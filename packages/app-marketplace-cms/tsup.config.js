@@ -8,7 +8,7 @@ const pkgJson = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
 export default defineConfig([
   {
     entry: {'app/http': 'src/http.ts'},
-    target: 'node18',
+    target: 'node22',
     clean: true,
     minify: config.NODE_ENV === 'production',
     esbuildOptions: (opts) => {
@@ -46,7 +46,7 @@ export default defineConfig([
   },
   {
     entry: {'authorizer/index': '../utils-authorizer/src/handler.ts'},
-    target: 'node18',
+    target: 'node22',
     clean: true,
     minify: config.NODE_ENV === 'production',
     esbuildOptions: (opts) => {

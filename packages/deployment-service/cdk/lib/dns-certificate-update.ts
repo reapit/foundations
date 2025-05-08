@@ -50,7 +50,7 @@ export class DnsCertificateUpdate extends Construct {
     )
 
     const certificateUpdateLambda = new aws_lambda.Function(paasEuWest2Stack, `${id}-eventbridge-update-lambda`, {
-      runtime: aws_lambda.Runtime.NODEJS_18_X,
+      runtime: aws_lambda.Runtime.NODEJS_20_X,
       handler: 'packages/deployment-service/dist/dns-eventbridge.handle',
       vpc,
       code: aws_lambda.Code.fromAsset('bundle/dns-eventbridge.zip'),

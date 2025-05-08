@@ -231,7 +231,7 @@ export const createStack = async () => {
     undefined,
     undefined,
     512,
-    aws_lambda.Runtime.NODEJS_18_X,
+    aws_lambda.Runtime.NODEJS_20_X,
   )
 
   const authorizer = new cdk.aws_apigateway.RequestAuthorizer(stack, 'deployment-service-authorizer', {
@@ -250,7 +250,7 @@ export const createStack = async () => {
       vpc,
       duration: options.timeout,
       ram: options.RAM,
-      runtime: aws_lambda.Runtime.NODEJS_18_X,
+      runtime: aws_lambda.Runtime.NODEJS_20_X,
     })
     options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
 
@@ -283,7 +283,7 @@ export const createStack = async () => {
     name: 'cloud-deployment-migration',
     entrypoint: 'bundle/migration-run.zip',
     handler: createFileLoc('migration-run', 'migrationRun'),
-    runtime: aws_lambda.Runtime.NODEJS_18_X,
+    runtime: aws_lambda.Runtime.NODEJS_20_X,
     env,
     vpc,
   })
