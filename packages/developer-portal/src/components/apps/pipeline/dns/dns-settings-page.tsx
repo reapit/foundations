@@ -1,38 +1,15 @@
 import { cx } from '@linaria/core'
 import {
   BodyText,
-  Button,
-  ButtonGroup,
   elMb6,
+  FlexContainer,
   FormLayout,
   InputWrapFull,
   InputWrapHalf,
+  StatusIndicator,
   Subtitle,
 } from '@reapit/elements'
-import React, { Dispatch, FC, SetStateAction, useState } from 'react'
-import CopyToClipboard from 'react-copy-to-clipboard'
-
-export interface CopyState {
-  Text: string
-}
-
-export const handleCopyCode = (setCopyState: Dispatch<SetStateAction<CopyState>>, key: keyof CopyState) => () => {
-  setCopyState({
-    ...defaultCopyState,
-    [key]: 'Copied',
-  })
-
-  setTimeout(() => {
-    setCopyState((currentState) => ({
-      ...currentState,
-      [key]: 'Copy',
-    }))
-  }, 5000)
-}
-
-export const defaultCopyState = {
-  Text: 'Copy',
-}
+import React, { FC } from 'react'
 
 export const DnsSettingsPage: FC<{
   dnsInfo: {
@@ -40,13 +17,8 @@ export const DnsSettingsPage: FC<{
     cloudfrontUrl: string
     certificate: any
   }
-}> = ({ dnsInfo }) => {
-  const [copyState, setCopyState] = useState<CopyState>(defaultCopyState)
-
-  const copyText = `
-      TYPE\r\nCNAME\r\nNAME\r\n${dnsInfo.customDomain}\r\nVALUE\n\r${dnsInfo.cloudfrontUrl}\r\n\r\n
-      ${dnsInfo.certificate?.DomainValidationOptions?.map((domain) => `TYPE\r\n${domain?.ResourceRecord?.Type}\r\nNAME\r\n${domain?.ResourceRecord?.Name}\r\nVALUE\r\n${domain?.ResourceRecord?.Value}\r\n\r\n`)}
-    `
+  certificateStatus: string
+}> = ({ dnsInfo, certificateStatus }) => {
 
   return (
     <>
@@ -56,6 +28,13 @@ export const DnsSettingsPage: FC<{
             Your custom DNS setup was completed on IaaS. For your custom domain to be working, you will now you need to
             notify your relevent Dev Ops team about the records mentioned below.
           </BodyText>
+        </InputWrapFull>
+        <InputWrapFull>
+          <Subtitle>Certificate Status</Subtitle>
+          <FlexContainer isFlexRow isFlexAlignCenter>
+            <StatusIndicator intent={certificateStatus === 'complete' ? 'success' : 'critical'} />
+            <p style={{ textTransform: 'capitalize' }}>{certificateStatus}</p>
+          </FlexContainer>
         </InputWrapFull>
         <InputWrapHalf>
           <Subtitle>Type</Subtitle>
@@ -89,21 +68,6 @@ export const DnsSettingsPage: FC<{
           </InputWrapHalf>
         </FormLayout>
       ))}
-      <FormLayout>
-        <InputWrapFull>
-          <BodyText>Use the copy button below to copy all of the details above to use in your Jira ticket.</BodyText>
-          <CopyToClipboard text={copyText} onCopy={handleCopyCode(setCopyState, 'Text')}>
-            <Button intent="default">{copyState.Text}</Button>
-          </CopyToClipboard>
-        </InputWrapFull>
-        <InputWrapFull>
-          <BodyText>Use the buttons below to create a jira ticket for your respective region.</BodyText>
-          <ButtonGroup>
-            <Button intent="primary">Create Jira Ticket UKI</Button>
-            <Button intent="primary">Create Jira Ticket ANZ</Button>
-          </ButtonGroup>
-        </InputWrapFull>
-      </FormLayout>
     </>
   )
 }

@@ -11,7 +11,8 @@ export const DnsConfiguration: FC<{
   connectSession: ReapitConnectSession
   pipelineId: string
   certificateError?: string
-}> = ({ connectSession, pipelineId, certificateError }) => {
+  certificateStatus: string
+}> = ({ connectSession, pipelineId, certificateError, certificateStatus }) => {
   const [dnsInfo, loading, , refresh] = useReapitGet<{
     customDomain: string
     cloudfrontUrl: string
@@ -28,7 +29,7 @@ export const DnsConfiguration: FC<{
 
   return !loading ? (
     dnsInfo && !certificateError ? (
-      <DnsSettingsPage dnsInfo={dnsInfo} />
+      <DnsSettingsPage dnsInfo={dnsInfo} certificateStatus={certificateStatus} />
     ) : (
       <>
         <div className={cx(elMb6)}>

@@ -68,6 +68,23 @@ export class CertificateProvider {
     }
   }
 
+  async obtainCertificateWithArn(CertificateArn: string) {
+    try {
+      const certificate = await this.client.send(
+        new DescribeCertificateCommand({
+          CertificateArn,
+        }),
+      )
+
+      return certificate.Certificate
+    } catch (error: any) {
+      if (error instanceof ResourceNotFoundException) {
+        console.error(error.message)
+        return undefined
+      }
+    }
+  }
+
   async deleteCertificate(pipeline: PipelineEntity): Promise<void> {
     if (!pipeline.certificateArn) return
 

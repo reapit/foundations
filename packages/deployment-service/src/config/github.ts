@@ -6,4 +6,5 @@ export default registerAs('github', () => ({
   webhooks: {
     secret: process.env.GITHUB_SECRET as string,
   },
+  PAT: process.env.DEVOPS_DEPLOYER_PAT as string,
 }))

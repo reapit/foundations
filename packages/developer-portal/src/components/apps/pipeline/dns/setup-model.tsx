@@ -70,7 +70,7 @@ export const PipelineDnsStepModal: FC<{
         <Subtitle>Setup DNS</Subtitle>
         <form
           onSubmit={handleSubmit(async (values) => {
-            const result = await sendDnsRequest(values)
+            await sendDnsRequest(values)
           })}
         >
           <FormLayout>

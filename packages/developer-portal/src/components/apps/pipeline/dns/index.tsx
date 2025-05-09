@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react'
 import { useAppState } from '../../state/use-app-state'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { PipelineTabs } from '../pipeline-tabs'
-import { Button, elMb6, Loader, PersistentNotification } from '@reapit/elements'
+import { elMb6, Loader, PersistentNotification } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { DnsConfiguration } from './dns-configuration'
@@ -18,6 +18,7 @@ export const PipelineDns: FC<{}> = () => {
     buildStatus,
     certificateError,
     id: pipelineId,
+    certificateStatus,
   } = appPipelineState.appPipeline as PipelineModelInterface & {
     domainVerified: string
     verifyDnsName: string
@@ -62,6 +63,7 @@ export const PipelineDns: FC<{}> = () => {
               connectSession={connectSession}
               pipelineId={pipelineId}
               certificateError={certificateError}
+              certificateStatus={certificateStatus}
             />
           ) : (
             <PersistentNotification isExpanded isFullWidth isInline intent="danger">
