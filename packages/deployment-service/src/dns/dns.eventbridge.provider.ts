@@ -115,11 +115,11 @@ export class DnsEventBridgeProvider {
       message: 'DNS updated',
     })
 
-    if (commonName.includes('reapit.cloud')) {
+    if (commonName.includes('.reapit.cloud')) {
       const cnames: DnsRecords[] = [
         {
           name: commonName,
-          value: distro.DomainName as string,
+          value: (distro.DomainName as string)?.replace('.reapit.cloud', ''),
           type: 'CNAME',
         },
       ]
@@ -127,9 +127,9 @@ export class DnsEventBridgeProvider {
         if (!domain.ResourceRecord) return
 
         cnames.push({
-          name: domain?.ResourceRecord?.Name as string,
-          value: domain?.ResourceRecord?.Value as string,
-          type: domain?.ResourceRecord?.Type as 'CNAME',
+          name: (domain.ResourceRecord.Name as string).replace('.reapit.cloud', ''),
+          value: domain.ResourceRecord.Value as string,
+          type: domain.ResourceRecord.Type as 'CNAME',
         })
       })
 
@@ -170,8 +170,12 @@ export class DnsEventBridgeProvider {
         commonName,
       )
 
-      await this.pipelineProvider.update(pipeline, {
+      const updatedPipeline = await this.pipelineProvider.update(pipeline, {
         certificateStatus: 'complete',
+      })
+      await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
+        ...updatedPipeline,
+        message: 'DNS updated',
       })
     } catch (error) {
       if (!(error instanceof CNAMEAlreadyExists)) throw error

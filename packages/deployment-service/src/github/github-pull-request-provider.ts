@@ -53,7 +53,7 @@ export class GithubPullRequestProvider {
       ],
       title: PR.title,
       body: PR.body,
-      head: 'default', // branch name?
+      head: 'default', // branch name
       labels: PR.labels,
     })
   }
