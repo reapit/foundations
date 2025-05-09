@@ -41,7 +41,6 @@ export class DnsEventBridgeProvider {
     return pipeline
   }
 
-
   private async getDistribution(pipeline: PipelineEntity): Promise<[Distribution, string | undefined] | never> {
     const result = await this.cloudfrontClient.send(new GetDistributionCommand({ Id: pipeline.cloudFrontId }))
 
@@ -195,10 +194,7 @@ export class DnsEventBridgeProvider {
       CertificateDetail | CertificateCreationEvent
     >,
   ): event is EventBridgeEvent<'ACM Certificate Available', CertificateDetail> {
-    return (
-      event['detail-type'] === 'ACM Certificate Available' &&
-      event.resources.length >= 1
-    )
+    return event['detail-type'] === 'ACM Certificate Available' && event.resources.length >= 1
   }
 
   async handle(
@@ -210,8 +206,7 @@ export class DnsEventBridgeProvider {
     if (this.isCertificateCreationEvent(event) && event.detail?.eventName === 'RequestCertificate')
       return this.handleCertificateCreation(event)
 
-    if (this.isCertificateValidationEevent(event))
-      return this.handleCertificateValidation(event)
+    if (this.isCertificateValidationEevent(event)) return this.handleCertificateValidation(event)
 
     console.log('event not consumable')
   }
