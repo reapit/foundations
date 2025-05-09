@@ -1,9 +1,6 @@
 import { cx } from '@linaria/core'
 import {
   BodyText,
-  Button,
-  ButtonGroup,
-  elMb0,
   elMb6,
   FlexContainer,
   FormLayout,
@@ -12,30 +9,7 @@ import {
   StatusIndicator,
   Subtitle,
 } from '@reapit/elements'
-import React, { Dispatch, FC, SetStateAction, useState } from 'react'
-import CopyToClipboard from 'react-copy-to-clipboard'
-
-export interface CopyState {
-  Text: string
-}
-
-export const handleCopyCode = (setCopyState: Dispatch<SetStateAction<CopyState>>, key: keyof CopyState) => () => {
-  setCopyState({
-    ...defaultCopyState,
-    [key]: 'Copied',
-  })
-
-  setTimeout(() => {
-    setCopyState((currentState) => ({
-      ...currentState,
-      [key]: 'Copy',
-    }))
-  }, 5000)
-}
-
-export const defaultCopyState = {
-  Text: 'Copy',
-}
+import React, { FC } from 'react'
 
 export const DnsSettingsPage: FC<{
   dnsInfo: {
@@ -45,12 +19,6 @@ export const DnsSettingsPage: FC<{
   }
   certificateStatus: string
 }> = ({ dnsInfo, certificateStatus }) => {
-  const [copyState, setCopyState] = useState<CopyState>(defaultCopyState)
-
-  const copyText = `
-      TYPE\r\nCNAME\r\nNAME\r\n${dnsInfo.customDomain}\r\nVALUE\n\r${dnsInfo.cloudfrontUrl}\r\n\r\n
-      ${dnsInfo.certificate?.DomainValidationOptions?.map((domain) => `TYPE\r\n${domain?.ResourceRecord?.Type}\r\nNAME\r\n${domain?.ResourceRecord?.Name}\r\nVALUE\r\n${domain?.ResourceRecord?.Value}\r\n\r\n`)}
-    `
 
   return (
     <>
