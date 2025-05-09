@@ -3,7 +3,9 @@ import {
   BodyText,
   Button,
   ButtonGroup,
+  elMb0,
   elMb6,
+  FlexContainer,
   FormLayout,
   InputWrapFull,
   InputWrapHalf,
@@ -58,8 +60,13 @@ export const DnsSettingsPage: FC<{
             Your custom DNS setup was completed on IaaS. For your custom domain to be working, you will now you need to
             notify your relevent Dev Ops team about the records mentioned below.
           </BodyText>
-          <StatusIndicator intent={certificateStatus === 'complete' ? 'success' : 'critical'} />
-          <span>{certificateStatus}</span>
+        </InputWrapFull>
+        <InputWrapFull>
+          <Subtitle>Certificate Status</Subtitle>
+          <FlexContainer isFlexRow isFlexAlignCenter>
+            <StatusIndicator intent={certificateStatus === 'complete' ? 'success' : 'critical'} />
+            <p style={{ textTransform: 'capitalize' }}>{certificateStatus}</p>
+          </FlexContainer>
         </InputWrapFull>
         <InputWrapHalf>
           <Subtitle>Type</Subtitle>
