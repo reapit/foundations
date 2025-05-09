@@ -40,7 +40,7 @@ describe('DNS Configuration', () => {
             idToken: 'idToken',
             loginIdentity: {} as LoginIdentity,
           }}
-          certificateStatus="pending"
+          certificateStatus='pending'
         />,
       ),
     ).toMatchSnapshot()
@@ -59,7 +59,7 @@ describe('DNS Configuration', () => {
             idToken: 'idToken',
             loginIdentity: {} as LoginIdentity,
           }}
-          certificateStatus="pending"
+          certificateStatus='pending'
         />,
       ),
     ).toMatchSnapshot()
