@@ -46,7 +46,7 @@ export class DevopsPrProvider {
     cnames.forEach((cname) => {
       yml.config['route53:records'].push({
         name: cname.name,
-        hosted_zone_identifier: 'reapit.cloud', // TODO dev identifier
+        hosted_zone_identifier: 'reapit.cloud', // has to be reapit.cloud
         ttl: 300,
         records: [cname.value],
         type: cname.type,
@@ -54,7 +54,6 @@ export class DevopsPrProvider {
     })
 
     const updatedFile = dump(yml)
-    console.log('updated', updatedFile)
 
     await this.githubPrProvider.createPullRequest({
       owner: DevopsPrProvider.repositoryOwner,

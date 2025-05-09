@@ -79,6 +79,15 @@ export class DnsEventBridgeProvider {
     )
   }
 
+  /**
+   * Handle certificate creation event
+   *
+   * - This method will add the signOut and redirectUrls to an existing revision
+   * - Create a PR on devops repo to create CNAME records for domain & certificate verification 
+   *   if domain matches reapit.cloud
+   *
+   * @param event
+   */
   async handleCertificateCreation(
     event: EventBridgeEvent<'AWS API Call via CloudTrail', CertificateCreationEvent>,
   ): Promise<void> {
@@ -105,7 +114,6 @@ export class DnsEventBridgeProvider {
     })
 
     if (commonName.includes('reapit.cloud')) {
-      const certificate = await this.certificateProvider.obtainCertificate(pipeline)
       const cnames: DnsRecords[] = [
         {
           name: commonName,
@@ -127,11 +135,20 @@ export class DnsEventBridgeProvider {
     }
   }
 
+  /**
+   * Handle certificate validation
+   *
+   * This method is triggered when a certificate has been validated.
+   *
+   * - update a distro with certificate and custom domain
+   * - if domain is already in use, delete certificate and set certificate error against pipeline for frontend
+   *
+   * @param event
+   */
   async handleCertificateValidation(
     event: EventBridgeEvent<'ACM Certificate Available', CertificateDetail>,
   ): Promise<void> {
     const certificateArn = event.resources[0]
-    const certificate = await this.certificateProvider.obtainCertificateWithArn(certificateArn)
 
     const pipeline = await this.getPipeline(certificateArn)
 
