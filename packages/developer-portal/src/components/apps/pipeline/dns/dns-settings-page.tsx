@@ -7,6 +7,7 @@ import {
   FormLayout,
   InputWrapFull,
   InputWrapHalf,
+  StatusIndicator,
   Subtitle,
 } from '@reapit/elements'
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
@@ -40,7 +41,8 @@ export const DnsSettingsPage: FC<{
     cloudfrontUrl: string
     certificate: any
   }
-}> = ({ dnsInfo }) => {
+  certificateStatus: string
+}> = ({ dnsInfo, certificateStatus }) => {
   const [copyState, setCopyState] = useState<CopyState>(defaultCopyState)
 
   const copyText = `
@@ -56,6 +58,8 @@ export const DnsSettingsPage: FC<{
             Your custom DNS setup was completed on IaaS. For your custom domain to be working, you will now you need to
             notify your relevent Dev Ops team about the records mentioned below.
           </BodyText>
+          <StatusIndicator intent={certificateStatus === 'complete' ? 'success' : 'critical'} />
+          <span>{certificateStatus}</span>
         </InputWrapFull>
         <InputWrapHalf>
           <Subtitle>Type</Subtitle>
@@ -89,21 +93,6 @@ export const DnsSettingsPage: FC<{
           </InputWrapHalf>
         </FormLayout>
       ))}
-      <FormLayout>
-        <InputWrapFull>
-          <BodyText>Use the copy button below to copy all of the details above to use in your Jira ticket.</BodyText>
-          <CopyToClipboard text={copyText} onCopy={handleCopyCode(setCopyState, 'Text')}>
-            <Button intent="default">{copyState.Text}</Button>
-          </CopyToClipboard>
-        </InputWrapFull>
-        <InputWrapFull>
-          <BodyText>Use the buttons below to create a jira ticket for your respective region.</BodyText>
-          <ButtonGroup>
-            <Button intent="primary">Create Jira Ticket UKI</Button>
-            <Button intent="primary">Create Jira Ticket ANZ</Button>
-          </ButtonGroup>
-        </InputWrapFull>
-      </FormLayout>
     </>
   )
 }
