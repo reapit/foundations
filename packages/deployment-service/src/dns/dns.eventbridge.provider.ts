@@ -97,6 +97,8 @@ export class DnsEventBridgeProvider {
 
     const pipeline = await this.getPipeline(certificateArn)
 
+    const [distro] = await this.getDistribution(pipeline)
+
     const commonName = certificate?.DomainName as string
 
     try {
@@ -117,7 +119,7 @@ export class DnsEventBridgeProvider {
       const cnames: DnsRecords[] = [
         {
           name: commonName,
-          value: pipeline.cloudFrontId as string,
+          value: distro.DomainName as string,
           type: 'CNAME',
         },
       ]
