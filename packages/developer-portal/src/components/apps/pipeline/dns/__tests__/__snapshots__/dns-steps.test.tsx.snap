@@ -21,6 +21,27 @@ exports[`DNS Configuration Will show configuration page when dns info is returne
           </p>
         </div>
         <div
+          class="mocked-styled-135 el-input-wrap-full"
+        >
+          <h2
+            class="el-text-base el-subtitle"
+          >
+            Certificate Status
+          </h2>
+          <div
+            class="el-flex-container el-flex-row el-flex-align-center"
+          >
+            <span
+              class="el-intent-default el-status-indicator"
+            />
+            <p
+              style="text-transform: capitalize;"
+            >
+              pending
+            </p>
+          </div>
+        </div>
+        <div
           class="mocked-styled-136 el-input-wrap-half"
         >
           <h2
@@ -109,60 +130,6 @@ exports[`DNS Configuration Will show configuration page when dns info is returne
           </p>
         </div>
       </div>
-      <div
-        class="mocked-styled-130 el-form-layout"
-      >
-        <div
-          class="mocked-styled-135 el-input-wrap-full"
-        >
-          <p
-            class="el-text-base el-body-text"
-          >
-            Use the copy button below to copy all of the details above to use in your Jira ticket.
-          </p>
-          <button
-            class="el-intent-neutral el-button"
-          >
-            <div
-              class="mocked-styled-0 el-button-loader"
-            />
-            Copy
-          </button>
-        </div>
-        <div
-          class="mocked-styled-135 el-input-wrap-full"
-        >
-          <p
-            class="el-text-base el-body-text"
-          >
-            Use the buttons below to create a jira ticket for your respective region.
-          </p>
-          <div
-            class="mocked-styled-2 el-button-group"
-          >
-            <div
-              class="mocked-styled-3 el-button-group-inner"
-            >
-              <button
-                class="el-intent-primary el-button"
-              >
-                <div
-                  class="mocked-styled-0 el-button-loader"
-                />
-                Create Jira Ticket UKI
-              </button>
-              <button
-                class="el-intent-primary el-button"
-              >
-                <div
-                  class="mocked-styled-0 el-button-loader"
-                />
-                Create Jira Ticket ANZ
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </body>,
   "container": <div>
@@ -180,6 +147,27 @@ exports[`DNS Configuration Will show configuration page when dns info is returne
         >
           Your custom DNS setup was completed on IaaS. For your custom domain to be working, you will now you need to notify your relevent Dev Ops team about the records mentioned below.
         </p>
+      </div>
+      <div
+        class="mocked-styled-135 el-input-wrap-full"
+      >
+        <h2
+          class="el-text-base el-subtitle"
+        >
+          Certificate Status
+        </h2>
+        <div
+          class="el-flex-container el-flex-row el-flex-align-center"
+        >
+          <span
+            class="el-intent-default el-status-indicator"
+          />
+          <p
+            style="text-transform: capitalize;"
+          >
+            pending
+          </p>
+        </div>
       </div>
       <div
         class="mocked-styled-136 el-input-wrap-half"
@@ -268,60 +256,6 @@ exports[`DNS Configuration Will show configuration page when dns info is returne
         >
           dns record value
         </p>
-      </div>
-    </div>
-    <div
-      class="mocked-styled-130 el-form-layout"
-    >
-      <div
-        class="mocked-styled-135 el-input-wrap-full"
-      >
-        <p
-          class="el-text-base el-body-text"
-        >
-          Use the copy button below to copy all of the details above to use in your Jira ticket.
-        </p>
-        <button
-          class="el-intent-neutral el-button"
-        >
-          <div
-            class="mocked-styled-0 el-button-loader"
-          />
-          Copy
-        </button>
-      </div>
-      <div
-        class="mocked-styled-135 el-input-wrap-full"
-      >
-        <p
-          class="el-text-base el-body-text"
-        >
-          Use the buttons below to create a jira ticket for your respective region.
-        </p>
-        <div
-          class="mocked-styled-2 el-button-group"
-        >
-          <div
-            class="mocked-styled-3 el-button-group-inner"
-          >
-            <button
-              class="el-intent-primary el-button"
-            >
-              <div
-                class="mocked-styled-0 el-button-loader"
-              />
-              Create Jira Ticket UKI
-            </button>
-            <button
-              class="el-intent-primary el-button"
-            >
-              <div
-                class="mocked-styled-0 el-button-loader"
-              />
-              Create Jira Ticket ANZ
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   </div>,
