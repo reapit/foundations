@@ -15,7 +15,13 @@ import { PipelineEntity } from '../entities/pipeline.entity'
 import { CertificateProvider } from './certificate.provider'
 import { MarketplaceProvider } from '../marketplace'
 import { isAxiosError } from 'axios'
+import { DevopsPrProvider, DnsRecords } from './devops.pr.provider'
 
+type CertificateCreationEvent = {
+  eventName: 'RequestCertificate'
+  responseElements: { certificateArn: string }
+  requestParameters: { domainName: string }
+}
 @Injectable()
 export class DnsEventBridgeProvider {
   constructor(
@@ -24,6 +30,7 @@ export class DnsEventBridgeProvider {
     private readonly pusherProvider: PusherProvider,
     private readonly certificateProvider: CertificateProvider,
     private readonly marketplaceProvider: MarketplaceProvider,
+    private readonly devopsPrProvider: DevopsPrProvider,
   ) {}
 
   private async getPipeline(certificateArn: string): Promise<PipelineEntity | never> {
@@ -34,11 +41,6 @@ export class DnsEventBridgeProvider {
     return pipeline
   }
 
-  private getCertifcateArn(event: EventBridgeEvent<'ACM Certificate Available', CertificateDetail>): string | never {
-    if (!event.resources || event.resources.length === 0) throw new Error('Certificate had no ARN')
-
-    return event.resources[0]
-  }
 
   private async getDistribution(pipeline: PipelineEntity): Promise<[Distribution, string | undefined] | never> {
     const result = await this.cloudfrontClient.send(new GetDistributionCommand({ Id: pipeline.cloudFrontId }))
@@ -78,17 +80,69 @@ export class DnsEventBridgeProvider {
     )
   }
 
-  async handle(event: EventBridgeEvent<'ACM Certificate Available', CertificateDetail>): Promise<void> {
-    const certificateArn = this.getCertifcateArn(event)
-    const commonName = event.detail.CommonName
+  async handleCertificateCreation(
+    event: EventBridgeEvent<'AWS API Call via CloudTrail', CertificateCreationEvent>,
+  ): Promise<void> {
+    const certificateArn = event.detail.responseElements.certificateArn
+
+    const certificate = await this.certificateProvider.obtainCertificateWithArn(certificateArn)
 
     const pipeline = await this.getPipeline(certificateArn)
 
-    if (pipeline?.certificateStatus === 'complete') return
+    const commonName = certificate?.DomainName as string
+
+    try {
+      await this.marketplaceProvider.updateAppUrls(pipeline.appId as string, commonName)
+    } catch (error) {
+      if (isAxiosError(error)) {
+        console.log('Failed to create app revision')
+        console.error(error)
+      } else throw error
+    }
+
+    await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
+      ...pipeline,
+      message: 'DNS updated',
+    })
+
+    if (commonName.includes('reapit.cloud')) {
+      const certificate = await this.certificateProvider.obtainCertificate(pipeline)
+      const cnames: DnsRecords[] = [
+        {
+          name: commonName,
+          value: pipeline.cloudFrontId as string,
+          type: 'CNAME',
+        },
+      ]
+      certificate?.DomainValidationOptions?.forEach((domain) => {
+        if (!domain.ResourceRecord) return
+
+        cnames.push({
+          name: domain?.ResourceRecord?.Name as string,
+          value: domain?.ResourceRecord?.Value as string,
+          type: domain?.ResourceRecord?.Type as 'CNAME',
+        })
+      })
+
+      await this.devopsPrProvider.createPR(cnames, pipeline, '')
+    }
+  }
+
+  async handleCertificateValidation(
+    event: EventBridgeEvent<'ACM Certificate Available', CertificateDetail>,
+  ): Promise<void> {
+    const certificateArn = event.resources[0]
+    const certificate = await this.certificateProvider.obtainCertificateWithArn(certificateArn)
+
+    const pipeline = await this.getPipeline(certificateArn)
 
     const [distro, etag] = await this.getDistribution(pipeline)
 
+    // TODO check certificate status?
+    const commonName = event.detail.CommonName
+
     try {
+      // TODO cannot add certificate to distro if certificate is not valid. Needs a different event
       await this.updateDistribution(
         {
           ...distro,
@@ -101,22 +155,7 @@ export class DnsEventBridgeProvider {
       await this.pipelineProvider.update(pipeline, {
         certificateStatus: 'complete',
       })
-
-      try {
-        await this.marketplaceProvider.updateAppUrls(pipeline.appId as string, commonName)
-      } catch (error) {
-        if (isAxiosError(error)) {
-          console.log('Failed to create app revision')
-          console.error(error)
-        } else throw error
-      }
-
-      await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
-        ...pipeline,
-        message: 'DNS updated',
-      })
-    } catch (error: any) {
-      console.error(error)
+    } catch (error) {
       if (!(error instanceof CNAMEAlreadyExists)) throw error
       await this.certificateProvider.deleteCertificate(pipeline)
       const updatedPipeline = await this.pipelineProvider.update(pipeline, {
@@ -136,5 +175,44 @@ export class DnsEventBridgeProvider {
         message: 'DNS updated',
       })
     }
+  }
+
+  private isCertificateCreationEvent(
+    event: EventBridgeEvent<
+      'ACM Certificate Available' | 'AWS API Call via CloudTrail',
+      CertificateDetail | CertificateCreationEvent
+    >,
+  ): event is EventBridgeEvent<'AWS API Call via CloudTrail', CertificateCreationEvent> {
+    return (
+      event['detail-type'] === 'AWS API Call via CloudTrail' &&
+      Object.prototype.hasOwnProperty.call(event.detail, 'eventName')
+    )
+  }
+
+  private isCertificateValidationEevent(
+    event: EventBridgeEvent<
+      'ACM Certificate Available' | 'AWS API Call via CloudTrail',
+      CertificateDetail | CertificateCreationEvent
+    >,
+  ): event is EventBridgeEvent<'ACM Certificate Available', CertificateDetail> {
+    return (
+      event['detail-type'] === 'ACM Certificate Available' &&
+      event.resources.length >= 1
+    )
+  }
+
+  async handle(
+    event: EventBridgeEvent<
+      'ACM Certificate Available' | 'AWS API Call via CloudTrail',
+      CertificateDetail | CertificateCreationEvent
+    >,
+  ): Promise<void> {
+    if (this.isCertificateCreationEvent(event) && event.detail?.eventName === 'RequestCertificate')
+      return this.handleCertificateCreation(event)
+
+    if (this.isCertificateValidationEevent(event))
+      return this.handleCertificateValidation(event)
+
+    console.log('event not consumable')
   }
 }
