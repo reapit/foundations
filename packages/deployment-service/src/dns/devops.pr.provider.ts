@@ -43,6 +43,8 @@ export class DevopsPrProvider {
 
     const yml = load(content) as DevopsDnsRecordConfig
 
+    console.log('yml', yml)
+
     cnames.forEach((cname) => {
       yml.config['route53:records'].push({
         name: cname.name,
