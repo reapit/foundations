@@ -45,7 +45,7 @@ describe('DevopsPrProvider', () => {
         },
       }),
     )
-    const result = await provider.createPR(
+    await provider.createPR(
       [
         {
           name: 'cname-name',
