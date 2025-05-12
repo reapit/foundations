@@ -29,6 +29,7 @@ export class GithubPullRequestProvider {
       title: string
       body: string
       labels?: string[]
+      branchName: string
     }
   }) {
     const CreatePR = Octokit.plugin(createPullRequest)
@@ -49,12 +50,18 @@ export class GithubPullRequestProvider {
             email: 'foundations@reapit.com',
             date: new Date().toISOString(), // must be ISO date string
           },
+          committer: {
+            name: 'Foundations DeployBot',
+            email: 'foundations@reapit.com',
+            date: new Date().toISOString(), // must be ISO date string
+          },
         },
       ],
       title: PR.title,
       body: PR.body,
-      head: 'default', // branch name
+      head: PR.branchName,
       labels: PR.labels,
+      update: true,
     })
   }
 

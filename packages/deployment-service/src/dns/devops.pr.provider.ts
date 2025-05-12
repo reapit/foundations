@@ -80,6 +80,7 @@ This PR was made from the below deployment-service envrionment
 env: [${process.env.NODE_ENV}]
 `,
         labels: ['deployment-service'],
+        branchName: `pipeline-dns-creation-${pipeline.id}`,
       },
     })
   }
