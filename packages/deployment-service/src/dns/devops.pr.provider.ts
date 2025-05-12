@@ -74,7 +74,11 @@ user that triggered this action: ${configuringEmail}
 
 pipelineId: ${pipeline.id}
 developerId: ${pipeline.developerId}
-                `,
+
+## ENV
+This PR was made from the below deployment-service envrionment
+env: [${process.env.NODE_ENV}]
+`,
         labels: ['deployment-service'],
       },
     })

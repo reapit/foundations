@@ -160,7 +160,7 @@ export class DnsEventBridgeProvider {
     const commonName = event.detail.CommonName
 
     try {
-      // TODO cannot add certificate to distro if certificate is not valid. Needs a different event
+      // cannot add certificate to distro if certificate is not valid. Needs a different event
       await this.updateDistribution(
         {
           ...distro,
