@@ -30,7 +30,7 @@ export class DevopsPrProvider {
   private static repositoryFile: string = 'pulumi_projects/route53/Pulumi.route53.main.yaml'
   constructor(private readonly githubPrProvider: GithubPullRequestProvider) {}
 
-  async createPR(cnames: DnsRecords[], pipeline: PipelineEntity, configuringEmail: string) {
+  async createPR(cnames: DnsRecords[], pipeline: PipelineEntity) {
     const file = await this.githubPrProvider.obtainFile({
       owner: DevopsPrProvider.repositoryOwner,
       filePath: DevopsPrProvider.repositoryFile,
@@ -70,7 +70,7 @@ The deployment-service, managed by the uk-platform team, has created this PR aut
 ${cnames.map((cname) => `- ${cname.name}`).join('\r\n')}
 
 ### User & pipeline info
-user that triggered this action: ${configuringEmail}
+user that triggered this action: ${pipeline.dnsTrigger}
 
 pipelineId: ${pipeline.id}
 developerId: ${pipeline.developerId}

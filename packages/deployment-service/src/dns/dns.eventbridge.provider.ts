@@ -83,7 +83,7 @@ export class DnsEventBridgeProvider {
    * Handle certificate creation event
    *
    * - This method will add the signOut and redirectUrls to an existing revision
-   * - Create a PR on devops repo to create CNAME records for domain & certificate verification 
+   * - Create a PR on devops repo to create CNAME records for domain & certificate verification
    *   if domain matches reapit.cloud
    *
    * @param event
@@ -133,7 +133,7 @@ export class DnsEventBridgeProvider {
         })
       })
 
-      await this.devopsPrProvider.createPR(cnames, pipeline, '')
+      await this.devopsPrProvider.createPR(cnames, pipeline)
     }
   }
 
