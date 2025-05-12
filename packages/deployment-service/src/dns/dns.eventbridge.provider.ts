@@ -118,8 +118,8 @@ export class DnsEventBridgeProvider {
     if (commonName.includes('.reapit.cloud')) {
       const cnames: DnsRecords[] = [
         {
-          name: commonName,
-          value: (distro.DomainName as string)?.replace('.reapit.cloud', ''),
+          name: commonName?.replace('.reapit.cloud', ''),
+          value: (distro.DomainName as string),
           type: 'CNAME',
         },
       ]
