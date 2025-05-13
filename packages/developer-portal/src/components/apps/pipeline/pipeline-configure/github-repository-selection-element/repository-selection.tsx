@@ -88,9 +88,9 @@ export const RepositorySelection: FC<{
         <img src={installation.account.avatar_url} />
         <p className="repository-name">{installation.account.login}</p>
         <BodyText hasGreyText>
-          If you're unable to find the repository you require{' '}
+          If you're unable to find the repository you require check out the{' '}
           <a href="https://reapit.atlassian.net/wiki/spaces/PLT/pages/2807955545/IaaS+Documentation#Installing-the-Reapit-Github-App-to-your-repository">
-            check out the documentation here.
+            documentation here.
           </a>
         </BodyText>
       </RepositoryEl>
