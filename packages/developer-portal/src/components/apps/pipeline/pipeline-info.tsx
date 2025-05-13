@@ -1,10 +1,9 @@
 import React, { FC } from 'react'
 import { buildStatusToIntent, buildStatusToReadable } from '@reapit/utils-common'
-import { BodyText, Col, elMb11, elMr4, FlexContainer, Grid, Icon, StatusIndicator, Subtitle } from '@reapit/elements'
+import { BodyText, Col, elMb11, elMr5, FlexContainer, Grid, Icon, StatusIndicator, Subtitle } from '@reapit/elements'
 import { useAppState } from '../state/use-app-state'
 import { PipelineDeploymentTable } from './pipeline-deployments-table'
 import { PipelineTabs } from './pipeline-tabs'
-import { cx } from '@linaria/core'
 
 export const getAppFromPipeline = (isGithub: boolean) => {
   const isBitbucket = !isGithub
@@ -33,7 +32,7 @@ export const PipelineInfo: FC = () => {
       <Grid className={elMb11}>
         <Col>
           <FlexContainer isFlexAlignCenter>
-            <div className={elMr4}>
+            <div className={elMr5}>
               <Icon icon="refreshInfographic" iconSize="medium" />
             </div>
             <div>
@@ -47,7 +46,7 @@ export const PipelineInfo: FC = () => {
         </Col>
         <Col>
           <FlexContainer isFlexAlignCenter>
-            <div className={elMr4}>
+            <div className={elMr5}>
               <Icon icon="apiDocsInfographic" iconSize="medium" />
             </div>
             <div>
@@ -67,7 +66,7 @@ export const PipelineInfo: FC = () => {
         </Col>
         <Col>
           <FlexContainer isFlexAlignCenter>
-            <div className={elMr4}>
+            <div className={elMr5}>
               <Icon icon="globeInfographic" iconSize="medium" />
             </div>
             <div>
