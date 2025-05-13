@@ -133,7 +133,11 @@ export class DnsEventBridgeProvider {
         })
       })
 
-      await this.devopsPrProvider.createPR(cnames, pipeline)
+      try {
+        await this.devopsPrProvider.createPR(cnames, pipeline)
+      } catch (error) {
+        console.error(error)
+      }
     }
   }
 
