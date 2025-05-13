@@ -24,9 +24,9 @@ export const DnsSettingsPage: FC<{
       <FormLayout className={cx(elMb6)}>
         <InputWrapFull>
           <BodyText hasGreyText>
-            Setup a custom domain name for your deployment from this page. To be able to complete the setup, the
-            relevant DevOps team will need to accept the records below. The pipeline will create a PR automatically for
-            their review
+            {dnsInfo.customDomain.includes('reapit.cloud')
+              ? "We have successfully created the custom domain certificate? As you are using a 'reapit.cloud' domain, we have automatically provided the details to verify/register the certificate to DevOps. Once they have completed the setup, the certificate status will be updated and your domain will be live."
+              : 'We have successfully created the custom domain certificate. As you are using a custom domain (not reapit.cloud), you will need to copy and complete the certificate setup process. Once you have completed the setup, the certificate status will be updated and your domain will be live.'}
           </BodyText>
         </InputWrapFull>
         <InputWrapFull>
