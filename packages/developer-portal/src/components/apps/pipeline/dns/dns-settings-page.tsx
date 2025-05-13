@@ -19,14 +19,14 @@ export const DnsSettingsPage: FC<{
   }
   certificateStatus: string
 }> = ({ dnsInfo, certificateStatus }) => {
-
   return (
     <>
       <FormLayout className={cx(elMb6)}>
         <InputWrapFull>
           <BodyText hasGreyText>
-            Your custom DNS setup was completed on IaaS. For your custom domain to be working, you will now you need to
-            notify your relevent Dev Ops team about the records mentioned below.
+            Setup a custom domain name for your deployment from this page. To be able to complete the setup, the
+            relevant DevOps team will need to accept the records below. The pipeline will create a PR automatically for
+            their review
           </BodyText>
         </InputWrapFull>
         <InputWrapFull>
