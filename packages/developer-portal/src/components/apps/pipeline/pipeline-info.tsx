@@ -32,9 +32,6 @@ export const PipelineInfo: FC = () => {
       <Grid className={elMb11}>
         <Col>
           <FlexContainer isFlexAlignCenter>
-            <div className={elMr5}>
-              <Icon icon="refreshInfographic" iconSize="medium" />
-            </div>
             <div>
               <Subtitle hasNoMargin>Status</Subtitle>
               <BodyText hasNoMargin hasGreyText>
@@ -46,9 +43,6 @@ export const PipelineInfo: FC = () => {
         </Col>
         <Col>
           <FlexContainer isFlexAlignCenter>
-            <div className={elMr5}>
-              <Icon icon="apiDocsInfographic" iconSize="medium" />
-            </div>
             <div>
               <Subtitle hasNoMargin>Repository</Subtitle>
               <BodyText hasNoMargin hasGreyText>
@@ -66,9 +60,6 @@ export const PipelineInfo: FC = () => {
         </Col>
         <Col>
           <FlexContainer isFlexAlignCenter>
-            <div className={elMr5}>
-              <Icon icon="globeInfographic" iconSize="medium" />
-            </div>
             <div>
               <Subtitle hasNoMargin>Location</Subtitle>
               <BodyText hasNoMargin hasGreyText>
