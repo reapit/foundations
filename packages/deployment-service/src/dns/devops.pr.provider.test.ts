@@ -62,9 +62,6 @@ describe('DevopsPrProvider', () => {
         PR: expect.objectContaining({
           title: expect.stringContaining('cname-name'),
           body: expect.stringContaining(`user that triggered this action: ${mockPipeline.dnsTrigger}`),
-          // .stringContaining('cname-name')
-          // .stringContaining(mockPipeline.developerId)
-          // .stringContaining(mockPipeline.id),
         }),
       }),
     )
