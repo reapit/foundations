@@ -23,7 +23,11 @@ export const DnsSettingsPage: FC<{
     <>
       <FormLayout className={cx(elMb6)}>
         <InputWrapFull>
-          <BodyText hasGreyText>TEXT TO BE CONFIRMED</BodyText>
+          <BodyText hasGreyText>
+            Your domain has been successfully configured in IaaS. If you&apos;ve used a &apos;reapit.cloud&apos; domain
+            then there&apos;s no need to do anything. If you&apos;ve created an external domain, please configure your
+            DNS with the details below. Else let the relevent Reapit dev ops team of these details.
+          </BodyText>
         </InputWrapFull>
         <InputWrapFull>
           <Subtitle>Certificate Status</Subtitle>
