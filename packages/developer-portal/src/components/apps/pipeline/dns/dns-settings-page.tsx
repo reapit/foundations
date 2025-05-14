@@ -23,11 +23,7 @@ export const DnsSettingsPage: FC<{
     <>
       <FormLayout className={cx(elMb6)}>
         <InputWrapFull>
-          <BodyText hasGreyText>
-            {dnsInfo.customDomain.includes('reapit.cloud')
-              ? "We have successfully created the custom domain certificate? As you are using a 'reapit.cloud' domain, we have automatically provided the details to verify/register the certificate to DevOps. Once they have completed the setup, the certificate status will be updated and your domain will be live."
-              : 'We have successfully created the custom domain certificate. As you are using a custom domain (not reapit.cloud), you will need to copy and complete the certificate setup process. Once you have completed the setup, the certificate status will be updated and your domain will be live.'}
-          </BodyText>
+          <BodyText hasGreyText>TEXT TO BE CONFIRMED</BodyText>
         </InputWrapFull>
         <InputWrapFull>
           <Subtitle>Certificate Status</Subtitle>

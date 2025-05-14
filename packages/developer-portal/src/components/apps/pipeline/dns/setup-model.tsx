@@ -5,8 +5,9 @@ import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { useAppState } from '../../state/use-app-state'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
+import { UpdateActionNames, updateActions, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/use-reapit-data'
 import * as Yup from 'yup'
+import { DnsUKISuccessModal } from './dns-uki-success-modal'
 
 const domainRegex = new RegExp(/([a-z0-9|-]+\.)*[a-z0-9|-]+\.[a-z]+/)
 
@@ -24,6 +25,7 @@ export const PipelineDnsStepModal: FC<{
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appPipelineState } = useAppState()
   const [postLoading, setPostLoading] = useState<boolean>(false)
+  const [isUkiSuccessModalOpen, setIsUkiSuccessModalOpen] = useState<boolean>(false)
 
   const {
     register,
@@ -47,6 +49,7 @@ export const PipelineDnsStepModal: FC<{
     },
     reapitConnectBrowserSession,
     uriParams: { pipelineId },
+    returnType: UpdateReturnTypeEnum.RESPONSE,
   })
 
   useEffect(() => {
@@ -55,8 +58,13 @@ export const PipelineDnsStepModal: FC<{
 
   if (dnsInfo) {
     setTimeout(() => {
-      refresh()
-      appPipelineState.appPipelineRefresh()
+      if (dnsInfo.customDomain.includes('reapit.cloud')) {
+        setIsUkiSuccessModalOpen(true)
+        closeModal()
+      } else {
+        refresh()
+        appPipelineState.appPipelineRefresh()
+      }
     }, 5000)
   }
 
@@ -96,6 +104,14 @@ export const PipelineDnsStepModal: FC<{
           </FormLayout>
         </form>
       </Modal>
+      <DnsUKISuccessModal
+        modalIsOpen={isUkiSuccessModalOpen}
+        onModalClose={() => {
+          setIsUkiSuccessModalOpen(false)
+          refresh()
+          appPipelineState.appPipelineRefresh()
+        }}
+      />
     </>
   )
 }
