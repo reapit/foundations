@@ -96,20 +96,22 @@ export const InstallationSelection: FC<{
       </PaginatedListEl>
 
       {pageData.total_pages > 1 && (
-        <Pagination
-          className={cx(paginationFix)}
-          currentPage={pageData.current_page}
-          numberPages={pageData.total_pages}
-          callback={async (current_page) => {
-            await fetchInstallations({
-              githubAccessToken: githubSession as GithubAccessToken,
-              setInstallations,
-              setLoading,
-              pageData: { ...pageData, current_page },
-              setPageData,
-            })
-          }}
-        />
+        <div className={elMb6}>
+          <Pagination
+            className={cx(paginationFix, elMb6)}
+            currentPage={pageData.current_page}
+            numberPages={pageData.total_pages}
+            callback={async (current_page) => {
+              await fetchInstallations({
+                githubAccessToken: githubSession as GithubAccessToken,
+                setInstallations,
+                setLoading,
+                pageData: { ...pageData, current_page },
+                setPageData,
+              })
+            }}
+          />
+        </div>
       )}
       <Button onClick={() => setIsModelOpen(false)}>Close</Button>
     </div>
