@@ -24,9 +24,9 @@ export const DnsSettingsPage: FC<{
       <FormLayout className={cx(elMb6)}>
         <InputWrapFull>
           <BodyText hasGreyText>
-            Your domain has been successfully configured in IaaS. If you&apos;ve used a &apos;reapit.cloud&apos; domain
-            then there&apos;s no need to do anything. If you&apos;ve created an external domain, please configure your
-            DNS with the details below. Else let the relevent Reapit dev ops team of these details.
+            If you are using a &apos;reapit.cloud&apos; domain, we have automatically sent the following details for
+            DevOps to action. If you are using a custom domain, please copy the details below to verify your
+            certificate.
           </BodyText>
         </InputWrapFull>
         <InputWrapFull>

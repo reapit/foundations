@@ -17,7 +17,7 @@ exports[`DNS Configuration Will show configuration page when dns info is returne
           <p
             class="el-text-base el-body-text el-has-grey-text"
           >
-            Your domain has been successfully configured in IaaS. If you've used a 'reapit.cloud' domain then there's no need to do anything. If you've created an external domain, please configure your DNS with the details below. Else let the relevent Reapit dev ops team of these details.
+            If you are using a 'reapit.cloud' domain, we have automatically sent the following details for DevOps to action. If you are using a custom domain, please copy the details below to verify your certificate.
           </p>
         </div>
         <div
@@ -145,7 +145,7 @@ exports[`DNS Configuration Will show configuration page when dns info is returne
         <p
           class="el-text-base el-body-text el-has-grey-text"
         >
-          Your domain has been successfully configured in IaaS. If you've used a 'reapit.cloud' domain then there's no need to do anything. If you've created an external domain, please configure your DNS with the details below. Else let the relevent Reapit dev ops team of these details.
+          If you are using a 'reapit.cloud' domain, we have automatically sent the following details for DevOps to action. If you are using a custom domain, please copy the details below to verify your certificate.
         </p>
       </div>
       <div
