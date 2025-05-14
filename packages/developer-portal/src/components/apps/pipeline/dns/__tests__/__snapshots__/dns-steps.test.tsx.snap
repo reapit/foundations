@@ -17,7 +17,7 @@ exports[`DNS Configuration Will show configuration page when dns info is returne
           <p
             class="el-text-base el-body-text el-has-grey-text"
           >
-            Setup a custom domain name for your deployment from this page. To be able to complete the setup, the relevant DevOps team will need to accept the records below. The pipeline will create a PR automatically for their review
+            We have successfully created the custom domain certificate? As you are using a 'reapit.cloud' domain, we have automatically provided the details to verify/register the certificate to DevOps. Once they have completed the setup, the certificate status will be updated and your domain will be live.
           </p>
         </div>
         <div
@@ -145,7 +145,7 @@ exports[`DNS Configuration Will show configuration page when dns info is returne
         <p
           class="el-text-base el-body-text el-has-grey-text"
         >
-          Setup a custom domain name for your deployment from this page. To be able to complete the setup, the relevant DevOps team will need to accept the records below. The pipeline will create a PR automatically for their review
+          We have successfully created the custom domain certificate? As you are using a 'reapit.cloud' domain, we have automatically provided the details to verify/register the certificate to DevOps. Once they have completed the setup, the certificate status will be updated and your domain will be live.
         </p>
       </div>
       <div
