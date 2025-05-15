@@ -119,21 +119,23 @@ export const RepositorySelection: FC<{
         )}
       </PaginatedListEl>
       {pageData.total_pages > 1 && (
-        <Pagination
-          className={cx(paginationFix)}
-          currentPage={pageData.current_page}
-          numberPages={pageData.total_pages}
-          callback={async (current_page) => {
-            await fetchRepositories({
-              githubAccessToken: githubSession as GithubAccessToken,
-              setRepositories,
-              setLoading,
-              installation,
-              pageData: { ...pageData, current_page },
-              setPageData,
-            })
-          }}
-        />
+        <div className={elMb6}>
+          <Pagination
+            className={cx(paginationFix, elMb6)}
+            currentPage={pageData.current_page}
+            numberPages={pageData.total_pages}
+            callback={async (current_page) => {
+              await fetchRepositories({
+                githubAccessToken: githubSession as GithubAccessToken,
+                setRepositories,
+                setLoading,
+                installation,
+                pageData: { ...pageData, current_page },
+                setPageData,
+              })
+            }}
+          />
+        </div>
       )}
       <ButtonGroup>
         <Button
