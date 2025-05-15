@@ -46,7 +46,7 @@ export const thirdStepValidationSchema = Yup.object().shape({
     line1: Yup.string().required('Required').max(35, 'Address line 1 should not exceed 35 characters'),
     line2: Yup.string().required('Required').max(30, 'Address line 2 should not exceed 30 characters'),
     countryId: Yup.string().required('Required'),
-    postcode: Yup.string().required('Required'),
+    postcode: Yup.string().required('Required').max(9, 'Postcode must be less than 10 characters'),
   }),
 })
 
