@@ -10,9 +10,22 @@ export const PipelineConfigure: FC = () => {
     <>
       {!location.pathname.includes('new') && <PipelineTabs />}
       <BodyText hasGreyText>
-        Tell us about how we should build your application here. We assume that your application is a front end app and
-        that, it uses either yarn or npm to run scripts declared in a package.json file. We assume also that your
-        application is bundled and that bundle is output to a local directory that we can deploy for you.
+        Setup the configuration below so that the pipeline knows how to build your application. The pipeline assumes
+        that your application is a frontend application that uses either yarn or npm to run scripts declared in a
+        package.json file. It also assumes that your application is bundled, and that the bundle is output to a local
+        directory from which it can be deployed.
+      </BodyText>
+      <BodyText hasGreyText>
+        <strong>Deployment Branch</strong> is the branch from which push events will trigger a new deployment. typically
+        main or master.
+      </BodyText>
+      <BodyText hasGreyText>
+        <strong>Build Command</strong> will be executed to prepare the application bundle, and should match the
+        appropriate script in package.json.
+      </BodyText>
+      <BodyText hasGreyText hasSectionMargin>
+        <strong>Build Directory</strong> is the directory from which the bundle will be deployed, typically build or
+        dist.
       </BodyText>
       <PipelineConfigureForm />
     </>

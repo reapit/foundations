@@ -6,9 +6,17 @@ import {
   FormLayout,
   InputWrapFull,
   InputWrapHalf,
+  InputWrapMed,
+  InputWrapSmall,
   StatusIndicator,
   Subtitle,
+  Table,
+  TableCell,
+  TableHeader,
+  TableHeadersRow,
+  TableRow,
 } from '@reapit/elements'
+import { SubTitle } from 'chart.js'
 import React, { FC } from 'react'
 
 export const DnsSettingsPage: FC<{
@@ -23,51 +31,42 @@ export const DnsSettingsPage: FC<{
     <>
       <FormLayout className={cx(elMb6)}>
         <InputWrapFull>
-          <BodyText hasGreyText>
-            If you are using a &apos;reapit.cloud&apos; domain, we have automatically sent the following details for
-            DevOps to action. If you are using a custom domain, please copy the details below to verify your
-            certificate.
-          </BodyText>
-        </InputWrapFull>
-        <InputWrapFull>
           <Subtitle>Certificate Status</Subtitle>
           <FlexContainer isFlexRow isFlexAlignCenter>
             <StatusIndicator intent={certificateStatus === 'complete' ? 'success' : 'critical'} />
             <p style={{ textTransform: 'capitalize' }}>{certificateStatus}</p>
           </FlexContainer>
         </InputWrapFull>
-        <InputWrapHalf>
-          <Subtitle>Type</Subtitle>
-          <BodyText hasGreyText>CNAME</BodyText>
-        </InputWrapHalf>
-        <InputWrapHalf>
-          <Subtitle>Name</Subtitle>
-          <BodyText hasGreyText>{dnsInfo.customDomain}</BodyText>
-        </InputWrapHalf>
-        <InputWrapHalf>
-          <Subtitle>Value</Subtitle>
-          <BodyText hasGreyText>{dnsInfo.cloudfrontUrl}</BodyText>
-        </InputWrapHalf>
+        <InputWrapFull>
+          <Subtitle>DNS Records</Subtitle>
+          <BodyText hasGreyText>
+            The following records records need to be added to your domain&apos;s DNS settings. This is required to
+            verify ownership of the domain so that the SSL certificate can be issued. If you are using a{' '}
+            <code>reapit.cloud</code> domain, we have automatically sent the following details to DevOps for them
+            action. Once they have merged the DNS changes, the certificate will be issued and the domain will be 
+            available for use.
+          </BodyText>
+          <Table className={cx(elMb6)} key={`${dnsInfo.customDomain}-${dnsInfo.cloudfrontUrl}`}>
+            <TableHeadersRow>
+              <TableHeader>Type</TableHeader>
+              <TableHeader>Name</TableHeader>
+              <TableHeader>Value</TableHeader>
+            </TableHeadersRow>
+            {dnsInfo.certificate?.DomainValidationOptions?.map((domain, index) => (
+              <TableRow key={`${domain?.ResourceRecord?.Name}.${domain?.ResourceRecord?.Value}.${index}`}>
+                <TableCell>{domain?.ResourceRecord?.Type}</TableCell>
+                <TableCell>{domain?.ResourceRecord?.Name}</TableCell>
+                <TableCell>{domain?.ResourceRecord?.Value}</TableCell>
+              </TableRow>
+            ))}
+            <TableRow>
+              <TableCell>CNAME</TableCell>
+              <TableCell>{dnsInfo.customDomain}</TableCell>
+              <TableCell>{dnsInfo.cloudfrontUrl}</TableCell>
+            </TableRow>
+          </Table>
+        </InputWrapFull>
       </FormLayout>
-      {dnsInfo.certificate?.DomainValidationOptions?.map((domain, index) => (
-        <FormLayout
-          className={cx(elMb6)}
-          key={`${domain?.ResourceRecord?.Name}.${domain?.ResourceRecord?.Value}.${index}`}
-        >
-          <InputWrapHalf>
-            <Subtitle>Type</Subtitle>
-            <BodyText hasGreyText>{domain?.ResourceRecord?.Type}</BodyText>
-          </InputWrapHalf>
-          <InputWrapHalf>
-            <Subtitle>Name</Subtitle>
-            <BodyText hasGreyText>{domain?.ResourceRecord?.Name}</BodyText>
-          </InputWrapHalf>
-          <InputWrapHalf>
-            <Subtitle> Value</Subtitle>
-            <BodyText hasGreyText>{domain?.ResourceRecord?.Value}</BodyText>
-          </InputWrapHalf>
-        </FormLayout>
-      ))}
     </>
   )
 }
