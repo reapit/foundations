@@ -1,6 +1,8 @@
 import { cx } from '@linaria/core'
 import {
   BodyText,
+  Button,
+  ButtonGroup,
   elMb6,
   FlexContainer,
   FormLayout,
@@ -38,7 +40,7 @@ export const DnsSettingsPage: FC<{
           </FlexContainer>
         </InputWrapFull>
         <InputWrapFull>
-          <Subtitle>DNS Records</Subtitle>
+          <Subtitle>Certificate DNS Validation</Subtitle>
           <BodyText hasGreyText>
             The following records records need to be added to your domain&apos;s DNS settings. This is required to
             verify ownership of the domain so that the SSL certificate can be issued. If you are using a{' '}
@@ -46,8 +48,8 @@ export const DnsSettingsPage: FC<{
             action. Once they have merged the DNS changes, the certificate will be issued and the domain will be 
             available for use.
           </BodyText>
-          <Table className={cx(elMb6)} key={`${dnsInfo.customDomain}-${dnsInfo.cloudfrontUrl}`}>
-            <TableHeadersRow>
+        <Table>
+        <TableHeadersRow>
               <TableHeader>Type</TableHeader>
               <TableHeader>Name</TableHeader>
               <TableHeader>Value</TableHeader>
@@ -55,16 +57,50 @@ export const DnsSettingsPage: FC<{
             {dnsInfo.certificate?.DomainValidationOptions?.map((domain, index) => (
               <TableRow key={`${domain?.ResourceRecord?.Name}.${domain?.ResourceRecord?.Value}.${index}`}>
                 <TableCell>{domain?.ResourceRecord?.Type}</TableCell>
-                <TableCell>{domain?.ResourceRecord?.Name}</TableCell>
-                <TableCell>{domain?.ResourceRecord?.Value}</TableCell>
+                <TableCell>{domain?.ResourceRecord?.Name}
+                </TableCell>
+                <TableCell>{domain?.ResourceRecord?.Value}
+                </TableCell>
               </TableRow>
             ))}
+          </Table>
+          <FlexContainer>
+            <ButtonGroup>
+              <Button>Copy Name</Button>
+              <Button>Copy Value</Button>
+              </ButtonGroup>
+            </FlexContainer>
+<Subtitle>Custom DNS Records</Subtitle>
+            <BodyText hasGreyText>
+            The following records records need to be added to your domain&apos;s DNS settings. This is required to
+            verify ownership of the domain so that the SSL certificate can be issued. If you are using a{' '}
+            <code>reapit.cloud</code> domain, we have automatically sent the following details to DevOps for them
+            action. Once they have merged the DNS changes, the certificate will be issued and the domain will be 
+            available for use.
+          </BodyText>
+             <Table className={cx(elMb6)} key={`${dnsInfo.customDomain}-${dnsInfo.cloudfrontUrl}`}>
+            <TableHeadersRow>
+              <TableHeader>Type</TableHeader>
+              <TableHeader>Name</TableHeader>
+              <TableHeader>Value</TableHeader>
+            </TableHeadersRow>
             <TableRow>
               <TableCell>CNAME</TableCell>
-              <TableCell>{dnsInfo.customDomain}</TableCell>
-              <TableCell>{dnsInfo.cloudfrontUrl}</TableCell>
+              <TableCell>
+                {dnsInfo.customDomain}
+              </TableCell>
+              <TableCell>
+                {dnsInfo.cloudfrontUrl}
+              </TableCell>
             </TableRow>
           </Table>
+          <FlexContainer>
+            <ButtonGroup>
+            <Button>Copy Name</Button>
+              <Button>Copy Value</Button>
+            </ButtonGroup>
+            </FlexContainer>
+            
         </InputWrapFull>
       </FormLayout>
     </>
