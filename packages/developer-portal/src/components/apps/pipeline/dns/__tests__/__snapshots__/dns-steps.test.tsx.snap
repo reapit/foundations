@@ -191,15 +191,46 @@ exports[`DNS Configuration Will show configuration page when dns info is returne
               </div>
             </div>
           </div>
-          <p
-            class="el-text-base el-body-text el-has-grey-text"
+          <div
+            class="el-intent-neutral el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+            role="status"
           >
-            If you are using a 
-            <code>
-              reapit.cloud
-            </code>
-             domain, we have automatically sent the above details to DevOps for them action. Once they have merged the DNS changes, the certificate will be issued and the status will update. The custom domain will then be available for use.
-          </p>
+            <div
+              class="el-pn-icon"
+              data-testid="close-icon"
+            >
+              <span
+                class="el-icon-new el-icon"
+                style="font-size: 1.25rem;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  style="font-size: 1.25rem;"
+                  title="Icon image with name info"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div
+              aria-live="polite"
+              class="el-pn-content"
+            >
+              If you are using a 
+              <code>
+                reapit.cloud
+              </code>
+               domain, we have automatically sent the above details to DevOps for them action. Once they have merged the DNS changes, the certificate will be issued and the status will update. The custom domain will then be available for use.
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -391,15 +422,46 @@ exports[`DNS Configuration Will show configuration page when dns info is returne
             </div>
           </div>
         </div>
-        <p
-          class="el-text-base el-body-text el-has-grey-text"
+        <div
+          class="el-intent-neutral el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          role="status"
         >
-          If you are using a 
-          <code>
-            reapit.cloud
-          </code>
-           domain, we have automatically sent the above details to DevOps for them action. Once they have merged the DNS changes, the certificate will be issued and the status will update. The custom domain will then be available for use.
-        </p>
+          <div
+            class="el-pn-icon"
+            data-testid="close-icon"
+          >
+            <span
+              class="el-icon-new el-icon"
+              style="font-size: 1.25rem;"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                role="img"
+                style="font-size: 1.25rem;"
+                title="Icon image with name info"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            aria-live="polite"
+            class="el-pn-content"
+          >
+            If you are using a 
+            <code>
+              reapit.cloud
+            </code>
+             domain, we have automatically sent the above details to DevOps for them action. Once they have merged the DNS changes, the certificate will be issued and the status will update. The custom domain will then be available for use.
+          </div>
+        </div>
       </div>
     </div>
   </div>,

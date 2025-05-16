@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { BodyText, Subtitle } from '@reapit/elements'
+import { BodyText } from '@reapit/elements'
 import { PipelineTabs } from './../pipeline-tabs'
 import { PipelineConfigureForm } from './pipeline-configure-form'
 import { useLocation } from 'react-router'
