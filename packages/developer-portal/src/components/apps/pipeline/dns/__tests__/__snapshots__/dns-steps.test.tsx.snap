@@ -14,15 +14,6 @@ exports[`DNS Configuration Will show configuration page when dns info is returne
         <div
           class="mocked-styled-135 el-input-wrap-full"
         >
-          <p
-            class="el-text-base el-body-text el-has-grey-text"
-          >
-            If you are using a 'reapit.cloud' domain, we have automatically sent the following details for DevOps to action. If you are using a custom domain, please copy the details below to verify your certificate.
-          </p>
-        </div>
-        <div
-          class="mocked-styled-135 el-input-wrap-full"
-        >
           <h2
             class="el-text-base el-subtitle"
           >
@@ -42,91 +33,172 @@ exports[`DNS Configuration Will show configuration page when dns info is returne
           </div>
         </div>
         <div
-          class="mocked-styled-136 el-input-wrap-half"
+          class="mocked-styled-135 el-input-wrap-full"
         >
           <h2
             class="el-text-base el-subtitle"
           >
-            Type
+            DNS Validation
           </h2>
           <p
             class="el-text-base el-body-text el-has-grey-text"
           >
-            CNAME
+            The following 
+            <code>
+              CNAME
+            </code>
+             record needs to be added to your domain's DNS settings to verify ownership ownership of the domain so that the SSL certificate can be issued.
           </p>
-        </div>
-        <div
-          class="mocked-styled-136 el-input-wrap-half"
-        >
+          <div
+            class="el-mb11 el-card-wrap"
+          >
+            <div
+              class="el-mb7 el-grid"
+            >
+              <div
+                class="mocked-styled-31 el-col"
+              >
+                <div
+                  class="el-flex-container"
+                >
+                  <div>
+                    <h2
+                      class="el-text-base el-subtitle el-has-no-margin"
+                    >
+                      Name
+                    </h2>
+                    <p
+                      class="el-text-base el-body-text el-has-grey-text"
+                    >
+                      dns record name
+                    </p>
+                  </div>
+                </div>
+                <button
+                  class="el-intent-neutral el-button"
+                >
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
+                  Copy
+                </button>
+              </div>
+              <div
+                class="mocked-styled-31 el-col"
+              >
+                <div
+                  class="el-flex-container"
+                >
+                  <div>
+                    <h2
+                      class="el-text-base el-subtitle el-has-no-margin"
+                    >
+                      Value
+                    </h2>
+                    <p
+                      class="el-text-base el-body-text el-has-grey-text"
+                    >
+                      dns record value
+                    </p>
+                  </div>
+                </div>
+                <button
+                  class="el-intent-neutral el-button"
+                >
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
+                  Copy
+                </button>
+              </div>
+            </div>
+          </div>
           <h2
             class="el-text-base el-subtitle"
           >
-            Name
+            Custom DNS Records
           </h2>
           <p
             class="el-text-base el-body-text el-has-grey-text"
           >
-            https://custom-domain.reapit.cloud
+            The following 
+            <code>
+              CNAME
+            </code>
+             record needs to be added to your domain's DNS settings to point your custom domain to the distribution deployed by this pipeline.
           </p>
-        </div>
-        <div
-          class="mocked-styled-136 el-input-wrap-half"
-        >
-          <h2
-            class="el-text-base el-subtitle"
+          <div
+            class="el-mb11 el-card-wrap"
           >
-            Value
-          </h2>
+            <div
+              class="el-mb7 el-grid"
+            >
+              <div
+                class="mocked-styled-31 el-col"
+              >
+                <div
+                  class="el-flex-container"
+                >
+                  <div>
+                    <h2
+                      class="el-text-base el-subtitle el-has-no-margin"
+                    >
+                      Name
+                    </h2>
+                    <p
+                      class="el-text-base el-body-text el-has-grey-text"
+                    >
+                      https://custom-domain.reapit.cloud
+                    </p>
+                  </div>
+                </div>
+                <button
+                  class="el-intent-neutral el-button"
+                >
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
+                  Copy
+                </button>
+              </div>
+              <div
+                class="mocked-styled-31 el-col"
+              >
+                <div
+                  class="el-flex-container"
+                >
+                  <div>
+                    <h2
+                      class="el-text-base el-subtitle el-has-no-margin"
+                    >
+                      Value
+                    </h2>
+                    <p
+                      class="el-text-base el-body-text el-has-grey-text"
+                    >
+                      dfgdfgdfg.cloudfront.com
+                    </p>
+                  </div>
+                </div>
+                <button
+                  class="el-intent-neutral el-button"
+                >
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
+                  Copy
+                </button>
+              </div>
+            </div>
+          </div>
           <p
             class="el-text-base el-body-text el-has-grey-text"
           >
-            dfgdfgdfg.cloudfront.com
-          </p>
-        </div>
-      </div>
-      <div
-        class="el-mb6 el-form-layout"
-      >
-        <div
-          class="mocked-styled-136 el-input-wrap-half"
-        >
-          <h2
-            class="el-text-base el-subtitle"
-          >
-            Type
-          </h2>
-          <p
-            class="el-text-base el-body-text el-has-grey-text"
-          >
-            CNAME
-          </p>
-        </div>
-        <div
-          class="mocked-styled-136 el-input-wrap-half"
-        >
-          <h2
-            class="el-text-base el-subtitle"
-          >
-            Name
-          </h2>
-          <p
-            class="el-text-base el-body-text el-has-grey-text"
-          >
-            dns record name
-          </p>
-        </div>
-        <div
-          class="mocked-styled-136 el-input-wrap-half"
-        >
-          <h2
-            class="el-text-base el-subtitle"
-          >
-             Value
-          </h2>
-          <p
-            class="el-text-base el-body-text el-has-grey-text"
-          >
-            dns record value
+            If you are using a 
+            <code>
+              reapit.cloud
+            </code>
+             domain, we have automatically sent the above details to DevOps for them action. Once they have merged the DNS changes, the certificate will be issued and the status will update. The custom domain will then be available for use.
           </p>
         </div>
       </div>
@@ -139,15 +211,6 @@ exports[`DNS Configuration Will show configuration page when dns info is returne
     <div
       class="el-mb6 el-form-layout"
     >
-      <div
-        class="mocked-styled-135 el-input-wrap-full"
-      >
-        <p
-          class="el-text-base el-body-text el-has-grey-text"
-        >
-          If you are using a 'reapit.cloud' domain, we have automatically sent the following details for DevOps to action. If you are using a custom domain, please copy the details below to verify your certificate.
-        </p>
-      </div>
       <div
         class="mocked-styled-135 el-input-wrap-full"
       >
@@ -170,91 +233,172 @@ exports[`DNS Configuration Will show configuration page when dns info is returne
         </div>
       </div>
       <div
-        class="mocked-styled-136 el-input-wrap-half"
+        class="mocked-styled-135 el-input-wrap-full"
       >
         <h2
           class="el-text-base el-subtitle"
         >
-          Type
+          DNS Validation
         </h2>
         <p
           class="el-text-base el-body-text el-has-grey-text"
         >
-          CNAME
+          The following 
+          <code>
+            CNAME
+          </code>
+           record needs to be added to your domain's DNS settings to verify ownership ownership of the domain so that the SSL certificate can be issued.
         </p>
-      </div>
-      <div
-        class="mocked-styled-136 el-input-wrap-half"
-      >
+        <div
+          class="el-mb11 el-card-wrap"
+        >
+          <div
+            class="el-mb7 el-grid"
+          >
+            <div
+              class="mocked-styled-31 el-col"
+            >
+              <div
+                class="el-flex-container"
+              >
+                <div>
+                  <h2
+                    class="el-text-base el-subtitle el-has-no-margin"
+                  >
+                    Name
+                  </h2>
+                  <p
+                    class="el-text-base el-body-text el-has-grey-text"
+                  >
+                    dns record name
+                  </p>
+                </div>
+              </div>
+              <button
+                class="el-intent-neutral el-button"
+              >
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
+                Copy
+              </button>
+            </div>
+            <div
+              class="mocked-styled-31 el-col"
+            >
+              <div
+                class="el-flex-container"
+              >
+                <div>
+                  <h2
+                    class="el-text-base el-subtitle el-has-no-margin"
+                  >
+                    Value
+                  </h2>
+                  <p
+                    class="el-text-base el-body-text el-has-grey-text"
+                  >
+                    dns record value
+                  </p>
+                </div>
+              </div>
+              <button
+                class="el-intent-neutral el-button"
+              >
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
+                Copy
+              </button>
+            </div>
+          </div>
+        </div>
         <h2
           class="el-text-base el-subtitle"
         >
-          Name
+          Custom DNS Records
         </h2>
         <p
           class="el-text-base el-body-text el-has-grey-text"
         >
-          https://custom-domain.reapit.cloud
+          The following 
+          <code>
+            CNAME
+          </code>
+           record needs to be added to your domain's DNS settings to point your custom domain to the distribution deployed by this pipeline.
         </p>
-      </div>
-      <div
-        class="mocked-styled-136 el-input-wrap-half"
-      >
-        <h2
-          class="el-text-base el-subtitle"
+        <div
+          class="el-mb11 el-card-wrap"
         >
-          Value
-        </h2>
+          <div
+            class="el-mb7 el-grid"
+          >
+            <div
+              class="mocked-styled-31 el-col"
+            >
+              <div
+                class="el-flex-container"
+              >
+                <div>
+                  <h2
+                    class="el-text-base el-subtitle el-has-no-margin"
+                  >
+                    Name
+                  </h2>
+                  <p
+                    class="el-text-base el-body-text el-has-grey-text"
+                  >
+                    https://custom-domain.reapit.cloud
+                  </p>
+                </div>
+              </div>
+              <button
+                class="el-intent-neutral el-button"
+              >
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
+                Copy
+              </button>
+            </div>
+            <div
+              class="mocked-styled-31 el-col"
+            >
+              <div
+                class="el-flex-container"
+              >
+                <div>
+                  <h2
+                    class="el-text-base el-subtitle el-has-no-margin"
+                  >
+                    Value
+                  </h2>
+                  <p
+                    class="el-text-base el-body-text el-has-grey-text"
+                  >
+                    dfgdfgdfg.cloudfront.com
+                  </p>
+                </div>
+              </div>
+              <button
+                class="el-intent-neutral el-button"
+              >
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
+                Copy
+              </button>
+            </div>
+          </div>
+        </div>
         <p
           class="el-text-base el-body-text el-has-grey-text"
         >
-          dfgdfgdfg.cloudfront.com
-        </p>
-      </div>
-    </div>
-    <div
-      class="el-mb6 el-form-layout"
-    >
-      <div
-        class="mocked-styled-136 el-input-wrap-half"
-      >
-        <h2
-          class="el-text-base el-subtitle"
-        >
-          Type
-        </h2>
-        <p
-          class="el-text-base el-body-text el-has-grey-text"
-        >
-          CNAME
-        </p>
-      </div>
-      <div
-        class="mocked-styled-136 el-input-wrap-half"
-      >
-        <h2
-          class="el-text-base el-subtitle"
-        >
-          Name
-        </h2>
-        <p
-          class="el-text-base el-body-text el-has-grey-text"
-        >
-          dns record name
-        </p>
-      </div>
-      <div
-        class="mocked-styled-136 el-input-wrap-half"
-      >
-        <h2
-          class="el-text-base el-subtitle"
-        >
-           Value
-        </h2>
-        <p
-          class="el-text-base el-body-text el-has-grey-text"
-        >
-          dns record value
+          If you are using a 
+          <code>
+            reapit.cloud
+          </code>
+           domain, we have automatically sent the above details to DevOps for them action. Once they have merged the DNS changes, the certificate will be issued and the status will update. The custom domain will then be available for use.
         </p>
       </div>
     </div>
