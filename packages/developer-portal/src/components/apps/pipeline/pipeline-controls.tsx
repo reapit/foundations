@@ -97,6 +97,8 @@ export const PipelineControls: FC = () => {
   const { appPipeline, setAppPipelineSaving, setAppPipelineDeploying } = appPipelineState
   const { pathname } = location
   const isConfigPage = pathname.includes('new') || pathname.includes('configure')
+  const isEnvironmentPage = pathname.includes('environment')
+  const isDnsPage = pathname.includes('dns')
   const { appDetail, appsDetailRefresh, appRefreshRevisions } = appsDataState
   const developerId = connectSession?.loginIdentity.developerId ?? null
   const isValidPipeline = validateConfig(appPipeline)
@@ -161,17 +163,28 @@ export const PipelineControls: FC = () => {
       <Subtitle>Pipeline</Subtitle>
       {isConfigPage ? (
         <SmallText tag="div" hasGreyText>
-          When you create an app, we create a pre-provisioned pipeline for your app. You should configure your build
-          steps on this page before using the deployments page to manage your releases to our infra.
+          When you create an app, a pipeline is pre-provisioned. You should configure your build steps on this page
+          before using the deployments page to manage your releases to our infrastructure.
+        </SmallText>
+      ) : isEnvironmentPage ? (
+        <SmallText tag="div" hasGreyText>
+          You may need to set up environment variables for your application. These are key-value pairs that will be
+          injected into your application at build time. You can set up environment variables for your application on
+          this page.
+        </SmallText>
+      ) : isDnsPage ? (
+        <SmallText tag="div" hasGreyText>
+          Configure a custom domain for your application from this page. You will need to setup CNAME records in your
+          DNS database which will be presented here.
         </SmallText>
       ) : appPipeline ? (
         <SmallText tag="div" hasGreyText>
           When you have a pipeline for your application, you can manage deployments from this page. Each table row
-          refers to a deployment, and by expading the content, you can follow progress in real time.
+          refers to a deployment. By expanding the content, you can follow progress in real time and download logs.
         </SmallText>
       ) : (
         <SmallText tag="div" hasGreyText>
-          To get started with Reapit IAAS pipelines, first take the time to read the documentation. Then visit this page
+          To get started with Reapit IaaS pipelines, first take the time to read the documentation, then visit this page
           to configure your first pipeline.
         </SmallText>
       )}
@@ -200,7 +213,7 @@ export const PipelineControls: FC = () => {
           >
             Provision
           </Button>
-        ) : appPipeline && !isConfigPage && isValidPipeline ? (
+        ) : appPipeline && !isConfigPage && isValidPipeline && !isDnsPage && !isEnvironmentPage ? (
           <>
             <Button
               loading={pipelineRunnerLoading || appPipeline.buildStatus === 'IN_PROGRESS'}
@@ -221,7 +234,7 @@ export const PipelineControls: FC = () => {
             Configure
           </Button>
         ) : null}
-        {appPipeline && (
+        {appPipeline && !isConfigPage && !isDnsPage && !isEnvironmentPage && (
           <Button
             loading={deleteLoading}
             intent="danger"

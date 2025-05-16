@@ -65,8 +65,6 @@ export const DnsSettingsPage: FC<{
 
   return (
     <>
-    
-            
       <FormLayout className={cx(elMb6)}>
         <InputWrapFull>
           <Subtitle>Certificate Status</Subtitle>
