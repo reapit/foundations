@@ -78,7 +78,7 @@ export const DnsSettingsPage: FC<{
           <Subtitle>DNS Validation</Subtitle>
           <BodyText hasGreyText>
             The following <code>CNAME</code> record needs to be added to your domain&apos;s DNS settings to verify
-            ownership ownership of the domain so that the SSL certificate can be issued.
+            ownership of the domain so that the SSL certificate can be issued.
           </BodyText>
           {dnsInfo.certificate?.DomainValidationOptions?.map((domain, index) => (
             <CardWrap
@@ -151,7 +151,7 @@ export const DnsSettingsPage: FC<{
           <PersistentNotification isExpanded intent="neutral" isInline isFullWidth>
             If you are using a <code>reapit.cloud</code> domain, we have automatically sent the above details to DevOps
             for them action. Once they have merged the DNS changes, the certificate will be issued and the status will
-            update. The custom domain will then be available for use.
+            be updated. The custom domain will then be available for use.
           </PersistentNotification>
         </InputWrapFull>
       </FormLayout>

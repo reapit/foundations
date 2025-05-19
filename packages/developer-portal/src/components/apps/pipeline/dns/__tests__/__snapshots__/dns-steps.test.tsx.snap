@@ -47,7 +47,7 @@ exports[`DNS Configuration Will show configuration page when dns info is returne
             <code>
               CNAME
             </code>
-             record needs to be added to your domain's DNS settings to verify ownership ownership of the domain so that the SSL certificate can be issued.
+             record needs to be added to your domain's DNS settings to verify ownership of the domain so that the SSL certificate can be issued.
           </p>
           <div
             class="el-mb11 el-card-wrap"
@@ -228,7 +228,7 @@ exports[`DNS Configuration Will show configuration page when dns info is returne
               <code>
                 reapit.cloud
               </code>
-               domain, we have automatically sent the above details to DevOps for them action. Once they have merged the DNS changes, the certificate will be issued and the status will update. The custom domain will then be available for use.
+               domain, we have automatically sent the above details to DevOps for them action. Once they have merged the DNS changes, the certificate will be issued and the status will be updated. The custom domain will then be available for use.
             </div>
           </div>
         </div>
@@ -278,7 +278,7 @@ exports[`DNS Configuration Will show configuration page when dns info is returne
           <code>
             CNAME
           </code>
-           record needs to be added to your domain's DNS settings to verify ownership ownership of the domain so that the SSL certificate can be issued.
+           record needs to be added to your domain's DNS settings to verify ownership of the domain so that the SSL certificate can be issued.
         </p>
         <div
           class="el-mb11 el-card-wrap"
@@ -459,7 +459,7 @@ exports[`DNS Configuration Will show configuration page when dns info is returne
             <code>
               reapit.cloud
             </code>
-             domain, we have automatically sent the above details to DevOps for them action. Once they have merged the DNS changes, the certificate will be issued and the status will update. The custom domain will then be available for use.
+             domain, we have automatically sent the above details to DevOps for them action. Once they have merged the DNS changes, the certificate will be issued and the status will be updated. The custom domain will then be available for use.
           </div>
         </div>
       </div>
@@ -533,7 +533,7 @@ exports[`DNS Configuration Will show setup domain model component 1`] = `
         <p
           class="el-text-base el-body-text el-has-grey-text"
         >
-          To use a custom domain, you'll need to start this process by using the button below. Once you've created, you'll need to inform dev ops to configure your DNS with the details provided by the IaaS platform.
+          To attach a custom domain to your IaaS project, use the button below to start the setup process. Once the process has completed, you will be presented with the DNS records you need to add to your domain's DNS settings for both domain ownership verification and domain routing.
         </p>
       </div>
       <button
@@ -556,7 +556,7 @@ exports[`DNS Configuration Will show setup domain model component 1`] = `
       <p
         class="el-text-base el-body-text el-has-grey-text"
       >
-        To use a custom domain, you'll need to start this process by using the button below. Once you've created, you'll need to inform dev ops to configure your DNS with the details provided by the IaaS platform.
+        To attach a custom domain to your IaaS project, use the button below to start the setup process. Once the process has completed, you will be presented with the DNS records you need to add to your domain's DNS settings for both domain ownership verification and domain routing.
       </p>
     </div>
     <button

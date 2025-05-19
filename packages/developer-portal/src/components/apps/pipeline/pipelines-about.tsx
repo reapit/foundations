@@ -22,14 +22,14 @@ export const PipelinesAbout = () => {
         </IconContainer>
         <Subtitle>Pipeline Deployments</Subtitle>
         <BodyText hasGreyText>
-          Pipelines are configurations used to deploy applications to our infrastructure. Think of them like a CI / CD
-          runner like Github Actions, Travis or CircleCI
+          Pipelines are configurations used to deploy applications to infrastructure managed by Reapit. A pipeline is
+          similar to a CI / CD runner like Github Actions, Travis or CircleCI.
         </BodyText>
-        <BodyText hasGreyText>A Pipeline can be created via the developer portal or via our CLI NPM package.</BodyText>
+        <BodyText hasGreyText>A Pipeline can be created via the DeveloperPortal or via our CLI NPM package.</BodyText>
         <BodyText hasGreyText>
-          When you have created a pipeline for your app, you can either deploy it from the command line from a zip file,
-          or by pulling directly from a Github or Bitbucket repo. This will give you a link to your deployed service in
-          the Reapit Platform Cloud.
+          When a pipeline has been created for an app, it can be deployed from the command line from a zip file, by
+          pulling code directly from a Github repository. This will provide a link to your deployed service in the
+          Platform Cloud.
         </BodyText>
         <Button
           intent="primary"
@@ -50,13 +50,8 @@ export const PipelinesAbout = () => {
         </IconContainer>
         <Subtitle>Pipeline Documentation</Subtitle>
         <BodyText hasGreyText>
-          For more on how to get started with Pipelines and deploying to Reapit infrastructure as a Service (IAAS),
-          visit the doucmentation link below.
-        </BodyText>
-        <BodyText hasGreyText>
-          Please note, this service is a public Alpha and there may be some reliabilty issues while we refine our
-          processes. As such, for now you should only use our infra for internal testing, pre-production applications
-          and non-mission critical services.
+          For more information on how to get started with Pipelines and deploying to Reapit Infrastructure as a Service
+          (IaaS), visit the documentation link below.
         </BodyText>
         <Button
           intent="default"
