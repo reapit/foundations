@@ -175,7 +175,7 @@ exports[`PipelinesAbout should match snapshot 1`] = `
           <p
             class="el-text-base el-body-text el-has-grey-text"
           >
-            When a pipeline has been created for an app, it can be deployed from the command line from a zip file, by pulling code directly from a Github repository. This will provide a link to your deployed service in the Platform Cloud.
+            When a pipeline has been created for an app, it can be deployed from the command line from a zip file, or by pulling code directly from a Github repository. This will provide a link to your deployed service in the Platform Cloud.
           </p>
           <button
             class="el-intent-primary el-button"
@@ -659,7 +659,7 @@ exports[`PipelinesAbout should match snapshot 1`] = `
         <p
           class="el-text-base el-body-text el-has-grey-text"
         >
-          When a pipeline has been created for an app, it can be deployed from the command line from a zip file, by pulling code directly from a Github repository. This will provide a link to your deployed service in the Platform Cloud.
+          When a pipeline has been created for an app, it can be deployed from the command line from a zip file, or by pulling code directly from a Github repository. This will provide a link to your deployed service in the Platform Cloud.
         </p>
         <button
           class="el-intent-primary el-button"

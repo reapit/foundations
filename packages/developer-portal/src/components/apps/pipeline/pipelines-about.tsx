@@ -27,7 +27,7 @@ export const PipelinesAbout = () => {
         </BodyText>
         <BodyText hasGreyText>A Pipeline can be created via the DeveloperPortal or via our CLI NPM package.</BodyText>
         <BodyText hasGreyText>
-          When a pipeline has been created for an app, it can be deployed from the command line from a zip file, by
+          When a pipeline has been created for an app, it can be deployed from the command line from a zip file, or by
           pulling code directly from a Github repository. This will provide a link to your deployed service in the
           Platform Cloud.
         </BodyText>
