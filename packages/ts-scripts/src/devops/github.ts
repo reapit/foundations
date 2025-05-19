@@ -43,7 +43,7 @@ export const updateCdkJson = async (
   projectName: string,
   newFileContents: string,
   stage: string,
-  update?: boolean = false,
+  update: boolean = false,
 ) => {
   const api = new CreatePR({
     auth,
