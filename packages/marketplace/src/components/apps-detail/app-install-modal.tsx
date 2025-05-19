@@ -206,8 +206,9 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
               uri="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
               acProcess={AcProcessType.web}
               target="_blank"
-              content="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+              content="click here"
             />
+            .
           </BodyText>
         </>
       </div>

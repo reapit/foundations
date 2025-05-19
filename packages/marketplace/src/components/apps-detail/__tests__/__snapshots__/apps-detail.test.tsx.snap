@@ -1147,8 +1147,9 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  https://foundations-documentation.reapit.cloud/platform-glossary/permissions
+                  click here
                 </a>
+                .
               </p>
             </div>
             <div
@@ -1648,8 +1649,9 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                https://foundations-documentation.reapit.cloud/platform-glossary/permissions
+                click here
               </a>
+              .
             </p>
           </div>
           <div
@@ -2198,8 +2200,9 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  https://foundations-documentation.reapit.cloud/platform-glossary/permissions
+                  click here
                 </a>
+                .
               </p>
             </div>
             <div
@@ -2682,8 +2685,9 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                https://foundations-documentation.reapit.cloud/platform-glossary/permissions
+                click here
               </a>
+              .
             </p>
           </div>
           <div
