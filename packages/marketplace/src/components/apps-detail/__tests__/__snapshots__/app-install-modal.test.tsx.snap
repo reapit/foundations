@@ -129,8 +129,9 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
             rel="noopener noreferrer"
             target="_blank"
           >
-            https://foundations-documentation.reapit.cloud/platform-glossary/permissions
+            click here
           </a>
+          .
         </p>
       </div>
       <div
@@ -285,8 +286,9 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
           rel="noopener noreferrer"
           target="_blank"
         >
-          https://foundations-documentation.reapit.cloud/platform-glossary/permissions
+          click here
         </a>
+        .
       </p>
     </div>
     <div
@@ -498,8 +500,9 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
             rel="noopener noreferrer"
             target="_blank"
           >
-            https://foundations-documentation.reapit.cloud/platform-glossary/permissions
+            click here
           </a>
+          .
         </p>
       </div>
       <div
@@ -654,8 +657,9 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
           rel="noopener noreferrer"
           target="_blank"
         >
-          https://foundations-documentation.reapit.cloud/platform-glossary/permissions
+          click here
         </a>
+        .
       </p>
     </div>
     <div
@@ -845,8 +849,9 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
             rel="noopener noreferrer"
             target="_blank"
           >
-            https://foundations-documentation.reapit.cloud/platform-glossary/permissions
+            click here
           </a>
+          .
         </p>
       </div>
       <div
@@ -979,8 +984,9 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
           rel="noopener noreferrer"
           target="_blank"
         >
-          https://foundations-documentation.reapit.cloud/platform-glossary/permissions
+          click here
         </a>
+        .
       </p>
     </div>
     <div
@@ -1188,8 +1194,9 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
             rel="noopener noreferrer"
             target="_blank"
           >
-            https://foundations-documentation.reapit.cloud/platform-glossary/permissions
+            click here
           </a>
+          .
         </p>
       </div>
       <div
@@ -1340,8 +1347,9 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
           rel="noopener noreferrer"
           target="_blank"
         >
-          https://foundations-documentation.reapit.cloud/platform-glossary/permissions
+          click here
         </a>
+        .
       </p>
     </div>
     <div
@@ -1534,8 +1542,9 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
             rel="noopener noreferrer"
             target="_blank"
           >
-            https://foundations-documentation.reapit.cloud/platform-glossary/permissions
+            click here
           </a>
+          .
         </p>
       </div>
       <div
@@ -1671,8 +1680,9 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
           rel="noopener noreferrer"
           target="_blank"
         >
-          https://foundations-documentation.reapit.cloud/platform-glossary/permissions
+          click here
         </a>
+        .
       </p>
     </div>
     <div
@@ -1882,8 +1892,9 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
             rel="noopener noreferrer"
             target="_blank"
           >
-            https://foundations-documentation.reapit.cloud/platform-glossary/permissions
+            click here
           </a>
+          .
         </p>
       </div>
       <div
@@ -2036,8 +2047,9 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
           rel="noopener noreferrer"
           target="_blank"
         >
-          https://foundations-documentation.reapit.cloud/platform-glossary/permissions
+          click here
         </a>
+        .
       </p>
     </div>
     <div

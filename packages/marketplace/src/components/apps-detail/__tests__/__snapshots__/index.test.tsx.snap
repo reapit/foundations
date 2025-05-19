@@ -276,8 +276,9 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  https://foundations-documentation.reapit.cloud/platform-glossary/permissions
+                  click here
                 </a>
+                .
               </p>
             </div>
           </mock-styled.div>
@@ -557,8 +558,9 @@ exports[`AppsDetailPage should match a snapshot 1`] = `
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                https://foundations-documentation.reapit.cloud/platform-glossary/permissions
+                click here
               </a>
+              .
             </p>
           </div>
         </mock-styled.div>
