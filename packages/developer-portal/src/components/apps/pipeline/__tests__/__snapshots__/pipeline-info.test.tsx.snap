@@ -174,11 +174,11 @@ exports[`Pipelineinfo Should match snapshot 1`] = `
                 class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
               >
                 <a
-                  href="https://beautiful-land.dev.iaas.paas.reapit.cloud"
+                  href="https://beautiful-land.iaas.dev.paas.reapit.cloud"
                   rel="noreferrer"
                   target="_blank"
                 >
-                  https://beautiful-land.dev.iaas.paas.reapit.cloud
+                  https://beautiful-land.iaas.dev.paas.reapit.cloud
                 </a>
               </p>
             </div>
@@ -360,11 +360,11 @@ exports[`Pipelineinfo Should match snapshot 1`] = `
               class="el-text-base el-body-text el-has-grey-text el-has-no-margin"
             >
               <a
-                href="https://beautiful-land.dev.iaas.paas.reapit.cloud"
+                href="https://beautiful-land.iaas.dev.paas.reapit.cloud"
                 rel="noreferrer"
                 target="_blank"
               >
-                https://beautiful-land.dev.iaas.paas.reapit.cloud
+                https://beautiful-land.iaas.dev.paas.reapit.cloud
               </a>
             </p>
           </div>

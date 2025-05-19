@@ -22,7 +22,7 @@ export const PipelineInfo: FC = () => {
   const pipelineUri =
     appPipeline?.certificateStatus === 'complete'
       ? `https://${appPipeline?.customDomain}`
-      : `https://${appPipeline?.subDomain}${isProd ? '' : '.dev'}.iaas.paas.reapit.cloud`
+      : `https://${appPipeline?.subDomain}.iaas${isProd ? '' : '.dev'}.paas.reapit.cloud`
   const isGithub = Boolean(appPipeline?.repository?.repositoryUrl?.includes('github'))
   const isBitbucket = Boolean(appPipeline?.repository?.repositoryUrl?.includes('bitbucket'))
 
