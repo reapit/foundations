@@ -38,7 +38,13 @@ export const getCdkJson = async (auth: string, projectName: string) => {
   }
 }
 
-export const updateCdkJson = async (auth: string, projectName: string, newFileContents: string, stage: string) => {
+export const updateCdkJson = async (
+  auth: string,
+  projectName: string,
+  newFileContents: string,
+  stage: string,
+  update?: boolean = false,
+) => {
   const api = new CreatePR({
     auth,
   })
@@ -64,6 +70,7 @@ export const updateCdkJson = async (auth: string, projectName: string, newFileCo
     body: `Deploy ${projectName} to ${stage}`,
     head: `${projectName}-deploy-${stage}`,
     labels: ['deployment', projectName, stage],
+    update,
   })
 
   if (!result) {
