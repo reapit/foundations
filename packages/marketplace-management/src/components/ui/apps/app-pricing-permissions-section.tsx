@@ -1,6 +1,7 @@
 import { cx } from '@linaria/core'
 import { BodyText, Col, elMb11, elMt6, Grid, Subtitle } from '@reapit/elements'
 import { AppDetailModel, DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
+import { AcProcessType, DesktopLink } from '@reapit/utils-react'
 import React from 'react'
 
 export interface AppPricingPermissionsProps {
@@ -93,7 +94,12 @@ const AppPricingPermissionsSection: React.FC<AppPricingPermissionsProps> = ({
         )}
         <BodyText hasGreyText className={cx(elMt6)}>
           For more detailed information about App permissions, please{' '}
-          <a href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions">click here.</a>
+          <DesktopLink
+            uri="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+            acProcess={AcProcessType.web}
+            target="_blank"
+            content="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          />
         </BodyText>
       </>
     </>
