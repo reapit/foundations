@@ -128,16 +128,16 @@ export const PipelineEnvironment = () => {
     <>
       <PipelineTabs />
       <BodyText hasGreyText>
-        You can add your Environment variables for your application here. If you supply any key value pair we will write
-        them to the process.ENV object at compile time when building your app.
+        You can add your <strong>Environment Variables</strong> for your application here. If you supply any key value
+        pair it will be written to the <code>process.ENV</code> object at compile time when building your app.
       </BodyText>
       <BodyText hasGreyText>
-        All variables are stored in a secure and encrypted format however, if you are building a web app environment
+        All variables are stored in a secure and encrypted format, however if you are building a web app environment
         variables are inherently insecure. As such, you should only store values that can be exposed on the client side.
       </BodyText>
       <BodyText hasGreyText>
-        Currently we do not surface your variables over an API when you have stored them for security reasons. If you
-        need to confirm a variable value, we would advise updating it and re-deploying your app.
+        Currently your Environment Variables are not exposed over an API once you have stored them for security reasons.
+        If you need to confirm a variable value, it is advised to update it and re-deploy the application.
       </BodyText>
       {isFetching ? (
         <Loader />

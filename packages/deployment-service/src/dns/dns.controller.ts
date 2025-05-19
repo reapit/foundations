@@ -53,6 +53,7 @@ export class DnsController {
       certificateArn,
       // @ts-ignore
       certificateError: null,
+      dnsTrigger: creds.email,
     })
 
     return {

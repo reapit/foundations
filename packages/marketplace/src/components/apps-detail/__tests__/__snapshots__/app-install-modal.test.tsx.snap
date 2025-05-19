@@ -126,6 +126,8 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
            
           <a
             href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             click here
           </a>
@@ -281,6 +283,8 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
          
         <a
           href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           click here
         </a>
@@ -493,6 +497,8 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
            
           <a
             href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             click here
           </a>
@@ -648,6 +654,8 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
          
         <a
           href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           click here
         </a>
@@ -838,6 +846,8 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
            
           <a
             href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             click here
           </a>
@@ -971,6 +981,8 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
          
         <a
           href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           click here
         </a>
@@ -1179,6 +1191,8 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
            
           <a
             href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             click here
           </a>
@@ -1330,6 +1344,8 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
          
         <a
           href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           click here
         </a>
@@ -1523,6 +1539,8 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
            
           <a
             href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             click here
           </a>
@@ -1659,6 +1677,8 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
          
         <a
           href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           click here
         </a>
@@ -1869,6 +1889,8 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
            
           <a
             href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             click here
           </a>
@@ -2022,6 +2044,8 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
          
         <a
           href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           click here
         </a>

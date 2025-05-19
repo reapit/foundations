@@ -41,11 +41,21 @@ export class MarketplaceProvider {
     return { access_token, token_type }
   }
 
-  async getAppDetails(appId: string): Promise<Marketplace.AppDetailModel> {
-    const { access_token, token_type } = await this.authenticate()
-
+  /**
+   * Find the app's latest revision for patch update
+   *
+   * @param appId
+   * @param token_type
+   * @param access_token
+   * @returns Revision or undefined
+   */
+  private async findLatestRevision(
+    appId: string,
+    token_type: string,
+    access_token: string,
+  ): Promise<Marketplace.AppRevisionModel | undefined> {
     const result = await firstValueFrom(
-      this.httpService.get<Marketplace.AppDetailModel>(`${this.config.url}/apps/${appId}`, {
+      this.httpService.get<Marketplace.AppRevisionModelPagedResult>(`${this.config.url}/apps/${appId}/revisions`, {
         headers: {
           Authorization: `${token_type} ${access_token}`,
           ['api-version']: 1,
@@ -53,7 +63,7 @@ export class MarketplaceProvider {
       }),
     )
 
-    return result.data
+    return result?.data?.data ? result.data.data[0] : undefined
   }
 
   /**
@@ -61,24 +71,18 @@ export class MarketplaceProvider {
    * @param appId The App Id to make the revision for
    * @param domain The domain to be added to the app for login redirect/signout
    */
-  async updateAppUrls(
-    appId: string,
-    domain: string,
-    developerId: string,
-    name: string,
-    redirectUris?: string[],
-    signoutUris?: string[],
-  ): Promise<void> {
+  async updateAppUrls(appId: string, domain: string): Promise<void> {
     const { access_token, token_type } = await this.authenticate()
+    const revision = await this.findLatestRevision(appId, token_type, access_token)
+
+    if (!revision) throw new Error(`Latest revision not found for app [${appId}]`)
 
     await firstValueFrom(
-      this.httpService.post<Marketplace.AppRevisionModel>(
-        `${this.config.url}/apps/${appId}/revisions`,
+      this.httpService.patch<Marketplace.AppRevisionModel>(
+        `${this.config.url}/apps/${appId}/revisions/${revision.id}`,
         {
-          redirectUris: [...(redirectUris || []), `https://${domain}/login`],
-          signoutUris: [...(signoutUris || []), `https://${domain}/login`],
-          developerId,
-          name,
+          redirectUris: [...(revision.redirectUris || []), `https://${domain}/`],
+          signoutUris: [...(revision.signoutUris || []), `https://${domain}/login`],
         },
         {
           headers: {

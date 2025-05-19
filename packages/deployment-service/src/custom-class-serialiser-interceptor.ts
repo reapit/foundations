@@ -20,7 +20,7 @@ export class CustomClassSerialiserInterceptor extends ClassSerializerInterceptor
     const request = context.switchToHttp().getRequest()
     const user: LoginIdentity = request.credentials
 
-    const groups = user.groups
+    const groups = user?.groups || []
 
     options.groups = [...(options.groups || []), ...groups]
 
