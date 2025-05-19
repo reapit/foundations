@@ -113,7 +113,6 @@ export const Installations: FC = () => {
       action: getActions[GetActionNames.getInstallations],
       queryParams: {
         ...formatFilters(installationsFilters),
-        includeOfficeGroups: true,
         pageNumber,
         pageSize,
       },
