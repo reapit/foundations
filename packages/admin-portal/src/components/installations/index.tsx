@@ -215,7 +215,7 @@ export const Installations: FC = () => {
                     value: 'false',
                     text: 'Terminated',
                     isChecked: false,
-                  }
+                  },
                 ]}
               />
             </InputGroup>
