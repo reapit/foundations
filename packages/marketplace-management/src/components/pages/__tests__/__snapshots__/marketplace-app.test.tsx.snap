@@ -420,9 +420,12 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
              
             <a
               href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+              rel="noopener noreferrer"
+              target="_blank"
             >
-              click here.
+              click here
             </a>
+            .
           </p>
           <h2
             class="el-text-base el-subtitle"
@@ -825,9 +828,12 @@ exports[`MarketplaceAppPage should match a snapshot when has data 1`] = `
            
           <a
             href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+            rel="noopener noreferrer"
+            target="_blank"
           >
-            click here.
+            click here
           </a>
+          .
         </p>
         <h2
           class="el-text-base el-subtitle"

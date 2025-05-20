@@ -202,7 +202,13 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
           ))}
           <BodyText className={cx(elMt6)} hasGreyText>
             For more detailed information about App permissions, please{' '}
-            <a href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions">click here</a>.
+            <DesktopLink
+              uri="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+              acProcess={AcProcessType.web}
+              target="_blank"
+              content="click here"
+            />
+            .
           </BodyText>
         </>
       </div>

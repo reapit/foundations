@@ -73,9 +73,12 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
          
         <a
           href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
         >
-          click here.
+          click here
         </a>
+        .
       </p>
     </div>
   </body>,
@@ -148,9 +151,12 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
        
       <a
         href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+        rel="noopener noreferrer"
+        target="_blank"
       >
-        click here.
+        click here
       </a>
+      .
     </p>
   </div>,
   "debug": [Function],
@@ -294,9 +300,12 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
          
         <a
           href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
         >
-          click here.
+          click here
         </a>
+        .
       </p>
     </div>
   </body>,
@@ -383,9 +392,12 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
        
       <a
         href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+        rel="noopener noreferrer"
+        target="_blank"
       >
-        click here.
+        click here
       </a>
+      .
     </p>
   </div>,
   "debug": [Function],
@@ -529,9 +541,12 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
          
         <a
           href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
         >
-          click here.
+          click here
         </a>
+        .
       </p>
     </div>
   </body>,
@@ -618,9 +633,12 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
        
       <a
         href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+        rel="noopener noreferrer"
+        target="_blank"
       >
-        click here.
+        click here
       </a>
+      .
     </p>
   </div>,
   "debug": [Function],
@@ -750,9 +768,12 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
          
         <a
           href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
         >
-          click here.
+          click here
         </a>
+        .
       </p>
     </div>
   </body>,
@@ -825,9 +846,12 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
        
       <a
         href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+        rel="noopener noreferrer"
+        target="_blank"
       >
-        click here.
+        click here
       </a>
+      .
     </p>
   </div>,
   "debug": [Function],
