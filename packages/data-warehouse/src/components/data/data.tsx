@@ -75,7 +75,7 @@ export const Data: FC = () => {
             Video
           </Button>
         </div>
-        <Button className={elMb5} intent="neutral" onClick={openNewPage('mailto:dwh@reapitfoundations.zendesk.com')}>
+        <Button className={elMb5} intent="neutral" onClick={openNewPage('mailto:appsupport@reapit.com')}>
           Help
         </Button>
       </SecondaryNavContainer>

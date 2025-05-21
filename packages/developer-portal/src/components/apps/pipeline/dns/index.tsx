@@ -40,7 +40,7 @@ export const PipelineDns: FC<{}> = () => {
           <p>
             You don&apos;t have permission to configure a custom DNS. Please contact the{' '}
             <a
-              href="mailto:iaasbeta@reapitfoundations.zendesk.com?subject=IAAS%20Beta%20custom%20DNS%20permission"
+              href="mailto:appsupport@reapit.com?subject=IAAS%20Beta%20custom%20DNS%20permission"
               target="_blank"
               rel="noopener noreferrer"
             >
