@@ -44,7 +44,7 @@ export const AppPipeline: FC = () => {
         </a>{' '}
         or{' '}
         <a
-          href="mailto:iaasbeta@reapitfoundations.zendesk.com?subject=IAAS%20Beta"
+          href="mailto:appsupport@reapit.com?subject=IAAS%20Beta"
           target="_blank"
           rel="noopener noreferrer"
         >
