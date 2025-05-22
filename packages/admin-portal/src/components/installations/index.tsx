@@ -53,6 +53,7 @@ export const formatFilters = (installationsFilters: InstallationFilters) => {
   const appIdQuery = appIds ? { appId: appIds.split(',').filter(Boolean) } : {}
   const clientIdQuery = clientId ? { clientId } : {}
   const companyNameQuery = companyName ? { companyName } : {}
+  const includeOfficeGroupsQuery = clientId ? { includeOfficeGroups: true } : {}
 
   return objectToQuery({
     installedDateTo: installedDateTo ? dayjs(installedDateTo).format('YYYY-MM-DDTHH:mm:ss') : undefined,
@@ -62,6 +63,7 @@ export const formatFilters = (installationsFilters: InstallationFilters) => {
     ...appIdQuery,
     ...clientIdQuery,
     ...companyNameQuery,
+    ...includeOfficeGroupsQuery,
   })
 }
 
