@@ -58,6 +58,7 @@ export default defineConfig([
       'src/resolve-production-s3-bucket-permissions.ts',
       'src/resolve-production-s3-bucket-policies.ts',
       'src/resolve-production-apply-OAC-to-all-distros.ts',
+      'src/resolve-s3-bucket-policy-conditions.ts',
     ],
     target: 'node18',
     clean: true,
