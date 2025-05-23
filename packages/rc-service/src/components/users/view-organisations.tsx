@@ -1,8 +1,9 @@
 import React, { FC } from 'react'
-import { BodyText, Button, Chip, ChipGroup, Modal, useModal } from '@reapit/elements'
+import { BodyText, Button, Modal, useModal } from '@reapit/elements'
 import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { OrganisationModelPagedResult, UserModel } from '@reapit/foundations-ts-definitions'
+import { DisplayChip } from './__styles__'
 
 export const ViewOrganisations: FC<{ user: UserModel }> = ({ user }) => {
   const { modalIsOpen, openModal, closeModal } = useModal(user.id)
@@ -30,13 +31,11 @@ export const ViewOrganisations: FC<{ user: UserModel }> = ({ user }) => {
         }}
       >
         <BodyText>Below is a list of organisations this user is associated with.</BodyText>
-        <ChipGroup>
-          {orgs?._embedded?.map((org) => (
-            <Chip key={org.id}>
-              {org.name}: {org.id}
-            </Chip>
-          ))}
-        </ChipGroup>
+        {orgs?._embedded?.map((org) => (
+          <DisplayChip key={org.id}>
+            {org.name}: {org.id}
+          </DisplayChip>
+        ))}
       </Modal>
     </>
   )
