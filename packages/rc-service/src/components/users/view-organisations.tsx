@@ -8,8 +8,6 @@ export const ViewOrganisations: FC<{ user: UserModel }> = ({ user }) => {
   const { modalIsOpen, openModal, closeModal } = useModal(user.id)
   const organisationsIds = user.organisationIds
 
-  console.log('orgIds', organisationsIds)
-
   const [orgs, isLoading] = useReapitGet<OrganisationModelPagedResult>({
     action: getActions[GetActionNames.getOrgs],
     reapitConnectBrowserSession,
@@ -18,8 +16,6 @@ export const ViewOrganisations: FC<{ user: UserModel }> = ({ user }) => {
       id: organisationsIds,
     },
   })
-
-  console.log('user', orgs)
 
   return (
     <>
