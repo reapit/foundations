@@ -43,6 +43,7 @@ import { getIsAdmin } from '../../utils/is-admin'
 import { ActiveAuthenticator } from './active-authenticator'
 import { EditUserGroups } from './edit-user-groups'
 import { UpdateUserName } from './update-user-name'
+import { ViewOrganisations } from './view-organisations'
 
 export interface UserContentProps {
   user: UserModel
@@ -299,6 +300,10 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, userGrou
         <Col>
           <Subtitle>Update Name</Subtitle>
           <UpdateUserName user={user} />
+        </Col>
+        <Col>
+          <Subtitle>Organisations</Subtitle>
+          <ViewOrganisations user={user} />
         </Col>
       </Grid>
       {isLoading && <Loader />}
