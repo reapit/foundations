@@ -11,7 +11,6 @@ export const mockMembersPagedResult: Marketplace.MemberModelPagedResult = {
       jobTitle: '',
       status: 'active',
       role: 'admin',
-      gitHubUsername: '',
       agreedTerms: '2021-06-18T09:13:21',
       developerId: 'MOCK_DEVELOPER_ID',
       sandboxId: 'GBR',
