@@ -57,27 +57,6 @@ exports[`ProfileForm should match snapshot 1`] = `
                 </label>
               </div>
             </div>
-            <div
-              class="mocked-styled-133 el-input-wrap"
-            >
-              <div
-                class="mocked-styled-40 el-input-group"
-              >
-                <input
-                  aria-label="Input type undefined"
-                  class="mocked-styled-38 el-input"
-                  id="test-static-id"
-                  name="gitHubUsername"
-                  placeholder="Github handles help us tracking issues"
-                />
-                <label
-                  class="mocked-styled-41 el-label"
-                  for="test-static-id"
-                >
-                  GitHub Username
-                </label>
-              </div>
-            </div>
           </div>
         </div>
         <div
@@ -349,27 +328,6 @@ exports[`ProfileForm should match snapshot 1`] = `
                 for="test-static-id"
               >
                 Job Title
-              </label>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-133 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-40 el-input-group"
-            >
-              <input
-                aria-label="Input type undefined"
-                class="mocked-styled-38 el-input"
-                id="test-static-id"
-                name="gitHubUsername"
-                placeholder="Github handles help us tracking issues"
-              />
-              <label
-                class="mocked-styled-41 el-label"
-                for="test-static-id"
-              >
-                GitHub Username
               </label>
             </div>
           </div>
