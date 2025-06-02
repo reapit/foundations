@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { BodyText, Button, Modal, useModal } from '@reapit/elements'
+import { BodyText, Button, ButtonGroup, Modal, useModal } from '@reapit/elements'
 import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { OrganisationModelPagedResult, UserModel } from '@reapit/foundations-ts-definitions'
@@ -36,6 +36,9 @@ export const ViewOrganisations: FC<{ user: UserModel }> = ({ user }) => {
             {org.name}: {org.id}
           </DisplayChip>
         ))}
+        <ButtonGroup alignment="right">
+          <Button onClick={closeModal}>Cancel</Button>
+        </ButtonGroup>
       </Modal>
     </>
   )
