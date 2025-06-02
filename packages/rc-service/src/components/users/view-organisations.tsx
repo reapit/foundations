@@ -37,7 +37,7 @@ export const ViewOrganisations: FC<{ user: UserModel }> = ({ user }) => {
           </DisplayChip>
         ))}
         <ButtonGroup alignment="right">
-          <Button onClick={closeModal}>Cancel</Button>
+          <Button onClick={closeModal}>Close</Button>
         </ButtonGroup>
       </Modal>
     </>
