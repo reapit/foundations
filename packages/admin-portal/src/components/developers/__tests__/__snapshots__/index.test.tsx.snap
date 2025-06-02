@@ -69,27 +69,6 @@ exports[`DevsManagement should render component when loading 1`] = `
                 class="mocked-styled-40 el-input-group"
               >
                 <input
-                  aria-label="Input type search"
-                  class="mocked-styled-38 el-input"
-                  id="test-static-id"
-                  name="gitHubUsername"
-                  type="search"
-                />
-                <label
-                  class="mocked-styled-41 el-label"
-                  for="test-static-id"
-                >
-                  Github Username
-                </label>
-              </div>
-            </div>
-            <div
-              class="mocked-styled-133 el-input-wrap"
-            >
-              <div
-                class="mocked-styled-40 el-input-group"
-              >
-                <input
                   aria-label="Input type date format dd/mm/yyy"
                   class="mocked-styled-38 el-input"
                   id="test-static-id"
@@ -245,27 +224,6 @@ exports[`DevsManagement should render component when loading 1`] = `
                 for="test-static-id"
               >
                 Company Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-133 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-40 el-input-group"
-            >
-              <input
-                aria-label="Input type search"
-                class="mocked-styled-38 el-input"
-                id="test-static-id"
-                name="gitHubUsername"
-                type="search"
-              />
-              <label
-                class="mocked-styled-41 el-label"
-                for="test-static-id"
-              >
-                Github Username
               </label>
             </div>
           </div>
@@ -488,27 +446,6 @@ exports[`DevsManagement should render component with data 1`] = `
                   for="test-static-id"
                 >
                   Company Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="mocked-styled-133 el-input-wrap"
-            >
-              <div
-                class="mocked-styled-40 el-input-group"
-              >
-                <input
-                  aria-label="Input type search"
-                  class="mocked-styled-38 el-input"
-                  id="test-static-id"
-                  name="gitHubUsername"
-                  type="search"
-                />
-                <label
-                  class="mocked-styled-41 el-label"
-                  for="test-static-id"
-                >
-                  Github Username
                 </label>
               </div>
             </div>
@@ -1034,27 +971,6 @@ exports[`DevsManagement should render component with data 1`] = `
                 for="test-static-id"
               >
                 Company Name
-              </label>
-            </div>
-          </div>
-          <div
-            class="mocked-styled-133 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-40 el-input-group"
-            >
-              <input
-                aria-label="Input type search"
-                class="mocked-styled-38 el-input"
-                id="test-static-id"
-                name="gitHubUsername"
-                type="search"
-              />
-              <label
-                class="mocked-styled-41 el-label"
-                for="test-static-id"
-              >
-                Github Username
               </label>
             </div>
           </div>
