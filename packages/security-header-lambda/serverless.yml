@@ -11,7 +11,7 @@ custom:
 
 provider:
   name: aws
-  runtime: ${opt:runtime, 'nodejs18.x' }
+  runtime: ${opt:runtime, 'nodejs22.x' }
   stage: ${opt:stage, 'dev'}
   region: 'us-east-1'
   lambdaHashingVersion: '20201221'

@@ -43,9 +43,9 @@ jobs:
           tagRegex: '(?<package>.*)_(?<version>.*)'
 
       - name: Set Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: '22.x'
 
       - name: Set Version
         run: |
