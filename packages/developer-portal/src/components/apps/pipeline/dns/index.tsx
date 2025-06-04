@@ -38,15 +38,8 @@ export const PipelineDns: FC<{}> = () => {
       {!isFoundationsDeveloperAdmin ? (
         <>
           <p>
-            You don&apos;t have permission to configure a custom DNS. Please contact the{' '}
-            <a
-              href="mailto:appsupport@reapit.com?subject=IAAS%20Beta%20custom%20DNS%20permission"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              IaaS team.
-            </a>{' '}
-            if you&apos;re looking to configure a custom domain for your pipeline.
+            You do not have permission to configure a custom domain name. Please contact an administrator of your
+            developer organisation to request access
           </p>
         </>
       ) : connectSession && pipelineId ? (
