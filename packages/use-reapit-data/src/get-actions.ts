@@ -57,6 +57,7 @@ export enum GetActionNames {
   getDwShares = 'getDwShares',
   getUsers = 'getUsers',
   getUserAuthenticators = 'getUserAuthenticators',
+  getMarketplaceMemeberAuthenticators = 'getMarketplaceMemberAuthenticators',
   getReferralTypes = 'getReferralTypes',
   getGroupsByOrgId = 'getGroupsByOrgId',
   getPaymentsClientConfig = 'getPaymentsClientConfig',
@@ -365,5 +366,9 @@ export const getActions = {
     api: ApiNames.pipeline,
     path: PathNames.getPipelineDnsConfig,
     errorMessages: 'Failed to obtain certificate details',
+  },
+  [GetActionNames.getMarketplaceMemeberAuthenticators]: {
+    api: ApiNames.platform,
+    path: PathNames.getMarketplaceMemberAuthenticators,
   },
 }

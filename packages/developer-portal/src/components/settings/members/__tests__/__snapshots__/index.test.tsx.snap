@@ -238,6 +238,15 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
                   class="el-button-group-align-center el-button-group-inner"
                 >
                   <button
+                    class="el-intent-primary el-is-loading el-button"
+                    disabled=""
+                  >
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
+                    Fetch Current Authenticators
+                  </button>
+                  <button
                     class="el-intent-primary el-button"
                   >
                     <div
@@ -622,6 +631,15 @@ exports[`SettingsMembersPage should match snapshot 1`] = `
               <div
                 class="el-button-group-align-center el-button-group-inner"
               >
+                <button
+                  class="el-intent-primary el-is-loading el-button"
+                  disabled=""
+                >
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
+                  Fetch Current Authenticators
+                </button>
                 <button
                   class="el-intent-primary el-button"
                 >
@@ -1070,6 +1088,15 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
                   class="el-button-group-align-center el-button-group-inner"
                 >
                   <button
+                    class="el-intent-primary el-is-loading el-button"
+                    disabled=""
+                  >
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
+                    Fetch Current Authenticators
+                  </button>
+                  <button
                     class="el-intent-primary el-button"
                   >
                     <div
@@ -1454,6 +1481,15 @@ exports[`SettingsMembersPage should match snapshot for mobile view 1`] = `
               <div
                 class="el-button-group-align-center el-button-group-inner"
               >
+                <button
+                  class="el-intent-primary el-is-loading el-button"
+                  disabled=""
+                >
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
+                  Fetch Current Authenticators
+                </button>
                 <button
                   class="el-intent-primary el-button"
                 >
