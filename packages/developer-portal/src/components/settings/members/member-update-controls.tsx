@@ -148,7 +148,7 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
             !openFetchAuthenticators ? setOpenFetchAuthenticators(true) : refreshAuthenticators()
           }}
           loading={authenticatorsLoading}
-          disabled={authenticatorsLoading}
+          disabled={authenticatorsLoading || member.status !== 'active'}
         >
           Fetch Current Authenticators
         </Button>
