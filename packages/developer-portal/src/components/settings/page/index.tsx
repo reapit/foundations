@@ -73,14 +73,14 @@ export const SettingsPage: FC = () => {
         </SecondaryNavContainer>
         <PageContainer className={elHFull}>
           <Routes>
-            {/* <Route path={RoutePaths.SETTINGS_PROFILE.replace('/settings/', '')} element={<SettingsProfilePage />} />
-            <Route path={RoutePaths.SETTINGS_PASSWORD.replace('/settings/', '')} element={<SettingsPasswordPage />} /> */}
+            <Route path={RoutePaths.SETTINGS_PROFILE.replace('/settings/', '')} element={<SettingsProfilePage />} />
+            <Route path={RoutePaths.SETTINGS_PASSWORD.replace('/settings/', '')} element={<SettingsPasswordPage />} />
             <Route path={RoutePaths.SETTINGS_MEMBERS.replace('/settings/', '')} element={<SettingsMembersPage />} />
-            {/* <Route path={RoutePaths.SETTINGS_COMPANY.replace('/settings/', '')} element={<SettingsCompanyPage />} /> */}
-            {/* <Route
+            <Route path={RoutePaths.SETTINGS_COMPANY.replace('/settings/', '')} element={<SettingsCompanyPage />} />
+            <Route
               path={RoutePaths.SETTINGS_SUBSCRIPTIONS.replace('/settings/', '')}
               element={<SettingsSubscriptionsPage />}
-            /> */}
+            />
           </Routes>
         </PageContainer>
       </FlexContainer>
