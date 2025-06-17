@@ -7,10 +7,8 @@ import {
   elFadeIn,
   elMb11,
   elMt11,
-  elMt6,
-  FormLayout,
   Grid,
-  InputWrap,
+  PersistantNotification,
   Subtitle,
 } from '@reapit/elements'
 import { GetActionNames, getActions, SendFunction, useReapitGet, useReapitUpdate } from '@reapit/use-reapit-data'
@@ -146,9 +144,11 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
       <ButtonGroup alignment="center">
         <Button
           intent="primary"
-          onClick={() => setOpenFetchAuthenticators(true)}
+          onClick={() => {
+            openFetchAuthenticators ? refreshAuthenticators() : setOpenFetchAuthenticators(true)
+          }}
           loading={authenticatorsLoading}
-          disabled={authenticatorsLoading}
+          disabled={authenticatorsLoading || member.status !== 'active'}
         >
           Fetch Current Authenticators
         </Button>
@@ -203,41 +203,47 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
       </ButtonGroup>
       {openFetchAuthenticators && (
         <div>
-          {authenticators?.map(({ type, modified, created, id, userId }) => (
-            <Grid className={cx(elMb11, elFadeIn, elMt11)} key={id}>
-              <Col>
-                <Subtitle hasNoMargin>Authenticator Type</Subtitle>
-                <BodyText hasGreyText hasNoMargin>
-                  {type === 'sms' ? 'Mobile SMS' : 'Authenticator App'}
-                </BodyText>
-              </Col>
-              <Col>
-                <Subtitle hasNoMargin>Status</Subtitle>
-                <BodyText hasGreyText hasNoMargin>
-                  {status === 'inProgress' ? 'Currently Configuring' : status === 'active' ? 'Active' : 'Disabled'}
-                </BodyText>
-              </Col>
-              <Col>
-                <Subtitle hasNoMargin>Created</Subtitle>
-                <BodyText hasGreyText hasNoMargin>
-                  {modified ? dayjs(created).format('DD/MM/YYYY HH:mm') : '-'}
-                </BodyText>
-              </Col>
-              <Col>
-                <Subtitle hasNoMargin>Last Updated</Subtitle>
-                <BodyText hasGreyText hasNoMargin>
-                  {modified ? dayjs(modified).format('DD/MM/YYYY HH:mm') : '-'}
-                </BodyText>
-              </Col>
-              <Col>
-                <DeleteAuthenticator
-                  authenticatorId={id}
-                  userId={userId}
-                  refreshAuthenticators={refreshAuthenticators}
-                />
-              </Col>
-            </Grid>
-          ))}
+          {authenticators && authenticators.length >= 1
+            ? authenticators?.map(({ type, modified, created, id, userId, status }) => (
+                <Grid className={cx(elMb11, elFadeIn, elMt11)} key={id}>
+                  <Col>
+                    <Subtitle hasNoMargin>Authenticator Type</Subtitle>
+                    <BodyText hasGreyText hasNoMargin>
+                      {type === 'sms' ? 'Mobile SMS' : 'Authenticator App'}
+                    </BodyText>
+                  </Col>
+                  <Col>
+                    <Subtitle hasNoMargin>Status</Subtitle>
+                    <BodyText hasGreyText hasNoMargin>
+                      {status === 'inProgress' ? 'Currently Configuring' : status === 'active' ? 'Active' : 'Disabled'}
+                    </BodyText>
+                  </Col>
+                  <Col>
+                    <Subtitle hasNoMargin>Created</Subtitle>
+                    <BodyText hasGreyText hasNoMargin>
+                      {modified ? dayjs(created).format('DD/MM/YYYY HH:mm') : '-'}
+                    </BodyText>
+                  </Col>
+                  <Col>
+                    <Subtitle hasNoMargin>Last Updated</Subtitle>
+                    <BodyText hasGreyText hasNoMargin>
+                      {modified ? dayjs(modified).format('DD/MM/YYYY HH:mm') : '-'}
+                    </BodyText>
+                  </Col>
+                  <Col>
+                    <DeleteAuthenticator
+                      authenticatorId={id}
+                      userId={userId}
+                      refreshAuthenticators={refreshAuthenticators}
+                    />
+                  </Col>
+                </Grid>
+              ))
+            : !authenticatorsLoading && (
+                <PersistantNotification intent="primary" isInline isExpanded className={cx(elMt11, elMb11)}>
+                  No authenticators configured for this user.
+                </PersistantNotification>
+              )}
         </div>
       )}
     </>
