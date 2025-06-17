@@ -145,7 +145,7 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
         <Button
           intent="primary"
           onClick={() => {
-            !openFetchAuthenticators ? setOpenFetchAuthenticators(true) : refreshAuthenticators()
+            openFetchAuthenticators ? refreshAuthenticators() : setOpenFetchAuthenticators(true)
           }}
           loading={authenticatorsLoading}
           disabled={authenticatorsLoading || member.status !== 'active'}
