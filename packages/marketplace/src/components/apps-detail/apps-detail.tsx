@@ -27,6 +27,7 @@ import {
   elMr4,
   useModal,
   PersistentNotification,
+  elMt6,
 } from '@reapit/elements'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AcProcessType, DesktopLink, HTMLRender } from '@reapit/utils-react'
@@ -470,6 +471,16 @@ export const AppsDetail: FC = () => {
                 {scopes?.map(({ name, description }) => (
                   <AppDetailPermissionChip key={name}>{description}</AppDetailPermissionChip>
                 ))}
+                <BodyText className={cx(elMt6)} hasGreyText>
+                  For more detailed information about App permissions, please{' '}
+                  <DesktopLink
+                    uri="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+                    acProcess={AcProcessType.web}
+                    target="_blank"
+                    content="click here"
+                  />
+                  .
+                </BodyText>
               </div>
               {Boolean(desktopIntegrationTypeIds?.length) && (
                 <div className={elMb11}>

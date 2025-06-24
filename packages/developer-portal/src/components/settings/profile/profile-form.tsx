@@ -111,16 +111,6 @@ export const ProfileForm: FC = () => {
               intent="danger"
             />
           </InputWrap>
-          <InputWrap>
-            <InputGroup
-              {...register('gitHubUsername')}
-              label="GitHub Username"
-              placeholder="Github handles help us tracking issues"
-              errorMessage={errors.gitHubUsername?.message}
-              icon={errors.gitHubUsername?.message ? 'asteriskSystem' : null}
-              intent="danger"
-            />
-          </InputWrap>
         </FormLayout>
       </div>
       <div className={elMb11}>

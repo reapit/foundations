@@ -35,36 +35,35 @@ export interface InstallationFilters {
   installedDateFrom?: string
   installedDateTo?: string
   appIds?: string
-  isInstalled?: 'ALL' | 'INSTALLED' | 'UNINSTALLED'
   companyName?: string
   clientId?: string
   isChargedConsumption?: string
+  isInstalled?: string
 }
 
 const defaultValues: InstallationFilters = {
   appIds: '',
-  isInstalled: 'ALL',
+  isInstalled: 'true',
 }
 
 export const formatFilters = (installationsFilters: InstallationFilters) => {
   const { installedDateTo, installedDateFrom, isInstalled, appIds, clientId, companyName, isChargedConsumption } =
     installationsFilters
 
-  const isInstaledQuery =
-    isInstalled === 'INSTALLED' ? { isInstalled: true } : isInstalled === 'UNINSTALLED' ? { isInstalled: true } : {}
-
   const appIdQuery = appIds ? { appId: appIds.split(',').filter(Boolean) } : {}
   const clientIdQuery = clientId ? { clientId } : {}
   const companyNameQuery = companyName ? { companyName } : {}
+  const includeOfficeGroupsQuery = clientId ? { includeOfficeGroups: true } : {}
 
   return objectToQuery({
     installedDateTo: installedDateTo ? dayjs(installedDateTo).format('YYYY-MM-DDTHH:mm:ss') : undefined,
     installedDateFrom: installedDateFrom ? dayjs(installedDateFrom).format('YYYY-MM-DDTHH:mm:ss') : undefined,
     isChargedConsumption,
-    ...isInstaledQuery,
+    isInstalled,
     ...appIdQuery,
     ...clientIdQuery,
     ...companyNameQuery,
+    ...includeOfficeGroupsQuery,
   })
 }
 
@@ -113,7 +112,6 @@ export const Installations: FC = () => {
       action: getActions[GetActionNames.getInstallations],
       queryParams: {
         ...formatFilters(installationsFilters),
-        includeOfficeGroups: true,
         pageNumber,
         pageSize,
       },
@@ -195,6 +193,29 @@ export const Installations: FC = () => {
                     id: 'option-consumption-false',
                     value: 'false',
                     text: 'Free',
+                    isChecked: false,
+                  },
+                ]}
+              />
+            </InputGroup>
+          </InputWrap>
+          <InputWrap>
+            <InputGroup>
+              <Label>Status</Label>
+              <ToggleRadio
+                {...register('isInstalled')}
+                hasGreyBg
+                options={[
+                  {
+                    id: 'option-is-active',
+                    value: 'true',
+                    text: 'Active',
+                    isChecked: true,
+                  },
+                  {
+                    id: 'option-is-terminated',
+                    value: 'false',
+                    text: 'Terminated',
                     isChecked: false,
                   },
                 ]}

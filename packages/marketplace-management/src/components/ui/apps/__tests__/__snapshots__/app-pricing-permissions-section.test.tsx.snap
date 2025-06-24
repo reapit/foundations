@@ -21,7 +21,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
         For more information regarding Desktop Integration types, please
          
         <a
-          href="agencycloud://process/webpage?url=https://marketplace-documentation.reapit.cloud/integration-types"
+          href="agencycloud://process/webpage?url=https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -66,6 +66,20 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
         By installing this app, you are granting the following permissions to your data:
       </p>
       0
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-mt6"
+      >
+        For more detailed information about App permissions, please
+         
+        <a
+          href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          click here
+        </a>
+        .
+      </p>
     </div>
   </body>,
   "container": <div>
@@ -85,7 +99,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
       For more information regarding Desktop Integration types, please
        
       <a
-        href="agencycloud://process/webpage?url=https://marketplace-documentation.reapit.cloud/integration-types"
+        href="agencycloud://process/webpage?url=https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -130,6 +144,20 @@ exports[`AppPricingPermissionsSection should match a snapshot for desktop 1`] = 
       By installing this app, you are granting the following permissions to your data:
     </p>
     0
+    <p
+      class="el-text-base el-body-text el-has-grey-text el-mt6"
+    >
+      For more detailed information about App permissions, please
+       
+      <a
+        href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        click here
+      </a>
+      .
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -206,7 +234,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
         For more information regarding Desktop Integration types, please
          
         <a
-          href="agencycloud://process/webpage?url=https://marketplace-documentation.reapit.cloud/integration-types"
+          href="agencycloud://process/webpage?url=https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -265,6 +293,20 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
         By installing this app, you are granting the following permissions to your data:
       </p>
       0
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-mt6"
+      >
+        For more detailed information about App permissions, please
+         
+        <a
+          href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          click here
+        </a>
+        .
+      </p>
     </div>
   </body>,
   "container": <div>
@@ -284,7 +326,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
       For more information regarding Desktop Integration types, please
        
       <a
-        href="agencycloud://process/webpage?url=https://marketplace-documentation.reapit.cloud/integration-types"
+        href="agencycloud://process/webpage?url=https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -343,6 +385,20 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
       By installing this app, you are granting the following permissions to your data:
     </p>
     0
+    <p
+      class="el-text-base el-body-text el-has-grey-text el-mt6"
+    >
+      For more detailed information about App permissions, please
+       
+      <a
+        href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        click here
+      </a>
+      .
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -419,7 +475,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
         For more information regarding Desktop Integration types, please
          
         <a
-          href="https://marketplace-documentation.reapit.cloud/integration-types"
+          href="https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -478,6 +534,20 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
         By installing this app, you are granting the following permissions to your data:
       </p>
       0
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-mt6"
+      >
+        For more detailed information about App permissions, please
+         
+        <a
+          href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          click here
+        </a>
+        .
+      </p>
     </div>
   </body>,
   "container": <div>
@@ -497,7 +567,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
       For more information regarding Desktop Integration types, please
        
       <a
-        href="https://marketplace-documentation.reapit.cloud/integration-types"
+        href="https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -556,6 +626,20 @@ exports[`AppPricingPermissionsSection should match a snapshot for has a pricing 
       By installing this app, you are granting the following permissions to your data:
     </p>
     0
+    <p
+      class="el-text-base el-body-text el-has-grey-text el-mt6"
+    >
+      For more detailed information about App permissions, please
+       
+      <a
+        href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        click here
+      </a>
+      .
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -632,7 +716,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
         For more information regarding Desktop Integration types, please
          
         <a
-          href="https://marketplace-documentation.reapit.cloud/integration-types"
+          href="https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -677,6 +761,20 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
         By installing this app, you are granting the following permissions to your data:
       </p>
       0
+      <p
+        class="el-text-base el-body-text el-has-grey-text el-mt6"
+      >
+        For more detailed information about App permissions, please
+         
+        <a
+          href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          click here
+        </a>
+        .
+      </p>
     </div>
   </body>,
   "container": <div>
@@ -696,7 +794,7 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
       For more information regarding Desktop Integration types, please
        
       <a
-        href="https://marketplace-documentation.reapit.cloud/integration-types"
+        href="https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -741,6 +839,20 @@ exports[`AppPricingPermissionsSection should match a snapshot for not desktop 1`
       By installing this app, you are granting the following permissions to your data:
     </p>
     0
+    <p
+      class="el-text-base el-body-text el-has-grey-text el-mt6"
+    >
+      For more detailed information about App permissions, please
+       
+      <a
+        href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        click here
+      </a>
+      .
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

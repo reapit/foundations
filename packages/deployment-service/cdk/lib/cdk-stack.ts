@@ -210,6 +210,7 @@ export const createStack = async () => {
     CONNECT_CLIENT_ID: config.CONNECT_CLIENT_ID,
     CONNECT_CLIENT_SECRET: config.CONNECT_CLIENT_SECRET,
     CONNECT_URL: config.CONNECT_URL,
+    DEVOPS_DEPLOYER_PAT: config.DEVOPS_DEPLOYER_PAT,
   }
 
   Object.values(QueueNames).forEach((queueKey) => {

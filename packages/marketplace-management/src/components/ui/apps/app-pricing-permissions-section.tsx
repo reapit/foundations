@@ -1,5 +1,7 @@
-import { BodyText, Col, elMb11, Grid, Subtitle } from '@reapit/elements'
+import { cx } from '@linaria/core'
+import { BodyText, Col, elMb11, elMt6, Grid, Subtitle } from '@reapit/elements'
 import { AppDetailModel, DesktopIntegrationTypeModel } from '@reapit/foundations-ts-definitions'
+import { AcProcessType, DesktopLink } from '@reapit/utils-react'
 import React from 'react'
 
 export interface AppPricingPermissionsProps {
@@ -10,8 +12,8 @@ export interface AppPricingPermissionsProps {
 
 export const getDocs = (isDesktop: boolean) => {
   return isDesktop
-    ? 'agencycloud://process/webpage?url=https://marketplace-documentation.reapit.cloud/integration-types'
-    : 'https://marketplace-documentation.reapit.cloud/integration-types'
+    ? 'agencycloud://process/webpage?url=https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket'
+    : 'https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket'
 }
 
 export const getPricing = (isDesktop: boolean, pricingUrl: string) => {
@@ -90,6 +92,16 @@ const AppPricingPermissionsSection: React.FC<AppPricingPermissionsProps> = ({
             ))}
           </Grid>
         )}
+        <BodyText hasGreyText className={cx(elMt6)}>
+          For more detailed information about App permissions, please{' '}
+          <DesktopLink
+            uri="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+            acProcess={AcProcessType.web}
+            target="_blank"
+            content="click here"
+          />
+          .
+        </BodyText>
       </>
     </>
   )

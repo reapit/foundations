@@ -9,7 +9,7 @@ import {
   RepositorySelectionActive,
   RepositorySelectionEl,
 } from './__styles__'
-import { Button, ButtonGroup, elMb6, Loader, Pagination, Title } from '@reapit/elements'
+import { BodyText, Button, ButtonGroup, elMb6, Loader, Pagination, Title } from '@reapit/elements'
 import { cx } from '@linaria/core'
 
 type PageData = {
@@ -87,6 +87,16 @@ export const RepositorySelection: FC<{
       <RepositoryEl>
         <img src={installation.account.avatar_url} />
         <p className="repository-name">{installation.account.login}</p>
+        <BodyText hasGreyText>
+          If you&apos;re unable to find the repository you require check out the{' '}
+          <a
+            target="_blank"
+            href="https://reapit.atlassian.net/wiki/spaces/PLT/pages/2807955545/IaaS+Documentation#Installing-the-Reapit-Github-App-to-your-repository"
+            rel="noreferrer"
+          >
+            documentation here.
+          </a>
+        </BodyText>
       </RepositoryEl>
       <PaginatedListEl className={cx(elMb6)}>
         {loading && (
@@ -109,21 +119,23 @@ export const RepositorySelection: FC<{
         )}
       </PaginatedListEl>
       {pageData.total_pages > 1 && (
-        <Pagination
-          className={cx(paginationFix)}
-          currentPage={pageData.current_page}
-          numberPages={pageData.total_pages}
-          callback={async (current_page) => {
-            await fetchRepositories({
-              githubAccessToken: githubSession as GithubAccessToken,
-              setRepositories,
-              setLoading,
-              installation,
-              pageData: { ...pageData, current_page },
-              setPageData,
-            })
-          }}
-        />
+        <div className={elMb6}>
+          <Pagination
+            className={cx(paginationFix, elMb6)}
+            currentPage={pageData.current_page}
+            numberPages={pageData.total_pages}
+            callback={async (current_page) => {
+              await fetchRepositories({
+                githubAccessToken: githubSession as GithubAccessToken,
+                setRepositories,
+                setLoading,
+                installation,
+                pageData: { ...pageData, current_page },
+                setPageData,
+              })
+            }}
+          />
+        </div>
       )}
       <ButtonGroup>
         <Button

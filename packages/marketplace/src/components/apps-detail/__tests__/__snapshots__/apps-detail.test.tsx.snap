@@ -1137,6 +1137,20 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
               <mock-styled.div>
                 Read properties
               </mock-styled.div>
+              <p
+                class="el-text-base el-body-text el-has-grey-text el-mt6"
+              >
+                For more detailed information about App permissions, please
+                 
+                <a
+                  href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  click here
+                </a>
+                .
+              </p>
             </div>
             <div
               class="el-mb11"
@@ -1625,6 +1639,20 @@ exports[`AppsDetail should match a snapshot when not installed 1`] = `
             <mock-styled.div>
               Read properties
             </mock-styled.div>
+            <p
+              class="el-text-base el-body-text el-has-grey-text el-mt6"
+            >
+              For more detailed information about App permissions, please
+               
+              <a
+                href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                click here
+              </a>
+              .
+            </p>
           </div>
           <div
             class="el-mb11"
@@ -2162,6 +2190,20 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
               <mock-styled.div>
                 Read properties
               </mock-styled.div>
+              <p
+                class="el-text-base el-body-text el-has-grey-text el-mt6"
+              >
+                For more detailed information about App permissions, please
+                 
+                <a
+                  href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  click here
+                </a>
+                .
+              </p>
             </div>
             <div
               class="el-mb11"
@@ -2633,6 +2675,20 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
             <mock-styled.div>
               Read properties
             </mock-styled.div>
+            <p
+              class="el-text-base el-body-text el-has-grey-text el-mt6"
+            >
+              For more detailed information about App permissions, please
+               
+              <a
+                href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                click here
+              </a>
+              .
+            </p>
           </div>
           <div
             class="el-mb11"

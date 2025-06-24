@@ -7,12 +7,13 @@ import {
 import { selectIsMarketplaceAdmin, selectIsOffGrouping, selectIsOrgAdmin } from '../../utils/auth'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { Button, ButtonGroup, elMb11, BodyText, elMb6 } from '@reapit/elements'
+import { Button, ButtonGroup, elMb11, BodyText, elMb6, elMt6 } from '@reapit/elements'
 import { AcProcessType, DesktopLink } from '@reapit/utils-react'
 import { UpdateActionNames, updateActions, SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
 import { AppDetailPermissionChip } from './__styles__'
 import { trackEvent, trackEventHandler } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
+import { cx } from '@linaria/core'
 
 export const DESKTOP_REFRESH_URL = 'agencycloud://apps/refresh'
 
@@ -145,7 +146,7 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
               For more information regarding Desktop Integration types, please{' '}
               <DesktopLink
                 onClick={trackReadDocs}
-                uri="https://marketplace-documentation.reapit.cloud/integration-types"
+                uri="https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
                 acProcess={AcProcessType.web}
                 target="_blank"
                 content="click here"
@@ -199,6 +200,16 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
           {scopes?.map(({ name, description }) => (
             <AppDetailPermissionChip key={name}>{description ?? ''}</AppDetailPermissionChip>
           ))}
+          <BodyText className={cx(elMt6)} hasGreyText>
+            For more detailed information about App permissions, please{' '}
+            <DesktopLink
+              uri="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+              acProcess={AcProcessType.web}
+              target="_blank"
+              content="click here"
+            />
+            .
+          </BodyText>
         </>
       </div>
       <ButtonGroup alignment="center">
