@@ -12,8 +12,8 @@ export interface AppPricingPermissionsProps {
 
 export const getDocs = (isDesktop: boolean) => {
   return isDesktop
-    ? 'agencycloud://process/webpage?url=https://marketplace-documentation.reapit.cloud/integration-types'
-    : 'https://marketplace-documentation.reapit.cloud/integration-types'
+    ? 'agencycloud://process/webpage?url=https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket'
+    : 'https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket'
 }
 
 export const getPricing = (isDesktop: boolean, pricingUrl: string) => {
