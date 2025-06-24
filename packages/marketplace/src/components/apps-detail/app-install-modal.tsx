@@ -146,7 +146,7 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
               For more information regarding Desktop Integration types, please{' '}
               <DesktopLink
                 onClick={trackReadDocs}
-                uri="https://marketplace-documentation.reapit.cloud/integration-types"
+                uri="https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
                 acProcess={AcProcessType.web}
                 target="_blank"
                 content="click here"
