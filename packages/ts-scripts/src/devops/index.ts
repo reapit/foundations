@@ -89,7 +89,7 @@ export const devopsRelease = async ({ config, stage }: { config: DevopsConfig; s
     }
   })
 
-  await updateCdkJson(DEVOPS_DEPLOYER_PAT, projectName, JSON.stringify(cdkJson, null, 2), stage)
+  await updateCdkJson(DEVOPS_DEPLOYER_PAT, projectName, JSON.stringify(cdkJson, null, 2), stage, true)
 
   console.log('Completed Successfully')
 }

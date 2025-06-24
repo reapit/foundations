@@ -238,14 +238,14 @@ exports[`Controls should match a snapshot 1`] = `
                     None selected
                   </option>
                   <option
-                    value="RES"
-                  >
-                    Reapit Sales  (RES)
-                  </option>
-                  <option
                     value="MXX"
                   >
                     Foo Bar  (MXX)
+                  </option>
+                  <option
+                    value="RES"
+                  >
+                    Reapit Sales  (RES)
                   </option>
                 </select>
                 <label
@@ -494,14 +494,14 @@ exports[`Controls should match a snapshot 1`] = `
                   None selected
                 </option>
                 <option
-                  value="RES"
-                >
-                  Reapit Sales  (RES)
-                </option>
-                <option
                   value="MXX"
                 >
                   Foo Bar  (MXX)
+                </option>
+                <option
+                  value="RES"
+                >
+                  Reapit Sales  (RES)
                 </option>
               </select>
               <label
