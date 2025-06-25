@@ -116,7 +116,7 @@ exports[`MembersTable should render component with data 1`] = `
           class="el-mb11 el-table"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
-          data-num-columns-excl-action-col="8"
+          data-num-columns-excl-action-col="7"
           role="table"
         >
           <div
@@ -150,13 +150,6 @@ exports[`MembersTable should render component with data 1`] = `
               role="columnheader"
             >
               Role
-            </div>
-            <div
-              aria-label="Github Username"
-              class="mocked-styled-102 el-table-header"
-              role="columnheader"
-            >
-              Github Username
             </div>
             <div
               aria-label="Member Status"
@@ -253,15 +246,6 @@ exports[`MembersTable should render component with data 1`] = `
                 >
                   user
                 </div>
-              </div>
-              <div
-                class="el-table-cell-has-dark-text el-table-cell"
-                role="cell"
-              >
-                <div
-                  class="mocked-styled-111 el-table-cell-content"
-                  data-narrow-label="Github Username"
-                />
               </div>
               <div
                 class="el-table-cell-has-dark-text el-table-cell"
@@ -477,7 +461,7 @@ exports[`MembersTable should render component with data 1`] = `
         class="el-mb11 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
-        data-num-columns-excl-action-col="8"
+        data-num-columns-excl-action-col="7"
         role="table"
       >
         <div
@@ -511,13 +495,6 @@ exports[`MembersTable should render component with data 1`] = `
             role="columnheader"
           >
             Role
-          </div>
-          <div
-            aria-label="Github Username"
-            class="mocked-styled-102 el-table-header"
-            role="columnheader"
-          >
-            Github Username
           </div>
           <div
             aria-label="Member Status"
@@ -614,15 +591,6 @@ exports[`MembersTable should render component with data 1`] = `
               >
                 user
               </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
-              role="cell"
-            >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
-                data-narrow-label="Github Username"
-              />
             </div>
             <div
               class="el-table-cell-has-dark-text el-table-cell"

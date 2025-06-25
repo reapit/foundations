@@ -56,7 +56,7 @@ export const Network: FC = () => {
             Video
           </Button>
         </div>
-        <Button className={elMb5} intent="neutral" onClick={openNewPage('mailto:dwh@reapitfoundations.zendesk.com')}>
+        <Button className={elMb5} intent="neutral" onClick={openNewPage('mailto:appsupport@reapit.com')}>
           Help
         </Button>
       </SecondaryNavContainer>
@@ -77,7 +77,7 @@ export const Network: FC = () => {
               Close
             </Button>
             <a
-              href={`mailto:dwh@reapitfoundations.zendesk.com?subject=Data%20Warehouse%20PowerBI%20setup%20request%20for%20${organisationName} (${organisationId})`}
+              href={`mailto:appsupport@reapit.com?subject=Data%20Warehouse%20PowerBI%20setup%20request%20for%20${organisationName} (${organisationId})`}
               target="_blank"
               rel="noreferrer"
             >

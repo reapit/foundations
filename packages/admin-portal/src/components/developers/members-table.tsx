@@ -191,13 +191,6 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
                 },
               },
               {
-                label: 'Github Username',
-                value: gitHubUsername,
-                narrowTable: {
-                  showLabel: true,
-                },
-              },
-              {
                 label: 'Member Status',
                 value: status,
                 narrowTable: {

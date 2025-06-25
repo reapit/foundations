@@ -1,11 +1,34 @@
-import React, { FC, useEffect } from 'react'
-import { Button, ButtonGroup } from '@reapit/elements'
-import { SendFunction, useReapitUpdate } from '@reapit/use-reapit-data'
+import React, { FC, useEffect, useState } from 'react'
+import {
+  BodyText,
+  Button,
+  ButtonGroup,
+  Col,
+  elFadeIn,
+  elMb11,
+  elMt11,
+  Grid,
+  PersistantNotification,
+  Subtitle,
+} from '@reapit/elements'
+import { GetActionNames, getActions, SendFunction, useReapitGet, useReapitUpdate } from '@reapit/use-reapit-data'
 import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
+import { cx } from '@linaria/core'
+import dayjs from 'dayjs'
+import { DeleteAuthenticator } from './delete-authenticator'
+
+type Authenticator = {
+  id: string
+  userId: string
+  status: string
+  type: string
+  created: string
+  modified: string
+}
 
 export interface MemberUpdateControlsProps {
   member: Marketplace.MemberModel
@@ -57,6 +80,7 @@ export const handleReinviteMember =
 export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, refreshMembers }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const currentMemberEmail = connectSession?.loginIdentity.email
+  const [openFetchAuthenticators, setOpenFetchAuthenticators] = useState<boolean>(false)
 
   const [memberUpdating, , updateMember, updateMemberSuccess] = useReapitUpdate<Marketplace.UpdateMemberModel, boolean>(
     {
@@ -92,6 +116,20 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
     },
   })
 
+  const [authenticators, authenticatorsLoading, , refreshAuthenticators] = useReapitGet<Authenticator[]>({
+    reapitConnectBrowserSession,
+    action: getActions[GetActionNames.getMarketplaceMemeberAuthenticators],
+    uriParams: {
+      id: member.developerId,
+      memberId: member.id,
+    },
+    fetchWhenTrue: [openFetchAuthenticators],
+  })
+
+  useEffect(() => {
+    openFetchAuthenticators && refreshAuthenticators()
+  }, [openFetchAuthenticators])
+
   useEffect(handleRefreshMembers(refreshMembers, updateMemberSuccess, deleteMemberSuccess, reinviteMemberSuccess), [
     updateMemberSuccess,
     deleteMemberSuccess,
@@ -102,55 +140,112 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
   const isDisabled = isLoading || member.email === currentMemberEmail
 
   return (
-    <ButtonGroup alignment="center">
-      <Button
-        intent="primary"
-        disabled={isDisabled}
-        loading={isLoading}
-        onClick={handleUpdateMember(updateMember, {
-          ...member,
-          role: member.role === 'admin' ? 'user' : 'admin',
-        })}
-      >
-        Set As {member.role === 'admin' ? 'User' : 'Admin'}
-      </Button>
-      <Button
-        intent="primary"
-        disabled={isDisabled}
-        loading={isLoading}
-        onClick={handleReinviteMember(reinviteMember, member, connectSession)}
-      >
-        Invite Again
-      </Button>
-      {!member.isMainContact && (
+    <>
+      <ButtonGroup alignment="center">
         <Button
           intent="primary"
-          disabled={isLoading}
-          loading={isLoading}
-          onClick={handleUpdateMember(updateMember, {
-            ...member,
-            isMainContact: true,
-          })}
+          onClick={() => {
+            openFetchAuthenticators ? refreshAuthenticators() : setOpenFetchAuthenticators(true)
+          }}
+          loading={authenticatorsLoading}
+          disabled={authenticatorsLoading || member.status !== 'active'}
         >
-          Set As Main Contact
+          Fetch Current Authenticators
         </Button>
-      )}
-      {member.status === 'active' && (
         <Button
-          intent="danger"
+          intent="primary"
           disabled={isDisabled}
           loading={isLoading}
           onClick={handleUpdateMember(updateMember, {
             ...member,
-            status: 'inactive',
+            role: member.role === 'admin' ? 'user' : 'admin',
           })}
         >
-          Disable
+          Set As {member.role === 'admin' ? 'User' : 'Admin'}
         </Button>
+        <Button
+          intent="primary"
+          disabled={isDisabled}
+          loading={isLoading}
+          onClick={handleReinviteMember(reinviteMember, member, connectSession)}
+        >
+          Invite Again
+        </Button>
+        {!member.isMainContact && (
+          <Button
+            intent="primary"
+            disabled={isLoading}
+            loading={isLoading}
+            onClick={handleUpdateMember(updateMember, {
+              ...member,
+              isMainContact: true,
+            })}
+          >
+            Set As Main Contact
+          </Button>
+        )}
+        {member.status === 'active' && (
+          <Button
+            intent="danger"
+            disabled={isDisabled}
+            loading={isLoading}
+            onClick={handleUpdateMember(updateMember, {
+              ...member,
+              status: 'inactive',
+            })}
+          >
+            Disable
+          </Button>
+        )}
+        <Button intent="danger" disabled={isDisabled} loading={isLoading} onClick={handleDeleteMember(deleteMember)}>
+          Delete
+        </Button>
+      </ButtonGroup>
+      {openFetchAuthenticators && (
+        <div>
+          {authenticators && authenticators.length >= 1
+            ? authenticators?.map(({ type, modified, created, id, userId, status }) => (
+                <Grid className={cx(elMb11, elFadeIn, elMt11)} key={id}>
+                  <Col>
+                    <Subtitle hasNoMargin>Authenticator Type</Subtitle>
+                    <BodyText hasGreyText hasNoMargin>
+                      {type === 'sms' ? 'Mobile SMS' : 'Authenticator App'}
+                    </BodyText>
+                  </Col>
+                  <Col>
+                    <Subtitle hasNoMargin>Status</Subtitle>
+                    <BodyText hasGreyText hasNoMargin>
+                      {status === 'inProgress' ? 'Currently Configuring' : status === 'active' ? 'Active' : 'Disabled'}
+                    </BodyText>
+                  </Col>
+                  <Col>
+                    <Subtitle hasNoMargin>Created</Subtitle>
+                    <BodyText hasGreyText hasNoMargin>
+                      {modified ? dayjs(created).format('DD/MM/YYYY HH:mm') : '-'}
+                    </BodyText>
+                  </Col>
+                  <Col>
+                    <Subtitle hasNoMargin>Last Updated</Subtitle>
+                    <BodyText hasGreyText hasNoMargin>
+                      {modified ? dayjs(modified).format('DD/MM/YYYY HH:mm') : '-'}
+                    </BodyText>
+                  </Col>
+                  <Col>
+                    <DeleteAuthenticator
+                      authenticatorId={id}
+                      userId={userId}
+                      refreshAuthenticators={refreshAuthenticators}
+                    />
+                  </Col>
+                </Grid>
+              ))
+            : !authenticatorsLoading && (
+                <PersistantNotification intent="primary" isInline isExpanded className={cx(elMt11, elMb11)}>
+                  No authenticators configured for this user.
+                </PersistantNotification>
+              )}
+        </div>
       )}
-      <Button intent="danger" disabled={isDisabled} loading={isLoading} onClick={handleDeleteMember(deleteMember)}>
-        Delete
-      </Button>
-    </ButtonGroup>
+    </>
   )
 }

@@ -9,7 +9,7 @@ import {
   RepositorySelectionActive,
   RepositorySelectionEl,
 } from './__styles__'
-import { Button, ButtonGroup, elMb6, Loader, Pagination, Title } from '@reapit/elements'
+import { BodyText, Button, ButtonGroup, elMb6, Loader, Pagination, Title } from '@reapit/elements'
 import { cx } from '@linaria/core'
 
 type PageData = {
@@ -87,6 +87,16 @@ export const RepositorySelection: FC<{
       <RepositoryEl>
         <img src={installation.account.avatar_url} />
         <p className="repository-name">{installation.account.login}</p>
+        <BodyText hasGreyText>
+          If you&apos;re unable to find the repository you require check out the{' '}
+          <a
+            target="_blank"
+            href="https://reapit.atlassian.net/wiki/spaces/PLT/pages/2807955545/IaaS+Documentation#Installing-the-Reapit-Github-App-to-your-repository"
+            rel="noreferrer"
+          >
+            documentation here.
+          </a>
+        </BodyText>
       </RepositoryEl>
       <PaginatedListEl className={cx(elMb6)}>
         {loading && (
