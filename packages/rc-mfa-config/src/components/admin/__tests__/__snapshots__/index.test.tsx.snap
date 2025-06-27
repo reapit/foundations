@@ -582,6 +582,14 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                         />
                         Reset Password
                       </button>
+                      <button
+                        class="el-intent-primary el-button"
+                      >
+                        <div
+                          class="mocked-styled-0 el-button-loader"
+                        />
+                        Update User's Name
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -1237,6 +1245,14 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
                         class="mocked-styled-0 el-button-loader"
                       />
                       Reset Password
+                    </button>
+                    <button
+                      class="el-intent-primary el-button"
+                    >
+                      <div
+                        class="mocked-styled-0 el-button-loader"
+                      />
+                      Update User's Name
                     </button>
                   </div>
                 </div>
@@ -3579,6 +3595,14 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                         />
                         Reset Password
                       </button>
+                      <button
+                        class="el-intent-primary el-button"
+                      >
+                        <div
+                          class="mocked-styled-0 el-button-loader"
+                        />
+                        Update User's Name
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -4186,6 +4210,14 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
                         class="mocked-styled-0 el-button-loader"
                       />
                       Reset Password
+                    </button>
+                    <button
+                      class="el-intent-primary el-button"
+                    >
+                      <div
+                        class="mocked-styled-0 el-button-loader"
+                      />
+                      Update User's Name
                     </button>
                   </div>
                 </div>
