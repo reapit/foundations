@@ -19,6 +19,6 @@ describe('openNewPage', () => {
 
     curried()
 
-    expect(windowSpy).toHaveBeenCalledWith(RoutePaths.HOME, '_blank')
+    expect(windowSpy).toHaveBeenCalledWith(RoutePaths.HOME, '_blank', 'noopener, noreferrer')
   })
 })
