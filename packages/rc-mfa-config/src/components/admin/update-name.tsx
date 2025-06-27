@@ -13,8 +13,6 @@ import { useForm } from 'react-hook-form'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 export const UpdateNameModal: FC<{ userId?: string; name?: string }> = ({ userId, name }) => {
-  console.log('use?Modal', useModal, useModal())
-
   const { modalIsOpen, closeModal, openModal } = useModal()
   const {
     handleSubmit,
