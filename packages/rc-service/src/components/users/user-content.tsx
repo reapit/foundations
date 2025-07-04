@@ -5,7 +5,6 @@ import {
   Button,
   ButtonGroup,
   Col,
-  ElToggleItem,
   Grid,
   Loader,
   PersistentNotification,
@@ -15,7 +14,6 @@ import {
   TableHeader,
   TableHeadersRow,
   TableRow,
-  Toggle,
   elMb7,
   useModal,
 } from '@reapit/elements'
@@ -45,6 +43,7 @@ import { EditUserGroups } from './edit-user-groups'
 import { UpdateUserName } from './update-user-name'
 import { ViewOrganisations } from './view-organisations'
 import { UpdateUserActive } from './update-user-active'
+import { UserStatusHistory } from './user-status-history'
 
 export interface UserContentProps {
   user: UserModel
@@ -201,8 +200,11 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, userGrou
           <Subtitle>Status</Subtitle>
           {isSupport ? (
             <>
-              <UpdateUserActive user={user} />
               <BodyText hasGreyText>{user.inactive ? 'Inactive' : 'Active'}</BodyText>
+              <ButtonGroup>
+                <UpdateUserActive user={user} />
+                <UserStatusHistory user={user} />
+              </ButtonGroup>
             </>
           ) : (
             <BodyText hasGreyText>{user.inactive ? 'Inactive' : 'Active'}</BodyText>

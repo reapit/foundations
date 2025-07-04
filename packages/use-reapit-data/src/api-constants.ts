@@ -123,4 +123,5 @@ export enum PathNames {
   getPipelineDnsConfig = '/dns/{pipelineId}',
   getMarketplaceMemberAuthenticators = '/marketplace/developers/{id}/members/{memberId}/authenticators',
   userActiveToggleStatus = '/organisations/users/{id}/status',
+  getUserStatusHistory = '/organisations/users/{id}/status/history',
 }
