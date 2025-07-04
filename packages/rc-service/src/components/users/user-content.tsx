@@ -44,6 +44,7 @@ import { ActiveAuthenticator } from './active-authenticator'
 import { EditUserGroups } from './edit-user-groups'
 import { UpdateUserName } from './update-user-name'
 import { ViewOrganisations } from './view-organisations'
+import { UpdateUserActive } from './update-user-active'
 
 export interface UserContentProps {
   user: UserModel
@@ -135,15 +136,6 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, userGrou
     },
   })
 
-  const [userUpdateLoading, , updateUser] = useReapitUpdate<UpdateUserModel, boolean>({
-    reapitConnectBrowserSession,
-    action: updateActions[UpdateActionNames.updateUser],
-    method: 'PUT',
-    uriParams: {
-      userId: user.id,
-    },
-  })
-
   const [userPasswordLoading, , deleteUserPassword] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.deleteUserPassword],
@@ -164,7 +156,6 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, userGrou
 
   const activeAuthenticator = authenticators?.find((authenticator) => authenticator.status === 'active')
   const isLoading =
-    userUpdateLoading ||
     authenticatorsLoading ||
     userPasswordLoading ||
     userSuppressionListLoading ||
@@ -208,22 +199,14 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, userGrou
         </Col>
         <Col>
           <Subtitle>Status</Subtitle>
-          <BodyText hasGreyText>
-            {isSupport ? (
-              <Toggle
-                id={`active-toggle-${user.id}`}
-                defaultChecked={!user.inactive}
-                onChange={handleUpdateUserStatus(updateUser, user, refreshUsers)}
-              >
-                <ElToggleItem>Active</ElToggleItem>
-                <ElToggleItem>Inactive</ElToggleItem>
-              </Toggle>
-            ) : user.inactive ? (
-              'Inactive'
-            ) : (
-              'Active'
-            )}
-          </BodyText>
+          {isSupport ? (
+            <>
+              <UpdateUserActive user={user} />
+              <BodyText hasGreyText>{user.inactive ? 'Inactive' : 'Active'}</BodyText>
+            </>
+          ) : (
+            <BodyText hasGreyText>{user.inactive ? 'Inactive' : 'Active'}</BodyText>
+          )}
         </Col>
         <Col>
           <Subtitle>Password</Subtitle>
