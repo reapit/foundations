@@ -11,7 +11,8 @@ export const DnsConfiguration: FC<{
   connectSession: ReapitConnectSession
   pipelineId: string
   certificateError?: string
-}> = ({ connectSession, pipelineId, certificateError }) => {
+  certificateStatus: string
+}> = ({ connectSession, pipelineId, certificateError, certificateStatus }) => {
   const [dnsInfo, loading, , refresh] = useReapitGet<{
     customDomain: string
     cloudfrontUrl: string
@@ -28,14 +29,14 @@ export const DnsConfiguration: FC<{
 
   return !loading ? (
     dnsInfo && !certificateError ? (
-      <DnsSettingsPage dnsInfo={dnsInfo} />
+      <DnsSettingsPage dnsInfo={dnsInfo} certificateStatus={certificateStatus} />
     ) : (
       <>
         <div className={cx(elMb6)}>
           <BodyText hasGreyText>
-            To use a custom domain, you&apos;ll need to start this process by using the button below. Once you&apos;ve
-            created, you&apos;ll need to inform dev ops to configure your DNS with the details provided by the IaaS
-            platform.
+            To attach a custom domain to your IaaS project, use the button below to start the setup process. Once the
+            process has completed, you will be presented with the DNS records you need to add to your domain&apos;s DNS
+            settings for both domain ownership verification and domain routing.
           </BodyText>
         </div>
         <PipelineDnsStepModal buttonText="Setup Custom DNS" pipelineId={pipelineId} refresh={refresh} />

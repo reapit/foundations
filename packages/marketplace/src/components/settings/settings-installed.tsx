@@ -185,7 +185,14 @@ export const SettingsInstalled: FC = () => {
         The table below gives you the information about Reapit AppMarket apps and integrations you have installed
         currently or previously. In addition, you can uninstall apps for all users of your organisation by using the
         call to action on each row. For more information on the installations table{' '}
-        <a onClick={openNewPage('https://marketplace-documentation.reapit.cloud/#uninstalling-an-app')}>see here</a>.
+        <a
+          onClick={openNewPage(
+            'https://reapit.atlassian.net/wiki/spaces/RW/pages/2875523105/Use+AppMarket+to+browse+install+uninstall+apps#Uninstall-an-app',
+          )}
+        >
+          see here
+        </a>
+        .
       </BodyText>
       <FilterForm setInstallationsFilters={setInstallationsFilters} />
       {installationsLoading ? (

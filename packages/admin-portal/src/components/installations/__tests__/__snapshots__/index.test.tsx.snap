@@ -340,6 +340,62 @@ exports[`Installations should render component when loading 1`] = `
                 </div>
               </div>
             </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
+                  Status
+                </label>
+                <div
+                  class="el-has-grey-bg el-toggle-radio-wrap"
+                >
+                  <input
+                    checked=""
+                    class="mocked-styled-127 el-toggle-radio"
+                    id="option-is-active"
+                    name="isInstalled"
+                    type="radio"
+                    value="true"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="option-is-active"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span
+                      class="mocked-styled-124 el-toggle-radio-item"
+                    >
+                      Active
+                    </span>
+                  </label>
+                  <input
+                    class="mocked-styled-127 el-toggle-radio"
+                    id="option-is-terminated"
+                    name="isInstalled"
+                    type="radio"
+                    value="false"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="option-is-terminated"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span
+                      class="mocked-styled-124 el-toggle-radio-item"
+                    >
+                      Terminated
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
           </div>
         </form>
         <div
@@ -708,6 +764,62 @@ exports[`Installations should render component when loading 1`] = `
                     class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Free
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
+                Status
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="mocked-styled-127 el-toggle-radio"
+                  id="option-is-active"
+                  name="isInstalled"
+                  type="radio"
+                  value="true"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-is-active"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="mocked-styled-124 el-toggle-radio-item"
+                  >
+                    Active
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-127 el-toggle-radio"
+                  id="option-is-terminated"
+                  name="isInstalled"
+                  type="radio"
+                  value="false"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-is-terminated"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="mocked-styled-124 el-toggle-radio-item"
+                  >
+                    Terminated
                   </span>
                 </label>
               </div>
@@ -1147,6 +1259,62 @@ exports[`Installations should render component with data 1`] = `
                       class="mocked-styled-124 el-toggle-radio-item"
                     >
                       Free
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-133 el-input-wrap"
+            >
+              <div
+                class="mocked-styled-40 el-input-group"
+              >
+                <label
+                  class="mocked-styled-41 el-label"
+                >
+                  Status
+                </label>
+                <div
+                  class="el-has-grey-bg el-toggle-radio-wrap"
+                >
+                  <input
+                    checked=""
+                    class="mocked-styled-127 el-toggle-radio"
+                    id="option-is-active"
+                    name="isInstalled"
+                    type="radio"
+                    value="true"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="option-is-active"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span
+                      class="mocked-styled-124 el-toggle-radio-item"
+                    >
+                      Active
+                    </span>
+                  </label>
+                  <input
+                    class="mocked-styled-127 el-toggle-radio"
+                    id="option-is-terminated"
+                    name="isInstalled"
+                    type="radio"
+                    value="false"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="option-is-terminated"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span
+                      class="mocked-styled-124 el-toggle-radio-item"
+                    >
+                      Terminated
                     </span>
                   </label>
                 </div>
@@ -1869,6 +2037,62 @@ exports[`Installations should render component with data 1`] = `
                     class="mocked-styled-124 el-toggle-radio-item"
                   >
                     Free
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
+                Status
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="mocked-styled-127 el-toggle-radio"
+                  id="option-is-active"
+                  name="isInstalled"
+                  type="radio"
+                  value="true"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-is-active"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="mocked-styled-124 el-toggle-radio-item"
+                  >
+                    Active
+                  </span>
+                </label>
+                <input
+                  class="mocked-styled-127 el-toggle-radio"
+                  id="option-is-terminated"
+                  name="isInstalled"
+                  type="radio"
+                  value="false"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="option-is-terminated"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="mocked-styled-124 el-toggle-radio-item"
+                  >
+                    Terminated
                   </span>
                 </label>
               </div>

@@ -44,6 +44,9 @@ export const handleInstallationsToOptions = (installations?: Marketplace.Install
 
   const options: MultiSelectOption[] = [...new Set(customers)].map((customer) => JSON.parse(customer))
 
+  // Sort options alphabetically by name before rendering
+  options.sort((a, b) => a.name.localeCompare(b.name))
+
   return options
 }
 
@@ -129,11 +132,13 @@ export const Controls: FC = () => {
                 <option key="default-option" value="">
                   None selected
                 </option>
-                {apps?.data?.map(({ name, id }: Marketplace.AppSummaryModel) => (
-                  <option key={id} value={id}>
-                    {name}
-                  </option>
-                ))}
+                {apps?.data
+                  ?.sort((a, b) => (a.name || '').localeCompare(b.name || ''))
+                  .map(({ name, id }: Marketplace.AppSummaryModel) => (
+                    <option key={id} value={id}>
+                      {name}
+                    </option>
+                  ))}
               </Select>
               <Label>App</Label>
             </InputGroup>

@@ -20,6 +20,6 @@ export class PusherProvider {
   }
 
   authenticate(socket_id: string, channel_name: string) {
-    return this.pusher.authenticate(socket_id, channel_name)
+    return this.pusher.authorizeChannel(socket_id, channel_name)
   }
 }

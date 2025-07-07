@@ -52,7 +52,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
           For more information regarding Desktop Integration types, please
            
           <a
-            href="https://marketplace-documentation.reapit.cloud/integration-types"
+            href="https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -126,6 +126,8 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
            
           <a
             href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             click here
           </a>
@@ -207,7 +209,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
         For more information regarding Desktop Integration types, please
          
         <a
-          href="https://marketplace-documentation.reapit.cloud/integration-types"
+          href="https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -281,6 +283,8 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and d
          
         <a
           href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           click here
         </a>
@@ -419,7 +423,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
           For more information regarding Desktop Integration types, please
            
           <a
-            href="https://marketplace-documentation.reapit.cloud/integration-types"
+            href="https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -493,6 +497,8 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
            
           <a
             href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             click here
           </a>
@@ -574,7 +580,7 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
         For more information regarding Desktop Integration types, please
          
         <a
-          href="https://marketplace-documentation.reapit.cloud/integration-types"
+          href="https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -648,6 +654,8 @@ exports[`AppInstallModalContent should match a snapshot where an org admin and w
          
         <a
           href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           click here
         </a>
@@ -784,7 +792,7 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
           For more information regarding Desktop Integration types, please
            
           <a
-            href="https://marketplace-documentation.reapit.cloud/integration-types"
+            href="https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -838,6 +846,8 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
            
           <a
             href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             click here
           </a>
@@ -917,7 +927,7 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
         For more information regarding Desktop Integration types, please
          
         <a
-          href="https://marketplace-documentation.reapit.cloud/integration-types"
+          href="https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -971,6 +981,8 @@ exports[`AppInstallModalContent should match a snapshot where app is free 1`] = 
          
         <a
           href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           click here
         </a>
@@ -1105,7 +1117,7 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
           For more information regarding Desktop Integration types, please
            
           <a
-            href="https://marketplace-documentation.reapit.cloud/integration-types"
+            href="https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -1179,6 +1191,8 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
            
           <a
             href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             click here
           </a>
@@ -1256,7 +1270,7 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
         For more information regarding Desktop Integration types, please
          
         <a
-          href="https://marketplace-documentation.reapit.cloud/integration-types"
+          href="https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -1330,6 +1344,8 @@ exports[`AppInstallModalContent should match a snapshot where has off grouping, 
          
         <a
           href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           click here
         </a>
@@ -1466,7 +1482,7 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
           For more information regarding Desktop Integration types, please
            
           <a
-            href="https://marketplace-documentation.reapit.cloud/integration-types"
+            href="https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -1523,6 +1539,8 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
            
           <a
             href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             click here
           </a>
@@ -1602,7 +1620,7 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
         For more information regarding Desktop Integration types, please
          
         <a
-          href="https://marketplace-documentation.reapit.cloud/integration-types"
+          href="https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -1659,6 +1677,8 @@ exports[`AppInstallModalContent should match a snapshot where not free but no pr
          
         <a
           href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           click here
         </a>
@@ -1795,7 +1815,7 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
           For more information regarding Desktop Integration types, please
            
           <a
-            href="https://marketplace-documentation.reapit.cloud/integration-types"
+            href="https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -1869,6 +1889,8 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
            
           <a
             href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             click here
           </a>
@@ -1948,7 +1970,7 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
         For more information regarding Desktop Integration types, please
          
         <a
-          href="https://marketplace-documentation.reapit.cloud/integration-types"
+          href="https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -2022,6 +2044,8 @@ exports[`AppInstallModalContent should match a snapshot where not off grouping, 
          
         <a
           href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           click here
         </a>

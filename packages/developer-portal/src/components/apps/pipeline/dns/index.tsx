@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react'
 import { useAppState } from '../../state/use-app-state'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { PipelineTabs } from '../pipeline-tabs'
-import { Button, elMb6, Loader, PersistentNotification } from '@reapit/elements'
+import { elMb6, Loader, PersistentNotification } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { DnsConfiguration } from './dns-configuration'
@@ -18,6 +18,7 @@ export const PipelineDns: FC<{}> = () => {
     buildStatus,
     certificateError,
     id: pipelineId,
+    certificateStatus,
   } = appPipelineState.appPipeline as PipelineModelInterface & {
     domainVerified: string
     verifyDnsName: string
@@ -37,15 +38,8 @@ export const PipelineDns: FC<{}> = () => {
       {!isFoundationsDeveloperAdmin ? (
         <>
           <p>
-            You don&apos;t have permission to configure a custom DNS. Please contact the{' '}
-            <a
-              href="mailto:iaasbeta@reapitfoundations.zendesk.com?subject=IAAS%20Beta%20custom%20DNS%20permission"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              IaaS team.
-            </a>{' '}
-            if you&apos;re looking to configure a custom domain for your pipeline.
+            You do not have permission to configure a custom domain name. Please contact an administrator of your
+            developer organisation to request access
           </p>
         </>
       ) : connectSession && pipelineId ? (
@@ -62,6 +56,7 @@ export const PipelineDns: FC<{}> = () => {
               connectSession={connectSession}
               pipelineId={pipelineId}
               certificateError={certificateError}
+              certificateStatus={certificateStatus}
             />
           ) : (
             <PersistentNotification isExpanded isFullWidth isInline intent="danger">

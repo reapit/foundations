@@ -62,7 +62,12 @@ export const PrivateRouteWrapper: FC<PropsWithChildren> = ({ children }) => {
           <SmallText tag="p" hasSectionMargin hasGreyText className={elMt5}>
             Should you encounter an issue or need support, please use the &apos;Help&apos; button below.
           </SmallText>
-          <Button intent="neutral" onClick={openNewPage('https://rcservice-documentation.reapit.cloud/')}>
+          <Button
+            intent="neutral"
+            onClick={openNewPage(
+              'https://reapit.atlassian.net/wiki/spaces/FOUN/pages/2874114065/Reapit+Connect+Service+App',
+            )}
+          >
             Help
           </Button>
         </SecondaryNavContainer>

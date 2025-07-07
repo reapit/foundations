@@ -146,7 +146,7 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
               For more information regarding Desktop Integration types, please{' '}
               <DesktopLink
                 onClick={trackReadDocs}
-                uri="https://marketplace-documentation.reapit.cloud/integration-types"
+                uri="https://reapit.atlassian.net/wiki/spaces/RW/pages/2875359379/Desktop+integration+types+AppMarket"
                 acProcess={AcProcessType.web}
                 target="_blank"
                 content="click here"
@@ -202,7 +202,13 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
           ))}
           <BodyText className={cx(elMt6)} hasGreyText>
             For more detailed information about App permissions, please{' '}
-            <a href="https://foundations-documentation.reapit.cloud/platform-glossary/permissions">click here</a>.
+            <DesktopLink
+              uri="https://foundations-documentation.reapit.cloud/platform-glossary/permissions"
+              acProcess={AcProcessType.web}
+              target="_blank"
+              content="click here"
+            />
+            .
           </BodyText>
         </>
       </div>
