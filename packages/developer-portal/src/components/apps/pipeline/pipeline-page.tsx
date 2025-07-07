@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { PipelinesAbout } from './pipelines-about'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import {
@@ -30,6 +30,7 @@ export const PipelinePage: FC = () => {
   const { pathname } = location
   const { appDetail, appDetailLoading } = appsDataState
   const { appPipeline, appPipelineLoading } = appPipelineState
+  const [formIsBeingEdited, setFormIsBeingEdited] = useState<boolean>(false)
 
   const tab: PipelineTabs = pathname.includes('configure')
     ? 'configure'
