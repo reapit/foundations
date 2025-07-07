@@ -57,6 +57,7 @@ export enum GetActionNames {
   getDwShares = 'getDwShares',
   getUsers = 'getUsers',
   getUserAuthenticators = 'getUserAuthenticators',
+  getMarketplaceMemeberAuthenticators = 'getMarketplaceMemberAuthenticators',
   getReferralTypes = 'getReferralTypes',
   getGroupsByOrgId = 'getGroupsByOrgId',
   getPaymentsClientConfig = 'getPaymentsClientConfig',
@@ -67,8 +68,7 @@ export enum GetActionNames {
   getIps = 'getIps',
   getRules = 'getRules',
   getDwCustomers = 'getDwCustomers',
-  pipelineDnsCertificate = 'pipelineDnsCertificate',
-  pipelineDnsFetchCname = 'pipelineDnsFetchCname',
+  getPipelineDnsConfig = 'getPipelineDnsConfig',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -362,14 +362,13 @@ export const getActions = {
     path: PathNames.dwCustomers,
     errorMessage: 'Failed to fetch customers, this has been logged.',
   },
-  [GetActionNames.pipelineDnsCertificate]: {
+  [GetActionNames.getPipelineDnsConfig]: {
     api: ApiNames.pipeline,
-    path: PathNames.pipelineDnsCertificate,
+    path: PathNames.getPipelineDnsConfig,
     errorMessages: 'Failed to obtain certificate details',
   },
-  [GetActionNames.pipelineDnsFetchCname]: {
-    api: ApiNames.pipeline,
-    path: PathNames.pipelineDnsFetchCname,
-    errorMessages: 'Failed to obtain certificate details',
+  [GetActionNames.getMarketplaceMemeberAuthenticators]: {
+    api: ApiNames.platform,
+    path: PathNames.getMarketplaceMemberAuthenticators,
   },
 }

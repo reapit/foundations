@@ -185,7 +185,7 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline 
         <div
           class="el-text-base el-small-text el-has-grey-text"
         >
-          When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
+          When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment. By expanding the content, you can follow progress in real time and download logs.
         </div>
         <div
           class="mocked-styled-2 el-button-group"
@@ -399,7 +399,7 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline 
       <div
         class="el-text-base el-small-text el-has-grey-text"
       >
-        When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
+        When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment. By expanding the content, you can follow progress in real time and download logs.
       </div>
       <div
         class="mocked-styled-2 el-button-group"
@@ -678,7 +678,7 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
         <div
           class="el-text-base el-small-text el-has-grey-text"
         >
-          When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
+          When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment. By expanding the content, you can follow progress in real time and download logs.
         </div>
         <div
           class="mocked-styled-2 el-button-group"
@@ -892,7 +892,7 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
       <div
         class="el-text-base el-small-text el-has-grey-text"
       >
-        When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
+        When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment. By expanding the content, you can follow progress in real time and download logs.
       </div>
       <div
         class="mocked-styled-2 el-button-group"
@@ -1177,7 +1177,7 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
         <div
           class="el-text-base el-small-text el-has-grey-text"
         >
-          When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
+          When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment. By expanding the content, you can follow progress in real time and download logs.
         </div>
         <div
           class="mocked-styled-2 el-button-group"
@@ -1391,7 +1391,7 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
       <div
         class="el-text-base el-small-text el-has-grey-text"
       >
-        When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
+        When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment. By expanding the content, you can follow progress in real time and download logs.
       </div>
       <div
         class="mocked-styled-2 el-button-group"
@@ -1673,7 +1673,7 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
         <div
           class="el-text-base el-small-text el-has-grey-text"
         >
-          When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
+          When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment. By expanding the content, you can follow progress in real time and download logs.
         </div>
         <div
           class="mocked-styled-2 el-button-group"
@@ -1887,7 +1887,7 @@ exports[`PipelineControls should match snapshot for route /apps/:appId/pipeline/
       <div
         class="el-text-base el-small-text el-has-grey-text"
       >
-        When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
+        When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment. By expanding the content, you can follow progress in real time and download logs.
       </div>
       <div
         class="mocked-styled-2 el-button-group"
@@ -2178,7 +2178,7 @@ exports[`PipelineControls should match snapshot where pipeline is provisioning 1
         <div
           class="el-text-base el-small-text el-has-grey-text"
         >
-          When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
+          When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment. By expanding the content, you can follow progress in real time and download logs.
         </div>
         <div
           class="mocked-styled-2 el-button-group"
@@ -2393,7 +2393,7 @@ exports[`PipelineControls should match snapshot where pipeline is provisioning 1
       <div
         class="el-text-base el-small-text el-has-grey-text"
       >
-        When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
+        When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment. By expanding the content, you can follow progress in real time and download logs.
       </div>
       <div
         class="mocked-styled-2 el-button-group"
@@ -2682,7 +2682,7 @@ exports[`PipelineControls should match snapshot where there is no pipeline 1`] =
         <div
           class="el-text-base el-small-text el-has-grey-text"
         >
-          To get started with Reapit IAAS pipelines, first take the time to read the documentation. Then visit this page to configure your first pipeline.
+          To get started with Reapit IaaS pipelines, first take the time to read the documentation, then visit this page to configure your first pipeline.
         </div>
         <div
           class="mocked-styled-2 el-button-group"
@@ -2879,7 +2879,7 @@ exports[`PipelineControls should match snapshot where there is no pipeline 1`] =
       <div
         class="el-text-base el-small-text el-has-grey-text"
       >
-        To get started with Reapit IAAS pipelines, first take the time to read the documentation. Then visit this page to configure your first pipeline.
+        To get started with Reapit IaaS pipelines, first take the time to read the documentation, then visit this page to configure your first pipeline.
       </div>
       <div
         class="mocked-styled-2 el-button-group"

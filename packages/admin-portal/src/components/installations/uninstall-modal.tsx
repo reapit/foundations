@@ -3,13 +3,13 @@ import { BodyText, Button, ButtonGroup, FormLayout, InputGroup, InputWrapFull, M
 import { useForm } from 'react-hook-form'
 import { UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { TerminateInstallationModel } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import { useReapitConnect } from '@reapit/connect-session'
 import { SchemaOf, object, string } from 'yup'
 import { hasSpecialChars } from '@reapit/utils-common'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-const uninstallAppSchema: SchemaOf<Pick<TerminateInstallationModel, 'terminatedReason'>> = object().shape({
+const uninstallAppSchema: SchemaOf<Pick<Marketplace.TerminateInstallationModel, 'terminatedReason'>> = object().shape({
   terminatedReason: string()
     .trim()
     .required('Required')
@@ -33,7 +33,7 @@ export const UninstallModal: FC<{
   const [uninstalling, setUninstalling] = useState<boolean>(false)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
-  const [, , uninstallApp] = useReapitUpdate<TerminateInstallationModel, null>({
+  const [, , uninstallApp] = useReapitUpdate<Marketplace.TerminateInstallationModel, null>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.terminateInstallation],
     uriParams: {

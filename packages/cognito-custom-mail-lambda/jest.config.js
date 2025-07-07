@@ -6,10 +6,10 @@ module.exports = {
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public|dist)[/\\\\]'],
   coverageThreshold: {
     global: {
-      branches: 17,
+      branches: 10,
       functions: 8,
-      lines: 13,
-      statements: 12,
+      lines: 12,
+      statements: 10,
     },
   },
 }

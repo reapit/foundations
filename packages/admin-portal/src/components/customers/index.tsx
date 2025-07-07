@@ -1,7 +1,7 @@
 import React, { Dispatch, FC, useState, SetStateAction } from 'react'
 import ErrorBoundary from '../error-boundary'
 import { combineAddress } from '@reapit/utils-common'
-import { CustomerModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Marketplace } from '@reapit/foundations-ts-definitions'
 import {
   Button,
   ButtonGroup,
@@ -43,7 +43,7 @@ export const Customers: FC = () => {
 
   const queryParams = objectToQuery(customerFilters)
 
-  const [customers, customersLoading] = useReapitGet<CustomerModelPagedResult>({
+  const [customers, customersLoading] = useReapitGet<Marketplace.CustomerModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getCustomers],
     queryParams: {

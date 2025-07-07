@@ -1,12 +1,13 @@
 import { useReapitConnect } from '@reapit/connect-session'
 import { BodyText, Button, FormLayout, InputGroup, InputWrapFull, Modal, Subtitle, useModal } from '@reapit/elements'
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { useAppState } from '../../state/use-app-state'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
+import { UpdateActionNames, updateActions, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/use-reapit-data'
 import * as Yup from 'yup'
+import { DnsUKISuccessModal } from './dns-uki-success-modal'
 
 const domainRegex = new RegExp(/([a-z0-9|-]+\.)*[a-z0-9|-]+\.[a-z]+/)
 
@@ -14,14 +15,17 @@ export const validationSchema = Yup.object().shape({
   customDomain: Yup.string().matches(domainRegex, 'Should be a valid domain').trim().required(),
 })
 
-export const PipelineDnsStepModal: FC<{ customDomain?: string; buttonText?: string; pipelineId: string }> = ({
-  customDomain,
-  buttonText = 'Edit DNS',
-  pipelineId,
-}) => {
+export const PipelineDnsStepModal: FC<{
+  customDomain?: string
+  buttonText?: string
+  pipelineId: string
+  refresh: () => void
+}> = ({ customDomain, buttonText = 'Edit DNS', pipelineId, refresh }) => {
   const { modalIsOpen, closeModal, openModal } = useModal()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appPipelineState } = useAppState()
+  const [postLoading, setPostLoading] = useState<boolean>(false)
+  const [isUkiSuccessModalOpen, setIsUkiSuccessModalOpen] = useState<boolean>(false)
 
   const {
     register,
@@ -34,7 +38,10 @@ export const PipelineDnsStepModal: FC<{ customDomain?: string; buttonText?: stri
     resolver: yupResolver(validationSchema),
   })
 
-  const [sendingDns, , sendDnsRequest] = useReapitUpdate({
+  const [sendingDns, dnsInfo, sendDnsRequest] = useReapitUpdate<
+    { customDomain: string },
+    { cloudfrontUrl: string; certificate: string; customDomain: string }
+  >({
     action: updateActions[UpdateActionNames.createCustomPipelineDnsRecord],
     method: 'POST',
     headers: {
@@ -42,7 +49,24 @@ export const PipelineDnsStepModal: FC<{ customDomain?: string; buttonText?: stri
     },
     reapitConnectBrowserSession,
     uriParams: { pipelineId },
+    returnType: UpdateReturnTypeEnum.RESPONSE,
   })
+
+  useEffect(() => {
+    if (sendingDns) setPostLoading(true)
+  }, [sendingDns])
+
+  if (dnsInfo) {
+    setTimeout(() => {
+      if (dnsInfo.customDomain.includes('reapit.cloud')) {
+        setIsUkiSuccessModalOpen(true)
+        closeModal()
+      } else {
+        refresh()
+        appPipelineState.appPipelineRefresh()
+      }
+    }, 5000)
+  }
 
   return (
     <>
@@ -54,12 +78,7 @@ export const PipelineDnsStepModal: FC<{ customDomain?: string; buttonText?: stri
         <Subtitle>Setup DNS</Subtitle>
         <form
           onSubmit={handleSubmit(async (values) => {
-            const result = await sendDnsRequest(values)
-
-            if (result) {
-              appPipelineState.appPipelineRefresh()
-              closeModal()
-            }
+            await sendDnsRequest(values)
           })}
         >
           <FormLayout>
@@ -78,13 +97,21 @@ export const PipelineDnsStepModal: FC<{ customDomain?: string; buttonText?: stri
               />
             </InputWrapFull>
             <InputWrapFull>
-              <Button loading={sendingDns} disabled={sendingDns} intent="primary">
-                Next
+              <Button loading={sendingDns || postLoading} disabled={sendingDns || postLoading} intent="primary">
+                {sendingDns ? 'Creating Custom Domain' : postLoading ? 'Waiting for Certificate' : 'Next'}
               </Button>
             </InputWrapFull>
           </FormLayout>
         </form>
       </Modal>
+      <DnsUKISuccessModal
+        modalIsOpen={isUkiSuccessModalOpen}
+        onModalClose={() => {
+          setIsUkiSuccessModalOpen(false)
+          refresh()
+          appPipelineState.appPipelineRefresh()
+        }}
+      />
     </>
   )
 }

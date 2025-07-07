@@ -1,6 +1,6 @@
 {
   "name": "developer-portal",
-  "version": "4.1.14",
+  "version": "4.1.18",
   "description": "Developer Portal for PAAS platform",
   "main": "./src/index.ts",
   "repository": "git@github.com:reapit/app-store.git",
@@ -26,7 +26,7 @@
     "@linaria/core": "^6.2.0",
     "@linaria/react": "^6.2.1",
     "@reapit/connect-session": "^6.1.3",
-    "@reapit/elements": "^4.3.2",
+    "@reapit/elements": "4.3.2",
     "@reapit/foundations-ts-definitions": "^2.1.20",
     "@reapit/use-reapit-data": "workspace:packages/use-reapit-data",
     "@reapit/utils-common": "workspace:packages/utils-common",

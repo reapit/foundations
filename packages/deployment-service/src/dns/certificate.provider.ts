@@ -15,19 +15,19 @@ export class CertificateProvider {
     private readonly client: ACMClient,
   ) {}
 
-  async createCertificate(pipeline: PipelineEntity): Promise<string> {
+  async createCertificate(pipeline: PipelineEntity, customDomain: string): Promise<string> {
     const result = await this.client.send(
       new RequestCertificateCommand({
-        DomainName: pipeline.customDomain,
+        DomainName: customDomain,
         ValidationMethod: 'DNS',
         SubjectAlternativeNames: [
           // `www.${pipeline.customDomain}`, // if www is required?
-          pipeline.customDomain as string,
+          customDomain as string,
         ],
         DomainValidationOptions: [
           {
-            DomainName: pipeline.customDomain,
-            ValidationDomain: pipeline.customDomain,
+            DomainName: customDomain,
+            ValidationDomain: customDomain,
           },
         ],
         Options: {
@@ -56,6 +56,23 @@ export class CertificateProvider {
       const certificate = await this.client.send(
         new DescribeCertificateCommand({
           CertificateArn: pipeline.certificateArn,
+        }),
+      )
+
+      return certificate.Certificate
+    } catch (error: any) {
+      if (error instanceof ResourceNotFoundException) {
+        console.error(error.message)
+        return undefined
+      }
+    }
+  }
+
+  async obtainCertificateWithArn(CertificateArn: string) {
+    try {
+      const certificate = await this.client.send(
+        new DescribeCertificateCommand({
+          CertificateArn,
         }),
       )
 

@@ -102,6 +102,9 @@ The app Events handler is a very simple handler. The function is triggered from 
 
 The Function handles both `Created` and `Deleted` events and either creates a pre-provisioned pipeline for the app or schedules a pipeline for deletion.
 
+## DNS event flow
+![DNS Flow](docs/images/dns-flow.png)
+
 ## Important Functions
 
 ### Pipeline TearDown & starter

@@ -1,10 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import {
-  MemberModel,
-  MemberModelPagedResult,
-  UpdateMemberModel,
-  UserInfoModel,
-} from '@reapit/foundations-ts-definitions'
+import { Marketplace, Organisations } from '@reapit/foundations-ts-definitions'
 import {
   PersistentNotification,
   Table,
@@ -37,7 +32,11 @@ export interface MembersTableProps {
 }
 
 export const handleUpdateMember =
-  (updateMember: SendFunction<UpdateMemberModel, boolean>, memberUpdate: UpdateMemberModel | null) => () => {
+  (
+    updateMember: SendFunction<Marketplace.UpdateMemberModel, boolean>,
+    memberUpdate: Marketplace.UpdateMemberModel | null,
+  ) =>
+  () => {
     if (memberUpdate) {
       updateMember(memberUpdate)
     }
@@ -51,7 +50,8 @@ export const handleSetMemberEmail =
   }
 
 export const handleSetUpdateMember =
-  (setMemberUpdate: Dispatch<SetStateAction<MemberModel | null>>, memberUpdate: MemberModel) => () => {
+  (setMemberUpdate: Dispatch<SetStateAction<Marketplace.MemberModel | null>>, memberUpdate: Marketplace.MemberModel) =>
+  () => {
     setMemberUpdate(memberUpdate)
   }
 
@@ -63,7 +63,11 @@ export const handleRefreshMembers =
   }
 
 export const handleMemberDelete =
-  (setMemberDelete: Dispatch<SetStateAction<MemberModel | null>>, openModal: () => void, memberDelete: MemberModel) =>
+  (
+    setMemberDelete: Dispatch<SetStateAction<Marketplace.MemberModel | null>>,
+    openModal: () => void,
+    memberDelete: Marketplace.MemberModel,
+  ) =>
   () => {
     if (memberDelete) {
       setMemberDelete(memberDelete)
@@ -73,7 +77,7 @@ export const handleMemberDelete =
 
 export const handleDeleteMember =
   (
-    setMemberDelete: Dispatch<SetStateAction<MemberModel | null>>,
+    setMemberDelete: Dispatch<SetStateAction<Marketplace.MemberModel | null>>,
     closeModal: () => void,
     deleteMember: SendFunction<void, boolean>,
   ) =>
@@ -87,14 +91,14 @@ export const handleDeleteMember =
   }
 
 export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
-  const [memberUpdate, setMemberUpdate] = useState<MemberModel | null>(null)
+  const [memberUpdate, setMemberUpdate] = useState<Marketplace.MemberModel | null>(null)
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [memberEmail, setMemberEmail] = useState<string | null>(null)
-  const [memberDelete, setMemberDelete] = useState<MemberModel | null>(null)
+  const [memberDelete, setMemberDelete] = useState<Marketplace.MemberModel | null>(null)
   const { hasReadAccess } = usePermissionsState()
   const { Modal, openModal, closeModal } = useModal()
 
-  const [members, membersLoading, , refreshMembers] = useReapitGet<MemberModelPagedResult>({
+  const [members, membersLoading, , refreshMembers] = useReapitGet<Marketplace.MemberModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getDeveloperMembers],
     uriParams: {
@@ -108,7 +112,7 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
     fetchWhenTrue: [devIdMembers],
   })
 
-  const [userInfo, userInfoLoading] = useReapitGet<UserInfoModel>({
+  const [userInfo, userInfoLoading] = useReapitGet<Organisations.UserInfoModel>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getUserInfo],
     queryParams: {
@@ -118,15 +122,17 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
     fetchWhenTrue: [memberEmail],
   })
 
-  const [memberUpdating, , updateMember, updateMemberSuccess] = useReapitUpdate<UpdateMemberModel, boolean>({
-    reapitConnectBrowserSession,
-    action: updateActions[UpdateActionNames.updateMember],
-    method: 'PUT',
-    uriParams: {
-      developerId: devIdMembers,
-      memberId: memberUpdate?.id,
+  const [memberUpdating, , updateMember, updateMemberSuccess] = useReapitUpdate<Marketplace.UpdateMemberModel, boolean>(
+    {
+      reapitConnectBrowserSession,
+      action: updateActions[UpdateActionNames.updateMember],
+      method: 'PUT',
+      uriParams: {
+        developerId: devIdMembers,
+        memberId: memberUpdate?.id,
+      },
     },
-  })
+  )
 
   const [, , deleteMember, deleteMemberSuccess] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
@@ -180,13 +186,6 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
               {
                 label: 'Role',
                 value: role,
-                narrowTable: {
-                  showLabel: true,
-                },
-              },
-              {
-                label: 'Github Username',
-                value: gitHubUsername,
                 narrowTable: {
                   showLabel: true,
                 },

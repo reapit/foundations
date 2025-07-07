@@ -53,17 +53,8 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
 
       const aRecordId = await this.createARecord(pipeline, frontDomain as string)
 
-      const appDetails = await this.marketplaceProvider.getAppDetails(pipeline.appId as string)
-
       try {
-        await this.marketplaceProvider.updateAppUrls(
-          pipeline.appId as string,
-          pipelineSubDomain,
-          pipeline.developerId as string,
-          appDetails.name as string,
-          appDetails.redirectUris,
-          appDetails.signoutUris,
-        )
+        await this.marketplaceProvider.updateAppUrls(pipeline.appId as string, pipelineSubDomain)
       } catch (error) {
         if (isAxiosError(error)) {
           console.log('Failed to create app reivision')

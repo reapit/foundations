@@ -2,43 +2,23 @@ import React, { FC, useState } from 'react'
 import { useAppState } from '../../state/use-app-state'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { PipelineTabs } from '../pipeline-tabs'
-import { PipelineDnsStepThree } from './dns-step-three'
-import { PipelineDnsStepOne } from './dns-step-one'
-import { Button, elMb6, Loader, PersistentNotification } from '@reapit/elements'
-import { PipelineDnsStepTwo } from './dns-step-two'
-import { PipelineDnsStepFour } from './dns-step-four'
+import { elMb6, Loader, PersistentNotification } from '@reapit/elements'
+import { reapitConnectBrowserSession } from '../../../../core/connect-session'
+import { useReapitConnect } from '@reapit/connect-session'
+import { DnsConfiguration } from './dns-configuration'
 import { cx } from '@linaria/core'
 
-const resolveStep = ({
-  domainVerified,
-  certificateStatus,
-  verifyDnsValue,
-  customDomain,
-}: {
-  domainVerified: string
-  certificateStatus: string
-  verifyDnsValue: string
-  customDomain: string
-}): 'complete' | 'verified' | 'start' | 'not-started' => {
-  if (domainVerified && certificateStatus === 'complete') return 'complete'
-  else if (domainVerified) return 'verified'
-  else if (verifyDnsValue && customDomain) return 'start'
-  else if (customDomain) return 'start'
-  return 'not-started'
-}
-
 export const PipelineDns: FC<{}> = () => {
-  const { appId, appPipelineState } = useAppState()
+  const { appPipelineState } = useAppState()
   const [errorAcknowledged, setErrorAcknowledged] = useState<boolean>(false)
 
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+
   const {
-    domainVerified,
-    verifyDnsName,
-    verifyDnsValue,
-    customDomain,
-    certificateStatus,
     buildStatus,
     certificateError,
+    id: pipelineId,
+    certificateStatus,
   } = appPipelineState.appPipeline as PipelineModelInterface & {
     domainVerified: string
     verifyDnsName: string
@@ -48,63 +28,44 @@ export const PipelineDns: FC<{}> = () => {
     certificateError: string
   }
 
-  const step = resolveStep({ domainVerified, verifyDnsValue, customDomain, certificateStatus })
+  const isFoundationsDeveloperAdmin = connectSession?.loginIdentity.groups.includes('FoundationsDeveloperAdmin')
+  const canConfigureDns =
+    buildStatus && ['CREATED', 'READY_FOR_DEPLOYMENT', 'FAILED', 'SUCCEEDED', 'IN_PROGRESS'].includes(buildStatus)
 
   return (
     <>
       <PipelineTabs />
-      {errorAcknowledged && (
-        <PersistentNotification className={cx(elMb6)} isExpanded intent="danger" isInline>
-          {certificateError}
-        </PersistentNotification>
-      )}
-      {buildStatus && ['READY_FOR_DEPLOYMENT', 'FAILED', 'SUCCEEDED'].includes(buildStatus) ? (
+      {!isFoundationsDeveloperAdmin ? (
         <>
-          {certificateError && !errorAcknowledged ? (
+          <p>
+            You do not have permission to configure a custom domain name. Please contact an administrator of your
+            developer organisation to request access
+          </p>
+        </>
+      ) : connectSession && pipelineId ? (
+        <>
+          {certificateError && !errorAcknowledged && (
             <>
               <PersistentNotification className={cx(elMb6)} isExpanded intent="danger" isInline>
                 {certificateError}
               </PersistentNotification>
-              <Button
-                intent="primary"
-                loading={appPipelineState.appPipelineLoading}
-                disabled={appPipelineState.appPipelineLoading}
-                onClick={() => {
-                  appPipelineState.appPipelineRefresh()
-                  setErrorAcknowledged(true)
-                }}
-              >
-                Restart
-              </Button>
             </>
-          ) : appId ? (
-            step === 'complete' ? (
-              <PipelineDnsStepFour pipelineId={appId} customDomain={customDomain} />
-            ) : step === 'verified' ? (
-              <PipelineDnsStepThree
-                pipelineId={appId}
-                verifyDnsName={verifyDnsName}
-                customDomain={customDomain}
-                verifyDnsValue={verifyDnsValue}
-              />
-            ) : step === 'not-started' ? (
-              <PipelineDnsStepOne pipelineId={appId} />
-            ) : (
-              <PipelineDnsStepTwo
-                pipelineId={appId}
-                verifyDnsValue={verifyDnsValue}
-                customDomain={customDomain}
-                verifyDnsName={verifyDnsName}
-              />
-            )
+          )}
+          {canConfigureDns ? (
+            <DnsConfiguration
+              connectSession={connectSession}
+              pipelineId={pipelineId}
+              certificateError={certificateError}
+              certificateStatus={certificateStatus}
+            />
           ) : (
-            <Loader />
+            <PersistentNotification isExpanded isFullWidth isInline intent="danger">
+              You need to provision your pipeline before you can configure a custom DNS.
+            </PersistentNotification>
           )}
         </>
       ) : (
-        <PersistentNotification isExpanded={true} isInline intent="danger">
-          Ensure your app has been provisioned before configuring your DNS.
-        </PersistentNotification>
+        <Loader />
       )}
     </>
   )

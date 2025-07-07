@@ -28,9 +28,6 @@ export const FilterForm: FC<FilterFormProps> = ({ setDeveloperFilters }) => {
           <InputGroup {...register('company')} label="Company Name" type="search" />
         </InputWrap>
         <InputWrap>
-          <InputGroup {...register('gitHubUsername')} label="Github Username" type="search" />
-        </InputWrap>
-        <InputWrap>
           <InputGroup {...register('registeredFrom')} label="Registered From" type="date" />
         </InputWrap>
         <InputWrap>

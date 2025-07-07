@@ -3,7 +3,7 @@ import { DevopsConfig } from './project-config'
 import { getCredentials, uploadFiles } from './s3-upload'
 
 const {
-  GH_PAT,
+  DEVOPS_DEPLOYER_PAT,
   DEVOPS_OIDC_ROLE,
   DEVOPS_BUCKET_ROLE,
   DEVOPS_PRIMARY_REGION,
@@ -11,8 +11,8 @@ const {
   GITHUB_REPOSITORY,
 } = process.env
 
-if (!GH_PAT) {
-  console.error('GH_PAT not defined')
+if (!DEVOPS_DEPLOYER_PAT) {
+  console.error('DEVOPS_DEPLOYER_PAT not defined')
 }
 if (!DEVOPS_OIDC_ROLE) {
   console.error('DEVOPS_OIDC_ROLE not defined')
@@ -32,7 +32,7 @@ if (!GITHUB_REPOSITORY) {
 }
 
 if (
-  !GH_PAT ||
+  !DEVOPS_DEPLOYER_PAT ||
   !DEVOPS_OIDC_ROLE ||
   !DEVOPS_BUCKET_ROLE ||
   !DEVOPS_PRIMARY_REGION ||
@@ -44,7 +44,7 @@ if (
 
 export const devopsRelease = async ({ config, stage }: { config: DevopsConfig; stage: string }) => {
   const { assets, projectName } = config
-  const cdkJson = await getCdkJson(GH_PAT, projectName)
+  const cdkJson = await getCdkJson(DEVOPS_DEPLOYER_PAT, projectName)
   console.log('Found project in devops repo')
 
   if (!cdkJson.context) {
@@ -89,7 +89,7 @@ export const devopsRelease = async ({ config, stage }: { config: DevopsConfig; s
     }
   })
 
-  await updateCdkJson(GH_PAT, projectName, JSON.stringify(cdkJson, null, 2), stage)
+  await updateCdkJson(DEVOPS_DEPLOYER_PAT, projectName, JSON.stringify(cdkJson, null, 2), stage, true)
 
   console.log('Completed Successfully')
 }

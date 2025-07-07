@@ -7,6 +7,7 @@ import { OkayPage } from '@reapit/utils-react'
 import { Loader, PageContainer, PersistentNotification } from '@reapit/elements'
 import { FC } from 'react'
 import ErrorBoundary from './error-boundary'
+import { GithubAuthenticatedRedirectRoute } from '../components/apps/pipeline/github'
 
 const CustomerRegister = lazy(() => catchChunkError(() => import('../components/register/customer-register')))
 const Login = lazy(() => catchChunkError(() => import('../components/login')))
@@ -44,6 +45,8 @@ export const RoutesComponent = () => {
       <Route path={RoutePaths.REGISTER_CONFIRM} element={<RegisterConfirm />} />
       <Route path={RoutePaths.FOUR_O_FOUR} element={<FourOFour />} />
       <Route path={RoutePaths.INVITE} element={<Invite />} />
+      <Route path={RoutePaths.GITHUB_REDIRECT} element={<GithubAuthenticatedRedirectRoute />} />
+
       <Route
         path={RoutePaths.CUSTOMER_REGISTER}
         element={

@@ -1,21 +1,67 @@
 import React from 'react'
 import { render } from '../../../../../tests/react-testing'
-import { PipelineDnsStepFour } from '../dns-step-four'
-import { PipelineDnsStepOne } from '../dns-step-one'
-import { PipelineDnsStepThree } from '../dns-step-three'
-import { PipelineDnsStepTwo } from '../dns-step-two'
+import { DnsConfiguration } from '../dns-configuration'
+import { LoginIdentity } from '@reapit/connect-session'
 
-describe('DNS Steps', () => {
-  Object.entries({
-    one: PipelineDnsStepOne,
-    two: PipelineDnsStepTwo,
-    three: PipelineDnsStepThree,
-    four: PipelineDnsStepFour,
-  }).forEach(([key, Element]) => {
-    it(`should match snapshot for route ${key}`, () => {
-      expect(
-        render(<Element verifyDnsName="test" verifyDnsValue="test" customDomain="test" pipelineId="test" />),
-      ).toMatchSnapshot()
-    })
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
+  useReapitGet: jest.fn(),
+}))
+
+import { useReapitGet } from '@reapit/use-reapit-data'
+
+describe('DNS Configuration', () => {
+  it('Will show configuration page when dns info is returned', () => {
+    ;(useReapitGet as jest.Mock).mockImplementationOnce(() => [
+      {
+        customDomain: 'https://custom-domain.reapit.cloud',
+        cloudfrontUrl: 'dfgdfgdfg.cloudfront.com',
+        certificate: {
+          DomainValidationOptions: [
+            {
+              ResourceRecord: {
+                Name: 'dns record name',
+                Value: 'dns record value',
+                Type: 'CNAME',
+              },
+            },
+          ],
+        },
+      },
+    ])
+
+    expect(
+      render(
+        <DnsConfiguration
+          pipelineId="pipelineId"
+          connectSession={{
+            accessToken: 'accessToken',
+            refreshToken: 'refreshToken',
+            idToken: 'idToken',
+            loginIdentity: {} as LoginIdentity,
+          }}
+          certificateStatus="pending"
+        />,
+      ),
+    ).toMatchSnapshot()
+  })
+
+  it('Will show setup domain model component', () => {
+    ;(useReapitGet as jest.Mock).mockImplementationOnce(() => [undefined])
+
+    expect(
+      render(
+        <DnsConfiguration
+          pipelineId="pipelineId"
+          connectSession={{
+            accessToken: 'accessToken',
+            refreshToken: 'refreshToken',
+            idToken: 'idToken',
+            loginIdentity: {} as LoginIdentity,
+          }}
+          certificateStatus="pending"
+        />,
+      ),
+    ).toMatchSnapshot()
   })
 })
