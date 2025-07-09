@@ -1,6 +1,6 @@
 import React from 'react'
 import { UserModel } from '@reapit/foundations-ts-definitions'
-import { mockGroupModelPagedResult, mockUserModelPagedResult } from '../../../tests/__stubs__/users'
+import { mockUserModelPagedResult } from '../../../tests/__stubs__/users'
 import { render } from '../../../tests/react-testing'
 import { UpdateUserName } from '../update-user-name'
 

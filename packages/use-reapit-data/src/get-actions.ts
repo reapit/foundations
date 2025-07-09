@@ -69,6 +69,7 @@ export enum GetActionNames {
   getRules = 'getRules',
   getDwCustomers = 'getDwCustomers',
   getPipelineDnsConfig = 'getPipelineDnsConfig',
+  getUserStatusHistory = 'getUserStatusHistory',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -370,5 +371,9 @@ export const getActions = {
   [GetActionNames.getMarketplaceMemeberAuthenticators]: {
     api: ApiNames.platform,
     path: PathNames.getMarketplaceMemberAuthenticators,
+  },
+  [GetActionNames.getUserStatusHistory]: {
+    api: ApiNames.platform,
+    path: PathNames.getUserStatusHistory,
   },
 }

@@ -80,6 +80,7 @@ export enum UpdateActionNames {
   deleteIp = 'deleteIp',
   createRule = 'createRule',
   updateRule = 'updateRule',
+  userActiveToggleStatus = 'userActiveToggleStatus',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -504,5 +505,9 @@ export const updateActions = {
   [UpdateActionNames.createCustomPipelineDnsRecord]: {
     api: ApiNames.pipeline,
     path: PathNames.createCustomPipelineDnsRecord,
+  },
+  [UpdateActionNames.userActiveToggleStatus]: {
+    path: PathNames.userActiveToggleStatus,
+    api: ApiNames.platform,
   },
 }
