@@ -13,9 +13,11 @@ import {
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { AuthenticatorModel } from '@reapit/foundations-ts-definitions'
 import { ActiveAuthenticator } from '../active-authenticator'
+import { UpdateNameModal } from './update-name'
 
 interface FetchAuthenticatorsProps {
   userId?: string
+  name?: string
 }
 
 interface ShouldFetchState {
@@ -38,7 +40,7 @@ export const handleResetPassword =
     }
   }
 
-export const FetchAuthenticators: FC<FetchAuthenticatorsProps> = ({ userId }) => {
+export const FetchAuthenticators: FC<FetchAuthenticatorsProps> = ({ userId, name }) => {
   const [shouldFetch, setShouldFetch] = useState<ShouldFetchState>({})
   const { Modal } = useModal()
 
@@ -74,6 +76,7 @@ export const FetchAuthenticators: FC<FetchAuthenticatorsProps> = ({ userId }) =>
         <Button intent="primary" onClick={handleShouldFetch(setShouldFetch, { password: true })}>
           Reset Password
         </Button>
+        <UpdateNameModal userId={userId} name={name} />
       </ButtonGroup>
       {authenticatorsLoading ? (
         <Loader />

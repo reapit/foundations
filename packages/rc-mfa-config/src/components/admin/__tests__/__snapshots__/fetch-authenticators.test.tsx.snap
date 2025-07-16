@@ -31,6 +31,14 @@ exports[`FetchAuthenticators should render component with data 1`] = `
             />
             Reset Password
           </button>
+          <button
+            class="el-intent-primary el-button"
+          >
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
+            Update User's Name
+          </button>
         </div>
       </div>
       <div
@@ -129,6 +137,14 @@ exports[`FetchAuthenticators should render component with data 1`] = `
             class="mocked-styled-0 el-button-loader"
           />
           Reset Password
+        </button>
+        <button
+          class="el-intent-primary el-button"
+        >
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          Update User's Name
         </button>
       </div>
     </div>
@@ -286,6 +302,14 @@ exports[`FetchAuthenticators should render component with no data 1`] = `
             />
             Reset Password
           </button>
+          <button
+            class="el-intent-primary el-button"
+          >
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
+            Update User's Name
+          </button>
         </div>
       </div>
     </div>
@@ -316,6 +340,14 @@ exports[`FetchAuthenticators should render component with no data 1`] = `
             class="mocked-styled-0 el-button-loader"
           />
           Reset Password
+        </button>
+        <button
+          class="el-intent-primary el-button"
+        >
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          Update User's Name
         </button>
       </div>
     </div>
@@ -405,6 +437,14 @@ exports[`FetchAuthenticators should render component with props and loading 1`] 
             />
             Reset Password
           </button>
+          <button
+            class="el-intent-primary el-button"
+          >
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
+            Update User's Name
+          </button>
         </div>
       </div>
       <div
@@ -446,6 +486,14 @@ exports[`FetchAuthenticators should render component with props and loading 1`] 
             class="mocked-styled-0 el-button-loader"
           />
           Reset Password
+        </button>
+        <button
+          class="el-intent-primary el-button"
+        >
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          Update User's Name
         </button>
       </div>
     </div>

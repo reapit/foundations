@@ -267,7 +267,7 @@ export const AdminPage: FC = () => {
                     },
                   ],
                   expandableContent: {
-                    content: <FetchAuthenticators userId={id} />,
+                    content: <FetchAuthenticators userId={id} name={name} />,
                   },
                 }))}
               />
