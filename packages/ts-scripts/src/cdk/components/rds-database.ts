@@ -10,7 +10,7 @@ export const createDatabase = (
   bastion: boolean = false,
 ): rds.DatabaseCluster => {
   const db = new rds.DatabaseCluster(stack, name, {
-    engine: rds.DatabaseClusterEngine.auroraMysql({ version: rds.AuroraMysqlEngineVersion.VER_3_08_0 }),
+    engine: rds.DatabaseClusterEngine.auroraMysql({ version: rds.AuroraMysqlEngineVersion.VER_3_08_2 }),
     defaultDatabaseName: databaseName,
     vpc,
     writer: rds.ClusterInstance.provisioned('writer', {
