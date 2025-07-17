@@ -11,7 +11,7 @@ import { PipelineRunnerProvider } from '../pipeline-runner'
 import { plainToClass } from 'class-transformer'
 import { BitbucketClientData } from '../entities/bitbucket-client.entity'
 import { BitBucketEvent } from '../bitbucket'
-import { ParameterProvider } from '../pipeline'
+import { ParameterProvider, PipelineProvider } from '../pipeline'
 import { PackageManagerEnum } from '@reapit/foundations-ts-definitions'
 
 @Workflow(QueueNamesEnum.CODEBUILD_EXECUTOR)
@@ -31,6 +31,7 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
     private readonly pusherProvider: PusherProvider,
     private readonly parameterProvider: ParameterProvider,
     private readonly codeBuild: CodeBuild,
+    private readonly pipelineProvider: PipelineProvider,
   ) {
     super(sqsProvider)
   }
@@ -106,6 +107,7 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
     await Promise.all([
       this.deleteMessage(),
       this.pipelineRunnerProvider.save(pipelineRunner),
+      this.pipelineProvider.saveAll([pipeline]),
       this.pusherProvider.trigger(
         `private-${pipelineRunner.pipeline?.developerId}`,
         'pipeline-runner-update',
