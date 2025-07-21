@@ -38,8 +38,18 @@ export interface UserFilters {
 }
 
 export const handleSetAdminFilters =
-  (setUserSearch: Dispatch<SetStateAction<UserFilters>>, watch: UseFormWatch<UserFilters>) => () => {
-    const subscription = watch(debounce(setUserSearch, 200))
+  (
+    setUserSearch: Dispatch<SetStateAction<UserFilters>>,
+    watch: UseFormWatch<UserFilters>,
+    setPageNumber: Dispatch<number>,
+  ) =>
+  () => {
+    const subscription = watch(
+      debounce((value) => {
+        setPageNumber(1)
+        setUserSearch(value)
+      }, 200),
+    )
     return () => subscription.unsubscribe()
   }
 
@@ -69,7 +79,7 @@ export const UsersPage: FC = () => {
     fetchWhenTrue: [],
   })
 
-  useEffect(handleSetAdminFilters(setUserSearch, watch), [])
+  useEffect(handleSetAdminFilters(setUserSearch, watch, setPageNumber), [])
 
   return (
     <ErrorBoundary>
