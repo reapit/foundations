@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Modal,
   useModal,
@@ -13,6 +13,9 @@ import {
   ModalHeader,
   Title,
   ToggleRadio,
+  elMb11,
+  ButtonGroup,
+  InputGroup,
 } from '@reapit/elements'
 import { FC } from 'react'
 import { UserModel } from '@reapit/foundations-ts-definitions'
@@ -38,6 +41,8 @@ const validationSchema = object().shape({
 
 export const UpdateUserActive: FC<{ user: UserModel }> = ({ user }) => {
   const { modalIsOpen, closeModal, openModal } = useModal()
+  const [canSendNotifications, setCanSendNotifications] = useState(false)
+  const [canSubmit, setCanSubmit] = useState(false)
 
   const {
     register,
@@ -67,10 +72,7 @@ export const UpdateUserActive: FC<{ user: UserModel }> = ({ user }) => {
       <Button intent="primary" onClick={() => openModal()}>
         Update Status
       </Button>
-      <Modal isOpen={modalIsOpen} onModalClose={closeModal}>
-        <ModalHeader>
-          <Title>Update User Status {user.email}</Title>
-        </ModalHeader>
+      <Modal title="Update User Status" isOpen={modalIsOpen} onModalClose={closeModal}>
         <form
           onSubmit={handleSubmit(async (values) => {
             const result = await updateUser(values)
@@ -78,8 +80,9 @@ export const UpdateUserActive: FC<{ user: UserModel }> = ({ user }) => {
             if (result) closeModal()
           })}
         >
-          <FormLayout>
-            <InputWrapFull>
+          <FormLayout className={elMb11}>
+            <InputGroup>
+              <Label>Status</Label>
               <ToggleRadio
                 {...register('status')}
                 options={[
@@ -92,36 +95,57 @@ export const UpdateUserActive: FC<{ user: UserModel }> = ({ user }) => {
                   {
                     id: 'inactive',
                     value: 'inactive',
-                    text: 'InActive',
+                    text: 'Inactive',
                     isChecked: user.inactive || false,
                   },
                 ]}
               />
+            </InputGroup>
+            <InputWrapFull>
+              <InputGroup>
+                <Label>Reason</Label>
+                <Select
+                  {...register('category')}
+                  onChange={(e) => {
+                    setCanSendNotifications(e.target.value === 'Suspicious Activity')
+                  }}
+                >
+                  <option value={''}>Select a Reason</option>
+                  <option value={'Suspicious Activity'}>Suspicious Activity</option>
+                  <option value={'User Request'}>User Request</option>
+                  <option value={'Another Reason'}>Another Reason</option>
+                </Select>
+                {errors.category && errors?.category?.message && <InputError message={errors.category.message} />}
+              </InputGroup>
             </InputWrapFull>
             <InputWrapFull>
-              <Label>Reason</Label>
-              <Select {...register('category')}>
-                <option value={''}>Select a Reason</option>
-                <option value={'Suspicious Activity'}>Suspicious Activity</option>
-                <option value={'User Request'}>User Request</option>
-                <option value={'Another Reason'}>Another Reason</option>
-              </Select>
-              {errors.category && errors?.category?.message && <InputError message={errors.category.message} />}
+              <InputGroup>
+                <Label>Notes</Label>
+                <TextArea
+                  type="text"
+                  {...register('reason')}
+                  placeholder="Internal notes about this status change. This information is not included in email notifications but is visible to other employees using the Status History functionality"
+                ></TextArea>
+              </InputGroup>
             </InputWrapFull>
             <InputWrapFull>
-              <Label>Notes</Label>
-              <TextArea {...register('reason')} placeholder="notes about this active"></TextArea>
-            </InputWrapFull>
-            <InputWrapFull>
-              <Label>Notify user</Label>
-              <Input type="checkbox" {...register('notify')} />
-            </InputWrapFull>
-            <InputWrapFull>
-              <Button disabled={userUpdateLoading} loading={userUpdateLoading} intent="primary">
-                Update
-              </Button>
+              <InputGroup>
+                <Label>Send email notification to user</Label>
+                <Input type="checkbox" {...register('notify')} disabled={!canSendNotifications} />
+              </InputGroup>
             </InputWrapFull>
           </FormLayout>
+          <ButtonGroup alignment="right">
+            <Button onClick={closeModal}>Cancel</Button>
+            <Button
+              disabled={userUpdateLoading || !canSubmit}
+              loading={userUpdateLoading}
+              intent="primary"
+              type="submit"
+            >
+              Update
+            </Button>
+          </ButtonGroup>
         </form>
       </Modal>
     </>
