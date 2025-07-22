@@ -3,6 +3,7 @@ import { UserModel } from '@reapit/foundations-ts-definitions'
 import {
   BodyText,
   Button,
+  ButtonGroup,
   elFadeIn,
   elMb11,
   Loader,
@@ -15,6 +16,8 @@ import {
 import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { cx } from '@linaria/core'
+import dayjs from 'dayjs'
+import { customModal } from './__styles__'
 
 export const UserStatusHistory: FC<{ user: UserModel }> = ({ user }) => {
   const { modalIsOpen, closeModal, openModal } = useModal()
@@ -42,7 +45,7 @@ export const UserStatusHistory: FC<{ user: UserModel }> = ({ user }) => {
       <Button intent="primary" onClick={openModal}>
         Review Status History
       </Button>
-      <Modal isOpen={modalIsOpen} onModalClose={closeModal}>
+      <Modal className={cx(customModal)} isOpen={modalIsOpen} onModalClose={closeModal}>
         <ModalHeader>
           <Title>Status History</Title>
         </ModalHeader>
@@ -50,21 +53,18 @@ export const UserStatusHistory: FC<{ user: UserModel }> = ({ user }) => {
         {!loading && history?._embedded.length === 0 && <BodyText>No history</BodyText>}
         <Table
           className={cx(elFadeIn, elMb11)}
+          numberColumns={5}
           rows={history?._embedded?.map((item) => {
             const { created, status, actor, notify, category, reason } = item
             return {
               cells: [
                 {
                   label: 'Created',
-                  value: created ?? '-',
+                  value: dayjs(created).format('DD/MM/YYYY HH:mm:ss') ?? '-',
                 },
                 {
                   label: 'Status',
-                  value: status ?? '-',
-                },
-                {
-                  label: 'Changed By',
-                  value: actor ?? '-',
+                  value: status ? status.charAt(0).toUpperCase() + status?.slice(1) : '-',
                 },
                 {
                   label: 'User Notified',
@@ -77,17 +77,25 @@ export const UserStatusHistory: FC<{ user: UserModel }> = ({ user }) => {
                     showLabel: true,
                   },
                 },
-                {
-                  label: 'Reason',
-                  value: reason ?? '-',
-                  narrowTable: {
-                    showLabel: true,
-                  },
-                },
               ],
+              expandableContent: {
+                content: (
+                  <>
+                    <BodyText>
+                      <strong>Changed By:</strong> {actor ?? '-'}
+                    </BodyText>
+                    <BodyText>
+                      <strong>Reason:</strong> {reason ?? '-'}
+                    </BodyText>
+                  </>
+                ),
+              },
             }
           })}
         />
+        <ButtonGroup alignment="right">
+          <Button onClick={closeModal}>Close</Button>
+        </ButtonGroup>
       </Modal>
     </>
   )

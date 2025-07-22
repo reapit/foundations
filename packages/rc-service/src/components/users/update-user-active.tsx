@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Modal,
   useModal,
@@ -48,15 +48,24 @@ export const UpdateUserActive: FC<{ user: UserModel }> = ({ user }) => {
     register,
     formState: { errors },
     handleSubmit,
+    watch,
   } = useForm({
     defaultValues: {
       category: '',
       reason: '',
       notify: false,
-      status: !user.inactive ? 'inactive' : 'active',
+      status: user.inactive ? 'inactive' : 'active',
     },
     resolver: yupResolver(validationSchema) as any,
   })
+
+  const [category, reason] = watch(['category', 'reason'])
+
+  useEffect(() => {
+    console.log('Category:', category, 'Reason:', reason)
+    setCanSendNotifications(category === 'Suspicious Activity')
+    setCanSubmit(category !== '' && reason !== '')
+  }, [category, reason])
 
   const [userUpdateLoading, , updateUser] = useReapitUpdate<UserStatusToggle, boolean>({
     reapitConnectBrowserSession,
@@ -104,12 +113,7 @@ export const UpdateUserActive: FC<{ user: UserModel }> = ({ user }) => {
             <InputWrapFull>
               <InputGroup>
                 <Label>Reason</Label>
-                <Select
-                  {...register('category')}
-                  onChange={(e) => {
-                    setCanSendNotifications(e.target.value === 'Suspicious Activity')
-                  }}
-                >
+                <Select {...register('category')}>
                   <option value={''}>Select a Reason</option>
                   <option value={'Suspicious Activity'}>Suspicious Activity</option>
                   <option value={'User Request'}>User Request</option>

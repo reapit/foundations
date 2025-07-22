@@ -26,3 +26,7 @@ export const DisplayChip = styled.span`
 export const threeColTable = css`
   grid-template-columns: repeat(3, 1fr);
 `
+
+export const customModal = css`
+  max-height: 60vh;
+`
