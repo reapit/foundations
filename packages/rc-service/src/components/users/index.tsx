@@ -63,7 +63,7 @@ export const downloadCSV = async ({
     const query = new URLSearchParams({
       ...filters,
       pageSize: '100',
-      page: page.toString(),
+      pageNumber: page.toString(),
     })
     const result = await fetch(`${getPlatformApiUrl()}/organisations/users?${query.toString()}`, {
       headers: {
