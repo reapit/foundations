@@ -199,8 +199,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
           <h1
             class="el-text-base el-title"
           >
-            Users List 
-            - XTM Estates Ltd
+            Users List
           </h1>
           <form>
             <div
@@ -863,8 +862,7 @@ exports[`AdminPage should match a snapshot when has data 1`] = `
         <h1
           class="el-text-base el-title"
         >
-          Users List 
-          - XTM Estates Ltd
+          Users List
         </h1>
         <form>
           <div
@@ -1536,7 +1534,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
           <h1
             class="el-text-base el-title"
           >
-            Users List 
+            Users List
           </h1>
           <form>
             <div
@@ -1890,7 +1888,7 @@ exports[`AdminPage should match a snapshot when loading 1`] = `
         <h1
           class="el-text-base el-title"
         >
-          Users List 
+          Users List
         </h1>
         <form>
           <div
@@ -2349,7 +2347,7 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
           <h1
             class="el-text-base el-title"
           >
-            Users List 
+            Users List
           </h1>
           <form>
             <div
@@ -2776,7 +2774,7 @@ exports[`AdminPage should match a snapshot when no users found 1`] = `
         <h1
           class="el-text-base el-title"
         >
-          Users List 
+          Users List
         </h1>
         <form>
           <div
@@ -3212,8 +3210,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
           <h1
             class="el-text-base el-title"
           >
-            Users List 
-            - XTM Estates Ltd
+            Users List
           </h1>
           <form>
             <div
@@ -3828,8 +3825,7 @@ exports[`AdminPage should match a snapshot when not multi org 1`] = `
         <h1
           class="el-text-base el-title"
         >
-          Users List 
-          - XTM Estates Ltd
+          Users List
         </h1>
         <form>
           <div
