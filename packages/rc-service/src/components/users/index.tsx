@@ -55,7 +55,7 @@ export const downloadCSV = async ({
   filters: UserFilters
   token: string
 }) => {
-  const data: any[] = []
+  const data: UserModel[] = []
   let page = 1
   let totalPageCount = 2
 
@@ -99,12 +99,14 @@ export const downloadCSV = async ({
     row.name,
     row.email,
     row.jobTitle,
-    row.active,
+    !!row.inactive,
     row.mfaEnabled,
     row.organisationName,
     row.organisationId,
     row.created,
     row.firstLoginDate,
+    row.consentToTrack,
+    row.userGroups?.map((group) => group.groupId),
   ])
 
   dataForDownload.unshift([
@@ -117,7 +119,11 @@ export const downloadCSV = async ({
     'Organisation Id',
     'Created',
     'First Login Date',
+    'Content to Track',
+    'User Roles',
   ])
+
+  console.log(dataForDownload)
 
   const csv = dataForDownload
     .map((row) =>
