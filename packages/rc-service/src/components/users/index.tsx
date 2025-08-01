@@ -14,9 +14,10 @@ import {
   ToggleRadio,
   Select,
   BodyText,
+  Button,
 } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { GroupModelPagedResult, UserModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { GroupModelPagedResult, UserModel, UserModelPagedResult } from '@reapit/foundations-ts-definitions'
 import ErrorBoundary from '../error-boundary'
 import { useForm, UseFormWatch } from 'react-hook-form'
 import { cx } from '@linaria/core'
@@ -24,6 +25,8 @@ import { GetActionNames, getActions, objectToQuery, useReapitGet } from '@reapit
 import debounce from 'just-debounce-it'
 import dayjs from 'dayjs'
 import { UserContent } from './user-content'
+import { useReapitConnect } from '@reapit/connect-session'
+import { getPlatformApiUrl } from '@reapit/use-reapit-data/src/api-regions'
 
 export interface UserFilters {
   email?: string
@@ -43,9 +46,108 @@ export const handleSetAdminFilters =
     return () => subscription.unsubscribe()
   }
 
+export const downloadCSV = async ({
+  setDownloadGenerating,
+  filters,
+  token,
+}: {
+  setDownloadGenerating: Dispatch<SetStateAction<boolean>>
+  filters: UserFilters
+  token: string
+}) => {
+  const data: UserModel[] = []
+  let page = 1
+  let totalPageCount = 2
+
+  const getPage = async (page: number): Promise<{ items: UserModel[]; page: number; totalPageCount: number }> => {
+    const query = new URLSearchParams({
+      ...filters,
+      pageSize: '100',
+      pageNumber: page.toString(),
+    })
+    const result = await fetch(`${getPlatformApiUrl()}/organisations/users?${query.toString()}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'api-version': 'latest',
+      },
+    })
+
+    const body = await result.json()
+
+    const items = body._embedded
+    const totalPageCount = body.totalPageCount
+
+    return {
+      page: page + 1,
+      items,
+      totalPageCount,
+    }
+  }
+  setDownloadGenerating(true)
+
+  do {
+    const { items, page: newPage, totalPageCount: newTotalPageCount } = await getPage(page)
+    items.forEach((item) => data.push(item))
+
+    totalPageCount = newTotalPageCount
+    page = newPage
+  } while (page <= totalPageCount)
+
+  setDownloadGenerating(false)
+
+  const dataForDownload = data.map((row) => [
+    row.name,
+    row.email,
+    row.jobTitle,
+    !!row.inactive,
+    row.mfaEnabled,
+    row.organisationName,
+    row.organisationId,
+    row.created,
+    row.firstLoginDate,
+    row.consentToTrack,
+    row.userGroups?.map((group) => group.groupId),
+  ])
+
+  dataForDownload.unshift([
+    'Name',
+    'Email',
+    'JobTitle',
+    'Active',
+    'Mfa Enabled',
+    'Organisation Name',
+    'Organisation Id',
+    'Created',
+    'First Login Date',
+    'Content to Track',
+    'User Roles',
+  ])
+
+  console.log(dataForDownload)
+
+  const csv = dataForDownload
+    .map((row) =>
+      row
+        .map(String)
+        .map((value) => value.replaceAll('"', '""'))
+        .map((value) => `"${value}"`)
+        .join(','),
+    )
+    .join('\r\n')
+
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' })
+  const url = URL.createObjectURL(blob)
+  const button = document.createElement('a')
+  button.href = url
+  button.setAttribute('download', 'users.csv')
+  button.click()
+}
+
 export const UsersPage: FC = () => {
   const [userSearch, setUserSearch] = useState<UserFilters>({})
   const [pageNumber, setPageNumber] = useState<number>(1)
+  const [downloadDisabled, setDownloadDisabled] = useState<boolean>(true)
+  const [downloadGenerating, setDownloadGenerating] = useState<boolean>(false)
   const { register, watch } = useForm<UserFilters>({ mode: 'all' })
   const emailQuery = {
     email: userSearch.email ? encodeURIComponent(userSearch.email) : undefined,
@@ -54,6 +156,7 @@ export const UsersPage: FC = () => {
     ...userSearch,
     ...emailQuery,
   })
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
   const [users, usersLoading, , refreshUsers] = useReapitGet<UserModelPagedResult>({
     reapitConnectBrowserSession,
@@ -70,6 +173,9 @@ export const UsersPage: FC = () => {
   })
 
   useEffect(handleSetAdminFilters(setUserSearch, watch), [])
+  useEffect(() => {
+    setDownloadDisabled(!Object.values(userSearch).some((value) => value !== ''))
+  }, [userSearch])
 
   return (
     <ErrorBoundary>
@@ -197,6 +303,22 @@ export const UsersPage: FC = () => {
               placeholder="First Login Date To"
               label="First Login Date To"
             />
+          </InputWrap>
+          <InputWrap>
+            <Button
+              onClick={() =>
+                downloadCSV({
+                  setDownloadGenerating,
+                  token: connectSession?.accessToken as string,
+                  filters: queryParams,
+                })
+              }
+              disabled={downloadDisabled || downloadGenerating}
+              intent="primary"
+              loading={downloadGenerating}
+            >
+              {downloadGenerating ? 'Generating' : 'Download'}
+            </Button>
           </InputWrap>
         </FormLayout>
       </form>
