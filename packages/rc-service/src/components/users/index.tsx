@@ -26,6 +26,7 @@ import debounce from 'just-debounce-it'
 import dayjs from 'dayjs'
 import { UserContent } from './user-content'
 import { useReapitConnect } from '@reapit/connect-session'
+import { getPlatformApiUrl } from '@reapit/use-reapit-data/src/api-regions'
 
 export interface UserFilters {
   email?: string
@@ -64,7 +65,7 @@ export const downloadCSV = async ({
       pageSize: '100',
       page: page.toString(),
     })
-    const result = await fetch(`https://platform.dev.paas.reapit.cloud/organisations/users?${query.toString()}`, {
+    const result = await fetch(`${getPlatformApiUrl()}/organisations/users?${query.toString()}`, {
       headers: {
         Authorization: `Bearer ${token}`,
         'api-version': 'latest',
