@@ -45,7 +45,7 @@ export const handleSetAdminFilters =
     return () => subscription.unsubscribe()
   }
 
-const downloadCSV = async ({
+export const downloadCSV = async ({
   setDownloadGenerating,
   filters,
   token,
@@ -54,11 +54,6 @@ const downloadCSV = async ({
   filters: UserFilters
   token: string
 }) => {
-  // TODO get all pages
-  // TODO store in array
-  // TODO convert to CSV
-  // TODO send CSV buffer for download
-
   const data: any[] = []
   let page = 1
   let totalPageCount = 2
@@ -95,7 +90,6 @@ const downloadCSV = async ({
 
     totalPageCount = newTotalPageCount
     page = newPage
-    console.log('page', page, totalPageCount)
   } while (page <= totalPageCount)
 
   setDownloadGenerating(false)
