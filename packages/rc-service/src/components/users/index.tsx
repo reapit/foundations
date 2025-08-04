@@ -123,8 +123,6 @@ export const downloadCSV = async ({
     'User Roles',
   ])
 
-  console.log(dataForDownload)
-
   const csv = dataForDownload
     .map((row) =>
       row
@@ -172,10 +170,10 @@ export const UsersPage: FC = () => {
     fetchWhenTrue: [],
   })
 
-  useEffect(handleSetAdminFilters(setUserSearch, watch), [])
-  useEffect(() => {
-    setDownloadDisabled(!Object.values(userSearch).some((value) => value !== ''))
-  }, [userSearch])
+  // useEffect(handleSetAdminFilters(setUserSearch, watch), [])
+  // useEffect(() => {
+  //   setDownloadDisabled(!Object.values(userSearch).some((value) => value !== ''))
+  // }, [userSearch])
 
   return (
     <ErrorBoundary>
