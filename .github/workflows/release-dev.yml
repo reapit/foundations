@@ -17,7 +17,6 @@ env:
   SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN}}
   CI: true
   APP_STAGE: 'development'
-  GH_PAT: ${{ secrets.GH_PAT }}
   DEVOPS_OIDC_ROLE: ${{ secrets.DEVOPS_OIDC_ROLE }}
   DEVOPS_BUCKET_ROLE: ${{ secrets.DEVOPS_BUCKET_ROLE }}
   DEVOPS_PRIMARY_REGION: ${{ secrets.DEVOPS_PRIMARY_REGION }}
