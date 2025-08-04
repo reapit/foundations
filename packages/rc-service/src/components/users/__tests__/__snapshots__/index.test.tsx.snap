@@ -436,19 +436,6 @@ exports[`UsersPage should match a snapshot 1`] = `
               </label>
             </div>
           </div>
-          <div
-            class="mocked-styled-133 el-input-wrap"
-          >
-            <button
-              class="el-intent-primary el-button"
-              disabled=""
-            >
-              <div
-                class="mocked-styled-0 el-button-loader"
-              />
-              Download
-            </button>
-          </div>
         </div>
       </form>
       <p
@@ -839,6 +826,19 @@ exports[`UsersPage should match a snapshot 1`] = `
               />
             </svg>
           </span>
+        </button>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <button
+          class="el-intent-primary el-button"
+          disabled=""
+        >
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          Download
         </button>
       </div>
     </div>
@@ -1275,19 +1275,6 @@ exports[`UsersPage should match a snapshot 1`] = `
             </label>
           </div>
         </div>
-        <div
-          class="mocked-styled-133 el-input-wrap"
-        >
-          <button
-            class="el-intent-primary el-button"
-            disabled=""
-          >
-            <div
-              class="mocked-styled-0 el-button-loader"
-            />
-            Download
-          </button>
-        </div>
       </div>
     </form>
     <p
@@ -1678,6 +1665,19 @@ exports[`UsersPage should match a snapshot 1`] = `
             />
           </svg>
         </span>
+      </button>
+    </div>
+    <div
+      class="mocked-styled-133 el-input-wrap"
+    >
+      <button
+        class="el-intent-primary el-button"
+        disabled=""
+      >
+        <div
+          class="mocked-styled-0 el-button-loader"
+        />
+        Download
       </button>
     </div>
   </div>,
