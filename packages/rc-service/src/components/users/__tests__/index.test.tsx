@@ -3,6 +3,10 @@ import { render } from '../../../tests/react-testing'
 import UsersPage, { downloadCSV } from '..'
 import { mockUserModelPagedResult } from '../../../tests/__stubs__/users'
 
+jest.mock('../user-content.tsx', () => ({
+  UserContent: () => <></>,
+}))
+
 jest.mock('@reapit/use-reapit-data', () => ({
   ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [mockUserModelPagedResult]),
@@ -44,6 +48,15 @@ describe('UsersPage', () => {
       await downloadCSV({ setDownloadGenerating, token: 'TOKEN', filters: {} })
 
       expect(fetch).toHaveBeenCalledTimes(3)
+    })
+
+    it('Download button should be disabled when no form data entered', async () => {
+      const wrapper = render(<UsersPage />)
+
+      const downloadButton = await wrapper.findAllByText('Download')
+
+      // @ts-ignore
+      expect(downloadButton[0].disabled).toBeTruthy()
     })
   })
 })
