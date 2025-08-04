@@ -98,14 +98,14 @@ export const downloadCSV = async ({
   const dataForDownload = data.map((row) => [
     row.name,
     row.email,
-    row.jobTitle,
-    !!row.inactive,
-    row.mfaEnabled,
-    row.organisationName,
-    row.organisationId,
+    row.jobTitle ?? '',
+    row.inactive ? 'Inactive' : 'Active',
+    row.mfaEnabled ? 'Enabled' : 'Not Configured',
+    row.organisationName ?? '',
+    row.organisationId ?? '',
     row.created,
     row.firstLoginDate,
-    row.consentToTrack,
+    row.consentToTrack ? 'Yes' : 'No',
     row.userGroups?.map((group) => group.groupId),
   ])
 
@@ -113,13 +113,13 @@ export const downloadCSV = async ({
     'Name',
     'Email',
     'JobTitle',
-    'Active',
-    'Mfa Enabled',
+    'Status',
+    'MFA Status',
     'Organisation Name',
     'Organisation Id',
     'Created',
     'First Login Date',
-    'Content to Track',
+    'Consent to Track',
     'User Roles',
   ])
 
@@ -304,22 +304,7 @@ export const UsersPage: FC = () => {
               label="First Login Date To"
             />
           </InputWrap>
-          <InputWrap>
-            <Button
-              onClick={() =>
-                downloadCSV({
-                  setDownloadGenerating,
-                  token: connectSession?.accessToken as string,
-                  filters: queryParams,
-                })
-              }
-              disabled={downloadDisabled || downloadGenerating}
-              intent="primary"
-              loading={downloadGenerating}
-            >
-              {downloadGenerating ? 'Generating' : 'Download'}
-            </Button>
-          </InputWrap>
+          
         </FormLayout>
       </form>
       {usersLoading ? (
@@ -418,6 +403,22 @@ export const UsersPage: FC = () => {
             currentPage={pageNumber}
             numberPages={Math.ceil((users?.totalCount ?? 1) / 12)}
           />
+          <InputWrap>
+            <Button
+              onClick={() =>
+                downloadCSV({
+                  setDownloadGenerating,
+                  token: connectSession?.accessToken as string,
+                  filters: queryParams,
+                })
+              }
+              disabled={downloadDisabled || downloadGenerating}
+              intent="primary"
+              loading={downloadGenerating}
+            >
+              {downloadGenerating ? 'Generating' : 'Download'}
+            </Button>
+          </InputWrap>
         </>
       ) : (
         <PersistentNotification isFullWidth isExpanded intent="primary" isInline>
