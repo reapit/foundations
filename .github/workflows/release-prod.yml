@@ -14,6 +14,7 @@ env:
   CI: true
   IS_RELEASE: true
   APP_STAGE: 'production'
+  GH_PAT: ${{ secrets.GH_PAT }}
   DEVOPS_OIDC_ROLE: ${{ secrets.DEVOPS_OIDC_ROLE }}
   DEVOPS_BUCKET_ROLE: ${{ secrets.DEVOPS_BUCKET_ROLE }}
   DEVOPS_PRIMARY_REGION: ${{ secrets.DEVOPS_PRIMARY_REGION }}
@@ -21,7 +22,7 @@ env:
   DEVOPS_DEPLOYER_PAT: ${{ secrets.DEVOPS_DEPLOYER_PAT }}
 
 permissions:
-  contents: write
+  contents: read
   id-token: write
 
 jobs:
@@ -33,6 +34,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.GH_PAT }}
 
       - name: Get Tag
         uses: olegtarasov/get-tag@v2.1
