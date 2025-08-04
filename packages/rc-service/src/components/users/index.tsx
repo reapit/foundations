@@ -302,7 +302,6 @@ export const UsersPage: FC = () => {
               label="First Login Date To"
             />
           </InputWrap>
-          
         </FormLayout>
       </form>
       {usersLoading ? (
