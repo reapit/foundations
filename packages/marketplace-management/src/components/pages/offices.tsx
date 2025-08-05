@@ -55,9 +55,9 @@ const OfficesPage: FC = () => {
         <Icon className={elMb5} icon="developmentInfographic" iconSize="large" />
         <BodyText hasGreyText>
           {pathname === RoutePaths.OFFICES
-            ? 'This list contains all ‘Offices’ within your organisation. To create or manage an Office Group, please visit the ‘Groups’ page.'
+            ? 'This list contains all ‘Offices’ within your organisation. To create or manage an Office Group, please visit the ‘Office Groups’ page.'
             : pathname === RoutePaths.OFFICES_GROUPS
-              ? 'This list contains all ‘Offices’ within your organisation. To create or manage an Office Group, please visit the ‘Office Groups’ page.'
+              ? 'This list contains all ‘Offices Groups’ within your organisation. To view a list of offices in your organisation, please visit the ‘Offices page. To create a new office group, click `Create Group` below.'
               : 'You can create an office group with this wizard. If you want to update the information later, refer to the office groups page.'}
         </BodyText>
         {pathname === RoutePaths.OFFICES_GROUPS && (
