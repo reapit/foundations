@@ -270,10 +270,10 @@ exports[`PipelineNew Should match snapshot 1`] = `
       />
       <div
         class="mocked-styled-147 el-mobile-controls"
-        id=":r1:"
+        id=":r2:"
       >
         <button
-          aria-controls=":r1:"
+          aria-controls=":r2:"
           class="el-floating-button el-intent-primary el-button"
         >
           <div
@@ -567,10 +567,10 @@ exports[`PipelineNew Should match snapshot 1`] = `
     />
     <div
       class="mocked-styled-147 el-mobile-controls"
-      id=":r1:"
+      id=":r2:"
     >
       <button
-        aria-controls=":r1:"
+        aria-controls=":r2:"
         class="el-floating-button el-intent-primary el-button"
       >
         <div
@@ -926,10 +926,10 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
       />
       <div
         class="mocked-styled-147 el-mobile-controls"
-        id=":r4:"
+        id=":r6:"
       >
         <button
-          aria-controls=":r4:"
+          aria-controls=":r6:"
           class="el-floating-button el-intent-primary el-button"
         >
           <div
@@ -1223,10 +1223,10 @@ exports[`PipelineNew should match snapshot for mobile view 1`] = `
     />
     <div
       class="mocked-styled-147 el-mobile-controls"
-      id=":r4:"
+      id=":r6:"
     >
       <button
-        aria-controls=":r4:"
+        aria-controls=":r6:"
         class="el-floating-button el-intent-primary el-button"
       >
         <div

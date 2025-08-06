@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { BodyText } from '@reapit/elements'
 import { PipelineTabs } from './../pipeline-tabs'
 import { PipelineConfigureForm } from './pipeline-configure-form'
@@ -6,9 +6,11 @@ import { useLocation } from 'react-router'
 
 export const PipelineConfigure: FC = () => {
   const location = useLocation()
+  const [formIsBeingEdited, setFormIsBeingEdited] = useState<boolean>(false)
+
   return (
     <>
-      {!location.pathname.includes('new') && <PipelineTabs />}
+      {!location.pathname.includes('new') && <PipelineTabs formIsBeingEdited={formIsBeingEdited} />}
       <BodyText hasGreyText hasSectionMargin>
         Setup the configuration below so that the pipeline knows how to build your application. The pipeline assumes
         that your application is a frontend application that uses either yarn or npm to run scripts declared in a
@@ -27,7 +29,7 @@ export const PipelineConfigure: FC = () => {
         <strong>Build Directory</strong> is the directory from which the bundle will be deployed, typically build or
         dist.
       </BodyText>
-      <PipelineConfigureForm />
+      <PipelineConfigureForm setFormIsBeingEdited={setFormIsBeingEdited} />
     </>
   )
 }

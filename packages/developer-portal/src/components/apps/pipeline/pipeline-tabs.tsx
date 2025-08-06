@@ -1,6 +1,6 @@
-import React, { ChangeEvent, FC } from 'react'
+import React, { ChangeEvent, FC, useEffect, useState } from 'react'
 import { useAppState } from '../state/use-app-state'
-import { Tabs } from '@reapit/elements'
+import { BodyText, Modal, ModalHeader, Tabs, useModal, Title, Button, ButtonGroup } from '@reapit/elements'
 import { NavigateFunction, useLocation, useNavigate } from 'react-router'
 import Routes from '../../../constants/routes'
 
@@ -30,43 +30,76 @@ export const handleChangeTab =
     }
   }
 
-export const PipelineTabs: FC = () => {
+export const PipelineTabs: FC<{ formIsBeingEdited?: boolean }> = ({ formIsBeingEdited = false }) => {
   const location = useLocation()
   const navigate = useNavigate()
   const { appId } = useAppState()
   const { pathname } = location
+  const { modalIsOpen, closeModal, openModal } = useModal()
+  const [navigateTo, setNavigateTo] = useState<string | undefined>()
+
+  useEffect(() => {
+    if (!modalIsOpen) setNavigateTo(undefined)
+  }, [modalIsOpen])
 
   return (
-    <Tabs
-      isFullWidth
-      name="pipeline-tabs"
-      onChange={handleChangeTab(navigate, appId)}
-      options={[
-        {
-          id: 'deployments',
-          value: 'deployments',
-          text: 'Deployments',
-          isChecked: !pathname.includes('configure') && !pathname.includes('environment') && !pathname.includes('dns'),
-        },
-        {
-          id: 'configure',
-          value: 'configure',
-          text: 'Configure',
-          isChecked: pathname.includes('configure'),
-        },
-        {
-          id: 'environment',
-          value: 'environment',
-          text: 'Environment Variables',
-          isChecked: pathname.includes('environment'),
-        },
-        {
-          id: 'DNS',
-          value: 'DNS',
-          text: 'Custom DNS',
-          isChecked: pathname.includes('dns'),
-        },
-      ]}
-    />
+    <>
+      <Tabs
+        isFullWidth
+        name="pipeline-tabs"
+        onChange={(event) => {
+          if (formIsBeingEdited) {
+            setNavigateTo((event as any).target.value)
+            openModal()
+          } else handleChangeTab(navigate, appId)(event as any)
+        }}
+        options={[
+          {
+            id: 'deployments',
+            value: 'deployments',
+            text: 'Deployments',
+            isChecked:
+              !pathname.includes('configure') && !pathname.includes('environment') && !pathname.includes('dns'),
+          },
+          {
+            id: 'configure',
+            value: 'configure',
+            text: 'Configure',
+            isChecked: pathname.includes('configure'),
+          },
+          {
+            id: 'environment',
+            value: 'environment',
+            text: 'Environment Variables',
+            isChecked: pathname.includes('environment'),
+          },
+          {
+            id: 'DNS',
+            value: 'DNS',
+            text: 'Custom DNS',
+            isChecked: pathname.includes('dns'),
+          },
+        ]}
+      />
+      <Modal isOpen={modalIsOpen} onModalClose={closeModal}>
+        <ModalHeader>
+          <Title>Configuration Changed</Title>
+        </ModalHeader>
+        <BodyText>The pipeline is currently being configured, are you sure you wish to discard your changes?</BodyText>
+        <ButtonGroup>
+          <Button
+            intent="danger"
+            onClick={() => {
+              handleChangeTab(navigate, appId)({ target: { value: navigateTo } } as any)
+            }}
+          >
+            Discard
+          </Button>
+          <Button intent="default" onClick={() => closeModal()}>
+            Continue
+          </Button>
+        </ButtonGroup>
+      </Modal>
+    </>
   )
 }
