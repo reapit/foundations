@@ -8,41 +8,838 @@ exports[`UsersPage should match a snapshot 1`] = `
       <div
         class="mocked-styled-93 el-snack-holder"
       />
+      <form>
+        <div
+          class="el-form-layout-has-margin el-form-layout"
+        >
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="organisationName"
+                placeholder="Search by organisation name"
+                type="search"
+              />
+              <span
+                class="el-icon-new el-icon"
+                style="font-size: 1rem;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  style="font-size: 1rem;"
+                  title="Icon image with name search"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                Org Name
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="email"
+                placeholder="Search by email"
+                type="search"
+              />
+              <span
+                class="el-icon-new el-icon"
+                style="font-size: 1rem;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  style="font-size: 1rem;"
+                  title="Icon image with name search"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                User Email
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="name"
+                placeholder="Search by user name"
+                type="search"
+              />
+              <span
+                class="el-icon-new el-icon"
+                style="font-size: 1rem;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  style="font-size: 1rem;"
+                  title="Icon image with name search"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                User Name
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="mocked-styled-83 el-select"
+                name="groupId"
+              >
+                <option
+                  value=""
+                >
+                  Please Select
+                </option>
+                <option
+                  value="d2lsbG1jdmF5QGljbG91ZC5jb20"
+                >
+                  d2lsbG1jdmF5QGljbG91ZC5jb20
+                </option>
+              </select>
+              <label
+                class="mocked-styled-41 el-label"
+                for="myId"
+              >
+                Select User Group
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type search"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="agencyCloudId"
+                placeholder="Search by Negotiator ID"
+                type="search"
+              />
+              <span
+                class="el-icon-new el-icon"
+                style="font-size: 1rem;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  style="font-size: 1rem;"
+                  title="Icon image with name search"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                Negotiator ID
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
+              User Active
+            </label>
+            <div
+              class="el-has-grey-bg el-toggle-radio-wrap"
+            >
+              <input
+                checked=""
+                class="mocked-styled-127 el-toggle-radio"
+                id="usr-active-all"
+                name="active"
+                type="radio"
+                value=""
+              />
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="usr-active-all"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="mocked-styled-124 el-toggle-radio-item"
+                >
+                  All
+                </span>
+              </label>
+              <input
+                class="mocked-styled-127 el-toggle-radio"
+                id="usr-active-true"
+                name="active"
+                type="radio"
+                value="true"
+              />
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="usr-active-true"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="mocked-styled-124 el-toggle-radio-item"
+                >
+                  Active
+                </span>
+              </label>
+              <input
+                class="mocked-styled-127 el-toggle-radio"
+                id="usr-active-false"
+                name="active"
+                type="radio"
+                value="false"
+              />
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="usr-active-false"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="mocked-styled-124 el-toggle-radio-item"
+                >
+                  Inactive
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
+              MFA Enabled
+            </label>
+            <div
+              class="el-has-grey-bg el-toggle-radio-wrap"
+            >
+              <input
+                checked=""
+                class="mocked-styled-127 el-toggle-radio"
+                id="mfa-enabled-all"
+                name="mfaEnabled"
+                type="radio"
+                value=""
+              />
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="mfa-enabled-all"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="mocked-styled-124 el-toggle-radio-item"
+                >
+                  All
+                </span>
+              </label>
+              <input
+                class="mocked-styled-127 el-toggle-radio"
+                id="mfa-enabled-true"
+                name="mfaEnabled"
+                type="radio"
+                value="true"
+              />
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="mfa-enabled-true"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="mocked-styled-124 el-toggle-radio-item"
+                >
+                  Enabled
+                </span>
+              </label>
+              <input
+                class="mocked-styled-127 el-toggle-radio"
+                id="mfa-enabled-false"
+                name="mfaEnabled"
+                type="radio"
+                value="false"
+              />
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="mfa-enabled-false"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="mocked-styled-124 el-toggle-radio-item"
+                >
+                  Not Configured
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type date format dd/mm/yyy"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="firstLoginDateFrom"
+                placeholder="First Login Date From"
+                type="date"
+              />
+              <span
+                class="el-icon-new el-icon"
+                style="font-size: 1rem;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  style="font-size: 1rem;"
+                  title="Icon image with name calendar"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19 4h-1V3a1 1 0 1 0-2 0v1H8V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3m1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9h16zm0-11H4V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                First Login Date From
+              </label>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <input
+                aria-label="Input type date format dd/mm/yyy"
+                class="mocked-styled-38 el-input"
+                id="test-static-id"
+                name="firstLoginDateTo"
+                placeholder="First Login Date To"
+                type="date"
+              />
+              <span
+                class="el-icon-new el-icon"
+                style="font-size: 1rem;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  style="font-size: 1rem;"
+                  title="Icon image with name calendar"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19 4h-1V3a1 1 0 1 0-2 0v1H8V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3m1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9h16zm0-11H4V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <label
+                class="mocked-styled-41 el-label"
+                for="test-static-id"
+              >
+                First Login Date To
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
+      <p
+        class="el-text-base el-body-text"
+      >
+        Total Users: 
+        1
+      </p>
       <div
-        class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-        role="status"
+        class="el-fade-in el-mb11 el-table"
+        data-has-call-to-action="false"
+        data-has-expandable-action="true"
+        data-num-columns-excl-action-col="9"
+        role="table"
       >
         <div
-          class="el-pn-icon"
-          data-testid="close-icon"
+          class="mocked-styled-101 el-table-headers-row"
+          role="row"
+        >
+          <div
+            aria-label="Name"
+            class="mocked-styled-102 el-table-header"
+            role="columnheader"
+          >
+            Name
+          </div>
+          <div
+            aria-label="Email"
+            class="mocked-styled-102 el-table-header"
+            role="columnheader"
+          >
+            Email
+          </div>
+          <div
+            aria-label="Date Created"
+            class="mocked-styled-102 el-table-header"
+            role="columnheader"
+          >
+            Date Created
+          </div>
+          <div
+            aria-label="First Login Date"
+            class="mocked-styled-102 el-table-header"
+            role="columnheader"
+          >
+            First Login Date
+          </div>
+          <div
+            aria-label="Job Title"
+            class="mocked-styled-102 el-table-header"
+            role="columnheader"
+          >
+            Job Title
+          </div>
+          <div
+            aria-label="Organisation"
+            class="mocked-styled-102 el-table-header"
+            role="columnheader"
+          >
+            Organisation
+          </div>
+          <div
+            aria-label="Customer Id"
+            class="mocked-styled-102 el-table-header"
+            role="columnheader"
+          >
+            Customer Id
+          </div>
+          <div
+            aria-label="Neg Id"
+            class="mocked-styled-102 el-table-header"
+            role="columnheader"
+          >
+            Neg Id
+          </div>
+          <div
+            aria-label="Active"
+            class="mocked-styled-102 el-table-header"
+            role="columnheader"
+          >
+            Active
+          </div>
+          <div
+            class="mocked-styled-102 el-table-header"
+            role="columnheader"
+          >
+            <span
+              class="el-intent-default el-icon-new el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                role="img"
+                title="Icon image with name settings"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-110 el-table-row-container"
+          role="row"
+        >
+          <div
+            class="mocked-styled-103 el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
+              role="cell"
+            >
+              <span
+                class="el-intent-default el-icon-new el-icon"
+                style="font-size: 1.25rem;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  style="font-size: 1.25rem;"
+                  title="Icon image with name contact"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5m0-11a3.49 3.49 0 0 0-3.5 3.5c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 12 13a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25A3.49 3.49 0 0 0 12 4"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <div
+                class="mocked-styled-111 el-table-cell-content"
+                data-narrow-label="Name"
+              >
+                Will McVay
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
+              role="cell"
+            >
+              <span
+                class="el-intent-default el-icon-new el-icon"
+                style="font-size: 1.25rem;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  style="font-size: 1.25rem;"
+                  title="Icon image with name email"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m-1.41 2L12 12.59 5.41 6zM4 18V7.41L10.59 14a2 2 0 0 0 2.82 0L20 7.41V18z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <div
+                class="mocked-styled-111 el-table-cell-content"
+                data-narrow-label="Email"
+              >
+                test@icloud.com
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
+              role="cell"
+            >
+              <span
+                class="el-intent-default el-icon-new el-icon"
+                style="font-size: 1.25rem;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  style="font-size: 1.25rem;"
+                  title="Icon image with name calendar"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19 4h-1V3a1 1 0 1 0-2 0v1H8V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3m1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9h16zm0-11H4V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <div
+                class="mocked-styled-111 el-table-cell-content"
+                data-narrow-label="Date Created"
+              >
+                09-11-2022
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
+              role="cell"
+            >
+              <div
+                class="mocked-styled-111 el-table-cell-content"
+              >
+                -
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
+              role="cell"
+            >
+              <div
+                class="mocked-styled-111 el-table-cell-content"
+                data-narrow-label="Job Title"
+              >
+                -
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
+              role="cell"
+            >
+              <div
+                class="mocked-styled-111 el-table-cell-content"
+                data-narrow-label="Organisation"
+              >
+                XTM Estates Ltd
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
+              role="cell"
+            >
+              <div
+                class="mocked-styled-111 el-table-cell-content"
+                data-narrow-label="Customer Id"
+              >
+                -
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
+              role="cell"
+            >
+              <div
+                class="mocked-styled-111 el-table-cell-content"
+                data-narrow-label="Neg Id"
+              >
+                ADV
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
+              role="cell"
+            >
+              <div
+                class="mocked-styled-111 el-table-cell-content"
+                data-narrow-label="Active"
+              >
+                <span
+                  class="el-intent-success el-icon-new el-icon"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    role="img"
+                    title="Icon image with name check"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.32 1.32 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div
+              class="mocked-styled-109 el-table-expandable-row-trigger-cell"
+              role="cell"
+              tabindex="0"
+            >
+              <span
+                class="el-intent-default el-icon-new el-icon"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  title="Icon image with name more"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-113 el-table-expandable-row"
+          >
+            <div
+              class="mocked-styled-114 el-table-expandable-container"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-71 el-pagination-wrap"
+      >
+        <button
+          aria-label="Previous"
+          class="mocked-styled-74 el-pagination-button"
+          data-testid="back-button"
+          role="button"
+          type="button"
         >
           <span
             class="el-icon-new el-icon"
-            style="font-size: 1.25rem;"
           >
             <svg
               fill="none"
               height="1em"
               role="img"
-              style="font-size: 1.25rem;"
-              title="Icon image with name info"
+              title="Icon image with name chevronLeft"
               viewBox="0 0 24 24"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
+                d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
                 fill="currentColor"
               />
             </svg>
           </span>
-        </div>
+        </button>
         <div
-          aria-live="polite"
-          class="el-pn-content"
+          class="mocked-styled-72 el-pagination-text"
         >
-          Something went wrong here, try refreshing your page.
+          <input
+            aria-label="Current page number, edit to select page of 1 available"
+            class="mocked-styled-73 el-pagination-input"
+            value="1"
+          />
+           
+          of 
+          1
         </div>
+        <button
+          aria-label="Next"
+          class="mocked-styled-74 el-pagination-button"
+          data-testid="forward-button"
+          role="button"
+          type="button"
+        >
+          <span
+            class="el-icon-new el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              role="img"
+              title="Icon image with name chevronRight"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="mocked-styled-133 el-input-wrap"
+      >
+        <button
+          class="el-intent-primary el-button"
+          disabled=""
+        >
+          <div
+            class="mocked-styled-0 el-button-loader"
+          />
+          Download
+        </button>
       </div>
     </div>
   </body>,
@@ -50,41 +847,838 @@ exports[`UsersPage should match a snapshot 1`] = `
     <div
       class="mocked-styled-93 el-snack-holder"
     />
+    <form>
+      <div
+        class="el-form-layout-has-margin el-form-layout"
+      >
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type search"
+              class="mocked-styled-38 el-input"
+              id="test-static-id"
+              name="organisationName"
+              placeholder="Search by organisation name"
+              type="search"
+            />
+            <span
+              class="el-icon-new el-icon"
+              style="font-size: 1rem;"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                role="img"
+                style="font-size: 1rem;"
+                title="Icon image with name search"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
+            >
+              Org Name
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type search"
+              class="mocked-styled-38 el-input"
+              id="test-static-id"
+              name="email"
+              placeholder="Search by email"
+              type="search"
+            />
+            <span
+              class="el-icon-new el-icon"
+              style="font-size: 1rem;"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                role="img"
+                style="font-size: 1rem;"
+                title="Icon image with name search"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
+            >
+              User Email
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type search"
+              class="mocked-styled-38 el-input"
+              id="test-static-id"
+              name="name"
+              placeholder="Search by user name"
+              type="search"
+            />
+            <span
+              class="el-icon-new el-icon"
+              style="font-size: 1rem;"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                role="img"
+                style="font-size: 1rem;"
+                title="Icon image with name search"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
+            >
+              User Name
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <select
+              aria-label="Select an item from the dropdown list"
+              class="mocked-styled-83 el-select"
+              name="groupId"
+            >
+              <option
+                value=""
+              >
+                Please Select
+              </option>
+              <option
+                value="d2lsbG1jdmF5QGljbG91ZC5jb20"
+              >
+                d2lsbG1jdmF5QGljbG91ZC5jb20
+              </option>
+            </select>
+            <label
+              class="mocked-styled-41 el-label"
+              for="myId"
+            >
+              Select User Group
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type search"
+              class="mocked-styled-38 el-input"
+              id="test-static-id"
+              name="agencyCloudId"
+              placeholder="Search by Negotiator ID"
+              type="search"
+            />
+            <span
+              class="el-icon-new el-icon"
+              style="font-size: 1rem;"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                role="img"
+                style="font-size: 1rem;"
+                title="Icon image with name search"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
+            >
+              Negotiator ID
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
+            User Active
+          </label>
+          <div
+            class="el-has-grey-bg el-toggle-radio-wrap"
+          >
+            <input
+              checked=""
+              class="mocked-styled-127 el-toggle-radio"
+              id="usr-active-all"
+              name="active"
+              type="radio"
+              value=""
+            />
+            <label
+              class="el-has-grey-bg el-toggle-radio-label"
+              for="usr-active-all"
+              role="button"
+              tabindex="0"
+            >
+              <span
+                class="mocked-styled-124 el-toggle-radio-item"
+              >
+                All
+              </span>
+            </label>
+            <input
+              class="mocked-styled-127 el-toggle-radio"
+              id="usr-active-true"
+              name="active"
+              type="radio"
+              value="true"
+            />
+            <label
+              class="el-has-grey-bg el-toggle-radio-label"
+              for="usr-active-true"
+              role="button"
+              tabindex="0"
+            >
+              <span
+                class="mocked-styled-124 el-toggle-radio-item"
+              >
+                Active
+              </span>
+            </label>
+            <input
+              class="mocked-styled-127 el-toggle-radio"
+              id="usr-active-false"
+              name="active"
+              type="radio"
+              value="false"
+            />
+            <label
+              class="el-has-grey-bg el-toggle-radio-label"
+              for="usr-active-false"
+              role="button"
+              tabindex="0"
+            >
+              <span
+                class="mocked-styled-124 el-toggle-radio-item"
+              >
+                Inactive
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <label
+            class="mocked-styled-41 el-label"
+          >
+            MFA Enabled
+          </label>
+          <div
+            class="el-has-grey-bg el-toggle-radio-wrap"
+          >
+            <input
+              checked=""
+              class="mocked-styled-127 el-toggle-radio"
+              id="mfa-enabled-all"
+              name="mfaEnabled"
+              type="radio"
+              value=""
+            />
+            <label
+              class="el-has-grey-bg el-toggle-radio-label"
+              for="mfa-enabled-all"
+              role="button"
+              tabindex="0"
+            >
+              <span
+                class="mocked-styled-124 el-toggle-radio-item"
+              >
+                All
+              </span>
+            </label>
+            <input
+              class="mocked-styled-127 el-toggle-radio"
+              id="mfa-enabled-true"
+              name="mfaEnabled"
+              type="radio"
+              value="true"
+            />
+            <label
+              class="el-has-grey-bg el-toggle-radio-label"
+              for="mfa-enabled-true"
+              role="button"
+              tabindex="0"
+            >
+              <span
+                class="mocked-styled-124 el-toggle-radio-item"
+              >
+                Enabled
+              </span>
+            </label>
+            <input
+              class="mocked-styled-127 el-toggle-radio"
+              id="mfa-enabled-false"
+              name="mfaEnabled"
+              type="radio"
+              value="false"
+            />
+            <label
+              class="el-has-grey-bg el-toggle-radio-label"
+              for="mfa-enabled-false"
+              role="button"
+              tabindex="0"
+            >
+              <span
+                class="mocked-styled-124 el-toggle-radio-item"
+              >
+                Not Configured
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type date format dd/mm/yyy"
+              class="mocked-styled-38 el-input"
+              id="test-static-id"
+              name="firstLoginDateFrom"
+              placeholder="First Login Date From"
+              type="date"
+            />
+            <span
+              class="el-icon-new el-icon"
+              style="font-size: 1rem;"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                role="img"
+                style="font-size: 1rem;"
+                title="Icon image with name calendar"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 4h-1V3a1 1 0 1 0-2 0v1H8V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3m1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9h16zm0-11H4V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
+            >
+              First Login Date From
+            </label>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <input
+              aria-label="Input type date format dd/mm/yyy"
+              class="mocked-styled-38 el-input"
+              id="test-static-id"
+              name="firstLoginDateTo"
+              placeholder="First Login Date To"
+              type="date"
+            />
+            <span
+              class="el-icon-new el-icon"
+              style="font-size: 1rem;"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                role="img"
+                style="font-size: 1rem;"
+                title="Icon image with name calendar"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 4h-1V3a1 1 0 1 0-2 0v1H8V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3m1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9h16zm0-11H4V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <label
+              class="mocked-styled-41 el-label"
+              for="test-static-id"
+            >
+              First Login Date To
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
+    <p
+      class="el-text-base el-body-text"
+    >
+      Total Users: 
+      1
+    </p>
     <div
-      class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
-      role="status"
+      class="el-fade-in el-mb11 el-table"
+      data-has-call-to-action="false"
+      data-has-expandable-action="true"
+      data-num-columns-excl-action-col="9"
+      role="table"
     >
       <div
-        class="el-pn-icon"
-        data-testid="close-icon"
+        class="mocked-styled-101 el-table-headers-row"
+        role="row"
+      >
+        <div
+          aria-label="Name"
+          class="mocked-styled-102 el-table-header"
+          role="columnheader"
+        >
+          Name
+        </div>
+        <div
+          aria-label="Email"
+          class="mocked-styled-102 el-table-header"
+          role="columnheader"
+        >
+          Email
+        </div>
+        <div
+          aria-label="Date Created"
+          class="mocked-styled-102 el-table-header"
+          role="columnheader"
+        >
+          Date Created
+        </div>
+        <div
+          aria-label="First Login Date"
+          class="mocked-styled-102 el-table-header"
+          role="columnheader"
+        >
+          First Login Date
+        </div>
+        <div
+          aria-label="Job Title"
+          class="mocked-styled-102 el-table-header"
+          role="columnheader"
+        >
+          Job Title
+        </div>
+        <div
+          aria-label="Organisation"
+          class="mocked-styled-102 el-table-header"
+          role="columnheader"
+        >
+          Organisation
+        </div>
+        <div
+          aria-label="Customer Id"
+          class="mocked-styled-102 el-table-header"
+          role="columnheader"
+        >
+          Customer Id
+        </div>
+        <div
+          aria-label="Neg Id"
+          class="mocked-styled-102 el-table-header"
+          role="columnheader"
+        >
+          Neg Id
+        </div>
+        <div
+          aria-label="Active"
+          class="mocked-styled-102 el-table-header"
+          role="columnheader"
+        >
+          Active
+        </div>
+        <div
+          class="mocked-styled-102 el-table-header"
+          role="columnheader"
+        >
+          <span
+            class="el-intent-default el-icon-new el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              role="img"
+              title="Icon image with name settings"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.2 7.2 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.5 7.5 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.5 6.5 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.2 7.2 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27zM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-110 el-table-row-container"
+        role="row"
+      >
+        <div
+          class="mocked-styled-103 el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
+            role="cell"
+          >
+            <span
+              class="el-intent-default el-icon-new el-icon"
+              style="font-size: 1.25rem;"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                role="img"
+                style="font-size: 1.25rem;"
+                title="Icon image with name contact"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5m0-11a3.49 3.49 0 0 0-3.5 3.5c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 12 13a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25A3.49 3.49 0 0 0 12 4"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+              data-narrow-label="Name"
+            >
+              Will McVay
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
+            role="cell"
+          >
+            <span
+              class="el-intent-default el-icon-new el-icon"
+              style="font-size: 1.25rem;"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                role="img"
+                style="font-size: 1.25rem;"
+                title="Icon image with name email"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m-1.41 2L12 12.59 5.41 6zM4 18V7.41L10.59 14a2 2 0 0 0 2.82 0L20 7.41V18z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+              data-narrow-label="Email"
+            >
+              test@icloud.com
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
+            role="cell"
+          >
+            <span
+              class="el-intent-default el-icon-new el-icon"
+              style="font-size: 1.25rem;"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                role="img"
+                style="font-size: 1.25rem;"
+                title="Icon image with name calendar"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 4h-1V3a1 1 0 1 0-2 0v1H8V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3m1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9h16zm0-11H4V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+              data-narrow-label="Date Created"
+            >
+              09-11-2022
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
+            role="cell"
+          >
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+            >
+              -
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
+            role="cell"
+          >
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+              data-narrow-label="Job Title"
+            >
+              -
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
+            role="cell"
+          >
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+              data-narrow-label="Organisation"
+            >
+              XTM Estates Ltd
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
+            role="cell"
+          >
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+              data-narrow-label="Customer Id"
+            >
+              -
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
+            role="cell"
+          >
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+              data-narrow-label="Neg Id"
+            >
+              ADV
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
+            role="cell"
+          >
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+              data-narrow-label="Active"
+            >
+              <span
+                class="el-intent-success el-icon-new el-icon"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  title="Icon image with name check"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.32 1.32 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-109 el-table-expandable-row-trigger-cell"
+            role="cell"
+            tabindex="0"
+          >
+            <span
+              class="el-intent-default el-icon-new el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                role="img"
+                title="Icon image with name more"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-113 el-table-expandable-row"
+        >
+          <div
+            class="mocked-styled-114 el-table-expandable-container"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="mocked-styled-71 el-pagination-wrap"
+    >
+      <button
+        aria-label="Previous"
+        class="mocked-styled-74 el-pagination-button"
+        data-testid="back-button"
+        role="button"
+        type="button"
       >
         <span
           class="el-icon-new el-icon"
-          style="font-size: 1.25rem;"
         >
           <svg
             fill="none"
             height="1em"
             role="img"
-            style="font-size: 1.25rem;"
-            title="Icon image with name info"
+            title="Icon image with name chevronLeft"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2m1.143 15.714h-2.286v-6h2.286zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428"
+              d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
               fill="currentColor"
             />
           </svg>
         </span>
-      </div>
+      </button>
       <div
-        aria-live="polite"
-        class="el-pn-content"
+        class="mocked-styled-72 el-pagination-text"
       >
-        Something went wrong here, try refreshing your page.
+        <input
+          aria-label="Current page number, edit to select page of 1 available"
+          class="mocked-styled-73 el-pagination-input"
+          value="1"
+        />
+         
+        of 
+        1
       </div>
+      <button
+        aria-label="Next"
+        class="mocked-styled-74 el-pagination-button"
+        data-testid="forward-button"
+        role="button"
+        type="button"
+      >
+        <span
+          class="el-icon-new el-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            role="img"
+            title="Icon image with name chevronRight"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div
+      class="mocked-styled-133 el-input-wrap"
+    >
+      <button
+        class="el-intent-primary el-button"
+        disabled=""
+      >
+        <div
+          class="mocked-styled-0 el-button-loader"
+        />
+        Download
+      </button>
     </div>
   </div>,
   "debug": [Function],
