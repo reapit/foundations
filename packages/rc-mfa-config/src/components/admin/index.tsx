@@ -47,8 +47,18 @@ export interface UserFilters {
 }
 
 export const handleSetAdminFilters =
-  (setUserSearch: Dispatch<SetStateAction<UserFilters>>, watch: UseFormWatch<UserFilters>) => () => {
-    const subscription = watch(debounce(setUserSearch, 200))
+  (
+    setUserSearch: Dispatch<SetStateAction<UserFilters>>,
+    watch: UseFormWatch<UserFilters>,
+    setPageNumber: Dispatch<number>,
+  ) =>
+  () => {
+    const subscription = watch(
+      debounce((values) => {
+        setPageNumber(1)
+        setUserSearch(values)
+      }, 200),
+    )
     return () => subscription.unsubscribe()
   }
 
@@ -107,7 +117,7 @@ export const AdminPage: FC = () => {
   const hasMultiOrgs = adminOrgs.length > 1
   const orgId = adminOrgs.length === 1 ? adminOrgs[0].organisationId : null
 
-  useEffect(handleSetAdminFilters(setUserSearch, watch), [])
+  useEffect(handleSetAdminFilters(setUserSearch, watch, setPageNumber), [])
   useEffect(handleInitialUserOrgSet(setOrganisationId, orgId), [orgId])
 
   return (
