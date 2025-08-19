@@ -12,7 +12,7 @@
     "build": "yarn generate-html && tsup && cd dist && zip -r app.zip app.js",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "echo '...skipping...'",
-    "release": "echo '...deprecated... was previously \"devops-release\"'",
+    "release": "devops-release",
     "release:devops": "devops-release",
     "deploy": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
