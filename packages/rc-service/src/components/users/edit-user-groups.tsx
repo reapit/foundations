@@ -1,10 +1,11 @@
-import React, { FC, useCallback } from 'react'
+import React, { FC, useCallback, useEffect } from 'react'
 import {
   UserModel,
   GroupModelPagedResult,
   GroupModel,
   RemoveGroupMembershipModel,
   CreateGroupMembershipModel,
+  UserGroupModel,
 } from '@reapit/foundations-ts-definitions'
 import {
   BodyText,
@@ -83,6 +84,16 @@ export const onHandleSubmit =
     }
   }
 
+const updateGroupStyles = (userGroups: GroupModel[]) => {
+  const inputElements = Array.from(document.getElementsByClassName('el-multi-select-label'))
+  userGroups?.map(group => {
+    // @ts-ignore
+    if (group.type !== 'internal') return
+    const specificElement = inputElements.find(element => element.textContent === group.id)
+    specificElement?.setAttribute('style', 'background: red; color: white')
+  })
+}
+
 export const EditUserGroups: FC<EditUserGroupsProps> = ({ refreshUsers, user, userGroups }) => {
   const [removeMemberFromGroupLoading, , removeMemberFromGroup] = useReapitUpdate<RemoveGroupMembershipModel, boolean>({
     reapitConnectBrowserSession,
@@ -116,6 +127,10 @@ export const EditUserGroups: FC<EditUserGroupsProps> = ({ refreshUsers, user, us
 
   if (!userGroups) return null
 
+  useEffect(() => {
+    updateGroupStyles(userGroups._embedded ?? [])    
+  }, userGroupOptions)
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Subtitle>Edit User Groups</Subtitle>
@@ -128,6 +143,10 @@ export const EditUserGroups: FC<EditUserGroupsProps> = ({ refreshUsers, user, us
             defaultValues={user.groups ? [...new Set(user.groups)] : []}
             options={userGroupOptions}
             {...register('groupIds')}
+            onChange={(event) => {
+              updateGroupStyles(userGroups?._embedded ?? [])
+              register('groupIds').onChange(event)
+            }}
           />
           {errors.groupIds && (
             <PersistentNotification isFullWidth isExpanded intent="danger" isInline>
