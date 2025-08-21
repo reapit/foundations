@@ -54,3 +54,15 @@ export const registrationForm = css`
   margin-top: 1rem;
   width: 100%;
 `
+
+export const TermsConditionsViewer = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  .pdf-viewer {
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+  }
+`
