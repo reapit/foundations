@@ -86,10 +86,10 @@ export const onHandleSubmit =
 
 const updateGroupStyles = (userGroups: GroupModel[]) => {
   const inputElements = Array.from(document.getElementsByClassName('el-multi-select-label'))
-  userGroups?.map(group => {
+  userGroups?.map((group) => {
     // @ts-ignore
     if (group.type !== 'internal') return
-    const specificElement = inputElements.find(element => element.textContent === group.id)
+    const specificElement = inputElements.find((element) => element.textContent === group.id)
     specificElement?.setAttribute('style', 'background: red; color: white')
   })
 }
@@ -128,7 +128,7 @@ export const EditUserGroups: FC<EditUserGroupsProps> = ({ refreshUsers, user, us
   if (!userGroups) return null
 
   useEffect(() => {
-    updateGroupStyles(userGroups._embedded ?? [])    
+    updateGroupStyles(userGroups._embedded ?? [])
   }, userGroupOptions)
 
   return (
