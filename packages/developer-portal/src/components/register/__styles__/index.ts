@@ -61,7 +61,6 @@ export const TermsConditionsViewer = styled.div`
   overflow: auto;
 
   .pdf-viewer {
-    border: 1px solid black;
     width: 100%;
     height: 100%;
   }

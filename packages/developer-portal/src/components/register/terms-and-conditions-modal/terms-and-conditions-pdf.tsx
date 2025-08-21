@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { pdfjs } from 'react-pdf'
 import { Document, Page } from 'react-pdf'
 import { TermsConditionsViewer } from '../__styles__'
-import terms from '../../../assets/files/foundations-terms-010925.pdf'
+//import terms from '../../../assets/files/foundations-terms-010925.pdf'
+import terms from '../../../assets/files/terms-test-4.pdf'
 
 export function TermsAndConditionsPdf({ finalisePdfLoad }) {
   const [numPages, setNumPages] = useState<number | null>(null)
