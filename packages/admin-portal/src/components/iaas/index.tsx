@@ -84,9 +84,7 @@ export const IaaS: FC = () => {
   const queryParams = objectToQuery(iaasFilters)
 
   // TODO: remove union type when foundations-ts-definitions has been updated
-  const [pipelines, pipelinesLoading, , refreshPipelines] = useReapitGet<
-    Pagination<PipelineModelInterface >
-  >({
+  const [pipelines, pipelinesLoading, , refreshPipelines] = useReapitGet<Pagination<PipelineModelInterface>>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.paginatePipeline],
     headers: {
