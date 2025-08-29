@@ -1,10 +1,7 @@
-import React, { FC, useEffect } from 'react'
-import { TermsAndConditions } from './terms-and-conditions'
-import { ScheduleOne } from './schedule-one'
-import { ScheduleTwo } from './schedule-two'
+import React, { FC, useEffect, useState } from 'react'
 import { modalWidth } from './__styles__/terms-and-conditions'
-import { ScheduleThree } from './schedule-three'
 import { BodyText, Button, ButtonGroup, elMb6, PersistentNotification, useModal } from '@reapit/elements'
+import { TermsAndConditionsPdf } from './terms-and-conditions-pdf'
 
 export type TermsAndConditionsModalProps = {
   onAccept: () => void
@@ -25,6 +22,15 @@ export const TermsAndConditionsModal: FC<TermsAndConditionsModalProps> = ({
   visible,
 }) => {
   const { Modal, openModal, closeModal } = useModal()
+
+  // Manage acceptance button state. The accept button should
+  // only be enabled if the PDF loads successfully
+  const [pdfLoaded, setPdfLoaded] = useState(false)
+
+  const finalisePdfLoad = () => {
+    setPdfLoaded(true)
+  }
+
   useEffect(handleOpenCloseModal(openModal, closeModal, visible), [visible])
   return (
     <Modal className={modalWidth} title="Terms and Conditions" onModalClose={() => null}>
@@ -36,17 +42,14 @@ export const TermsAndConditionsModal: FC<TermsAndConditionsModalProps> = ({
         <PersistentNotification className={elMb6} intent="primary" isExpanded isFullWidth isInline>
           Please agree to the Reapit Developer Terms and Conditions to proceed
         </PersistentNotification>
-        <TermsAndConditions />
-        <ScheduleOne />
-        <ScheduleTwo />
-        <ScheduleThree />
+        <TermsAndConditionsPdf finalisePdfLoad={finalisePdfLoad} />
         <ButtonGroup alignment="right">
           {onDecline && (
             <Button intent="danger" type="button" onClick={onDecline}>
               Decline
             </Button>
           )}
-          <Button intent="primary" loading={isSubmitting} disabled={isSubmitting} onClick={onAccept}>
+          <Button intent="primary" loading={isSubmitting} disabled={isSubmitting || !pdfLoaded} onClick={onAccept}>
             Accept
           </Button>
         </ButtonGroup>
