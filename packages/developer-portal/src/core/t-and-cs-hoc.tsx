@@ -26,7 +26,7 @@ export const handleMemberUpdate =
   ) =>
   () => {
     if (showTermsModal || !currentMember) return
-    if (!currentMember.agreedTerms || dayjs(currentMember.agreedTerms).isBefore(dayjs('2025-09-01'))) {
+    if (!currentMember.agreedTerms || dayjs(currentMember.agreedTerms).isBefore(dayjs('2025-08-29'))) {
       setShowTermsModal(true)
     }
   }

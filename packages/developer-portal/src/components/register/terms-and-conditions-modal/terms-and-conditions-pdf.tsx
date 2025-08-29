@@ -19,7 +19,7 @@ export function TermsAndConditionsPdf({ finalisePdfLoad }) {
       <div className="pdf-viewer">
         <Document file={terms} onLoadSuccess={onDocumentLoadSuccess} loading="Loading..." scale={1.5}>
           {Array.from({ length: numPages ?? 0 }, (_, i) => (
-            <Page key={i + 1} pageNumber={i + 1} renderTextLayer={false} renderAnnotationLayer={false} />
+            <Page key={i + 1} pageNumber={i + 1} renderTextLayer={false} renderAnnotationLayer={false} loading="" />
           ))}
         </Document>
       </div>
