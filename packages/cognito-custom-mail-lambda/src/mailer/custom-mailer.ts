@@ -44,7 +44,7 @@ const getConfirmRegistrationUrl = async (emailAddress: string) => {
     return confirmRegistrationUrl
   }
   const user: UserModel = await res.json()
-  if (user.products.length === 1) {
+  if (user.products.length > 0) {
     const productId = user.products[0].id
     if (productId === 'agentbox') return agentboxUrl
     if (productId === 'agentpoint') return agentpointUrl
