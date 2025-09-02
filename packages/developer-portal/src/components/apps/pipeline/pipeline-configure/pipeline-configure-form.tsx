@@ -136,7 +136,7 @@ export const getDefaultValues = (
   }
 }
 
-export const PipelineConfigureForm: FC = () => {
+export const PipelineConfigureForm: FC<{ setFormIsBeingEdited: Dispatch<boolean> }> = ({ setFormIsBeingEdited }) => {
   const navigate = useNavigate()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appPipelineState, appId, appsDataState } = useAppState()
@@ -147,11 +147,15 @@ export const PipelineConfigureForm: FC = () => {
     register,
     handleSubmit,
     setValue,
-    formState: { errors },
+    formState: { errors, isDirty },
   } = useForm<PipelineModelSchema>({
     resolver: yupResolver(schema),
     defaultValues: getDefaultValues(appPipeline, appDetail),
   })
+
+  useEffect(() => {
+    setFormIsBeingEdited(isDirty)
+  }, [isDirty])
 
   const [, , updatePipeline, updateSuccessful] = useReapitUpdate<
     Partial<PipelineModelInterface>,

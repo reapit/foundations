@@ -207,10 +207,10 @@ exports[`PipelinePage should match snapshot 1`] = `
       />
       <div
         class="mocked-styled-147 el-mobile-controls"
-        id=":r0:"
+        id=":r1:"
       >
         <button
-          aria-controls=":r0:"
+          aria-controls=":r1:"
           class="el-floating-button el-intent-primary el-button"
         >
           <div
@@ -441,10 +441,10 @@ exports[`PipelinePage should match snapshot 1`] = `
     />
     <div
       class="mocked-styled-147 el-mobile-controls"
-      id=":r0:"
+      id=":r1:"
     >
       <button
-        aria-controls=":r0:"
+        aria-controls=":r1:"
         class="el-floating-button el-intent-primary el-button"
       >
         <div
@@ -737,10 +737,10 @@ exports[`PipelinePage should match snapshot for mobile view 1`] = `
       />
       <div
         class="mocked-styled-147 el-mobile-controls"
-        id=":r5:"
+        id=":r7:"
       >
         <button
-          aria-controls=":r5:"
+          aria-controls=":r7:"
           class="el-floating-button el-intent-primary el-button"
         >
           <div
@@ -971,10 +971,10 @@ exports[`PipelinePage should match snapshot for mobile view 1`] = `
     />
     <div
       class="mocked-styled-147 el-mobile-controls"
-      id=":r5:"
+      id=":r7:"
     >
       <button
-        aria-controls=":r5:"
+        aria-controls=":r7:"
         class="el-floating-button el-intent-primary el-button"
       >
         <div
@@ -1085,10 +1085,10 @@ exports[`PipelinePage should match snapshot where loading 1`] = `
       />
       <div
         class="mocked-styled-147 el-mobile-controls"
-        id=":r1:"
+        id=":r2:"
       >
         <button
-          aria-controls=":r1:"
+          aria-controls=":r2:"
           class="el-floating-button el-intent-primary el-button"
         >
           <div
@@ -1142,10 +1142,10 @@ exports[`PipelinePage should match snapshot where loading 1`] = `
     />
     <div
       class="mocked-styled-147 el-mobile-controls"
-      id=":r1:"
+      id=":r2:"
     >
       <button
-        aria-controls=":r1:"
+        aria-controls=":r2:"
         class="el-floating-button el-intent-primary el-button"
       >
         <div
@@ -1723,10 +1723,10 @@ exports[`PipelinePage should match snapshot where no pipeline 1`] = `
       />
       <div
         class="mocked-styled-147 el-mobile-controls"
-        id=":r2:"
+        id=":r3:"
       >
         <button
-          aria-controls=":r2:"
+          aria-controls=":r3:"
           class="el-floating-button el-intent-primary el-button"
         >
           <div
@@ -2247,10 +2247,10 @@ exports[`PipelinePage should match snapshot where no pipeline 1`] = `
     />
     <div
       class="mocked-styled-147 el-mobile-controls"
-      id=":r2:"
+      id=":r3:"
     >
       <button
-        aria-controls=":r2:"
+        aria-controls=":r3:"
         class="el-floating-button el-intent-primary el-button"
       >
         <div
@@ -2386,10 +2386,10 @@ exports[`PipelinePage should match snapshot where no pipeline or app 1`] = `
       />
       <div
         class="mocked-styled-147 el-mobile-controls"
-        id=":r3:"
+        id=":r4:"
       >
         <button
-          aria-controls=":r3:"
+          aria-controls=":r4:"
           class="el-floating-button el-intent-primary el-button"
         >
           <div
@@ -2468,10 +2468,10 @@ exports[`PipelinePage should match snapshot where no pipeline or app 1`] = `
     />
     <div
       class="mocked-styled-147 el-mobile-controls"
-      id=":r3:"
+      id=":r4:"
     >
       <button
-        aria-controls=":r3:"
+        aria-controls=":r4:"
         class="el-floating-button el-intent-primary el-button"
       >
         <div
