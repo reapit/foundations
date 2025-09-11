@@ -4,6 +4,7 @@ import {
   Button,
   ButtonGroup,
   FormLayout,
+  Icon,
   InputGroup,
   InputWrapFull,
   Modal,
@@ -16,6 +17,18 @@ import { UserModel } from '@reapit/foundations-ts-definitions'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { object, string } from 'yup'
+import styled from 'styled-components'
+
+const InlineIcon = styled(Icon)`
+  margin-right: 0 !important;
+`
+
+const Label = styled.span`
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+`
 
 const validationSchema = object().shape({
   name: string().trim().required('Required').max(150, 'Limit of 150 characters'),
@@ -46,9 +59,10 @@ export const UpdateUserName: FC<{ user: UserModel }> = ({ user }) => {
 
   return (
     <>
-      <Button intent="primary" onClick={() => openModal()}>
-        Update User&apos;s Name
-      </Button>
+      <Label onClick={() => openModal()}>
+        <span style={{ flex: 1 }}>{user.name}</span>
+        <InlineIcon icon="edit" intent="primary" style={{ marginRight: 0 }} />
+      </Label>
       <Modal
         title="Update Name"
         isOpen={modalIsOpen}

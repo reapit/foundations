@@ -27,6 +27,7 @@ import dayjs from 'dayjs'
 import { UserContent } from './user-content'
 import { useReapitConnect } from '@reapit/connect-session'
 import { getPlatformApiUrl } from '@reapit/use-reapit-data/src/api-regions'
+import { UpdateUserName } from './update-user-name'
 
 export interface UserFilters {
   email?: string
@@ -337,11 +338,10 @@ export const UsersPage: FC = () => {
                 cells: [
                   {
                     label: 'Name',
-                    value: name ?? '-',
-                    icon: 'contact',
                     narrowTable: {
                       showLabel: true,
                     },
+                    children: <UpdateUserName user={user} />,
                   },
                   {
                     label: 'Email',
