@@ -1,4 +1,15 @@
-import { useModal, Button, Modal, BodyText, FormLayout, InputWrapFull, InputGroup, ButtonGroup } from '@reapit/elements'
+import {
+  useModal,
+  Button,
+  Modal,
+  BodyText,
+  FormLayout,
+  InputWrapFull,
+  InputGroup,
+  ButtonGroup,
+  Loader,
+  PersistantNotification,
+} from '@reapit/elements'
 import {
   useReapitGet,
   getActions,
@@ -14,14 +25,12 @@ import { EmailSuppressionModel } from '@reapit/foundations-ts-definitions'
 export const SupressionListModal: FC<{ userId?: string; email?: string }> = ({ userId, email }) => {
   const { modalIsOpen, openModal, closeModal } = useModal()
 
-  const [userSuppressionList, userSuppressionListLoading, , refresh] = useReapitGet<EmailSuppressionModel>({
+  const [userSuppressionList, userSuppressionListLoading, error, refresh] = useReapitGet<EmailSuppressionModel>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getUserSuppressionList],
     uriParams: { userId },
     fetchWhenTrue: [userId, modalIsOpen],
-    onError: () => {
-      // suppress error
-    },
+    onError: () => {},
   })
 
   const [userSuppressionListDeleteLoading, , deleteUserSuppressionList] = useReapitUpdate<void, boolean>({
@@ -45,11 +54,22 @@ export const SupressionListModal: FC<{ userId?: string; email?: string }> = ({ u
           closeModal()
         }}
       >
-        {userSuppressionList ? (
-          <BodyText>{email ?? 'User'} is on the email suppression list - you can remove them below</BodyText>
-        ) : (
-          <BodyText>{email ?? 'User'} is not on the email suppression list</BodyText>
+        {userSuppressionListLoading && <Loader />}
+        {error && (
+          <BodyText>
+            Unable to fetch suppression list status{' '}
+            <PersistantNotification intent="danger" isInline isExpanded isFullWidth>
+              {error}
+            </PersistantNotification>
+          </BodyText>
         )}
+        {error === null &&
+          !userSuppressionListLoading &&
+          (userSuppressionList ? (
+            <BodyText>{email ?? 'User'} is on the email suppression list - you can remove them below</BodyText>
+          ) : (
+            <BodyText>{email ?? 'User'} is not on the email suppression list</BodyText>
+          ))}
         <ButtonGroup alignment="center">
           {userSuppressionList && (
             <Button

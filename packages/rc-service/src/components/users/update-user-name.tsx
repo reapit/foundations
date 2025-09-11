@@ -61,7 +61,7 @@ export const UpdateUserName: FC<{ user: UserModel }> = ({ user }) => {
     <>
       <Label onClick={() => openModal()}>
         <span style={{ flex: 1 }}>{user.name}</span>
-        <InlineIcon icon="edit" intent="primary" style={{ marginRight: 0 }} />
+        <InlineIcon icon="edit" intent="secondary" style={{ marginRight: 0 }} />
       </Label>
       <Modal
         title="Update Name"
