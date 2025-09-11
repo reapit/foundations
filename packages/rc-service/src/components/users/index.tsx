@@ -30,6 +30,8 @@ import { getPlatformApiUrl } from '@reapit/use-reapit-data/src/api-regions'
 import { UpdateUserName } from './update-user-name'
 import { SupressionListModal } from './supression-list-modal'
 import { LoginInfoModal } from './login-info-modal'
+import { UpdateUserActive } from './update-user-active'
+import { ResetPasswordModal } from './reset-password-modal'
 
 export interface UserFilters {
   email?: string
@@ -373,8 +375,15 @@ export const UsersPage: FC = () => {
                     children: <LoginInfoModal email={user.email} />,
                   },
                   {
-                    label: 'Job Title',
-                    value: jobTitle ?? '-',
+                    label: 'Status',
+                    children: <UpdateUserActive user={user} />,
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                  {
+                    label: 'Password',
+                    children: <ResetPasswordModal userId={user.id} />,
                     narrowTable: {
                       showLabel: true,
                     },
