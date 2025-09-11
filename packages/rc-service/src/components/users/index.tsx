@@ -28,6 +28,8 @@ import { UserContent } from './user-content'
 import { useReapitConnect } from '@reapit/connect-session'
 import { getPlatformApiUrl } from '@reapit/use-reapit-data/src/api-regions'
 import { UpdateUserName } from './update-user-name'
+import { SupressionListModal } from './supression-list-modal'
+import { LoginInfoModal } from './login-info-modal'
 
 export interface UserFilters {
   email?: string
@@ -352,6 +354,13 @@ export const UsersPage: FC = () => {
                     },
                   },
                   {
+                    label: 'Supression List',
+                    children: <SupressionListModal userId={user.id} email={user.email} />,
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                  {
                     label: 'Date Created',
                     value: created ? dayjs(created).format('DD-MM-YYYY') : '-',
                     icon: 'calendar',
@@ -360,8 +369,8 @@ export const UsersPage: FC = () => {
                     },
                   },
                   {
-                    label: 'First Login Date',
-                    value: firstLoginDate ? dayjs(firstLoginDate).format('DD-MM-YYYY') : '-',
+                    label: 'Login Info',
+                    children: <LoginInfoModal email={user.email} />,
                   },
                   {
                     label: 'Job Title',
