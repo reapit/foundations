@@ -13,7 +13,7 @@ import {
 } from '@reapit/elements'
 import React, { FC } from 'react'
 import { UserInfoModel } from '@reapit/foundations-ts-definitions'
-import { reapitConnectBrowserSession } from 'src/core/connect-session'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
 import { threeColTable } from './__styles__'
 
