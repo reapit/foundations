@@ -15,10 +15,14 @@ import {
   Select,
   BodyText,
   Button,
-  IconNames,
 } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { GroupModelPagedResult, UserModel, UserModelPagedResult } from '@reapit/foundations-ts-definitions'
+import {
+  GroupModelPagedResult,
+  OrganisationModelPagedResult,
+  UserModel,
+  UserModelPagedResult,
+} from '@reapit/foundations-ts-definitions'
 import ErrorBoundary from '../error-boundary'
 import { useForm, UseFormWatch } from 'react-hook-form'
 import { cx } from '@linaria/core'
@@ -187,6 +191,14 @@ export const UsersPage: FC = () => {
     action: getActions[GetActionNames.getUserGroups],
     queryParams: { pageSize: 100 },
     fetchWhenTrue: [],
+  })
+
+  const orgIds = [...new Set(users?._embedded?.map((user) => user.organisationIds).flat())].filter(Boolean) as string[]
+  const [orgs] = useReapitGet<OrganisationModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: getActions[GetActionNames.getOrgs],
+    queryParams: { id: orgIds },
+    fetchWhenTrue: [orgIds.length],
   })
 
   useEffect(() => {
@@ -394,7 +406,7 @@ export const UsersPage: FC = () => {
               return {
                 cells,
                 expandableContent: {
-                  content: <UserContent user={user} refreshUsers={refreshUsers} userGroups={userGroups} />,
+                  content: <UserContent orgs={orgs} user={user} refreshUsers={refreshUsers} userGroups={userGroups} />,
                 },
               }
             })}
