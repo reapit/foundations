@@ -342,6 +342,7 @@ export const UsersPage: FC = () => {
           <BodyText>Total Users: {users?.totalCount}</BodyText>
           <Table
             className={cx(elFadeIn, elMb11)}
+            key={pageNumber}
             rows={users?._embedded?.map((user) => {
               const { email, created } = user
               const cells = [
