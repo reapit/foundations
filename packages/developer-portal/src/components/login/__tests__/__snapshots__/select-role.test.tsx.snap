@@ -521,7 +521,7 @@ exports[`AppTypeOptionsContent should match a snapshot 1`] = `
                 <div
                   class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
                 >
-                  Existing Reapit CRM subscriber
+                  Estate agency with an existing Reapit CRM subscription
                 </div>
               </div>
             </div>
@@ -1217,7 +1217,7 @@ exports[`AppTypeOptionsContent should match a snapshot 1`] = `
               <div
                 class="el-text-base el-small-text el-has-grey-text el-has-no-margin"
               >
-                Existing Reapit CRM subscriber
+                Estate agency with an existing Reapit CRM subscription
               </div>
             </div>
           </div>
