@@ -13,7 +13,7 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "test": "cross-env TZ=UTC jest --watch --colors ",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
     "release": "echo '...skipping...'",

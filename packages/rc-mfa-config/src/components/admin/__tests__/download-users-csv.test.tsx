@@ -1,15 +1,14 @@
 import React from 'react'
-import { useReapitGet } from '@reapit/use-reapit-data'
 import { render } from '../../../tests/react-testing'
-import { DownloadUsersCSV, handleDownloadUsers, handleSetDownloading } from '../download-users-csv'
-import { mockUserModelPagedResult } from '../../../tests/__stubs__/users'
-import Papa from 'papaparse'
-import FileSaver from 'file-saver'
+import { DownloadUsersCSV, DownloadUsersCSVFunction } from '../download-users-csv'
 
-jest.mock('@reapit/use-reapit-data', () => ({
-  ...jest.requireActual('@reapit/use-reapit-data'),
-  useReapitGet: jest.fn(() => [{ data: [] }]),
-}))
+jest
+  .spyOn(global, 'fetch')
+  .mockImplementation(
+    jest.fn(() =>
+      Promise.resolve(new Response(JSON.stringify({ _embedded: [{}], totalPageCount: 1 }), { status: 200 })),
+    ),
+  )
 
 jest.mock('file-saver', () => ({
   __esModule: true,
@@ -18,44 +17,36 @@ jest.mock('file-saver', () => ({
   },
 }))
 
-jest.mock('papaparse', () => ({
-  __esModule: true,
-  default: {
-    unparse: jest.fn(),
-  },
-}))
-
-const mockUseReapitGet = useReapitGet as jest.Mock
-
 describe('DownloadUsersCSV', () => {
   afterEach(() => {
     jest.clearAllMocks()
   })
 
   it('should match a snapshot', () => {
-    mockUseReapitGet.mockReturnValueOnce([{ ...mockUserModelPagedResult }])
-
     expect(render(<DownloadUsersCSV queryParams={{}} />)).toMatchSnapshot()
   })
 
   it('should create CSV file', () => {
-    const isDownloading = true
     const setIsDownloading = jest.fn()
-    const curried = handleDownloadUsers(mockUserModelPagedResult, isDownloading, setIsDownloading)
+    DownloadUsersCSVFunction({
+      token: '',
+      filters: {},
+      setIsDownloading,
+    })
 
-    curried()
-
-    expect(FileSaver.saveAs).toHaveBeenCalledTimes(1)
-    expect(Papa.unparse).toHaveBeenCalledTimes(1)
-    expect(setIsDownloading).toHaveBeenCalledWith(false)
+    expect(setIsDownloading).toHaveBeenNthCalledWith(1, true)
+    expect(global.fetch).toHaveBeenCalled()
   })
 
   it('should set downloading', () => {
     const setIsDownloading = jest.fn()
-    const curried = handleSetDownloading(setIsDownloading)
-
-    curried()
+    DownloadUsersCSVFunction({
+      token: '',
+      filters: {},
+      setIsDownloading,
+    })
 
     expect(setIsDownloading).toHaveBeenCalledWith(true)
+    expect(global.fetch).toHaveBeenCalled()
   })
 })
