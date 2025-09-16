@@ -90,7 +90,7 @@ const updateGroupStyles = (userGroups: GroupModel[]) => {
     // @ts-ignore
     if (group.type !== 'internal') return
     const specificElement = inputElements.find((element) => element.textContent === group.id)
-    specificElement?.setAttribute('style', 'background: red; color: white')
+    specificElement?.setAttribute('style', 'background: #D1263D; color: white')
   })
 }
 
