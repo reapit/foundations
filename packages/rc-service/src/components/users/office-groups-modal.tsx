@@ -12,19 +12,20 @@ import {
   ButtonGroup,
 } from '@reapit/elements'
 import React, { FC } from 'react'
-import { UserInfoModel } from '@reapit/foundations-ts-definitions'
+import { OfficeGroupModel, UserInfoModel } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
 import { threeColTable } from './__styles__'
 
-export const OfficeGroupsModal: FC<{ email: string }> = ({ email }) => {
+export const OfficeGroupsModal: FC<{ email: string; orgId: string }> = ({ email, orgId }) => {
   const { modalIsOpen, openModal, closeModal } = useModal()
-  const [userInfo, userInfoLoading] = useReapitGet<UserInfoModel>({
+  const [userInfo, userInfoLoading] = useReapitGet<UserInfoModel & { orgOfficeGroups: OfficeGroupModel[] }>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getUserInfo],
     queryParams: { email: encodeURIComponent(email) },
     fetchWhenTrue: [modalIsOpen],
   })
+  const userOfficeGroup = userInfo?.orgOfficeGroups?.find((group) => group.organisationId === orgId)
 
   return (
     <>
@@ -38,7 +39,7 @@ export const OfficeGroupsModal: FC<{ email: string }> = ({ email }) => {
           closeModal()
         }}
       >
-        {userInfo && modalIsOpen && userInfo.officeGroupIds ? (
+        {userInfo && modalIsOpen && userOfficeGroup ? (
           <>
             <Table>
               <TableHeadersRow className={threeColTable}>
@@ -47,15 +48,15 @@ export const OfficeGroupsModal: FC<{ email: string }> = ({ email }) => {
                 <TableHeader>Office Ids</TableHeader>
               </TableHeadersRow>
               <TableRow className={threeColTable}>
-                <TableCell>{userInfo.officeGroupName}</TableCell>
-                <TableCell>{userInfo.officeGroupId}</TableCell>
-                <TableCell>{userInfo.officeGroupIds}</TableCell>
+                <TableCell>{userOfficeGroup.name}</TableCell>
+                <TableCell>{userOfficeGroup.id}</TableCell>
+                <TableCell>{userOfficeGroup.officeIds}</TableCell>
               </TableRow>
             </Table>
           </>
         ) : modalIsOpen ? (
           <PersistentNotification isFullWidth isExpanded isInline intent="primary">
-            User not part of an office group.
+            User not part of an office group in this Organisation.
           </PersistentNotification>
         ) : null}
         <ButtonGroup alignment="right">
