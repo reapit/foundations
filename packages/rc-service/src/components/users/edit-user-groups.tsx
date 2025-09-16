@@ -134,7 +134,11 @@ export const EditUserGroups: FC<EditUserGroupsProps> = ({ refreshUsers, user, us
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Subtitle>Edit User Groups</Subtitle>
-      <BodyText hasGreyText>Please use the section below to manage which groups this user belongs to:</BodyText>
+      <BodyText hasGreyText>
+        Please use the section below to manage which groups this user belongs to. Groups in highlighted red are internal
+        groups only and should be used with caution as they grant elevated access in different applications. If you do
+        not understand a particular group, please seek appropriate advice and do not proceed.
+      </BodyText>
       <FormLayout hasMargin className={elFadeIn}>
         <InputWrapFull>
           <MultiSelectInput

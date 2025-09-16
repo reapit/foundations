@@ -17,7 +17,7 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
         <p
           class="el-text-base el-body-text el-has-grey-text"
         >
-          Please use the section below to manage which groups this user belongs to:
+          Please use the section below to manage which groups this user belongs to. Groups in highlighted red are internal groups only and should be used with caution as they grant elevated access in different applications. If you do not understand a particular group, please seek appropriate advice and do not proceed.
         </p>
         <div
           class="el-form-layout-has-margin el-fade-in el-form-layout"
@@ -74,7 +74,7 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
       <p
         class="el-text-base el-body-text el-has-grey-text"
       >
-        Please use the section below to manage which groups this user belongs to:
+        Please use the section below to manage which groups this user belongs to. Groups in highlighted red are internal groups only and should be used with caution as they grant elevated access in different applications. If you do not understand a particular group, please seek appropriate advice and do not proceed.
       </p>
       <div
         class="el-form-layout-has-margin el-fade-in el-form-layout"
