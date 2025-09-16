@@ -8,6 +8,6 @@ const mockUserModel = (mockUserModelPagedResult._embedded as UserModel[])[0]
 
 describe('UpdateUserNameModal', () => {
   it('should match a snapshot where there is data', () => {
-    expect(render(<UpdateUserName user={mockUserModel} />)).toMatchSnapshot()
+    expect(render(<UpdateUserName user={mockUserModel} refreshUsers={() => {}} />)).toMatchSnapshot()
   })
 })
