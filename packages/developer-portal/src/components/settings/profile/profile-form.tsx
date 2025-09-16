@@ -5,7 +5,6 @@ import {
   ButtonGroup,
   elMb11,
   elMb6,
-  ElToggleItem,
   FormLayout,
   InputError,
   InputGroup,
@@ -13,7 +12,6 @@ import {
   Label,
   PersistentNotification,
   Subtitle,
-  Toggle,
   ToggleRadio,
   ToggleRadioOption,
 } from '@reapit/elements'
@@ -135,57 +133,37 @@ export const ProfileForm: FC = () => {
           </InputWrap>
         </FormLayout>
       </div>
-      {(isClient || hasProducts) && <Subtitle hasNoMargin>Customer Data</Subtitle>}
-      {isClient && (
-        <BodyText hasGreyText>
-          As your account is associated with both the Sandbox Data (SBOX) and Customer Data, you can choose to toggle
-          between which data you want to see available in the Developer Portal.
-        </BodyText>
-      )}
       {hasProducts && (
-        <BodyText hasGreyText>
-          You can choose which sandbox you wish to view based on your Reapit Product. This is specific and only
-          associated to your developer profile.
-        </BodyText>
-      )}
-      <FormLayout className={elMb6}>
-        {isClient && (
-          <InputWrap>
-            <InputGroup>
-              <Label>Use {orgName} Customer or Sandbox data</Label>
-              <Toggle id="useCustomerData" hasGreyBg {...register('useCustomerData')}>
-                <ElToggleItem>Customer</ElToggleItem>
-                <ElToggleItem>Sandbox</ElToggleItem>
-              </Toggle>
-              {errors.useCustomerData?.message && <InputError message={errors.useCustomerData?.message} />}
-            </InputGroup>
-          </InputWrap>
-        )}
-        {hasProducts && (
-          <InputWrap>
-            <InputGroup>
-              <ToggleRadio
-                hasGreyBg
-                {...register('sandboxId')}
-                options={
-                  (sandboxes?.data?.map((sandbox) => ({
-                    id: sandbox.id ?? '',
-                    text: sandbox.name ?? '',
-                    value: sandbox.id ?? '',
-                    isChecked: currentMember?.sandboxId === sandbox.id,
-                  })) as ToggleRadioOption[]) ?? []
-                }
-              />
-              <Label>Choose Sandbox</Label>
-              {errors.sandboxId?.message && <InputError message={errors.sandboxId?.message} />}
-            </InputGroup>
-          </InputWrap>
-        )}
-      </FormLayout>
-      {(isClient || hasProducts) && (
-        <PersistentNotification className={elMb11} isInline isExpanded isFullWidth intent="primary">
-          Please note, you will need to log out and log back in again to see this change take effect
-        </PersistentNotification>
+        <>
+          <Subtitle hasNoMargin>Customer Data</Subtitle>
+          <BodyText hasGreyText>
+            You can choose which sandbox you wish to view based on your Reapit Product. This is specific and only
+            associated to your developer profile.
+          </BodyText>
+          <FormLayout className={elMb6}>
+            <InputWrap>
+              <InputGroup>
+                <ToggleRadio
+                  hasGreyBg
+                  {...register('sandboxId')}
+                  options={
+                    (sandboxes?.data?.map((sandbox) => ({
+                      id: sandbox.id ?? '',
+                      text: sandbox.name ?? '',
+                      value: sandbox.id ?? '',
+                      isChecked: currentMember?.sandboxId === sandbox.id,
+                    })) as ToggleRadioOption[]) ?? []
+                  }
+                />
+                <Label>Choose Sandbox</Label>
+                {errors.sandboxId?.message && <InputError message={errors.sandboxId?.message} />}
+              </InputGroup>
+            </InputWrap>
+          </FormLayout>
+          <PersistentNotification className={elMb11} isInline isExpanded isFullWidth intent="primary">
+            Please note, you will need to log out and log back in again to see this change take effect
+          </PersistentNotification>
+        </>
       )}
       <ButtonGroup>
         <Button intent="primary" type="submit" disabled={memberUpdating} loading={memberUpdating}>

@@ -117,54 +117,11 @@ exports[`ProfileForm should match snapshot 1`] = `
         <p
           class="el-text-base el-body-text el-has-grey-text"
         >
-          As your account is associated with both the Sandbox Data (SBOX) and Customer Data, you can choose to toggle between which data you want to see available in the Developer Portal.
-        </p>
-        <p
-          class="el-text-base el-body-text el-has-grey-text"
-        >
           You can choose which sandbox you wish to view based on your Reapit Product. This is specific and only associated to your developer profile.
         </p>
         <div
           class="el-mb6 el-form-layout"
         >
-          <div
-            class="mocked-styled-133 el-input-wrap"
-          >
-            <div
-              class="mocked-styled-40 el-input-group"
-            >
-              <label
-                class="mocked-styled-41 el-label"
-              >
-                Use 
-                MOCK_ORG_NAME
-                 Customer or Sandbox data
-              </label>
-              <input
-                class="mocked-styled-125 el-toggle-checkbox"
-                id="useCustomerData"
-                name="useCustomerData"
-                type="checkbox"
-              />
-              <label
-                class="el-has-grey-bg el-toggle-label"
-                for="useCustomerData"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="mocked-styled-123 el-toggle-item"
-                >
-                  Customer
-                </span>
-                <span
-                  class="mocked-styled-123 el-toggle-item"
-                >
-                  Sandbox
-                </span>
-              </label>
-            </div>
-          </div>
           <div
             class="mocked-styled-133 el-input-wrap"
           >
@@ -391,54 +348,11 @@ exports[`ProfileForm should match snapshot 1`] = `
       <p
         class="el-text-base el-body-text el-has-grey-text"
       >
-        As your account is associated with both the Sandbox Data (SBOX) and Customer Data, you can choose to toggle between which data you want to see available in the Developer Portal.
-      </p>
-      <p
-        class="el-text-base el-body-text el-has-grey-text"
-      >
         You can choose which sandbox you wish to view based on your Reapit Product. This is specific and only associated to your developer profile.
       </p>
       <div
         class="el-mb6 el-form-layout"
       >
-        <div
-          class="mocked-styled-133 el-input-wrap"
-        >
-          <div
-            class="mocked-styled-40 el-input-group"
-          >
-            <label
-              class="mocked-styled-41 el-label"
-            >
-              Use 
-              MOCK_ORG_NAME
-               Customer or Sandbox data
-            </label>
-            <input
-              class="mocked-styled-125 el-toggle-checkbox"
-              id="useCustomerData"
-              name="useCustomerData"
-              type="checkbox"
-            />
-            <label
-              class="el-has-grey-bg el-toggle-label"
-              for="useCustomerData"
-              role="button"
-              tabindex="0"
-            >
-              <span
-                class="mocked-styled-123 el-toggle-item"
-              >
-                Customer
-              </span>
-              <span
-                class="mocked-styled-123 el-toggle-item"
-              >
-                Sandbox
-              </span>
-            </label>
-          </div>
-        </div>
         <div
           class="mocked-styled-133 el-input-wrap"
         >
