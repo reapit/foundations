@@ -351,7 +351,7 @@ export const UsersPage: FC = () => {
                   narrowTable: {
                     showLabel: true,
                   },
-                  children: <UpdateUserName user={user} />,
+                  children: <UpdateUserName user={user} refreshUsers={refreshUsers} />,
                 },
                 {
                   label: 'Email',

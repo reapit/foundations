@@ -85,7 +85,7 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, orgs, us
               },
               {
                 label: 'Office Groups',
-                children: <OfficeGroupsModal email={user.email!} />,
+                children: <OfficeGroupsModal email={user.email!} orgId={orgId} />,
               },
             ].filter(Boolean) as any[],
           }

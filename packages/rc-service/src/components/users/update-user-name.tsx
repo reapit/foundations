@@ -34,7 +34,7 @@ const validationSchema = object().shape({
   name: string().trim().required('Required').max(150, 'Limit of 150 characters'),
 })
 
-export const UpdateUserName: FC<{ user: UserModel }> = ({ user }) => {
+export const UpdateUserName: FC<{ user: UserModel; refreshUsers: () => void }> = ({ user, refreshUsers }) => {
   const { modalIsOpen, openModal, closeModal } = useModal()
 
   const [isLoading, , updateUser] = useReapitUpdate<UserModel, UserModel>({
@@ -75,7 +75,7 @@ export const UpdateUserName: FC<{ user: UserModel }> = ({ user }) => {
           onSubmit={handleSubmit(({ name }) => {
             updateUser({
               name,
-            })
+            }).then(refreshUsers)
           })}
         >
           <FormLayout>
