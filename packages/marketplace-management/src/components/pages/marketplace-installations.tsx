@@ -188,7 +188,7 @@ const DownloadCsv: FC<{ filters: InstallationFilters }> = ({ filters }) => {
   )
 }
 
-export const Installations: FC = () => {
+export const MarketplaceInstallations: FC = () => {
   const [installationsFilters, setInstallationsFilters] = useState<InstallationFilters>(defaultValues)
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [pageSize, setPageSize] = useState<number>(12)
@@ -282,7 +282,6 @@ export const Installations: FC = () => {
             </InputWrap>
           </FormLayout>
         </form>
-        {/* <Statistics area="INSTALLATIONS" data={installations} setPageSize={setPageSize} /> */}
         {installationsLoading ? (
           <Loader />
         ) : (
@@ -378,4 +377,4 @@ export const Installations: FC = () => {
   )
 }
 
-export default Installations
+export default MarketplaceInstallations
