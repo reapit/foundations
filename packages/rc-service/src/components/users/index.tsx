@@ -17,7 +17,12 @@ import {
   Button,
 } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { GroupModelPagedResult, UserModel, UserModelPagedResult } from '@reapit/foundations-ts-definitions'
+import {
+  GroupModelPagedResult,
+  OrganisationModelPagedResult,
+  UserModel,
+  UserModelPagedResult,
+} from '@reapit/foundations-ts-definitions'
 import ErrorBoundary from '../error-boundary'
 import { useForm, UseFormWatch } from 'react-hook-form'
 import { cx } from '@linaria/core'
@@ -27,6 +32,13 @@ import dayjs from 'dayjs'
 import { UserContent } from './user-content'
 import { useReapitConnect } from '@reapit/connect-session'
 import { getPlatformApiUrl } from '@reapit/use-reapit-data/src/api-regions'
+import { UpdateUserName } from './update-user-name'
+import { SupressionListModal } from './supression-list-modal'
+import { LoginInfoModal } from './login-info-modal'
+import { UpdateUserActive } from './update-user-active'
+import { ResetPasswordModal } from './reset-password-modal'
+import { AuthenticatorModal } from './authenticator-modal'
+import { getIsAdmin } from '../../utils/is-admin'
 
 export interface UserFilters {
   email?: string
@@ -165,6 +177,7 @@ export const UsersPage: FC = () => {
     ...emailQuery,
   })
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { isSupport } = getIsAdmin(connectSession)
 
   const [users, usersLoading, , refreshUsers] = useReapitGet<UserModelPagedResult>({
     reapitConnectBrowserSession,
@@ -178,6 +191,14 @@ export const UsersPage: FC = () => {
     action: getActions[GetActionNames.getUserGroups],
     queryParams: { pageSize: 100 },
     fetchWhenTrue: [],
+  })
+
+  const orgIds = [...new Set(users?._embedded?.map((user) => user.organisationIds).flat())].filter(Boolean) as string[]
+  const [orgs] = useReapitGet<OrganisationModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: getActions[GetActionNames.getOrgs],
+    queryParams: { id: orgIds },
+    fetchWhenTrue: [orgIds.length],
   })
 
   useEffect(() => {
@@ -321,86 +342,72 @@ export const UsersPage: FC = () => {
           <BodyText>Total Users: {users?.totalCount}</BodyText>
           <Table
             className={cx(elFadeIn, elMb11)}
+            key={pageNumber}
             rows={users?._embedded?.map((user) => {
-              const {
-                name,
-                email,
-                created,
-                jobTitle,
-                inactive,
-                organisationName,
-                organisationId,
-                agencyCloudNegotiatorId,
-                firstLoginDate,
-              } = user
+              const { email, created } = user
+              const cells = [
+                {
+                  label: 'Name',
+                  narrowTable: {
+                    showLabel: true,
+                  },
+                  children: <UpdateUserName user={user} refreshUsers={refreshUsers} />,
+                },
+                {
+                  label: 'Email',
+                  value: email ?? '-',
+                  narrowTable: {
+                    showLabel: true,
+                  },
+                },
+                {
+                  label: 'Supression List',
+                  children: <SupressionListModal userId={user.id} email={user.email} />,
+                  narrowTable: {
+                    showLabel: true,
+                  },
+                },
+                {
+                  label: 'Date Created',
+                  value: created ? dayjs(created).format('DD-MM-YYYY') : '-',
+                  narrowTable: {
+                    showLabel: true,
+                  },
+                },
+                {
+                  label: 'Login Info',
+                  children: <LoginInfoModal email={user.email} />,
+                },
+                {
+                  label: 'Status',
+                  children: <UpdateUserActive user={user} />,
+                  narrowTable: {
+                    showLabel: true,
+                  },
+                },
+                {
+                  label: 'Password',
+                  children: <ResetPasswordModal userId={user.id} />,
+                  narrowTable: {
+                    showLabel: true,
+                  },
+                },
+              ]
+
+              if (isSupport) {
+                cells.push({
+                  label: 'Authenticator',
+                  children: <AuthenticatorModal userId={user.id} />,
+                  narrowTable: {
+                    showLabel: true,
+                  },
+                })
+              }
+
               return {
-                cells: [
-                  {
-                    label: 'Name',
-                    value: name ?? '-',
-                    icon: 'contact',
-                    narrowTable: {
-                      showLabel: true,
-                    },
-                  },
-                  {
-                    label: 'Email',
-                    value: email ?? '-',
-                    icon: 'email',
-                    narrowTable: {
-                      showLabel: true,
-                    },
-                  },
-                  {
-                    label: 'Date Created',
-                    value: created ? dayjs(created).format('DD-MM-YYYY') : '-',
-                    icon: 'calendar',
-                    narrowTable: {
-                      showLabel: true,
-                    },
-                  },
-                  {
-                    label: 'First Login Date',
-                    value: firstLoginDate ? dayjs(firstLoginDate).format('DD-MM-YYYY') : '-',
-                  },
-                  {
-                    label: 'Job Title',
-                    value: jobTitle ?? '-',
-                    narrowTable: {
-                      showLabel: true,
-                    },
-                  },
-                  {
-                    label: 'Organisation',
-                    value: organisationName ?? '-',
-                    narrowTable: {
-                      showLabel: true,
-                    },
-                  },
-                  {
-                    label: 'Customer Id',
-                    value: organisationId ?? '-',
-                    narrowTable: {
-                      showLabel: true,
-                    },
-                  },
-                  {
-                    label: 'Neg Id',
-                    value: agencyCloudNegotiatorId ?? '-',
-                    narrowTable: {
-                      showLabel: true,
-                    },
-                  },
-                  {
-                    label: 'Active',
-                    value: <Icon icon={inactive ? 'close' : 'check'} intent={inactive ? 'danger' : 'success'} />,
-                    narrowTable: {
-                      showLabel: true,
-                    },
-                  },
-                ],
+                cells,
                 expandableContent: {
-                  content: <UserContent user={user} refreshUsers={refreshUsers} userGroups={userGroups} />,
+                  content: <UserContent orgs={orgs} user={user} refreshUsers={refreshUsers} userGroups={userGroups} />,
                 },
               }
             })}

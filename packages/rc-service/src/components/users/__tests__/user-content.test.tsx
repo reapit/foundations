@@ -11,8 +11,10 @@ describe('UserContent', () => {
           ...(mockUserModelPagedResult._embedded ? mockUserModelPagedResult._embedded[0] : {}),
         }}
         userGroups={{ _embedded: [] }}
+        orgs={{ _embedded: [] }}
         refreshUsers={() => {}}
       />,
     )
+    expect(wrapper).toMatchSnapshot()
   })
 })
