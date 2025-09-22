@@ -1,15 +1,4 @@
-import {
-  useModal,
-  Button,
-  Modal,
-  BodyText,
-  FormLayout,
-  InputWrapFull,
-  InputGroup,
-  ButtonGroup,
-  Loader,
-  PersistantNotification,
-} from '@reapit/elements'
+import { useModal, Button, Modal, BodyText, ButtonGroup, Loader, PersistantNotification } from '@reapit/elements'
 import {
   useReapitGet,
   getActions,
@@ -42,6 +31,8 @@ export const SupressionListModal: FC<{ userId?: string; email?: string }> = ({ u
     },
   })
 
+  const errorIs404 = error?.includes('was not found')
+
   return (
     <>
       <Button intent="neutral" onClick={openModal}>
@@ -55,7 +46,7 @@ export const SupressionListModal: FC<{ userId?: string; email?: string }> = ({ u
         }}
       >
         {userSuppressionListLoading && <Loader />}
-        {error && (
+        {error && !errorIs404 && (
           <BodyText>
             Unable to fetch suppression list status{' '}
             <PersistantNotification intent="danger" isInline isExpanded isFullWidth>
@@ -63,7 +54,7 @@ export const SupressionListModal: FC<{ userId?: string; email?: string }> = ({ u
             </PersistantNotification>
           </BodyText>
         )}
-        {error === null &&
+        {(error === null || errorIs404) &&
           !userSuppressionListLoading &&
           (userSuppressionList ? (
             <BodyText>{email ?? 'User'} is on the email suppression list - you can remove them below</BodyText>

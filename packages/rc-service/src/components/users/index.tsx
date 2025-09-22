@@ -410,6 +410,7 @@ export const UsersPage: FC = () => {
               return {
                 cells,
                 expandableContent: {
+                  headerContent: 'Organisations',
                   content: <UserContent orgs={orgs} user={user} refreshUsers={refreshUsers} userGroups={userGroups} />,
                 },
               }
