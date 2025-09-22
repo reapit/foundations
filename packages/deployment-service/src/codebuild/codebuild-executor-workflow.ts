@@ -160,7 +160,7 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
               pipeline.packageManager === PackageManagerEnum.YARN
                 ? `${PackageManagerEnum.YARN} --immutable --ignore-scripts`
                 : pipeline.packageManager === PackageManagerEnum.NPM
-                  ? `${pipeline.packageManager} ci ignore-scripts`
+                  ? `${pipeline.packageManager} ci --ignore-scripts`
                   : `${pipeline.packageManager} install --ignore-scripts`,
             ],
           },
