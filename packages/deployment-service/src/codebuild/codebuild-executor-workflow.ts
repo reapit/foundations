@@ -158,10 +158,10 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
               ...setupCommands,
               pipeline.packageManager === PackageManagerEnum.YARN_BERRY ||
               pipeline.packageManager === PackageManagerEnum.YARN
-                ? `${PackageManagerEnum.YARN} --immutable`
+                ? `${PackageManagerEnum.YARN} --immutable --ignore-scripts`
                 : pipeline.packageManager === PackageManagerEnum.NPM
-                  ? `${pipeline.packageManager} ci`
-                  : `${pipeline.packageManager} install`,
+                  ? `${pipeline.packageManager} ci ignore-scripts`
+                  : `${pipeline.packageManager} install --ignore-scripts`,
             ],
           },
           build: {
