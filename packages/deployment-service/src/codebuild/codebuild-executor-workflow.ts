@@ -156,10 +156,11 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
             },
             commands: [
               ...setupCommands,
-              pipeline.packageManager === PackageManagerEnum.YARN_BERRY
-                ? 'yarn'
-                : pipeline.packageManager === PackageManagerEnum.YARN
-                  ? PackageManagerEnum.YARN
+              pipeline.packageManager === PackageManagerEnum.YARN_BERRY ||
+              pipeline.packageManager === PackageManagerEnum.YARN
+                ? `${PackageManagerEnum.YARN} --immutable`
+                : pipeline.packageManager === PackageManagerEnum.NPM
+                  ? `${pipeline.packageManager} ci`
                   : `${pipeline.packageManager} install`,
             ],
           },
