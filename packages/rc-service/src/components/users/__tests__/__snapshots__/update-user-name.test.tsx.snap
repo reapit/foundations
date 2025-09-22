@@ -8,28 +8,66 @@ exports[`UpdateUserNameModal should match a snapshot where there is data 1`] = `
       <div
         class="mocked-styled-93 el-snack-holder"
       />
-      <button
-        class="el-intent-primary el-button"
+      <span
+        class="sc-gEvEer cFDZxP"
       >
-        <div
-          class="mocked-styled-0 el-button-loader"
-        />
-        Update User's Name
-      </button>
+        <span
+          style="flex: 1;"
+        >
+          Will McVay
+        </span>
+        <span
+          class="sc-aXZVg hSHFJT el-intent-default el-icon-new el-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            role="img"
+            title="Icon image with name edit"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 16.172v5h5l12.59-12.59a2 2 0 0 0 0-2.82l-2.18-2.18a2 2 0 0 0-2.82 0zm4.17 3H5v-2.17l8.41-8.42 2.18 2.18zm7.66-12L17 5.002l2.17 2.17L17 9.342z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
   </body>,
   "container": <div>
     <div
       class="mocked-styled-93 el-snack-holder"
     />
-    <button
-      class="el-intent-primary el-button"
+    <span
+      class="sc-gEvEer cFDZxP"
     >
-      <div
-        class="mocked-styled-0 el-button-loader"
-      />
-      Update User's Name
-    </button>
+      <span
+        style="flex: 1;"
+      >
+        Will McVay
+      </span>
+      <span
+        class="sc-aXZVg hSHFJT el-intent-default el-icon-new el-icon"
+      >
+        <svg
+          fill="none"
+          height="1em"
+          role="img"
+          title="Icon image with name edit"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 16.172v5h5l12.59-12.59a2 2 0 0 0 0-2.82l-2.18-2.18a2 2 0 0 0-2.82 0zm4.17 3H5v-2.17l8.41-8.42 2.18 2.18zm7.66-12L17 5.002l2.17 2.17L17 9.342z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+    </span>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
