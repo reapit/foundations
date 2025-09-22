@@ -10,6 +10,7 @@ import {
   TableHeadersRow,
   TableRow,
   ButtonGroup,
+  elMb6,
 } from '@reapit/elements'
 import React, { FC } from 'react'
 import { OfficeGroupModel, UserInfoModel } from '@reapit/foundations-ts-definitions'
@@ -55,7 +56,7 @@ export const OfficeGroupsModal: FC<{ email: string; orgId: string }> = ({ email,
             </Table>
           </>
         ) : modalIsOpen ? (
-          <PersistentNotification isFullWidth isExpanded isInline intent="primary">
+          <PersistentNotification isFullWidth isExpanded isInline intent="primary" className={elMb6}>
             User not part of an office group in this Organisation.
           </PersistentNotification>
         ) : null}

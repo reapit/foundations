@@ -618,6 +618,7 @@ exports[`UsersPage should match a snapshot 1`] = `
             >
               <div
                 class="mocked-styled-111 el-table-cell-content"
+                data-narrow-label="Login Info"
               >
                 <button
                   class="el-intent-neutral el-button"
@@ -1426,6 +1427,7 @@ exports[`UsersPage should match a snapshot 1`] = `
           >
             <div
               class="mocked-styled-111 el-table-cell-content"
+              data-narrow-label="Login Info"
             >
               <button
                 class="el-intent-neutral el-button"

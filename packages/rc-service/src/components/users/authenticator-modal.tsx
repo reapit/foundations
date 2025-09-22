@@ -40,7 +40,7 @@ export const AuthenticatorModal: FC<{ userId?: string }> = ({ userId }) => {
           </PersistentNotification>
         ) : null}
         {authenticatorsLoading && modalIsOpen ? <Loader /> : null}
-        <ButtonGroup alignment="center">
+        <ButtonGroup alignment="right">
           <Button intent="default" onClick={closeModal}>
             Close
           </Button>
