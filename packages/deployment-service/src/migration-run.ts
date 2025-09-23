@@ -3,17 +3,17 @@ import {
   OnEventRequest,
   OnEventResponse,
 } from 'aws-cdk-lib/custom-resources/lib/provider-framework/types'
-import { Connection } from 'typeorm'
+import { DataSource } from 'typeorm'
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app-module'
-import { getConnectionToken } from '@nestjs/typeorm'
+import { getDataSourceToken } from '@nestjs/typeorm'
 
 const bootstrap = async () => {
   const app = await NestFactory.create(AppModule)
 
   await app.init()
 
-  return app.get<Connection>(getConnectionToken())
+  return app.get<DataSource>(getDataSourceToken())
 }
 
 export const migrationRun: OnEventHandler = async (event: OnEventRequest): Promise<OnEventResponse> => {

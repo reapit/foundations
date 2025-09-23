@@ -349,17 +349,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/asset-awscli-v1@npm:^2.2.202":
-  version: 2.2.202
-  resolution: "@aws-cdk/asset-awscli-v1@npm:2.2.202"
-  checksum: 3e8f1148f76015c51339bf19e3a91ca98a7921bc6e0f817885bddea7d9f1b0bffde9ed08c218fd361c7c42693488d0c71ee931a7beb59e874105f72eee02416a
-  languageName: node
-  linkType: hard
-
-"@aws-cdk/asset-kubectl-v20@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "@aws-cdk/asset-kubectl-v20@npm:2.1.2"
-  checksum: a6d2cbdcd6b3d3217d05ef7f021c3098625c2835432d22060a9aa3b804c9bcb0a573f23feba921e045b00f095fb17b38d482bdf7bfd1421fc10f043fe9f6ab42
+"@aws-cdk/asset-awscli-v1@npm:2.2.242":
+  version: 2.2.242
+  resolution: "@aws-cdk/asset-awscli-v1@npm:2.2.242"
+  checksum: 00e2609b91ccbad50f41f70b9690e3a0d8316a6b42fb467ef64b325a6a21d2ba2f0554f991b9d161bc4eb61a7a0337d82024a1c98d7495605e86859e6095b9af
   languageName: node
   linkType: hard
 
@@ -370,13 +363,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/cloud-assembly-schema@npm:^38.0.0":
-  version: 38.0.1
-  resolution: "@aws-cdk/cloud-assembly-schema@npm:38.0.1"
+"@aws-cdk/cloud-assembly-schema@npm:^45.0.0":
+  version: 45.1.0
+  resolution: "@aws-cdk/cloud-assembly-schema@npm:45.1.0"
   dependencies:
-    jsonschema: "npm:^1.4.1"
-    semver: "npm:^7.6.3"
-  checksum: fff5afc74d6c1f0d8d09625f03138d26490b534d66ebb6bdef5bc6da71d4db66bb8a807ca0848bb0e1241d463a8d67c83a7ebd84ffda2aa00b3a592fd56da1ec
+    jsonschema: "npm:~1.4.1"
+    semver: "npm:^7.7.2"
+  checksum: 6f1cd51ee20cc489d38f789a2e78450d81d89a36a067d959835ee1f332e3858ba85b7969a79cb5c7b453638baf3e96756101331bbfa31d542fb117289d0bc866
   languageName: node
   linkType: hard
 
@@ -6639,6 +6632,115 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@napi-rs/canvas-android-arm64@npm:0.1.77":
+  version: 0.1.77
+  resolution: "@napi-rs/canvas-android-arm64@npm:0.1.77"
+  conditions: os=android & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@napi-rs/canvas-darwin-arm64@npm:0.1.77":
+  version: 0.1.77
+  resolution: "@napi-rs/canvas-darwin-arm64@npm:0.1.77"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@napi-rs/canvas-darwin-x64@npm:0.1.77":
+  version: 0.1.77
+  resolution: "@napi-rs/canvas-darwin-x64@npm:0.1.77"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@napi-rs/canvas-linux-arm-gnueabihf@npm:0.1.77":
+  version: 0.1.77
+  resolution: "@napi-rs/canvas-linux-arm-gnueabihf@npm:0.1.77"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@napi-rs/canvas-linux-arm64-gnu@npm:0.1.77":
+  version: 0.1.77
+  resolution: "@napi-rs/canvas-linux-arm64-gnu@npm:0.1.77"
+  conditions: os=linux & cpu=arm64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@napi-rs/canvas-linux-arm64-musl@npm:0.1.77":
+  version: 0.1.77
+  resolution: "@napi-rs/canvas-linux-arm64-musl@npm:0.1.77"
+  conditions: os=linux & cpu=arm64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@napi-rs/canvas-linux-riscv64-gnu@npm:0.1.77":
+  version: 0.1.77
+  resolution: "@napi-rs/canvas-linux-riscv64-gnu@npm:0.1.77"
+  conditions: os=linux & cpu=riscv64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@napi-rs/canvas-linux-x64-gnu@npm:0.1.77":
+  version: 0.1.77
+  resolution: "@napi-rs/canvas-linux-x64-gnu@npm:0.1.77"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@napi-rs/canvas-linux-x64-musl@npm:0.1.77":
+  version: 0.1.77
+  resolution: "@napi-rs/canvas-linux-x64-musl@npm:0.1.77"
+  conditions: os=linux & cpu=x64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@napi-rs/canvas-win32-x64-msvc@npm:0.1.77":
+  version: 0.1.77
+  resolution: "@napi-rs/canvas-win32-x64-msvc@npm:0.1.77"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@napi-rs/canvas@npm:^0.1.71":
+  version: 0.1.77
+  resolution: "@napi-rs/canvas@npm:0.1.77"
+  dependencies:
+    "@napi-rs/canvas-android-arm64": "npm:0.1.77"
+    "@napi-rs/canvas-darwin-arm64": "npm:0.1.77"
+    "@napi-rs/canvas-darwin-x64": "npm:0.1.77"
+    "@napi-rs/canvas-linux-arm-gnueabihf": "npm:0.1.77"
+    "@napi-rs/canvas-linux-arm64-gnu": "npm:0.1.77"
+    "@napi-rs/canvas-linux-arm64-musl": "npm:0.1.77"
+    "@napi-rs/canvas-linux-riscv64-gnu": "npm:0.1.77"
+    "@napi-rs/canvas-linux-x64-gnu": "npm:0.1.77"
+    "@napi-rs/canvas-linux-x64-musl": "npm:0.1.77"
+    "@napi-rs/canvas-win32-x64-msvc": "npm:0.1.77"
+  dependenciesMeta:
+    "@napi-rs/canvas-android-arm64":
+      optional: true
+    "@napi-rs/canvas-darwin-arm64":
+      optional: true
+    "@napi-rs/canvas-darwin-x64":
+      optional: true
+    "@napi-rs/canvas-linux-arm-gnueabihf":
+      optional: true
+    "@napi-rs/canvas-linux-arm64-gnu":
+      optional: true
+    "@napi-rs/canvas-linux-arm64-musl":
+      optional: true
+    "@napi-rs/canvas-linux-riscv64-gnu":
+      optional: true
+    "@napi-rs/canvas-linux-x64-gnu":
+      optional: true
+    "@napi-rs/canvas-linux-x64-musl":
+      optional: true
+    "@napi-rs/canvas-win32-x64-msvc":
+      optional: true
+  checksum: 8af383233f37b6c4ba8d6cb6f44868c67e34abd993ad1b1a4c30edbe1a4df8b886fe1b0c7758197650d394dac78d40d9c2e3cb4f5a4436562b607e96735694fb
+  languageName: node
+  linkType: hard
+
 "@nestjs/axios@npm:^4.0.0":
   version: 4.0.0
   resolution: "@nestjs/axios@npm:4.0.0"
@@ -7877,6 +7979,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@reapit/elements@npm:^4.3.4":
+  version: 4.3.4
+  resolution: "@reapit/elements@npm:4.3.4"
+  dependencies:
+    "@linaria/core": "npm:^6.1.0"
+    "@linaria/react": "npm:^6.1.0"
+  peerDependencies:
+    react: ">=18.0.2"
+    react-dom: ">=18.0.2"
+  bin:
+    elements-deploy: ./scripts/cdk/bin/rpt-cdk.js
+  checksum: 978777cf8c5b98ea0db00c61590f3ba3356d0ad007c31359a42724867434f5d627c2f55245e59c91660e77426d095b2afb263914750ff5f0f80790f8ad44631d
+  languageName: node
+  linkType: hard
+
 "@reapit/foundations-ts-definitions@npm:2.0.0, @reapit/foundations-ts-definitions@npm:^2.0.0":
   version: 2.0.0
   resolution: "@reapit/foundations-ts-definitions@npm:2.0.0"
@@ -8014,8 +8131,8 @@ __metadata:
     "@wyw-in-js/vite": "npm:^0.5.5"
     ajv: "npm:^8.17.1"
     autoprefixer: "npm:^10.4.20"
-    aws-cdk: "npm:^2.162.1"
-    aws-cdk-lib: "npm:^2.162.0"
+    aws-cdk: "npm:^2.1020.2"
+    aws-cdk-lib: "npm:^2.204.0"
     aws-jwt-verify: "npm:^4.0.1"
     aws-sdk: "npm:^2.1691.0"
     babel-jest: "npm:^29.7.0"
@@ -13795,34 +13912,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-cdk-lib@npm:^2.162.0":
-  version: 2.162.1
-  resolution: "aws-cdk-lib@npm:2.162.1"
+"aws-cdk-lib@npm:^2.204.0":
+  version: 2.204.0
+  resolution: "aws-cdk-lib@npm:2.204.0"
   dependencies:
-    "@aws-cdk/asset-awscli-v1": "npm:^2.2.202"
-    "@aws-cdk/asset-kubectl-v20": "npm:^2.1.2"
+    "@aws-cdk/asset-awscli-v1": "npm:2.2.242"
     "@aws-cdk/asset-node-proxy-agent-v6": "npm:^2.1.0"
-    "@aws-cdk/cloud-assembly-schema": "npm:^38.0.0"
+    "@aws-cdk/cloud-assembly-schema": "npm:^45.0.0"
     "@balena/dockerignore": "npm:^1.0.2"
     case: "npm:1.6.3"
-    fs-extra: "npm:^11.2.0"
+    fs-extra: "npm:^11.3.0"
     ignore: "npm:^5.3.2"
-    jsonschema: "npm:^1.4.1"
+    jsonschema: "npm:^1.5.0"
     mime-types: "npm:^2.1.35"
     minimatch: "npm:^3.1.2"
     punycode: "npm:^2.3.1"
-    semver: "npm:^7.6.3"
-    table: "npm:^6.8.2"
+    semver: "npm:^7.7.2"
+    table: "npm:^6.9.0"
     yaml: "npm:1.10.2"
   peerDependencies:
     constructs: ^10.0.0
-  checksum: f560a47ca64baabf695a7b5f2c45b1f9a192a997b17c620c8864cf29a3f5ec187f1d5976ef6f4d6c1882b6015f36b282e99c1e4639762627eb5d82c1cfb2c483
+  checksum: 940b966d1a48b520bbe6f331ccc9e612764691d5ce4fc36941481475ea72f6e640b937698470c6f79cba492d24ec57df4d12dcf4dcc519a174f4a0ba4fc80e17
   languageName: node
   linkType: hard
 
-"aws-cdk@npm:^2.162.1":
-  version: 2.162.1
-  resolution: "aws-cdk@npm:2.162.1"
+"aws-cdk@npm:^2.1020.2":
+  version: 2.1020.2
+  resolution: "aws-cdk@npm:2.1020.2"
   dependencies:
     fsevents: "npm:2.3.2"
   dependenciesMeta:
@@ -13830,7 +13946,7 @@ __metadata:
       optional: true
   bin:
     cdk: bin/cdk
-  checksum: 70a53e208767fbaa356e95935cd9f6cb9c288308486fcc57b0a697db4c57ef07850707512b1bb3b45193cfba0fe35b577d490d893280dc4201ef19efd6b01e7c
+  checksum: 0021ea45411a2befd727e7cfd4202f7e00982cf2085cd1055482f7cd461308a0f2b64900750075f606caacd0ae80a3c3f01fe9f5f3b79aafe852c1ede26ac8a3
   languageName: node
   linkType: hard
 
@@ -15038,6 +15154,13 @@ __metadata:
   version: 1.2.1
   resolution: "clsx@npm:1.2.1"
   checksum: 5ded6f61f15f1fa0350e691ccec43a28b12fb8e64c8e94715f2a937bc3722d4c3ed41d6e945c971fc4dcc2a7213a43323beaf2e1c28654af63ba70c9968a8643
+  languageName: node
+  linkType: hard
+
+"clsx@npm:^2.0.0":
+  version: 2.1.1
+  resolution: "clsx@npm:2.1.1"
+  checksum: cdfb57fa6c7649bbff98d9028c2f0de2f91c86f551179541cf784b1cfdc1562dcb951955f46d54d930a3879931a980e32a46b598acaea274728dbe068deca919
   languageName: node
   linkType: hard
 
@@ -16287,7 +16410,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^8.10.0"
     adm-zip: "npm:^0.5.16"
     atlassian-jwt: "npm:^2.0.3"
-    aws-cdk: "npm:^2.162.1"
+    aws-cdk: "npm:^2.1020.2"
     aws-serverless-express: "npm:^3.4.0"
     class-transformer: "npm:^0.5.1"
     class-validator: "npm:^0.14.1"
@@ -16429,6 +16552,7 @@ __metadata:
     react-copy-to-clipboard: "npm:^5.1.0"
     react-dom: "npm:^18.2.0"
     react-hook-form: "npm:^7.53.1"
+    react-pdf: "npm:^10.1.0"
     react-router: "npm:^6.27.0"
     react-router-dom: "npm:^6.27.0"
     snyk: "npm:^1.1293.1"
@@ -18591,7 +18715,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:^11.1.0, fs-extra@npm:^11.2.0":
+"fs-extra@npm:^11.1.0":
   version: 11.2.0
   resolution: "fs-extra@npm:11.2.0"
   dependencies:
@@ -18599,6 +18723,17 @@ __metadata:
     jsonfile: "npm:^6.0.1"
     universalify: "npm:^2.0.0"
   checksum: 0579bf6726a4cd054d4aa308f10b483f52478bb16284f32cf60b4ce0542063d551fca1a08a2af365e35db21a3fa5a06cf2a6ed614004b4368982bc754cb816b3
+  languageName: node
+  linkType: hard
+
+"fs-extra@npm:^11.3.0":
+  version: 11.3.0
+  resolution: "fs-extra@npm:11.3.0"
+  dependencies:
+    graceful-fs: "npm:^4.2.0"
+    jsonfile: "npm:^6.0.1"
+    universalify: "npm:^2.0.0"
+  checksum: c9fe7b23dded1efe7bbae528d685c3206477e20cc60e9aaceb3f024f9b9ff2ee1f62413c161cb88546cc564009ab516dec99e9781ba782d869bb37e4fe04a97f
   languageName: node
   linkType: hard
 
@@ -21267,10 +21402,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsonschema@npm:^1.4.1":
+"jsonschema@npm:^1.4.1, jsonschema@npm:~1.4.1":
   version: 1.4.1
   resolution: "jsonschema@npm:1.4.1"
   checksum: d7a188da7a3100a2caa362b80e98666d46607b7a7153aac405b8e758132961911c6df02d444d4700691330874e21a62639f550e856b21ddd28423690751ca9c6
+  languageName: node
+  linkType: hard
+
+"jsonschema@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "jsonschema@npm:1.5.0"
+  checksum: 46bf49b388ba922073bcb3c8d5e90af9d29fc8303dc866fd440182c88d6b4fd2807679fd39cdefb4113156d104ea47da9c0ff4bbcb0032c9fa29461cb1a92182
   languageName: node
   linkType: hard
 
@@ -21912,6 +22054,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"make-cancellable-promise@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "make-cancellable-promise@npm:2.0.0"
+  checksum: 5020506bce073235dd14d25614c0283e4c864d6641cb3cbc9a1807c2151a685c20ce005f1805155b4e2fac6a9bbe0fa39ccb7dd2d623744c1526651f0768cbee
+  languageName: node
+  linkType: hard
+
 "make-dir@npm:^1.0.0":
   version: 1.3.0
   resolution: "make-dir@npm:1.3.0"
@@ -21934,6 +22083,13 @@ __metadata:
   version: 1.3.6
   resolution: "make-error@npm:1.3.6"
   checksum: b86e5e0e25f7f777b77fabd8e2cbf15737972869d852a22b7e73c17623928fccb826d8e46b9951501d3f20e51ad74ba8c59ed584f610526a48f8ccf88aaec402
+  languageName: node
+  linkType: hard
+
+"make-event-props@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "make-event-props@npm:2.0.0"
+  checksum: 90e2a6113a884babd26d3c1832dc988413c6e067e62fc6a92f73c44f78ec09027af474f6204c3300af726e1ca77327434ec1b0ff8906b966fe78ea629aba28c8
   languageName: node
   linkType: hard
 
@@ -22138,6 +22294,18 @@ __metadata:
   version: 2.0.0
   resolution: "merge-descriptors@npm:2.0.0"
   checksum: e383332e700a94682d0125a36c8be761142a1320fc9feeb18e6e36647c9edf064271645f5669b2c21cf352116e561914fd8aa831b651f34db15ef4038c86696a
+  languageName: node
+  linkType: hard
+
+"merge-refs@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "merge-refs@npm:2.0.0"
+  peerDependencies:
+    "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: a7f6a2eaf154e32962494114742c16ed5fd04b2aa797c749e1efe68d7ced6e22a3b53f391098e4ce50916dfb84e56a3a266f2b0ecfbbe6096ed21d366c1fb64d
   languageName: node
   linkType: hard
 
@@ -24267,6 +24435,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"pdfjs-dist@npm:5.3.93":
+  version: 5.3.93
+  resolution: "pdfjs-dist@npm:5.3.93"
+  dependencies:
+    "@napi-rs/canvas": "npm:^0.1.71"
+  dependenciesMeta:
+    "@napi-rs/canvas":
+      optional: true
+  checksum: bf9688353dce6637dba9c9bbbb15672daa736218d61d22178cfe30e1a3a62d12d33819d627b04a5652f5eceb4df09847cd96308a9c5729dc87ba60e290ce07de
+  languageName: node
+  linkType: hard
+
 "peek-readable@npm:^4.1.0":
   version: 4.1.0
   resolution: "peek-readable@npm:4.1.0"
@@ -25239,11 +25419,14 @@ __metadata:
     "@linaria/react": "npm:^6.2.1"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.3"
-    "@reapit/elements": "npm:^4.3.2"
+    "@reapit/elements": "npm:^4.3.4"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/use-reapit-data": "workspace:packages/use-reapit-data"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
     "@sentry/browser": "npm:^8.34.0"
+    "@tanstack/react-query": "npm:^4.36.1"
+    "@tanstack/react-query-devtools": "npm:^4.36.1"
     "@testing-library/react": "npm:^14.3.1"
     "@typescript-eslint/eslint-plugin": "npm:^8.10.0"
     "@typescript-eslint/parser": "npm:^8.10.0"
@@ -25499,6 +25682,29 @@ __metadata:
   version: 18.2.0
   resolution: "react-is@npm:18.2.0"
   checksum: 200cd65bf2e0be7ba6055f647091b725a45dd2a6abef03bf2380ce701fd5edccee40b49b9d15edab7ac08a762bf83cb4081e31ec2673a5bfb549a36ba21570df
+  languageName: node
+  linkType: hard
+
+"react-pdf@npm:^10.1.0":
+  version: 10.1.0
+  resolution: "react-pdf@npm:10.1.0"
+  dependencies:
+    clsx: "npm:^2.0.0"
+    dequal: "npm:^2.0.3"
+    make-cancellable-promise: "npm:^2.0.0"
+    make-event-props: "npm:^2.0.0"
+    merge-refs: "npm:^2.0.0"
+    pdfjs-dist: "npm:5.3.93"
+    tiny-invariant: "npm:^1.0.0"
+    warning: "npm:^4.0.0"
+  peerDependencies:
+    "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: d4867f0aa072b8332ac15d8dee839040851d02281cc6c6a4fc34ba9de5e5127e2228084b5742cea83ab533df8aa608016318317da87b9176d1bd8b0bf0f37acf
   languageName: node
   linkType: hard
 
@@ -26621,6 +26827,15 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: 36b1fbe1a2b6f873559cd57b238f1094a053dbfd997ceeb8757d79d1d2089c56d1321b9f1069ce263dc64cfa922fa1d2ad566b39426fe1ac6c723c1487589e10
+  languageName: node
+  linkType: hard
+
+"semver@npm:^7.7.2":
+  version: 7.7.2
+  resolution: "semver@npm:7.7.2"
+  bin:
+    semver: bin/semver.js
+  checksum: 7a24cffcaa13f53c09ce55e05efe25cd41328730b2308678624f8b9f5fc3093fc4d189f47950f0b811ff8f3c3039c24a2c36717ba7961615c682045bf03e1dda
   languageName: node
   linkType: hard
 
@@ -27982,16 +28197,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"table@npm:^6.8.2":
-  version: 6.8.2
-  resolution: "table@npm:6.8.2"
+"table@npm:^6.9.0":
+  version: 6.9.0
+  resolution: "table@npm:6.9.0"
   dependencies:
     ajv: "npm:^8.0.1"
     lodash.truncate: "npm:^4.4.2"
     slice-ansi: "npm:^4.0.0"
     string-width: "npm:^4.2.3"
     strip-ansi: "npm:^6.0.1"
-  checksum: 2946162eb87a91b9bf4283214d26830db96f09cf517eff18e7501d47a4770c529b432bb54c9394337c3dfd6c8dbf66581f76edb37e9838beb6ec394080af4ac2
+  checksum: 976da6d89841566e39628d1ba107ffab126964c9390a0a877a7c54ebb08820bf388d28fe9f8dcf354b538f19634a572a506c38a3762081640013a149cc862af9
   languageName: node
   linkType: hard
 
@@ -28170,7 +28385,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tiny-invariant@npm:^1.0.6, tiny-invariant@npm:^1.1.0":
+"tiny-invariant@npm:^1.0.0, tiny-invariant@npm:^1.0.6, tiny-invariant@npm:^1.1.0":
   version: 1.3.3
   resolution: "tiny-invariant@npm:1.3.3"
   checksum: 5e185c8cc2266967984ce3b352a4e57cb89dad5a8abb0dea21468a6ecaa67cd5bb47a3b7a85d08041008644af4f667fb8b6575ba38ba5fb00b3b5068306e59fe
@@ -29845,6 +30060,15 @@ __metadata:
   dependencies:
     makeerror: "npm:1.0.12"
   checksum: ad7a257ea1e662e57ef2e018f97b3c02a7240ad5093c392186ce0bcf1f1a60bbadd520d073b9beb921ed99f64f065efb63dfc8eec689a80e569f93c1c5d5e16c
+  languageName: node
+  linkType: hard
+
+"warning@npm:^4.0.0":
+  version: 4.0.3
+  resolution: "warning@npm:4.0.3"
+  dependencies:
+    loose-envify: "npm:^1.0.0"
+  checksum: e7842aff036e2e07ce7a6cc3225e707775b969fe3d0577ad64bd24660e3a9ce3017f0b8c22a136566dcd3a151f37b8ed1ccee103b3bd82bd8a571bf80b247bc4
   languageName: node
   linkType: hard
 

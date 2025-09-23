@@ -15,6 +15,10 @@ export const ApiNames = {
   iaas: `${process.env.appEnv !== 'production' ? '.dev' : 'prod'}.paas.reapit.cloud`,
   appMarketCms: `https://marketplace-cms.${process.env.appEnv !== 'production' ? 'dev' : 'prod'}.paas.reapit.cloud`,
   payments: `https://payments-service.${process.env.appEnv !== 'production' ? 'dev' : 'prod'}.paas.reapit.cloud`,
+  organisation:
+    process.env.appEnv !== 'production'
+      ? 'https://organisation.dev.paas.reapit.cloud'
+      : 'https://organisation.prod.paas.reapit.cloud',
 }
 
 export enum PathNames {
@@ -118,4 +122,6 @@ export enum PathNames {
   createCustomPipelineDnsRecord = '/dns/{pipelineId}',
   getPipelineDnsConfig = '/dns/{pipelineId}',
   getMarketplaceMemberAuthenticators = '/marketplace/developers/{id}/members/{memberId}/authenticators',
+  userActiveToggleStatus = '/organisations/users/{id}/status',
+  getUserStatusHistory = '/organisations/users/{id}/status/history',
 }

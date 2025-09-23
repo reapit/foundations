@@ -1,6 +1,6 @@
 {
   "name": "developer-portal",
-  "version": "4.1.18",
+  "version": "4.1.19",
   "description": "Developer Portal for PAAS platform",
   "main": "./src/index.ts",
   "repository": "git@github.com:reapit/app-store.git",
@@ -48,6 +48,7 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.53.1",
+    "react-pdf": "^10.1.0",
     "react-router": "^6.27.0",
     "react-router-dom": "^6.27.0",
     "snyk": "^1.1293.1",

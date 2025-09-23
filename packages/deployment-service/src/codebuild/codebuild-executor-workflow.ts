@@ -1,6 +1,6 @@
 import { QueueNamesEnum } from '../constants'
 import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
-import { PipelineEntity } from '../entities/pipeline.entity'
+import { PipelineEntity, RuntimeNodeVersionEnum } from '../entities/pipeline.entity'
 import { AbstractWorkflow, PusherProvider, SqsProvider, Workflow } from '../events'
 import { SoruceProvider } from './source-provider'
 import { CodeBuild } from 'aws-sdk'
@@ -11,7 +11,7 @@ import { PipelineRunnerProvider } from '../pipeline-runner'
 import { plainToClass } from 'class-transformer'
 import { BitbucketClientData } from '../entities/bitbucket-client.entity'
 import { BitBucketEvent } from '../bitbucket'
-import { ParameterProvider } from '../pipeline'
+import { ParameterProvider, PipelineProvider } from '../pipeline'
 import { PackageManagerEnum } from '@reapit/foundations-ts-definitions'
 
 @Workflow(QueueNamesEnum.CODEBUILD_EXECUTOR)
@@ -31,6 +31,7 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
     private readonly pusherProvider: PusherProvider,
     private readonly parameterProvider: ParameterProvider,
     private readonly codeBuild: CodeBuild,
+    private readonly pipelineProvider: PipelineProvider,
   ) {
     super(sqsProvider)
   }
@@ -95,6 +96,20 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
     }
   }
 
+  private toRuntime(pipeline: PipelineEntity) {
+    switch (pipeline.runtime) {
+      case RuntimeNodeVersionEnum.NODE_18:
+        return 18
+      case RuntimeNodeVersionEnum.NODE_20:
+        return 20
+      case RuntimeNodeVersionEnum.NODE_22:
+        return 22
+      case RuntimeNodeVersionEnum.NODE_16:
+      default:
+        return 16
+    }
+  }
+
   private async handleFailure(error, pipeline: PipelineEntity, pipelineRunner: PipelineRunnerEntity) {
     console.error(error)
     console.log('codebuild config failure')
@@ -106,6 +121,7 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
     await Promise.all([
       this.deleteMessage(),
       this.pipelineRunnerProvider.save(pipelineRunner),
+      this.pipelineProvider.saveAll([pipeline]),
       this.pusherProvider.trigger(
         `private-${pipelineRunner.pipeline?.developerId}`,
         'pipeline-runner-update',
@@ -124,10 +140,11 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
     repoLocation: string
   }) {
     const params = await this.parameterProvider.obtainParameters(pipeline.id as string)
+    const runtime = this.toRuntime(pipeline)
 
     const setupCommands = [
-      'n install 18',
-      'n use 18',
+      `n install ${runtime}`,
+      `n use ${runtime}`,
       'CACHE_FOLDER=$(find . -maxdepth 1 -mindepth 1 -type d)',
       'echo $CACHE_FOLDER',
       'mv $CACHE_FOLDER/* ./',
@@ -150,7 +167,7 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
         phases: {
           install: {
             'runtime-versions': {
-              nodejs: 16,
+              nodejs: runtime,
             },
             commands: [
               ...setupCommands,

@@ -2,6 +2,8 @@ import React from 'react'
 import TermsAndConditionsModal, { TermsAndConditionsModalProps } from '..'
 import { render } from '../../../../tests/react-testing'
 
+jest.mock('../terms-and-conditions-pdf', () => ({ TermsAndConditionsPdf: jest.fn(() => <div>Mocked PDF</div>) }))
+
 const props: TermsAndConditionsModalProps = {
   visible: true,
   onAccept: jest.fn(),

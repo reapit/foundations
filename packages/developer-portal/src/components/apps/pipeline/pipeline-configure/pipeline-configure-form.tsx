@@ -19,6 +19,13 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { GithubRepositorySelectionElement } from './github-repository-selection-element'
 
+export enum RuntimeNodeVersionEnum {
+  NODE_16 = 'NODE_16',
+  NODE_18 = 'NODE_18',
+  NODE_20 = 'NODE_20',
+  NODE_22 = 'NODE_22',
+}
+
 type PipelineModelSchema = Omit<
   PipelineModelInterface,
   | 'created'
@@ -37,6 +44,7 @@ type PipelineModelSchema = Omit<
   | 'customDomain'
 > & {
   packageManager: string
+  runtime: string
 }
 
 export const handlePipelineUpdate =
@@ -108,11 +116,12 @@ const schema: SchemaOf<PipelineModelSchema> = object().shape({
     .required('Repository must be configured'),
   buildCommand: string().trim().required('A build command is required eg "build" or "bundle"').test(specialCharsTest),
   packageManager: string().required('Required - Please select a package manager'),
+  runtime: string().required('Required, runtime must be selected'),
   outDir: string().required('Required eg "dist" or "public').test(specialCharsTest),
 })
 
 export const getDefaultValues = (
-  appPipeline: PipelineModelInterface | null,
+  appPipeline: (PipelineModelInterface & { runtime: string }) | null,
   appDetail: Marketplace.AppDetailModel | null,
 ) => {
   if (appPipeline) {
@@ -124,6 +133,7 @@ export const getDefaultValues = (
       buildCommand,
       outDir,
       packageManager,
+      runtime: appPipeline.runtime,
     }
   }
 
@@ -133,6 +143,7 @@ export const getDefaultValues = (
     outDir: 'build',
     branch: 'main',
     packageManager: PackageManagerEnum.NPM,
+    runtime: RuntimeNodeVersionEnum.NODE_18,
   }
 }
 
@@ -234,6 +245,19 @@ export const PipelineConfigureForm: FC<{ setFormIsBeingEdited: Dispatch<boolean>
               <option value={PackageManagerEnum.YARN_BERRY}>YARN BERRY</option>
             </Select>
             {errors.packageManager?.message && <InputError message={errors.packageManager.message} />}
+          </InputGroup>
+        </InputWrap>
+        <InputWrap>
+          <InputGroup>
+            <Label>Runtime</Label>
+            <Select {...register('runtime')}>
+              {Object.values(RuntimeNodeVersionEnum).map((runtime) => (
+                <option key={runtime} value={runtime}>
+                  {runtime.replace('_', ' ')}
+                </option>
+              ))}
+            </Select>
+            {errors.runtime?.message && <InputError message={errors.runtime.message} />}
           </InputGroup>
         </InputWrap>
         <InputWrap>

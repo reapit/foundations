@@ -9,9 +9,12 @@ import { tryGetFirstName } from './utils'
 const confirmRegistrationUrl = `${process.env.MARKET_PLACE_URL}/login`
 const resetPasswordUrl = `${process.env.MARKET_PLACE_URL}/reset-password`
 const internalOrgServiceUrl = process.env.INTERNAL_ORG_SERVICE_URL
-const agentboxUrl = process.env.AGENTBOX_URL
+
+const agentboxUrl = process.env.AGENTBOX_URL ?? confirmRegistrationUrl
+const agentpointUrl = process.env.AGENTPOINT_URL ?? confirmRegistrationUrl
 const consoleUrl = process.env.CONSOLE_URL ?? confirmRegistrationUrl
 const ireUrl = process.env.IRE_URL ?? confirmRegistrationUrl
+const mmiUrl = process.env.MMI_URL ?? confirmRegistrationUrl
 
 const replaceAll = (str: string, find: string, replace: string): string => {
   return str.replace(new RegExp(find, 'g'), replace)
@@ -44,8 +47,10 @@ const getConfirmRegistrationUrl = async (emailAddress: string) => {
   if (user.products.length === 1) {
     const productId = user.products[0].id
     if (productId === 'agentbox') return agentboxUrl
+    if (productId === 'agentpoint') return agentpointUrl
     if (productId === 'consoleCloud') return consoleUrl
     if (productId === 'ireWeb') return ireUrl
+    if (productId === 'mmiWeb') return mmiUrl
   }
 
   return confirmRegistrationUrl

@@ -1,5 +1,5 @@
 import { SqsProvider } from '../../events'
-import { ParameterProvider } from '../../pipeline'
+import { ParameterProvider, PipelineProvider } from '../../pipeline'
 import { PipelineRunnerProvider } from '../../pipeline-runner'
 import { S3Provider } from '../../s3'
 import { Test, TestingModule } from '@nestjs/testing'
@@ -54,6 +54,10 @@ const mockPusherProvider = {
   trigger: jest.fn(),
 }
 
+const mockPipelineProvider = {
+  saveAll: jest.fn(),
+}
+
 describe('CodebuildExecutorWorkflow', () => {
   let app: INestApplication
   beforeAll(async () => {
@@ -86,6 +90,10 @@ describe('CodebuildExecutorWorkflow', () => {
         {
           provide: PusherProvider,
           useValue: mockPusherProvider,
+        },
+        {
+          provide: PipelineProvider,
+          useValue: mockPipelineProvider,
         },
         CodebuildExecutorWorkflow,
       ],
