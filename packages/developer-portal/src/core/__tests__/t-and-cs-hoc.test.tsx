@@ -12,6 +12,9 @@ jest.mock('@reapit/connect-session', () => ({
     connectLoginRedirect: jest.fn(),
   }),
 }))
+jest.mock('../components/register/terms-and-conditions-modal/terms-and-conditions-pdf', () => ({
+  TermsAndConditionsPdf: jest.fn(() => <div>Mocked PDF</div>),
+}))
 
 describe('TAndCsHoc', () => {
   it('should match snapshot', () => {

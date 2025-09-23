@@ -14,9 +14,15 @@ import {
   ToggleRadio,
   Select,
   BodyText,
+  Button,
 } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { GroupModelPagedResult, UserModelPagedResult } from '@reapit/foundations-ts-definitions'
+import {
+  GroupModelPagedResult,
+  OrganisationModelPagedResult,
+  UserModel,
+  UserModelPagedResult,
+} from '@reapit/foundations-ts-definitions'
 import ErrorBoundary from '../error-boundary'
 import { useForm, UseFormWatch } from 'react-hook-form'
 import { cx } from '@linaria/core'
@@ -24,6 +30,15 @@ import { GetActionNames, getActions, objectToQuery, useReapitGet } from '@reapit
 import debounce from 'just-debounce-it'
 import dayjs from 'dayjs'
 import { UserContent } from './user-content'
+import { useReapitConnect } from '@reapit/connect-session'
+import { getPlatformApiUrl } from '@reapit/use-reapit-data/src/api-regions'
+import { UpdateUserName } from './update-user-name'
+import { SupressionListModal } from './supression-list-modal'
+import { LoginInfoModal } from './login-info-modal'
+import { UpdateUserActive } from './update-user-active'
+import { ResetPasswordModal } from './reset-password-modal'
+import { AuthenticatorModal } from './authenticator-modal'
+import { getIsAdmin } from '../../utils/is-admin'
 
 export interface UserFilters {
   email?: string
@@ -38,14 +53,121 @@ export interface UserFilters {
 }
 
 export const handleSetAdminFilters =
-  (setUserSearch: Dispatch<SetStateAction<UserFilters>>, watch: UseFormWatch<UserFilters>) => () => {
-    const subscription = watch(debounce(setUserSearch, 200))
+  (
+    setUserSearch: Dispatch<SetStateAction<UserFilters>>,
+    watch: UseFormWatch<UserFilters>,
+    setPageNumber: Dispatch<number>,
+  ) =>
+  () => {
+    const subscription = watch(
+      debounce((value) => {
+        setPageNumber(1)
+        setUserSearch(value)
+      }, 200),
+    )
     return () => subscription.unsubscribe()
   }
+
+export const downloadCSV = async ({
+  setDownloadGenerating,
+  filters,
+  token,
+}: {
+  setDownloadGenerating: Dispatch<SetStateAction<boolean>>
+  filters: UserFilters
+  token: string
+}) => {
+  const data: UserModel[] = []
+  let page = 1
+  let totalPageCount = 2
+
+  const getPage = async (page: number): Promise<{ items: UserModel[]; page: number; totalPageCount: number }> => {
+    const query = new URLSearchParams({
+      ...filters,
+      pageSize: '100',
+      pageNumber: page.toString(),
+    })
+    const result = await fetch(`${getPlatformApiUrl()}/organisations/users?${query.toString()}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'api-version': 'latest',
+      },
+    })
+
+    const body = await result.json()
+
+    const items = body._embedded
+    const totalPageCount = body.totalPageCount
+
+    return {
+      page: page + 1,
+      items,
+      totalPageCount,
+    }
+  }
+  setDownloadGenerating(true)
+
+  do {
+    const { items, page: newPage, totalPageCount: newTotalPageCount } = await getPage(page)
+    items.forEach((item) => data.push(item))
+
+    totalPageCount = newTotalPageCount
+    page = newPage
+  } while (page <= totalPageCount)
+
+  setDownloadGenerating(false)
+
+  const dataForDownload = data.map((row) => [
+    row.name,
+    row.email,
+    row.jobTitle ?? '',
+    row.inactive ? 'Inactive' : 'Active',
+    row.mfaEnabled ? 'Enabled' : 'Not Configured',
+    row.organisationName ?? '',
+    row.organisationId ?? '',
+    row.created,
+    row.firstLoginDate,
+    row.consentToTrack ? 'Yes' : 'No',
+    row.userGroups?.map((group) => group.groupId),
+  ])
+
+  dataForDownload.unshift([
+    'Name',
+    'Email',
+    'JobTitle',
+    'Status',
+    'MFA Status',
+    'Organisation Name',
+    'Organisation Id',
+    'Created',
+    'First Login Date',
+    'Consent to Track',
+    'User Roles',
+  ])
+
+  const csv = dataForDownload
+    .map((row) =>
+      row
+        .map(String)
+        .map((value) => value.replaceAll('"', '""'))
+        .map((value) => `"${value}"`)
+        .join(','),
+    )
+    .join('\r\n')
+
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' })
+  const url = URL.createObjectURL(blob)
+  const button = document.createElement('a')
+  button.href = url
+  button.setAttribute('download', 'users.csv')
+  button.click()
+}
 
 export const UsersPage: FC = () => {
   const [userSearch, setUserSearch] = useState<UserFilters>({})
   const [pageNumber, setPageNumber] = useState<number>(1)
+  const [downloadDisabled, setDownloadDisabled] = useState<boolean>(true)
+  const [downloadGenerating, setDownloadGenerating] = useState<boolean>(false)
   const { register, watch } = useForm<UserFilters>({ mode: 'all' })
   const emailQuery = {
     email: userSearch.email ? encodeURIComponent(userSearch.email) : undefined,
@@ -54,6 +176,8 @@ export const UsersPage: FC = () => {
     ...userSearch,
     ...emailQuery,
   })
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { isSupport } = getIsAdmin(connectSession)
 
   const [users, usersLoading, , refreshUsers] = useReapitGet<UserModelPagedResult>({
     reapitConnectBrowserSession,
@@ -69,7 +193,18 @@ export const UsersPage: FC = () => {
     fetchWhenTrue: [],
   })
 
-  useEffect(handleSetAdminFilters(setUserSearch, watch), [])
+  const orgIds = [...new Set(users?._embedded?.map((user) => user.organisationIds).flat())].filter(Boolean) as string[]
+  const [orgs] = useReapitGet<OrganisationModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: getActions[GetActionNames.getOrgs],
+    queryParams: { id: orgIds },
+    fetchWhenTrue: [orgIds.length],
+  })
+
+  useEffect(() => {
+    setDownloadDisabled(!Object.values(userSearch).some((value) => value !== ''))
+  }, [userSearch])
+  useEffect(handleSetAdminFilters(setUserSearch, watch, setPageNumber), [])
 
   return (
     <ErrorBoundary>
@@ -207,86 +342,72 @@ export const UsersPage: FC = () => {
           <BodyText>Total Users: {users?.totalCount}</BodyText>
           <Table
             className={cx(elFadeIn, elMb11)}
+            key={pageNumber}
             rows={users?._embedded?.map((user) => {
-              const {
-                name,
-                email,
-                created,
-                jobTitle,
-                inactive,
-                organisationName,
-                organisationId,
-                agencyCloudNegotiatorId,
-                firstLoginDate,
-              } = user
+              const { email, created } = user
+              const cells = [
+                {
+                  label: 'Name',
+                  narrowTable: {
+                    showLabel: true,
+                  },
+                  children: <UpdateUserName user={user} refreshUsers={refreshUsers} />,
+                },
+                {
+                  label: 'Email',
+                  value: email ?? '-',
+                  narrowTable: {
+                    showLabel: true,
+                  },
+                },
+                {
+                  label: 'Supression List',
+                  children: <SupressionListModal userId={user.id} email={user.email} />,
+                  narrowTable: {
+                    showLabel: true,
+                  },
+                },
+                {
+                  label: 'Date Created',
+                  value: created ? dayjs(created).format('DD-MM-YYYY') : '-',
+                  narrowTable: {
+                    showLabel: true,
+                  },
+                },
+                {
+                  label: 'Login Info',
+                  children: <LoginInfoModal email={user.email} />,
+                },
+                {
+                  label: 'Status',
+                  children: <UpdateUserActive user={user} />,
+                  narrowTable: {
+                    showLabel: true,
+                  },
+                },
+                {
+                  label: 'Password',
+                  children: <ResetPasswordModal userId={user.id} />,
+                  narrowTable: {
+                    showLabel: true,
+                  },
+                },
+              ]
+
+              if (isSupport) {
+                cells.push({
+                  label: 'Authenticator',
+                  children: <AuthenticatorModal userId={user.id} />,
+                  narrowTable: {
+                    showLabel: true,
+                  },
+                })
+              }
+
               return {
-                cells: [
-                  {
-                    label: 'Name',
-                    value: name ?? '-',
-                    icon: 'contact',
-                    narrowTable: {
-                      showLabel: true,
-                    },
-                  },
-                  {
-                    label: 'Email',
-                    value: email ?? '-',
-                    icon: 'email',
-                    narrowTable: {
-                      showLabel: true,
-                    },
-                  },
-                  {
-                    label: 'Date Created',
-                    value: created ? dayjs(created).format('DD-MM-YYYY') : '-',
-                    icon: 'calendar',
-                    narrowTable: {
-                      showLabel: true,
-                    },
-                  },
-                  {
-                    label: 'First Login Date',
-                    value: firstLoginDate ? dayjs(firstLoginDate).format('DD-MM-YYYY') : '-',
-                  },
-                  {
-                    label: 'Job Title',
-                    value: jobTitle ?? '-',
-                    narrowTable: {
-                      showLabel: true,
-                    },
-                  },
-                  {
-                    label: 'Organisation',
-                    value: organisationName ?? '-',
-                    narrowTable: {
-                      showLabel: true,
-                    },
-                  },
-                  {
-                    label: 'Customer Id',
-                    value: organisationId ?? '-',
-                    narrowTable: {
-                      showLabel: true,
-                    },
-                  },
-                  {
-                    label: 'Neg Id',
-                    value: agencyCloudNegotiatorId ?? '-',
-                    narrowTable: {
-                      showLabel: true,
-                    },
-                  },
-                  {
-                    label: 'Active',
-                    value: <Icon icon={inactive ? 'close' : 'check'} intent={inactive ? 'danger' : 'success'} />,
-                    narrowTable: {
-                      showLabel: true,
-                    },
-                  },
-                ],
+                cells,
                 expandableContent: {
-                  content: <UserContent user={user} refreshUsers={refreshUsers} userGroups={userGroups} />,
+                  content: <UserContent orgs={orgs} user={user} refreshUsers={refreshUsers} userGroups={userGroups} />,
                 },
               }
             })}
@@ -296,6 +417,22 @@ export const UsersPage: FC = () => {
             currentPage={pageNumber}
             numberPages={Math.ceil((users?.totalCount ?? 1) / 12)}
           />
+          <InputWrap>
+            <Button
+              onClick={() =>
+                downloadCSV({
+                  setDownloadGenerating,
+                  token: connectSession?.accessToken as string,
+                  filters: queryParams,
+                })
+              }
+              disabled={downloadDisabled || downloadGenerating}
+              intent="primary"
+              loading={downloadGenerating}
+            >
+              {downloadGenerating ? 'Generating' : 'Download'}
+            </Button>
+          </InputWrap>
         </>
       ) : (
         <PersistentNotification isFullWidth isExpanded intent="primary" isInline>

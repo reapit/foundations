@@ -6,7 +6,7 @@ import { EventDispatcher, PusherProvider } from '../../events'
 import { v4 as uuid } from 'uuid'
 import { PackageManagerEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { plainToInstance } from 'class-transformer'
-import { PipelineEntity } from '../../entities/pipeline.entity'
+import { PipelineEntity, RuntimeNodeVersionEnum } from '../../entities/pipeline.entity'
 import { RepositoryProvider } from '../repository.provider'
 import { INestApplication } from '@nestjs/common'
 
@@ -103,6 +103,7 @@ describe('PipelineController', () => {
         {
           packageManager: PackageManagerEnum.YARN,
           outDir: 'build',
+          runtime: RuntimeNodeVersionEnum.NODE_16,
         },
         {
           developerId: 'developer-id',
@@ -131,6 +132,7 @@ describe('PipelineController', () => {
       await pipelineController.create(
         {
           packageManager: PackageManagerEnum.YARN,
+          runtime: RuntimeNodeVersionEnum.NODE_16,
           outDir: 'build',
         },
         {
@@ -176,6 +178,7 @@ describe('PipelineController', () => {
           packageManager: PackageManagerEnum.YARN,
           outDir: 'build',
           buildStatus: 'PROVISION_REQUEST',
+          runtime: RuntimeNodeVersionEnum.NODE_16,
         },
       )
 
@@ -209,6 +212,7 @@ describe('PipelineController', () => {
         {
           packageManager: PackageManagerEnum.YARN,
           outDir: 'build',
+          runtime: RuntimeNodeVersionEnum.NODE_16,
         },
       )
 

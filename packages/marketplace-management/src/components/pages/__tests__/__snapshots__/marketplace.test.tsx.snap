@@ -14,6 +14,24 @@ exports[`MarketplacePage should match a snapshot 1`] = `
         <aside
           class="el-secondary-nav-container"
         >
+          <div
+            class="mocked-styled-81 el-secondary-nav"
+          >
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
+            >
+              AppMarketplace
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
+            >
+              Installations
+            </div>
+          </div>
           <span
             class="el-mb5 el-icon-size-large el-icon"
           >
@@ -2307,6 +2325,24 @@ exports[`MarketplacePage should match a snapshot 1`] = `
       <aside
         class="el-secondary-nav-container"
       >
+        <div
+          class="mocked-styled-81 el-secondary-nav"
+        >
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
+          >
+            AppMarketplace
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
+          >
+            Installations
+          </div>
+        </div>
         <span
           class="el-mb5 el-icon-size-large el-icon"
         >
@@ -4657,6 +4693,24 @@ exports[`MarketplacePage should match a snapshot where no orgClientId exists 1`]
         <aside
           class="el-secondary-nav-container"
         >
+          <div
+            class="mocked-styled-81 el-secondary-nav"
+          >
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
+            >
+              AppMarketplace
+            </div>
+            <div
+              class="mocked-styled-82 el-secondary-nav-item"
+              role="button"
+              tabindex="0"
+            >
+              Installations
+            </div>
+          </div>
           <span
             class="el-mb5 el-icon-size-large el-icon"
           >
@@ -4919,6 +4973,24 @@ exports[`MarketplacePage should match a snapshot where no orgClientId exists 1`]
       <aside
         class="el-secondary-nav-container"
       >
+        <div
+          class="mocked-styled-81 el-secondary-nav"
+        >
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
+          >
+            AppMarketplace
+          </div>
+          <div
+            class="mocked-styled-82 el-secondary-nav-item"
+            role="button"
+            tabindex="0"
+          >
+            Installations
+          </div>
+        </div>
         <span
           class="el-mb5 el-icon-size-large el-icon"
         >
