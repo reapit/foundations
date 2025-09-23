@@ -5,16 +5,16 @@ import { useEvent } from '@harelpls/use-pusher'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 
 export interface PipelinePusherEvent {
-  pipeline: PipelineModelInterface
+  pipeline: PipelineModelInterface & { runtime: string }
 }
 
 export const handlePipelineEvent =
   (
-    pipeline: PipelineModelInterface | null,
-    setPipeline: Dispatch<SetStateAction<PipelineModelInterface | null>>,
+    pipeline: (PipelineModelInterface & { runtime: string }) | null,
+    setPipeline: Dispatch<SetStateAction<(PipelineModelInterface & { runtime: string }) | null>>,
     appId: string | null,
   ) =>
-  (event?: PipelineModelInterface) => {
+  (event?: PipelineModelInterface & { runtime: string }) => {
     const pipelineId = pipeline?.id || appId
     if (!event || !pipelineId || event?.id !== pipelineId) {
       return
@@ -25,8 +25,8 @@ export const handlePipelineEvent =
 
 export const handleRunnerEvent =
   (
-    pipeline: PipelineModelInterface | null,
-    setPipeline: Dispatch<SetStateAction<PipelineModelInterface | null>>,
+    pipeline: (PipelineModelInterface & { runtime: string }) | null,
+    setPipeline: Dispatch<SetStateAction<(PipelineModelInterface & { runtime: string }) | null>>,
     appId: string | null,
   ) =>
   (event?: PipelinePusherEvent) => {

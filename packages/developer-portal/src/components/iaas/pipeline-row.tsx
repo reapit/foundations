@@ -20,13 +20,13 @@ import { useChannel, useEvent } from '@harelpls/use-pusher'
 import { handlePipelineEvent } from '../apps/page/pusher-event-wrapper'
 
 interface PipelineRowProps {
-  pipeline: PipelineModelInterface
+  pipeline: PipelineModelInterface & { runtime: string }
   connectSession: ReapitConnectSession
 }
 
 export const PipelineRow: FC<PipelineRowProps> = ({ pipeline, connectSession }) => {
   const navigate = useNavigate()
-  const [appPipeline, setAppPipeline] = useState<PipelineModelInterface>(pipeline)
+  const [appPipeline, setAppPipeline] = useState<PipelineModelInterface & { runtime: string }>(pipeline)
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const channel = useChannel(`private-${connectSession?.loginIdentity.developerId}`)
@@ -35,7 +35,7 @@ export const PipelineRow: FC<PipelineRowProps> = ({ pipeline, connectSession }) 
     'pipeline-update',
     handlePipelineEvent(
       appPipeline,
-      setAppPipeline as Dispatch<SetStateAction<PipelineModelInterface | null>>,
+      setAppPipeline as Dispatch<SetStateAction<(PipelineModelInterface & { runtime: string }) | null>>,
       pipeline.id ?? null,
     ),
   )

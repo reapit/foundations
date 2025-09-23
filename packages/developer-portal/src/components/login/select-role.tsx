@@ -55,7 +55,7 @@ export const SelectRolePage: FC = () => {
             <FlexContainer isFlexJustifyCenter isFlexColumn>
               <BodyText>Existing Customer</BodyText>
               <SmallText tag="div" hasGreyText hasNoMargin>
-                Existing Reapit CRM subscriber
+                Estate agency with an existing Reapit CRM subscription
               </SmallText>
             </FlexContainer>
           </FlexContainer>

@@ -1,10 +1,11 @@
-import React, { FC, useCallback } from 'react'
+import React, { FC, useCallback, useEffect } from 'react'
 import {
   UserModel,
   GroupModelPagedResult,
   GroupModel,
   RemoveGroupMembershipModel,
   CreateGroupMembershipModel,
+  UserGroupModel,
 } from '@reapit/foundations-ts-definitions'
 import {
   BodyText,
@@ -16,7 +17,6 @@ import {
   MultiSelectInput,
   MultiSelectOption,
   PersistentNotification,
-  Subtitle,
 } from '@reapit/elements'
 import { useForm } from 'react-hook-form'
 import { SendFunction, UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
@@ -26,6 +26,8 @@ export interface EditUserGroupsProps {
   refreshUsers: () => void
   user: UserModel
   userGroups: GroupModelPagedResult | null
+  orgId: string
+  closeModal?: () => void
 }
 
 interface UpdateUserModel {
@@ -56,16 +58,27 @@ export const prepareUserGroupOptions: (data: GroupModel[]) => MultiSelectOption[
     } as MultiSelectOption
   })
 
+const updateGroupStyles = (userGroups: GroupModel[]) => {
+  const inputElements = Array.from(document.getElementsByClassName('el-multi-select-label'))
+  userGroups?.map((group) => {
+    // @ts-ignore
+    if (group.type !== 'internal') return
+    const specificElement = inputElements.find((element) => element.textContent === group.id)
+    specificElement?.setAttribute('style', 'background: red; color: white')
+  })
+}
+
 export const onHandleSubmit =
   (
     refreshUsers: () => void,
     user: UserModel,
     removeMemberFromGroup: SendFunction<RemoveGroupMembershipModel, boolean>,
     addMemberToGroup: SendFunction<CreateGroupMembershipModel, boolean>,
+    organisationId: string,
   ) =>
   async (params: UpdateUserModel) => {
     const { groupIds } = params
-    const { id: userId, organisationId } = user
+    const { id: userId } = user
     if (!user || !userId) return null
 
     const { removeIds, addIds } = sortAddRemoveGroups(user, groupIds)
@@ -83,7 +96,8 @@ export const onHandleSubmit =
     }
   }
 
-export const EditUserGroups: FC<EditUserGroupsProps> = ({ refreshUsers, user, userGroups }) => {
+export const EditUserGroups: FC<EditUserGroupsProps> = ({ refreshUsers, user, userGroups, orgId, closeModal }) => {
+
   const [removeMemberFromGroupLoading, , removeMemberFromGroup] = useReapitUpdate<RemoveGroupMembershipModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.removeMemberFromGroup],
@@ -99,7 +113,10 @@ export const EditUserGroups: FC<EditUserGroupsProps> = ({ refreshUsers, user, us
     method: 'POST',
   })
 
-  const onSubmit = useCallback(onHandleSubmit(refreshUsers, user, removeMemberFromGroup, addMemberToGroup), [user])
+  const onSubmit = useCallback(onHandleSubmit(refreshUsers, user, removeMemberFromGroup, addMemberToGroup, orgId), [
+    user,
+    orgId,
+  ])
 
   const {
     register,
@@ -107,7 +124,7 @@ export const EditUserGroups: FC<EditUserGroupsProps> = ({ refreshUsers, user, us
     formState: { errors },
   } = useForm<{ groupIds: string }>({
     defaultValues: {
-      groupIds: user.groups ? user.groups.join(',') : '',
+      groupIds: user.userGroups ? user.userGroups.filter((ug) => ug.organisationId === orgId).join(',') : '',
     },
   })
 
@@ -116,9 +133,12 @@ export const EditUserGroups: FC<EditUserGroupsProps> = ({ refreshUsers, user, us
 
   if (!userGroups) return null
 
+  useEffect(() => {
+    updateGroupStyles(userGroups._embedded ?? [])
+  }, userGroupOptions)
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Subtitle>Edit User Groups</Subtitle>
       <BodyText hasGreyText>Please use the section below to manage which groups this user belongs to:</BodyText>
       <FormLayout hasMargin className={elFadeIn}>
         <InputWrapFull>
@@ -128,6 +148,10 @@ export const EditUserGroups: FC<EditUserGroupsProps> = ({ refreshUsers, user, us
             defaultValues={user.groups ? [...new Set(user.groups)] : []}
             options={userGroupOptions}
             {...register('groupIds')}
+            onChange={(event) => {
+              updateGroupStyles(userGroups?._embedded ?? [])
+              register('groupIds').onChange(event)
+            }}
           />
           {errors.groupIds && (
             <PersistentNotification isFullWidth isExpanded intent="danger" isInline>
@@ -139,6 +163,9 @@ export const EditUserGroups: FC<EditUserGroupsProps> = ({ refreshUsers, user, us
       <ButtonGroup alignment="right">
         <Button intent="primary" type="submit" disabled={isLoading} loading={isLoading}>
           Submit
+        </Button>
+        <Button intent="secondary" type="button" onClick={closeModal}>
+          Cancel
         </Button>
       </ButtonGroup>
     </form>

@@ -448,7 +448,7 @@ exports[`UsersPage should match a snapshot 1`] = `
         class="el-fade-in el-mb11 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
-        data-num-columns-excl-action-col="9"
+        data-num-columns-excl-action-col="7"
         role="table"
       >
         <div
@@ -470,6 +470,13 @@ exports[`UsersPage should match a snapshot 1`] = `
             Email
           </div>
           <div
+            aria-label="Supression List"
+            class="mocked-styled-102 el-table-header"
+            role="columnheader"
+          >
+            Supression List
+          </div>
+          <div
             aria-label="Date Created"
             class="mocked-styled-102 el-table-header"
             role="columnheader"
@@ -477,46 +484,25 @@ exports[`UsersPage should match a snapshot 1`] = `
             Date Created
           </div>
           <div
-            aria-label="First Login Date"
+            aria-label="Login Info"
             class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
-            First Login Date
+            Login Info
           </div>
           <div
-            aria-label="Job Title"
+            aria-label="Status"
             class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
-            Job Title
+            Status
           </div>
           <div
-            aria-label="Organisation"
+            aria-label="Password"
             class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
-            Organisation
-          </div>
-          <div
-            aria-label="Customer Id"
-            class="mocked-styled-102 el-table-header"
-            role="columnheader"
-          >
-            Customer Id
-          </div>
-          <div
-            aria-label="Neg Id"
-            class="mocked-styled-102 el-table-header"
-            role="columnheader"
-          >
-            Neg Id
-          </div>
-          <div
-            aria-label="Active"
-            class="mocked-styled-102 el-table-header"
-            role="columnheader"
-          >
-            Active
+            Password
           </div>
           <div
             class="mocked-styled-102 el-table-header"
@@ -553,57 +539,43 @@ exports[`UsersPage should match a snapshot 1`] = `
               class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <span
-                class="el-intent-default el-icon-new el-icon"
-                style="font-size: 1.25rem;"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  role="img"
-                  style="font-size: 1.25rem;"
-                  title="Icon image with name contact"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5m0-11a3.49 3.49 0 0 0-3.5 3.5c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 12 13a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25A3.49 3.49 0 0 0 12 4"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
               <div
                 class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Name"
               >
-                Will McVay
+                <span
+                  class="sc-gEvEer cFDZxP"
+                >
+                  <span
+                    style="flex: 1;"
+                  >
+                    Will McVay
+                  </span>
+                  <span
+                    class="sc-aXZVg hSHFJT el-intent-default el-icon-new el-icon"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      role="img"
+                      title="Icon image with name edit"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 16.172v5h5l12.59-12.59a2 2 0 0 0 0-2.82l-2.18-2.18a2 2 0 0 0-2.82 0zm4.17 3H5v-2.17l8.41-8.42 2.18 2.18zm7.66-12L17 5.002l2.17 2.17L17 9.342z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                </span>
               </div>
             </div>
             <div
               class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <span
-                class="el-intent-default el-icon-new el-icon"
-                style="font-size: 1.25rem;"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  role="img"
-                  style="font-size: 1.25rem;"
-                  title="Icon image with name email"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m-1.41 2L12 12.59 5.41 6zM4 18V7.41L10.59 14a2 2 0 0 0 2.82 0L20 7.41V18z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
               <div
                 class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Email"
@@ -615,26 +587,24 @@ exports[`UsersPage should match a snapshot 1`] = `
               class="el-table-cell-has-dark-text el-table-cell"
               role="cell"
             >
-              <span
-                class="el-intent-default el-icon-new el-icon"
-                style="font-size: 1.25rem;"
+              <div
+                class="mocked-styled-111 el-table-cell-content"
+                data-narrow-label="Supression List"
               >
-                <svg
-                  fill="none"
-                  height="1em"
-                  role="img"
-                  style="font-size: 1.25rem;"
-                  title="Icon image with name calendar"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <button
+                  class="el-intent-neutral el-button"
                 >
-                  <path
-                    d="M19 4h-1V3a1 1 0 1 0-2 0v1H8V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3m1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9h16zm0-11H4V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1z"
-                    fill="currentColor"
+                  <div
+                    class="mocked-styled-0 el-button-loader"
                   />
-                </svg>
-              </span>
+                  Check
+                </button>
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
+              role="cell"
+            >
               <div
                 class="mocked-styled-111 el-table-cell-content"
                 data-narrow-label="Date Created"
@@ -649,81 +619,80 @@ exports[`UsersPage should match a snapshot 1`] = `
               <div
                 class="mocked-styled-111 el-table-cell-content"
               >
-                -
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
-              role="cell"
-            >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
-                data-narrow-label="Job Title"
-              >
-                -
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
-              role="cell"
-            >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
-                data-narrow-label="Organisation"
-              >
-                XTM Estates Ltd
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
-              role="cell"
-            >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
-                data-narrow-label="Customer Id"
-              >
-                -
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
-              role="cell"
-            >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
-                data-narrow-label="Neg Id"
-              >
-                ADV
-              </div>
-            </div>
-            <div
-              class="el-table-cell-has-dark-text el-table-cell"
-              role="cell"
-            >
-              <div
-                class="mocked-styled-111 el-table-cell-content"
-                data-narrow-label="Active"
-              >
-                <span
-                  class="el-intent-success el-icon-new el-icon"
+                <button
+                  class="el-intent-neutral el-button"
                 >
-                  <svg
-                    fill="none"
-                    height="1em"
-                    role="img"
-                    title="Icon image with name check"
-                    viewBox="0 0 24 24"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
+                  View
+                </button>
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
+              role="cell"
+            >
+              <div
+                class="mocked-styled-111 el-table-cell-content"
+                data-narrow-label="Status"
+              >
+                <div
+                  class="sc-fqkvVR bSHGyh"
+                >
+                  <button
+                    class="el-intent-neutral el-button"
+                    style="text-transform: capitalize;"
                   >
-                    <path
-                      clip-rule="evenodd"
-                      d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.32 1.32 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87"
-                      fill="currentColor"
-                      fill-rule="evenodd"
+                    <div
+                      class="mocked-styled-0 el-button-loader"
                     />
-                  </svg>
-                </span>
+                    active
+                  </button>
+                  <button
+                    class="el-intent-neutral el-button"
+                  >
+                    <div
+                      class="mocked-styled-0 el-button-loader"
+                    />
+                    <span
+                      class="sc-eqUAAy drKEcP el-icon-new el-icon"
+                    >
+                      <svg
+                        fill="none"
+                        height="1em"
+                        role="img"
+                        title="Icon image with name calendar"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M19 4h-1V3a1 1 0 1 0-2 0v1H8V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3m1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9h16zm0-11H4V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
+              role="cell"
+            >
+              <div
+                class="mocked-styled-111 el-table-cell-content"
+                data-narrow-label="Password"
+              >
+                <button
+                  class="el-intent-neutral el-button"
+                >
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
+                  Reset
+                </button>
               </div>
             </div>
             <div
@@ -1287,7 +1256,7 @@ exports[`UsersPage should match a snapshot 1`] = `
       class="el-fade-in el-mb11 el-table"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
-      data-num-columns-excl-action-col="9"
+      data-num-columns-excl-action-col="7"
       role="table"
     >
       <div
@@ -1309,6 +1278,13 @@ exports[`UsersPage should match a snapshot 1`] = `
           Email
         </div>
         <div
+          aria-label="Supression List"
+          class="mocked-styled-102 el-table-header"
+          role="columnheader"
+        >
+          Supression List
+        </div>
+        <div
           aria-label="Date Created"
           class="mocked-styled-102 el-table-header"
           role="columnheader"
@@ -1316,46 +1292,25 @@ exports[`UsersPage should match a snapshot 1`] = `
           Date Created
         </div>
         <div
-          aria-label="First Login Date"
+          aria-label="Login Info"
           class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
-          First Login Date
+          Login Info
         </div>
         <div
-          aria-label="Job Title"
+          aria-label="Status"
           class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
-          Job Title
+          Status
         </div>
         <div
-          aria-label="Organisation"
+          aria-label="Password"
           class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
-          Organisation
-        </div>
-        <div
-          aria-label="Customer Id"
-          class="mocked-styled-102 el-table-header"
-          role="columnheader"
-        >
-          Customer Id
-        </div>
-        <div
-          aria-label="Neg Id"
-          class="mocked-styled-102 el-table-header"
-          role="columnheader"
-        >
-          Neg Id
-        </div>
-        <div
-          aria-label="Active"
-          class="mocked-styled-102 el-table-header"
-          role="columnheader"
-        >
-          Active
+          Password
         </div>
         <div
           class="mocked-styled-102 el-table-header"
@@ -1392,57 +1347,43 @@ exports[`UsersPage should match a snapshot 1`] = `
             class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <span
-              class="el-intent-default el-icon-new el-icon"
-              style="font-size: 1.25rem;"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                role="img"
-                style="font-size: 1.25rem;"
-                title="Icon image with name contact"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5m0-11a3.49 3.49 0 0 0-3.5 3.5c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 12 13a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25A3.49 3.49 0 0 0 12 4"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
             <div
               class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Name"
             >
-              Will McVay
+              <span
+                class="sc-gEvEer cFDZxP"
+              >
+                <span
+                  style="flex: 1;"
+                >
+                  Will McVay
+                </span>
+                <span
+                  class="sc-aXZVg hSHFJT el-intent-default el-icon-new el-icon"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    role="img"
+                    title="Icon image with name edit"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3 16.172v5h5l12.59-12.59a2 2 0 0 0 0-2.82l-2.18-2.18a2 2 0 0 0-2.82 0zm4.17 3H5v-2.17l8.41-8.42 2.18 2.18zm7.66-12L17 5.002l2.17 2.17L17 9.342z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </span>
             </div>
           </div>
           <div
             class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <span
-              class="el-intent-default el-icon-new el-icon"
-              style="font-size: 1.25rem;"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                role="img"
-                style="font-size: 1.25rem;"
-                title="Icon image with name email"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m-1.41 2L12 12.59 5.41 6zM4 18V7.41L10.59 14a2 2 0 0 0 2.82 0L20 7.41V18z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
             <div
               class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Email"
@@ -1454,26 +1395,24 @@ exports[`UsersPage should match a snapshot 1`] = `
             class="el-table-cell-has-dark-text el-table-cell"
             role="cell"
           >
-            <span
-              class="el-intent-default el-icon-new el-icon"
-              style="font-size: 1.25rem;"
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+              data-narrow-label="Supression List"
             >
-              <svg
-                fill="none"
-                height="1em"
-                role="img"
-                style="font-size: 1.25rem;"
-                title="Icon image with name calendar"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+              <button
+                class="el-intent-neutral el-button"
               >
-                <path
-                  d="M19 4h-1V3a1 1 0 1 0-2 0v1H8V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3m1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9h16zm0-11H4V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1z"
-                  fill="currentColor"
+                <div
+                  class="mocked-styled-0 el-button-loader"
                 />
-              </svg>
-            </span>
+                Check
+              </button>
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
+            role="cell"
+          >
             <div
               class="mocked-styled-111 el-table-cell-content"
               data-narrow-label="Date Created"
@@ -1488,81 +1427,80 @@ exports[`UsersPage should match a snapshot 1`] = `
             <div
               class="mocked-styled-111 el-table-cell-content"
             >
-              -
-            </div>
-          </div>
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
-            role="cell"
-          >
-            <div
-              class="mocked-styled-111 el-table-cell-content"
-              data-narrow-label="Job Title"
-            >
-              -
-            </div>
-          </div>
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
-            role="cell"
-          >
-            <div
-              class="mocked-styled-111 el-table-cell-content"
-              data-narrow-label="Organisation"
-            >
-              XTM Estates Ltd
-            </div>
-          </div>
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
-            role="cell"
-          >
-            <div
-              class="mocked-styled-111 el-table-cell-content"
-              data-narrow-label="Customer Id"
-            >
-              -
-            </div>
-          </div>
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
-            role="cell"
-          >
-            <div
-              class="mocked-styled-111 el-table-cell-content"
-              data-narrow-label="Neg Id"
-            >
-              ADV
-            </div>
-          </div>
-          <div
-            class="el-table-cell-has-dark-text el-table-cell"
-            role="cell"
-          >
-            <div
-              class="mocked-styled-111 el-table-cell-content"
-              data-narrow-label="Active"
-            >
-              <span
-                class="el-intent-success el-icon-new el-icon"
+              <button
+                class="el-intent-neutral el-button"
               >
-                <svg
-                  fill="none"
-                  height="1em"
-                  role="img"
-                  title="Icon image with name check"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
+                View
+              </button>
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
+            role="cell"
+          >
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+              data-narrow-label="Status"
+            >
+              <div
+                class="sc-fqkvVR bSHGyh"
+              >
+                <button
+                  class="el-intent-neutral el-button"
+                  style="text-transform: capitalize;"
                 >
-                  <path
-                    clip-rule="evenodd"
-                    d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.32 1.32 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87"
-                    fill="currentColor"
-                    fill-rule="evenodd"
+                  <div
+                    class="mocked-styled-0 el-button-loader"
                   />
-                </svg>
-              </span>
+                  active
+                </button>
+                <button
+                  class="el-intent-neutral el-button"
+                >
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
+                  <span
+                    class="sc-eqUAAy drKEcP el-icon-new el-icon"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      role="img"
+                      title="Icon image with name calendar"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19 4h-1V3a1 1 0 1 0-2 0v1H8V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3m1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9h16zm0-11H4V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
+            role="cell"
+          >
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+              data-narrow-label="Password"
+            >
+              <button
+                class="el-intent-neutral el-button"
+              >
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
+                Reset
+              </button>
             </div>
           </div>
           <div

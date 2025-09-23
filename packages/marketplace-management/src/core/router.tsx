@@ -11,6 +11,9 @@ const Users = lazy(() => catchChunkError(() => import('../components/pages/users
 const Marketplace = lazy(() => catchChunkError(() => import('../components/pages/marketplace')))
 const AccessDenied = lazy(() => catchChunkError(() => import('../components/pages/access-denied')))
 const MarketplaceAppPage = lazy(() => catchChunkError(() => import('../components/pages/marketplace-app')))
+const MarketplaceInstallations = lazy(() =>
+  catchChunkError(() => import('../components/pages/marketplace-installations')),
+)
 
 export const RoutesComponent: FC = () => (
   <Routes>
@@ -47,6 +50,14 @@ export const RoutesComponent: FC = () => (
       element={
         <PrivateRouteWrapper>
           <MarketplaceAppPage />
+        </PrivateRouteWrapper>
+      }
+    />
+    <Route
+      path={RoutePaths.MARKETPLACE_INSTALLATIONS}
+      element={
+        <PrivateRouteWrapper>
+          <MarketplaceInstallations />
         </PrivateRouteWrapper>
       }
     />

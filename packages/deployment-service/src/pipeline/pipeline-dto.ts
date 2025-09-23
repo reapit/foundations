@@ -12,6 +12,7 @@ import {
   ValidateNested,
   IsNumber,
 } from 'class-validator'
+import { RuntimeNodeVersionEnum } from '../entities/pipeline.entity'
 
 export enum AppTypeEnum {
   REACT = 'react',
@@ -54,6 +55,9 @@ export class PipelineDto {
 
   @IsEnum(PackageManagerEnum)
   packageManager: PackageManagerEnum = PackageManagerEnum.YARN
+
+  @IsEnum(RuntimeNodeVersionEnum)
+  runtime: RuntimeNodeVersionEnum = RuntimeNodeVersionEnum.NODE_16
 
   @IsString()
   @MaxLength(60)

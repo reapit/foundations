@@ -13,6 +13,13 @@ import { BitbucketClientEntity } from './bitbucket-client.entity'
 import { Exclude, Expose, Type } from 'class-transformer'
 import { RepositoryEntity } from './repository.entity'
 
+export enum RuntimeNodeVersionEnum {
+  NODE_16 = 'NODE_16',
+  NODE_18 = 'NODE_18',
+  NODE_20 = 'NODE_20',
+  NODE_22 = 'NODE_22',
+}
+
 @Entity('pipelines')
 export class PipelineEntity extends AbstractEntity implements PipelineModelInterface {
   @Column()
@@ -32,6 +39,12 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
     type: 'varchar',
   })
   packageManager?: PackageManagerEnum
+
+  @Column({
+    default: RuntimeNodeVersionEnum.NODE_16,
+    type: 'varchar',
+  })
+  runtime?: RuntimeNodeVersionEnum = RuntimeNodeVersionEnum.NODE_16
 
   @ManyToOne(() => RepositoryEntity, (repository) => repository.pipelines, {
     cascade: ['remove', 'insert'],

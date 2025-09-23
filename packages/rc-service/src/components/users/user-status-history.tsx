@@ -6,6 +6,7 @@ import {
   ButtonGroup,
   elFadeIn,
   elMb11,
+  Icon,
   Loader,
   Modal,
   ModalHeader,
@@ -18,6 +19,12 @@ import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { cx } from '@linaria/core'
 import dayjs from 'dayjs'
 import { customModal } from './__styles__'
+import styled from 'styled-components'
+
+const InlineIcon = styled(Icon)`
+  margin-right: 0 !important;
+  width: 16px;
+`
 
 export const UserStatusHistory: FC<{ user: UserModel }> = ({ user }) => {
   const { modalIsOpen, closeModal, openModal } = useModal()
@@ -42,8 +49,8 @@ export const UserStatusHistory: FC<{ user: UserModel }> = ({ user }) => {
 
   return (
     <>
-      <Button intent="primary" onClick={openModal}>
-        Review Status History
+      <Button intent="neutral" onClick={openModal}>
+        <InlineIcon icon="calendar" />
       </Button>
       <Modal className={cx(customModal)} isOpen={modalIsOpen} onModalClose={closeModal}>
         <ModalHeader>

@@ -148,6 +148,7 @@ describe('PipelineSetupWorkflow', () => {
       message: 'Pipeline successfully created',
       outDir: 'build',
       developerId,
+      runtime: 'NODE_16',
     })
     expect(mockCloudFrontClient.send).toHaveBeenCalled()
     expect(mockRoute53Client.send).toHaveBeenCalled()
@@ -183,6 +184,7 @@ describe('PipelineSetupWorkflow', () => {
       message: 'Failed to architect',
       outDir: 'build',
       developerId,
+      runtime: 'NODE_16',
     })
     expect(mockRoute53Client.send).not.toHaveBeenCalled()
     expect(mockSqsProvider.deleteMessage).toHaveBeenCalled()

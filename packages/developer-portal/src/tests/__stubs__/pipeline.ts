@@ -1,7 +1,7 @@
 import { AppTypeEnum, PackageManagerEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { PipelineRunnerResponse } from '../../components/apps/pipeline/pipeline-deployments-table'
 
-export const mockPipelineModelInterface: PipelineModelInterface = {
+export const mockPipelineModelInterface: PipelineModelInterface & { runtime: 'NODE_16' } = {
   buildCommand: 'build',
   outDir: 'build',
   buildStatus: 'FAILED',
@@ -16,6 +16,7 @@ export const mockPipelineModelInterface: PipelineModelInterface = {
   subDomain: 'beautiful-land',
   appId: '9763dbf0-f62c-474e-8a42-835977584cf1',
   branch: 'master',
+  runtime: 'NODE_16',
 }
 
 export const mockPipelineRunnerResponse: PipelineRunnerResponse = {

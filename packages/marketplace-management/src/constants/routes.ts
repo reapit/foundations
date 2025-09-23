@@ -7,6 +7,7 @@ const Routes = {
   LOGIN: '/login',
   MARKETPLACE: '/marketplace-apps',
   MARKETPLACE_APP: '/marketplace-apps/:appId',
+  MARKETPLACE_INSTALLATIONS: '/marketplace/installations',
   ACCESS_DENIED: '/access-denied',
   OK: '/ok',
   HOME: '/',

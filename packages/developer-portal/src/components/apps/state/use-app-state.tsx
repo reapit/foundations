@@ -66,13 +66,13 @@ export interface AppEditState {
 }
 
 export interface AppPipelineState {
-  appPipeline: PipelineModelInterface | null
+  appPipeline: (PipelineModelInterface & { runtime: string }) | null
   appPipelineLoading: boolean
   appPipelineDeploying: boolean
   appPipelineSaving: boolean
   appPipelinePusherChannel: any
   appPipelineRefresh: () => void
-  setAppPipeline: Dispatch<SetStateAction<PipelineModelInterface | null>>
+  setAppPipeline: Dispatch<SetStateAction<(PipelineModelInterface & { runtime: string }) | null>>
   setAppPipelineDeploying: Dispatch<SetStateAction<boolean>>
   setAppPipelineSaving: Dispatch<SetStateAction<boolean>>
 }
@@ -93,7 +93,7 @@ const { Provider } = AppStateContext
 
 export const AppProvider: FC<PropsWithChildren> = ({ children }) => {
   const [appWizardState, setAppWizardState] = useState<AppWizardState>(defaultAppWizardState as AppWizardState)
-  const [appPipeline, setAppPipeline] = useState<PipelineModelInterface | null>(null)
+  const [appPipeline, setAppPipeline] = useState<(PipelineModelInterface & { runtime: string }) | null>(null)
   const [appsPageNumber, appsSetPageNumber] = useState<number>(1)
   const [appPipelineDeploying, setAppPipelineDeploying] = useState<boolean>(false)
   const [appPipelineSaving, setAppPipelineSaving] = useState<boolean>(false)
@@ -142,7 +142,9 @@ export const AppProvider: FC<PropsWithChildren> = ({ children }) => {
     fetchWhenTrue: [developerId, appId],
   })
 
-  const [pipeline, appPipelineLoading, , appPipelineRefresh] = useReapitGet<PipelineModelInterface>({
+  const [pipeline, appPipelineLoading, , appPipelineRefresh] = useReapitGet<
+    PipelineModelInterface & { runtime: string }
+  >({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.getPipeline],
     uriParams: { appId },

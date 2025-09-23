@@ -42,6 +42,7 @@ describe('handlePipelineUpdate', () => {
       packageManager: PackageManagerEnum.NPM,
       buildCommand: 'build',
       outDir: 'build',
+      runtime: 'NODE_16',
     }
 
     const curried = handlePipelineUpdate(updatePipeline, setAppPipelineSaving, refresh, appId)
@@ -98,6 +99,7 @@ describe('getDefaultValues', () => {
       buildCommand,
       outDir,
       packageManager,
+      runtime: 'NODE_16',
     })
   })
 
@@ -110,6 +112,7 @@ describe('getDefaultValues', () => {
       branch: 'main',
       outDir: 'build',
       packageManager: PackageManagerEnum.NPM,
+      runtime: 'NODE_18',
     })
   })
 })

@@ -9,7 +9,14 @@ const mockUserModel = (mockUserModelPagedResult._embedded as UserModel[])[0]
 describe('UpdateUserModal', () => {
   it('should match a snapshot where there is data', () => {
     expect(
-      render(<EditUserGroups refreshUsers={jest.fn()} user={mockUserModel} userGroups={mockGroupModelPagedResult} />),
+      render(
+        <EditUserGroups
+          refreshUsers={jest.fn()}
+          user={mockUserModel}
+          userGroups={mockGroupModelPagedResult}
+          orgId="mockOrgId"
+        />,
+      ),
     ).toMatchSnapshot()
   })
 })

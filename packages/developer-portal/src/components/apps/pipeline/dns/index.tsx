@@ -26,6 +26,7 @@ export const PipelineDns: FC<{}> = () => {
     customDomain: string
     certificateStatus: string
     certificateError: string
+    runtime: 'NODE_16'
   }
 
   const isFoundationsDeveloperAdmin = connectSession?.loginIdentity.groups.includes('FoundationsDeveloperAdmin')

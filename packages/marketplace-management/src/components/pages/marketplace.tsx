@@ -4,22 +4,17 @@ import Routes from '../../constants/routes'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import AppCard from '../ui/apps/app-card'
 import {
-  BodyText,
   Button,
   ButtonGroup,
   Col,
   elHFull,
-  elMb5,
   FlexContainer,
   Grid,
-  Icon,
   InputGroup,
   Loader,
   PageContainer,
   Pagination,
   PersistentNotification,
-  SecondaryNavContainer,
-  SmallText,
   Title,
   useMediaQuery,
   useModal,
@@ -31,7 +26,8 @@ import { useReapitGet, GetActionNames, getActions } from '@reapit/use-reapit-dat
 import qs from 'qs'
 import { useReapitConnect } from '@reapit/connect-session'
 import debounce from 'just-debounce-it'
-import { ControlsContainer, inputFullWidth } from '../hocs/__styles__'
+import { ControlsContainer } from '../hocs/__styles__'
+import { MarketplaceSidebar } from './marketplace-sidebar'
 
 export const onPageChangeHandler = (navigate: NavigateFunction) => (pageNumber: number) => {
   const queryParams = qs.parse(window.location.search, { ignoreQueryPrefix: true })
@@ -81,26 +77,7 @@ export const MarketplacePage: FC = () => {
 
   return (
     <FlexContainer isFlexAuto>
-      <SecondaryNavContainer>
-        <Icon className={elMb5} icon="appMarketInfographic" iconSize="large" />
-        <BodyText>AppMarket Visibility and Installation Management</BodyText>
-        <SmallText hasGreyText>
-          To set the visibility of an app in the AppMarket or to manage installations for your organisation or specific
-          office groups, please select an app.
-        </SmallText>
-        <OrgIdSelect />
-        <ControlsContainer>
-          <InputGroup
-            defaultValue={searchParams?.searchTerm as string}
-            className={inputFullWidth}
-            type="text"
-            name="searchTerm"
-            label="Search"
-            placeholder="Developer or App"
-            onChange={debouncedSearch}
-          />
-        </ControlsContainer>
-      </SecondaryNavContainer>
+      <MarketplaceSidebar />
       <PageContainer className={elHFull}>
         <FlexContainer isFlexJustifyBetween>
           <Title>{orgName} AppMarket</Title>

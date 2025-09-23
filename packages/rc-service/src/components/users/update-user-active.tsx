@@ -16,6 +16,7 @@ import {
   elMb11,
   ButtonGroup,
   InputGroup,
+  Icon,
 } from '@reapit/elements'
 import { FC } from 'react'
 import { UserModel } from '@reapit/foundations-ts-definitions'
@@ -24,6 +25,14 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { boolean, object, string } from 'yup'
 import { UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
+import styled from 'styled-components'
+import { UserStatusHistory } from './user-status-history'
+
+const MultiButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`
 
 type UserStatusToggle = {
   category: string
@@ -43,6 +52,7 @@ export const UpdateUserActive: FC<{ user: UserModel }> = ({ user }) => {
   const { modalIsOpen, closeModal, openModal } = useModal()
   const [canSendNotifications, setCanSendNotifications] = useState(false)
   const [canSubmit, setCanSubmit] = useState(false)
+  const [status, setStatus] = useState(user.inactive ? 'inactive' : 'active')
 
   const {
     register,
@@ -78,38 +88,51 @@ export const UpdateUserActive: FC<{ user: UserModel }> = ({ user }) => {
 
   return (
     <>
-      <Button intent="primary" onClick={() => openModal()}>
-        Update Status
-      </Button>
+      <MultiButtonContainer>
+        <Button
+          intent={status === 'inactive' ? 'danger' : 'success'}
+          onClick={() => openModal()}
+          style={{ textTransform: 'capitalize' }}
+        >
+          {status}
+        </Button>
+        <UserStatusHistory user={user} />
+      </MultiButtonContainer>
       <Modal title="Update User Status" isOpen={modalIsOpen} onModalClose={closeModal}>
         <form
           onSubmit={handleSubmit(async (values) => {
             const result = await updateUser(values)
 
+            if (result) {
+              setStatus(values.status)
+            }
+
             if (result) closeModal()
           })}
         >
           <FormLayout className={elMb11}>
-            <InputGroup>
-              <Label>Status</Label>
-              <ToggleRadio
-                {...register('status')}
-                options={[
-                  {
-                    id: 'active',
-                    value: 'active',
-                    text: 'Active',
-                    isChecked: !user.inactive || false,
-                  },
-                  {
-                    id: 'inactive',
-                    value: 'inactive',
-                    text: 'Inactive',
-                    isChecked: user.inactive || false,
-                  },
-                ]}
-              />
-            </InputGroup>
+            <InputWrapFull>
+              <InputGroup>
+                <Label>Status</Label>
+                <ToggleRadio
+                  {...register('status')}
+                  options={[
+                    {
+                      id: 'active',
+                      value: 'active',
+                      text: 'Active',
+                      isChecked: !user.inactive || false,
+                    },
+                    {
+                      id: 'inactive',
+                      value: 'inactive',
+                      text: 'Inactive',
+                      isChecked: user.inactive || false,
+                    },
+                  ]}
+                />
+              </InputGroup>
+            </InputWrapFull>
             <InputWrapFull>
               <InputGroup>
                 <Label>Reason</Label>
