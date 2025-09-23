@@ -108,6 +108,45 @@ exports[`PipelineConfigure Should match snapshot 1`] = `
               <label
                 class="mocked-styled-41 el-label"
               >
+                Runtime
+              </label>
+              <select
+                aria-label="Select an item from the dropdown list"
+                class="mocked-styled-83 el-select"
+                name="runtime"
+              >
+                <option
+                  value="NODE_16"
+                >
+                  NODE 16
+                </option>
+                <option
+                  value="NODE_18"
+                >
+                  NODE 18
+                </option>
+                <option
+                  value="NODE_20"
+                >
+                  NODE 20
+                </option>
+                <option
+                  value="NODE_22"
+                >
+                  NODE 22
+                </option>
+              </select>
+            </div>
+          </div>
+          <div
+            class="mocked-styled-133 el-input-wrap"
+          >
+            <div
+              class="mocked-styled-40 el-input-group"
+            >
+              <label
+                class="mocked-styled-41 el-label"
+              >
                 Build Command
               </label>
               <input
@@ -230,6 +269,45 @@ exports[`PipelineConfigure Should match snapshot 1`] = `
                 value="yarn-berry"
               >
                 YARN BERRY
+              </option>
+            </select>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-133 el-input-wrap"
+        >
+          <div
+            class="mocked-styled-40 el-input-group"
+          >
+            <label
+              class="mocked-styled-41 el-label"
+            >
+              Runtime
+            </label>
+            <select
+              aria-label="Select an item from the dropdown list"
+              class="mocked-styled-83 el-select"
+              name="runtime"
+            >
+              <option
+                value="NODE_16"
+              >
+                NODE 16
+              </option>
+              <option
+                value="NODE_18"
+              >
+                NODE 18
+              </option>
+              <option
+                value="NODE_20"
+              >
+                NODE 20
+              </option>
+              <option
+                value="NODE_22"
+              >
+                NODE 22
               </option>
             </select>
           </div>

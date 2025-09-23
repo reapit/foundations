@@ -47,7 +47,7 @@ export const IaaS: FC = () => {
   const developerId = currentDeveloper?.id
   const developerQuery = developerId ? { developerId } : {}
 
-  const [pipelines, loading] = useReapitGet<Pagination<PipelineModelInterface>>({
+  const [pipelines, loading] = useReapitGet<Pagination<PipelineModelInterface & { runtime: string }>>({
     reapitConnectBrowserSession,
     action: getActions[GetActionNames.paginatePipeline],
     headers: {
