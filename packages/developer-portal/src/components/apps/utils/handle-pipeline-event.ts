@@ -3,8 +3,8 @@ import { Dispatch, SetStateAction } from 'react'
 
 export const handleSetInitialPipeline =
   (
-    appPipeline: PipelineModelInterface | null,
-    setAppPipeline: Dispatch<SetStateAction<PipelineModelInterface | null>>,
+    appPipeline: (PipelineModelInterface & { runtime: string }) | null,
+    setAppPipeline: Dispatch<SetStateAction<(PipelineModelInterface & { runtime: string }) | null>>,
   ) =>
   () => {
     setAppPipeline(appPipeline)
