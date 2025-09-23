@@ -17,6 +17,7 @@ describe('PipelineRow', () => {
           }
           pipeline={{
             buildStatus: 'IN_PROGRESS',
+            runtime: 'NODE_16',
           }}
         />,
       ),

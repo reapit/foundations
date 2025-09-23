@@ -23,6 +23,7 @@ import { AddDomainFields1729084248683 } from './1729084248683-AddDomainFields'
 import { AddDomainStatusField1732024866737 } from './1732024866737-AddDomainStatusField'
 import { DnsDuplicateField1743066932147 } from './1743066932147-DnsDuplicateField'
 import { DnsTriggerEmailField1747039574276 } from './1747039574276-dnsTriggerEmailField'
+import { Runtime1758547653943 } from './1758547653943-runtime'
 
 export default [
   pipelines1625758770110,
@@ -50,4 +51,5 @@ export default [
   AddDomainStatusField1732024866737,
   DnsDuplicateField1743066932147,
   DnsTriggerEmailField1747039574276,
+  Runtime1758547653943,
 ]
