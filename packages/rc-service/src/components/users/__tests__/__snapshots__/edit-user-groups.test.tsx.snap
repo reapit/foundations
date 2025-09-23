@@ -9,11 +9,6 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
         class="mocked-styled-93 el-snack-holder"
       />
       <form>
-        <h2
-          class="el-text-base el-subtitle"
-        >
-          Edit User Groups
-        </h2>
         <p
           class="el-text-base el-body-text el-has-grey-text"
         >
@@ -56,6 +51,15 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
               />
               Submit
             </button>
+            <button
+              class="el-intent-neutral el-button"
+              type="button"
+            >
+              <div
+                class="mocked-styled-0 el-button-loader"
+              />
+              Cancel
+            </button>
           </div>
         </div>
       </form>
@@ -66,11 +70,6 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
       class="mocked-styled-93 el-snack-holder"
     />
     <form>
-      <h2
-        class="el-text-base el-subtitle"
-      >
-        Edit User Groups
-      </h2>
       <p
         class="el-text-base el-body-text el-has-grey-text"
       >
@@ -112,6 +111,15 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
               class="mocked-styled-0 el-button-loader"
             />
             Submit
+          </button>
+          <button
+            class="el-intent-neutral el-button"
+            type="button"
+          >
+            <div
+              class="mocked-styled-0 el-button-loader"
+            />
+            Cancel
           </button>
         </div>
       </div>
