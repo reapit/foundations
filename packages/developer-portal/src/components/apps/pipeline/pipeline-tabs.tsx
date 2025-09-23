@@ -85,7 +85,9 @@ export const PipelineTabs: FC<{ formIsBeingEdited?: boolean }> = ({ formIsBeingE
         <ModalHeader>
           <Title>Unsaved Changes</Title>
         </ModalHeader>
-        <BodyText>Your pipeline configuration has unsaved changes. Are you sure you want to discard these changes?</BodyText>
+        <BodyText>
+          Your pipeline configuration has unsaved changes. Are you sure you want to discard these changes?
+        </BodyText>
         <ButtonGroup>
           <Button
             intent="danger"
