@@ -83,9 +83,9 @@ export const PipelineTabs: FC<{ formIsBeingEdited?: boolean }> = ({ formIsBeingE
       />
       <Modal isOpen={modalIsOpen} onModalClose={closeModal}>
         <ModalHeader>
-          <Title>Configuration Changed</Title>
+          <Title>Unsaved Changes</Title>
         </ModalHeader>
-        <BodyText>The pipeline is currently being configured, are you sure you wish to discard your changes?</BodyText>
+        <BodyText>Your pipeline configuration has unsaved changes. Are you sure you want to discard these changes?</BodyText>
         <ButtonGroup>
           <Button
             intent="danger"
@@ -93,10 +93,10 @@ export const PipelineTabs: FC<{ formIsBeingEdited?: boolean }> = ({ formIsBeingE
               handleChangeTab(navigate, appId)({ target: { value: navigateTo } } as any)
             }}
           >
-            Discard
+            Yes
           </Button>
           <Button intent="default" onClick={() => closeModal()}>
-            Continue
+            Cancel
           </Button>
         </ButtonGroup>
       </Modal>
