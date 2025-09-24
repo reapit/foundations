@@ -27,7 +27,7 @@ export const ActiveAuthenticator: FC<ActiveAuthenticatorProps> = ({ activeAuthen
             },
             {
               label: 'Created',
-              value: modified ? dayjs(created).format('DD/MM/YYYY HH:mm') : '-',
+              value: created ? dayjs(created).format('DD/MM/YYYY HH:mm') : '-',
             },
             {
               label: 'Last Updated',
