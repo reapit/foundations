@@ -1,3 +1,3 @@
 {
-  "bundleFiles": ["dist/http.js", "dist/sqs.js", "dist/sns.js", "dist/migration-run.js", "dist/dns-eventbridge.js"]
+  "bundleFiles": ["dist/http.js", "dist/httpApi.js", "dist/sqs.js", "dist/sns.js", "dist/migration-run.js", "dist/dns-eventbridge.js"]
 }

@@ -7,7 +7,7 @@ const pkgJson = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
 
 export default defineConfig([
   {
-    entry: ['src/http.ts', 'src/sqs.ts', 'src/sns.ts', 'src/migration-run.ts', 'src/dns-eventbridge.ts'],
+    entry: ['src/http.ts', 'src/httpApi.ts', 'src/sqs.ts', 'src/sns.ts', 'src/migration-run.ts', 'src/dns-eventbridge.ts'],
     target: 'node18',
     clean: true,
     minify: config.NODE_ENV === 'production',
