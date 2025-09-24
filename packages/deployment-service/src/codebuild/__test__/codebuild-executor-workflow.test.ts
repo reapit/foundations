@@ -2,7 +2,7 @@ import { SqsProvider } from '../../events'
 import { ParameterProvider, PipelineProvider } from '../../pipeline'
 import { PipelineRunnerProvider } from '../../pipeline-runner'
 import { S3Provider } from '../../s3'
-import { Test, TestingModule } from '@nestjs/testing'
+import { Test } from '@nestjs/testing'
 import { CodebuildExecutorWorkflow } from '../codebuild-executor-workflow'
 import { SoruceProvider } from '../source-provider'
 import { CodeBuild } from 'aws-sdk'
@@ -13,6 +13,7 @@ import { plainToInstance } from 'class-transformer'
 import { PipelineRunnerEntity } from '../../entities/pipeline-runner.entity'
 import { TaskEntity } from '../../entities/task.entity'
 import { INestApplication } from '@nestjs/common'
+import { PackageManagerEnum } from '@reapit/foundations-ts-definitions'
 
 const mockSourceProvider = {
   downloadGithubSourceToS3: jest.fn(),
@@ -188,5 +189,112 @@ describe('CodebuildExecutorWorkflow', () => {
         }),
       }),
     )
+  })
+
+  describe('Immutable scripts', () => {
+    it('Yarn', async () => {
+      const pipelineId = uuid()
+      const pipelineRunnerId = uuid()
+      const repository = 'https://github.com/reapit/foundations'
+      const codebuildExecutorWorkflow = app.get<CodebuildExecutorWorkflow>(CodebuildExecutorWorkflow)
+      mockSourceProvider.downloadGithubSourceToS3.mockImplementationOnce(() => 'repos/location')
+      mockPipelineRunnerProvider.save.mockImplementationOnce((pipelineRunner) => pipelineRunner)
+      const executeSpy = jest.spyOn(mockCodeBuild, 'startBuild')
+
+      await codebuildExecutorWorkflow.run({
+        body: JSON.stringify({
+          pipeline: {
+            id: pipelineId,
+            packageManager: PackageManagerEnum.YARN,
+            repository: {
+              installtionId: 'installationId',
+              repositoryId: 'repositoryId',
+              repositoryUrl: repository,
+            },
+          },
+          pipelineRunner: {
+            id: pipelineRunnerId,
+            buildStatus: 'QUEUED',
+          },
+        }),
+        receiptHandle: '',
+      } as SQSRecord)
+
+      expect(executeSpy).toHaveBeenCalledWith(
+        expect.objectContaining({
+          buildspecOverride: expect.stringContaining('--immutable --ignore-scripts'),
+        }),
+      )
+    })
+
+    it('Yarn Berry', async () => {
+      const pipelineId = uuid()
+      const pipelineRunnerId = uuid()
+      const repository = 'https://github.com/reapit/foundations'
+      const codebuildExecutorWorkflow = app.get<CodebuildExecutorWorkflow>(CodebuildExecutorWorkflow)
+      mockSourceProvider.downloadGithubSourceToS3.mockImplementationOnce(() => 'repos/location')
+      mockPipelineRunnerProvider.save.mockImplementationOnce((pipelineRunner) => pipelineRunner)
+      const executeSpy = jest.spyOn(mockCodeBuild, 'startBuild')
+
+      await codebuildExecutorWorkflow.run({
+        body: JSON.stringify({
+          pipeline: {
+            id: pipelineId,
+            packageManager: PackageManagerEnum.YARN_BERRY,
+            repository: {
+              installtionId: 'installationId',
+              repositoryId: 'repositoryId',
+              repositoryUrl: repository,
+            },
+          },
+          pipelineRunner: {
+            id: pipelineRunnerId,
+            buildStatus: 'QUEUED',
+          },
+        }),
+        receiptHandle: '',
+      } as SQSRecord)
+
+      expect(executeSpy).toHaveBeenCalledWith(
+        expect.objectContaining({
+          buildspecOverride: expect.stringContaining('yarn --immutable --ignore-scripts'),
+        }),
+      )
+    })
+
+    it('npm', async () => {
+      const pipelineId = uuid()
+      const pipelineRunnerId = uuid()
+      const repository = 'https://github.com/reapit/foundations'
+      const codebuildExecutorWorkflow = app.get<CodebuildExecutorWorkflow>(CodebuildExecutorWorkflow)
+      mockSourceProvider.downloadGithubSourceToS3.mockImplementationOnce(() => 'repos/location')
+      mockPipelineRunnerProvider.save.mockImplementationOnce((pipelineRunner) => pipelineRunner)
+      const executeSpy = jest.spyOn(mockCodeBuild, 'startBuild')
+
+      await codebuildExecutorWorkflow.run({
+        body: JSON.stringify({
+          pipeline: {
+            id: pipelineId,
+            packageManager: PackageManagerEnum.NPM,
+            repository: {
+              installtionId: 'installationId',
+              repositoryId: 'repositoryId',
+              repositoryUrl: repository,
+            },
+          },
+          pipelineRunner: {
+            id: pipelineRunnerId,
+            buildStatus: 'QUEUED',
+          },
+        }),
+        receiptHandle: '',
+      } as SQSRecord)
+
+      expect(executeSpy).toHaveBeenCalledWith(
+        expect.objectContaining({
+          buildspecOverride: expect.stringContaining('npm ci --ignore-scripts'),
+        }),
+      )
+    })
   })
 })
