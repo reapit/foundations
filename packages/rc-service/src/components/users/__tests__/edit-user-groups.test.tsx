@@ -15,6 +15,7 @@ describe('UpdateUserModal', () => {
           user={mockUserModel}
           userGroups={mockGroupModelPagedResult}
           orgId="mockOrgId"
+          closeModal={() => {}}
         />,
       ),
     ).toMatchSnapshot()

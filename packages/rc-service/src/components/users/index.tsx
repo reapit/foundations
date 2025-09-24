@@ -377,6 +377,9 @@ export const UsersPage: FC = () => {
                 {
                   label: 'Login Info',
                   children: <LoginInfoModal email={user.email} />,
+                  narrowTable: {
+                    showLabel: true,
+                  },
                 },
                 {
                   label: 'Status',
@@ -407,6 +410,7 @@ export const UsersPage: FC = () => {
               return {
                 cells,
                 expandableContent: {
+                  headerContent: 'Organisations',
                   content: <UserContent orgs={orgs} user={user} refreshUsers={refreshUsers} userGroups={userGroups} />,
                 },
               }
