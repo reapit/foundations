@@ -75,7 +75,10 @@ export const UpdateUserName: FC<{ user: UserModel; refreshUsers: () => void }> =
           onSubmit={handleSubmit(({ name }) => {
             updateUser({
               name,
-            }).then(refreshUsers)
+            }).then(() => {
+              refreshUsers()
+              closeModal()
+            })
           })}
         >
           <FormLayout>

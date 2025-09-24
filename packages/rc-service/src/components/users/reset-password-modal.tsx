@@ -1,4 +1,4 @@
-import { useModal, Button, Modal, BodyText, FormLayout, InputWrapFull, InputGroup, ButtonGroup } from '@reapit/elements'
+import { useModal, Button, Modal, BodyText, ButtonGroup, PersistantNotification, elMb3 } from '@reapit/elements'
 import { updateActions, UpdateActionNames, useReapitUpdate } from '@reapit/use-reapit-data'
 import React, { FC } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
@@ -14,6 +14,7 @@ export const ResetPasswordModal: FC<{ userId?: string }> = ({ userId }) => {
       userId,
     },
   })
+  const [showError, setShowError] = React.useState(false)
 
   return (
     <>
@@ -27,12 +28,23 @@ export const ResetPasswordModal: FC<{ userId?: string }> = ({ userId }) => {
           closeModal()
         }}
       >
+        {showError && (
+          <PersistantNotification className={elMb3} isExpanded isFullWidth intent="danger">
+            Error resetting user password, please try again
+          </PersistantNotification>
+        )}
         <BodyText>Are you sure you wish to reset this user password?</BodyText>
         <ButtonGroup alignment="center">
           <Button
             intent="danger"
             onClick={async () => {
-              await deleteUserPassword()
+              setShowError(false)
+              const worked = await deleteUserPassword()
+              if (worked) {
+                closeModal()
+              } else {
+                setShowError(true)
+              }
             }}
             loading={userPasswordLoading}
           >

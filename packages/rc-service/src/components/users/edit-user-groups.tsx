@@ -75,6 +75,7 @@ export const onHandleSubmit =
     removeMemberFromGroup: SendFunction<RemoveGroupMembershipModel, boolean>,
     addMemberToGroup: SendFunction<CreateGroupMembershipModel, boolean>,
     organisationId: string,
+    closeModal?: () => void,
   ) =>
   async (params: UpdateUserModel) => {
     const { groupIds } = params
@@ -92,12 +93,14 @@ export const onHandleSubmit =
     const positiveResponses = updateUserRes.filter((res) => Boolean(res))
 
     if (positiveResponses && positiveResponses.length === totalUpdates) {
+      if (closeModal) {
+        closeModal()
+      }
       return refreshUsers()
     }
   }
 
 export const EditUserGroups: FC<EditUserGroupsProps> = ({ refreshUsers, user, userGroups, orgId, closeModal }) => {
-
   const [removeMemberFromGroupLoading, , removeMemberFromGroup] = useReapitUpdate<RemoveGroupMembershipModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions[UpdateActionNames.removeMemberFromGroup],
@@ -113,10 +116,10 @@ export const EditUserGroups: FC<EditUserGroupsProps> = ({ refreshUsers, user, us
     method: 'POST',
   })
 
-  const onSubmit = useCallback(onHandleSubmit(refreshUsers, user, removeMemberFromGroup, addMemberToGroup, orgId), [
-    user,
-    orgId,
-  ])
+  const onSubmit = useCallback(
+    onHandleSubmit(refreshUsers, user, removeMemberFromGroup, addMemberToGroup, orgId, closeModal),
+    [user, orgId],
+  )
 
   const {
     register,
