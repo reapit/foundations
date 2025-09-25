@@ -39,6 +39,7 @@ import { UpdateUserActive } from './update-user-active'
 import { ResetPasswordModal } from './reset-password-modal'
 import { AuthenticatorModal } from './authenticator-modal'
 import { getIsAdmin } from '../../utils/is-admin'
+import { wideExpander } from './__styles__'
 
 export interface UserFilters {
   email?: string
@@ -341,7 +342,7 @@ export const UsersPage: FC = () => {
         <>
           <BodyText>Total Users: {users?.totalCount}</BodyText>
           <Table
-            className={cx(elFadeIn, elMb11)}
+            className={cx(elFadeIn, elMb11, wideExpander)}
             key={pageNumber}
             rows={users?._embedded?.map((user) => {
               const { email, created } = user

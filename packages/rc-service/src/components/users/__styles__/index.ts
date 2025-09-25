@@ -30,3 +30,7 @@ export const threeColTable = css`
 export const customModal = css`
   max-height: 60vh;
 `
+
+export const wideExpander = css`
+  --component-table-expandable-trigger-width: auto !important;
+`
