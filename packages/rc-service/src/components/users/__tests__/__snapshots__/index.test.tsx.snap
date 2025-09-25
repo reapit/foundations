@@ -445,7 +445,9 @@ exports[`UsersPage should match a snapshot 1`] = `
         1
       </p>
       <div
-        class="el-fade-in el-mb11 el-table"
+        class="el-fade-in el-mb11 mock-css.
+  --component-table-expandable-trigger-width: auto !important;
+ el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="7"
@@ -1237,7 +1239,9 @@ exports[`UsersPage should match a snapshot 1`] = `
       1
     </p>
     <div
-      class="el-fade-in el-mb11 el-table"
+      class="el-fade-in el-mb11 mock-css.
+  --component-table-expandable-trigger-width: auto !important;
+ el-table"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="7"
