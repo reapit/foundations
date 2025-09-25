@@ -25,7 +25,7 @@ jest.mock('@reapit/connect-session', () => ({
 
 describe('PipelineConfigure', () => {
   it('Should match snapshot', () => {
-    expect(render(<PipelineConfigureForm />)).toMatchSnapshot()
+    expect(render(<PipelineConfigureForm setFormIsBeingEdited={() => {}} />)).toMatchSnapshot()
   })
 })
 
