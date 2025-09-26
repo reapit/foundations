@@ -90,13 +90,19 @@ export const onHandleSubmit =
       ...addIds.map((groupId) => addMemberToGroup({ organisationId, userId }, { uriParams: { groupId } })),
     ])
 
-    const positiveResponses = updateUserRes.filter((res) => Boolean(res))
+    const positiveResponses = updateUserRes.filter((res) => res)
+    refreshUsers()
 
     if (positiveResponses && positiveResponses.length === totalUpdates) {
       if (closeModal) {
         closeModal()
       }
-      return refreshUsers()
+    } else {
+      alert(
+        'There was an error updating ' +
+          (totalUpdates - positiveResponses.length) +
+          ' of the  user groups, please try again',
+      )
     }
   }
 
@@ -148,7 +154,11 @@ export const EditUserGroups: FC<EditUserGroupsProps> = ({ refreshUsers, user, us
           <MultiSelectInput
             id={`user-groups-ids-${user.id}`}
             noneSelectedLabel="No groups selected for this user"
-            defaultValues={user.groups ? [...new Set(user.groups)] : []}
+            defaultValues={
+              (user?.userGroups
+                ?.filter((ug) => ug.organisationId === orgId && !!ug.groupId)
+                .map((ug) => ug.groupId) as string[]) || []
+            }
             options={userGroupOptions}
             {...register('groupIds')}
             onChange={(event) => {

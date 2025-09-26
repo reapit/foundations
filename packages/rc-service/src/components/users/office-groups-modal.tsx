@@ -1,17 +1,4 @@
-import {
-  useModal,
-  Button,
-  Modal,
-  Icon,
-  PersistentNotification,
-  Table,
-  TableCell,
-  TableHeader,
-  TableHeadersRow,
-  TableRow,
-  ButtonGroup,
-  elMb6,
-} from '@reapit/elements'
+import { useModal, Button, Modal, PersistentNotification, Table, ButtonGroup, elMb6 } from '@reapit/elements'
 import React, { FC } from 'react'
 import { OfficeGroupModel, UserInfoModel } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
@@ -41,20 +28,36 @@ export const OfficeGroupsModal: FC<{ email: string; orgId: string }> = ({ email,
         }}
       >
         {userInfo && modalIsOpen && userOfficeGroup ? (
-          <>
-            <Table>
-              <TableHeadersRow className={threeColTable}>
-                <TableHeader>Group Name</TableHeader>
-                <TableHeader>Office Group Id</TableHeader>
-                <TableHeader>Office Ids</TableHeader>
-              </TableHeadersRow>
-              <TableRow className={threeColTable}>
-                <TableCell>{userOfficeGroup.name}</TableCell>
-                <TableCell>{userOfficeGroup.id}</TableCell>
-                <TableCell>{userOfficeGroup.officeIds}</TableCell>
-              </TableRow>
-            </Table>
-          </>
+          <Table
+            className={threeColTable}
+            rows={[
+              {
+                cells: [
+                  {
+                    label: 'Group Name',
+                    value: userOfficeGroup.name,
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                  {
+                    label: 'Office Group Id',
+                    value: userOfficeGroup.customerId,
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                  {
+                    label: 'Office Ids',
+                    value: userOfficeGroup.officeIds,
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                ],
+              },
+            ]}
+          />
         ) : modalIsOpen ? (
           <PersistentNotification isFullWidth isExpanded isInline intent="primary" className={elMb6}>
             User not part of an office group in this Organisation.
