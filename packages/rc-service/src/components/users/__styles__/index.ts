@@ -32,5 +32,5 @@ export const customModal = css`
 `
 
 export const wideExpander = css`
-  --component-table-expandable-trigger-width: auto !important;
+  --component-table-expandable-trigger-width: 53px !important;
 `

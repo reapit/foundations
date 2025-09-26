@@ -15,7 +15,14 @@ export const AuthenticatorModal: FC<{ userId?: string }> = ({ userId }) => {
     uriParams: { userId },
     fetchWhenTrue: [userId, modalIsOpen],
   })
-  const activeAuthenticator = authenticators?.find((authenticator) => authenticator.status === 'active')
+  const activeAuthenticator = authenticators?.find((authenticator) => authenticator.status === 'active') || {
+    type: 'none',
+    id: '',
+    userId: '',
+    created: '',
+    modified: '',
+    status: 'none',
+  }
 
   return (
     <>

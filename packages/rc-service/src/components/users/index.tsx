@@ -345,7 +345,7 @@ export const UsersPage: FC = () => {
             className={cx(elFadeIn, elMb11, wideExpander)}
             key={pageNumber}
             rows={users?._embedded?.map((user) => {
-              const { email, created } = user
+              const { email, created, firstLoginDate } = user
               const cells = [
                 {
                   label: 'Name',
@@ -371,6 +371,13 @@ export const UsersPage: FC = () => {
                 {
                   label: 'Date Created',
                   value: created ? dayjs(created).format('DD-MM-YYYY') : '-',
+                  narrowTable: {
+                    showLabel: true,
+                  },
+                },
+                {
+                  label: 'First Login Date',
+                  value: firstLoginDate ? dayjs(firstLoginDate).format('DD-MM-YYYY') : '-',
                   narrowTable: {
                     showLabel: true,
                   },
@@ -411,7 +418,7 @@ export const UsersPage: FC = () => {
               return {
                 cells,
                 expandableContent: {
-                  headerContent: 'Organisations',
+                  headerContent: 'Orgs',
                   content: <UserContent orgs={orgs} user={user} refreshUsers={refreshUsers} userGroups={userGroups} />,
                 },
               }

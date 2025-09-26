@@ -446,11 +446,11 @@ exports[`UsersPage should match a snapshot 1`] = `
       </p>
       <div
         class="el-fade-in el-mb11 mock-css.
-  --component-table-expandable-trigger-width: auto !important;
+  --component-table-expandable-trigger-width: 53px !important;
  el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
-        data-num-columns-excl-action-col="7"
+        data-num-columns-excl-action-col="8"
         role="table"
       >
         <div
@@ -486,6 +486,13 @@ exports[`UsersPage should match a snapshot 1`] = `
             Date Created
           </div>
           <div
+            aria-label="First Login Date"
+            class="mocked-styled-102 el-table-header"
+            role="columnheader"
+          >
+            First Login Date
+          </div>
+          <div
             aria-label="Login Info"
             class="mocked-styled-102 el-table-header"
             role="columnheader"
@@ -510,7 +517,7 @@ exports[`UsersPage should match a snapshot 1`] = `
             class="mocked-styled-102 el-table-header"
             role="columnheader"
           >
-            Organisations
+            Orgs
           </div>
         </div>
         <div
@@ -595,6 +602,17 @@ exports[`UsersPage should match a snapshot 1`] = `
                 data-narrow-label="Date Created"
               >
                 09-11-2022
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
+              role="cell"
+            >
+              <div
+                class="mocked-styled-111 el-table-cell-content"
+                data-narrow-label="First Login Date"
+              >
+                -
               </div>
             </div>
             <div
@@ -1240,11 +1258,11 @@ exports[`UsersPage should match a snapshot 1`] = `
     </p>
     <div
       class="el-fade-in el-mb11 mock-css.
-  --component-table-expandable-trigger-width: auto !important;
+  --component-table-expandable-trigger-width: 53px !important;
  el-table"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
-      data-num-columns-excl-action-col="7"
+      data-num-columns-excl-action-col="8"
       role="table"
     >
       <div
@@ -1280,6 +1298,13 @@ exports[`UsersPage should match a snapshot 1`] = `
           Date Created
         </div>
         <div
+          aria-label="First Login Date"
+          class="mocked-styled-102 el-table-header"
+          role="columnheader"
+        >
+          First Login Date
+        </div>
+        <div
           aria-label="Login Info"
           class="mocked-styled-102 el-table-header"
           role="columnheader"
@@ -1304,7 +1329,7 @@ exports[`UsersPage should match a snapshot 1`] = `
           class="mocked-styled-102 el-table-header"
           role="columnheader"
         >
-          Organisations
+          Orgs
         </div>
       </div>
       <div
@@ -1389,6 +1414,17 @@ exports[`UsersPage should match a snapshot 1`] = `
               data-narrow-label="Date Created"
             >
               09-11-2022
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
+            role="cell"
+          >
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+              data-narrow-label="First Login Date"
+            >
+              -
             </div>
           </div>
           <div
