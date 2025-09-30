@@ -1,9 +1,13 @@
-import React, { FC, forwardRef, useRef } from 'react'
-import { Loader, PersistentNotification, Table } from '@reapit/elements'
+import React, { FC } from 'react'
+import { PersistentNotification, Table } from '@reapit/elements'
 import { DisplayChip } from './__styles__'
-import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { GroupModelPagedResult, OrganisationModelPagedResult, UserModel } from '@reapit/foundations-ts-definitions'
+import {
+  GroupModelPagedResult,
+  OrganisationModel,
+  OrganisationModelPagedResult,
+  UserModel,
+} from '@reapit/foundations-ts-definitions'
 import { useReapitConnect } from '@reapit/connect-session'
 import { getIsAdmin } from '../../utils/is-admin'
 import { EditUserGroupsModal } from './edit-user-groups-modal'
@@ -17,6 +21,21 @@ const Container = styled.div`
     max-height: none;
     -webkit-line-clamp: unset;
   }
+`
+
+const OrgTypeChip = styled(DisplayChip)`
+  background: ${({ type }) => {
+    return type === 'customer' ? 'var(--color-blue-light)' : 'black'
+  }};
+  color: ${({ type }) => {
+    return type === 'customer' ? 'white' : 'lightgreen'
+  }};
+  font-weight: ${({ type }) => {
+    return type === 'customer' ? 'inherit' : 'bold'
+  }};
+  font-family: ${({ type }) => {
+    return type === 'customer' ? 'inherit' : "'Courier New', Courier, monospace"
+  }};
 `
 
 export interface UserContentProps {
@@ -43,9 +62,27 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, orgs, us
       <Table
         numberColumns={6}
         rows={user.organisationIds?.map((orgId) => {
+          const org: (OrganisationModel & { types?: string[] }) | undefined = orgs?._embedded?.find(
+            (org) => org.id === orgId,
+          )
+
           return {
             cells: [
-              { label: 'Organisation', value: orgs?._embedded?.find((org) => org.id === orgId)?.name || orgId },
+              {
+                label: 'Organisation',
+                children: (
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                    <span>{org?.name || orgId}</span>
+                    {org?.types
+                      ?.filter((type) => type !== 'organisation')
+                      .map((type) => (
+                        <OrgTypeChip key={type} type={type}>
+                          {type}
+                        </OrgTypeChip>
+                      ))}
+                  </div>
+                ),
+              },
               {
                 label: 'Organisation Claims',
                 value:
