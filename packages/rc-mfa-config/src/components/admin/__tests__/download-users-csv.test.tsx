@@ -48,6 +48,26 @@ describe('DownloadUsersCSV', () => {
     )
   })
 
+  it('Should paginate until complete', async () => {
+    jest
+      .spyOn(global, 'fetch')
+      .mockImplementation(
+        jest.fn(() =>
+          Promise.resolve(new Response(JSON.stringify({ _embedded: [{}], totalPageCount: 4 }), { status: 200 })),
+        ),
+      )
+    const setIsDownloading = jest.fn()
+    await DownloadUsersCSVFunction({
+      token: '',
+      filters: {},
+      setIsDownloading,
+    })
+
+    expect(setIsDownloading).toHaveBeenNthCalledWith(1, true)
+    expect(setIsDownloading).toHaveBeenNthCalledWith(2, false)
+    expect(global.fetch).toHaveBeenCalledTimes(4)
+  })
+
   it('should set downloading', async () => {
     const setIsDownloading = jest.fn()
     await DownloadUsersCSVFunction({
