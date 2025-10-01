@@ -36,7 +36,16 @@ describe('DownloadUsersCSV', () => {
 
     expect(setIsDownloading).toHaveBeenNthCalledWith(1, true)
     expect(setIsDownloading).toHaveBeenNthCalledWith(2, false)
-    expect(global.fetch).toHaveBeenCalled()
+    expect(global.fetch).toHaveBeenNthCalledWith(
+      1,
+      expect.stringContaining('pageNumber=1'),
+      expect.objectContaining({
+        headers: {
+          'api-version': 'latest',
+          Authorization: expect.stringContaining('Bearer'),
+        },
+      }),
+    )
   })
 
   it('should set downloading', async () => {
@@ -49,6 +58,15 @@ describe('DownloadUsersCSV', () => {
 
     expect(setIsDownloading).toHaveBeenNthCalledWith(1, true)
     expect(setIsDownloading).toHaveBeenNthCalledWith(2, false)
-    expect(global.fetch).toHaveBeenCalled()
+    expect(global.fetch).toHaveBeenNthCalledWith(
+      1,
+      expect.stringContaining('pageNumber=1'),
+      expect.objectContaining({
+        headers: {
+          'api-version': 'latest',
+          Authorization: expect.stringContaining('Bearer'),
+        },
+      }),
+    )
   })
 })

@@ -1,6 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import {
-  Icon,
   Loader,
   Table,
   Pagination,
