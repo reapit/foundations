@@ -36,7 +36,7 @@ export const DeleteAuthenticator: FC<DeleteAuthenticatorProps> = ({
       disabled={deleteAuthenticatorLoading}
       onClick={handleDeleteAuthenticator(deleteAuthenticator, refreshAuthenticators)}
     >
-      Reset Authenticator
+      Reset
     </Button>
   )
 }

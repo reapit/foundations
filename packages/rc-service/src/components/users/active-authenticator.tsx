@@ -14,6 +14,7 @@ export const ActiveAuthenticator: FC<ActiveAuthenticatorProps> = ({ activeAuthen
   const { id, type, created, status, modified, userId } = activeAuthenticator
   return (
     <Table
+      numberColumns={6}
       rows={[
         {
           cells: [

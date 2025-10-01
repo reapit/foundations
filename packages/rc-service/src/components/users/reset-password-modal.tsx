@@ -28,12 +28,14 @@ export const ResetPasswordModal: FC<{ userId?: string }> = ({ userId }) => {
           closeModal()
         }}
       >
-        {showError && (
-          <PersistantNotification className={elMb3} isExpanded isFullWidth intent="danger">
-            Error resetting user password, please try again
-          </PersistantNotification>
-        )}
-        <BodyText>Are you sure you wish to reset this user password?</BodyText>
+        <div>
+          <BodyText>Are you sure you wish to reset this user password?</BodyText>
+          {showError && (
+            <PersistantNotification isInline className={elMb3} isFullWidth isExpanded intent="danger">
+              Error resetting user password, please try again
+            </PersistantNotification>
+          )}
+        </div>
         <ButtonGroup alignment="center">
           <Button
             intent="danger"
