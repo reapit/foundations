@@ -8066,27 +8066,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/security-header-lambda@workspace:packages/security-header-lambda":
-  version: 0.0.0-use.local
-  resolution: "@reapit/security-header-lambda@workspace:packages/security-header-lambda"
-  dependencies:
-    "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@typescript-eslint/eslint-plugin": "npm:^8.10.0"
-    "@typescript-eslint/parser": "npm:^8.10.0"
-    aws-lambda: "npm:^1.0.7"
-    eslint: "npm:8.57.1"
-    eslint-plugin-prettier: "npm:^5.2.1"
-    serverless: "npm:^3.39.0"
-    serverless-deployment-bucket: "npm:^1.6.0"
-    serverless-lambda-edge-pre-existing-cloudfront: "npm:^1.2.0"
-    serverless-plugin-log-retention: "npm:^2.0.0"
-    snyk: "npm:^1.1293.1"
-    tsup: "npm:^6.7.0"
-    typescript: "npm:^5.6.3"
-  languageName: unknown
-  linkType: soft
-
 "@reapit/ts-bundler@workspace:packages/ts-bundler":
   version: 0.0.0-use.local
   resolution: "@reapit/ts-bundler@workspace:packages/ts-bundler"
@@ -26957,13 +26936,6 @@ __metadata:
   dependencies:
     chalk: "npm:^2.4.2"
   checksum: 75f4236632c1ec3f5fc5f26029b0a3473fdcdd52b033d380764746b9d4ec1ac8a1ddd69b831c0884e862f162895fbd1a3bb75b123d1cac520487d1f11256bee2
-  languageName: node
-  linkType: hard
-
-"serverless-lambda-edge-pre-existing-cloudfront@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "serverless-lambda-edge-pre-existing-cloudfront@npm:1.2.0"
-  checksum: 267d921afe59b5ae30045d5eaf0911129e5aa09dfd65762824fa95e57336d2e0490277789f0b2d3048967d3b97888e380bc7e550068e49f68d2498b861348f15
   languageName: node
   linkType: hard
 
