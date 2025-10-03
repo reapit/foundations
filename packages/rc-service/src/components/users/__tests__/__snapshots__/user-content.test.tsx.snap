@@ -15,7 +15,7 @@ exports[`UserContent Should match snapshot 1`] = `
           class="mocked-styled-115 el-table"
           data-has-call-to-action="false"
           data-has-expandable-action="false"
-          data-num-columns-excl-action-col="5"
+          data-num-columns-excl-action-col="6"
           role="table"
         >
           <div
@@ -139,7 +139,7 @@ exports[`UserContent Should match snapshot 1`] = `
         class="mocked-styled-115 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="false"
-        data-num-columns-excl-action-col="5"
+        data-num-columns-excl-action-col="6"
         role="table"
       >
         <div

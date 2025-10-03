@@ -45,7 +45,7 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, orgs, us
   return (
     <Container>
       <Table
-        numberColumns={6}
+        numberColumns={!isSupport && !isFoundationsAdmin ? 7 : 8}
         rows={user.organisationIds?.map((orgId) => {
           const org: (OrganisationModel & { types?: string[] }) | undefined = orgs?._embedded?.find(
             (org) => org.id === orgId,
