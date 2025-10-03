@@ -16,6 +16,7 @@ export const mockUserModelPagedResult: UserModelPagedResult = {
       mfaEnabled: true,
       groups: ['OrganisationAdmin', 'ReapitUser', 'MarketplaceAdmin'],
       products: [],
+      organisationIds: ['d2lsbG1jdmF5QGljbG91ZC5jb20'],
     },
   ],
   pageNumber: 1,
