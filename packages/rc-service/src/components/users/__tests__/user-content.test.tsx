@@ -11,7 +11,16 @@ describe('UserContent', () => {
           ...(mockUserModelPagedResult._embedded ? mockUserModelPagedResult._embedded[0] : {}),
         }}
         userGroups={{ _embedded: [] }}
-        orgs={{ _embedded: [] }}
+        orgs={{
+          _embedded: [
+            {
+              id: 'd2lsbG1jdmF5QGljbG91ZC5jb20',
+              name: 'an org',
+              // @ts-expect-error
+              types: ['customer', 'developer'],
+            },
+          ],
+        }}
         refreshUsers={() => {}}
       />,
     )
