@@ -14,6 +14,7 @@ import { CanonicalUserPrincipal, PolicyStatement } from 'aws-cdk-lib/aws-iam'
 import { BlockPublicAccess, BucketAccessControl, BucketEncryption, ObjectOwnership } from 'aws-cdk-lib/aws-s3'
 import { ACM } from 'aws-sdk'
 import { InvalidateCloudfrontDistribution } from '../utils/cf-innvalidate'
+import { createSecurityHeaders } from './security-headers'
 
 export interface CreateSiteInterface {
   env?: 'dev' | 'prod'
@@ -130,6 +131,8 @@ export const createSite = async (
       },
     ],
   })
+
+  createSecurityHeaders(stack, 'SecurityHeaders', distribution)
 
   createRoute(stack, 'route', {
     target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
