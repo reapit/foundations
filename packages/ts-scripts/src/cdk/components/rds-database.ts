@@ -8,6 +8,7 @@ export const createDatabase = (
   vpc: ec2.Vpc,
   secret?: cdk.aws_secretsmanager.ISecret,
   bastion: boolean = false,
+  createConnections: boolean = true,
 ): rds.DatabaseCluster => {
   const db = new rds.DatabaseCluster(stack, name, {
     engine: rds.DatabaseClusterEngine.auroraMysql({ version: rds.AuroraMysqlEngineVersion.VER_3_08_2 }),
@@ -28,7 +29,7 @@ export const createDatabase = (
     credentials: secret ? rds.Credentials.fromSecret(secret) : undefined,
   })
 
-  db.connections.allowFromAnyIpv4(ec2.Port.MYSQL_AURORA)
+  if (createConnections) db.connections.allowFromAnyIpv4(ec2.Port.MYSQL_AURORA)
 
   if (bastion) {
     new ec2.BastionHostLinux(stack, 'bastion', {
