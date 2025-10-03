@@ -23,21 +23,6 @@ const Container = styled.div`
   }
 `
 
-const OrgTypeChip = styled(DisplayChip)`
-  background: ${({ type }) => {
-    return type === 'customer' ? 'var(--color-blue-light)' : 'black'
-  }};
-  color: ${({ type }) => {
-    return type === 'customer' ? 'white' : 'lightgreen'
-  }};
-  font-weight: ${({ type }) => {
-    return type === 'customer' ? 'inherit' : 'bold'
-  }};
-  font-family: ${({ type }) => {
-    return type === 'customer' ? 'inherit' : "'Courier New', Courier, monospace"
-  }};
-`
-
 export interface UserContentProps {
   user: UserModel
   userGroups: GroupModelPagedResult | null
@@ -70,18 +55,11 @@ export const UserContent: FC<UserContentProps> = ({ user, refreshUsers, orgs, us
             cells: [
               {
                 label: 'Organisation',
-                children: (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-                    <span>{org?.name || orgId}</span>
-                    {org?.types
-                      ?.filter((type) => type !== 'organisation')
-                      .map((type) => (
-                        <OrgTypeChip key={type} type={type}>
-                          {type}
-                        </OrgTypeChip>
-                      ))}
-                  </div>
-                ),
+                value: org?.name || orgId,
+              },
+              {
+                label: 'Organisation Type(s)',
+                value: org?.types?.filter((type) => type !== 'organisation').join(', '),
               },
               {
                 label: 'Organisation Claims',
