@@ -66,7 +66,7 @@ exports[`OrgsPage should match a snapshot 1`] = `
         class="el-fade-in el-mb11 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
-        data-num-columns-excl-action-col="5"
+        data-num-columns-excl-action-col="6"
         role="table"
       >
         <div
@@ -79,6 +79,13 @@ exports[`OrgsPage should match a snapshot 1`] = `
             role="columnheader"
           >
             Org Name
+          </div>
+          <div
+            aria-label="Org Type(s)"
+            class="mocked-styled-102 el-table-header"
+            role="columnheader"
+          >
+            Org Type(s)
           </div>
           <div
             aria-label="Client Code"
@@ -168,6 +175,16 @@ exports[`OrgsPage should match a snapshot 1`] = `
                 data-narrow-label="Org Name"
               >
                 test again 2
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
+              role="cell"
+            >
+              <div
+                class="mocked-styled-111 el-table-cell-content"
+              >
+                developer, customer
               </div>
             </div>
             <div
@@ -466,7 +483,7 @@ exports[`OrgsPage should match a snapshot 1`] = `
       class="el-fade-in el-mb11 el-table"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
-      data-num-columns-excl-action-col="5"
+      data-num-columns-excl-action-col="6"
       role="table"
     >
       <div
@@ -479,6 +496,13 @@ exports[`OrgsPage should match a snapshot 1`] = `
           role="columnheader"
         >
           Org Name
+        </div>
+        <div
+          aria-label="Org Type(s)"
+          class="mocked-styled-102 el-table-header"
+          role="columnheader"
+        >
+          Org Type(s)
         </div>
         <div
           aria-label="Client Code"
@@ -568,6 +592,16 @@ exports[`OrgsPage should match a snapshot 1`] = `
               data-narrow-label="Org Name"
             >
               test again 2
+            </div>
+          </div>
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
+            role="cell"
+          >
+            <div
+              class="mocked-styled-111 el-table-cell-content"
+            >
+              developer, customer
             </div>
           </div>
           <div

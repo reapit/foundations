@@ -24,7 +24,7 @@ export const DisplayChip = styled.span`
 `
 
 export const threeColTable = css`
-  grid-template-columns: repeat(3, 1fr);
+  --component-table-num-columns: 3;
 `
 
 export const customModal = css`

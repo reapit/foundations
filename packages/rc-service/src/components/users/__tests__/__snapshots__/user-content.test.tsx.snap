@@ -15,7 +15,7 @@ exports[`UserContent Should match snapshot 1`] = `
           class="mocked-styled-115 el-table"
           data-has-call-to-action="false"
           data-has-expandable-action="false"
-          data-num-columns-excl-action-col="5"
+          data-num-columns-excl-action-col="6"
           role="table"
         >
           <div
@@ -28,6 +28,13 @@ exports[`UserContent Should match snapshot 1`] = `
               role="columnheader"
             >
               Organisation
+            </div>
+            <div
+              aria-label="Organisation Type(s)"
+              class="mocked-styled-102 el-table-header"
+              role="columnheader"
+            >
+              Organisation Type(s)
             </div>
             <div
               aria-label="Organisation Claims"
@@ -65,25 +72,17 @@ exports[`UserContent Should match snapshot 1`] = `
                 <div
                   class="mocked-styled-111 el-table-cell-content"
                 >
-                  <div
-                    style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;"
-                  >
-                    <span>
-                      an org
-                    </span>
-                    <mock-styled.span
-                      classname="sc-eqUAAy cqznCV"
-                      type="customer"
-                    >
-                      customer
-                    </mock-styled.span>
-                    <mock-styled.span
-                      classname="sc-eqUAAy gNlkwv"
-                      type="developer"
-                    >
-                      developer
-                    </mock-styled.span>
-                  </div>
+                  an org
+                </div>
+              </div>
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
+                role="cell"
+              >
+                <div
+                  class="mocked-styled-111 el-table-cell-content"
+                >
+                  customer, developer
                 </div>
               </div>
               <div
@@ -140,7 +139,7 @@ exports[`UserContent Should match snapshot 1`] = `
         class="mocked-styled-115 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="false"
-        data-num-columns-excl-action-col="5"
+        data-num-columns-excl-action-col="6"
         role="table"
       >
         <div
@@ -153,6 +152,13 @@ exports[`UserContent Should match snapshot 1`] = `
             role="columnheader"
           >
             Organisation
+          </div>
+          <div
+            aria-label="Organisation Type(s)"
+            class="mocked-styled-102 el-table-header"
+            role="columnheader"
+          >
+            Organisation Type(s)
           </div>
           <div
             aria-label="Organisation Claims"
@@ -190,25 +196,17 @@ exports[`UserContent Should match snapshot 1`] = `
               <div
                 class="mocked-styled-111 el-table-cell-content"
               >
-                <div
-                  style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;"
-                >
-                  <span>
-                    an org
-                  </span>
-                  <mock-styled.span
-                    classname="sc-eqUAAy cqznCV"
-                    type="customer"
-                  >
-                    customer
-                  </mock-styled.span>
-                  <mock-styled.span
-                    classname="sc-eqUAAy gNlkwv"
-                    type="developer"
-                  >
-                    developer
-                  </mock-styled.span>
-                </div>
+                an org
+              </div>
+            </div>
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
+              role="cell"
+            >
+              <div
+                class="mocked-styled-111 el-table-cell-content"
+              >
+                customer, developer
               </div>
             </div>
             <div
