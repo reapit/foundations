@@ -13,7 +13,7 @@ import {
   BodyText,
 } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { OrganisationModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { OrganisationModel, OrganisationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import ErrorBoundary from '../error-boundary'
 import { useForm, UseFormWatch } from 'react-hook-form'
 import { cx } from '@linaria/core'
@@ -78,6 +78,12 @@ export const OrgsPage: FC = () => {
                     narrowTable: {
                       showLabel: true,
                     },
+                  },
+                  {
+                    label: 'Org Type(s)',
+                    value: (org as OrganisationModel & { types?: string[] })?.types
+                      ?.filter((type) => type !== 'organisation')
+                      .join(', '),
                   },
                   {
                     label: 'Client Code',

@@ -34,9 +34,13 @@ interface UpdateUserModel {
   groupIds: string
 }
 
-export const sortAddRemoveGroups = (user: UserModel, groupIds: string) => {
-  const currentGroups = user.groups ?? []
-  const removeIds = currentGroups.filter((group) => !groupIds.includes(group)).filter(Boolean)
+export const sortAddRemoveGroups = (user: UserModel, organisationId: string, groupIds: string) => {
+  const currentGroups =
+    user.userGroups
+      ?.filter((ug) => ug.organisationId === organisationId)
+      .map((ug) => ug.groupId)
+      .filter((s) => typeof s !== 'undefined') ?? []
+  const removeIds = currentGroups.filter((group) => !groupIds.split(',').includes(group)).filter(Boolean)
   const addIds = groupIds
     .split(',')
     .filter((group) => !currentGroups.includes(group))
@@ -82,7 +86,8 @@ export const onHandleSubmit =
     const { id: userId } = user
     if (!user || !userId) return null
 
-    const { removeIds, addIds } = sortAddRemoveGroups(user, groupIds)
+    const { removeIds, addIds } = sortAddRemoveGroups(user, organisationId, groupIds)
+
     const totalUpdates = removeIds.length + addIds.length
 
     const updateUserRes = await Promise.all([
@@ -91,18 +96,13 @@ export const onHandleSubmit =
     ])
 
     const positiveResponses = updateUserRes.filter((res) => res)
+
     refreshUsers()
 
     if (positiveResponses && positiveResponses.length === totalUpdates) {
       if (closeModal) {
         closeModal()
       }
-    } else {
-      alert(
-        'There was an error updating ' +
-          (totalUpdates - positiveResponses.length) +
-          ' of the  user groups, please try again',
-      )
     }
   }
 

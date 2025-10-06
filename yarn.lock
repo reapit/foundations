@@ -7964,21 +7964,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reapit/elements@npm:4.3.2, @reapit/elements@npm:^4.3.2":
-  version: 4.3.2
-  resolution: "@reapit/elements@npm:4.3.2"
-  dependencies:
-    "@linaria/core": "npm:^6.1.0"
-    "@linaria/react": "npm:^6.1.0"
-  peerDependencies:
-    react: ">=18.0.2"
-    react-dom: ">=18.0.2"
-  bin:
-    elements-deploy: ./scripts/cdk/bin/rpt-cdk.js
-  checksum: 227c88d7524e599e0c640982a8a666f2fe76fc89791764926c5902d1b851170a8302ae33dc3d1827cbb8ec26953123d0ee075c78339c29e21e259def41f1da65
-  languageName: node
-  linkType: hard
-
 "@reapit/elements@npm:^4.3.4":
   version: 4.3.4
   resolution: "@reapit/elements@npm:4.3.4"
@@ -8030,7 +8015,7 @@ __metadata:
     "@linaria/react": "npm:^6.2.1"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.3"
-    "@reapit/elements": "npm:^4.3.2"
+    "@reapit/elements": "npm:^4.3.4"
     "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
@@ -8304,7 +8289,7 @@ __metadata:
     "@linaria/core": "npm:^6.2.0"
     "@linaria/react": "npm:^6.2.1"
     "@reapit/connect-session": "npm:^6.1.3"
-    "@reapit/elements": "npm:^4.3.2"
+    "@reapit/elements": "npm:^4.3.4"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:^"
     "@reapit/use-reapit-data": "workspace:^"
@@ -13052,7 +13037,7 @@ __metadata:
     "@linaria/react": "npm:^6.2.1"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.3"
-    "@reapit/elements": "npm:4.3.2"
+    "@reapit/elements": "npm:^4.3.4"
     "@reapit/foundations-ts-definitions": "npm:^2.1.21"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/use-reapit-data": "workspace:packages/use-reapit-data"
@@ -13437,7 +13422,7 @@ __metadata:
     "@linaria/react": "npm:^6.2.1"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.3"
-    "@reapit/elements": "npm:^4.3.2"
+    "@reapit/elements": "npm:^4.3.4"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
@@ -13489,7 +13474,7 @@ __metadata:
     "@linaria/react": "npm:^6.2.1"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.3"
-    "@reapit/elements": "npm:^4.3.2"
+    "@reapit/elements": "npm:^4.3.4"
     "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-scripts": "workspace:^"
     "@reapit/utils-common": "workspace:packages/utils-common"
@@ -15993,7 +15978,7 @@ __metadata:
     "@linaria/react": "npm:^6.2.1"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.3"
-    "@reapit/elements": "npm:^4.3.2"
+    "@reapit/elements": "npm:^4.3.4"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:^"
     "@sentry/browser": "npm:^8.34.0"
@@ -16498,7 +16483,7 @@ __metadata:
     "@linaria/react": "npm:^6.2.1"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.3"
-    "@reapit/elements": "npm:4.3.2"
+    "@reapit/elements": "npm:^4.3.4"
     "@reapit/foundations-ts-definitions": "npm:^2.1.20"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/use-reapit-data": "workspace:packages/use-reapit-data"
@@ -18849,7 +18834,7 @@ __metadata:
     "@linaria/react": "npm:^6.2.1"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.3"
-    "@reapit/elements": "npm:^4.3.2"
+    "@reapit/elements": "npm:^4.3.4"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
@@ -22108,7 +22093,7 @@ __metadata:
     "@linaria/react": "npm:^6.2.1"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.3"
-    "@reapit/elements": "npm:^4.3.2"
+    "@reapit/elements": "npm:^4.3.4"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
@@ -22145,7 +22130,7 @@ __metadata:
     "@linaria/react": "npm:^6.2.1"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.3"
-    "@reapit/elements": "npm:^4.3.2"
+    "@reapit/elements": "npm:^4.3.4"
     "@reapit/foundations-ts-definitions": "npm:^1.5.9"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/use-reapit-data": "workspace:^"
@@ -24283,7 +24268,7 @@ __metadata:
     "@linaria/react": "npm:^6.2.1"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.3"
-    "@reapit/elements": "npm:^4.3.2"
+    "@reapit/elements": "npm:^4.3.4"
     "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/payments-ui": "workspace:packages/payments-ui"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
@@ -24327,7 +24312,7 @@ __metadata:
     "@linaria/react": "npm:^6.2.1"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.3"
-    "@reapit/elements": "npm:^4.3.2"
+    "@reapit/elements": "npm:^4.3.4"
     "@reapit/foundations-ts-definitions": "npm:2.0.0"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
@@ -25358,7 +25343,7 @@ __metadata:
     "@linaria/react": "npm:^6.2.1"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.3"
-    "@reapit/elements": "npm:^4.3.2"
+    "@reapit/elements": "npm:^4.3.4"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
@@ -25889,7 +25874,7 @@ __metadata:
     "@linaria/react": "npm:^6.2.1"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "npm:^6.1.3"
-    "@reapit/elements": "npm:^4.3.2"
+    "@reapit/elements": "npm:^4.3.4"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"

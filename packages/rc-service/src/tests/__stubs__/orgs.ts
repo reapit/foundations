@@ -18,6 +18,8 @@ export const mockOrganisationModelPagedResult: OrganisationModelPagedResult = {
       mfaStatus: 'inactive',
       product: 'agencyCloud',
       products: [],
+      //@ts-ignore
+      types: ['developer', 'customer', 'organisation'],
       address: {
         buildingName: '',
         buildingNumber: '',
