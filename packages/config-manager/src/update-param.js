@@ -10,10 +10,10 @@ const getBase = async (paramName, format) => {
   try {
     const command = new GetParameterCommand({ Name: paramName, WithDecryption: true })
     const data = await ssm.send(command)
-    
+
     const value = data && data.Parameter && data.Parameter.Value
     console.log(chalk.bold.green(`Successfully fetched base param for ${paramName}`))
-    
+
     if (value) {
       const formatted = format === 'string' ? value : JSON.parse(data.Parameter.Value)
       return formatted
@@ -29,7 +29,7 @@ const getBase = async (paramName, format) => {
 const updateParam = async (cliArgs) => {
   const { format } = cliArgs
   const { fileName, paramName } = getParamAndFileName(cliArgs)
-  
+
   try {
     const source = format === 'string' ? fs.readFileSync(fileName, 'utf8') : require(fileName)
     if (!source) throw new Error('File not found for: ', source)
@@ -51,7 +51,7 @@ const updateParam = async (cliArgs) => {
       Overwrite: true,
       Type: 'SecureString',
     })
-    
+
     await ssm.send(command)
     console.log(chalk.bold.green(`Successfully updated ${paramName}`))
   } catch (err) {

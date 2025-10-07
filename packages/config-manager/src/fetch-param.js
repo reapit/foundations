@@ -10,13 +10,13 @@ const ssm = new SSMClient({ region: 'eu-west-2' })
 const fetchParam = async (cliArgs) => {
   const { format } = cliArgs
   const { fileName, paramName } = getParamAndFileName(cliArgs)
-  
+
   try {
     console.log(chalk.bold.blue('Fetching param: ', paramName))
-    
+
     const command = new GetParameterCommand({ Name: paramName, WithDecryption: true })
     const data = await ssm.send(command)
-    
+
     const config = (data && data.Parameter && data.Parameter.Value) || {}
     console.log(chalk.bold.green(`Successfully fetched ${paramName}`))
     fs.writeFileSync(fileName, config)

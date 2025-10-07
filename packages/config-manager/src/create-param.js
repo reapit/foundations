@@ -9,7 +9,7 @@ const ssm = new SSMClient({ region: 'eu-west-2' })
 const createParam = async (cliArgs) => {
   const { format } = cliArgs
   const { fileName, paramName } = getParamAndFileName(cliArgs)
-  
+
   try {
     const source = format === 'string' ? fs.readFileSync(fileName, 'utf8') : require(fileName)
     if (!source) throw new Error('File not found for: ', source)
@@ -24,7 +24,7 @@ const createParam = async (cliArgs) => {
       Overwrite: true,
       Type: 'SecureString',
     })
-    
+
     await ssm.send(command)
     console.log(chalk.bold.green(`Successfully created ${paramName}`))
   } catch (err) {
