@@ -5,6 +5,7 @@ A thin wrapper around AWS Systems Mananger, Parameter Store for keeping remote c
 The package is intended to act as a convenient CLI tool for updating remote configuration in AWS and for use in a CI environment for pulling configuration into build processes.
 
 ## For use with `aws sso`
+
 Ensure the `AWS_PROFILE` env var is set before you run your command, for instance:
 ```bash 
 AWS_PROFILE=paas-dev yarn conf
