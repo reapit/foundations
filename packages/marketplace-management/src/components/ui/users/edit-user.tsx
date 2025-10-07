@@ -59,7 +59,13 @@ export const onHandleSubmit =
     const userId = user?.id
     if (!user || !userId) return null
 
-    const { removeIds, addIds } = sortAddRemoveGroups(user, groupIds)
+    const { removeIds, addIds } = sortAddRemoveGroups(
+      user,
+      groupIds
+        .split(',')
+        .filter((gid) => process.env.groupIdsWhitelist.includes(gid))
+        .join(','),
+    )
     const totalUpdates = removeIds.length + addIds.length
 
     const updateUserRes = await Promise.all([
@@ -84,7 +90,10 @@ export const EditUserForm: FC<EditUserFormProps> = ({ onComplete, user, orgId })
     !orgId ? null : `${URLS.USERS_GROUPS}?${groupIdQuery}&pageSize=999&organisationId=${orgId}`,
   )
   const whitelist = process.env.groupIdsWhitelist
-  const userGroups = user.groups?.filter((group) => whitelist.includes(group))
+  const userGroups: string[] | undefined = user.userGroups
+    ?.filter((ug) => ug.organisationId === orgId && typeof ug.groupId !== 'undefined')
+    ?.map((ug) => ug.groupId!)
+    .filter((group) => whitelist.includes(group))
   const { success, error } = useSnack()
   const onSubmit = useCallback(onHandleSubmit(onComplete, user, success, error, orgId), [user, orgId])
 

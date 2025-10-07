@@ -36,7 +36,29 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
                 aria-label="Multi selected options"
                 class="mocked-styled-55 el-multi-select-selected"
                 role="listbox"
-              />
+              >
+                <span
+                  class="el-ml2 el-intent-default el-icon-new el-icon"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    role="img"
+                    title="Icon image with name task"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <p>
+                  No groups selected for this user
+                </p>
+              </div>
               <div
                 aria-label="Multi unselected options"
                 class="mocked-styled-56 el-multi-select-un-selected"
@@ -155,7 +177,29 @@ exports[`UpdateUserModal should match a snapshot where there is data 1`] = `
               aria-label="Multi selected options"
               class="mocked-styled-55 el-multi-select-selected"
               role="listbox"
-            />
+            >
+              <span
+                class="el-ml2 el-intent-default el-icon-new el-icon"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  title="Icon image with name task"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2m16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2M8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2m12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <p>
+                No groups selected for this user
+              </p>
+            </div>
             <div
               aria-label="Multi unselected options"
               class="mocked-styled-56 el-multi-select-un-selected"
