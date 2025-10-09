@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import UpdateUserModal, { EditUserFormProps, onHandleSubmit } from '../edit-user'
+import UpdateUserModal, { EditUserFormProps, onHandleSubmit, sortAddRemoveGroups } from '../edit-user'
 import { UserModel } from '@reapit/foundations-ts-definitions'
 import { addMemberToGroup, removeMemberFromGroup } from '../../../../services/user'
 import useSWR from 'swr'
@@ -13,7 +13,14 @@ jest.mock('swr')
 const mockSWR = useSWR as jest.Mock
 
 const props = (): EditUserFormProps => ({
-  user: { id: 'GR1', name: 'User Name', groups: ['OF1', 'OF2'] },
+  user: {
+    id: 'GR1',
+    name: 'User Name',
+    userGroups: [
+      { organisationId: 'SOME_ID', groupId: 'OF1' },
+      { organisationId: 'SOME_ID', groupId: 'OF2' },
+    ],
+  },
   onComplete: jest.fn(),
   orgId: 'SOME_ID',
 })
@@ -29,12 +36,11 @@ describe('UpdateUserModal', () => {
     expect(render(<UpdateUserModal {...props()} />)).toMatchSnapshot()
   })
 
-  it('should filter user groups by whitelist when rendering', () => {
+  it('should filter user groups by whitelist and organisationId when rendering', () => {
     process.env.groupIdsWhitelist = ['OF1', 'OF2']
     const user = {
       id: 'GR1',
       name: 'User Name',
-      groups: ['OF1', 'OF2', 'OF3'],
       userGroups: [
         { organisationId: 'SOME_ID', groupId: 'OF1' },
         { organisationId: 'SOME_ID', groupId: 'OF2' },
@@ -58,7 +64,6 @@ describe('UpdateUserModal', () => {
     const user = {
       id: 'GR1',
       name: 'User Name',
-      groups: ['OF1', 'OF2'],
       userGroups: [
         { organisationId: 'SOME_ID', groupId: 'OF1' },
         { organisationId: 'SOME_ID', groupId: undefined }, // Should be filtered out
@@ -77,6 +82,97 @@ describe('UpdateUserModal', () => {
   })
 })
 
+describe('sortAddRemoveGroups', () => {
+  it('should correctly identify groups to add and remove', () => {
+    process.env.groupIdsWhitelist = ['ID_1', 'ID_2', 'ID_3']
+    const user: UserModel = {
+      id: 'USER_ID',
+      userGroups: [
+        { organisationId: 'ORG_ID', groupId: 'ID_1' },
+        { organisationId: 'ORG_ID', groupId: 'ID_2' },
+      ],
+    }
+    const newGroupIds = 'ID_1,ID_3'
+    const organisationId = 'ORG_ID'
+
+    const result = sortAddRemoveGroups(user, newGroupIds, organisationId)
+
+    expect(result.removeIds).toEqual(['ID_2'])
+    expect(result.addIds).toEqual(['ID_3'])
+  })
+
+  it('should filter out groups not in whitelist', () => {
+    process.env.groupIdsWhitelist = ['ID_1', 'ID_2']
+    const user: UserModel = {
+      id: 'USER_ID',
+      userGroups: [
+        { organisationId: 'ORG_ID', groupId: 'ID_1' },
+        { organisationId: 'ORG_ID', groupId: 'ID_3' }, // Not in whitelist
+      ],
+    }
+    const newGroupIds = 'ID_1,ID_2'
+    const organisationId = 'ORG_ID'
+
+    const result = sortAddRemoveGroups(user, newGroupIds, organisationId)
+
+    // ID_3 should not be in removeIds because it's not in whitelist
+    expect(result.removeIds).toEqual([])
+    expect(result.addIds).toEqual(['ID_2'])
+  })
+
+  it('should filter groups by organisationId', () => {
+    process.env.groupIdsWhitelist = ['ID_1', 'ID_2', 'ID_3']
+    const user: UserModel = {
+      id: 'USER_ID',
+      userGroups: [
+        { organisationId: 'ORG_ID', groupId: 'ID_1' },
+        { organisationId: 'OTHER_ORG_ID', groupId: 'ID_2' }, // Different org
+      ],
+    }
+    const newGroupIds = 'ID_1,ID_3'
+    const organisationId = 'ORG_ID'
+
+    const result = sortAddRemoveGroups(user, newGroupIds, organisationId)
+
+    // ID_2 should not be in removeIds because it belongs to a different organisation
+    expect(result.removeIds).toEqual([])
+    expect(result.addIds).toEqual(['ID_3'])
+  })
+
+  it('should handle empty userGroups', () => {
+    process.env.groupIdsWhitelist = ['ID_1', 'ID_2']
+    const user: UserModel = {
+      id: 'USER_ID',
+      userGroups: undefined,
+    }
+    const newGroupIds = 'ID_1,ID_2'
+    const organisationId = 'ORG_ID'
+
+    const result = sortAddRemoveGroups(user, newGroupIds, organisationId)
+
+    expect(result.removeIds).toEqual([])
+    expect(result.addIds).toEqual(['ID_1', 'ID_2'])
+  })
+
+  it('should handle groups with undefined groupId', () => {
+    process.env.groupIdsWhitelist = ['ID_1', 'ID_2']
+    const user: UserModel = {
+      id: 'USER_ID',
+      userGroups: [
+        { organisationId: 'ORG_ID', groupId: 'ID_1' },
+        { organisationId: 'ORG_ID', groupId: undefined },
+      ],
+    }
+    const newGroupIds = 'ID_1,ID_2'
+    const organisationId = 'ORG_ID'
+
+    const result = sortAddRemoveGroups(user, newGroupIds, organisationId)
+
+    expect(result.removeIds).toEqual([])
+    expect(result.addIds).toEqual(['ID_2'])
+  })
+})
+
 describe('onHandleSubmit', () => {
   it('should correctly add and remove users from groups', async () => {
     process.env.groupIdsWhitelist = ['ID_1', 'ID_2', 'ID_3']
@@ -84,9 +180,14 @@ describe('onHandleSubmit', () => {
     const success = jest.fn()
     const error = jest.fn()
     const userId = 'USER_ID'
-    const currentGroupIds = ['ID_1', 'ID_2']
     const newGroupIds = 'ID_1,ID_3'
-    const user = { groups: currentGroupIds, id: userId } as UserModel
+    const user: UserModel = {
+      id: userId,
+      userGroups: [
+        { organisationId: 'ORG_ID', groupId: 'ID_1' },
+        { organisationId: 'ORG_ID', groupId: 'ID_2' },
+      ],
+    }
     const organisationId = 'ORG_ID'
     const onSubmit = onHandleSubmit(onComplete, user, success, error, organisationId)
 
@@ -99,24 +200,28 @@ describe('onHandleSubmit', () => {
     expect(addMemberToGroup).toHaveBeenCalledWith({ userId, id: 'ID_3', organisationId })
   })
 
-  it('should filter out group IDs not in whitelist when submitting', async () => {
-    process.env.groupIdsWhitelist = ['ID_1', 'ID_2']
+  it('should only process groups from the specified organisation', async () => {
+    process.env.groupIdsWhitelist = ['ID_1', 'ID_2', 'ID_3']
     const onComplete = jest.fn()
     const success = jest.fn()
     const error = jest.fn()
     const userId = 'USER_ID'
-    const currentGroupIds = ['ID_1']
-    const newGroupIds = 'ID_1,ID_2,ID_3' // ID_3 is not in whitelist
-    const user = { groups: currentGroupIds, id: userId } as UserModel
+    const newGroupIds = 'ID_1,ID_3'
+    const user: UserModel = {
+      id: userId,
+      userGroups: [
+        { organisationId: 'ORG_ID', groupId: 'ID_1' },
+        { organisationId: 'OTHER_ORG_ID', groupId: 'ID_2' }, // Different org, should be ignored
+      ],
+    }
     const organisationId = 'ORG_ID'
     const onSubmit = onHandleSubmit(onComplete, user, success, error, organisationId)
 
     await onSubmit({ groupIds: newGroupIds })
 
-    // Should only add ID_2, not ID_3 (which is not in whitelist)
+    // Should only add ID_3, and not try to remove ID_2 (different org)
     expect(addMemberToGroup).toHaveBeenCalledTimes(1)
-    expect(addMemberToGroup).toHaveBeenCalledWith({ userId, id: 'ID_2', organisationId })
-    expect(addMemberToGroup).not.toHaveBeenCalledWith({ userId, id: 'ID_3', organisationId })
+    expect(addMemberToGroup).toHaveBeenCalledWith({ userId, id: 'ID_3', organisationId })
 
     expect(removeMemberFromGroup).not.toHaveBeenCalled()
   })
@@ -128,9 +233,14 @@ describe('onHandleSubmit', () => {
     const success = jest.fn()
     const error = jest.fn()
     const userId = 'USER_ID'
-    const currentGroupIds = ['ID_1', 'ID_2']
     const newGroupIds = 'ID_1,ID_3'
-    const user = { groups: currentGroupIds, id: userId } as UserModel
+    const user: UserModel = {
+      id: userId,
+      userGroups: [
+        { organisationId: 'ORG_ID', groupId: 'ID_1' },
+        { organisationId: 'ORG_ID', groupId: 'ID_2' },
+      ],
+    }
     const organisationId = 'ORG_ID'
     const onSubmit = onHandleSubmit(onComplete, user, success, error, organisationId)
 
@@ -141,6 +251,7 @@ describe('onHandleSubmit', () => {
 
     expect(addMemberToGroup).toHaveBeenCalledTimes(1)
     expect(addMemberToGroup).toHaveBeenCalledWith({ userId, id: 'ID_3', organisationId })
+    expect(error).toHaveBeenCalled()
   })
 
   afterEach(() => {
