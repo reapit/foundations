@@ -32,8 +32,13 @@ interface UpdateUserModel {
   groupIds: string
 }
 
-export const sortAddRemoveGroups = (user: UserModel, groupIds: string) => {
-  const currentGroups = user.groups ?? []
+export const sortAddRemoveGroups = (user: UserModel, groupIds: string, organisationId: string) => {
+  const currentGroups =
+    user.userGroups
+      ?.filter((ug) => ug.organisationId === organisationId)
+      .filter((ug) => process.env.groupIdsWhitelist.includes(ug.groupId as string))
+      .map((ug) => ug.groupId!) ?? []
+
   const removeIds = currentGroups.filter((group) => !groupIds.includes(group)).filter(Boolean)
   const addIds = groupIds
     .split(',')
@@ -59,13 +64,7 @@ export const onHandleSubmit =
     const userId = user?.id
     if (!user || !userId) return null
 
-    const { removeIds, addIds } = sortAddRemoveGroups(
-      user,
-      groupIds
-        .split(',')
-        .filter((gid) => process.env.groupIdsWhitelist.includes(gid))
-        .join(','),
-    )
+    const { removeIds, addIds } = sortAddRemoveGroups(user, groupIds, organisationId)
     const totalUpdates = removeIds.length + addIds.length
 
     const updateUserRes = await Promise.all([
