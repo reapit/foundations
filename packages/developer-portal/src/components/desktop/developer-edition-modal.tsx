@@ -195,8 +195,8 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
         <>
           <BodyText hasGreyText>
             Your account is currently set to use <strong>{currentDeveloper?.company}</strong>. In order to subscribe to
-            the developer edition you will need to change your profile setting. Please{' '}
-            <Link to={Routes.SETTINGS_PROFILE}>click here</Link> to update your information.
+            the Developer Edition, you will need to logout and when logging back in, please select &apos;Sandbox&apos;
+            and try again.
           </BodyText>
           <ButtonGroup alignment="right">
             <Button intent="default" onClick={handleCloseModal(setSubscribingState, closeModal)}>

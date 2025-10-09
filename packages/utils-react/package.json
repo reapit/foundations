@@ -44,7 +44,7 @@
     "@babel/preset-env": "^7.25.8",
     "@babel/preset-react": "^7.25.7",
     "@babel/preset-typescript": "^7.25.7",
-    "@reapit/elements": "^4.3.2",
+    "@reapit/elements": "^4.3.4",
     "@reapit/ts-scripts": "workspace:^",
     "@sentry/react": "^8.34.0",
     "@testing-library/dom": "^10.4.0",
