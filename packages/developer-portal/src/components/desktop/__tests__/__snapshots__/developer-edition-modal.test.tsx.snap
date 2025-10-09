@@ -447,14 +447,7 @@ exports[`DeveloperEditionModal should match snapshot when has client data 1`] = 
               <strong>
                 MOCK_COMPANY
               </strong>
-              . In order to subscribe to the developer edition you will need to change your profile setting. Please
-               
-              <a
-                href="/settings/profile"
-              >
-                click here
-              </a>
-               to update your information.
+              . In order to subscribe to the Developer Edition, you will need to logout and when logging back in, please select 'Sandbox' and try again.
             </p>
             <div
               class="mocked-styled-2 el-button-group"
