@@ -481,15 +481,96 @@ exports[`Marketplace Installations Will match snapshot 1`] = `
             </div>
           </form>
           <div
-            class="mocked-styled-44 el-loader-container"
+            class="el-mb11"
           >
             <div
-              class="mocked-styled-46 el-loader"
+              class="mocked-styled-2 el-button-group"
             >
               <div
-                class="mocked-styled-47 el-loader-moving-bar"
-              />
+                class="mocked-styled-3 el-button-group-inner"
+              >
+                <button
+                  class="el-intent-primary el-button"
+                  type="button"
+                >
+                  <div
+                    class="mocked-styled-0 el-button-loader"
+                  />
+                  Download CSV
+                </button>
+              </div>
             </div>
+          </div>
+          <div
+            class="el-mb11 el-table"
+          />
+          <div
+            class="mocked-styled-71 el-pagination-wrap"
+          >
+            <button
+              aria-label="Previous"
+              class="mocked-styled-74 el-pagination-button"
+              data-testid="back-button"
+              role="button"
+              type="button"
+            >
+              <span
+                class="el-icon-new el-icon"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  title="Icon image with name chevronLeft"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              class="mocked-styled-72 el-pagination-text"
+            >
+              <input
+                aria-label="Current page number, edit to select page of 1 available"
+                class="mocked-styled-73 el-pagination-input"
+                value="1"
+              />
+               
+              of 
+              1
+            </div>
+            <button
+              aria-label="Next"
+              class="mocked-styled-74 el-pagination-button"
+              data-testid="forward-button"
+              role="button"
+              type="button"
+            >
+              <span
+                class="el-icon-new el-icon"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  role="img"
+                  title="Icon image with name chevronRight"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </button>
           </div>
         </section>
       </div>
@@ -972,15 +1053,96 @@ exports[`Marketplace Installations Will match snapshot 1`] = `
           </div>
         </form>
         <div
-          class="mocked-styled-44 el-loader-container"
+          class="el-mb11"
         >
           <div
-            class="mocked-styled-46 el-loader"
+            class="mocked-styled-2 el-button-group"
           >
             <div
-              class="mocked-styled-47 el-loader-moving-bar"
-            />
+              class="mocked-styled-3 el-button-group-inner"
+            >
+              <button
+                class="el-intent-primary el-button"
+                type="button"
+              >
+                <div
+                  class="mocked-styled-0 el-button-loader"
+                />
+                Download CSV
+              </button>
+            </div>
           </div>
+        </div>
+        <div
+          class="el-mb11 el-table"
+        />
+        <div
+          class="mocked-styled-71 el-pagination-wrap"
+        >
+          <button
+            aria-label="Previous"
+            class="mocked-styled-74 el-pagination-button"
+            data-testid="back-button"
+            role="button"
+            type="button"
+          >
+            <span
+              class="el-icon-new el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                role="img"
+                title="Icon image with name chevronLeft"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.496 20.004a1 1 0 0 1-.71-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </button>
+          <div
+            class="mocked-styled-72 el-pagination-text"
+          >
+            <input
+              aria-label="Current page number, edit to select page of 1 available"
+              class="mocked-styled-73 el-pagination-input"
+              value="1"
+            />
+             
+            of 
+            1
+          </div>
+          <button
+            aria-label="Next"
+            class="mocked-styled-74 el-pagination-button"
+            data-testid="forward-button"
+            role="button"
+            type="button"
+          >
+            <span
+              class="el-icon-new el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                role="img"
+                title="Icon image with name chevronRight"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.505 20.004a1 1 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1 1 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a1 1 0 0 1-.71.29"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </button>
         </div>
       </section>
     </div>
