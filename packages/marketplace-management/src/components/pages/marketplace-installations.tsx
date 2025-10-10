@@ -205,7 +205,7 @@ export const MarketplaceInstallations: FC = () => {
 
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
-  const orgId = connectSession?.loginIdentity.orgId
+  const agencyCloudId = connectSession?.loginIdentity.agencyCloudId
 
   useEffect(handleSetInstallationsFilters(setInstallationsFilters, watch), [])
 
@@ -216,9 +216,9 @@ export const MarketplaceInstallations: FC = () => {
       ...formatFilters(installationsFilters),
       pageNumber,
       pageSize,
-      organisationId: orgId,
+      clientId: agencyCloudId,
     },
-    fetchWhenTrue: [orgId],
+    fetchWhenTrue: [agencyCloudId],
   })
 
   return (
