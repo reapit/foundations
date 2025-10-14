@@ -53,8 +53,6 @@ const useOrgTypes = () => {
     return null
   }
 
-  console.log(b)
-
   try {
     const orgTypes = JSON.parse(b.organisationTypes) as {
       id: string
@@ -63,8 +61,7 @@ const useOrgTypes = () => {
     }[]
 
     return orgTypes
-  } catch (e) {
-    console.error(e)
+  } catch {
     return null
   }
 }
@@ -95,8 +92,6 @@ const OrgPicker = () => {
   const switchOrg = (orgId: string, orgType?: string) => {
     reapitConnectBrowserSession.changeOrg(orgId, orgType)
   }
-
-  console.log(orgTypes)
 
   if (!orgTypes || orgTypes.length <= 1) {
     return null
