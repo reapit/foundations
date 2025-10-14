@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC } from 'react'
 import { useNavigate, useLocation } from 'react-router'
 import Routes from '../constants/routes'
 import { ElChipLabel, Icon, NavResponsive, NavResponsiveAvatarOption, NavResponsiveOption } from '@reapit/elements'
@@ -30,9 +30,8 @@ const CurrentOrgNameStyled = styled(ElChipLabel)`
   margin-right: 0.5rem;
 `
 
-const CurrentOrgName = () => {
+const useOrgTypes = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const loginIdentity = selectLoginIdentity(connectSession)
   const b = connectSession?.idToken.split('.')?.[1]
   if (!b) {
     return null
@@ -45,11 +44,18 @@ const CurrentOrgName = () => {
       types: ('customer' | 'developer' | 'organisation')[]
     }[]
 
-    if (orgTypes.map((o) => o.types).flat().length === 1) {
-      return null
-    }
-  } catch (e) {
-    console.error(e)
+    return orgTypes
+  } catch {
+    return null
+  }
+}
+
+const CurrentOrgName = () => {
+  const orgTypes = useOrgTypes()
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const loginIdentity = selectLoginIdentity(connectSession)
+
+  if (orgTypes?.map((o) => o.types).flat().length === 1) {
     return null
   }
 
@@ -65,26 +71,19 @@ const ChooseableOrgType = css`
 `
 
 const OrgPicker = () => {
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const b = connectSession?.idToken.split('.')?.[1]
-  if (!b) {
-    return null
-  }
-
-  const orgTypes = JSON.parse(JSON.parse(atob(b)).organisationTypes) as {
-    id: string
-    name: string
-    types: ('customer' | 'developer' | 'organisation')[]
-  }[]
+  const orgTypes = useOrgTypes()
 
   const switchOrg = (orgId: string, orgType?: string) => {
     reapitConnectBrowserSession.changeOrg(orgId, orgType)
   }
 
+  if (!orgTypes || orgTypes.length <= 1) {
+    return null
+  }
+
   return (
     <div
       style={{
-        // padding: 8,
         paddingTop: 18,
         width: '100%',
       }}
