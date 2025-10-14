@@ -242,7 +242,7 @@ export const MarketplaceInstallations: FC = () => {
                 searchKey="appName"
                 dataListKey="data"
                 action={getActions[GetActionNames.getApps]}
-                queryParams={{ pageSize: 100 }}
+                queryParams={{ pageSize: 100, isListed: true }}
                 noneSelectedLabel="No apps selected"
                 {...register('appIds')}
               />
