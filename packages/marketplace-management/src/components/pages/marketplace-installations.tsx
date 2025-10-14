@@ -217,6 +217,7 @@ export const MarketplaceInstallations: FC = () => {
       pageNumber,
       pageSize,
       clientId: agencyCloudId,
+      includeOfficeGroups: true,
     },
     fetchWhenTrue: [agencyCloudId],
   })
