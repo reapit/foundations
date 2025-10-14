@@ -30,22 +30,41 @@ const CurrentOrgNameStyled = styled(ElChipLabel)`
   margin-right: 0.5rem;
 `
 
+function parseJwt(token: string) {
+  const base64Url = token.split('.')[1]
+  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
+  const jsonPayload = decodeURIComponent(
+    window
+      .atob(base64)
+      .split('')
+      .map(function (c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+      })
+      .join(''),
+  )
+
+  return JSON.parse(jsonPayload)
+}
+
 const useOrgTypes = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const b = connectSession?.idToken.split('.')?.[1]
+  const b = connectSession?.idToken && parseJwt(connectSession?.idToken)
   if (!b) {
     return null
   }
 
+  console.log(b)
+
   try {
-    const orgTypes = JSON.parse(JSON.parse(atob(b)).organisationTypes) as {
+    const orgTypes = JSON.parse(b.organisationTypes) as {
       id: string
       name: string
       types: ('customer' | 'developer' | 'organisation')[]
     }[]
 
     return orgTypes
-  } catch {
+  } catch (e) {
+    console.error(e)
     return null
   }
 }
@@ -76,6 +95,8 @@ const OrgPicker = () => {
   const switchOrg = (orgId: string, orgType?: string) => {
     reapitConnectBrowserSession.changeOrg(orgId, orgType)
   }
+
+  console.log(orgTypes)
 
   if (!orgTypes || orgTypes.length <= 1) {
     return null
