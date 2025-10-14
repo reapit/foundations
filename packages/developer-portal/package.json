@@ -1,6 +1,6 @@
 {
   "name": "developer-portal",
-  "version": "4.1.19",
+  "version": "4.1.20",
   "description": "Developer Portal for PAAS platform",
   "main": "./src/index.ts",
   "repository": "git@github.com:reapit/app-store.git",
