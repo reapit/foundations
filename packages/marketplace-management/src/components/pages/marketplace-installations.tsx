@@ -203,6 +203,10 @@ export const MarketplaceInstallations: FC = () => {
     defaultValues,
   })
 
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+
+  const agencyCloudId = connectSession?.loginIdentity.agencyCloudId
+
   useEffect(handleSetInstallationsFilters(setInstallationsFilters, watch), [])
 
   const [installations, installationsLoading, , installationsRefresh] = useReapitGet<InstallationModelPagedResult>({
@@ -212,7 +216,9 @@ export const MarketplaceInstallations: FC = () => {
       ...formatFilters(installationsFilters),
       pageNumber,
       pageSize,
+      clientId: agencyCloudId,
     },
+    fetchWhenTrue: [agencyCloudId],
   })
 
   return (
