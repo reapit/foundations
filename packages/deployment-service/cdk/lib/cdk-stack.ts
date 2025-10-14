@@ -18,7 +18,7 @@ import {
   createFunction,
 } from '@reapit/ts-scripts/src/cdk'
 import fs from 'fs/promises'
-import { aws_sqs as sqs, aws_lambda } from 'aws-cdk-lib'
+import { aws_sqs as sqs, aws_lambda, aws_ec2 } from 'aws-cdk-lib'
 
 import { createLambda } from './create-lambda'
 import { createS3Buckets } from './create-S3-bucket'
@@ -77,7 +77,7 @@ export const createStack = async () => {
   const vpc = createVpc(stack, 'vpc')
   const buckets = createS3Buckets(usercodeStack, envStage)
   const queues = createSqsQueues(stack)
-  const database = createDatabase(stack, 'database', databaseName, vpc, undefined, true)
+  const database = createDatabase(stack, 'database', databaseName, vpc, undefined, true, false)
 
   const secretManager = database.secret
 
@@ -254,6 +254,12 @@ export const createStack = async () => {
       runtime: aws_lambda.Runtime.NODEJS_18_X,
     })
     options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
+
+    const requiresDbConnection = options.policies.some((policy) => policy.resources.includes(secretManager.secretArn))
+
+    if (requiresDbConnection) {
+      database.connections.allowFrom(lambda, aws_ec2.Port.MYSQL_AURORA)
+    }
 
     if (options.queues) {
       options.queues.forEach((queue) => addLambdaSQSTrigger(lambda, queue as Queue))
