@@ -238,11 +238,11 @@ export const MarketplaceInstallations: FC = () => {
                 currentValues={getValues().appIds?.split(',')?.filter(Boolean) ?? []}
                 reapitConnectBrowserSession={reapitConnectBrowserSession}
                 valueKey="id"
-                nameKey="name"
+                nameKey="appName"
                 searchKey="appName"
                 dataListKey="data"
-                action={getActions[GetActionNames.getApps]}
-                queryParams={{ pageSize: 100, isListed: true }}
+                action={getActions[GetActionNames.getInstallations]}
+                queryParams={{ pageSize: 100, isInstalled: true, clientId: agencyCloudId, includeOffceGroups: true }}
                 noneSelectedLabel="No apps selected"
                 {...register('appIds')}
               />
