@@ -100,3 +100,4 @@ cdk.context.json
 packages/cognito-custom-mail-lambda/**/*.html
 
 .tmp
+.vs

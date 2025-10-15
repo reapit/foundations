@@ -44,15 +44,15 @@ const getConfirmRegistrationUrl = async (emailAddress: string) => {
     return confirmRegistrationUrl
   }
   const user: UserModel = await res.json()
-  if (user.products.length === 1) {
-    const productId = user.products[0].id
+
+  if (user.products.length > 0) {
+    const productId = (user.products[0].id || '').toLowerCase()
     if (productId === 'agentbox') return agentboxUrl
     if (productId === 'agentpoint') return agentpointUrl
-    if (productId === 'consoleCloud') return consoleUrl
-    if (productId === 'ireWeb') return ireUrl
-    if (productId === 'mmiWeb') return mmiUrl
+    if (productId === 'consolecloud') return consoleUrl
+    if (productId === 'ireweb') return ireUrl
+    if (productId === 'mmiweb') return mmiUrl
   }
-
   return confirmRegistrationUrl
 }
 
