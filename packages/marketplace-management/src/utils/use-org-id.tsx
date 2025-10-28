@@ -100,8 +100,9 @@ export const useOrgId = (): UseOrgIdState => {
           orgClientId,
         }
       })
-
-      connectClearSession()
+      // TODO: needs testing - previously we needed a fresh access token each time but seems to be fine now
+      // Can be removed assuming no issues found 28/20/25
+      // connectClearSession()
     } else {
       setOrgIdState(defaultState)
     }
