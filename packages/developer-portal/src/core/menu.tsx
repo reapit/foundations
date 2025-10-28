@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { useNavigate, useLocation } from 'react-router'
 import Routes from '../constants/routes'
-import { Icon, NavResponsive, NavResponsiveAvatarOption, NavResponsiveOption } from '@reapit/elements'
+import { ElChipLabel, Icon, NavResponsive, NavResponsiveAvatarOption, NavResponsiveOption } from '@reapit/elements'
 import { memo } from 'react'
 import { navigateRoute, openNewPage } from '../utils/navigation'
 // Comment out after Christmas
@@ -18,11 +18,131 @@ import { reapitConnectBrowserSession } from './connect-session'
 import { validate as isUuid } from 'uuid'
 import { getAvatarInitials } from '@reapit/utils-react'
 import { useGlobalState } from './use-global-state'
+import { NavWithOrgPicker } from './__styles__/nav'
+import { css } from '@linaria/core'
 
 const XmasImage = styled.img`
   height: 2.5rem;
   width: 2.5rem;
 `
+
+const CurrentOrgNameStyled = styled(ElChipLabel)`
+  margin-right: 0.5rem;
+`
+
+function parseJwt(token: string) {
+  const base64Url = token.split('.')[1]
+  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
+  const jsonPayload = decodeURIComponent(
+    window
+      .atob(base64)
+      .split('')
+      .map(function (c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+      })
+      .join(''),
+  )
+
+  return JSON.parse(jsonPayload)
+}
+
+const useOrgTypes = () => {
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const b = connectSession?.idToken && parseJwt(connectSession?.idToken)
+  if (!b) {
+    return null
+  }
+
+  try {
+    const orgTypes = JSON.parse(b.organisationTypes) as {
+      id: string
+      name: string
+      types: ('customer' | 'developer' | 'organisation')[]
+    }[]
+
+    return orgTypes
+  } catch {
+    return null
+  }
+}
+
+const CurrentOrgName = () => {
+  const orgTypes = useOrgTypes()
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const loginIdentity = selectLoginIdentity(connectSession)
+
+  if (orgTypes?.map((o) => o.types).flat().length === 1) {
+    return null
+  }
+
+  return <CurrentOrgNameStyled>{loginIdentity?.orgName}</CurrentOrgNameStyled>
+}
+
+const ChooseableOrgType = css`
+  cursor: pointer;
+
+  &:hover {
+    color: var(--intent-primary);
+  }
+`
+
+const OrgPicker = () => {
+  const orgTypes = useOrgTypes()
+
+  const switchOrg = (orgId: string, orgType?: string) => {
+    reapitConnectBrowserSession.changeOrg(orgId, orgType)
+  }
+
+  if (!orgTypes || orgTypes.length <= 1) {
+    return null
+  }
+
+  return (
+    <div
+      style={{
+        paddingTop: 18,
+        width: '100%',
+      }}
+    >
+      <h4 style={{ paddingLeft: 12, fontWeight: 'bold', marginBottom: 8 }}>Switch Organisation</h4>
+      <ul style={{ padding: 12 }}>
+        {orgTypes.map((ot) => {
+          const multiType = ot.types.length > 1
+          return (
+            <li
+              className={multiType ? '' : ChooseableOrgType}
+              style={{ marginBottom: 12 }}
+              key={ot.id}
+              onClick={() => {
+                if (!multiType) {
+                  switchOrg(ot.id, ot.types[0])
+                }
+              }}
+            >
+              {ot.name}
+              {multiType ? (
+                <ul style={{ marginTop: 8, borderLeft: '2px solid var(--color-purple-50)', paddingLeft: 8 }}>
+                  {ot.types.map((t) => (
+                    <li
+                      className={ChooseableOrgType}
+                      key={t}
+                      style={{ textTransform: 'capitalize', marginBottom: 12 }}
+                      onClick={() => {
+                        switchOrg(ot.id, t)
+                      }}
+                    >
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </li>
+          )
+        })}
+      </ul>
+    </div>
+  )
+}
 
 dayjs.extend(isBetween)
 
@@ -211,10 +331,15 @@ export const Menu: FC = () => {
         },
       ],
     },
+    {
+      itemIndex: 23,
+      text: <CurrentOrgName />,
+    },
   ].filter(Boolean) as NavResponsiveOption[]
 
   return (
     <NavResponsive
+      className={NavWithOrgPicker}
       defaultNavIndex={getDefaultNavIndex(pathname)}
       options={navOptions}
       appSwitcherOptions={[
@@ -227,6 +352,9 @@ export const Menu: FC = () => {
       avatarText={getAvatarInitials(connectSession)}
       avatarOptions={
         [
+          {
+            text: <OrgPicker />,
+          },
           {
             callback: navigateRoute(navigate, Routes.SETTINGS_PROFILE),
             text: 'Profile',
